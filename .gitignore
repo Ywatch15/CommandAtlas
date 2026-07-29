@@ -1,0 +1,150 @@
+# =============================================================================
+# CommandAtlas — .gitignore
+# Aligned with .ai/ARCHITECTURE.md §11 (folder structure) and
+# .ai/ENGINEERING_RULES.md. Do NOT add .ai/ here — it is committed documentation,
+# not a build artifact. See .ai/CHANGELOG.md if this file's scope ever changes.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Dependencies
+# ---------------------------------------------------------------------------
+node_modules/
+apps/web/node_modules/
+apps/server/node_modules/
+packages/shared/node_modules/
+.pnp/
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ---------------------------------------------------------------------------
+# Next.js (apps/web)
+# ---------------------------------------------------------------------------
+apps/web/.next/
+apps/web/out/
+.next/
+out/
+apps/web/.vercel/
+.vercel/
+next-env.d.ts
+
+# ---------------------------------------------------------------------------
+# Build output — generated/ is reproducible from content/ via
+# `npm run build-content` (ARCHITECTURE.md §2). Never hand-edited, never the
+# source of truth, and not committed by default. If a release process needs to
+# commit generated output as versioned release artifacts instead, do that via
+# a tagged release branch — not by removing this ignore rule wholesale.
+# ---------------------------------------------------------------------------
+generated/
+
+# ---------------------------------------------------------------------------
+# Environment variables & secrets — never committed, per
+# ENGINEERING_RULES.md §12. .env.example is intentionally NOT ignored.
+# ---------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+apps/web/.env
+apps/web/.env.local
+apps/server/.env
+apps/server/.env.local
+!.env.example
+!apps/web/.env.example
+!apps/server/.env.example
+
+# ---------------------------------------------------------------------------
+# Logs
+# ---------------------------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------------------------------------------------------------------------
+# Testing (apps/web/e2e, apps/server/tests — per ARCHITECTURE.md §11)
+# ---------------------------------------------------------------------------
+coverage/
+.nyc_output/
+apps/web/playwright-report/
+apps/web/test-results/
+apps/web/blob-report/
+
+# ---------------------------------------------------------------------------
+# IndexedDB / local dev artifacts that sometimes leak into a repo via
+# browser-automation tooling (Playwright user-data dirs, etc.)
+# ---------------------------------------------------------------------------
+apps/web/.playwright/
+
+# ---------------------------------------------------------------------------
+# TypeScript build info — should never exist in this project (no TypeScript,
+# per ENGINEERING_RULES.md §1 and §15), but ignored defensively in case a
+# dependency's tooling generates one incidentally.
+# ---------------------------------------------------------------------------
+*.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+# Editor / IDE
+# ---------------------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# OS files
+# ---------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# ---------------------------------------------------------------------------
+# MongoDB local dev artifacts (if run locally instead of Atlas)
+# ---------------------------------------------------------------------------
+data/db/
+*.mongo.lock
+
+# ---------------------------------------------------------------------------
+# Misc build/dist output for packages/shared or any future package
+# ---------------------------------------------------------------------------
+dist/
+build/
+*.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+# Internal AI/architecture documentation — kept local-only by choice, not
+# pushed to the public repo. Every AI coding tool (Claude, Copilot, Cursor,
+# Antigravity/Gemini) reads this from local disk regardless of git tracking,
+# so nothing functional is lost by ignoring it — this only affects what's
+# visible in the pushed repo and its history.
+#
+# IMPORTANT: if you clone this repo onto a second machine, or anyone else
+# clones it, .ai/ will NOT come with it, since it was never committed. Keep a
+# backup copy (e.g. in a private repo, a private git submodule, or synced via
+# your own means) if you rely on it across multiple machines.
+#
+# Before making this repo public, decide deliberately whether .ai/ should be
+# published as real documentation (many real open-source projects do this and
+# it reads as engineering rigor, not as a liability) or stay excluded
+# permanently — don't let this default persist by accident once the project
+# is no longer solo/private.
+# ---------------------------------------------------------------------------
+.ai/
+
+# ---------------------------------------------------------------------------
+# Explicitly NOT ignored (documented here so it's never accidentally added
+# above by a future broad pattern like a stray "*ai*" or ".*"):
+#   content/        — committed Markdown, canonical content source of truth
+#   scripts/        — committed build pipeline source
+#   packages/shared — committed schema/constants source
+# ---------------------------------------------------------------------------

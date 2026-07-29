@@ -1,0 +1,22 @@
+{
+  "name": "@commandatlas/web",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node -e \"const fs=require('fs'); if(fs.existsSync('../../generated')){fs.cpSync('../../generated','./public',{recursive:true});console.log('Copied generated to public/')}\"",
+    "prebuild": "node -e \"const fs=require('fs'); if(fs.existsSync('../../generated')){fs.cpSync('../../generated','./public',{recursive:true});console.log('Copied generated to public/')}\"",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "dexie": "^4.0.8",
+    "marked": "^13.0.2",
+    "isomorphic-dompurify": "^2.13.0",
+    "@commandatlas/shared": "*"
+  }
+}

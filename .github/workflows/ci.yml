@@ -1,0 +1,101 @@
+# CI — runs on every push and pull_request to main.
+#
+# Milestone 0 scope: lint, format-check, and content pipeline validation.
+# Later milestones will add: unit tests, Playwright, server integration tests.
+# ENGINEERING_RULES.md §1: No TypeScript — no tsc or type-check step is ever added here.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ─── Lint & Format ──────────────────────────────────────────────────────────
+  lint:
+    name: Lint & Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      - name: Run unit tests (pipeline stages)
+        run: npm test
+
+  # ─── Content Pipeline ───────────────────────────────────────────────────────
+  # Runs on every PR that touches content/ — validates structural correctness.
+  # Does NOT publish (generate) — that only happens on merge to main.
+  # CONTRIBUTING.md §4: a failing content validation blocks the PR; no override path.
+  content-validate:
+    name: Content Pipeline — Validate Only
+    runs-on: ubuntu-latest
+    # Only run when content/ or scripts/ change, to avoid paying this cost on
+    # pure-code PRs that never touched Markdown.
+    if: |
+      contains(github.event.head_commit.modified, 'content/') ||
+      contains(github.event.head_commit.added, 'content/') ||
+      contains(github.event.head_commit.modified, 'scripts/') ||
+      contains(github.event.head_commit.added, 'scripts/') ||
+      github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history needed so the diff stage can derive content versions from Git
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run content pipeline (validate only)
+        run: npm run build-content:validate
+
+  # ─── Content Pipeline — Full Build (publish mode, main branch only) ─────────
+  # On merge to main, runs the full pipeline including generation of packs,
+  # search indexes, and manifests into generated/. This output is then served
+  # as static assets. Separate from the validate-only path above.
+  content-build:
+    name: Content Pipeline — Full Build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [lint, content-validate]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run full content pipeline
+        run: npm run build-content
+
+      # TODO (Milestone 3): upload generated/ as a release artifact or deploy to CDN.
+      # For Milestone 0, we just confirm it runs cleanly.

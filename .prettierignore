@@ -1,0 +1,7 @@
+# Prettier ignore — never reformat build artifacts, generated output, or lock files
+generated/
+node_modules/
+*.lock
+package-lock.json
+pnpm-lock.yaml
+apps/web/.next/

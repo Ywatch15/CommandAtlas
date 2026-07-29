@@ -1,0 +1,20 @@
+{
+  "version": "1",
+  "generatedAt": "2026-07-28T19:18:54.750Z",
+  "packs": [
+    {
+      "packId": "git",
+      "version": "1",
+      "size": 16841,
+      "checksum": "311be1f0b1418b56d9d8f657a53cd97a48598c7ee6f35c74da1228b69d0ec9e2",
+      "url": "/packs/commands/git.json"
+    },
+    {
+      "packId": "linux",
+      "version": "1",
+      "size": 29831,
+      "checksum": "0bc7660e30507e8c02e1389f54c338fa3fea12831e3df77e36ffa7214c67709d",
+      "url": "/packs/commands/linux.json"
+    }
+  ]
+}
