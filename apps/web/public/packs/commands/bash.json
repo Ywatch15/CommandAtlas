@@ -1,0 +1,48 @@
+{
+  "packId": "bash",
+  "commands": [
+    {
+      "slug": "echo",
+      "name": "echo",
+      "category": "bash",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "echo",
+        "name": "echo",
+        "aliases": [],
+        "category": "bash",
+        "tags": ["bash", "print", "output"],
+        "difficulty": "beginner",
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh"],
+        "intentPhrases": ["print text to terminal", "output message in script"],
+        "relatedCommands": [],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`echo` prints strings or variable contents to standard output.\n\n## Why does it exist?\n\n`echo` provides a simple way to display text messages, inspect shell variables, and output formatted lines in scripts and interactive terminal sessions.\n\n## Syntax\n\n```bash\necho [options] [string...]\n```\n\n## Flags\n\n| Flag | Description                                 | Example                  |\n| ---- | ------------------------------------------- | ------------------------ |\n| `-n` | Do not output trailing newline              | `echo -n \"Hello\"`        |\n| `-e` | Enable interpretation of backslash escapes  | `echo -e \"Line1\\nLine2\"` |\n| `-E` | Disable interpretation of backslash escapes | `echo -E \"No\\nEscape\"`   |\n\n## Examples\n\n```bash\necho \"Hello World\"\n```\n\n> Prints \"Hello World\" followed by a newline.\n\n```bash\necho -e \"Status:\\tOK\"\n```\n\n> Interprets `\\t` as a tab character.\n\n## Real-World Scenarios\n\n**Logging script progress**: Printing status messages like `echo \"Starting build...\"` inside automated build scripts.\n\n## When should it NOT be used?\n\n- **Complex formatted output**: `printf` is preferred over `echo` when strict formatting or portable handling of escape characters across shell implementations is required.\n\n## Alternatives\n\n- **`printf`**: Formatted printing with predictable cross-shell behavior.\n\n## How it works internally\n\n`echo` is usually a shell builtin in Bash, executing directly within the shell process without spawning a subshell or external binary.\n\n## Performance Notes\n\nAs a shell builtin, `echo` has negligible overhead because it avoids process creation.\n\n## Security Notes\n\nAvoid echoing unquoted user inputs directly into evaluation contexts or sensitive variable values in logs.\n\n## Common Mistakes\n\n- **Assuming `-e` behavior is identical everywhere**: Builtin `echo` behavior can differ between shells (Bash vs zsh vs dash).\n\n## Best Practices\n\n- Use `printf` when portability and precise control over formatting/newlines are necessary.\n\n## Interview Questions\n\n**Q:** What is the difference between `echo` and `printf` in Bash?\n**A:** `echo` is simple but shell-dependent for flags like `-e`, whereas `printf` strictly follows POSIX formatting rules.\n\n## Practice Problems\n\n**Problem:** Output \"Loading...\" without a newline character.\n**Solution:** `echo -n \"Loading...\"`\n\n## References\n\n- [GNU Coreutils echo documentation](https://www.gnu.org/software/coreutils/manual/html_node/echo-invocation.html)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "bash",
+      "name": "Bash",
+      "description": "Bash shell built-in commands and scripting constructs. These are not external programs but features of the Bash shell itself, available in any Bash session without additional installation.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "bash",
+        "name": "Bash",
+        "description": "Bash shell built-in commands and scripting constructs. These are not external programs but features of the Bash shell itself, available in any Bash session without additional installation.\n",
+        "parent": null,
+        "order": 3,
+        "status": "published"
+      },
+      "body": "Bash is the default interactive shell on most Linux distributions and macOS (prior to\nCatalina). Understanding its built-in commands and scripting constructs is essential\nfor writing portable shell scripts and automating system tasks.\n"
+    }
+  ]
+}

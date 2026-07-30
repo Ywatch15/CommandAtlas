@@ -1,1 +1,1223 @@
-{ "_stub": true, "tokens": {}, "trigrams": {} }
+{
+  "tokens": {
+    "echo": [{ "slug": "echo", "boost": 5 }],
+    "print": [
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" }
+    ],
+    "text": [
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
+      { "slug": "grep", "boost": 5, "phrase": "search text in files" },
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
+      { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
+    ],
+    "to": [
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
+      { "slug": "git-commit", "boost": 5, "phrase": "save changes to git" },
+      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
+    ],
+    "terminal": [
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" }
+    ],
+    "output": [
+      { "slug": "echo", "boost": 5, "phrase": "output message in script" },
+      { "slug": "jq", "boost": 5, "phrase": "format json output" }
+    ],
+    "message": [
+      { "slug": "echo", "boost": 5, "phrase": "output message in script" },
+      { "slug": "git-commit", "boost": 5, "phrase": "write a commit message" }
+    ],
+    "in": [
+      { "slug": "echo", "boost": 5, "phrase": "output message in script" },
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
+      {
+        "slug": "git-commit",
+        "boost": 5,
+        "phrase": "record a snapshot in git"
+      },
+      { "slug": "grep", "boost": 5, "phrase": "search text in files" },
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      },
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "script": [
+      { "slug": "echo", "boost": 5, "phrase": "output message in script" },
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "aws": [{ "slug": "aws", "boost": 5 }],
+    "manage": [
+      { "slug": "aws", "boost": 5, "phrase": "manage aws cloud resources" }
+    ],
+    "cloud": [
+      { "slug": "aws", "boost": 5, "phrase": "manage aws cloud resources" }
+    ],
+    "resources": [
+      { "slug": "aws", "boost": 5, "phrase": "manage aws cloud resources" },
+      {
+        "slug": "kubectl-get",
+        "boost": 5,
+        "phrase": "list kubernetes resources"
+      }
+    ],
+    "s3": [{ "slug": "aws", "boost": 5, "phrase": "aws s3 sync files" }],
+    "sync": [{ "slug": "aws", "boost": 5, "phrase": "aws s3 sync files" }],
+    "files": [
+      { "slug": "aws", "boost": 5, "phrase": "aws s3 sync files" },
+      { "slug": "git-commit", "boost": 5, "phrase": "commit staged files" },
+      {
+        "slug": "cp",
+        "boost": 5,
+        "phrase": "copy files preserving permissions"
+      },
+      { "slug": "grep", "boost": 5, "phrase": "search text in files" },
+      { "slug": "cat", "boost": 5, "phrase": "concatenate files" }
+    ],
+    "crontab": [{ "slug": "crontab", "boost": 5 }],
+    "schedule": [
+      { "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }
+    ],
+    "cron": [{ "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }],
+    "job": [{ "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }],
+    "edit": [{ "slug": "crontab", "boost": 5, "phrase": "edit crontab" }],
+    "jq": [{ "slug": "jq", "boost": 5 }],
+    "parse": [
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
+    ],
+    "json": [
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
+    ],
+    "command": [
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
+    ],
+    "line": [
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
+    ],
+    "format": [{ "slug": "jq", "boost": 5, "phrase": "format json output" }],
+    "docker": [{ "slug": "docker-run", "boost": 5 }],
+    "run": [{ "slug": "docker-run", "boost": 5 }],
+    "a": [
+      { "slug": "docker-run", "boost": 5, "phrase": "run a container" },
+      {
+        "slug": "git-commit",
+        "boost": 5,
+        "phrase": "record a snapshot in git"
+      },
+      { "slug": "cp", "boost": 5, "phrase": "copy a file" }
+    ],
+    "container": [
+      { "slug": "docker-run", "boost": 5, "phrase": "run a container" }
+    ],
+    "start": [
+      { "slug": "docker-run", "boost": 5, "phrase": "start docker container" }
+    ],
+    "df": [{ "slug": "df", "boost": 5 }],
+    "check": [
+      { "slug": "df", "boost": 5, "phrase": "check free disk space" },
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "free": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
+    "disk": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
+    "space": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
+    "filesystem": [
+      { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
+    ],
+    "usage": [
+      { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
+    ],
+    "report": [
+      { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
+    ],
+    "commit": [{ "slug": "git-commit", "boost": 5 }],
+    "save": [
+      { "slug": "git-commit", "boost": 5, "phrase": "save changes to git" }
+    ],
+    "changes": [
+      { "slug": "git-commit", "boost": 5, "phrase": "save changes to git" }
+    ],
+    "git": [
+      { "slug": "git-commit", "boost": 5, "phrase": "save changes to git" }
+    ],
+    "record": [
+      { "slug": "git-commit", "boost": 5, "phrase": "record a snapshot in git" }
+    ],
+    "snapshot": [
+      { "slug": "git-commit", "boost": 5, "phrase": "record a snapshot in git" }
+    ],
+    "staged": [
+      { "slug": "git-commit", "boost": 5, "phrase": "commit staged files" }
+    ],
+    "write": [
+      { "slug": "git-commit", "boost": 5, "phrase": "write a commit message" }
+    ],
+    "amend": [
+      { "slug": "git-commit", "boost": 5, "phrase": "amend last commit" }
+    ],
+    "last": [
+      { "slug": "git-commit", "boost": 5, "phrase": "amend last commit" }
+    ],
+    "sysctl": [{ "slug": "sysctl", "boost": 5 }],
+    "tune": [
+      { "slug": "sysctl", "boost": 5, "phrase": "tune kernel parameters" }
+    ],
+    "kernel": [
+      { "slug": "sysctl", "boost": 5, "phrase": "tune kernel parameters" }
+    ],
+    "parameters": [
+      { "slug": "sysctl", "boost": 5, "phrase": "tune kernel parameters" }
+    ],
+    "configure": [
+      { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
+    ],
+    "settings": [
+      { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
+    ],
+    "kubectl": [{ "slug": "kubectl-get", "boost": 5 }],
+    "get": [
+      { "slug": "kubectl-get", "boost": 5 },
+      { "slug": "get-process", "boost": 5 }
+    ],
+    "list": [
+      {
+        "slug": "kubectl-get",
+        "boost": 5,
+        "phrase": "list kubernetes resources"
+      },
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      },
+      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
+    ],
+    "kubernetes": [
+      {
+        "slug": "kubectl-get",
+        "boost": 5,
+        "phrase": "list kubernetes resources"
+      }
+    ],
+    "pod": [{ "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" }],
+    "status": [
+      { "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" }
+    ],
+    "cp": [{ "slug": "cp", "boost": 5 }],
+    "copy": [{ "slug": "cp", "boost": 5, "phrase": "copy a file" }],
+    "file": [
+      { "slug": "cp", "boost": 5, "phrase": "copy a file" },
+      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
+      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" },
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
+      {
+        "slug": "test",
+        "boost": 5,
+        "phrase": "check file existence in script"
+      },
+      { "slug": "awk", "boost": 5, "phrase": "process structured text file" },
+      { "slug": "cat", "boost": 5, "phrase": "read file content" }
+    ],
+    "duplicate": [{ "slug": "cp", "boost": 5, "phrase": "duplicate a file" }],
+    "directory": [
+      { "slug": "cp", "boost": 5, "phrase": "copy directory recursively" },
+      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
+    ],
+    "recursively": [
+      { "slug": "cp", "boost": 5, "phrase": "copy directory recursively" }
+    ],
+    "preserving": [
+      {
+        "slug": "cp",
+        "boost": 5,
+        "phrase": "copy files preserving permissions"
+      }
+    ],
+    "permissions": [
+      {
+        "slug": "cp",
+        "boost": 5,
+        "phrase": "copy files preserving permissions"
+      },
+      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" }
+    ],
+    "backup": [
+      { "slug": "cp", "boost": 5, "phrase": "backup a file before editing" }
+    ],
+    "before": [
+      { "slug": "cp", "boost": 5, "phrase": "backup a file before editing" }
+    ],
+    "editing": [
+      { "slug": "cp", "boost": 5, "phrase": "backup a file before editing" }
+    ],
+    "grep": [{ "slug": "grep", "boost": 5 }],
+    "egrep": [{ "slug": "grep", "boost": 5 }],
+    "fgrep": [{ "slug": "grep", "boost": 5 }],
+    "rgrep": [{ "slug": "grep", "boost": 5 }],
+    "search": [
+      { "slug": "grep", "boost": 5, "phrase": "search text in files" }
+    ],
+    "find": [
+      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
+      { "slug": "ps", "boost": 5, "phrase": "find process id" }
+    ],
+    "pattern": [
+      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" }
+    ],
+    "filter": [
+      { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" }
+    ],
+    "lines": [
+      { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" }
+    ],
+    "matching": [
+      { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" }
+    ],
+    "for": [
+      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
+    ],
+    "string": [
+      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
+    ],
+    "all": [
+      {
+        "slug": "grep",
+        "boost": 5,
+        "phrase": "find all occurrences of word in codebase"
+      }
+    ],
+    "occurrences": [
+      {
+        "slug": "grep",
+        "boost": 5,
+        "phrase": "find all occurrences of word in codebase"
+      }
+    ],
+    "of": [
+      {
+        "slug": "grep",
+        "boost": 5,
+        "phrase": "find all occurrences of word in codebase"
+      }
+    ],
+    "word": [
+      {
+        "slug": "grep",
+        "boost": 5,
+        "phrase": "find all occurrences of word in codebase"
+      }
+    ],
+    "codebase": [
+      {
+        "slug": "grep",
+        "boost": 5,
+        "phrase": "find all occurrences of word in codebase"
+      }
+    ],
+    "curl": [{ "slug": "curl", "boost": 5 }],
+    "download": [
+      { "slug": "curl", "boost": 5, "phrase": "download url content" }
+    ],
+    "url": [{ "slug": "curl", "boost": 5, "phrase": "download url content" }],
+    "content": [
+      { "slug": "curl", "boost": 5, "phrase": "download url content" },
+      { "slug": "cat", "boost": 5, "phrase": "read file content" }
+    ],
+    "make": [
+      { "slug": "curl", "boost": 5, "phrase": "make http request" },
+      { "slug": "chmod", "boost": 5, "phrase": "make file executable" }
+    ],
+    "http": [{ "slug": "curl", "boost": 5, "phrase": "make http request" }],
+    "request": [{ "slug": "curl", "boost": 5, "phrase": "make http request" }],
+    "apt": [{ "slug": "apt", "boost": 5 }],
+    "install": [
+      { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
+    ],
+    "package": [
+      { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
+    ],
+    "on": [
+      { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
+    ],
+    "ubuntu": [
+      { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
+    ],
+    "update": [
+      { "slug": "apt", "boost": 5, "phrase": "update system packages" }
+    ],
+    "system": [
+      { "slug": "apt", "boost": 5, "phrase": "update system packages" },
+      { "slug": "strace", "boost": 5, "phrase": "trace system calls" }
+    ],
+    "packages": [
+      { "slug": "apt", "boost": 5, "phrase": "update system packages" }
+    ],
+    "chmod": [{ "slug": "chmod", "boost": 5 }],
+    "change": [
+      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" }
+    ],
+    "executable": [
+      { "slug": "chmod", "boost": 5, "phrase": "make file executable" }
+    ],
+    "process": [
+      { "slug": "get-process", "boost": 5 },
+      { "slug": "ps", "boost": 5, "phrase": "find process id" },
+      { "slug": "strace", "boost": 5, "phrase": "debug process hanging" },
+      { "slug": "awk", "boost": 5, "phrase": "process structured text file" }
+    ],
+    "ps": [
+      { "slug": "get-process", "boost": 5 },
+      { "slug": "ps", "boost": 5 }
+    ],
+    "gps": [{ "slug": "get-process", "boost": 5 }],
+    "processes": [
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      },
+      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
+    ],
+    "powershell": [
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      }
+    ],
+    "info": [
+      { "slug": "get-process", "boost": 5, "phrase": "get process info" }
+    ],
+    "running": [
+      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
+    ],
+    "id": [{ "slug": "ps", "boost": 5, "phrase": "find process id" }],
+    "sed": [{ "slug": "sed", "boost": 5 }],
+    "replace": [
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
+    ],
+    "stream": [
+      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
+    ],
+    "editor": [
+      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
+    ],
+    "replacement": [
+      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
+    ],
+    "test": [{ "slug": "test", "boost": 5 }],
+    "existence": [
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "evaluate": [
+      {
+        "slug": "test",
+        "boost": 5,
+        "phrase": "evaluate conditional expression"
+      }
+    ],
+    "conditional": [
+      {
+        "slug": "test",
+        "boost": 5,
+        "phrase": "evaluate conditional expression"
+      }
+    ],
+    "expression": [
+      {
+        "slug": "test",
+        "boost": 5,
+        "phrase": "evaluate conditional expression"
+      }
+    ],
+    "ssh": [{ "slug": "ssh", "boost": 5 }],
+    "connect": [
+      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
+    ],
+    "remote": [
+      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
+    ],
+    "server": [
+      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
+    ],
+    "secure": [
+      { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
+    ],
+    "shell": [
+      { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
+    ],
+    "connection": [
+      { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
+    ],
+    "strace": [{ "slug": "strace", "boost": 5 }],
+    "trace": [{ "slug": "strace", "boost": 5, "phrase": "trace system calls" }],
+    "calls": [{ "slug": "strace", "boost": 5, "phrase": "trace system calls" }],
+    "debug": [
+      { "slug": "strace", "boost": 5, "phrase": "debug process hanging" }
+    ],
+    "hanging": [
+      { "slug": "strace", "boost": 5, "phrase": "debug process hanging" }
+    ],
+    "awk": [{ "slug": "awk", "boost": 5 }],
+    "extract": [
+      { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
+    ],
+    "column": [
+      { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
+    ],
+    "from": [
+      { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
+    ],
+    "structured": [
+      { "slug": "awk", "boost": 5, "phrase": "process structured text file" }
+    ],
+    "cat": [{ "slug": "cat", "boost": 5 }],
+    "read": [{ "slug": "cat", "boost": 5, "phrase": "read file content" }],
+    "concatenate": [
+      { "slug": "cat", "boost": 5, "phrase": "concatenate files" }
+    ]
+  },
+  "trigrams": {
+    "^ec": ["echo"],
+    "ech": ["echo"],
+    "cho": ["echo"],
+    "ho$": ["echo"],
+    "^pr": ["print", "preserving", "process", "processes"],
+    "pri": ["print"],
+    "rin": ["print", "string"],
+    "int": ["print"],
+    "nt$": ["print", "content", "replacement"],
+    "^te": ["text", "terminal", "test"],
+    "tex": ["text"],
+    "ext": ["text", "extract"],
+    "xt$": ["text"],
+    "^to": ["to"],
+    "to$": ["to"],
+    "ter": ["terminal", "parameters", "pattern", "filter"],
+    "erm": ["terminal", "permissions"],
+    "rmi": ["terminal", "permissions"],
+    "min": ["terminal"],
+    "ina": ["terminal"],
+    "nal": ["terminal", "conditional"],
+    "al$": ["terminal", "conditional"],
+    "^ou": ["output"],
+    "out": ["output"],
+    "utp": ["output"],
+    "tpu": ["output"],
+    "put": ["output"],
+    "ut$": ["output"],
+    "^me": ["message"],
+    "mes": ["message"],
+    "ess": ["message", "process", "processes", "expression"],
+    "ssa": ["message"],
+    "sag": ["message", "usage"],
+    "age": ["message", "manage", "usage", "staged", "package", "packages"],
+    "ge$": ["message", "manage", "usage", "package", "change"],
+    "^in": ["in", "install", "info"],
+    "in$": ["in"],
+    "^sc": ["script", "schedule"],
+    "scr": ["script"],
+    "cri": ["script"],
+    "rip": ["script"],
+    "ipt": ["script"],
+    "pt$": ["script", "apt"],
+    "^aw": ["aws", "awk"],
+    "aws": ["aws"],
+    "ws$": ["aws"],
+    "^ma": ["manage", "matching", "make"],
+    "man": ["manage", "command"],
+    "ana": ["manage"],
+    "nag": ["manage"],
+    "^cl": ["cloud"],
+    "clo": ["cloud"],
+    "lou": ["cloud"],
+    "oud": ["cloud"],
+    "ud$": ["cloud"],
+    "^re": [
+      "resources",
+      "report",
+      "record",
+      "recursively",
+      "request",
+      "replace",
+      "replacement",
+      "remote",
+      "read"
+    ],
+    "res": ["resources", "preserving", "expression"],
+    "eso": ["resources"],
+    "sou": ["resources"],
+    "our": ["resources"],
+    "urc": ["resources"],
+    "rce": ["resources"],
+    "ces": ["resources", "occurrences", "process", "processes"],
+    "es$": [
+      "resources",
+      "files",
+      "changes",
+      "kubernetes",
+      "lines",
+      "occurrences",
+      "packages",
+      "processes"
+    ],
+    "^s3": ["s3"],
+    "s3$": ["s3"],
+    "^sy": ["sync", "sysctl", "system"],
+    "syn": ["sync"],
+    "ync": ["sync"],
+    "nc$": ["sync"],
+    "^fi": ["files", "filesystem", "file", "find", "filter"],
+    "fil": ["files", "filesystem", "file", "filter"],
+    "ile": ["files", "filesystem", "file"],
+    "les": ["files", "filesystem"],
+    "^cr": ["crontab", "cron"],
+    "cro": ["crontab", "cron"],
+    "ron": ["crontab", "cron"],
+    "ont": ["crontab", "container", "content"],
+    "nta": ["crontab", "container"],
+    "tab": ["crontab", "executable"],
+    "ab$": ["crontab"],
+    "sch": ["schedule"],
+    "che": ["schedule", "check"],
+    "hed": ["schedule"],
+    "edu": ["schedule"],
+    "dul": ["schedule"],
+    "ule": ["schedule"],
+    "le$": ["schedule", "file", "executable"],
+    "on$": ["cron", "json", "on", "expression", "connection"],
+    "^jo": ["job"],
+    "job": ["job"],
+    "ob$": ["job"],
+    "^ed": ["edit", "editing", "editor"],
+    "edi": ["edit", "editing", "editor"],
+    "dit": ["edit", "editing", "editor", "conditional"],
+    "it$": ["edit", "commit", "git"],
+    "^jq": ["jq"],
+    "jq$": ["jq"],
+    "^pa": ["parse", "parameters", "pattern", "package", "packages"],
+    "par": ["parse", "parameters"],
+    "ars": ["parse"],
+    "rse": ["parse"],
+    "se$": ["parse", "codebase"],
+    "^js": ["json"],
+    "jso": ["json"],
+    "son": ["json"],
+    "^co": [
+      "command",
+      "container",
+      "commit",
+      "configure",
+      "copy",
+      "codebase",
+      "content",
+      "conditional",
+      "connect",
+      "connection",
+      "column",
+      "concatenate"
+    ],
+    "com": ["command", "commit"],
+    "omm": ["command", "commit"],
+    "mma": ["command"],
+    "and": ["command"],
+    "nd$": ["command", "amend", "find"],
+    "^li": ["line", "list", "lines"],
+    "lin": ["line", "lines"],
+    "ine": ["line", "container", "lines"],
+    "ne$": ["line", "tune"],
+    "^fo": ["format", "for"],
+    "for": ["format", "before", "for"],
+    "orm": ["format"],
+    "rma": ["format"],
+    "mat": ["format", "matching"],
+    "at$": ["format", "cat"],
+    "^do": ["docker", "download"],
+    "doc": ["docker"],
+    "ock": ["docker"],
+    "cke": ["docker"],
+    "ker": ["docker", "kernel"],
+    "er$": ["docker", "container", "filter", "server"],
+    "^ru": ["run", "running"],
+    "run": ["run", "running"],
+    "un$": ["run"],
+    "con": [
+      "container",
+      "configure",
+      "content",
+      "conditional",
+      "connect",
+      "connection",
+      "concatenate"
+    ],
+    "tai": ["container"],
+    "ain": ["container"],
+    "ner": ["container"],
+    "^st": [
+      "start",
+      "staged",
+      "status",
+      "string",
+      "stream",
+      "strace",
+      "structured"
+    ],
+    "sta": ["start", "staged", "status", "install"],
+    "tar": ["start"],
+    "art": ["start"],
+    "rt$": ["start", "report"],
+    "^df": ["df"],
+    "df$": ["df"],
+    "^ch": ["check", "changes", "chmod", "change"],
+    "hec": ["check"],
+    "eck": ["check"],
+    "ck$": ["check"],
+    "^fr": ["free", "from"],
+    "fre": ["free"],
+    "ree": ["free"],
+    "ee$": ["free"],
+    "^di": ["disk", "directory"],
+    "dis": ["disk"],
+    "isk": ["disk"],
+    "sk$": ["disk"],
+    "^sp": ["space"],
+    "spa": ["space"],
+    "pac": ["space", "package", "packages"],
+    "ace": ["space", "replace", "replacement", "strace", "trace"],
+    "ce$": ["space", "replace", "existence", "strace", "trace"],
+    "esy": ["filesystem"],
+    "sys": ["filesystem", "sysctl", "system"],
+    "yst": ["filesystem", "system"],
+    "ste": ["filesystem", "system", "existence"],
+    "tem": ["filesystem", "system"],
+    "em$": ["filesystem", "system"],
+    "^us": ["usage"],
+    "usa": ["usage"],
+    "rep": [
+      "report",
+      "grep",
+      "egrep",
+      "fgrep",
+      "rgrep",
+      "replace",
+      "replacement"
+    ],
+    "epo": ["report"],
+    "por": ["report"],
+    "ort": ["report"],
+    "mmi": ["commit"],
+    "mit": ["commit"],
+    "^sa": ["save"],
+    "sav": ["save"],
+    "ave": ["save"],
+    "ve$": ["save"],
+    "cha": ["changes", "change"],
+    "han": ["changes", "change", "hanging"],
+    "ang": ["changes", "change", "hanging"],
+    "nge": ["changes", "change"],
+    "ges": ["changes", "packages"],
+    "^gi": ["git"],
+    "git": ["git"],
+    "rec": ["record", "directory", "recursively"],
+    "eco": ["record"],
+    "cor": ["record"],
+    "ord": ["record", "word"],
+    "rd$": ["record", "word"],
+    "^sn": ["snapshot"],
+    "sna": ["snapshot"],
+    "nap": ["snapshot"],
+    "aps": ["snapshot"],
+    "psh": ["snapshot"],
+    "sho": ["snapshot"],
+    "hot": ["snapshot"],
+    "ot$": ["snapshot"],
+    "tag": ["staged"],
+    "ged": ["staged"],
+    "ed$": ["staged", "sed", "structured"],
+    "^wr": ["write"],
+    "wri": ["write"],
+    "rit": ["write"],
+    "ite": ["write"],
+    "te$": [
+      "write",
+      "duplicate",
+      "update",
+      "evaluate",
+      "remote",
+      "concatenate"
+    ],
+    "^am": ["amend"],
+    "ame": ["amend", "parameters"],
+    "men": ["amend", "replacement"],
+    "end": ["amend"],
+    "^la": ["last"],
+    "las": ["last"],
+    "ast": ["last"],
+    "st$": ["last", "list", "request", "test"],
+    "ysc": ["sysctl"],
+    "sct": ["sysctl"],
+    "ctl": ["sysctl", "kubectl"],
+    "tl$": ["sysctl", "kubectl"],
+    "^tu": ["tune"],
+    "tun": ["tune"],
+    "une": ["tune"],
+    "^ke": ["kernel"],
+    "ern": ["kernel", "kubernetes", "pattern"],
+    "rne": ["kernel", "kubernetes"],
+    "nel": ["kernel"],
+    "el$": ["kernel"],
+    "ara": ["parameters"],
+    "ram": ["parameters"],
+    "met": ["parameters"],
+    "ete": ["parameters", "kubernetes"],
+    "ers": ["parameters", "powershell"],
+    "rs$": ["parameters"],
+    "onf": ["configure"],
+    "nfi": ["configure"],
+    "fig": ["configure"],
+    "igu": ["configure"],
+    "gur": ["configure"],
+    "ure": ["configure", "secure", "structured"],
+    "re$": ["configure", "before", "secure"],
+    "^se": ["settings", "search", "sed", "server", "secure"],
+    "set": ["settings"],
+    "ett": ["settings"],
+    "tti": ["settings"],
+    "tin": ["settings", "editing"],
+    "ing": [
+      "settings",
+      "preserving",
+      "editing",
+      "matching",
+      "string",
+      "running",
+      "hanging"
+    ],
+    "ngs": ["settings"],
+    "gs$": ["settings"],
+    "^ku": ["kubectl", "kubernetes"],
+    "kub": ["kubectl", "kubernetes"],
+    "ube": ["kubectl", "kubernetes"],
+    "bec": ["kubectl"],
+    "ect": ["kubectl", "directory", "connect", "connection"],
+    "^ge": ["get"],
+    "get": ["get"],
+    "et$": ["get"],
+    "lis": ["list"],
+    "ist": ["list", "existence"],
+    "ber": ["kubernetes"],
+    "net": ["kubernetes"],
+    "tes": ["kubernetes", "test"],
+    "^po": ["pod", "powershell"],
+    "pod": ["pod"],
+    "od$": ["pod", "chmod"],
+    "tat": ["status"],
+    "atu": ["status"],
+    "tus": ["status"],
+    "us$": ["status"],
+    "^cp": ["cp"],
+    "cp$": ["cp"],
+    "cop": ["copy"],
+    "opy": ["copy"],
+    "py$": ["copy"],
+    "^du": ["duplicate"],
+    "dup": ["duplicate"],
+    "upl": ["duplicate"],
+    "pli": ["duplicate"],
+    "lic": ["duplicate"],
+    "ica": ["duplicate"],
+    "cat": ["duplicate", "cat", "concatenate"],
+    "ate": ["duplicate", "update", "evaluate", "concatenate"],
+    "dir": ["directory"],
+    "ire": ["directory"],
+    "cto": ["directory"],
+    "tor": ["directory", "editor"],
+    "ory": ["directory"],
+    "ry$": ["directory"],
+    "ecu": ["recursively", "executable", "secure"],
+    "cur": ["recursively", "occurrences", "curl", "secure"],
+    "urs": ["recursively"],
+    "rsi": ["recursively"],
+    "siv": ["recursively"],
+    "ive": ["recursively"],
+    "vel": ["recursively"],
+    "ely": ["recursively"],
+    "ly$": ["recursively"],
+    "pre": ["preserving", "expression"],
+    "ese": ["preserving"],
+    "ser": ["preserving", "server"],
+    "erv": ["preserving", "server"],
+    "rvi": ["preserving"],
+    "vin": ["preserving"],
+    "ng$": [
+      "preserving",
+      "editing",
+      "matching",
+      "string",
+      "running",
+      "hanging"
+    ],
+    "^pe": ["permissions"],
+    "per": ["permissions"],
+    "mis": ["permissions"],
+    "iss": ["permissions"],
+    "ssi": ["permissions", "expression"],
+    "sio": ["permissions", "expression"],
+    "ion": ["permissions", "conditional", "expression", "connection"],
+    "ons": ["permissions"],
+    "ns$": ["permissions"],
+    "^ba": ["backup"],
+    "bac": ["backup"],
+    "ack": ["backup", "package", "packages"],
+    "cku": ["backup"],
+    "kup": ["backup"],
+    "up$": ["backup"],
+    "^be": ["before"],
+    "bef": ["before"],
+    "efo": ["before"],
+    "ore": ["before"],
+    "iti": ["editing", "conditional"],
+    "^gr": ["grep"],
+    "gre": ["grep", "egrep", "fgrep", "rgrep"],
+    "ep$": ["grep", "egrep", "fgrep", "rgrep"],
+    "^eg": ["egrep"],
+    "egr": ["egrep"],
+    "^fg": ["fgrep"],
+    "fgr": ["fgrep"],
+    "^rg": ["rgrep"],
+    "rgr": ["rgrep"],
+    "sea": ["search"],
+    "ear": ["search"],
+    "arc": ["search"],
+    "rch": ["search"],
+    "ch$": ["search"],
+    "fin": ["find"],
+    "ind": ["find"],
+    "pat": ["pattern"],
+    "att": ["pattern"],
+    "tte": ["pattern"],
+    "rn$": ["pattern"],
+    "ilt": ["filter"],
+    "lte": ["filter"],
+    "nes": ["lines"],
+    "atc": ["matching"],
+    "tch": ["matching"],
+    "chi": ["matching"],
+    "hin": ["matching"],
+    "or$": ["for", "editor"],
+    "str": ["string", "stream", "strace", "structured"],
+    "tri": ["string"],
+    "^al": ["all"],
+    "all": ["all", "install", "calls"],
+    "ll$": ["all", "install", "powershell", "shell"],
+    "^oc": ["occurrences"],
+    "occ": ["occurrences"],
+    "ccu": ["occurrences"],
+    "urr": ["occurrences"],
+    "rre": ["occurrences"],
+    "ren": ["occurrences"],
+    "enc": ["occurrences", "existence"],
+    "nce": ["occurrences", "existence"],
+    "^of": ["of"],
+    "of$": ["of"],
+    "^wo": ["word"],
+    "wor": ["word"],
+    "cod": ["codebase"],
+    "ode": ["codebase"],
+    "deb": ["codebase", "debug"],
+    "eba": ["codebase"],
+    "bas": ["codebase"],
+    "ase": ["codebase"],
+    "^cu": ["curl"],
+    "url": ["curl", "url"],
+    "rl$": ["curl", "url"],
+    "dow": ["download"],
+    "own": ["download"],
+    "wnl": ["download"],
+    "nlo": ["download"],
+    "loa": ["download"],
+    "oad": ["download"],
+    "ad$": ["download", "read"],
+    "^ur": ["url"],
+    "nte": ["content"],
+    "ten": ["content", "existence", "concatenate"],
+    "ent": ["content", "replacement"],
+    "mak": ["make"],
+    "ake": ["make"],
+    "ke$": ["make"],
+    "^ht": ["http"],
+    "htt": ["http"],
+    "ttp": ["http"],
+    "tp$": ["http"],
+    "req": ["request"],
+    "equ": ["request"],
+    "que": ["request"],
+    "ues": ["request"],
+    "est": ["request", "test"],
+    "^ap": ["apt"],
+    "apt": ["apt"],
+    "ins": ["install"],
+    "nst": ["install"],
+    "tal": ["install"],
+    "cka": ["package", "packages"],
+    "kag": ["package", "packages"],
+    "^on": ["on"],
+    "^ub": ["ubuntu"],
+    "ubu": ["ubuntu"],
+    "bun": ["ubuntu"],
+    "unt": ["ubuntu"],
+    "ntu": ["ubuntu"],
+    "tu$": ["ubuntu"],
+    "^up": ["update"],
+    "upd": ["update"],
+    "pda": ["update"],
+    "dat": ["update"],
+    "chm": ["chmod"],
+    "hmo": ["chmod"],
+    "mod": ["chmod"],
+    "^ex": ["executable", "existence", "expression", "extract"],
+    "exe": ["executable"],
+    "xec": ["executable"],
+    "cut": ["executable"],
+    "uta": ["executable"],
+    "abl": ["executable"],
+    "ble": ["executable"],
+    "pro": ["process", "processes"],
+    "roc": ["process", "processes"],
+    "oce": ["process", "processes"],
+    "ss$": ["process"],
+    "^ps": ["ps"],
+    "ps$": ["ps", "gps"],
+    "^gp": ["gps"],
+    "gps": ["gps"],
+    "sse": ["processes"],
+    "ses": ["processes"],
+    "pow": ["powershell"],
+    "owe": ["powershell"],
+    "wer": ["powershell"],
+    "rsh": ["powershell"],
+    "she": ["powershell", "shell"],
+    "hel": ["powershell", "shell"],
+    "ell": ["powershell", "shell"],
+    "inf": ["info"],
+    "nfo": ["info"],
+    "fo$": ["info"],
+    "unn": ["running"],
+    "nni": ["running"],
+    "nin": ["running"],
+    "^id": ["id"],
+    "id$": ["id"],
+    "sed": ["sed"],
+    "epl": ["replace", "replacement"],
+    "pla": ["replace", "replacement"],
+    "lac": ["replace", "replacement"],
+    "tre": ["stream"],
+    "rea": ["stream", "read"],
+    "eam": ["stream"],
+    "am$": ["stream"],
+    "ito": ["editor"],
+    "cem": ["replacement"],
+    "eme": ["replacement"],
+    "exi": ["existence"],
+    "xis": ["existence"],
+    "^ev": ["evaluate"],
+    "eva": ["evaluate"],
+    "val": ["evaluate"],
+    "alu": ["evaluate"],
+    "lua": ["evaluate"],
+    "uat": ["evaluate"],
+    "ond": ["conditional"],
+    "ndi": ["conditional"],
+    "tio": ["conditional", "connection"],
+    "ona": ["conditional"],
+    "exp": ["expression"],
+    "xpr": ["expression"],
+    "^ss": ["ssh"],
+    "ssh": ["ssh"],
+    "sh$": ["ssh"],
+    "onn": ["connect", "connection"],
+    "nne": ["connect", "connection"],
+    "nec": ["connect", "connection"],
+    "ct$": ["connect", "extract"],
+    "rem": ["remote"],
+    "emo": ["remote"],
+    "mot": ["remote"],
+    "ote": ["remote"],
+    "rve": ["server"],
+    "ver": ["server"],
+    "sec": ["secure"],
+    "^sh": ["shell"],
+    "cti": ["connection"],
+    "tra": ["strace", "trace", "extract"],
+    "rac": ["strace", "trace", "extract"],
+    "^tr": ["trace"],
+    "^ca": ["calls", "cat"],
+    "cal": ["calls"],
+    "lls": ["calls"],
+    "ls$": ["calls"],
+    "^de": ["debug"],
+    "ebu": ["debug"],
+    "bug": ["debug"],
+    "ug$": ["debug"],
+    "^ha": ["hanging"],
+    "ngi": ["hanging"],
+    "gin": ["hanging"],
+    "awk": ["awk"],
+    "wk$": ["awk"],
+    "xtr": ["extract"],
+    "act": ["extract"],
+    "col": ["column"],
+    "olu": ["column"],
+    "lum": ["column"],
+    "umn": ["column"],
+    "mn$": ["column"],
+    "fro": ["from"],
+    "rom": ["from"],
+    "om$": ["from"],
+    "tru": ["structured"],
+    "ruc": ["structured"],
+    "uct": ["structured"],
+    "ctu": ["structured"],
+    "tur": ["structured"],
+    "red": ["structured"],
+    "ead": ["read"],
+    "onc": ["concatenate"],
+    "nca": ["concatenate"],
+    "ena": ["concatenate"],
+    "nat": ["concatenate"]
+  },
+  "facets": {
+    "echo": {
+      "category": "bash",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["bash", "print", "output"]
+    },
+    "aws": {
+      "category": "cloud-cli",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "windows"],
+      "tags": ["aws", "cloud", "s3", "ec2", "cli"]
+    },
+    "crontab": {
+      "category": "cron",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["cron", "crontab", "schedule", "automation"]
+    },
+    "jq": {
+      "category": "devops-utilities",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["jq", "json", "parser", "filter"]
+    },
+    "docker-run": {
+      "category": "docker",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "windows"],
+      "tags": ["docker", "container", "run"]
+    },
+    "df": {
+      "category": "file-systems",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["df", "disk", "storage", "filesystem"]
+    },
+    "git-commit": {
+      "category": "git",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "windows"],
+      "tags": ["git", "version-control", "commit", "history"]
+    },
+    "sysctl": {
+      "category": "kernel",
+      "difficulty": "advanced",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["kernel", "sysctl", "parameters", "linux"]
+    },
+    "kubectl-get": {
+      "category": "kubernetes",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "windows"],
+      "tags": ["kubernetes", "kubectl", "pods", "get"]
+    },
+    "cp": {
+      "category": "linux",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["file-management", "copy", "filesystem"]
+    },
+    "grep": {
+      "category": "linux",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["text-processing", "search", "regex", "filter"]
+    },
+    "curl": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["http", "network", "fetch", "api"]
+    },
+    "apt": {
+      "category": "package-managers",
+      "difficulty": "beginner",
+      "supportedOS": ["linux"],
+      "tags": ["apt", "package", "install", "debian", "ubuntu"]
+    },
+    "chmod": {
+      "category": "permissions",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["permissions", "chmod", "security"]
+    },
+    "get-process": {
+      "category": "powershell",
+      "difficulty": "beginner",
+      "supportedOS": ["windows", "linux", "macos"],
+      "tags": ["powershell", "process", "windows"]
+    },
+    "ps": {
+      "category": "processes",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["process", "ps", "status", "inspect"]
+    },
+    "sed": {
+      "category": "regex",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["sed", "stream", "editor", "substitute", "regex"]
+    },
+    "test": {
+      "category": "shell-scripting",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["shell", "test", "condition", "evaluate"]
+    },
+    "ssh": {
+      "category": "ssh",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["ssh", "remote", "security"]
+    },
+    "strace": {
+      "category": "system-calls",
+      "difficulty": "advanced",
+      "supportedOS": ["linux"],
+      "tags": ["strace", "syscalls", "debug", "trace"]
+    },
+    "awk": {
+      "category": "text-processing",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["awk", "text", "columns", "processing"]
+    },
+    "cat": {
+      "category": "unix",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["cat", "file", "print", "concatenate"]
+    }
+  }
+}

@@ -2,16 +2,30 @@ import fs from 'fs/promises';
 import path from 'path';
 
 // Both SSG and IndexedDB derive from generated/packs/*.json (ARCHITECTURE.md §3)
-const PROJECT_ROOT = path.resolve(process.cwd(), '../..');
-const PACKS_DIR = path.join(PROJECT_ROOT, 'generated', 'packs', 'commands');
-const MANIFEST_PATH = path.join(PROJECT_ROOT, 'generated', 'manifests', 'latest.json');
+async function getBasePaths() {
+  const publicManifest = path.resolve(process.cwd(), 'public', 'manifests', 'latest.json');
+  try {
+    await fs.access(publicManifest);
+    return {
+      packsDir: path.resolve(process.cwd(), 'public', 'packs', 'commands'),
+      manifestPath: publicManifest,
+    };
+  } catch {
+    const rootGenerated = path.resolve(process.cwd(), '..', '..', 'generated');
+    return {
+      packsDir: path.join(rootGenerated, 'packs', 'commands'),
+      manifestPath: path.join(rootGenerated, 'manifests', 'latest.json'),
+    };
+  }
+}
 
 async function loadAllPacks() {
   try {
-    const manifest = JSON.parse(await fs.readFile(MANIFEST_PATH, 'utf-8'));
+    const { packsDir, manifestPath } = await getBasePaths();
+    const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf-8'));
     const packs = [];
     for (const entry of manifest.packs) {
-      const packPath = path.join(PACKS_DIR, `${entry.packId}.json`);
+      const packPath = path.join(packsDir, `${entry.packId}.json`);
       const packData = JSON.parse(await fs.readFile(packPath, 'utf-8'));
       packs.push(packData);
     }

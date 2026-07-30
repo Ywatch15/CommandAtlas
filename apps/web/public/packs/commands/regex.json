@@ -1,0 +1,51 @@
+{
+  "packId": "regex",
+  "commands": [
+    {
+      "slug": "sed",
+      "name": "sed",
+      "category": "regex",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "sed",
+        "name": "sed",
+        "aliases": [],
+        "category": "regex",
+        "tags": ["sed", "stream", "editor", "substitute", "regex"],
+        "difficulty": "intermediate",
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
+        "intentPhrases": [
+          "replace text in file",
+          "stream editor text replacement"
+        ],
+        "relatedCommands": ["awk", "grep"],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`sed` (stream editor) parses and transforms text streams using regular expression replacement commands.\n\n## Why does it exist?\n\n`sed` enables non-interactive file editing, string substitution, and line filtering in shell pipelines.\n\n## Syntax\n\n```bash\nsed [options] 'script' [input-file...]\n```\n\n## Flags\n\n| Flag | Description                                  | Example                           |\n| ---- | -------------------------------------------- | --------------------------------- |\n| `-i` | Edit files in-place                          | `sed -i 's/old/new/g' config.txt` |\n| `-E` | Use extended regular expressions (ERE)       | `sed -E 's/foo                    | bar/baz/g' file.txt` |\n| `-n` | Suppress automatic printing of pattern space | `sed -n '/pattern/p' file.txt`    |\n\n## Examples\n\n```bash\nsed 's/localhost/127.0.0.1/g' config.yaml\n```\n\n> Replaces all occurrences of \"localhost\" with \"127.0.0.1\" in stdout.\n\n## Real-World Scenarios\n\n**Updating version strings in CI/CD**: Automatically updating release version strings in files before publishing build artifacts.\n\n## When should it NOT be used?\n\n- **Multi-field structured data processing**: `awk` or `jq` handle column-based or JSON data structure manipulation cleaner than `sed`.\n\n## Alternatives\n\n- **`sd`**: Intuitive, modern replacement for `sed`.\n\n## How it works internally\n\n`sed` reads input line by line into a pattern space buffer, executes matched transformation instructions, and prints output.\n\n## Performance Notes\n\nFast line-by-line stream editing with low memory overhead.\n\n## Security Notes\n\nBe cautious with `sed -i` on mounted network volumes or symlinked configuration files.\n\n## Common Mistakes\n\n- **Differences between GNU sed and BSD sed (macOS)**: macOS `sed` requires an explicit empty string argument for `-i` (`sed -i '' 's/old/new/' file`).\n\n## Best Practices\n\n- Test replacement patterns on stdout without `-i` first before modifying target files in-place.\n\n## Interview Questions\n\n**Q:** How do you substitute all occurrences of string `A` with `B` in a file in-place on Linux?\n**A:** `sed -i 's/A/B/g' filename`\n\n## Practice Problems\n\n**Problem:** Delete all lines matching `# comment` from `app.conf`.\n**Solution:** `sed '/# comment/d' app.conf`\n\n## References\n\n- [GNU sed manual](https://www.gnu.org/software/sed/manual/sed.html)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "regex",
+      "name": "Regex",
+      "description": "Regular expression syntax, patterns, and command-line tools for pattern matching. Covers POSIX BRE/ERE, PCRE, and practical regex usage in grep, sed, awk, and other tools.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "regex",
+        "name": "Regex",
+        "description": "Regular expression syntax, patterns, and command-line tools for pattern matching. Covers POSIX BRE/ERE, PCRE, and practical regex usage in grep, sed, awk, and other tools.\n",
+        "parent": null,
+        "order": 16,
+        "status": "published"
+      },
+      "body": "Regular expressions are the universal pattern-matching language of Unix. They\nappear in grep, sed, awk, find, and virtually every text-processing tool.\nUnderstanding regex deeply is a force multiplier for command-line productivity.\n"
+    }
+  ]
+}

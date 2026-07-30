@@ -19,6 +19,7 @@ export default function TopNav() {
     { label: 'Learning', href: '/learning' },
     { label: 'Bookmarks', href: '/bookmarks' },
     { label: 'Profile', href: '/profile' },
+    { label: 'Settings', href: '/settings' },
   ];
 
   return (

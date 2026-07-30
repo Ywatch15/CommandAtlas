@@ -1,0 +1,48 @@
+{
+  "packId": "networking",
+  "commands": [
+    {
+      "slug": "curl",
+      "name": "curl",
+      "category": "networking",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "curl",
+        "name": "curl",
+        "aliases": [],
+        "category": "networking",
+        "tags": ["http", "network", "fetch", "api"],
+        "difficulty": "intermediate",
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell"],
+        "intentPhrases": ["download URL content", "make HTTP request"],
+        "relatedCommands": [],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`curl` is a command-line tool for transferring data to or from a server using protocols such as HTTP, HTTPS, FTP, and SFTP.\n\n## Why does it exist?\n\n`curl` provides a scriptable, reliable protocol client for inspecting APIs, downloading files, testing endpoints, and interacting with remote network services.\n\n## Syntax\n\n```bash\ncurl [options] [URL...]\n```\n\n## Flags\n\n| Flag | Description                             | Example                              |\n| ---- | --------------------------------------- | ------------------------------------ |\n| `-i` | Include HTTP response headers in output | `curl -i https://example.com`        |\n| `-X` | Specify custom HTTP request method      | `curl -X POST https://api.com`       |\n| `-d` | Send HTTP POST data                     | `curl -d \"name=val\" https://api.com` |\n\n## Examples\n\n```bash\ncurl -i https://api.github.com\n```\n\n> Fetches GitHub API response with headers.\n\n## Real-World Scenarios\n\n**Testing REST APIs**: Verifying response status codes, headers, and payloads during API development.\n\n## When should it NOT be used?\n\n- **Recursive website mirroring**: `wget -r` is better designed for recursive web crawling and downloading full sites.\n\n## Alternatives\n\n- **`wget`**: Command-line file downloader designed for recursive retrievals.\n\n## How it works internally\n\n`curl` leverages `libcurl` to manage sockets, SSL/TLS handshakes via OpenSSL/BoringSSL, and protocol state machines.\n\n## Performance Notes\n\nLightweight memory footprint with minimal startup delay.\n\n## Security Notes\n\nUse `-k` or `--insecure` only in isolated debugging contexts; never bypass SSL certificate validation in production scripts.\n\n## Common Mistakes\n\n- **Forgetting `-O` or `-o` when saving output**: Running `curl URL` dumps raw response data directly to the terminal stdout.\n\n## Best Practices\n\n- Use `-s` (silent) and `-S` (show errors) together in automated scripts to avoid cluttering output logs.\n\n## Interview Questions\n\n**Q:** How do you send a JSON body in a POST request with `curl`?\n**A:** `curl -X POST -H \"Content-Type: application/json\" -d '{\"key\":\"value\"}' URL`\n\n## Practice Problems\n\n**Problem:** Download a file and save it with the remote filename.\n**Solution:** `curl -O https://example.com/archive.tar.gz`\n\n## References\n\n- [curl man page](https://curl.se/docs/manpage.html)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "networking",
+      "name": "Networking",
+      "description": "Network diagnostic, configuration, and transfer commands for inspecting connectivity, managing interfaces, transferring data, and troubleshooting network issues from the command line.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "networking",
+        "name": "Networking",
+        "description": "Network diagnostic, configuration, and transfer commands for inspecting connectivity, managing interfaces, transferring data, and troubleshooting network issues from the command line.\n",
+        "parent": null,
+        "order": 5,
+        "status": "published"
+      },
+      "body": "Networking commands are the primary interface between a system administrator and\nthe network stack. From diagnosing connectivity issues with ping and traceroute to\ntransferring data with curl, these tools are indispensable in any DevOps workflow.\n"
+    }
+  ]
+}

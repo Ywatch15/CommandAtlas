@@ -1,0 +1,48 @@
+{
+  "packId": "file-systems",
+  "commands": [
+    {
+      "slug": "df",
+      "name": "df",
+      "category": "file-systems",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "df",
+        "name": "df",
+        "aliases": [],
+        "category": "file-systems",
+        "tags": ["df", "disk", "storage", "filesystem"],
+        "difficulty": "beginner",
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
+        "intentPhrases": ["check free disk space", "filesystem usage report"],
+        "relatedCommands": [],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`df` (disk free) displays total, used, and available disk space on mounted file systems.\n\n## Why does it exist?\n\n`df` provides quick reporting on filesystem capacity and mount points to prevent storage exhaustion.\n\n## Syntax\n\n```bash\ndf [options] [file...]\n```\n\n## Flags\n\n| Flag | Description                                              | Example  |\n| ---- | -------------------------------------------------------- | -------- |\n| `-h` | Print sizes in human-readable format (e.g. 1K, 234M, 2G) | `df -h`  |\n| `-T` | Print filesystem type                                    | `df -hT` |\n| `-i` | List inode usage instead of block usage                  | `df -i`  |\n\n## Examples\n\n```bash\ndf -h\n```\n\n> Lists all mounted file systems with human-readable size metrics.\n\n## Real-World Scenarios\n\n**Monitoring server storage alerts**: Checking root (`/`) partition utilization during disk space alerts.\n\n## When should it NOT be used?\n\n- **Finding large individual files/folders**: `du` (disk usage) measures file sizes within specific directory trees.\n\n## Alternatives\n\n- **`duf`**: Modern colorful disk usage and free space utility.\n\n## How it works internally\n\n`df` queries system mount tables (`/proc/mounts`) and executes `statvfs(2)` call to read block count metadata.\n\n## Performance Notes\n\nInstantaneous execution because it inspects filesystem header stats rather than traversing directory trees.\n\n## Security Notes\n\nUnmounted or unreachable stale NFS mounts can cause `df` execution to hang indefinitely unless run with specific local filesystem flags.\n\n## Common Mistakes\n\n- **Confusing block space exhaustion with inode exhaustion**: Disk can show free space while `df -i` shows 100% inode usage (too many small files).\n\n## Best Practices\n\n- Always run `df -h` first when troubleshooting disk full errors on Linux servers.\n\n## Interview Questions\n\n**Q:** Why might a disk show full even if `du` reports less usage than total capacity?\n**A:** Deleted files held open by running processes, unmounted mount points masking underlying directory data, or inode depletion (`df -i`).\n\n## Practice Problems\n\n**Problem:** Show filesystem type and human readable usage for `/var/log` mount.\n**Solution:** `df -hT /var/log`\n\n## References\n\n- [df man page](https://www.man7.org/linux/man-pages/man1/df.1.html)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "file-systems",
+      "name": "File Systems",
+      "description": "File system management commands for mounting, unmounting, checking, and inspecting disk usage and filesystem state. Covers both traditional and modern Linux file systems.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "file-systems",
+        "name": "File Systems",
+        "description": "File system management commands for mounting, unmounting, checking, and inspecting disk usage and filesystem state. Covers both traditional and modern Linux file systems.\n",
+        "parent": null,
+        "order": 18,
+        "status": "published"
+      },
+      "body": "Everything in Unix is a file, and understanding how file systems work — from\ndisk partitioning to mount points to inode management — is essential for system\nadministration and storage management.\n"
+    }
+  ]
+}

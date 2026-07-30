@@ -97,5 +97,5 @@ jobs:
       - name: Run full content pipeline
         run: npm run build-content
 
-      # TODO (Milestone 3): upload generated/ as a release artifact or deploy to CDN.
+      # TODO: upload generated/ as a release artifact or deploy to CDN.
       # For Milestone 0, we just confirm it runs cleanly.

@@ -1,0 +1,51 @@
+{
+  "packId": "shell-scripting",
+  "commands": [
+    {
+      "slug": "test",
+      "name": "test",
+      "category": "shell-scripting",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "test",
+        "name": "test",
+        "aliases": [],
+        "category": "shell-scripting",
+        "tags": ["shell", "test", "condition", "evaluate"],
+        "difficulty": "beginner",
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
+        "intentPhrases": [
+          "check file existence in script",
+          "evaluate conditional expression"
+        ],
+        "relatedCommands": ["echo"],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`test` evaluates conditional expressions and returns exit status `0` (true) or `1` (false). It is also invoked via the `[` bracket syntax.\n\n## Why does it exist?\n\n`test` provides conditional evaluation primitives for file types, string comparisons, and integer checks inside shell `if` and `while` statements.\n\n## Syntax\n\n```bash\ntest EXPR\n[ EXPR ]\n```\n\n## Flags\n\n| Flag | Description                               | Example               |\n| ---- | ----------------------------------------- | --------------------- |\n| `-f` | True if file exists and is a regular file | `test -f /etc/passwd` |\n| `-d` | True if file exists and is a directory    | `test -d /var/log`    |\n| `-z` | True if string length is zero             | `test -z \"$VAR\"`      |\n\n## Examples\n\n```bash\nif [ -f \"/etc/config.json\" ]; then echo \"Config exists\"; fi\n```\n\n> Checks if `/etc/config.json` is a regular file before printing message.\n\n## Real-World Scenarios\n\n**Guarding script execution**: Verifying required parameters or directory paths exist before starting heavy automation routines.\n\n## When should it NOT be used?\n\n- **Bash-specific advanced regex matching**: `[[ ]]` (extended test command) supports pattern matching and regex comparison in Bash.\n\n## Alternatives\n\n- **`[[ ]]`**: Bash extended conditional evaluation construct.\n\n## How it works internally\n\n`test` evaluates expression operands sequentially and exits with return code 0 or 1. Usually built into shell binaries.\n\n## Performance Notes\n\nNegligible overhead when executed as a shell builtin.\n\n## Security Notes\n\nAlways wrap string variable references in double quotes (e.g. `\"$VAR\"`) to prevent word splitting or syntax errors on empty strings.\n\n## Common Mistakes\n\n- **Forgetting spaces around brackets**: Writing `[-f file]` instead of `[ -f file ]`.\n\n## Best Practices\n\n- Always quote variables inside `[ ]` tests to handle spaces and empty values cleanly.\n\n## Interview Questions\n\n**Q:** What is the difference between `[` and `[[` in Bash?\n**A:** `[` is POSIX standard command syntax requiring variable quoting, whereas `[[` is Bash keyword syntax supporting `&&`, `||`, and regex (`=~`).\n\n## Practice Problems\n\n**Problem:** Test if variable `MY_VAR` is non-empty.\n**Solution:** `test -n \"$MY_VAR\"` or `[ -n \"$MY_VAR\" ]`\n\n## References\n\n- [GNU test documentation](https://www.gnu.org/software/coreutils/manual/html_node/test-invocation.html)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "shell-scripting",
+      "name": "Shell Scripting",
+      "description": "Shell scripting constructs, patterns, and utilities for writing robust automation scripts. Covers control flow, variable handling, argument parsing, and scripting best practices.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "shell-scripting",
+        "name": "Shell Scripting",
+        "description": "Shell scripting constructs, patterns, and utilities for writing robust automation scripts. Covers control flow, variable handling, argument parsing, and scripting best practices.\n",
+        "parent": null,
+        "order": 14,
+        "status": "published"
+      },
+      "body": "Shell scripting turns individual commands into repeatable, automated workflows.\nMastering scripting constructs means the difference between running commands\nmanually and building reliable automation that runs unattended.\n"
+    }
+  ]
+}

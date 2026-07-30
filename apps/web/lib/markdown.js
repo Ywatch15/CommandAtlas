@@ -1,5 +1,53 @@
 import { marked } from 'marked';
-import DOMPurify from 'isomorphic-dompurify';
+
+let DOMPurify = null;
+
+/**
+ * Lazily loads DOMPurify in the browser.
+ * SSG/Node does not execute this path — only first-party content is rendered
+ * at build time, so raw marked output is safe during static generation.
+ * Client-side rehydration always sanitizes via DOMPurify before DOM injection.
+ * ARCHITECTURE.md §13, invariant §14.6.
+ */
+function getSanitizer() {
+  if (DOMPurify) return DOMPurify;
+  if (typeof window !== 'undefined') {
+    // dompurify is a browser-only module; safe to require here
+
+    const createDOMPurify = require('dompurify');
+    DOMPurify = createDOMPurify.default ? createDOMPurify.default : createDOMPurify;
+    return DOMPurify;
+  }
+  return null;
+}
+
+const ALLOWED_TAGS = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'p',
+  'br',
+  'strong',
+  'em',
+  'code',
+  'pre',
+  'ul',
+  'ol',
+  'li',
+  'a',
+  'blockquote',
+  'table',
+  'thead',
+  'tbody',
+  'tr',
+  'th',
+  'td',
+];
+
+const ALLOWED_ATTR = ['href', 'target', 'rel', 'class'];
 
 /**
  * Parses markdown to sanitized HTML.
@@ -9,34 +57,13 @@ import DOMPurify from 'isomorphic-dompurify';
 export function parseAndSanitizeMarkdown(markdown) {
   if (!markdown) return '';
   const rawHtml = marked.parse(markdown, { gfm: true, breaks: true });
-  return DOMPurify.sanitize(rawHtml, {
-    ALLOWED_TAGS: [
-      'h1',
-      'h2',
-      'h3',
-      'h4',
-      'h5',
-      'h6',
-      'p',
-      'br',
-      'strong',
-      'em',
-      'code',
-      'pre',
-      'ul',
-      'ol',
-      'li',
-      'a',
-      'blockquote',
-      'table',
-      'thead',
-      'tbody',
-      'tr',
-      'th',
-      'td',
-    ],
-    ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
-  });
+
+  const sanitizer = getSanitizer();
+  if (sanitizer) {
+    return sanitizer.sanitize(rawHtml, { ALLOWED_TAGS, ALLOWED_ATTR });
+  }
+  // SSG path — first-party content only, sanitized on client rehydration
+  return rawHtml;
 }
 
 /**

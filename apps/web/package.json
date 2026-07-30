@@ -16,7 +16,7 @@
     "react-dom": "^18.3.1",
     "dexie": "^4.0.8",
     "marked": "^13.0.2",
-    "isomorphic-dompurify": "^2.13.0",
+    "dompurify": "^3.4.0",
     "@commandatlas/shared": "*"
   }
 }

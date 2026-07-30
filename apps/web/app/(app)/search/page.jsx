@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { getAllCategories } from '@/lib/content.js';
 import SearchPageClient from './SearchPageClient.jsx';
 
@@ -11,5 +12,9 @@ export const metadata = {
 
 export default async function SearchPage() {
   const staticAllCategories = await getAllCategories();
-  return <SearchPageClient staticAllCategories={staticAllCategories} />;
+  return (
+    <Suspense fallback={<div>Loading search...</div>}>
+      <SearchPageClient staticAllCategories={staticAllCategories} />
+    </Suspense>
+  );
 }

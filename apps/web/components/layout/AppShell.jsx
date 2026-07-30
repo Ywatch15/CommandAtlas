@@ -1,3 +1,4 @@
+'use client';
 import TopNav from './TopNav.jsx';
 import Sidebar from './Sidebar.jsx';
 

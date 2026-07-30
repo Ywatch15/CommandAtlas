@@ -1,0 +1,48 @@
+{
+  "packId": "processes",
+  "commands": [
+    {
+      "slug": "ps",
+      "name": "ps",
+      "category": "processes",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "ps",
+        "name": "ps",
+        "aliases": [],
+        "category": "processes",
+        "tags": ["process", "ps", "status", "inspect"],
+        "difficulty": "beginner",
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
+        "intentPhrases": ["list running processes", "find process ID"],
+        "relatedCommands": [],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`ps` (process status) displays information about active processes currently running on the system.\n\n## Why does it exist?\n\n`ps` allows administrators to inspect running processes, resource usage, process IDs (PID), and parent-child relationships.\n\n## Syntax\n\n```bash\nps [options]\n```\n\n## Flags\n\n| Flag  | Description                                       | Example          |\n| ----- | ------------------------------------------------- | ---------------- |\n| `aux` | Display all processes for all users in BSD syntax | `ps aux`         |\n| `-ef` | Display all processes in standard POSIX syntax    | `ps -ef`         |\n| `-u`  | Filter by username                                | `ps -u www-data` |\n\n## Examples\n\n```bash\nps aux | grep nginx\n```\n\n> Lists all active Nginx processes along with CPU and memory statistics.\n\n## Real-World Scenarios\n\n**Identifying hung process PIDs**: Searching for a hung daemon process ID to send a termination signal.\n\n## When should it NOT be used?\n\n- **Real-time interactive monitoring**: `top` or `htop` provide dynamic updates compared to static snapshots from `ps`.\n\n## Alternatives\n\n- **`htop`**: Interactive, real-time process viewer.\n\n## How it works internally\n\n`ps` reads kernel status information exposed via the `/proc` virtual filesystem on Linux.\n\n## Performance Notes\n\nFast and lightweight snapshot creation.\n\n## Security Notes\n\nProcess command lines visible in `ps` output can expose sensitive CLI flags if passwords are passed directly on the command line.\n\n## Common Mistakes\n\n- **Confusing BSD syntax (`ps aux`) with POSIX syntax (`ps -ef`)**: Mixing dash prefixes with BSD option sets can produce unexpected output formats.\n\n## Best Practices\n\n- Prefer `pgrep` when searching purely for process IDs in shell scripts.\n\n## Interview Questions\n\n**Q:** What is the difference between `ps aux` and `ps -ef`?\n**A:** `ps aux` uses BSD style listing CPU/memory percentages, while `ps -ef` follows UNIX/POSIX syntax listing PPIDs and start times.\n\n## Practice Problems\n\n**Problem:** Find the process ID of a process named `node`.\n**Solution:** `ps aux | grep node` (or `pgrep node`)\n\n## References\n\n- [ps man page](https://www.man7.org/linux/man-pages/man1/ps.1.html)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "processes",
+      "name": "Processes",
+      "description": "Process management commands for inspecting, controlling, and terminating running processes. Essential for system monitoring, debugging, and resource management.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "processes",
+        "name": "Processes",
+        "description": "Process management commands for inspecting, controlling, and terminating running processes. Essential for system monitoring, debugging, and resource management.\n",
+        "parent": null,
+        "order": 8,
+        "status": "published"
+      },
+      "body": "Every running program on a Unix system is a process. Understanding how to list,\ninspect, signal, and manage processes is core to system administration and\ndebugging hung or misbehaving applications.\n"
+    }
+  ]
+}

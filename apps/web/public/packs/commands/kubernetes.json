@@ -1,0 +1,48 @@
+{
+  "packId": "kubernetes",
+  "commands": [
+    {
+      "slug": "kubectl-get",
+      "name": "kubectl get",
+      "category": "kubernetes",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "kubectl-get",
+        "name": "kubectl get",
+        "aliases": [],
+        "category": "kubernetes",
+        "tags": ["kubernetes", "kubectl", "pods", "get"],
+        "difficulty": "intermediate",
+        "supportedOS": ["linux", "macos", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell"],
+        "intentPhrases": ["list kubernetes resources", "get pod status"],
+        "relatedCommands": [],
+        "alternatives": [],
+        "status": "published",
+        "contentVersion": 1,
+        "lastUpdated": "2026-07-29",
+        "author": "commandatlas"
+      },
+      "body": "## What is it?\n\n`kubectl get` lists one or many Kubernetes API resources (Pods, Services, Deployments, Nodes) within a cluster.\n\n## Why does it exist?\n\n`kubectl get` serves as the primary query interface for cluster state inspection in Kubernetes.\n\n## Syntax\n\n```bash\nkubectl get [resource_type] [resource_name] [options]\n```\n\n## Flags\n\n| Flag | Description                          | Example                           |\n| ---- | ------------------------------------ | --------------------------------- |\n| `-n` | Specify Kubernetes namespace         | `kubectl get pods -n kube-system` |\n| `-o` | Output format (json, yaml, wide)     | `kubectl get pods -o wide`        |\n| `-A` | List resources across all namespaces | `kubectl get pods -A`             |\n\n## Examples\n\n```bash\nkubectl get pods -n default\n```\n\n> Lists all pods running in the default namespace.\n\n## Real-World Scenarios\n\n**Checking deployment health**: Verifying pod status and restart counts after deploying a new application version.\n\n## When should it NOT be used?\n\n- **Deep troubleshooting**: `kubectl describe` or `kubectl logs` provide detailed event history and container stdout logs.\n\n## Alternatives\n\n- **`k9s`**: Terminal-based UI for managing Kubernetes clusters interactively.\n\n## How it works internally\n\n`kubectl get` sends HTTP GET requests to the Kubernetes API server using kubeconfig credentials and prints formatted responses.\n\n## Performance Notes\n\nFast query performance backed by etcd cache inside the API server.\n\n## Security Notes\n\nEnsure RBAC permissions follow least-privilege principles when granting cluster read access.\n\n## Common Mistakes\n\n- **Forgetting namespace scope**: Omitting `-n` queries only the `default` namespace, missing resources in dedicated namespaces.\n\n## Best Practices\n\n- Use `-o yaml` or `-o json` when exporting resource manifests for backup or GitOps templates.\n\n## Interview Questions\n\n**Q:** How do you get extended pod info including Node IP and IP addresses?\n**A:** `kubectl get pods -o wide`\n\n## Practice Problems\n\n**Problem:** List all running services across all cluster namespaces.\n**Solution:** `kubectl get svc -A`\n\n## References\n\n- [Kubectl get documentation](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get)\n"
+    }
+  ],
+  "workflows": [],
+  "categories": [
+    {
+      "slug": "kubernetes",
+      "name": "Kubernetes",
+      "description": "Kubernetes cluster management commands using kubectl and related tools. Covers pod lifecycle, deployments, services, configuration, and cluster operations.\n",
+      "parent": null,
+      "status": "published",
+      "frontmatter": {
+        "slug": "kubernetes",
+        "name": "Kubernetes",
+        "description": "Kubernetes cluster management commands using kubectl and related tools. Covers pod lifecycle, deployments, services, configuration, and cluster operations.\n",
+        "parent": null,
+        "order": 11,
+        "status": "published"
+      },
+      "body": "Kubernetes is the industry standard for container orchestration. Its CLI tool\nkubectl is the primary interface for deploying, scaling, and managing containerized\napplications across clusters.\n"
+    }
+  ]
+}
