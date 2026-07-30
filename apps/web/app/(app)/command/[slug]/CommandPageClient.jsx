@@ -1,10 +1,13 @@
 'use client';
 import AppShell from '@/components/layout/AppShell.jsx';
+import Link from 'next/link';
 import CommandHeader from '@/components/command/CommandHeader.jsx';
 import SyntaxBlock from '@/components/command/SyntaxBlock.jsx';
 import { useIndexedDBCommand } from '@/lib/db/hooks.js';
 import { parseBodySections, extractCodeBlock, parseAndSanitizeMarkdown } from '@/lib/markdown.js';
-import Link from 'next/link';
+import BookmarkButton from '@/components/command/BookmarkButton.jsx';
+import NoteEditor from '@/components/command/NoteEditor.jsx';
+import RelatedCommandsRail from '@/components/command/RelatedCommandsRail.jsx';
 
 export default function CommandPageClient({ slug, staticCommand, staticAllCategories }) {
   const { command, allCategories } = useIndexedDBCommand(slug, staticCommand, staticAllCategories);
@@ -44,18 +47,41 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
     'References',
   ];
 
+  const techArticleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: frontmatter.name || slug,
+    description: frontmatter.summary || `Developer reference for ${frontmatter.name || slug}`,
+    articleSection: frontmatter.category,
+    dependencies: frontmatter.supportedOS ? frontmatter.supportedOS.join(', ') : 'Linux',
+  };
+
   return (
     <AppShell sidebarItems={sidebarItems}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleSchema) }}
+      />
       <div className="command-detail-layout">
         {/* Left Column: Main content */}
         <div className="main-content-column">
-          <CommandHeader
-            name={frontmatter.name || command.name || slug}
-            aliases={frontmatter.aliases || frontmatter.alias}
-            difficulty={frontmatter.difficulty}
-            supportedOS={frontmatter.supportedOS}
-            shell={frontmatter.shell}
-          />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              marginBottom: '16px',
+            }}
+          >
+            <CommandHeader
+              name={frontmatter.name || command.name || slug}
+              aliases={frontmatter.aliases || frontmatter.alias}
+              difficulty={frontmatter.difficulty}
+              supportedOS={frontmatter.supportedOS}
+              shell={frontmatter.shell}
+            />
+            <BookmarkButton commandSlug={slug} />
+          </div>
 
           {/* Syntax Section */}
           {syntaxCode && (
@@ -110,6 +136,8 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
               </div>
             );
           })}
+
+          <NoteEditor commandSlug={slug} />
         </div>
 
         {/* Right Column: Sidebar Rail */}
@@ -125,71 +153,10 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
               gap: '20px',
             }}
           >
-            {/* Related Commands */}
-            {frontmatter.relatedCommands && frontmatter.relatedCommands.length > 0 && (
-              <div>
-                <h3
-                  style={{
-                    fontSize: '12px',
-                    fontWeight: 500,
-                    color: 'var(--text-muted)',
-                    marginBottom: '8px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  Related Commands
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {frontmatter.relatedCommands.map((rel) => (
-                    <Link
-                      key={rel}
-                      href={`/command/${rel}`}
-                      style={{
-                        fontSize: '14px',
-                        color: 'var(--accent)',
-                        fontFamily: 'var(--font-mono)',
-                      }}
-                    >
-                      {rel}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Alternatives */}
-            {frontmatter.alternatives && frontmatter.alternatives.length > 0 && (
-              <div>
-                <h3
-                  style={{
-                    fontSize: '12px',
-                    fontWeight: 500,
-                    color: 'var(--text-muted)',
-                    marginBottom: '8px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  Alternatives
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {frontmatter.alternatives.map((alt) => (
-                    <Link
-                      key={alt}
-                      href={`/command/${alt}`}
-                      style={{
-                        fontSize: '14px',
-                        color: 'var(--accent)',
-                        fontFamily: 'var(--font-mono)',
-                      }}
-                    >
-                      {alt}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+            <RelatedCommandsRail
+              relatedCommands={frontmatter.relatedCommands}
+              alternatives={frontmatter.alternatives}
+            />
 
             {/* Metadata info */}
             <div
@@ -209,10 +176,35 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
                   {frontmatter.category}
                 </span>
               </div>
-              {command.contentVersion && (
-                <div>
-                  Version:{' '}
-                  <span style={{ color: 'var(--text-primary)' }}>{command.contentVersion}</span>
+              {frontmatter.usedInWorkflows && frontmatter.usedInWorkflows.length > 0 && (
+                <div style={{ marginTop: '24px' }}>
+                  <h3
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                      color: 'var(--text-muted)',
+                      marginBottom: '12px',
+                    }}
+                  >
+                    Used in Workflows
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {frontmatter.usedInWorkflows.map((wf) => (
+                      <Link
+                        key={wf.slug}
+                        href={`/workflow/${wf.slug}`}
+                        style={{
+                          fontSize: '13px',
+                          color: 'var(--accent)',
+                          textDecoration: 'none',
+                        }}
+                      >
+                        {wf.title || wf.slug}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

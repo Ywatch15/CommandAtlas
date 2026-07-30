@@ -14,3 +14,7 @@ db.version(1).stores({
   notesLocal: 'commandSlug',
   meta: 'key',
 });
+
+db.version(2).stores({
+  progressLocal: 'key, pathSlug, stepIndex, pendingSync',
+});

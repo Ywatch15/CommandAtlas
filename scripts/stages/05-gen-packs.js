@@ -20,16 +20,39 @@ export default async function genPacks(context, _options) {
     return packMap.get(packId);
   };
 
+  // Build reverse "usedInWorkflows" lookup map
+  const commandToWorkflowsMap = new Map();
+  for (const record of context.records) {
+    if (record.type === 'workflow' && record.frontmatter?.steps) {
+      for (const step of record.frontmatter.steps) {
+        if (step.command) {
+          if (!commandToWorkflowsMap.has(step.command)) {
+            commandToWorkflowsMap.set(step.command, []);
+          }
+          commandToWorkflowsMap.get(step.command).push({
+            slug: record.slug,
+            title: record.frontmatter.title,
+            category: record.frontmatter.category,
+          });
+        }
+      }
+    }
+  }
+
   for (const record of context.records) {
     if (record.type === 'command') {
       const topLevel = record.frontmatter.category?.split('/')[0] ?? 'unknown';
       const pack = getOrCreatePack(topLevel);
+      const usedInWorkflows = commandToWorkflowsMap.get(record.slug) || [];
       pack.commands.push({
         slug: record.slug,
         name: record.frontmatter.name,
         category: record.frontmatter.category,
         contentVersion: record.contentVersion,
-        frontmatter: record.frontmatter,
+        frontmatter: {
+          ...record.frontmatter,
+          usedInWorkflows,
+        },
         body: record.body,
       });
     } else if (record.type === 'workflow') {
@@ -61,6 +84,15 @@ export default async function genPacks(context, _options) {
   for (const [packId, packData] of packMap) {
     const outPath = path.join(packsDir, 'commands', `${packId}.json`);
     await fs.writeFile(outPath, JSON.stringify(packData, null, 2), 'utf-8');
+
+    if (packData.workflows.length > 0) {
+      const wfPath = path.join(packsDir, 'workflows', `${packId}.json`);
+      await fs.writeFile(
+        wfPath,
+        JSON.stringify({ packId, workflows: packData.workflows }, null, 2),
+        'utf-8'
+      );
+    }
   }
 
   context.packs = packMap;

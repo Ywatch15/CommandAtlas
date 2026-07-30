@@ -21,8 +21,24 @@ export default function HomePageClient({ staticAllCategories }) {
     }
   };
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'CommandAtlas',
+    url: 'https://commandatlas.dev',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://commandatlas.dev/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <AppShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <div
         style={{
           maxWidth: '800px',

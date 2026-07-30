@@ -70,3 +70,23 @@ export async function getCategoryBySlug(slug) {
   const categories = await getAllCategories();
   return categories.find((c) => c.slug === slug) || null;
 }
+
+export async function getAllWorkflows() {
+  const packs = await loadAllPacks();
+  const workflows = [];
+  const seen = new Set();
+  for (const pack of packs) {
+    for (const wf of pack.workflows || []) {
+      if (!seen.has(wf.slug)) {
+        seen.add(wf.slug);
+        workflows.push(wf);
+      }
+    }
+  }
+  return workflows;
+}
+
+export async function getWorkflowBySlug(slug) {
+  const workflows = await getAllWorkflows();
+  return workflows.find((w) => w.slug === slug) || null;
+}

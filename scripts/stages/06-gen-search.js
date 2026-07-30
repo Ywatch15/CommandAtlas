@@ -74,8 +74,8 @@ export default async function genSearch(context, _options) {
     const packIdx = perPackIndexes.get(packId);
 
     // Critical fields -> Global & Per-Pack
-    // Name
-    const nameTokens = tokenizeText(fm.name || slug);
+    // Name / Title
+    const nameTokens = tokenizeText(fm.title || fm.name || slug);
     for (const t of nameTokens) {
       addTokenToIndex(globalIndex, t, slug, FIELD_BOOST.NAME);
       addTokenToIndex(packIdx, t, slug, FIELD_BOOST.NAME);

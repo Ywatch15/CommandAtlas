@@ -1,0 +1,18 @@
+{
+  "short_name": "CommandAtlas",
+  "name": "CommandAtlas — Developer Command Reference",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "display": "standalone",
+  "orientation": "any",
+  "scope": "/",
+  "description": "Offline-first, curated developer command reference platform."
+}

@@ -73,6 +73,9 @@ export default async function validate(context, _options) {
   // R11: category circular parent check (needs all categories read first)
   validateCategoryParentChains(records, categorySlugSet, failures);
 
+  // R15 (Warning): Bidirectionality lint for relatedCommands and alternatives
+  validateBidirectionality(records, slugMap);
+
   if (failures.length > 0) {
     const err = new Error('Validation failed.');
     err.isValidationError = true;
@@ -487,6 +490,53 @@ function validateCommandBody(body, filePath, failures) {
           hint: `Required order: ${required.map((s) => `"${s}"`).join(' → ')}`,
         });
       }
+    }
+  }
+}
+
+/**
+ * validateBidirectionality — R15 (Warning).
+ * Flags asymmetric relatedCommands or alternatives references.
+ */
+function validateBidirectionality(records, slugMap) {
+  const warnings = [];
+  const commands = records.filter((r) => r.type === 'command');
+
+  for (const cmd of commands) {
+    const fm = cmd.frontmatter || {};
+    const related = fm.relatedCommands || [];
+    const alternatives = fm.alternatives || [];
+
+    for (const ref of related) {
+      const target = slugMap.get(ref);
+      if (target) {
+        const targetFm = target.frontmatter || {};
+        const targetRefs = [...(targetFm.relatedCommands || []), ...(targetFm.alternatives || [])];
+        if (!targetRefs.includes(cmd.slug)) {
+          warnings.push(
+            `⚠ [R15-bidirectionality] ${cmd.slug} references "${ref}" in relatedCommands, but "${ref}" does not reference back to ${cmd.slug}`
+          );
+        }
+      }
+    }
+
+    for (const ref of alternatives) {
+      const target = slugMap.get(ref);
+      if (target) {
+        const targetFm = target.frontmatter || {};
+        const targetRefs = [...(targetFm.relatedCommands || []), ...(targetFm.alternatives || [])];
+        if (!targetRefs.includes(cmd.slug)) {
+          warnings.push(
+            `⚠ [R15-bidirectionality] ${cmd.slug} references "${ref}" in alternatives, but "${ref}" does not reference back to ${cmd.slug}`
+          );
+        }
+      }
+    }
+  }
+
+  if (warnings.length > 0) {
+    for (const w of warnings) {
+      process.stdout.write(`\n  ${w}`);
     }
   }
 }

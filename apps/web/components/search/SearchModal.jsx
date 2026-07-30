@@ -73,6 +73,9 @@ export default function SearchModal({ isOpen, onClose }) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search Commands"
       style={{
         position: 'fixed',
         inset: 0,

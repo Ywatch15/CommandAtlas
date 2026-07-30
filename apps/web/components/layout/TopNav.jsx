@@ -2,22 +2,32 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import SearchModal from '../search/SearchModal.jsx';
+import SearchModal from '@/components/search/SearchModal.jsx';
+import SyncStatusIndicator from '@/components/layout/SyncStatusIndicator.jsx';
 
 export default function TopNav() {
   const pathname = usePathname();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
-    const handleOpen = () => setIsSearchOpen(true);
-    window.addEventListener('open-search-modal', handleOpen);
-    return () => window.removeEventListener('open-search-modal', handleOpen);
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const navLinks = [
     { label: 'Categories', href: '/category/linux' },
+    { label: 'Compare', href: '/compare' },
+    { label: 'Interview', href: '/interview-prep' },
+    { label: 'Practice', href: '/practice' },
     { label: 'Learning', href: '/learning' },
     { label: 'Bookmarks', href: '/bookmarks' },
+    { label: 'Notes', href: '/notes' },
     { label: 'Profile', href: '/profile' },
     { label: 'Settings', href: '/settings' },
   ];
@@ -86,29 +96,32 @@ export default function TopNav() {
           </button>
         </div>
 
-        <div style={{ display: 'flex', gap: '8px' }}>
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href || pathname?.startsWith(link.href + '/');
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                style={{
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
-                  backgroundColor: isActive ? 'var(--bg-elevated)' : 'transparent',
-                  padding: '6px 12px',
-                  borderRadius: '4px',
-                  textDecoration: 'none',
-                  transition: 'background-color 0.15s ease',
-                }}
-                className={isActive ? '' : 'nav-link-hover'}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <SyncStatusIndicator />
+          <div style={{ display: 'flex', gap: '8px' }}>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname?.startsWith(link.href + '/');
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
+                    backgroundColor: isActive ? 'var(--bg-elevated)' : 'transparent',
+                    padding: '6px 12px',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    transition: 'background-color 0.15s ease',
+                  }}
+                  className={isActive ? '' : 'nav-link-hover'}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
         </div>
         <style jsx>{`
           .nav-link-hover:hover {

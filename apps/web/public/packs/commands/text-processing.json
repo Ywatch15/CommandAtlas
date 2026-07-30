@@ -24,12 +24,42 @@
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-07-29",
-        "author": "commandatlas"
+        "author": "commandatlas",
+        "usedInWorkflows": []
       },
       "body": "## What is it?\n\n`awk` is a domain-specific programming language designed for text processing, pattern scanning, and data extraction from structured records.\n\n## Why does it exist?\n\n`awk` provides record- and field-based text manipulation, enabling inline arithmetic, line counting, column extraction, and conditional formatting.\n\n## Syntax\n\n```bash\nawk [options] 'pattern { action }' [file...]\n```\n\n## Flags\n\n| Flag | Description                           | Example                                   |\n| ---- | ------------------------------------- | ----------------------------------------- |\n| `-F` | Define field separator regex          | `awk -F':' '{print $1}' /etc/passwd`      |\n| `-v` | Assign shell variable to awk variable | `awk -v var=\"val\" '{print var, $0}' file` |\n\n## Examples\n\n```bash\nawk -F':' '{print $1, $6}' /etc/passwd\n```\n\n> Extracts username (field 1) and home directory (field 6) from `/etc/passwd`.\n\n## Real-World Scenarios\n\n**Log aggregation summaries**: Summing response sizes or counting HTTP status codes from access log files.\n\n## When should it NOT be used?\n\n- **JSON parsing**: `jq` is designed for JSON data where field ordering and nested objects break delimiter splitting.\n\n## Alternatives\n\n- **`cut`**: Simple delimiter-based column extraction utility.\n\n## How it works internally\n\n`awk` reads records (lines by default), splits them into field variables (`$1`, `$2`...), and evaluates pattern-action rules in sequence.\n\n## Performance Notes\n\nHighly efficient for large text files and stream filtering.\n\n## Security Notes\n\nEnsure dynamic inputs passed into `awk` scripts via `-v` do not contain unescaped quotes or malicious instructions.\n\n## Common Mistakes\n\n- **Forgetting `-F` for non-whitespace delimiters**: Default field separator is whitespace (spaces/tabs).\n\n## Best Practices\n\n- Use `BEGIN` and `END` blocks for initializing counters and printing final aggregated results.\n\n## Interview Questions\n\n**Q:** How do you print the 3rd column of a space-delimited file using `awk`?\n**A:** `awk '{print $3}' file.txt`\n\n## Practice Problems\n\n**Problem:** Calculate total sum of numbers in column 2 of `data.txt`.\n**Solution:** `awk '{sum+=$2} END {print sum}' data.txt`\n\n## References\n\n- [GNU awk manual](https://www.gnu.org/software/gawk/manual/gawk.html)\n"
     }
   ],
-  "workflows": [],
+  "workflows": [
+    {
+      "slug": "search-and-copy-logs",
+      "title": "Search and Extract Server Log Files",
+      "category": "text-processing",
+      "contentVersion": 1,
+      "frontmatter": {
+        "slug": "search-and-copy-logs",
+        "title": "Search and Extract Server Log Files",
+        "category": "text-processing",
+        "difficulty": "intermediate",
+        "tags": ["logs", "grep", "cp", "extraction"],
+        "estimatedTime": "10 minutes",
+        "prerequisites": ["grep", "cp"],
+        "steps": [
+          {
+            "command": "grep",
+            "note": "Search for error messages matching specific patterns across server logs."
+          },
+          {
+            "command": "cp",
+            "note": "Copy the filtered log files to a staging backup directory for analysis."
+          }
+        ],
+        "status": "published",
+        "contentVersion": 1
+      },
+      "body": "## Overview\n\nWhen investigating production server incidents, system administrators frequently need to isolate error entries across large log files and stage them for offline inspection.\n\n## Workflow Execution\n\n### Step 1: Filter Errors with `grep`\n\nFirst, isolate lines containing high-priority error keywords using `grep` with recursive and case-insensitive matching flags.\n\n### Step 2: Stage Log Files with `cp`\n\nOnce target log files are identified, copy the files using `cp` to a dedicated staging directory to preserve the original file attributes while conducting detailed diagnostic analysis.\n"
+    }
+  ],
   "categories": [
     {
       "slug": "text-processing",

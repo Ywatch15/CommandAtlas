@@ -73,7 +73,8 @@
         "phrase": "copy files preserving permissions"
       },
       { "slug": "grep", "boost": 5, "phrase": "search text in files" },
-      { "slug": "cat", "boost": 5, "phrase": "concatenate files" }
+      { "slug": "cat", "boost": 5, "phrase": "concatenate files" },
+      { "slug": "search-and-copy-logs", "boost": 5 }
     ],
     "crontab": [{ "slug": "crontab", "boost": 5 }],
     "schedule": [
@@ -255,7 +256,8 @@
     "fgrep": [{ "slug": "grep", "boost": 5 }],
     "rgrep": [{ "slug": "grep", "boost": 5 }],
     "search": [
-      { "slug": "grep", "boost": 5, "phrase": "search text in files" }
+      { "slug": "grep", "boost": 5, "phrase": "search text in files" },
+      { "slug": "search-and-copy-logs", "boost": 5 }
     ],
     "find": [
       { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
@@ -438,7 +440,8 @@
       { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
     ],
     "server": [
-      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
+      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" },
+      { "slug": "search-and-copy-logs", "boost": 5 }
     ],
     "secure": [
       { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
@@ -460,7 +463,8 @@
     ],
     "awk": [{ "slug": "awk", "boost": 5 }],
     "extract": [
-      { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
+      { "slug": "awk", "boost": 5, "phrase": "extract column from text" },
+      { "slug": "search-and-copy-logs", "boost": 5 }
     ],
     "column": [
       { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
@@ -475,7 +479,9 @@
     "read": [{ "slug": "cat", "boost": 5, "phrase": "read file content" }],
     "concatenate": [
       { "slug": "cat", "boost": 5, "phrase": "concatenate files" }
-    ]
+    ],
+    "and": [{ "slug": "search-and-copy-logs", "boost": 5 }],
+    "log": [{ "slug": "search-and-copy-logs", "boost": 5 }]
   },
   "trigrams": {
     "^ec": ["echo"],
@@ -620,8 +626,8 @@
     "com": ["command", "commit"],
     "omm": ["command", "commit"],
     "mma": ["command"],
-    "and": ["command"],
-    "nd$": ["command", "amend", "find"],
+    "and": ["command", "and"],
+    "nd$": ["command", "amend", "find", "and"],
     "^li": ["line", "list", "lines"],
     "lin": ["line", "lines"],
     "ine": ["line", "container", "lines"],
@@ -1084,7 +1090,11 @@
     "onc": ["concatenate"],
     "nca": ["concatenate"],
     "ena": ["concatenate"],
-    "nat": ["concatenate"]
+    "nat": ["concatenate"],
+    "^an": ["and"],
+    "^lo": ["log"],
+    "log": ["log"],
+    "og$": ["log"]
   },
   "facets": {
     "echo": {
@@ -1218,6 +1228,12 @@
       "difficulty": "beginner",
       "supportedOS": ["linux", "macos", "unix"],
       "tags": ["cat", "file", "print", "concatenate"]
+    },
+    "search-and-copy-logs": {
+      "category": "text-processing",
+      "difficulty": "intermediate",
+      "supportedOS": [],
+      "tags": ["logs", "grep", "cp", "extraction"]
     }
   }
 }
