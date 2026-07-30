@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.js';
 import syncRoutes from './routes/sync.js';
+import contributionsRoutes from './routes/contributions.js';
+import analyticsRoutes from './routes/analytics.js';
 import { csrfProtection } from './middleware/csrf.js';
 
 const app = express();
@@ -12,6 +14,8 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/sync', csrfProtection, syncRoutes);
+app.use('/api/contributions', contributionsRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', service: 'commandatlas-server' });
