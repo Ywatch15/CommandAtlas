@@ -1,10 +1,11 @@
 import express from 'express';
 import { ZeroResultQuery } from '../models/ZeroResultQuery.js';
+import { csrfProtection } from '../middleware/csrf.js';
 
 const router = express.Router();
 
 // POST /api/analytics/zero-result — record a zero-result search (privacy-respecting, no PII)
-router.post('/zero-result', async (req, res) => {
+router.post('/zero-result', csrfProtection, async (req, res) => {
   try {
     const { query } = req.body;
     if (!query || typeof query !== 'string') {

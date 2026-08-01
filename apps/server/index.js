@@ -13,9 +13,16 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/v1/auth', authRoutes);
+
 app.use('/api/sync', csrfProtection, syncRoutes);
+app.use('/api/v1/sync', csrfProtection, syncRoutes);
+
 app.use('/api/contributions', contributionsRoutes);
+app.use('/api/v1/contributions', contributionsRoutes);
+
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/v1/analytics', analyticsRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', service: 'commandatlas-server' });
