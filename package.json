@@ -11,7 +11,7 @@
     "build": "npm run build-content && npm run build --workspace=apps/web",
     "build-content": "node scripts/build-content.js",
     "build-content:validate": "node scripts/build-content.js --validate-only",
-    "test": "node --test scripts/tests/pipeline-stages.test.js scripts/tests/search-engine.test.js scripts/tests/link-graph.test.js",
+    "test": "node --test scripts/tests/pipeline-stages.test.js scripts/tests/search-engine.test.js scripts/tests/link-graph.test.js apps/server/tests/models.test.js",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --ext .js,.jsx --fix",
     "format": "prettier --write .",
