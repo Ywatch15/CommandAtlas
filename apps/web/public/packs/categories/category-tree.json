@@ -1,4 +1,193 @@
 {
-  "_stub": true,
-  "roots": []
+  "roots": [
+    {
+      "slug": "linux",
+      "name": "Linux",
+      "description": "Core Linux command-line tools for file management, text processing, process control, and system administration. The commands in this category run on Linux and most Unix systems; macOS support is noted per command where it differs.\n",
+      "parent": null,
+      "order": 1,
+      "commandCount": 2,
+      "children": []
+    },
+    {
+      "slug": "git",
+      "name": "Git",
+      "description": "Git version control commands for tracking changes, collaborating on code, managing branches, and maintaining project history. Every command in this category is invoked as a subcommand of the `git` binary and carries a fully-qualified slug (e.g. git-commit, git-clone) to guarantee global uniqueness.\n",
+      "parent": null,
+      "order": 2,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "bash",
+      "name": "Bash",
+      "description": "Bash shell built-in commands and scripting constructs. These are not external programs but features of the Bash shell itself, available in any Bash session without additional installation.\n",
+      "parent": null,
+      "order": 3,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "docker",
+      "name": "Docker",
+      "description": "Docker container management commands for building, running, inspecting, and orchestrating containerized applications. All commands are subcommands of the docker CLI binary.\n",
+      "parent": null,
+      "order": 4,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "networking",
+      "name": "Networking",
+      "description": "Network diagnostic, configuration, and transfer commands for inspecting connectivity, managing interfaces, transferring data, and troubleshooting network issues from the command line.\n",
+      "parent": null,
+      "order": 5,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "ssh",
+      "name": "SSH",
+      "description": "Secure Shell commands for remote access, file transfer, tunneling, and key management. SSH is the foundation of secure remote system administration.\n",
+      "parent": null,
+      "order": 6,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "permissions",
+      "name": "Permissions",
+      "description": "File permission and ownership commands for controlling access to files and directories on Unix-like systems. Understanding permissions is fundamental to system security.\n",
+      "parent": null,
+      "order": 7,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "processes",
+      "name": "Processes",
+      "description": "Process management commands for inspecting, controlling, and terminating running processes. Essential for system monitoring, debugging, and resource management.\n",
+      "parent": null,
+      "order": 8,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "unix",
+      "name": "Unix",
+      "description": "Core Unix commands and concepts shared across BSD, macOS, and other POSIX-compliant systems. Commands here work on any Unix-like OS, not just Linux.\n",
+      "parent": null,
+      "order": 9,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "powershell",
+      "name": "PowerShell",
+      "description": "PowerShell cmdlets and scripting constructs for Windows and cross-platform system administration. PowerShell operates on objects rather than text streams, offering a fundamentally different approach from traditional Unix shells.\n",
+      "parent": null,
+      "order": 10,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "kubernetes",
+      "name": "Kubernetes",
+      "description": "Kubernetes cluster management commands using kubectl and related tools. Covers pod lifecycle, deployments, services, configuration, and cluster operations.\n",
+      "parent": null,
+      "order": 11,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "kernel",
+      "name": "Kernel",
+      "description": "Linux kernel interaction commands for tuning kernel parameters, loading modules, and inspecting kernel state. These commands modify or query the running kernel directly.\n",
+      "parent": null,
+      "order": 12,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "system-calls",
+      "name": "System Calls",
+      "description": "Linux system call interfaces accessible from the command line and shell scripts. Understanding system calls bridges the gap between shell usage and operating system internals.\n",
+      "parent": null,
+      "order": 13,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "shell-scripting",
+      "name": "Shell Scripting",
+      "description": "Shell scripting constructs, patterns, and utilities for writing robust automation scripts. Covers control flow, variable handling, argument parsing, and scripting best practices.\n",
+      "parent": null,
+      "order": 14,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "cron",
+      "name": "Cron",
+      "description": "Scheduled task management with cron, at, and related utilities. Covers crontab syntax, scheduling patterns, and best practices for reliable job scheduling.\n",
+      "parent": null,
+      "order": 15,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "regex",
+      "name": "Regex",
+      "description": "Regular expression syntax, patterns, and command-line tools for pattern matching. Covers POSIX BRE/ERE, PCRE, and practical regex usage in grep, sed, awk, and other tools.\n",
+      "parent": null,
+      "order": 16,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "text-processing",
+      "name": "Text Processing",
+      "description": "Text manipulation and transformation commands for filtering, reformatting, sorting, and analyzing text data. The foundation of Unix pipeline-based data processing.\n",
+      "parent": null,
+      "order": 17,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "file-systems",
+      "name": "File Systems",
+      "description": "File system management commands for mounting, unmounting, checking, and inspecting disk usage and filesystem state. Covers both traditional and modern Linux file systems.\n",
+      "parent": null,
+      "order": 18,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "package-managers",
+      "name": "Package Managers",
+      "description": "System and language package management commands for installing, updating, removing, and querying software packages across distributions and ecosystems.\n",
+      "parent": null,
+      "order": 19,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "cloud-cli",
+      "name": "Cloud CLI",
+      "description": "Cloud provider CLI tools for managing infrastructure, services, and deployments from the command line. Covers AWS CLI, gcloud, and Azure CLI patterns.\n",
+      "parent": null,
+      "order": 20,
+      "commandCount": 1,
+      "children": []
+    },
+    {
+      "slug": "devops-utilities",
+      "name": "DevOps Utilities",
+      "description": "Cross-cutting DevOps tools for CI/CD, infrastructure management, monitoring, and deployment automation. These utilities bridge development and operations workflows.\n",
+      "parent": null,
+      "order": 21,
+      "commandCount": 1,
+      "children": []
+    }
+  ]
 }
