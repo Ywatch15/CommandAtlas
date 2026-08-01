@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
 import authRoutes from './routes/auth.js';
 import syncRoutes from './routes/sync.js';
 import contributionsRoutes from './routes/contributions.js';
@@ -29,9 +30,23 @@ app.get('/api/health', (_req, res) => {
 });
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
-    // Server startup
-  });
+  const mongoUri = process.env.MONGODB_URI;
+  if (!mongoUri) {
+    console.error('FATAL: MONGODB_URI environment variable is missing.');
+    process.exit(1);
+  }
+
+  mongoose
+    .connect(mongoUri)
+    .then(() => {
+      app.listen(PORT, () => {
+        // Server startup
+      });
+    })
+    .catch((err) => {
+      console.error('FATAL: Failed to connect to MongoDB:', err.message);
+      process.exit(1);
+    });
 }
 
 export default app;
