@@ -1,4 +1,11 @@
 export default function BadgeGroup({ tags = [], difficulty, supportedOS = [] }) {
+  const osList = Array.isArray(supportedOS)
+    ? supportedOS
+    : typeof supportedOS === 'string'
+      ? [supportedOS]
+      : [];
+  const tagList = Array.isArray(tags) ? tags : typeof tags === 'string' ? [tags] : [];
+
   return (
     <div
       style={{ display: 'flex', gap: 'var(--space-micro)', flexWrap: 'wrap', alignItems: 'center' }}
@@ -19,7 +26,7 @@ export default function BadgeGroup({ tags = [], difficulty, supportedOS = [] }) 
           {difficulty}
         </span>
       )}
-      {supportedOS.map((os) => (
+      {osList.map((os) => (
         <span
           key={os}
           style={{
@@ -36,7 +43,7 @@ export default function BadgeGroup({ tags = [], difficulty, supportedOS = [] }) 
           {os}
         </span>
       ))}
-      {tags.map((tag) => (
+      {tagList.map((tag) => (
         <span
           key={tag}
           style={{

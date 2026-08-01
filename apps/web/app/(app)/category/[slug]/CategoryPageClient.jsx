@@ -16,7 +16,7 @@ export default function CategoryPageClient({
     staticAllCategories
   );
 
-  const sidebarItems = allCategories.map((cat) => ({
+  const sidebarItems = (allCategories || []).map((cat) => ({
     label: cat.frontmatter?.name || cat.name || cat.slug,
     href: `/category/${cat.slug}`,
     active: cat.slug === slug,
@@ -32,6 +32,7 @@ export default function CategoryPageClient({
 
   const categoryName = category.frontmatter?.name || category.name || slug;
   const categoryDesc = category.frontmatter?.description || category.description || '';
+  const cmdList = commands || [];
 
   return (
     <AppShell sidebarItems={sidebarItems}>
@@ -57,11 +58,11 @@ export default function CategoryPageClient({
           }}
         >
           <h2 style={{ fontSize: '18px', fontWeight: 500, marginBottom: '16px' }}>Commands</h2>
-          {commands.length === 0 ? (
+          {cmdList.length === 0 ? (
             <p style={{ color: 'var(--text-muted)' }}>No commands in this category yet.</p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {commands.map((cmd) => (
+              {cmdList.map((cmd) => (
                 <CommandCard
                   key={cmd.slug}
                   slug={cmd.slug}

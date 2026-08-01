@@ -1,6 +1,9 @@
 import BadgeGroup from './BadgeGroup.jsx';
 
 export default function CommandHeader({ name, aliases = [], difficulty, supportedOS, shell }) {
+  const aliasList = Array.isArray(aliases) ? aliases : typeof aliases === 'string' ? [aliases] : [];
+  const shellList = Array.isArray(shell) ? shell : typeof shell === 'string' ? [shell] : [];
+
   return (
     <div
       style={{
@@ -21,9 +24,9 @@ export default function CommandHeader({ name, aliases = [], difficulty, supporte
         >
           {name}
         </h1>
-        {aliases && aliases.length > 0 && (
+        {aliasList.length > 0 && (
           <div style={{ display: 'flex', gap: '8px' }}>
-            {aliases.map((alias) => (
+            {aliasList.map((alias) => (
               <span
                 key={alias}
                 style={{
@@ -44,9 +47,9 @@ export default function CommandHeader({ name, aliases = [], difficulty, supporte
       </div>
       <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
         <BadgeGroup difficulty={difficulty} supportedOS={supportedOS} />
-        {shell && shell.length > 0 && (
+        {shellList.length > 0 && (
           <div style={{ display: 'flex', gap: '4px' }}>
-            {shell.map((sh) => (
+            {shellList.map((sh) => (
               <span
                 key={sh}
                 style={{

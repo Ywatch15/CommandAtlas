@@ -53,7 +53,11 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
     headline: frontmatter.name || slug,
     description: frontmatter.summary || `Developer reference for ${frontmatter.name || slug}`,
     articleSection: frontmatter.category,
-    dependencies: frontmatter.supportedOS ? frontmatter.supportedOS.join(', ') : 'Linux',
+    dependencies: Array.isArray(frontmatter.supportedOS)
+      ? frontmatter.supportedOS.join(', ')
+      : typeof frontmatter.supportedOS === 'string'
+        ? frontmatter.supportedOS
+        : 'Linux',
   };
 
   return (
@@ -176,37 +180,43 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
                   {frontmatter.category}
                 </span>
               </div>
-              {frontmatter.usedInWorkflows && frontmatter.usedInWorkflows.length > 0 && (
-                <div style={{ marginTop: '24px' }}>
-                  <h3
-                    style={{
-                      fontSize: '13px',
-                      fontWeight: 600,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      color: 'var(--text-muted)',
-                      marginBottom: '12px',
-                    }}
-                  >
-                    Used in Workflows
-                  </h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {frontmatter.usedInWorkflows.map((wf) => (
-                      <Link
-                        key={wf.slug}
-                        href={`/workflow/${wf.slug}`}
-                        style={{
-                          fontSize: '13px',
-                          color: 'var(--accent)',
-                          textDecoration: 'none',
-                        }}
-                      >
-                        {wf.title || wf.slug}
-                      </Link>
-                    ))}
+              {Array.isArray(frontmatter.usedInWorkflows) &&
+                frontmatter.usedInWorkflows.length > 0 && (
+                  <div style={{ marginTop: '24px' }}>
+                    <h3
+                      style={{
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        color: 'var(--text-muted)',
+                        marginBottom: '12px',
+                      }}
+                    >
+                      Used in Workflows
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {frontmatter.usedInWorkflows.map((wf) => {
+                        const wfSlug = typeof wf === 'string' ? wf : wf?.slug;
+                        const wfTitle = typeof wf === 'string' ? wf : wf?.title || wf?.slug;
+                        if (!wfSlug) return null;
+                        return (
+                          <Link
+                            key={wfSlug}
+                            href={`/workflow/${wfSlug}`}
+                            style={{
+                              fontSize: '13px',
+                              color: 'var(--accent)',
+                              textDecoration: 'none',
+                            }}
+                          >
+                            {wfTitle}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>
           </div>
         </div>

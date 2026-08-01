@@ -5,7 +5,10 @@ import Link from 'next/link';
  * UI_DESIGN_SYSTEM.md §8: ~30% right rail, stacks below on mobile.
  */
 export default function RelatedCommandsRail({ relatedCommands = [], alternatives = [] }) {
-  if (relatedCommands.length === 0 && alternatives.length === 0) return null;
+  const relList = Array.isArray(relatedCommands) ? relatedCommands : [];
+  const altList = Array.isArray(alternatives) ? alternatives : [];
+
+  if (relList.length === 0 && altList.length === 0) return null;
 
   const linkStyle = {
     fontSize: '13px',
@@ -33,24 +36,32 @@ export default function RelatedCommandsRail({ relatedCommands = [], alternatives
         gap: '20px',
       }}
     >
-      {relatedCommands.length > 0 && (
+      {relList.length > 0 && (
         <div>
           <h3 style={headingStyle}>Related Commands</h3>
-          {relatedCommands.map((slug) => (
-            <Link key={slug} href={`/command/${slug}`} style={linkStyle}>
-              {slug}
-            </Link>
-          ))}
+          {relList.map((item) => {
+            const itemSlug = typeof item === 'string' ? item : item?.slug;
+            if (!itemSlug) return null;
+            return (
+              <Link key={itemSlug} href={`/command/${itemSlug}`} style={linkStyle}>
+                {itemSlug}
+              </Link>
+            );
+          })}
         </div>
       )}
-      {alternatives.length > 0 && (
+      {altList.length > 0 && (
         <div>
           <h3 style={headingStyle}>Alternatives</h3>
-          {alternatives.map((slug) => (
-            <Link key={slug} href={`/command/${slug}`} style={linkStyle}>
-              {slug}
-            </Link>
-          ))}
+          {altList.map((item) => {
+            const itemSlug = typeof item === 'string' ? item : item?.slug;
+            if (!itemSlug) return null;
+            return (
+              <Link key={itemSlug} href={`/command/${itemSlug}`} style={linkStyle}>
+                {itemSlug}
+              </Link>
+            );
+          })}
         </div>
       )}
     </aside>
