@@ -24,8 +24,8 @@ function requireAuth(req, res, next) {
 // GET /api/sync/pull — fetch all user data from server
 router.get('/pull', requireAuth, async (req, res) => {
   try {
-    const bookmarks = await Bookmark.findByUser(req.userId);
-    const notes = await Note.findByUser(req.userId);
+    const bookmarks = await Bookmark.find({ userId: req.userId });
+    const notes = await Note.find({ userId: req.userId });
     return res.json({ bookmarks, notes });
   } catch {
     return res.status(500).json({ error: 'Server error' });
@@ -39,27 +39,34 @@ router.post('/push', requireAuth, async (req, res) => {
 
     for (const bm of bookmarks) {
       if (bm.deleted) {
-        await Bookmark.delete({ userId: req.userId, commandSlug: bm.commandSlug });
+        await Bookmark.deleteOne({ userId: req.userId, commandSlug: bm.commandSlug });
       } else {
-        await Bookmark.upsert({
-          userId: req.userId,
-          commandSlug: bm.commandSlug,
-          createdAt: bm.createdAt,
-          updatedAt: bm.updatedAt,
-        });
+        await Bookmark.findOneAndUpdate(
+          { userId: req.userId, commandSlug: bm.commandSlug },
+          {
+            userId: req.userId,
+            commandSlug: bm.commandSlug,
+            createdAt: bm.createdAt || new Date(),
+          },
+          { upsert: true, new: true }
+        );
       }
     }
 
     for (const note of notes) {
       if (note.deleted || !note.content) {
-        await Note.delete({ userId: req.userId, commandSlug: note.commandSlug });
+        await Note.deleteOne({ userId: req.userId, commandSlug: note.commandSlug });
       } else {
-        await Note.upsert({
-          userId: req.userId,
-          commandSlug: note.commandSlug,
-          content: note.content,
-          updatedAt: note.updatedAt,
-        });
+        await Note.findOneAndUpdate(
+          { userId: req.userId, commandSlug: note.commandSlug },
+          {
+            userId: req.userId,
+            commandSlug: note.commandSlug,
+            content: note.content,
+            updatedAt: note.updatedAt || new Date(),
+          },
+          { upsert: true, new: true }
+        );
       }
     }
 
@@ -77,23 +84,31 @@ router.post('/merge', requireAuth, async (req, res) => {
 
     for (const bm of localBookmarks) {
       if (bm.commandSlug) {
-        await Bookmark.upsert({
-          userId: req.userId,
-          commandSlug: bm.commandSlug,
-          createdAt: bm.createdAt,
-        });
+        await Bookmark.findOneAndUpdate(
+          { userId: req.userId, commandSlug: bm.commandSlug },
+          {
+            userId: req.userId,
+            commandSlug: bm.commandSlug,
+            createdAt: bm.createdAt || new Date(),
+          },
+          { upsert: true, new: true }
+        );
         mergedCount++;
       }
     }
 
     for (const note of localNotes) {
       if (note.commandSlug && note.content) {
-        await Note.upsert({
-          userId: req.userId,
-          commandSlug: note.commandSlug,
-          content: note.content,
-          updatedAt: note.updatedAt,
-        });
+        await Note.findOneAndUpdate(
+          { userId: req.userId, commandSlug: note.commandSlug },
+          {
+            userId: req.userId,
+            commandSlug: note.commandSlug,
+            content: note.content,
+            updatedAt: note.updatedAt || new Date(),
+          },
+          { upsert: true, new: true }
+        );
         mergedCount++;
       }
     }

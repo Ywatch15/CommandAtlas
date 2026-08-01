@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 import { User } from '../models/User.js';
 
 const router = Router();
@@ -14,17 +15,28 @@ router.post('/signup', async (req, res) => {
       return res.status(400).json({ error: 'Email and password (min 6 chars) are required.' });
     }
 
-    const user = await User.create({ email, password, name });
-    const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, {
+    const normalizedEmail = email.toLowerCase().trim();
+    const existing = await User.findOne({ email: normalizedEmail });
+    if (existing) {
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    const user = await User.create({
+      email: normalizedEmail,
+      passwordHash,
+      name: name || '',
+    });
+
+    const safeUser = { id: user._id.toString(), email: user.email, name: user.name };
+    const token = jwt.sign({ id: safeUser.id, email: safeUser.email }, JWT_SECRET, {
       expiresIn: '7d',
     });
 
-    return res.status(201).json({ user, token });
-  } catch (err) {
-    if (err.message === 'USER_EXISTS') {
-      // Generic message to prevent email enumeration or standard error
-      return res.status(400).json({ error: 'Invalid email or password' });
-    }
+    return res.status(201).json({ user: safeUser, token });
+  } catch {
     return res.status(500).json({ error: 'Server error' });
   }
 });
@@ -38,7 +50,8 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'Invalid email or password' });
     }
 
-    const userObj = await User.findByEmail(email);
+    const normalizedEmail = email.toLowerCase().trim();
+    const userObj = await User.findOne({ email: normalizedEmail }).select('+passwordHash');
     if (!userObj) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
@@ -48,14 +61,18 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    const token = jwt.sign({ id: userObj.id, email: userObj.email }, JWT_SECRET, {
-      expiresIn: '7d',
-    });
+    userObj.lastLoginAt = new Date();
+    await userObj.save();
+
     const safeUser = {
-      id: userObj.id,
+      id: userObj._id.toString(),
       email: userObj.email,
       name: userObj.name,
     };
+
+    const token = jwt.sign({ id: safeUser.id, email: safeUser.email }, JWT_SECRET, {
+      expiresIn: '7d',
+    });
 
     return res.json({ user: safeUser, token });
   } catch {
@@ -75,7 +92,8 @@ router.get('/me', async (req, res) => {
     const decoded = jwt.verify(token, JWT_SECRET);
     const user = await User.findById(decoded.id);
     if (!user) return res.status(401).json({ error: 'Unauthorized' });
-    return res.json({ user });
+    const safeUser = { id: user._id.toString(), email: user.email, name: user.name };
+    return res.json({ user: safeUser });
   } catch {
     return res.status(401).json({ error: 'Unauthorized' });
   }
