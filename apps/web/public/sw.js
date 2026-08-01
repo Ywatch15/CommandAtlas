@@ -1,11 +1,17 @@
 const CACHE_NAME = 'commandatlas-v1';
 const SHELL_ASSETS = ['/', '/offline', '/manifest.json', '/favicon.ico'];
 
-// Install event — cache shell assets
+// Install event — cache shell assets safely
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(SHELL_ASSETS);
+    caches.open(CACHE_NAME).then(async (cache) => {
+      for (const asset of SHELL_ASSETS) {
+        try {
+          await cache.add(asset);
+        } catch {
+          // Ignore individual missing assets gracefully during initial cache fill
+        }
+      }
     })
   );
   self.skipWaiting();

@@ -2,10 +2,15 @@
 import { useState, useEffect } from 'react';
 import { db } from './index.js';
 
-export function useIndexedDBCategory(slug, staticCategory, staticCommands, staticAllCategories) {
+export function useIndexedDBCategory(
+  slug,
+  staticCategory,
+  staticCommands,
+  staticAllCategories = []
+) {
   const [category, setCategory] = useState(staticCategory);
-  const [commands, setCommands] = useState(staticCommands);
-  const [allCategories, setAllCategories] = useState(staticAllCategories);
+  const [commands, setCommands] = useState(staticCommands || []);
+  const [allCategories, setAllCategories] = useState(staticAllCategories || []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,9 +52,9 @@ export function useIndexedDBCategory(slug, staticCategory, staticCommands, stati
   return { category, commands, allCategories, loading };
 }
 
-export function useIndexedDBCommand(slug, staticCommand, staticAllCategories) {
+export function useIndexedDBCommand(slug, staticCommand, staticAllCategories = []) {
   const [command, setCommand] = useState(staticCommand);
-  const [allCategories, setAllCategories] = useState(staticAllCategories);
+  const [allCategories, setAllCategories] = useState(staticAllCategories || []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -87,9 +92,9 @@ export function useIndexedDBCommand(slug, staticCommand, staticAllCategories) {
   return { command, allCategories, loading };
 }
 
-export function useIndexedDBWorkflow(slug, staticWorkflow, staticAllCategories) {
+export function useIndexedDBWorkflow(slug, staticWorkflow, staticAllCategories = []) {
   const [workflow, setWorkflow] = useState(staticWorkflow);
-  const [allCategories, setAllCategories] = useState(staticAllCategories);
+  const [allCategories, setAllCategories] = useState(staticAllCategories || []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

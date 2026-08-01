@@ -12,7 +12,7 @@ import RelatedCommandsRail from '@/components/command/RelatedCommandsRail.jsx';
 export default function CommandPageClient({ slug, staticCommand, staticAllCategories }) {
   const { command, allCategories } = useIndexedDBCommand(slug, staticCommand, staticAllCategories);
 
-  const sidebarItems = allCategories.map((cat) => ({
+  const sidebarItems = (allCategories || []).map((cat) => ({
     label: cat.frontmatter?.name || cat.name || cat.slug,
     href: `/category/${cat.slug}`,
     active: cat.slug === command?.frontmatter?.category,
