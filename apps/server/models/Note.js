@@ -1,41 +1,31 @@
-// Mongo/In-memory store for Notes with compound unique index { userId, commandSlug }
+import mongoose from 'mongoose';
 
-const notesStore = new Map(); // key: `${userId}:${commandSlug}`
-
-export class Note {
-  static async findByUser(userId) {
-    const results = [];
-    for (const [key, val] of notesStore.entries()) {
-      if (key.startsWith(`${userId}:`)) {
-        results.push(val);
-      }
-    }
-    return results;
+const noteSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
+      index: true,
+    },
+    commandSlug: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    updatedAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    timestamps: true,
   }
+);
 
-  static async upsert({ userId, commandSlug, content, updatedAt }) {
-    const key = `${userId}:${commandSlug}`;
-    const existing = notesStore.get(key);
-    const ts = updatedAt || new Date().toISOString();
+noteSchema.index({ userId: 1, commandSlug: 1 });
 
-    // Plain text only
-    const cleanContent = (content || '').toString();
-
-    if (!existing || new Date(ts) >= new Date(existing.updatedAt)) {
-      const record = {
-        userId,
-        commandSlug,
-        content: cleanContent,
-        updatedAt: ts,
-      };
-      notesStore.set(key, record);
-      return record;
-    }
-    return existing;
-  }
-
-  static async delete({ userId, commandSlug }) {
-    const key = `${userId}:${commandSlug}`;
-    notesStore.delete(key);
-  }
-}
+export const Note = mongoose.models.Note || mongoose.model('Note', noteSchema);
