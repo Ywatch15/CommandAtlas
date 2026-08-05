@@ -39,8 +39,12 @@ self.addEventListener('fetch', (event) => {
   // Navigation requests
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request).catch(() => {
-        return caches.match('/offline') || caches.match('/');
+      fetch(event.request).catch(async () => {
+        const offlinePage = await caches.match('/offline');
+        if (offlinePage) return offlinePage;
+        const homePage = await caches.match('/');
+        if (homePage) return homePage;
+        return new Response('Offline', { status: 503, statusText: 'Offline' });
       })
     );
     return;
