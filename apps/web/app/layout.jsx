@@ -4,6 +4,9 @@ export const metadata = {
   title: 'CommandAtlas',
   description: 'Offline-first, curated developer command reference platform.',
   manifest: '/manifest.json',
+};
+
+export const viewport = {
   themeColor: '#090d16',
 };
 

@@ -1,21 +1,18 @@
 import { marked } from 'marked';
+import createDOMPurify from 'dompurify';
 
 let DOMPurify = null;
 
 /**
- * Lazily loads DOMPurify in the browser.
- * SSG/Node does not execute this path — only first-party content is rendered
- * at build time, so raw marked output is safe during static generation.
- * Client-side rehydration always sanitizes via DOMPurify before DOM injection.
+ * Lazily initialises DOMPurify from the ESM import.
+ * Only runs in browser (window exists). SSG/Node skips — first-party content
+ * only at build time; client rehydration always sanitizes.
  * ARCHITECTURE.md §13, invariant §14.6.
  */
 function getSanitizer() {
   if (DOMPurify) return DOMPurify;
   if (typeof window !== 'undefined') {
-    // dompurify is a browser-only module; safe to require here
-
-    const createDOMPurify = require('dompurify');
-    DOMPurify = createDOMPurify.default ? createDOMPurify.default : createDOMPurify;
+    DOMPurify = createDOMPurify(window);
     return DOMPurify;
   }
   return null;
