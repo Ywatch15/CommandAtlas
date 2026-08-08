@@ -13,8 +13,19 @@ intentPhrases:
   - 'check past commits'
   - 'find who changed a line'
   - 'search git history'
-relatedCommands: [git-cherry-pick, git-diff, git-status]
-alternatives: []
+relatedCommands:
+  [
+    git-bisect,
+    git-blame,
+    git-cherry-pick,
+    git-diff,
+    git-reflog,
+    git-shortlog,
+    git-show,
+    git-status,
+    git-tag,
+  ]
+alternatives: [git-bisect, git-blame, git-reflog, git-shortlog, git-show]
 status: draft
 ---
 

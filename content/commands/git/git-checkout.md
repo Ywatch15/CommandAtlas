@@ -23,8 +23,19 @@ intentPhrases:
   - discard local changes to a file
   - go back to a previous commit
   - resolve merge conflicts using ours or theirs
-relatedCommands: [git-merge, git-reset, git-stash]
-alternatives: []
+relatedCommands:
+  [
+    git-archive,
+    git-bisect,
+    git-merge,
+    git-reflog,
+    git-reset,
+    git-restore,
+    git-stash,
+    git-tag,
+    git-worktree,
+  ]
+alternatives: [git-restore]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

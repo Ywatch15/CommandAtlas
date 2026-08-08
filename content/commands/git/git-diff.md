@@ -13,8 +13,8 @@ intentPhrases:
   - 'diff two branches'
   - 'show staged changes'
   - 'compare commits'
-relatedCommands: [git-add, git-log, git-status]
-alternatives: []
+relatedCommands: [git-add, git-blame, git-log, git-show, git-status]
+alternatives: [git-show]
 status: draft
 ---
 

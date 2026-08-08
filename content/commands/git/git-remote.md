@@ -13,7 +13,7 @@ intentPhrases:
   - 'list git remotes'
   - 'change remote url'
   - 'remove remote repository'
-relatedCommands: [git-clone, git-fetch, git-push]
+relatedCommands: [git-clone, git-fetch, git-push, git-subtree]
 alternatives: []
 status: draft
 ---

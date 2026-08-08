@@ -13,8 +13,9 @@ intentPhrases:
   - 'undo last git commit'
   - 'reset working directory'
   - 'move head pointer'
-relatedCommands: [git-checkout, git-commit, git-revert]
-alternatives: [git-rebase, git-revert, git-rm]
+relatedCommands:
+  [git-bisect, git-checkout, git-clean, git-commit, git-reflog, git-restore, git-revert]
+alternatives: [git-rebase, git-restore, git-revert, git-rm]
 status: draft
 ---
 
