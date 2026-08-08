@@ -11,7 +11,6 @@
     "cron": [{ "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }],
     "job": [{ "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }],
     "edit": [{ "slug": "crontab", "boost": 5, "phrase": "edit crontab" }],
-    "automation": [{ "slug": "crontab", "boost": 3 }],
     "what": [{ "slug": "crontab", "boost": 1 }],
     "is": [{ "slug": "crontab", "boost": 1 }],
     "it": [{ "slug": "crontab", "boost": 1 }],
@@ -228,7 +227,6 @@
     "le$": ["schedule", "table", "file", "example"],
     "on$": [
       "cron",
-      "automation",
       "daemon",
       "description",
       "execution",
@@ -243,30 +241,6 @@
     "edi": ["edit", "redirect"],
     "dit": ["edit"],
     "it$": ["edit", "it", "explicit"],
-    "^au": ["automation", "automated"],
-    "aut": ["automation", "automated"],
-    "uto": ["automation", "automated"],
-    "tom": ["automation", "automated"],
-    "oma": ["automation", "automated"],
-    "mat": ["automation", "automated"],
-    "ati": ["automation", "alternatives"],
-    "tio": [
-      "automation",
-      "options",
-      "description",
-      "execution",
-      "questions",
-      "solution"
-    ],
-    "ion": [
-      "automation",
-      "options",
-      "description",
-      "expressions",
-      "execution",
-      "questions",
-      "solution"
-    ],
     "^wh": ["what", "why", "when"],
     "wha": ["what"],
     "hat": ["what"],
@@ -396,6 +370,12 @@
     ],
     "^of": ["of", "offer"],
     "of$": ["of"],
+    "^au": ["automated"],
+    "aut": ["automated"],
+    "uto": ["automated"],
+    "tom": ["automated"],
+    "oma": ["automated"],
+    "mat": ["automated"],
     "ate": ["automated", "evaluate"],
     "ted": ["automated", "executed", "distributed", "unexpected"],
     "^ba": ["background", "bash", "backups", "backup"],
@@ -461,6 +441,15 @@
     "^op": ["options", "opt"],
     "opt": ["options", "opt"],
     "pti": ["options", "description"],
+    "tio": ["options", "description", "execution", "questions", "solution"],
+    "ion": [
+      "options",
+      "description",
+      "expressions",
+      "execution",
+      "questions",
+      "solution"
+    ],
     "ons": ["options", "expressions", "questions"],
     "^fl": ["flags", "flag"],
     "fla": ["flags", "flag"],
@@ -667,6 +656,7 @@
     "ern": ["alternatives", "modern", "internally"],
     "rna": ["alternatives", "internally"],
     "nat": ["alternatives"],
+    "ati": ["alternatives"],
     "ves": ["alternatives"],
     "mod": ["modern"],
     "ode": ["modern"],
@@ -928,7 +918,7 @@
       "category": "cron",
       "difficulty": "intermediate",
       "supportedOS": ["linux", "macos", "unix"],
-      "tags": ["cron", "crontab", "schedule", "automation"]
+      "tags": ["crontab"]
     }
   }
 }

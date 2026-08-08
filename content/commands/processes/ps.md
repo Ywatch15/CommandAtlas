@@ -3,18 +3,25 @@ slug: ps
 name: ps
 aliases: []
 category: processes
-tags: [process, ps, status, inspect]
+tags:
+  - ps
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list running processes'
-  - 'find process ID'
+  - list running processes
+  - find process ID
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

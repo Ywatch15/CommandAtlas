@@ -20,8 +20,6 @@
     ],
     "format": [{ "slug": "jq", "boost": 5, "phrase": "format json output" }],
     "output": [{ "slug": "jq", "boost": 5, "phrase": "format json output" }],
-    "parser": [{ "slug": "jq", "boost": 3 }],
-    "filter": [{ "slug": "jq", "boost": 3 }],
     "devops": [{ "slug": "jq", "boost": 3 }],
     "utilities": [{ "slug": "jq", "boost": 3 }],
     "what": [{ "slug": "jq", "boost": 1 }],
@@ -33,6 +31,7 @@
     "processor": [{ "slug": "jq", "boost": 1 }],
     "designed": [{ "slug": "jq", "boost": 1 }],
     "to": [{ "slug": "jq", "boost": 1 }],
+    "filter": [{ "slug": "jq", "boost": 1 }],
     "transform": [{ "slug": "jq", "boost": 1 }],
     "slice": [{ "slug": "jq", "boost": 1 }],
     "and": [{ "slug": "jq", "boost": 1 }],
@@ -219,18 +218,10 @@
   "trigrams": {
     "^jq": ["jq", "jqlang"],
     "jq$": ["jq"],
-    "^pa": [
-      "parse",
-      "parser",
-      "payloads",
-      "package",
-      "parsing",
-      "parsed",
-      "payload"
-    ],
-    "par": ["parse", "parser", "parsing", "parsed"],
-    "ars": ["parse", "parser", "parsing", "parsed"],
-    "rse": ["parse", "parser", "parsed"],
+    "^pa": ["parse", "payloads", "package", "parsing", "parsed", "payload"],
+    "par": ["parse", "parsing", "parsed"],
+    "ars": ["parse", "parsing", "parsed"],
+    "rse": ["parse", "parsed"],
     "se$": ["parse", "response", "use"],
     "^js": ["json", "js"],
     "jso": ["json"],
@@ -298,21 +289,6 @@
     "tpu": ["output"],
     "put": ["output", "inputs"],
     "ut$": ["output", "without"],
-    "ser": ["parser", "user"],
-    "er$": ["parser", "filter", "per", "user"],
-    "^fi": ["filter", "file", "file1", "file2", "filters", "field"],
-    "fil": ["filter", "file", "file1", "file2", "filters"],
-    "ilt": ["filter", "built", "filters"],
-    "lte": ["filter", "alternatives", "filters"],
-    "ter": [
-      "filter",
-      "alternatives",
-      "internally",
-      "internal",
-      "literal",
-      "filters",
-      "interview"
-    ],
     "^de": ["devops", "designed", "description", "deployment", "deeply"],
     "dev": ["devops"],
     "evo": ["devops"],
@@ -412,6 +388,20 @@
     ],
     "^to": ["to", "tokens", "top"],
     "to$": ["to", "into"],
+    "^fi": ["filter", "file", "file1", "file2", "filters", "field"],
+    "fil": ["filter", "file", "file1", "file2", "filters"],
+    "ilt": ["filter", "built", "filters"],
+    "lte": ["filter", "alternatives", "filters"],
+    "ter": [
+      "filter",
+      "alternatives",
+      "internally",
+      "internal",
+      "literal",
+      "filters",
+      "interview"
+    ],
+    "er$": ["filter", "per", "user"],
     "^tr": ["transform", "tree"],
     "tra": ["transform", "extracting", "extracts", "extract"],
     "ran": ["transform"],
@@ -1068,6 +1058,7 @@
     "ems": ["problems"],
     "ms$": ["problems"],
     "em$": ["problem"],
+    "ser": ["user"],
     "^na": ["name", "names"],
     "ame": ["name", "names"],
     "me$": ["name"],
@@ -1097,8 +1088,8 @@
     "jq": {
       "category": "devops-utilities",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "unix", "windows"],
-      "tags": ["jq", "json", "parser", "filter"]
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["jq"]
     }
   }
 }

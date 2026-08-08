@@ -10,7 +10,6 @@
       { "slug": "cat", "boost": 5, "phrase": "concatenate files" }
     ],
     "files": [{ "slug": "cat", "boost": 5, "phrase": "concatenate files" }],
-    "print": [{ "slug": "cat", "boost": 3 }],
     "unix": [{ "slug": "cat", "boost": 3 }],
     "what": [{ "slug": "cat", "boost": 1 }],
     "is": [{ "slug": "cat", "boost": 1 }],
@@ -247,7 +246,7 @@
       "sequential",
       "argument"
     ],
-    "nt$": ["content", "print", "argument"],
+    "nt$": ["content", "argument"],
     "onc": ["concatenate", "concatenates"],
     "nca": ["concatenate", "concatenates"],
     "ate": ["concatenate", "concatenates", "navigate"],
@@ -271,28 +270,6 @@
       "practices",
       "references",
       "pages"
-    ],
-    "^pr": [
-      "print",
-      "provides",
-      "primitive",
-      "printing",
-      "practices",
-      "practice",
-      "problems",
-      "problem",
-      "printed"
-    ],
-    "pri": ["print", "primitive", "printing", "printed"],
-    "rin": ["print", "printing", "rendering", "printed"],
-    "int": [
-      "print",
-      "printing",
-      "into",
-      "integration",
-      "internally",
-      "interview",
-      "printed"
     ],
     "^un": ["unix", "unreadable"],
     "uni": ["unix"],
@@ -362,12 +339,23 @@
     "xis": ["exist"],
     "ist": ["exist", "mistakes"],
     "st$": ["exist", "best"],
+    "^pr": [
+      "provides",
+      "primitive",
+      "printing",
+      "practices",
+      "practice",
+      "problems",
+      "problem",
+      "printed"
+    ],
     "pro": ["provides", "problems", "problem"],
     "rov": ["provides"],
     "ovi": ["provides"],
     "vid": ["provides"],
     "ide": ["provides"],
     "des": ["provides", "description", "codes"],
+    "pri": ["primitive", "printing", "printed"],
     "rim": ["primitive"],
     "imi": ["primitive", "optimized"],
     "mit": ["primitive"],
@@ -390,6 +378,15 @@
     "^fo": ["for"],
     "for": ["for", "performance"],
     "or$": ["for", "or"],
+    "rin": ["printing", "rendering", "printed"],
+    "int": [
+      "printing",
+      "into",
+      "integration",
+      "internally",
+      "interview",
+      "printed"
+    ],
     "tin": ["printing", "inspecting", "highlighting", "settings"],
     "ing": [
       "printing",
@@ -912,7 +909,7 @@
       "category": "unix",
       "difficulty": "beginner",
       "supportedOS": ["linux", "macos", "unix"],
-      "tags": ["cat", "file", "print", "concatenate"]
+      "tags": ["cat"]
     }
   }
 }

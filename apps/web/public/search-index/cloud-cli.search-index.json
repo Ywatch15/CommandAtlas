@@ -14,7 +14,6 @@
     "s3": [{ "slug": "aws", "boost": 5, "phrase": "aws s3 sync files" }],
     "sync": [{ "slug": "aws", "boost": 5, "phrase": "aws s3 sync files" }],
     "files": [{ "slug": "aws", "boost": 5, "phrase": "aws s3 sync files" }],
-    "ec2": [{ "slug": "aws", "boost": 3 }],
     "cli": [{ "slug": "aws", "boost": 3 }],
     "what": [{ "slug": "aws", "boost": 1 }],
     "is": [{ "slug": "aws", "boost": 1 }],
@@ -38,6 +37,7 @@
     "automates": [{ "slug": "aws", "boost": 1 }],
     "interactions": [{ "slug": "aws", "boost": 1 }],
     "with": [{ "slug": "aws", "boost": 1 }],
+    "ec2": [{ "slug": "aws", "boost": 1 }],
     "iam": [{ "slug": "aws", "boost": 1 }],
     "lambda": [{ "slug": "aws", "boost": 1 }],
     "ecs": [{ "slug": "aws", "boost": 1 }],
@@ -288,9 +288,6 @@
     "fil": ["files", "profile", "filter"],
     "ile": ["files", "profile"],
     "les": ["files", "examples", "roles", "variables"],
-    "^ec": ["ec2", "ecs"],
-    "ec2": ["ec2"],
-    "c2$": ["ec2"],
     "cli": ["cli", "awscli"],
     "li$": ["cli", "awscli"],
     "^wh": ["what", "why", "when"],
@@ -488,6 +485,9 @@
     "wit": ["with"],
     "ith": ["with"],
     "th$": ["with"],
+    "^ec": ["ec2", "ecs"],
+    "ec2": ["ec2"],
+    "c2$": ["ec2"],
     "^ia": ["iam"],
     "iam": ["iam"],
     "am$": ["iam"],
@@ -1110,8 +1110,8 @@
     "aws": {
       "category": "cloud-cli",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "windows"],
-      "tags": ["aws", "cloud", "s3", "ec2", "cli"]
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["aws"]
     }
   }
 }

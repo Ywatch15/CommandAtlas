@@ -23,7 +23,6 @@
     "packages": [
       { "slug": "apt", "boost": 5, "phrase": "update system packages" }
     ],
-    "debian": [{ "slug": "apt", "boost": 3 }],
     "managers": [{ "slug": "apt", "boost": 3 }],
     "what": [{ "slug": "apt", "boost": 1 }],
     "is": [{ "slug": "apt", "boost": 1 }],
@@ -38,6 +37,7 @@
     "interface": [{ "slug": "apt", "boost": 1 }],
     "for": [{ "slug": "apt", "boost": 1 }],
     "management": [{ "slug": "apt", "boost": 1 }],
+    "debian": [{ "slug": "apt", "boost": 1 }],
     "and": [{ "slug": "apt", "boost": 1 }],
     "linux": [{ "slug": "apt", "boost": 1 }],
     "distributions": [{ "slug": "apt", "boost": 1 }],
@@ -324,12 +324,6 @@
       "fetches",
       "references"
     ],
-    "^de": ["debian", "description", "design", "deb", "dependency", "depend"],
-    "deb": ["debian", "deb"],
-    "ebi": ["debian"],
-    "bia": ["debian"],
-    "ian": ["debian"],
-    "an$": ["debian", "an", "can"],
     "^ma": ["managers", "management", "manage", "matching"],
     "man": ["managers", "command", "management", "manage", "performance"],
     "ana": ["managers", "management", "manage"],
@@ -441,6 +435,12 @@
     "men": ["management", "recommended", "documentation"],
     "ent": ["management", "documentation"],
     "nt$": ["management"],
+    "^de": ["debian", "description", "design", "deb", "dependency", "depend"],
+    "deb": ["debian", "deb"],
+    "ebi": ["debian"],
+    "bia": ["debian"],
+    "ian": ["debian"],
+    "an$": ["debian", "an", "can"],
     "^an": ["and", "an"],
     "inu": ["linux"],
     "nux": ["linux"],
@@ -1086,8 +1086,8 @@
     "apt": {
       "category": "package-managers",
       "difficulty": "beginner",
-      "supportedOS": ["linux"],
-      "tags": ["apt", "package", "install", "debian", "ubuntu"]
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["apt"]
     }
   }
 }

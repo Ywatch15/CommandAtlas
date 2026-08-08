@@ -36,12 +36,10 @@
       { "slug": "awk", "boost": 5, "phrase": "process structured text file" },
       { "slug": "search-and-copy-logs", "boost": 1 }
     ],
-    "columns": [{ "slug": "awk", "boost": 3 }],
     "processing": [
       { "slug": "awk", "boost": 3 },
       { "slug": "search-and-copy-logs", "boost": 3 }
     ],
-    "sed": [{ "slug": "awk", "boost": 2 }],
     "what": [{ "slug": "awk", "boost": 1 }],
     "is": [{ "slug": "awk", "boost": 1 }],
     "it": [{ "slug": "awk", "boost": 1 }],
@@ -341,7 +339,6 @@
     "ct$": ["extract"],
     "^co": [
       "column",
-      "columns",
       "counting",
       "conditional",
       "codes",
@@ -352,10 +349,10 @@
       "copy",
       "conducting"
     ],
-    "col": ["column", "columns"],
-    "olu": ["column", "columns", "solution"],
-    "lum": ["column", "columns"],
-    "umn": ["column", "columns"],
+    "col": ["column"],
+    "olu": ["column", "solution"],
+    "lum": ["column"],
+    "umn": ["column"],
     "mn$": ["column"],
     "^fr": ["from", "frequently"],
     "fro": ["from"],
@@ -411,7 +408,6 @@
     "red": ["structured"],
     "ed$": [
       "structured",
-      "sed",
       "designed",
       "based",
       "used",
@@ -429,8 +425,6 @@
     "fil": ["file", "files", "filtering", "filter"],
     "ile": ["file", "files", "while", "detailed"],
     "le$": ["file", "example", "variable", "simple", "while"],
-    "mns": ["columns"],
-    "ns$": ["columns", "options", "instructions", "questions"],
     "ssi": ["processing", "assign"],
     "sin": ["processing", "parsing", "using"],
     "ing": [
@@ -477,8 +471,6 @@
       "staging",
       "conducting"
     ],
-    "^se": ["sed", "separator", "sequence", "security", "search", "server"],
-    "sed": ["sed", "based", "used", "passed"],
     "^wh": ["what", "why", "when", "where", "whitespace", "while"],
     "wha": ["what"],
     "hat": ["what"],
@@ -679,6 +671,7 @@
     "^ba": ["based", "bash"],
     "bas": ["based", "bash"],
     "ase": ["based", "case"],
+    "sed": ["based", "used", "passed"],
     "^ma": ["manipulation", "malicious", "manual", "matching"],
     "man": ["manipulation", "performance", "manual"],
     "ani": ["manipulation"],
@@ -767,6 +760,7 @@
     "opt": ["options"],
     "pti": ["options", "description"],
     "ons": ["options", "response", "instructions", "questions"],
+    "ns$": ["options", "instructions", "questions"],
     "^ac": ["action", "access", "across"],
     "^fl": ["flags", "flag"],
     "fla": ["flags", "flag"],
@@ -787,6 +781,7 @@
     "def": ["define", "default"],
     "efi": ["define"],
     "fin": ["define", "final"],
+    "^se": ["separator", "sequence", "security", "search", "server"],
     "sep": ["separator"],
     "epa": ["separator"],
     "par": ["separator", "parsing"],
@@ -1339,7 +1334,7 @@
       "category": "text-processing",
       "difficulty": "intermediate",
       "supportedOS": ["linux", "macos", "unix"],
-      "tags": ["awk", "text", "columns", "processing"]
+      "tags": ["awk"]
     },
     "search-and-copy-logs": {
       "category": "text-processing",

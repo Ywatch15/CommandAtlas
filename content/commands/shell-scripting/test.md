@@ -3,18 +3,25 @@ slug: test
 name: test
 aliases: []
 category: shell-scripting
-tags: [shell, test, condition, evaluate]
+tags:
+  - test
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'check file existence in script'
-  - 'evaluate conditional expression'
-relatedCommands: [echo]
+  - check file existence in script
+  - evaluate conditional expression
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

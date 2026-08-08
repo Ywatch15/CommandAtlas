@@ -1,20 +1,27 @@
 ---
 slug: kubectl-get
-name: kubectl get
+name: kubectl-get
 aliases: []
 category: kubernetes
-tags: [kubernetes, kubectl, pods, get]
+tags:
+  - kubectl-get
 difficulty: intermediate
-supportedOS: [linux, macos, windows]
-supportedShells: [bash, zsh, powershell]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list kubernetes resources'
-  - 'get pod status'
+  - list kubernetes resources
+  - get pod status
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

@@ -1,8 +1,25 @@
 {
   "fromVersion": 0,
   "toVersion": 1,
-  "generatedAt": "2026-08-08T07:05:16.532Z",
-  "added": ["systemctl"],
+  "generatedAt": "2026-08-08T08:35:16.346Z",
+  "added": [
+    "alias",
+    "clear",
+    "date",
+    "dmesg",
+    "env",
+    "export",
+    "history",
+    "journalctl",
+    "man",
+    "screen",
+    "su",
+    "sudo",
+    "tmux",
+    "uptime",
+    "watch",
+    "whoami"
+  ],
   "modified": [],
   "removed": [],
   "affectedPacks": ["linux"]

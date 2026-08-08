@@ -3,18 +3,25 @@ slug: chmod
 name: chmod
 aliases: []
 category: permissions
-tags: [permissions, chmod, security]
+tags:
+  - chmod
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'change file permissions'
-  - 'make file executable'
+  - change file permissions
+  - make file executable
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

@@ -3,8 +3,6 @@
     "1234": [{ "slug": "get-process", "boost": 1 }],
     "get": [{ "slug": "get-process", "boost": 5 }],
     "process": [{ "slug": "get-process", "boost": 5 }],
-    "ps": [{ "slug": "get-process", "boost": 5 }],
-    "gps": [{ "slug": "get-process", "boost": 5 }],
     "list": [
       {
         "slug": "get-process",
@@ -36,7 +34,6 @@
     "info": [
       { "slug": "get-process", "boost": 5, "phrase": "get process info" }
     ],
-    "windows": [{ "slug": "get-process", "boost": 3 }],
     "what": [{ "slug": "get-process", "boost": 1 }],
     "is": [{ "slug": "get-process", "boost": 1 }],
     "it": [{ "slug": "get-process", "boost": 1 }],
@@ -113,6 +110,7 @@
     "time": [{ "slug": "get-process", "boost": 1 }],
     "interactive": [{ "slug": "get-process", "boost": 1 }],
     "gui": [{ "slug": "get-process", "boost": 1 }],
+    "windows": [{ "slug": "get-process", "boost": 1 }],
     "task": [{ "slug": "get-process", "boost": 1 }],
     "manager": [{ "slug": "get-process", "boost": 1 }],
     "resource": [{ "slug": "get-process", "boost": 1 }],
@@ -181,6 +179,7 @@
     "q": [{ "slug": "get-process", "boost": 1 }],
     "difference": [{ "slug": "get-process", "boost": 1 }],
     "between": [{ "slug": "get-process", "boost": 1 }],
+    "ps": [{ "slug": "get-process", "boost": 1 }],
     "bash": [{ "slug": "get-process", "boost": 1 }],
     "vs": [{ "slug": "get-process", "boost": 1 }],
     "outputs": [{ "slug": "get-process", "boost": 1 }],
@@ -238,10 +237,6 @@
     "ces": ["process", "processes", "practices", "references"],
     "ess": ["process", "processes", "sessions"],
     "ss$": ["process"],
-    "^ps": ["ps"],
-    "ps$": ["ps", "gps", "https"],
-    "^gp": ["gps"],
-    "gps": ["gps"],
     "^li": ["list", "lines"],
     "lis": ["list"],
     "ist": ["list", "exist", "administrator", "mistakes"],
@@ -295,13 +290,6 @@
     "inf": ["info", "fileversioninfo", "information"],
     "nfo": ["info", "fileversioninfo", "information", "unformatted"],
     "fo$": ["info", "fileversioninfo"],
-    "^wi": ["windows", "win32", "with"],
-    "win": ["windows", "win32"],
-    "ind": ["windows", "bindings"],
-    "ndo": ["windows"],
-    "dow": ["windows"],
-    "ows": ["windows"],
-    "ws$": ["windows"],
     "^wh": ["what", "why", "when", "where", "whereas"],
     "wha": ["what"],
     "hat": ["what", "that"],
@@ -717,6 +705,13 @@
     "^gu": ["gui"],
     "gui": ["gui"],
     "ui$": ["gui"],
+    "^wi": ["windows", "win32", "with"],
+    "win": ["windows", "win32"],
+    "ind": ["windows", "bindings"],
+    "ndo": ["windows"],
+    "dow": ["windows"],
+    "ows": ["windows"],
+    "ws$": ["windows"],
     "^ta": ["task"],
     "tas": ["task"],
     "ask": ["task"],
@@ -923,6 +918,8 @@
     "twe": ["between"],
     "wee": ["between"],
     "een": ["between"],
+    "^ps": ["ps"],
+    "ps$": ["ps", "https"],
     "^ba": ["bash"],
     "bas": ["bash"],
     "ash": ["bash"],
@@ -1001,8 +998,8 @@
     "get-process": {
       "category": "powershell",
       "difficulty": "beginner",
-      "supportedOS": ["windows", "linux", "macos"],
-      "tags": ["powershell", "process", "windows"]
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["get-process"]
     }
   }
 }

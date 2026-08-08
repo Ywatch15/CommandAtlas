@@ -1,32 +1,6 @@
 {
   "packId": "system-calls",
-  "commands": [
-    {
-      "slug": "strace",
-      "name": "strace",
-      "category": "system-calls",
-      "contentVersion": 1,
-      "frontmatter": {
-        "slug": "strace",
-        "name": "strace",
-        "aliases": [],
-        "category": "system-calls",
-        "tags": ["strace", "syscalls", "debug", "trace"],
-        "difficulty": "advanced",
-        "supportedOS": ["linux"],
-        "supportedShells": ["bash", "zsh", "sh"],
-        "intentPhrases": ["trace system calls", "debug process hanging"],
-        "relatedCommands": [],
-        "alternatives": [],
-        "status": "published",
-        "contentVersion": 1,
-        "lastUpdated": "2026-07-29",
-        "author": "commandatlas",
-        "usedInWorkflows": []
-      },
-      "body": "## What is it?\n\n`strace` is a diagnostic, debugging, and instructional utility for Linux that monitors system calls made by a process and signals received by it.\n\n## Why does it exist?\n\n`strace` allows engineers to inspect how binary applications interact with the kernel (file open errors, network socket failures, permission denied calls) without source code access.\n\n## Syntax\n\n```bash\nstrace [options] [command [args...]]\n```\n\n## Flags\n\n| Flag | Description                                    | Example                            |\n| ---- | ---------------------------------------------- | ---------------------------------- |\n| `-p` | Attach to running process PID                  | `strace -p 1234`                   |\n| `-e` | Filter specific syscall expressions            | `strace -e trace=open,read my_app` |\n| `-c` | Count time, calls, and errors for each syscall | `strace -c ls`                     |\n\n## Examples\n\n```bash\nstrace -e trace=openat,access myapp\n```\n\n> Traces file access attempts and file descriptors opened by `myapp`.\n\n## Real-World Scenarios\n\n**Debugging missing config files**: Finding which directory path a binary failed to open when exiting prematurely with vague errors.\n\n## When should it NOT be used?\n\n- **Production latency-sensitive performance profiling**: `strace` adds significant slowdown overhead due to ptrace context switching; eBPF tools (`bpftrace`) are better.\n\n## Alternatives\n\n- **`bpftrace`**: Low-overhead eBPF dynamic tracing framework for production systems.\n\n## How it works internally\n\n`strace` uses the Linux `ptrace(2)` kernel API to intercept process execution before and after every system call.\n\n## Performance Notes\n\nIntroduces massive execution slowdown (often 10x-50x) while active.\n\n## Security Notes\n\nTracing processes owned by other users requires `CAP_SYS_PTRACE` capability or root permissions.\n\n## Common Mistakes\n\n- **Running strace without filtering on noisy processes**: Generates gigabytes of unreadable syscall output.\n\n## Best Practices\n\n- Use `-f` to follow child processes created by `fork(2)` or `clone(2)`.\n\n## Interview Questions\n\n**Q:** Why does `strace` degrade application performance?\n**A:** Every syscall causes context switches between traced process, kernel, and strace debugger via `ptrace`.\n\n## Practice Problems\n\n**Problem:** Find summary statistics of system call counts and error rates for command `curl example.com`.\n**Solution:** `strace -c curl example.com`\n\n## References\n\n- [strace man page](https://www.man7.org/linux/man-pages/man1/strace.1.html)\n"
-    }
-  ],
+  "commands": [],
   "workflows": [],
   "categories": [
     {

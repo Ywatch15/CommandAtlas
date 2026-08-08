@@ -3,18 +3,25 @@ slug: crontab
 name: crontab
 aliases: []
 category: cron
-tags: [cron, crontab, schedule, automation]
+tags:
+  - crontab
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'schedule cron job'
-  - 'edit crontab'
+  - schedule cron job
+  - edit crontab
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

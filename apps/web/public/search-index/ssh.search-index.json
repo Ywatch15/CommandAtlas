@@ -25,7 +25,6 @@
     "connection": [
       { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
     ],
-    "security": [{ "slug": "ssh", "boost": 3 }],
     "what": [{ "slug": "ssh", "boost": 1 }],
     "is": [{ "slug": "ssh", "boost": 1 }],
     "it": [{ "slug": "ssh", "boost": 1 }],
@@ -151,6 +150,7 @@
     "hardware": [{ "slug": "ssh", "boost": 1 }],
     "encryption": [{ "slug": "ssh", "boost": 1 }],
     "acceleration": [{ "slug": "ssh", "boost": 1 }],
+    "security": [{ "slug": "ssh", "boost": 1 }],
     "disable": [{ "slug": "ssh", "boost": 1 }],
     "password": [{ "slug": "ssh", "boost": 1 }],
     "in": [{ "slug": "ssh", "boost": 1 }],
@@ -259,15 +259,15 @@
     "mot": ["remote"],
     "ote": ["remote", "notes"],
     "te$": ["remote", "private", "execute"],
-    "^se": ["server", "secure", "security", "securely", "session"],
+    "^se": ["server", "secure", "securely", "session", "security"],
     "ser": ["server", "user"],
     "erv": ["server", "interview"],
     "rve": ["server"],
     "ver": ["server", "over", "overhead"],
     "er$": ["server", "over", "user", "broader"],
-    "sec": ["secure", "security", "securely"],
-    "ecu": ["secure", "security", "securely", "execute"],
-    "cur": ["secure", "security", "securely"],
+    "sec": ["secure", "securely", "security"],
+    "ecu": ["secure", "securely", "execute", "security"],
+    "cur": ["secure", "securely", "security"],
     "ure": ["secure", "securely"],
     "re$": ["secure", "are", "hardware"],
     "^sh": ["shell", "should"],
@@ -324,10 +324,6 @@
       "invocation",
       "solution"
     ],
-    "uri": ["security"],
-    "rit": ["security"],
-    "ity": ["security", "identity"],
-    "ty$": ["security", "identity"],
     "^wh": ["what", "why", "when"],
     "wha": ["what"],
     "hat": ["what"],
@@ -581,6 +577,8 @@
     "^id": ["identity", "id"],
     "den": ["identity"],
     "tit": ["identity"],
+    "ity": ["identity", "security"],
+    "ty$": ["identity", "security"],
     "pri": ["private"],
     "riv": ["private"],
     "iva": ["private"],
@@ -885,6 +883,8 @@
     "cel": ["acceleration"],
     "ele": ["acceleration"],
     "ler": ["acceleration"],
+    "uri": ["security"],
+    "rit": ["security"],
     "dis": ["disable"],
     "isa": ["disable"],
     "sab": ["disable"],
@@ -1028,8 +1028,8 @@
     "ssh": {
       "category": "ssh",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "unix", "windows"],
-      "tags": ["ssh", "remote", "security"]
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["ssh"]
     }
   }
 }

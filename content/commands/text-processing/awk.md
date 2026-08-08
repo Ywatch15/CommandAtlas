@@ -3,18 +3,25 @@ slug: awk
 name: awk
 aliases: []
 category: text-processing
-tags: [awk, text, columns, processing]
+tags:
+  - awk
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'extract column from text'
-  - 'process structured text file'
-relatedCommands: [sed]
+  - extract column from text
+  - process structured text file
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

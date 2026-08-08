@@ -3,21 +3,28 @@ slug: cp
 name: cp
 aliases: []
 category: linux
-tags: [file-management, copy, filesystem]
+tags:
+  - cp
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'copy a file'
-  - 'duplicate a file'
-  - 'copy directory recursively'
-  - 'copy files preserving permissions'
-  - 'backup a file before editing'
-relatedCommands: [grep]
+  - copy a file
+  - duplicate a file
+  - copy directory recursively
+  - copy files preserving permissions
+  - backup a file before editing
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-21
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

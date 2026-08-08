@@ -17,7 +17,6 @@
     "report": [
       { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
     ],
-    "storage": [{ "slug": "df", "boost": 3 }],
     "file": [{ "slug": "df", "boost": 3 }],
     "systems": [{ "slug": "df", "boost": 3 }],
     "what": [{ "slug": "df", "boost": 1 }],
@@ -41,6 +40,7 @@
     "points": [{ "slug": "df", "boost": 1 }],
     "to": [{ "slug": "df", "boost": 1 }],
     "prevent": [{ "slug": "df", "boost": 1 }],
+    "storage": [{ "slug": "df", "boost": 1 }],
     "exhaustion": [{ "slug": "df", "boost": 1 }],
     "syntax": [{ "slug": "df", "boost": 1 }],
     "bash": [{ "slug": "df", "boost": 1 }],
@@ -260,11 +260,6 @@
     "por": ["report", "reporting", "reports"],
     "ort": ["report", "reporting", "reports"],
     "rt$": ["report"],
-    "^st": ["storage", "statvfs", "stats", "stale"],
-    "sto": ["storage"],
-    "tor": ["storage", "monitoring", "directory"],
-    "ora": ["storage"],
-    "rag": ["storage"],
     "le$": [
       "file",
       "available",
@@ -450,6 +445,11 @@
     "eve": ["prevent", "even"],
     "ven": ["prevent", "even"],
     "ent": ["prevent"],
+    "^st": ["storage", "statvfs", "stats", "stale"],
+    "sto": ["storage"],
+    "tor": ["storage", "monitoring", "directory"],
+    "ora": ["storage"],
+    "rag": ["storage"],
     "exh": ["exhaustion"],
     "xha": ["exhaustion"],
     "hau": ["exhaustion"],
@@ -968,7 +968,7 @@
       "category": "file-systems",
       "difficulty": "beginner",
       "supportedOS": ["linux", "macos", "unix"],
-      "tags": ["df", "disk", "storage", "filesystem"]
+      "tags": ["df"]
     }
   }
 }

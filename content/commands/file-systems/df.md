@@ -3,18 +3,25 @@ slug: df
 name: df
 aliases: []
 category: file-systems
-tags: [df, disk, storage, filesystem]
+tags:
+  - df
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'check free disk space'
-  - 'filesystem usage report'
+  - check free disk space
+  - filesystem usage report
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

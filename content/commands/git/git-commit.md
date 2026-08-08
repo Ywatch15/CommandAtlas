@@ -1,23 +1,30 @@
 ---
 slug: git-commit
-name: commit
+name: git-commit
 aliases: []
 category: git
-tags: [git, version-control, commit, history]
+tags:
+  - git-commit
 difficulty: beginner
-supportedOS: [linux, macos, windows]
-supportedShells: [bash, zsh, sh, powershell]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'save changes to git'
-  - 'record a snapshot in git'
-  - 'commit staged files'
-  - 'write a commit message'
-  - 'amend last commit'
-relatedCommands: [grep, cp]
+  - save changes to git
+  - record a snapshot in git
+  - commit staged files
+  - write a commit message
+  - amend last commit
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-21
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

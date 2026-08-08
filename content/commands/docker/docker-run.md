@@ -1,20 +1,27 @@
 ---
 slug: docker-run
-name: docker run
+name: docker-run
 aliases: []
 category: docker
-tags: [docker, container, run]
+tags:
+  - docker-run
 difficulty: intermediate
-supportedOS: [linux, macos, windows]
-supportedShells: [bash, zsh, powershell]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run a container'
-  - 'start docker container'
+  - run a container
+  - start docker container
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

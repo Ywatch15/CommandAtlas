@@ -40,9 +40,7 @@
       }
     ],
     "shell": [{ "slug": "test", "boost": 3 }],
-    "condition": [{ "slug": "test", "boost": 3 }],
     "scripting": [{ "slug": "test", "boost": 3 }],
-    "echo": [{ "slug": "test", "boost": 2 }],
     "what": [{ "slug": "test", "boost": 1 }],
     "is": [{ "slug": "test", "boost": 1 }],
     "it": [{ "slug": "test", "boost": 1 }],
@@ -100,6 +98,7 @@
     "config": [{ "slug": "test", "boost": 1 }],
     "json": [{ "slug": "test", "boost": 1 }],
     "then": [{ "slug": "test", "boost": 1 }],
+    "echo": [{ "slug": "test", "boost": 1 }],
     "fi": [{ "slug": "test", "boost": 1 }],
     "before": [{ "slug": "test", "boost": 1 }],
     "printing": [{ "slug": "test", "boost": 1 }],
@@ -291,7 +290,6 @@
     "te$": ["evaluate", "quote"],
     "^co": [
       "conditional",
-      "condition",
       "comparisons",
       "config",
       "command",
@@ -301,14 +299,13 @@
       "common",
       "coreutils"
     ],
-    "con": ["conditional", "condition", "config", "construct"],
-    "ond": ["conditional", "condition"],
-    "ndi": ["conditional", "condition"],
-    "dit": ["conditional", "condition"],
-    "iti": ["conditional", "condition", "primitives", "writing"],
+    "con": ["conditional", "config", "construct"],
+    "ond": ["conditional"],
+    "ndi": ["conditional"],
+    "dit": ["conditional"],
+    "iti": ["conditional", "primitives", "writing"],
     "tio": [
       "conditional",
-      "condition",
       "evaluation",
       "description",
       "execution",
@@ -321,7 +318,6 @@
     "ion": [
       "conditional",
       "expression",
-      "condition",
       "expressions",
       "evaluation",
       "description",
@@ -344,7 +340,6 @@
     "sio": ["expression", "expressions"],
     "on$": [
       "expression",
-      "condition",
       "evaluation",
       "description",
       "json",
@@ -407,10 +402,6 @@
       "quoting",
       "supporting"
     ],
-    "^ec": ["echo"],
-    "ech": ["echo"],
-    "cho": ["echo"],
-    "ho$": ["echo"],
     "^wh": ["what", "why", "while", "when", "whereas"],
     "wha": ["what"],
     "hat": ["what"],
@@ -659,6 +650,10 @@
     "jso": ["json"],
     "hen": ["then", "when"],
     "en$": ["then", "when", "between"],
+    "^ec": ["echo"],
+    "ech": ["echo"],
+    "cho": ["echo"],
+    "ho$": ["echo"],
     "fi$": ["fi"],
     "^be": ["before", "be", "best", "between"],
     "bef": ["before"],
@@ -1055,7 +1050,7 @@
       "category": "shell-scripting",
       "difficulty": "beginner",
       "supportedOS": ["linux", "macos", "unix"],
-      "tags": ["shell", "test", "condition", "evaluate"]
+      "tags": ["test"]
     }
   }
 }

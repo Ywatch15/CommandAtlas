@@ -3,18 +3,25 @@ slug: cat
 name: cat
 aliases: []
 category: unix
-tags: [cat, file, print, concatenate]
+tags:
+  - cat
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'read file content'
-  - 'concatenate files'
+  - read file content
+  - concatenate files
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

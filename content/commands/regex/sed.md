@@ -3,18 +3,25 @@ slug: sed
 name: sed
 aliases: []
 category: regex
-tags: [sed, stream, editor, substitute, regex]
+tags:
+  - sed
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'replace text in file'
-  - 'stream editor text replacement'
-relatedCommands: [awk, grep]
+  - replace text in file
+  - stream editor text replacement
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

@@ -1,24 +1,31 @@
 ---
 slug: systemctl
 name: systemctl
-aliases: [systemd, systemctl command]
-category: linux/system-management
-tags: [systemd, services, daemon, boot, administration]
+aliases: []
+category: linux
+tags:
+  - systemctl
 difficulty: intermediate
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'start a service'
-  - 'stop a service'
-  - 'restart nginx'
-  - 'enable service on boot'
-  - 'check service status'
-  - 'list running services'
-relatedCommands: [ps]
+  - start a service
+  - stop a service
+  - restart nginx
+  - enable service on boot
+  - check service status
+  - list running services
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-08-05
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

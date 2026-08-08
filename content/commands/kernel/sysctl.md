@@ -3,18 +3,25 @@ slug: sysctl
 name: sysctl
 aliases: []
 category: kernel
-tags: [kernel, sysctl, parameters, linux]
+tags:
+  - sysctl
 difficulty: advanced
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'tune kernel parameters'
-  - 'configure sysctl settings'
+  - tune kernel parameters
+  - configure sysctl settings
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

@@ -19,13 +19,13 @@
     "settings": [
       { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
     ],
-    "linux": [{ "slug": "sysctl", "boost": 3 }],
     "what": [{ "slug": "sysctl", "boost": 1 }],
     "is": [{ "slug": "sysctl", "boost": 1 }],
     "it": [{ "slug": "sysctl", "boost": 1 }],
     "reads": [{ "slug": "sysctl", "boost": 1 }],
     "and": [{ "slug": "sysctl", "boost": 1 }],
     "modifies": [{ "slug": "sysctl", "boost": 1 }],
+    "linux": [{ "slug": "sysctl", "boost": 1 }],
     "at": [{ "slug": "sysctl", "boost": 1 }],
     "runtime": [{ "slug": "sysctl", "boost": 1 }],
     "why": [{ "slug": "sysctl", "boost": 1 }],
@@ -255,11 +255,6 @@
     ],
     "ngs": ["settings"],
     "gs$": ["settings", "flags"],
-    "^li": ["linux", "live", "limits"],
-    "lin": ["linux", "disabling"],
-    "inu": ["linux"],
-    "nux": ["linux"],
-    "ux$": ["linux"],
     "^wh": ["what", "why", "when", "which"],
     "wha": ["what"],
     "hat": ["what"],
@@ -311,6 +306,11 @@
       "references",
       "pages"
     ],
+    "^li": ["linux", "live", "limits"],
+    "lin": ["linux", "disabling"],
+    "inu": ["linux"],
+    "nux": ["linux"],
+    "ux$": ["linux"],
     "^at": ["at"],
     "^ru": ["runtime", "run"],
     "run": ["runtime", "run"],
@@ -931,7 +931,7 @@
       "category": "kernel",
       "difficulty": "advanced",
       "supportedOS": ["linux", "macos", "unix"],
-      "tags": ["kernel", "sysctl", "parameters", "linux"]
+      "tags": ["sysctl"]
     }
   }
 }

@@ -1,20 +1,27 @@
 ---
 slug: get-process
-name: Get-Process
-aliases: [ps, gps]
+name: get-process
+aliases: []
 category: powershell
-tags: [powershell, process, windows]
+tags:
+  - get-process
 difficulty: beginner
-supportedOS: [windows, linux, macos]
-supportedShells: [powershell]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list processes in powershell'
-  - 'get process info'
+  - list processes in powershell
+  - get process info
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

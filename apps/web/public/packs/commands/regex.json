@@ -11,7 +11,7 @@
         "name": "sed",
         "aliases": [],
         "category": "regex",
-        "tags": ["sed", "stream", "editor", "substitute", "regex"],
+        "tags": ["sed"],
         "difficulty": "intermediate",
         "supportedOS": ["linux", "macos", "unix"],
         "supportedShells": ["bash", "zsh", "sh"],
@@ -19,11 +19,11 @@
           "replace text in file",
           "stream editor text replacement"
         ],
-        "relatedCommands": ["awk", "grep"],
+        "relatedCommands": [],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
-        "lastUpdated": "2026-07-29",
+        "lastUpdated": "2026-08-08",
         "author": "commandatlas",
         "usedInWorkflows": []
       },

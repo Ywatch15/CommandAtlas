@@ -1,23 +1,30 @@
 ---
 slug: grep
 name: grep
-aliases: [egrep, fgrep, rgrep]
-category: linux/text-processing
-tags: [text-processing, search, regex, filter]
+aliases: []
+category: linux
+tags:
+  - grep
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'search text in files'
-  - 'find pattern in file'
-  - 'filter lines matching pattern'
-  - 'search for string in directory'
-  - 'find all occurrences of word in codebase'
-relatedCommands: [cp]
+  - search text in files
+  - find pattern in file
+  - filter lines matching pattern
+  - search for string in directory
+  - find all occurrences of word in codebase
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-21
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 

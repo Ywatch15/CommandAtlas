@@ -11,9 +11,9 @@
         "name": "apt",
         "aliases": [],
         "category": "package-managers",
-        "tags": ["apt", "package", "install", "debian", "ubuntu"],
+        "tags": ["apt"],
         "difficulty": "beginner",
-        "supportedOS": ["linux"],
+        "supportedOS": ["linux", "macos", "unix"],
         "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "install package on ubuntu",
@@ -23,7 +23,7 @@
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
-        "lastUpdated": "2026-07-29",
+        "lastUpdated": "2026-08-08",
         "author": "commandatlas",
         "usedInWorkflows": []
       },

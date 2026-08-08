@@ -1069,8 +1069,8 @@
     "docker-run": {
       "category": "docker",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "windows"],
-      "tags": ["docker", "container", "run"]
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["docker-run"]
     }
   }
 }

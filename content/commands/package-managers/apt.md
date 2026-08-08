@@ -3,18 +3,25 @@ slug: apt
 name: apt
 aliases: []
 category: package-managers
-tags: [apt, package, install, debian, ubuntu]
+tags:
+  - apt
 difficulty: beginner
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'install package on ubuntu'
-  - 'update system packages'
+  - install package on ubuntu
+  - update system packages
 relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
-lastUpdated: 2026-07-29
+lastUpdated: 2026-08-08
 author: commandatlas
 ---
 
