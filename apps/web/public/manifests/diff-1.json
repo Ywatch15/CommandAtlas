@@ -1,9 +1,9 @@
 {
   "fromVersion": 0,
   "toVersion": 1,
-  "generatedAt": "2026-07-30T07:09:42.293Z",
-  "added": ["search-and-copy-logs"],
+  "generatedAt": "2026-08-08T07:05:16.532Z",
+  "added": ["systemctl"],
   "modified": [],
   "removed": [],
-  "affectedPacks": ["text-processing"]
+  "affectedPacks": ["linux"]
 }

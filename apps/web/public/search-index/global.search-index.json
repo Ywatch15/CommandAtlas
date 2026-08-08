@@ -91,7 +91,8 @@
       { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
     ],
     "command": [
-      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
+      { "slug": "systemctl", "boost": 5 }
     ],
     "line": [
       { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
@@ -106,17 +107,20 @@
         "boost": 5,
         "phrase": "record a snapshot in git"
       },
-      { "slug": "cp", "boost": 5, "phrase": "copy a file" }
+      { "slug": "cp", "boost": 5, "phrase": "copy a file" },
+      { "slug": "systemctl", "boost": 5, "phrase": "start a service" }
     ],
     "container": [
       { "slug": "docker-run", "boost": 5, "phrase": "run a container" }
     ],
     "start": [
-      { "slug": "docker-run", "boost": 5, "phrase": "start docker container" }
+      { "slug": "docker-run", "boost": 5, "phrase": "start docker container" },
+      { "slug": "systemctl", "boost": 5, "phrase": "start a service" }
     ],
     "df": [{ "slug": "df", "boost": 5 }],
     "check": [
       { "slug": "df", "boost": 5, "phrase": "check free disk space" },
+      { "slug": "systemctl", "boost": 5, "phrase": "check service status" },
       { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
     ],
     "free": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
@@ -186,6 +190,7 @@
         "boost": 5,
         "phrase": "list kubernetes resources"
       },
+      { "slug": "systemctl", "boost": 5, "phrase": "list running services" },
       {
         "slug": "get-process",
         "boost": 5,
@@ -202,7 +207,8 @@
     ],
     "pod": [{ "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" }],
     "status": [
-      { "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" }
+      { "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" },
+      { "slug": "systemctl", "boost": 5, "phrase": "check service status" }
     ],
     "cp": [{ "slug": "cp", "boost": 5 }],
     "copy": [{ "slug": "cp", "boost": 5, "phrase": "copy a file" }],
@@ -316,6 +322,31 @@
         "phrase": "find all occurrences of word in codebase"
       }
     ],
+    "systemctl": [{ "slug": "systemctl", "boost": 5 }],
+    "systemd": [{ "slug": "systemctl", "boost": 5 }],
+    "service": [
+      { "slug": "systemctl", "boost": 5, "phrase": "start a service" }
+    ],
+    "stop": [{ "slug": "systemctl", "boost": 5, "phrase": "stop a service" }],
+    "restart": [{ "slug": "systemctl", "boost": 5, "phrase": "restart nginx" }],
+    "nginx": [{ "slug": "systemctl", "boost": 5, "phrase": "restart nginx" }],
+    "enable": [
+      { "slug": "systemctl", "boost": 5, "phrase": "enable service on boot" }
+    ],
+    "on": [
+      { "slug": "systemctl", "boost": 5, "phrase": "enable service on boot" },
+      { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
+    ],
+    "boot": [
+      { "slug": "systemctl", "boost": 5, "phrase": "enable service on boot" }
+    ],
+    "running": [
+      { "slug": "systemctl", "boost": 5, "phrase": "list running services" },
+      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
+    ],
+    "services": [
+      { "slug": "systemctl", "boost": 5, "phrase": "list running services" }
+    ],
     "curl": [{ "slug": "curl", "boost": 5 }],
     "download": [
       { "slug": "curl", "boost": 5, "phrase": "download url content" }
@@ -336,9 +367,6 @@
       { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
     ],
     "package": [
-      { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
-    ],
-    "on": [
       { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
     ],
     "ubuntu": [
@@ -389,9 +417,6 @@
     ],
     "info": [
       { "slug": "get-process", "boost": 5, "phrase": "get process info" }
-    ],
-    "running": [
-      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
     ],
     "id": [{ "slug": "ps", "boost": 5, "phrase": "find process id" }],
     "sed": [{ "slug": "sed", "boost": 5 }],
@@ -544,19 +569,20 @@
       "report",
       "record",
       "recursively",
+      "restart",
       "request",
       "replace",
       "replacement",
       "remote",
       "read"
     ],
-    "res": ["resources", "preserving", "expression"],
+    "res": ["resources", "preserving", "restart", "expression"],
     "eso": ["resources"],
     "sou": ["resources"],
     "our": ["resources"],
     "urc": ["resources"],
     "rce": ["resources"],
-    "ces": ["resources", "occurrences", "process", "processes"],
+    "ces": ["resources", "occurrences", "services", "process", "processes"],
     "es$": [
       "resources",
       "files",
@@ -564,12 +590,13 @@
       "kubernetes",
       "lines",
       "occurrences",
+      "services",
       "packages",
       "processes"
     ],
     "^s3": ["s3"],
     "s3$": ["s3"],
-    "^sy": ["sync", "sysctl", "system"],
+    "^sy": ["sync", "sysctl", "systemctl", "systemd", "system"],
     "syn": ["sync"],
     "ync": ["sync"],
     "nc$": ["sync"],
@@ -590,7 +617,7 @@
     "edu": ["schedule"],
     "dul": ["schedule"],
     "ule": ["schedule"],
-    "le$": ["schedule", "file", "executable"],
+    "le$": ["schedule", "file", "enable", "executable"],
     "on$": ["cron", "json", "on", "expression", "connection"],
     "^jo": ["job"],
     "job": ["job"],
@@ -664,14 +691,15 @@
       "staged",
       "status",
       "string",
+      "stop",
       "stream",
       "strace",
       "structured"
     ],
-    "sta": ["start", "staged", "status", "install"],
-    "tar": ["start"],
-    "art": ["start"],
-    "rt$": ["start", "report"],
+    "sta": ["start", "staged", "status", "restart", "install"],
+    "tar": ["start", "restart"],
+    "art": ["start", "restart"],
+    "rt$": ["start", "report", "restart"],
     "^df": ["df"],
     "df$": ["df"],
     "^ch": ["check", "changes", "chmod", "change"],
@@ -690,12 +718,12 @@
     "spa": ["space"],
     "pac": ["space", "package", "packages"],
     "ace": ["space", "replace", "replacement", "strace", "trace"],
-    "ce$": ["space", "replace", "existence", "strace", "trace"],
+    "ce$": ["space", "service", "replace", "existence", "strace", "trace"],
     "esy": ["filesystem"],
-    "sys": ["filesystem", "sysctl", "system"],
-    "yst": ["filesystem", "system"],
-    "ste": ["filesystem", "system", "existence"],
-    "tem": ["filesystem", "system"],
+    "sys": ["filesystem", "sysctl", "systemctl", "systemd", "system"],
+    "yst": ["filesystem", "systemctl", "systemd", "system"],
+    "ste": ["filesystem", "systemctl", "systemd", "system", "existence"],
+    "tem": ["filesystem", "systemctl", "systemd", "system"],
     "em$": ["filesystem", "system"],
     "^us": ["usage"],
     "usa": ["usage"],
@@ -736,7 +764,7 @@
     "psh": ["snapshot"],
     "sho": ["snapshot"],
     "hot": ["snapshot"],
-    "ot$": ["snapshot"],
+    "ot$": ["snapshot", "boot"],
     "tag": ["staged"],
     "ged": ["staged"],
     "ed$": ["staged", "sed", "structured"],
@@ -762,8 +790,8 @@
     "st$": ["last", "list", "request", "test"],
     "ysc": ["sysctl"],
     "sct": ["sysctl"],
-    "ctl": ["sysctl", "kubectl"],
-    "tl$": ["sysctl", "kubectl"],
+    "ctl": ["sysctl", "kubectl", "systemctl"],
+    "tl$": ["sysctl", "kubectl", "systemctl"],
     "^tu": ["tune"],
     "tun": ["tune"],
     "une": ["tune"],
@@ -785,7 +813,15 @@
     "gur": ["configure"],
     "ure": ["configure", "secure", "structured"],
     "re$": ["configure", "before", "secure"],
-    "^se": ["settings", "search", "sed", "server", "secure"],
+    "^se": [
+      "settings",
+      "search",
+      "service",
+      "services",
+      "sed",
+      "server",
+      "secure"
+    ],
     "set": ["settings"],
     "ett": ["settings"],
     "tti": ["settings"],
@@ -851,9 +887,9 @@
     "ly$": ["recursively"],
     "pre": ["preserving", "expression"],
     "ese": ["preserving"],
-    "ser": ["preserving", "server"],
-    "erv": ["preserving", "server"],
-    "rvi": ["preserving"],
+    "ser": ["preserving", "service", "services", "server"],
+    "erv": ["preserving", "service", "services", "server"],
+    "rvi": ["preserving", "service", "services"],
     "vin": ["preserving"],
     "ng$": [
       "preserving",
@@ -934,6 +970,33 @@
     "eba": ["codebase"],
     "bas": ["codebase"],
     "ase": ["codebase"],
+    "emc": ["systemctl"],
+    "mct": ["systemctl"],
+    "emd": ["systemd"],
+    "md$": ["systemd"],
+    "vic": ["service", "services"],
+    "ice": ["service", "services"],
+    "sto": ["stop"],
+    "top": ["stop"],
+    "op$": ["stop"],
+    "est": ["restart", "request", "test"],
+    "^ng": ["nginx"],
+    "ngi": ["nginx", "hanging"],
+    "gin": ["nginx", "hanging"],
+    "inx": ["nginx"],
+    "nx$": ["nginx"],
+    "^en": ["enable"],
+    "ena": ["enable", "concatenate"],
+    "nab": ["enable"],
+    "abl": ["enable", "executable"],
+    "ble": ["enable", "executable"],
+    "^on": ["on"],
+    "^bo": ["boot"],
+    "boo": ["boot"],
+    "oot": ["boot"],
+    "unn": ["running"],
+    "nni": ["running"],
+    "nin": ["running"],
     "^cu": ["curl"],
     "url": ["curl", "url"],
     "rl$": ["curl", "url"],
@@ -959,7 +1022,6 @@
     "equ": ["request"],
     "que": ["request"],
     "ues": ["request"],
-    "est": ["request", "test"],
     "^ap": ["apt"],
     "apt": ["apt"],
     "ins": ["install"],
@@ -967,7 +1029,6 @@
     "tal": ["install"],
     "cka": ["package", "packages"],
     "kag": ["package", "packages"],
-    "^on": ["on"],
     "^ub": ["ubuntu"],
     "ubu": ["ubuntu"],
     "bun": ["ubuntu"],
@@ -986,8 +1047,6 @@
     "xec": ["executable"],
     "cut": ["executable"],
     "uta": ["executable"],
-    "abl": ["executable"],
-    "ble": ["executable"],
     "pro": ["process", "processes"],
     "roc": ["process", "processes"],
     "oce": ["process", "processes"],
@@ -1008,9 +1067,6 @@
     "inf": ["info"],
     "nfo": ["info"],
     "fo$": ["info"],
-    "unn": ["running"],
-    "nni": ["running"],
-    "nin": ["running"],
     "^id": ["id"],
     "id$": ["id"],
     "sed": ["sed"],
@@ -1066,8 +1122,6 @@
     "bug": ["debug"],
     "ug$": ["debug"],
     "^ha": ["hanging"],
-    "ngi": ["hanging"],
-    "gin": ["hanging"],
     "awk": ["awk"],
     "wk$": ["awk"],
     "xtr": ["extract"],
@@ -1089,7 +1143,6 @@
     "ead": ["read"],
     "onc": ["concatenate"],
     "nca": ["concatenate"],
-    "ena": ["concatenate"],
     "nat": ["concatenate"],
     "^an": ["and"],
     "^lo": ["log"],
@@ -1162,6 +1215,12 @@
       "difficulty": "intermediate",
       "supportedOS": ["linux", "macos", "unix"],
       "tags": ["text-processing", "search", "regex", "filter"]
+    },
+    "systemctl": {
+      "category": "linux",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux"],
+      "tags": ["systemd", "services", "daemon", "boot", "administration"]
     },
     "curl": {
       "category": "networking",

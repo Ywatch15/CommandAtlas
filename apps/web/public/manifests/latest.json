@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-05T05:21:20.083Z",
+  "generatedAt": "2026-08-08T07:07:43.731Z",
   "packs": [
     {
       "packId": "bash",
@@ -68,8 +68,8 @@
     {
       "packId": "linux",
       "version": 1,
-      "size": 30251,
-      "checksum": "680978d6680d018f9c99b0ef1d9fc75919c80f318c9ae609623c2cd0b95d4e91",
+      "size": 40167,
+      "checksum": "6435ca39d2a4c50ac283e5452fdf5e762e06d3580acd0713f6aeaa5c2da4c39a",
       "url": "/packs/commands/linux.json"
     },
     {
