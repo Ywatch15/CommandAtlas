@@ -4,30 +4,27 @@ name: screen
 aliases: []
 category: linux
 tags:
-  - multiplexer
-  - terminal
-  - session-management
-  - background-jobs
-  - pty
+  - screen
 difficulty: intermediate
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - run process in background
   - resume ssh session
   - keep terminal alive after disconnect
   - multiplex shell
   - share terminal session
-relatedCommands:
-  - tmux
-alternatives:
-  - tmux
+relatedCommands: []
+alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

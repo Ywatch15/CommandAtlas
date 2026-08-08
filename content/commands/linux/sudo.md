@@ -4,31 +4,27 @@ name: sudo
 aliases: []
 category: linux
 tags:
-  - security
-  - privilege-escalation
-  - root
-  - admin
-  - authentication
+  - sudo
 difficulty: intermediate
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - run command as root
   - execute as admin
   - switch user context
   - bypass permission denied
   - elevate privileges
-relatedCommands:
-  - su
-  - chmod
-alternatives:
-  - su
+relatedCommands: []
+alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

@@ -10,10 +10,13 @@ supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - tune kernel parameters
   - configure sysctl settings

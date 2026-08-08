@@ -4,28 +4,26 @@ name: clear
 aliases: []
 category: linux
 tags:
-  - terminal
-  - display
-  - ncurses
-  - screen-management
-  - formatting
+  - clear
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - clear the terminal screen
   - wipe terminal output
   - clear scrollback buffer
   - reset console display
   - clean shell screen
-relatedCommands:
-  - echo
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1

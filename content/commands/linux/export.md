@@ -4,30 +4,27 @@ name: export
 aliases: []
 category: linux
 tags:
-  - environment
-  - variables
-  - shell
-  - subshell
-  - configuration
+  - export
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - set environment variable
   - make variable global in bash
   - add to PATH
   - pass variable to child process
   - export bash function
-relatedCommands:
-  - env
-alternatives:
-  - env
+relatedCommands: []
+alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

@@ -4,29 +4,26 @@ name: whoami
 aliases: []
 category: linux
 tags:
-  - users
-  - identity
-  - permissions
-  - scripting
-  - coreutils
+  - whoami
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - check current user
   - am i root
   - print effective user id
   - who am i logged in as
   - verify sudo user
-relatedCommands:
-  - su
-  - sudo
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1

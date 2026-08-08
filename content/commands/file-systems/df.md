@@ -10,10 +10,13 @@ supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - check free disk space
   - filesystem usage report

@@ -4,30 +4,26 @@ name: history
 aliases: []
 category: linux
 tags:
-  - shell
-  - bash-builtin
-  - logging
-  - productivity
-  - cli
+  - history
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - view previous commands
   - search command history
   - repeat last command
   - clear bash history
   - find old terminal commands
-relatedCommands:
-  - grep
-  - clear
-  - export
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1

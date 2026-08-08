@@ -1,6 +1,6 @@
 ---
 slug: git-commit
-name: git-commit
+name: git commit
 aliases: []
 category: git
 tags:
@@ -10,10 +10,13 @@ supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - save changes to git
   - record a snapshot in git

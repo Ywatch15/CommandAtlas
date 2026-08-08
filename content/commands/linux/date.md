@@ -4,19 +4,19 @@ name: date
 aliases: []
 category: linux
 tags:
-  - time
-  - system-clock
-  - formatting
-  - shell-scripting
+  - date
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - get current time
   - format date string

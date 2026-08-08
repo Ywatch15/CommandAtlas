@@ -4,31 +4,27 @@ name: su
 aliases: []
 category: linux
 tags:
-  - users
-  - security
-  - shell
-  - authentication
-  - privilege-escalation
+  - su
 difficulty: intermediate
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - switch to root user
   - login as another user
   - change active user
   - run command as different user
   - bypass nologin shell
-relatedCommands:
-  - sudo
-  - whoami
-alternatives:
-  - sudo
+relatedCommands: []
+alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

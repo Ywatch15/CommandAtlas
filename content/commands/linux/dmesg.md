@@ -10,10 +10,13 @@ supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - check kernel logs
   - find out why process was killed by OOM killer

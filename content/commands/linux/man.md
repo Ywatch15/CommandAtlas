@@ -4,20 +4,19 @@ name: man
 aliases: []
 category: linux
 tags:
-  - documentation
-  - help
-  - manual
-  - reference
-  - groff
+  - man
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - how to use a command
   - find command options

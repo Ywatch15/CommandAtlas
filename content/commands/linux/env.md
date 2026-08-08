@@ -4,29 +4,27 @@ name: env
 aliases: []
 category: linux
 tags:
-  - environment
-  - process
-  - shell
-  - execution
+  - env
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - list environment variables
   - set env var temporarily
   - run command with env
   - shebang env python
   - clear environment variables
-relatedCommands:
-  - export
-alternatives:
-  - export
+relatedCommands: []
+alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

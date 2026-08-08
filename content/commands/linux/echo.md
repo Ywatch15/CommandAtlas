@@ -4,31 +4,27 @@ name: echo
 aliases: []
 category: linux
 tags:
-  - shell-scripting
-  - text-processing
-  - stdout
-  - scripting
-  - variables
+  - echo
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - print text to terminal
   - write variable to file
   - output string in bash
   - display environment variable
   - append text to file
-relatedCommands:
-  - cat
-  - env
-alternatives:
-  - cat
+relatedCommands: []
+alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

@@ -4,28 +4,26 @@ name: alias
 aliases: []
 category: linux
 tags:
-  - shell
-  - shortcuts
-  - productivity
-  - bash-builtin
-  - configuration
+  - alias
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - create custom command
   - shorten terminal command
   - list shell aliases
   - override default command behavior
   - make shortcut for long command
-relatedCommands:
-  - export
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1

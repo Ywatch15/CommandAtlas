@@ -4,28 +4,26 @@ name: watch
 aliases: []
 category: linux
 tags:
-  - monitoring
-  - terminal
-  - automation
-  - processes
-  - ncurses
+  - watch
 difficulty: beginner
 supportedOS:
   - linux
   - macos
   - unix
+  - windows
 supportedShells:
   - bash
   - zsh
   - sh
+  - powershell
+  - cmd
 intentPhrases:
   - run command repeatedly
   - monitor command output in real time
   - refresh terminal command
   - highlight changes in command output
   - execute command every second
-relatedCommands:
-  - clear
+relatedCommands: []
 alternatives: []
 status: published
 contentVersion: 1
