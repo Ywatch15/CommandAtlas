@@ -23,8 +23,8 @@ intentPhrases:
   - commit staged files
   - write a commit message
   - amend last commit
-relatedCommands: []
-alternatives: []
+relatedCommands: [git-cherry-pick, git-rebase, git-reset, git-revert, git-stash]
+alternatives: [git-stash]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

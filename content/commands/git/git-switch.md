@@ -23,7 +23,7 @@ intentPhrases:
   - change active git branch
   - checkout branch safely
   - go to previous branch
-relatedCommands: []
+relatedCommands: [git-merge, git-stash]
 alternatives: []
 status: published
 contentVersion: 1

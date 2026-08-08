@@ -1,200 +1,185 @@
 ---
-slug: git-rebase
-name: git rebase
+slug: git-merge
+name: git merge
 aliases: []
 category: git
-tags: [version-control, history-rewriting, commits, branching, interactive]
-difficulty: advanced
+tags: [version-control, merge, branching, integration, scm]
+difficulty: intermediate
 supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedShells: [bash, zsh, powershell, sh]
 intentPhrases:
-  - 'squash commits together'
-  - 'update branch with main'
-  - 'rewrite git history'
-  - 'move branch to another base'
-  - 'resolve rebase conflicts'
-relatedCommands: [git merge, git cherry-pick, git commit, git push, git reflog]
-alternatives: [git merge, git cherry-pick, git reset]
+  - 'merge branches'
+  - 'combine git branches'
+  - 'join development histories'
+  - 'incorporate feature branch'
+  - 'resolve merge conflicts'
+relatedCommands: [git-branch, git-checkout, git-cherry-pick, git-rebase, git-switch]
+alternatives: [git-rebase]
 status: draft
 ---
 
 ## What is it?
 
-`git rebase` is a powerful version control command that integrates changes from one branch into another by modifying the foundational commit (the "base") of the current branch. Instead of generating a new merge commit that ties two divergent histories together, rebase extracts the individual commits from your current branch and reapplies them sequentially on top of the specified target branch. This process rewrites the commit history, generating entirely new cryptographic SHA-1 hashes for the reapplied commits, resulting in a perfectly linear, sequential project timeline.
+`git merge` is a core version control command used to join two or more development histories together into a single branch. It integrates changes from a target commit or branch into your current working branch, automatically synthesizing separate lines of code through a sophisticated 3-way merge algorithm.
 
 ## Why does it exist?
 
-In highly active, distributed repositories, frequent `git merge` operations create a convoluted, diamond-patterned DAG (Directed Acyclic Graph) of commits, often cluttered with extraneous "Merge branch 'X' into 'Y'" messages. This non-linear history is notoriously difficult to read, audit, or traverse using tools like `git bisect`. `git rebase` exists to solve this by allowing developers to port their local, unpushed work on top of the latest upstream changes, pretending as if their feature was authored consecutively after the upstream code, thereby preserving a clean, mathematically linear, and easily bisectable project history.
+In collaborative software development, engineers routinely work on isolated feature branches to prevent breaking the production codebase. However, these isolated timelines must eventually be unified. `git merge` exists to reconcile divergent commit graphs. It provides an automated, historically traceable mechanism to combine modifications, preserve the chronological context of both parent branches via merge commits, and flag overlapping edits for manual resolution.
 
 ## Syntax
 
 ```bash
-git rebase [options] [<upstream> [<branch>]]
-git rebase [-i | --interactive] [options] [--exec <cmd>] [--onto <newbase>] [<upstream> [<branch>]]
-git rebase --continue | --skip | --abort | --quit
+git merge [-n] [--stat] [--no-commit] [--edit] [--no-ff] [--ff-only]
+          [--squash] [-s <strategy>] [-X <strategy-option>]
+          [-m <msg>] [--into-name <branch>] [<commit>...]
+git merge (--continue | --abort | --quit)
 ```
 
 ## Flags
 
-| Flag                    | Description                                                                                                                                         | Example                                      |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `-i`, `--interactive`   | Opens a text editor with a list of commits to be rebased, allowing the user to squash, reorder, edit, or drop individual commits.                   | `git rebase -i HEAD~3`                       |
-| `--onto <newbase>`      | Specifies a precise new starting point for the rebase, allowing a branch to be transplanted to a completely different lineage.                      | `git rebase --onto main feature-a feature-b` |
-| `--continue`            | Resumes the rebase process after the user has manually resolved merge conflicts or finished editing a commit during an interactive rebase.          | `git rebase --continue`                      |
-| `--abort`               | Cancels the rebase entirely, discarding any resolved conflicts and resetting the branch and working tree to their pre-rebase state.                 | `git rebase --abort`                         |
-| `--skip`                | Bypasses the current commit being applied. Used when the commit's changes are completely overwritten by the new base or no longer relevant.         | `git rebase --skip`                          |
-| `-x`, `--exec <cmd>`    | Appends a shell command after each commit in an interactive rebase. If the command fails (non-zero exit), the rebase pauses.                        | `git rebase -x "npm test" main`              |
-| `--autostash`           | Automatically stashes uncommitted working directory changes before starting the rebase, and unstashes them when the rebase completes.               | `git rebase --autostash origin/main`         |
-| `--autosquash`          | Automatically squashes commits whose messages begin with `fixup!` or `squash!` into their corresponding target commits during `-i`.                 | `git rebase -i --autosquash main`            |
-| `-r`, `--rebase-merges` | Preserves branch topology by recreating merge commits during the rebase, rather than flattening them out (replaces deprecated `--preserve-merges`). | `git rebase -r origin/main`                  |
-| `--root`                | Rebases all commits reachable from the current branch down to the repository's root (first commit), allowing you to rewrite the initial commit.     | `git rebase -i --root`                       |
+| Flag                          | Description                                                                                                              | Example                                 |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| `--no-ff`                     | Creates a merge commit even if the merge could be resolved as a fast-forward, preserving branch history context.         | `git merge --no-ff feature-branch`      |
+| `--ff-only`                   | Refuses to merge unless the current branch is an ancestor of the target, preventing any non-fast-forward merge commits.  | `git merge --ff-only origin/main`       |
+| `--squash`                    | Combines all changes from the target branch into a single staging-area delta without creating an immediate merge commit. | `git merge --squash feature-auth`       |
+| `-m`, `--msg`                 | Specifies the commit message to be used for the generated merge commit.                                                  | `git merge -m "Merge login feature"`    |
+| `--no-commit`                 | Performs the merge integration but stops right before writing the commit, allowing manual inspection or file edits.      | `git merge --no-commit feature-ui`      |
+| `-s`, `--strategy=`           | Selects a specific merging strategy (e.g., `ort`, `recursive`, `octopus`, `ours`, `theirs`).                             | `git merge -s recursive -X patience`    |
+| `-X`, `--strategy-option=`    | Passes a strategy-specific option (like `ours` or `theirs` conflict resolution) to the chosen merge strategy.            | `git merge -X theirs feature-api`       |
+| `--stat`                      | Displays a diffstat summary (files changed, insertions, deletions) at the end of the merge operation.                    | `git merge --stat feature-docs`         |
+| `--abort`                     | Aborts the current merge process, resets the index, and restores the working tree to the pre-merge state.                | `git merge --abort`                     |
+| `--continue`                  | Resumes a paused merge operation after the user has manually resolved conflicts and staged the affected files.           | `git merge --continue`                  |
+| `--allow-unrelated-histories` | Forces Git to merge two projects that share no common commit ancestor (useful when joining independent repositories).    | `git merge --allow-unrelated-histories` |
 
 ## Examples
 
 ```bash
-git rebase main
+git merge feature-login
 ```
 
-> Standard rebase. Calculates the common ancestor of the current branch and `main`, detaches the commits unique to the current branch, updates the current branch's base to the tip of `main`, and reapplies the detached commits one by one.
+> This merges the commits from the `feature-login` branch into your currently checked-out branch. If your current branch has not advanced since the feature branch was branched, Git performs a fast-forward merge by simply sliding the branch pointer forward.
 
 ```bash
-git rebase -i HEAD~4
+git merge --no-ff feature-payment
 ```
 
-> Initiates an interactive rebase for the last 4 commits of the current branch. An editor opens presenting the commits in chronological order (oldest first). Changing the prefix from `pick` to `squash` (or `s`) will meld a commit into the one above it.
+> This forces Git to generate a formal merge commit even if a fast-forward merge was mathematically possible. This is commonly used in professional workflows to ensure the permanent graphical preservation of feature branch boundaries in the commit history graph.
 
 ```bash
-git rebase --onto main feature-v1 feature-v2
+git merge --squash feature-experimental
 ```
 
-> A surgical transplant. Takes the commits that are in `feature-v2` but _not_ in `feature-v1`, and reapplies them directly onto the tip of `main`. Crucial when `feature-v2` was originally branched off `feature-v1`, but `feature-v1` is no longer needed.
+> This collapses all individual, messy commits from the `feature-experimental` branch into a single uncommitted set of file modifications staged in your working directory, allowing you to craft one clean, atomic commit.
 
 ```bash
-git rebase -x "pytest tests/" origin/main
+git merge -X theirs hotfix-db
 ```
 
-> Rebases the current branch onto `origin/main`, but halts the rebase after every single commit application to run `pytest tests/`. This guarantees that every individual commit in a PR compiles and passes tests, ensuring `git bisect` will not break in the future.
+> This initiates a merge while instructing Git's internal strategy engine to automatically favor changes from the incoming branch (`hotfix-db`) whenever an overlapping file conflict occurs, bypassing manual file edits.
 
 ```bash
-git rebase --abort
+git merge --abort
 ```
 
-> Aborts an active rebase. If you hit a massive, unresolvable merge conflict during a rebase step and realize you made a mistake, this command instantly destroys the temporary rebase state and restores your branch to exactly how it was before you typed `git rebase`.
+> If a merge operation encounters complex conflicts and you become overwhelmed or wish to abandon the integration attempt entirely, this command instantly resets your working tree and index back to the exact clean state before the merge began.
 
 ## Real-World Scenarios
 
-**Squashing "WIP" Commits Before a Pull Request**
+**Integrating completed feature branches into main**
 
 ```bash
-git rebase -i origin/main
-# In editor: change 'pick' to 'squash' for intermediate commits
-git push --force-with-lease origin feature-auth
+git checkout main && git merge --no-ff feature/user-profile
 ```
 
-> Developers frequently commit rapid, messy snapshots (e.g., "wip", "fix typo", "actually fix bug") to their local branches. Before opening a Pull Request, an engineer runs an interactive rebase against `origin/main` to squash these granular steps into a single, cohesive, atomic commit with a detailed message.
+> When a pull request is approved, the maintainer checks out the primary production branch and merges the feature branch using `--no-ff`. This guarantees that a distinct merge node appears in the project graph, explicitly marking the integration lifecycle of that specific feature.
 
-**Updating a Stale Branch with Upstream Changes**
+**Unifying divergent local and remote timelines**
 
 ```bash
-git fetch origin
-git rebase origin/main
+git merge origin/main
 ```
 
-> If a feature branch has been active for weeks, the upstream `main` branch has likely moved forward significantly. Instead of creating a messy merge commit to pull in the latest architecture changes, the developer fetches the latest upstream data and rebases their feature branch onto it, cleanly placing their isolated work on top of the newest codebase.
+> When working collaboratively without rebasing, an engineer checks out their local branch and merges the newly fetched remote tracking branch. This combines upstream changes into their local workspace, generating a merge commit if both timelines have progressed independently.
 
-**Extracting a PR out of a Monolithic Branch**
+**Joining two historically independent open-source repositories**
 
 ```bash
-git rebase --onto main HEAD~3 HEAD
+git merge upstream/main --allow-unrelated-histories
 ```
 
-> An engineer accidentally wrote three commits for a new UI component on top of an unrelated, unmerged backend branch. To separate them for an independent PR, they use `--onto` to take the last three commits (`HEAD~3` to `HEAD`) and replay them directly onto `main`, effectively detaching the UI work from the backend work.
+> When an organization acquires another project or merges an independent code repository into a monorepo, the commit histories do not share an origin root. Using `--allow-unrelated-histories` bypasses safety checks, forcing Git to calculate a valid merge across completely disjoint graphs.
 
 ## When should it NOT be used?
 
-- **On Shared/Public Branches:** **The Golden Rule of Rebasing: Never rebase commits that exist outside your repository.** If you rebase a branch that coworkers have already pulled and based their work on, you rewrite the commit hashes. When they try to pull or push, Git will see divergent histories, resulting in catastrophic, duplicate-commit merge conflicts for the entire team.
-- **When Historical Context is Critical:** **Do not use rebase if you need an exact audit trail of when code was integrated.** Rebasing lies about history—it changes the commit timestamps and DAG lineage to look perfect. If strict regulatory auditing requires knowing exactly when a feature branch was merged alongside other concurrent work, use `git merge --no-ff`.
-- **Massive, Long-Lived Branch Integration:** **Do not rebase a branch that is hundreds of commits behind.** Because rebase applies commits iteratively, a conflict in an early commit may force you to manually resolve that identical conflict repeatedly for every subsequent commit. Use `git merge` to resolve all conflicts exactly once.
+- **Maintaining a strictly linear, noise-free commit history:** Using default fast-forward or merging across long-lived branches without `--no-ff`. **Reason:** Uncontrolled merging creates a messy web of intersecting commit lines that make `git log` difficult to audit. **Use instead:** `git rebase` or strict pull-request rebase-and-merge workflows.
+- **Integrating incomplete, messy work-in-progress:** Merging a feature branch filled with hundreds of broken "fix typo" or "test" commits directly into production. **Reason:** It pollutes the production timeline with uninformative historical debris. **Use instead:** Interactive rebase (`git rebase -i`) to squash commits before executing the merge.
+- **Attempting to resolve unknown merge conflicts blindly:** Forcing a merge when you do not understand the architectural divergence. **Reason:** Blindly accepting `--strategy-option theirs` can silently overwrite critical production logic with outdated code. **Use instead:** Careful manual resolution or aborting via `git merge --abort`.
 
 ## Alternatives
 
-- **`git merge`:** **Best for collaborative branch integration.** Merging preserves the exact historical timeline and commit SHAs, creating a distinct "merge commit" that ties two histories together. It is safe for shared branches and requires resolving conflicts only once.
-- **`git cherry-pick`:** **Best for grabbing specific commits.** While `--onto` can transplant a range of commits, `cherry-pick` is vastly simpler if you only need to copy one or two specific bugfix commits from a different branch onto your current branch without moving the branch's base.
-- **`git reset --soft`:** **Best for quick, blunt squashing.** If you just want to collapse all your unpushed commits into one without dealing with the interactive text editor, `git reset --soft <target>` leaves all the file modifications staged, allowing you to instantly write a single `git commit`.
+- **`git rebase`:** The primary alternative workflow integration tool. **Tradeoff:** `rebase` rewrites local history by replaying your commits on top of another branch tip, producing a clean, perfectly linear history without merge commits. However, it rewrites commit hashes, making it dangerous to use on public, shared branches because it desynchronizes team timelines.
+- **`git pull`:** A macro command that combines `git fetch` and `git merge` (or `git rebase`). **Tradeoff:** `git pull` is convenient for syncing with a remote server in one step, but abstracts away the explicit control you have when executing `git fetch` followed by a deliberate, inspected `git merge`.
 
 ## How it works internally
 
-When a standard rebase is executed (e.g., `git rebase main` from a `feature` branch), Git first identifies the merge base (the common ancestor commit) between `feature` and `main`.
+When you execute `git merge`, Git begins by locating the common ancestor of the two branches you are attempting to combine. This specialized ancestor commit is known as the **merge base**. Git calculates this by analyzing the commit DAG (Directed Acyclic Graph) to find the latest point in history where the two branch pointers shared an identical lineage.
 
-Next, Git extracts the diffs introduced by each commit in `feature` that occurred after the merge base. Conceptually, it runs `git format-patch` to generate a patch file for each commit, storing these temporarily in the `.git/rebase-merge/` or `.git/rebase-apply/` directories.
+Once the merge base is established, Git performs a **3-way merge algorithm** (powered by the default `ort` strategy engine, which replaced the legacy `recursive` strategy). It compares three distinct file states:
 
-Git then forcefully updates the `HEAD` pointer of the `feature` branch to point to the tip of `main` (the new base).
+1. The state of the files at the **merge base**.
+2. The state of the files at the tip of the **current branch** (`HEAD`).
+3. The state of the files at the tip of the **incoming branch** being merged.
 
-Finally, Git's sequencer machinery iteratively reads the saved patches and attempts to apply them one by one (`git am`). Because the parent of the first applied commit is now the tip of `main` instead of the original merge base, the cryptographic SHA-1 hash of the commit fundamentally changes. Consequently, every subsequent commit applied on top of it also receives a brand new SHA-1 hash, even if the file diffs and commit messages remain identical to the original commits.
+If a file was modified in both branches since the merge base in conflicting ways (e.g., the exact same line was altered differently), Git cannot mathematically resolve the delta. It halts the process, writes standard conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) directly into the affected files in the working directory, updates the index with three distinct stages for those files, and exits with a non-zero status code (`1`).
 
-If a patch application fails due to a conflict, the sequencer halts, drops the user into the working directory to resolve the files, and waits for `git add` and `git rebase --continue` to proceed to the next patch.
+If no conflicts are found, Git automatically generates a new tree object representing the merged filesystem state, writes a new commit object containing two parent pointers (the current `HEAD` and the incoming branch tip), updates the branch reference pointer to this new commit, and refreshes the working tree.
 
 ## Performance Notes
 
-- **Iterative Conflict Resolution:** Unlike `git merge` which compares the branch tips in one pass, `git rebase` applies commits sequentially. If a file was modified 50 times in your branch and conflicts with the new base, you may have to resolve the conflict 50 times.
-- **Git Rerere:** To mitigate repetitive conflict resolution overhead during rebases, advanced users enable `git config --global rerere.enabled true`. Git will "reuse recorded resolutions" by memorizing how you resolved a specific conflict hunk and automatically applying that resolution if the exact conflict appears again in subsequent rebase steps.
+- Merging massive repositories with hundreds of thousands of tracked files requires the 3-way merge algorithm to compute extensive tree diffs, which can take several seconds of intensive CPU processing and memory allocation.
+- Using specialized strategy options like `-X patience` or `-X histogram` invokes advanced longest-common-subsequence algorithms to resolve tricky code rearrangements, which consume slightly more CPU cycles than the default Myers diff algorithm but yield significantly cleaner merge results.
 
 ## Security Notes
 
-- **Arbitrary Code Execution via `-x`:** The `--exec` flag runs arbitrary shell commands directly from the rebase instruction sheet (`git-rebase-todo`). A malicious repository could trick a user into running an interactive rebase equipped with a pre-configured `exec` step that executes payload scripts with the developer's user privileges.
-- **Signed Commits Subversion:** Because rebasing generates entirely new commits, any GPG/SSH signatures on the original commits are irrevocably broken and stripped. To re-sign the newly generated commits during the rebase, the user must explicitly pass the `-S` or `--gpg-sign` flag, requiring the private key to be unlocked for the duration of the rebase.
+- **Malicious Merge Drivers:** Advanced Git configurations allow users to define custom external merge drivers in `.gitconfig`. If a repository contains a compromised or untrusted `.gitattributes` file that forces the execution of a malicious custom merge driver upon running `git merge`, it can lead to arbitrary code execution on your local machine.
+- **Unverified Code Ingestion:** Executing `git merge` blindly incorporates foreign code into your active working directory and index. If an attacker pushes a malicious commit to a feature branch that you merge without code review, those vulnerabilities are immediately integrated into your local build environment.
 
 ## Common Mistakes
 
-- **Rebasing already-pushed commits**
-  - _Mistake:_ Rebasing a branch that is already on GitHub, running standard `git push`, getting a "non-fast-forward" rejection, and blindly running `git pull` to fix it.
-  - _Why:_ The `pull` will fetch the old, un-rebased commits from the server and merge them with your newly rebased local commits. You will end up with duplicate commits (same diffs, different SHAs) intertwined in your history. You _must_ use `git push --force-with-lease` after rebasing published branches.
-- **Swapping `--onto` arguments**
-  - _Mistake:_ Typing `git rebase --onto feature main`.
-  - _Why:_ The syntax is `newbase` followed by `oldbase`. Getting this backward instructs Git to calculate the commits in `main` that aren't in `feature` and transplant them. This usually results in a massive, confusing mess of the repository structure.
-- **Manually skipping empty commits in `-i`**
-  - _Mistake:_ Hitting a conflict where a commit is completely empty (because the upstream branch already implemented the change), and deleting it from the todo list to fix the pause.
-  - _Why:_ While deleting it works, standard procedure is to use `git rebase --skip`. Modern Git also supports `git rebase --empty=drop` to automatically handle this scenario without halting.
+- **Merging into the wrong branch:** Running `git merge feature-branch` while still checked out on `main` when you meant to merge `main` into `feature-branch`. **Why it's wrong:** This applies the feature changes directly to production `main` prematurely. You must immediately undo this by resetting the branch pointer (`git reset --hard HEAD~1` if committed) or aborting.
+- **Committing conflict markers directly:** Seeing conflict markers in a file, editing the code, but forgetting to delete the `<<<<<<<` lines before committing. **Why it's wrong:** Git does not automatically check if conflict markers remain; it commits them as literal text, breaking compilation and syntax parsers. Always verify files are clean before running `git commit`.
+- **Forgetting to stage resolved conflict files:** Editing conflicted files during a merge pause, and immediately typing `git commit` without running `git add`. **Why it's wrong:** Git keeps conflicted files in a special unmerged index state. You must explicitly run `git add` on the resolved files to clear the conflict flags before Git will allow you to complete the merge.
 
 ## Best Practices
 
-- **Pull with Rebase:** Configure Git to automatically rebase your local commits on top of incoming upstream commits when pulling, avoiding merge commit clutter on active branches: `git config --global pull.rebase true`.
-- **Use `--force-with-lease`:** When pushing a rewritten branch to a remote, never use `git push -f`. Always use `git push --force-with-lease`, which verifies that the remote branch has not been updated by a coworker since your last fetch, preventing you from silently overwriting their work.
-- **Frequent Base Updates:** If working on a long-running feature branch, `git fetch` and `git rebase origin/main` frequently (e.g., daily). Resolving conflicts in small, iterative batches is significantly safer and easier than rebasing a massive, diverged branch after three weeks of isolation.
+- Always ensure your working directory and staging area are completely clean (via `git status`) before initiating a merge. A clean workspace prevents your uncommitted local edits from tangling with incoming merge changes.
+- When merging untrusted or massive feature branches, run the merge with `--no-commit` or `--no-ff`. This grants you a manual inspection window to run your local test suite and audit the file changes before the merge commit is permanently written to history.
+- Establish a team standard regarding merge strategies. Decide whether your organization uses fast-forwards, explicit merge commits (`--no-ff`), or rebasing, and enforce it via repository rules to prevent a fragmented, chaotic commit graph.
 
 ## Interview Questions
 
-**Q: What is the "Golden Rule of Rebasing"?**
-**A:** Never rebase a branch that has been pushed to a shared repository and is actively being used by other developers. Because rebasing rewrites commit hashes, it will diverge your local history from the remote history. When others try to sync, they will encounter severe duplicate-commit merge conflicts.
+**Q:** What is a "merge base," and why is it critical to the operation of `git merge`?
+**A:** A merge base is the most recent common ancestor commit shared by the current branch and the branch being merged, found by analyzing the commit DAG. It is critical because Git's 3-way merge algorithm compares the state of the files at the merge base against the tips of both branches to isolate what changed independently on each side, allowing it to merge changes automatically without human intervention.
 
-**Q: In an interactive rebase (`-i`), what is the difference between `squash` and `fixup`?**
-**A:** Both commands meld the specified commit into the commit immediately preceding it. However, `squash` halts the rebase to open a text editor, allowing you to combine and edit the commit messages of both commits. `fixup` silently melds the commit but entirely discards its commit message, retaining only the previous commit's message.
+**Q:** What is the technical difference between a fast-forward merge and a true 3-way merge?
+**A:** A fast-forward merge occurs when the current branch pointer is an direct ancestor of the branch being merged; Git simply slides the branch pointer forward to the target commit without creating a new commit object. A 3-way merge occurs when the two branches have diverged (both have unique commits since their common ancestor); Git must synthesize a new merge commit containing two parent pointers to reconcile the two timelines.
 
-**Q: You successfully completed a complex `git rebase`, but immediately realize you rebased onto the wrong branch and broke your code. How do you undo the entire rebase?**
-**A:** Because the rebase finished, `--abort` is no longer available. However, `git reflog` records all movements of the `HEAD` pointer. You run `git reflog`, find the SHA-1 hash of the commit just before the rebase started, and run `git reset --hard <hash>` to instantly restore your branch to its pre-rebase state.
+**Q:** When Git halts a merge due to conflicts, what happens inside the `.git/index` (staging area), and how does Git track that a file is conflicted?
+**A:** During a conflict, Git stores up to three different versions of the conflicted file in the index simultaneously, corresponding to different stage numbers: stage 1 (the common ancestor/merge base), stage 2 (the current branch version, `OURS`), and stage 3 (the incoming branch version, `THEIRS`). Resolving the conflict via `git add` overwrites these stages with a single normal file entry, clearing the conflict state.
 
 ## Practice Problems
 
-**Problem:** You have 5 messy commits on your `feature-ui` branch. Write the command to interactively squash the last 3 of those commits, leaving the older commits untouched.
-**Hint:** Initiate an interactive rebase referencing the `HEAD` pointer, looking back exactly the number of commits you want to modify.
-**Solution:**
+**Problem:** You are merging a branch named `feature-cart` into your current branch. You want to ensure that Git _always_ creates a visible merge node in the history graph, even if the branch could technically be fast-forwarded.
+**Hint:** Use the flag that explicitly prohibits fast-forward integrations.
+**Solution:** `git merge --no-ff feature-cart` (This forces Git to synthesize a formal merge commit, preserving the structural boundaries of the feature branch).
 
-```bash
-git rebase -i HEAD~3
-```
-
-_(In the editor, you would leave the first commit as `pick` and change the subsequent two to `squash` or `s`.)_
-
-**Problem:** You created a branch `feature-b` originating from `feature-a`. You now realize `feature-b` doesn't actually depend on `feature-a`, and you want to move `feature-b` so it branches directly off `main`. Write the command to perform this transplant.
-**Hint:** Use the flag designed for explicitly defining a new base, specifying the target base, the old base, and the branch to move.
-**Solution:**
-
-```bash
-git rebase --onto main feature-a feature-b
-```
+**Problem:** You initiated a merge, encountered a series of complex file conflicts, and decided you want to completely cancel the entire operation and return your repository to the exact pristine state it was in before you typed `git merge`.
+**Hint:** Look for the dedicated abort flag designed to reset index and working tree states during a failed merge.
+**Solution:** `git merge --abort` (This terminates the merge state machine, clears unmerged index entries, and rolls back the working directory).
 
 ## References
 
-- [git-rebase(1) Manual Page](https://git-scm.com/docs/git-rebase)
-- [Pro Git Book: Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
-- [Atlassian Git Tutorial: Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+- [Git - git-merge Documentation](https://git-scm.com/docs/git-merge)
+- [Pro Git Book: Git Branching - Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+- [Git Internals - Merge Strategies](https://git-scm.com/docs/git-merge#_merge_strategies)
+  === END FILE ===

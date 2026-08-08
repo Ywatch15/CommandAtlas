@@ -23,7 +23,7 @@ intentPhrases:
   - update remote tracking branches
   - see what others pushed
   - fetch new branches from github
-relatedCommands: []
+relatedCommands: [git-remote]
 alternatives: []
 status: published
 contentVersion: 1

@@ -23,7 +23,7 @@ intentPhrases:
   - get source code
   - initialize local repository from remote
   - clone git branch
-relatedCommands: []
+relatedCommands: [git-remote]
 alternatives: []
 status: published
 contentVersion: 1

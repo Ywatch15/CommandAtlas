@@ -23,7 +23,7 @@ intentPhrases:
   - discard local changes to a file
   - go back to a previous commit
   - resolve merge conflicts using ours or theirs
-relatedCommands: []
+relatedCommands: [git-merge, git-reset, git-stash]
 alternatives: []
 status: published
 contentVersion: 1

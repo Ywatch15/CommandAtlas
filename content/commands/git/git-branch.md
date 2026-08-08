@@ -23,7 +23,7 @@ intentPhrases:
   - delete a git branch
   - rename current branch
   - show remote branches
-relatedCommands: []
+relatedCommands: [git-merge]
 alternatives: []
 status: published
 contentVersion: 1

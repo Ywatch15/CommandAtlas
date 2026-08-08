@@ -23,7 +23,7 @@ intentPhrases:
   - sync local changes with server
   - force push over remote branch
   - publish local git repository
-relatedCommands: []
+relatedCommands: [git-rebase, git-remote]
 alternatives: []
 status: published
 contentVersion: 1

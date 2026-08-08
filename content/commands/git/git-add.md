@@ -23,7 +23,7 @@ intentPhrases:
   - prepare changes for commit
   - track new file in git
   - stage specific lines of code
-relatedCommands: []
+relatedCommands: [git-diff, git-rm]
 alternatives: []
 status: published
 contentVersion: 1
