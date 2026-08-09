@@ -1,25 +1,21 @@
-=== FILE: content/commands/cloud-cli/gcloud-iam-service-accounts-create.md ===
 ---
-
 slug: gcloud-iam-service-accounts-create
 name: gcloud iam service-accounts create
 aliases: []
 category: cloud-cli
-tags: [gcloud, cloud, google-cloud, iam, service-account, security, identity]
+tags: [gcp, iam, service-account, security, identity, cloud]
 difficulty: beginner
 supportedOS: [linux, macos, windows, unix]
 supportedShells: [bash, zsh, powershell, sh]
 intentPhrases:
-
-- 'create gcp service account'
-- 'provision service account gcloud'
-- 'make new service account google cloud'
-- 'create non-human identity gcp'
-- 'setup workload identity account'
-  relatedCommands: [gcloud-projects-add-iam-policy-binding, gcloud-iam-service-accounts-keys-create, gcloud-auth, gcloud-iam-roles]
-  alternatives: [terraform, gcloud-iam-roles-create]
-  status: draft
-
+  - 'create gcp service account'
+  - 'provision service account gcloud'
+  - 'make new service account google cloud'
+  - 'create non-human identity gcp'
+  - 'setup workload identity account'
+relatedCommands: []
+alternatives: []
+status: draft
 ---
 
 ## What is it?
