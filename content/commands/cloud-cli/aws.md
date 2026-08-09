@@ -3,29 +3,16 @@ slug: aws
 name: aws
 aliases: []
 category: cloud-cli
-tags:
-  - aws
+tags: [aws, cloud, cli]
 difficulty: intermediate
-supportedOS:
-  - linux
-  - macos
-  - unix
-  - windows
-supportedShells:
-  - bash
-  - zsh
-  - sh
-  - powershell
-  - cmd
+supportedOS: [linux, macos, windows, unix]
+supportedShells: [bash, zsh, powershell, cmd]
 intentPhrases:
-  - manage aws cloud resources
-  - aws s3 sync files
-relatedCommands: []
+  - 'manage aws cloud resources'
+  - 'aws s3 sync files'
+relatedCommands: [aws-configure]
 alternatives: []
 status: published
-contentVersion: 1
-lastUpdated: 2026-08-08
-author: commandatlas
 ---
 
 ## What is it?
@@ -39,16 +26,16 @@ author: commandatlas
 ## Syntax
 
 ```bash
-aws [options] <service> <command> [parameters]
+aws [options] <command> <subcommand> [parameters]
 ```
 
 ## Flags
 
-| Flag        | Description                       | Example                                     |
-| ----------- | --------------------------------- | ------------------------------------------- |
-| `--profile` | Use named credential profile      | `aws --profile prod s3 ls`                  |
-| `--output`  | Output format (json, text, table) | `aws ec2 describe-instances --output table` |
-| `--region`  | Override target AWS region        | `aws s3 ls --region us-west-2`              |
+| Flag        | Description                             | Example                        |
+| ----------- | --------------------------------------- | ------------------------------ |
+| `--region`  | Target AWS Region                       | `aws --region us-east-1 s3 ls` |
+| `--profile` | Use specific named credential profile   | `aws --profile prod s3 ls`     |
+| `--output`  | Output format (json, text, table, yaml) | `aws s3 ls --output table`     |
 
 ## Examples
 
@@ -56,50 +43,49 @@ aws [options] <service> <command> [parameters]
 aws s3 ls
 ```
 
-> Lists all S3 buckets owned by the authenticated AWS IAM identity.
+> List all S3 buckets in account.
 
 ## Real-World Scenarios
 
-**CI/CD Artifact Deployment**: Syncing built static site assets directly into an AWS S3 bucket with `aws s3 sync ./dist s3://my-bucket`.
+- Automated infrastructure management.
 
 ## When should it NOT be used?
 
-- **Complex infrastructure state management**: Infrastructure-as-code tools like Terraform or AWS CloudFormation/CDK are better than raw AWS CLI scripts for managing complex infrastructure state.
+- Declarative infrastructure management (use Terraform).
 
 ## Alternatives
 
-- **`terraform`**: Declarative multi-cloud infrastructure provisioner.
+- Terraform / CloudFormation.
 
 ## How it works internally
 
-`aws` wraps AWS REST APIs via `botocore` (Python SDK), signing HTTP requests with SigV4 credentials.
+Sends HTTPS REST API calls to service endpoints.
 
 ## Performance Notes
 
-API calls network latency depends on AWS control plane responsiveness and target region distance.
+Fast execution.
 
 ## Security Notes
 
-Never hardcode AWS Access Keys into scripts or Git repositories; use AWS IAM Roles or environment variables (`AWS_ROLE_ARN`).
+Protect credentials in ~/.aws/credentials.
 
 ## Common Mistakes
 
-- **Committing secret keys in `~/.aws/credentials` to Git**: Always put AWS credential folders in `.gitignore`.
+Hardcoding access keys in scripts.
 
 ## Best Practices
 
-- Use AWS IAM SSO / Identity Center or AWS Vault for short-lived temporary security credentials.
+Use IAM Roles and AWS SSO.
 
 ## Interview Questions
 
-**Q:** How do you sync local directory `./build` to S3 bucket `my-app` deleting files no longer present locally?
-**A:** `aws s3 sync ./build s3://my-app --delete`
+- **Q:** How does AWS CLI resolve region configuration?
+  **A:** Flag -> Environment variable -> Named profile -> Default profile.
 
 ## Practice Problems
 
-**Problem:** List all running EC2 instance IDs using `--query` filter.
-**Solution:** `aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId" --output text`
+- List S3 buckets using AWS CLI.
 
 ## References
 
-- [AWS CLI Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/index.html)
+- [AWS CLI Documentation](https://docs.aws.amazon.com/cli/)

@@ -20,8 +20,8 @@ supportedShells:
 intentPhrases:
   - connect to remote server
   - secure shell connection
-relatedCommands: []
-alternatives: []
+relatedCommands: [gcloud-compute-ssh]
+alternatives: [gcloud-compute-ssh]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
