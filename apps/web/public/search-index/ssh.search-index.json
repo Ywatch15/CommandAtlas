@@ -25,6 +25,8 @@
     "connection": [
       { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
     ],
+    "gcloud": [{ "slug": "ssh", "boost": 2 }],
+    "compute": [{ "slug": "ssh", "boost": 2 }],
     "what": [{ "slug": "ssh", "boost": 1 }],
     "is": [{ "slug": "ssh", "boost": 1 }],
     "it": [{ "slug": "ssh", "boost": 1 }],
@@ -213,6 +215,7 @@
     "^co": [
       "connect",
       "connection",
+      "compute",
       "connects",
       "command",
       "com",
@@ -258,7 +261,7 @@
     "emo": ["remote"],
     "mot": ["remote"],
     "ote": ["remote", "notes"],
-    "te$": ["remote", "private", "execute"],
+    "te$": ["remote", "compute", "private", "execute"],
     "^se": ["server", "secure", "securely", "session", "security"],
     "ser": ["server", "user"],
     "erv": ["server", "interview"],
@@ -324,6 +327,17 @@
       "invocation",
       "solution"
     ],
+    "^gc": ["gcloud"],
+    "gcl": ["gcloud"],
+    "clo": ["gcloud", "cloud"],
+    "lou": ["gcloud", "cloud"],
+    "oud": ["gcloud", "cloud"],
+    "ud$": ["gcloud", "cloud"],
+    "com": ["compute", "command", "com", "commands", "common"],
+    "omp": ["compute"],
+    "mpu": ["compute"],
+    "put": ["compute"],
+    "ute": ["compute", "execute"],
     "^wh": ["what", "why", "when"],
     "wha": ["what"],
     "hat": ["what"],
@@ -545,7 +559,6 @@
     "nam": ["hostname"],
     "ame": ["hostname"],
     "me$": ["hostname"],
-    "com": ["command", "com", "commands", "common"],
     "omm": ["command", "commands", "common"],
     "mma": ["command", "commands"],
     "man": ["command", "management", "commands", "performance", "manual"],
@@ -684,10 +697,6 @@
       "invocation"
     ],
     "tin": ["connecting"],
-    "clo": ["cloud"],
-    "lou": ["cloud"],
-    "oud": ["cloud"],
-    "ud$": ["cloud"],
     "^vi": ["virtual"],
     "vir": ["virtual"],
     "irt": ["virtual"],
@@ -714,7 +723,6 @@
     "exe": ["execute"],
     "xec": ["execute"],
     "cut": ["execute"],
-    "ute": ["execute"],
     "ana": ["management"],
     "nag": ["management"],
     "age": ["management"],
@@ -1028,7 +1036,7 @@
     "ssh": {
       "category": "ssh",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "unix"],
+      "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["ssh"]
     }
   }

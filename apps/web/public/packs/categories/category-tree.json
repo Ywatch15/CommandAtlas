@@ -15,7 +15,7 @@
       "description": "Git version control commands for tracking changes, collaborating on code, managing branches, and maintaining project history. Every command in this category is invoked as a subcommand of the `git` binary and carries a fully-qualified slug (e.g. git-commit, git-clone) to guarantee global uniqueness.\n",
       "parent": null,
       "order": 2,
-      "commandCount": 1,
+      "commandCount": 32,
       "children": []
     },
     {
@@ -177,7 +177,7 @@
       "description": "Cloud provider CLI tools for managing infrastructure, services, and deployments from the command line. Covers AWS CLI, gcloud, and Azure CLI patterns.\n",
       "parent": null,
       "order": 20,
-      "commandCount": 1,
+      "commandCount": 31,
       "children": []
     },
     {

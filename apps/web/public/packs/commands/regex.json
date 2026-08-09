@@ -5,7 +5,7 @@
       "slug": "sed",
       "name": "sed",
       "category": "regex",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "sed",
         "name": "sed",
@@ -13,8 +13,8 @@
         "category": "regex",
         "tags": ["sed"],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "replace text in file",
           "stream editor text replacement"

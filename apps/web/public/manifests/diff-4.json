@@ -1,0 +1,33 @@
+{
+  "fromVersion": 3,
+  "toVersion": 4,
+  "generatedAt": "2026-08-08T11:48:44.652Z",
+  "added": [
+    "git-archive",
+    "git-bisect",
+    "git-blame",
+    "git-clean",
+    "git-reflog",
+    "git-restore",
+    "git-shortlog",
+    "git-show",
+    "git-subtree",
+    "git-tag",
+    "git-worktree"
+  ],
+  "modified": [
+    "git-add",
+    "git-branch",
+    "git-checkout",
+    "git-clone",
+    "git-commit",
+    "git-fetch",
+    "git-merge",
+    "git-push",
+    "git-rebase",
+    "git-status",
+    "git-switch"
+  ],
+  "removed": [],
+  "affectedPacks": ["git"]
+}

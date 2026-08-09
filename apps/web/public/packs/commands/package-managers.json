@@ -5,7 +5,7 @@
       "slug": "apt",
       "name": "apt",
       "category": "package-managers",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "apt",
         "name": "apt",
@@ -13,8 +13,8 @@
         "category": "package-managers",
         "tags": ["apt"],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "install package on ubuntu",
           "update system packages"

@@ -5,7 +5,7 @@
       "slug": "sysctl",
       "name": "sysctl",
       "category": "kernel",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "sysctl",
         "name": "sysctl",
@@ -13,8 +13,8 @@
         "category": "kernel",
         "tags": ["sysctl"],
         "difficulty": "advanced",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "tune kernel parameters",
           "configure sysctl settings"

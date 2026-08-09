@@ -5,7 +5,7 @@
       "slug": "awk",
       "name": "awk",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "awk",
         "name": "awk",
@@ -13,8 +13,8 @@
         "category": "text-processing",
         "tags": ["awk"],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "extract column from text",
           "process structured text file"

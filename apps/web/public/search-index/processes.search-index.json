@@ -915,7 +915,7 @@
     "ps": {
       "category": "processes",
       "difficulty": "beginner",
-      "supportedOS": ["linux", "macos", "unix"],
+      "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["ps"]
     }
   }

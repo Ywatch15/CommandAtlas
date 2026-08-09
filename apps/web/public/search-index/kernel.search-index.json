@@ -930,7 +930,7 @@
     "sysctl": {
       "category": "kernel",
       "difficulty": "advanced",
-      "supportedOS": ["linux", "macos", "unix"],
+      "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["sysctl"]
     }
   }

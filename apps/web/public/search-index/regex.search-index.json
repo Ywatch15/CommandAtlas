@@ -1026,7 +1026,7 @@
     "sed": {
       "category": "regex",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "unix"],
+      "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["sed"]
     }
   }

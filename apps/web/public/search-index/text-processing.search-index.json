@@ -1333,7 +1333,7 @@
     "awk": {
       "category": "text-processing",
       "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "unix"],
+      "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["awk"]
     },
     "search-and-copy-logs": {

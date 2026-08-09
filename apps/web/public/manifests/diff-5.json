@@ -1,0 +1,9 @@
+{
+  "fromVersion": 4,
+  "toVersion": 5,
+  "generatedAt": "2026-08-09T09:17:31.941Z",
+  "added": [],
+  "modified": ["gcloud-iam-service-accounts-create"],
+  "removed": [],
+  "affectedPacks": ["cloud-cli"]
+}

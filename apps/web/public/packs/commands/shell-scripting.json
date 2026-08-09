@@ -5,7 +5,7 @@
       "slug": "test",
       "name": "test",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "test",
         "name": "test",
@@ -13,8 +13,8 @@
         "category": "shell-scripting",
         "tags": ["test"],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "check file existence in script",
           "evaluate conditional expression"

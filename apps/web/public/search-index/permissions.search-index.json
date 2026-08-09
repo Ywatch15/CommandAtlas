@@ -812,7 +812,7 @@
     "chmod": {
       "category": "permissions",
       "difficulty": "beginner",
-      "supportedOS": ["linux", "macos", "unix"],
+      "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["chmod"]
     }
   }
