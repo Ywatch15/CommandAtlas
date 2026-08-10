@@ -526,6 +526,18 @@
       { "slug": "watch", "boost": 3 },
       { "slug": "whoami", "boost": 3 }
     ],
+    "type": [
+      { "slug": "alias", "boost": 2 },
+      { "slug": "clear", "boost": 1 },
+      { "slug": "echo", "boost": 1 },
+      { "slug": "grep", "boost": 1 },
+      { "slug": "history", "boost": 1 },
+      { "slug": "screen", "boost": 1 },
+      { "slug": "su", "boost": 1 },
+      { "slug": "systemctl", "boost": 1 },
+      { "slug": "tmux", "boost": 1 },
+      { "slug": "whoami", "boost": 1 }
+    ],
     "what": [
       { "slug": "alias", "boost": 1 },
       { "slug": "clear", "boost": 1 },
@@ -1111,18 +1123,6 @@
       { "slug": "tmux", "boost": 1 },
       { "slug": "uptime", "boost": 1 },
       { "slug": "watch", "boost": 1 }
-    ],
-    "type": [
-      { "slug": "alias", "boost": 1 },
-      { "slug": "clear", "boost": 1 },
-      { "slug": "echo", "boost": 1 },
-      { "slug": "grep", "boost": 1 },
-      { "slug": "history", "boost": 1 },
-      { "slug": "screen", "boost": 1 },
-      { "slug": "su", "boost": 1 },
-      { "slug": "systemctl", "boost": 1 },
-      { "slug": "tmux", "boost": 1 },
-      { "slug": "whoami", "boost": 1 }
     ],
     "repetitive": [
       { "slug": "alias", "boost": 1 },
@@ -4178,7 +4178,7 @@
       { "slug": "cp", "boost": 1 },
       { "slug": "echo", "boost": 1 },
       { "slug": "env", "boost": 1 },
-      { "slug": "export", "boost": 1 },
+      { "slug": "export", "boost": 2 },
       { "slug": "grep", "boost": 1 },
       { "slug": "man", "boost": 1 },
       { "slug": "screen", "boost": 1 },
@@ -22721,6 +22721,40 @@
     ],
     "nux": ["linux", "selinux", "linuxperf"],
     "ux$": ["linux", "tmux", "selinux", "aux"],
+    "^ty": [
+      "type",
+      "typing",
+      "typed",
+      "typically",
+      "typographic",
+      "typo",
+      "typesetting",
+      "types"
+    ],
+    "typ": [
+      "type",
+      "teletype",
+      "typing",
+      "typed",
+      "mistype",
+      "typically",
+      "retyping",
+      "typographic",
+      "typo",
+      "typesetting",
+      "types"
+    ],
+    "ype": [
+      "type",
+      "teletype",
+      "typed",
+      "mistype",
+      "hypertext",
+      "hyperlinked",
+      "typesetting",
+      "types"
+    ],
+    "pe$": ["type", "teletype", "escape", "mistype", "wipe", "pipe", "scope"],
     "^wh": [
       "what",
       "why",
@@ -27535,40 +27569,6 @@
       "sensors",
       "renders"
     ],
-    "^ty": [
-      "type",
-      "typing",
-      "typed",
-      "typically",
-      "typographic",
-      "typo",
-      "typesetting",
-      "types"
-    ],
-    "typ": [
-      "type",
-      "teletype",
-      "typing",
-      "typed",
-      "mistype",
-      "typically",
-      "retyping",
-      "typographic",
-      "typo",
-      "typesetting",
-      "types"
-    ],
-    "ype": [
-      "type",
-      "teletype",
-      "typed",
-      "mistype",
-      "hypertext",
-      "hyperlinked",
-      "typesetting",
-      "types"
-    ],
-    "pe$": ["type", "teletype", "escape", "mistype", "wipe", "pipe", "scope"],
     "epe": [
       "repetitive",
       "depend",

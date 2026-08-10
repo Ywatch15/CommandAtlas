@@ -1,7 +1,14 @@
 {
   "version": 5,
-  "generatedAt": "2026-08-09T09:17:31.939Z",
+  "generatedAt": "2026-08-10T07:55:27.079Z",
   "packs": [
+    {
+      "packId": "bash",
+      "version": 1,
+      "size": 158412,
+      "checksum": "1150a5eb522593b60c6f38515f9f1d08d2e32bf6b82ee93921b39031eb93c3c9",
+      "url": "/packs/commands/bash.json"
+    },
     {
       "packId": "cloud-cli",
       "version": 4,
@@ -61,8 +68,8 @@
     {
       "packId": "linux",
       "version": 3,
-      "size": 314035,
-      "checksum": "1aa3bed4227b47e823c0d644e8b944d296fbd21882e4af05a401a613a017b836",
+      "size": 314169,
+      "checksum": "44098bafa93428068a6a172f86cd8ad5e8e1ef3ec8791a12ba7183cabffd6b37",
       "url": "/packs/commands/linux.json"
     },
     {
@@ -95,9 +102,9 @@
     },
     {
       "packId": "processes",
-      "version": 3,
-      "size": 4170,
-      "checksum": "b291cbd033365add43370d0b33ec9a710b064f41936979ebad677d3c4f245a9a",
+      "version": 4,
+      "size": 4222,
+      "checksum": "912ef4dbec0fbacfb3205bb0971e5f82eaaa1d2831bb7c3ecf7170ef7e0809b5",
       "url": "/packs/commands/processes.json"
     },
     {
@@ -134,13 +141,6 @@
       "size": 3986,
       "checksum": "6d8e6772f156701f83cd3de72156b1df56ae6247495a21273cabc6eb183969ef",
       "url": "/packs/commands/unix.json"
-    },
-    {
-      "packId": "bash",
-      "version": 1,
-      "size": 1030,
-      "checksum": "d7ca261e0de3e7413e5d1d637fce23932bab510c5f67811a00e30af0cc16237d",
-      "url": "/packs/commands/bash.json"
     },
     {
       "packId": "system-calls",

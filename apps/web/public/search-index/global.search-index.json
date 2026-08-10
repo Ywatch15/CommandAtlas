@@ -1,5 +1,1563 @@
 {
   "tokens": {
+    "bg": [{ "slug": "bg", "boost": 5 }],
+    "background": [
+      { "slug": "bg", "boost": 5 },
+      { "slug": "fg", "boost": 5, "phrase": "interact with background job" },
+      { "slug": "jobs", "boost": 5, "phrase": "list background jobs" },
+      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
+      {
+        "slug": "tmux",
+        "boost": 5,
+        "phrase": "attach to background terminal session"
+      }
+    ],
+    "resume": [
+      { "slug": "bg", "boost": 5, "phrase": "resume stopped job" },
+      { "slug": "fg", "boost": 5, "phrase": "resume stopped job" },
+      { "slug": "screen", "boost": 5, "phrase": "resume ssh session" }
+    ],
+    "stopped": [
+      { "slug": "bg", "boost": 5, "phrase": "resume stopped job" },
+      { "slug": "fg", "boost": 5, "phrase": "resume stopped job" },
+      { "slug": "jobs", "boost": 5, "phrase": "view stopped jobs" }
+    ],
+    "job": [
+      { "slug": "bg", "boost": 5, "phrase": "resume stopped job" },
+      { "slug": "fg", "boost": 5, "phrase": "bring job to foreground" },
+      { "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }
+    ],
+    "run": [
+      { "slug": "bg", "boost": 5, "phrase": "run process in background" },
+      { "slug": "source", "boost": 5, "phrase": "run script in current shell" },
+      { "slug": "aws-ec2-run-instances", "boost": 5 },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "run arm template deployment"
+      },
+      { "slug": "docker-run", "boost": 5 },
+      { "slug": "env", "boost": 5, "phrase": "run command with env" },
+      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
+      { "slug": "su", "boost": 5, "phrase": "run command as different user" },
+      { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
+      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" }
+    ],
+    "process": [
+      { "slug": "bg", "boost": 5, "phrase": "run process in background" },
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "replace shell process with command"
+      },
+      { "slug": "fg", "boost": 5, "phrase": "return to suspended process" },
+      {
+        "slug": "dmesg",
+        "boost": 5,
+        "phrase": "find out why process was killed by oom killer"
+      },
+      {
+        "slug": "export",
+        "boost": 5,
+        "phrase": "pass variable to child process"
+      },
+      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
+      {
+        "slug": "strace",
+        "boost": 5,
+        "phrase": "trace system calls of a process"
+      },
+      {
+        "slug": "tmux",
+        "boost": 5,
+        "phrase": "keep process running after ssh disconnects"
+      },
+      { "slug": "get-process", "boost": 5 },
+      { "slug": "ps", "boost": 5, "phrase": "find process id" },
+      { "slug": "awk", "boost": 5, "phrase": "process structured text file" }
+    ],
+    "in": [
+      { "slug": "bg", "boost": 5, "phrase": "run process in background" },
+      { "slug": "exec", "boost": 5, "phrase": "exec command in bash script" },
+      { "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" },
+      { "slug": "source", "boost": 5, "phrase": "run script in current shell" },
+      { "slug": "which", "boost": 5, "phrase": "locate executable in path" },
+      {
+        "slug": "aws-logs-tail",
+        "boost": 5,
+        "phrase": "follow aws logs in real time"
+      },
+      { "slug": "aws-s3-ls", "boost": 5, "phrase": "list files in s3 bucket" },
+      {
+        "slug": "aws-sts-get-caller-identity",
+        "boost": 5,
+        "phrase": "who am i in aws"
+      },
+      {
+        "slug": "az-group-create",
+        "boost": 5,
+        "phrase": "make a new resource group in azure"
+      },
+      {
+        "slug": "gcloud-compute-instances-list",
+        "boost": 5,
+        "phrase": "get vm ips in gcp"
+      },
+      {
+        "slug": "gcloud-storage-ls",
+        "boost": 5,
+        "phrase": "list files in gcs bucket"
+      },
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
+      { "slug": "git-add", "boost": 5, "phrase": "track new file in git" },
+      { "slug": "git-bisect", "boost": 5, "phrase": "find bug origin in git" },
+      {
+        "slug": "git-commit",
+        "boost": 5,
+        "phrase": "record a snapshot in git"
+      },
+      { "slug": "git-diff", "boost": 5, "phrase": "compare files in git" },
+      { "slug": "git-init", "boost": 5, "phrase": "initialize git in folder" },
+      {
+        "slug": "git-restore",
+        "boost": 5,
+        "phrase": "discard local changes in git"
+      },
+      { "slug": "git-rm", "boost": 5, "phrase": "stop tracking a file in git" },
+      { "slug": "git-show", "boost": 5, "phrase": "see changes in a commit" },
+      {
+        "slug": "git-stash",
+        "boost": 5,
+        "phrase": "hide local changes in git"
+      },
+      { "slug": "echo", "boost": 5, "phrase": "output string in bash" },
+      {
+        "slug": "export",
+        "boost": 5,
+        "phrase": "make variable global in bash"
+      },
+      { "slug": "grep", "boost": 5, "phrase": "search text in files" },
+      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
+      {
+        "slug": "uptime",
+        "boost": 5,
+        "phrase": "see who is logged in and system load"
+      },
+      {
+        "slug": "watch",
+        "boost": 5,
+        "phrase": "monitor command output in real time"
+      },
+      { "slug": "whoami", "boost": 5, "phrase": "who am i logged in as" },
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      },
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "continue": [
+      { "slug": "bg", "boost": 5, "phrase": "continue suspended task" }
+    ],
+    "suspended": [
+      { "slug": "bg", "boost": 5, "phrase": "continue suspended task" },
+      { "slug": "fg", "boost": 5, "phrase": "return to suspended process" },
+      { "slug": "jobs", "boost": 5, "phrase": "show suspended processes" }
+    ],
+    "task": [{ "slug": "bg", "boost": 5, "phrase": "continue suspended task" }],
+    "send": [
+      { "slug": "bg", "boost": 5, "phrase": "send process to background" },
+      {
+        "slug": "az-storage-blob-upload",
+        "boost": 5,
+        "phrase": "send backup to azure container"
+      }
+    ],
+    "to": [
+      { "slug": "bg", "boost": 5, "phrase": "send process to background" },
+      { "slug": "cd", "boost": 5, "phrase": "go to folder" },
+      { "slug": "fg", "boost": 5, "phrase": "bring job to foreground" },
+      { "slug": "which", "boost": 5, "phrase": "find path to executable" },
+      {
+        "slug": "aws-eks-update-kubeconfig",
+        "boost": 5,
+        "phrase": "connect to eks cluster"
+      },
+      { "slug": "aws-s3-cp", "boost": 5, "phrase": "upload file to s3 bucket" },
+      {
+        "slug": "aws-s3-sync",
+        "boost": 5,
+        "phrase": "sync local folder to s3 bucket"
+      },
+      {
+        "slug": "az-aks-get-credentials",
+        "boost": 5,
+        "phrase": "connect to aks cluster"
+      },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "deploy bicep file to azure"
+      },
+      {
+        "slug": "az-functionapp-update",
+        "boost": 5,
+        "phrase": "add tags to function app"
+      },
+      { "slug": "az-login", "boost": 5, "phrase": "authenticate to azure" },
+      {
+        "slug": "az-storage-blob-upload",
+        "boost": 5,
+        "phrase": "upload file to azure blob storage"
+      },
+      {
+        "slug": "az-webapp-up",
+        "boost": 5,
+        "phrase": "deploy app to azure web app"
+      },
+      {
+        "slug": "gcloud-app-deploy",
+        "boost": 5,
+        "phrase": "deploy nodejs app to app engine"
+      },
+      {
+        "slug": "gcloud-auth-login",
+        "boost": 5,
+        "phrase": "authenticate to google cloud"
+      },
+      {
+        "slug": "gcloud-compute-ssh",
+        "boost": 5,
+        "phrase": "connect to compute engine instance"
+      },
+      {
+        "slug": "gcloud-container-clusters-get-credentials",
+        "boost": 5,
+        "phrase": "connect to gke cluster"
+      },
+      {
+        "slug": "gcloud-storage-cp",
+        "boost": 5,
+        "phrase": "copy file to google cloud storage"
+      },
+      { "slug": "git-add", "boost": 5, "phrase": "add files to git index" },
+      {
+        "slug": "git-checkout",
+        "boost": 5,
+        "phrase": "switch to another branch"
+      },
+      {
+        "slug": "git-cherry-pick",
+        "boost": 5,
+        "phrase": "apply single commit to branch"
+      },
+      { "slug": "git-commit", "boost": 5, "phrase": "save changes to git" },
+      {
+        "slug": "git-push",
+        "boost": 5,
+        "phrase": "upload local commits to github"
+      },
+      {
+        "slug": "git-rebase",
+        "boost": 5,
+        "phrase": "move branch to another base"
+      },
+      {
+        "slug": "git-restore",
+        "boost": 5,
+        "phrase": "revert file to last commit"
+      },
+      { "slug": "git-status", "boost": 5, "phrase": "see what to commit" },
+      {
+        "slug": "git-subtree",
+        "boost": 5,
+        "phrase": "push subdirectory changes to upstream repo"
+      },
+      {
+        "slug": "git-switch",
+        "boost": 5,
+        "phrase": "create and switch to new branch"
+      },
+      { "slug": "date", "boost": 5, "phrase": "convert timestamp to date" },
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
+      { "slug": "export", "boost": 5, "phrase": "add to path" },
+      { "slug": "man", "boost": 5, "phrase": "how to use a command" },
+      { "slug": "su", "boost": 5, "phrase": "switch to root user" },
+      {
+        "slug": "tmux",
+        "boost": 5,
+        "phrase": "attach to background terminal session"
+      },
+      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
+    ],
+    "bind": [{ "slug": "bind", "boost": 5 }],
+    "configure": [
+      { "slug": "bind", "boost": 5, "phrase": "configure bash keybindings" },
+      { "slug": "set", "boost": 5, "phrase": "configure shell behavior flags" },
+      { "slug": "shopt", "boost": 5, "phrase": "configure bash shell options" },
+      { "slug": "aws-configure", "boost": 5 },
+      {
+        "slug": "gcloud-config-set",
+        "boost": 5,
+        "phrase": "configure default compute zone"
+      },
+      { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
+    ],
+    "bash": [
+      { "slug": "bind", "boost": 5, "phrase": "configure bash keybindings" },
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "evaluate string as bash command"
+      },
+      { "slug": "exec", "boost": 5, "phrase": "exec command in bash script" },
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "change positional parameters bash"
+      },
+      {
+        "slug": "shopt",
+        "boost": 5,
+        "phrase": "toggle bash optional behavior"
+      },
+      { "slug": "echo", "boost": 5, "phrase": "output string in bash" },
+      {
+        "slug": "export",
+        "boost": 5,
+        "phrase": "make variable global in bash"
+      },
+      { "slug": "history", "boost": 5, "phrase": "clear bash history" }
+    ],
+    "keybindings": [
+      { "slug": "bind", "boost": 5, "phrase": "configure bash keybindings" }
+    ],
+    "readline": [
+      { "slug": "bind", "boost": 5, "phrase": "bind readline macro shortcut" }
+    ],
+    "macro": [
+      { "slug": "bind", "boost": 5, "phrase": "bind readline macro shortcut" }
+    ],
+    "shortcut": [
+      { "slug": "bind", "boost": 5, "phrase": "bind readline macro shortcut" },
+      {
+        "slug": "alias",
+        "boost": 5,
+        "phrase": "make shortcut for long command"
+      }
+    ],
+    "customize": [
+      {
+        "slug": "bind",
+        "boost": 5,
+        "phrase": "customize shell keyboard shortcuts"
+      }
+    ],
+    "shell": [
+      {
+        "slug": "bind",
+        "boost": 5,
+        "phrase": "customize shell keyboard shortcuts"
+      },
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "execute dynamic shell command string"
+      },
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "replace shell process with command"
+      },
+      { "slug": "jobs", "boost": 5, "phrase": "check active shell tasks" },
+      { "slug": "set", "boost": 5, "phrase": "set shell options and flags" },
+      { "slug": "shopt", "boost": 5, "phrase": "configure bash shell options" },
+      { "slug": "source", "boost": 5, "phrase": "run script in current shell" },
+      { "slug": "alias", "boost": 5, "phrase": "list shell aliases" },
+      { "slug": "clear", "boost": 5, "phrase": "clean shell screen" },
+      { "slug": "screen", "boost": 5, "phrase": "multiplex shell" },
+      { "slug": "su", "boost": 5, "phrase": "bypass nologin shell" },
+      { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
+    ],
+    "keyboard": [
+      {
+        "slug": "bind",
+        "boost": 5,
+        "phrase": "customize shell keyboard shortcuts"
+      }
+    ],
+    "shortcuts": [
+      {
+        "slug": "bind",
+        "boost": 5,
+        "phrase": "customize shell keyboard shortcuts"
+      }
+    ],
+    "set": [
+      { "slug": "bind", "boost": 5, "phrase": "set vi emacs mode bash" },
+      { "slug": "set", "boost": 5 },
+      {
+        "slug": "aws-configure",
+        "boost": 5,
+        "phrase": "set aws default region"
+      },
+      { "slug": "az-account-set", "boost": 5 },
+      { "slug": "gcloud-config-set", "boost": 5 },
+      { "slug": "date", "boost": 5, "phrase": "set system clock" },
+      { "slug": "env", "boost": 5, "phrase": "set env var temporarily" },
+      { "slug": "export", "boost": 5, "phrase": "set environment variable" }
+    ],
+    "vi": [{ "slug": "bind", "boost": 5, "phrase": "set vi emacs mode bash" }],
+    "emacs": [
+      { "slug": "bind", "boost": 5, "phrase": "set vi emacs mode bash" }
+    ],
+    "mode": [
+      { "slug": "bind", "boost": 5, "phrase": "set vi emacs mode bash" },
+      { "slug": "set", "boost": 5, "phrase": "enable bash debugging mode" }
+    ],
+    "list": [
+      { "slug": "bind", "boost": 5, "phrase": "list readline key bindings" },
+      { "slug": "jobs", "boost": 5, "phrase": "list background jobs" },
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "list shell variables and functions"
+      },
+      {
+        "slug": "aws-ec2-describe-instances",
+        "boost": 5,
+        "phrase": "list aws ec2 instances"
+      },
+      { "slug": "aws-s3-ls", "boost": 5, "phrase": "list s3 buckets" },
+      { "slug": "az-account-list", "boost": 5 },
+      { "slug": "gcloud-compute-instances-list", "boost": 5 },
+      {
+        "slug": "gcloud-storage-ls",
+        "boost": 5,
+        "phrase": "list google cloud storage buckets"
+      },
+      { "slug": "git-branch", "boost": 5, "phrase": "list all git branches" },
+      { "slug": "git-remote", "boost": 5, "phrase": "list git remotes" },
+      { "slug": "git-tag", "boost": 5, "phrase": "list git tags" },
+      { "slug": "git-worktree", "boost": 5, "phrase": "list active worktrees" },
+      {
+        "slug": "kubectl-get",
+        "boost": 5,
+        "phrase": "list kubernetes resources"
+      },
+      { "slug": "alias", "boost": 5, "phrase": "list shell aliases" },
+      { "slug": "env", "boost": 5, "phrase": "list environment variables" },
+      { "slug": "systemctl", "boost": 5, "phrase": "list running services" },
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      },
+      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
+    ],
+    "key": [
+      { "slug": "bind", "boost": 5, "phrase": "list readline key bindings" }
+    ],
+    "bindings": [
+      { "slug": "bind", "boost": 5, "phrase": "list readline key bindings" }
+    ],
+    "cd": [{ "slug": "cd", "boost": 5 }],
+    "chdir": [{ "slug": "cd", "boost": 5 }],
+    "change": [
+      { "slug": "cd", "boost": 5, "phrase": "change directory" },
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "change positional parameters bash"
+      },
+      {
+        "slug": "az-account-set",
+        "boost": 5,
+        "phrase": "change current subscription az cli"
+      },
+      {
+        "slug": "az-functionapp-update",
+        "boost": 5,
+        "phrase": "change function app service plan"
+      },
+      {
+        "slug": "gcloud-config-set",
+        "boost": 5,
+        "phrase": "change gcloud region"
+      },
+      { "slug": "git-remote", "boost": 5, "phrase": "change remote url" },
+      {
+        "slug": "git-switch",
+        "boost": 5,
+        "phrase": "change active git branch"
+      },
+      { "slug": "su", "boost": 5, "phrase": "change active user" },
+      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" }
+    ],
+    "directory": [
+      { "slug": "cd", "boost": 5, "phrase": "change directory" },
+      { "slug": "pwd", "boost": 5 },
+      {
+        "slug": "aws-s3-cp",
+        "boost": 5,
+        "phrase": "transfer local directory to s3"
+      },
+      {
+        "slug": "aws-s3-sync",
+        "boost": 5,
+        "phrase": "mirror directory to aws s3"
+      },
+      {
+        "slug": "az-webapp-up",
+        "boost": 5,
+        "phrase": "deploy web app from directory azure cli"
+      },
+      {
+        "slug": "gcloud-storage-cp",
+        "boost": 5,
+        "phrase": "copy directory to cloud storage cli"
+      },
+      {
+        "slug": "git-init",
+        "boost": 5,
+        "phrase": "turn directory into git repo"
+      },
+      { "slug": "git-reset", "boost": 5, "phrase": "reset working directory" },
+      {
+        "slug": "git-rm",
+        "boost": 5,
+        "phrase": "untrack a directory but keep it locally"
+      },
+      { "slug": "git-stash", "boost": 5, "phrase": "shelve working directory" },
+      {
+        "slug": "git-subtree",
+        "boost": 5,
+        "phrase": "extract directory into new repository"
+      },
+      { "slug": "cp", "boost": 5, "phrase": "copy directory recursively" },
+      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
+    ],
+    "go": [
+      { "slug": "cd", "boost": 5, "phrase": "go to folder" },
+      {
+        "slug": "git-checkout",
+        "boost": 5,
+        "phrase": "go back to a previous commit"
+      },
+      { "slug": "git-switch", "boost": 5, "phrase": "go to previous branch" }
+    ],
+    "folder": [
+      { "slug": "cd", "boost": 5, "phrase": "go to folder" },
+      { "slug": "aws-s3-ls", "boost": 5, "phrase": "show s3 folder contents" },
+      {
+        "slug": "aws-s3-sync",
+        "boost": 5,
+        "phrase": "sync local folder to s3 bucket"
+      },
+      {
+        "slug": "gcloud-storage-ls",
+        "boost": 5,
+        "phrase": "show cloud storage folder contents"
+      },
+      {
+        "slug": "git-archive",
+        "boost": 5,
+        "phrase": "export git repository without .git folder"
+      },
+      { "slug": "git-init", "boost": 5, "phrase": "initialize git in folder" },
+      {
+        "slug": "git-subtree",
+        "boost": 5,
+        "phrase": "split folder into its own git repo"
+      }
+    ],
+    "navigate": [{ "slug": "cd", "boost": 5, "phrase": "navigate filesystem" }],
+    "filesystem": [
+      { "slug": "cd", "boost": 5, "phrase": "navigate filesystem" },
+      { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
+    ],
+    "move": [
+      { "slug": "cd", "boost": 5, "phrase": "move to path" },
+      { "slug": "aws-s3-cp", "boost": 5, "phrase": "move file to aws storage" },
+      {
+        "slug": "git-rebase",
+        "boost": 5,
+        "phrase": "move branch to another base"
+      },
+      { "slug": "git-reset", "boost": 5, "phrase": "move head pointer" }
+    ],
+    "path": [
+      { "slug": "cd", "boost": 5, "phrase": "move to path" },
+      { "slug": "pwd", "boost": 5, "phrase": "get current path" },
+      { "slug": "which", "boost": 5, "phrase": "find path to executable" },
+      { "slug": "export", "boost": 5, "phrase": "add to path" }
+    ],
+    "switch": [
+      { "slug": "cd", "boost": 5, "phrase": "switch working directory" },
+      {
+        "slug": "az-account-set",
+        "boost": 5,
+        "phrase": "switch azure account context"
+      },
+      {
+        "slug": "git-checkout",
+        "boost": 5,
+        "phrase": "switch to another branch"
+      },
+      {
+        "slug": "git-stash",
+        "boost": 5,
+        "phrase": "switch branches with modified files"
+      },
+      { "slug": "git-switch", "boost": 5 },
+      { "slug": "su", "boost": 5, "phrase": "switch to root user" },
+      { "slug": "sudo", "boost": 5, "phrase": "switch user context" }
+    ],
+    "working": [
+      { "slug": "cd", "boost": 5, "phrase": "switch working directory" },
+      { "slug": "pwd", "boost": 5 },
+      {
+        "slug": "git-clean",
+        "boost": 5,
+        "phrase": "reset working tree untracked"
+      },
+      { "slug": "git-reset", "boost": 5, "phrase": "reset working directory" },
+      { "slug": "git-stash", "boost": 5, "phrase": "shelve working directory" },
+      {
+        "slug": "git-worktree",
+        "boost": 5,
+        "phrase": "manage multiple git working directories"
+      }
+    ],
+    "eval": [{ "slug": "eval", "boost": 5 }],
+    "evaluate": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "evaluate string as bash command"
+      },
+      {
+        "slug": "test",
+        "boost": 5,
+        "phrase": "evaluate conditional expression"
+      }
+    ],
+    "string": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "evaluate string as bash command"
+      },
+      { "slug": "date", "boost": 5, "phrase": "format date string" },
+      { "slug": "echo", "boost": 5, "phrase": "output string in bash" },
+      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
+    ],
+    "as": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "evaluate string as bash command"
+      },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "provision azure infrastructure as code"
+      },
+      { "slug": "su", "boost": 5, "phrase": "login as another user" },
+      { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
+      { "slug": "whoami", "boost": 5, "phrase": "who am i logged in as" }
+    ],
+    "command": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "evaluate string as bash command"
+      },
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "replace shell process with command"
+      },
+      { "slug": "type", "boost": 5, "phrase": "find command location" },
+      { "slug": "which", "boost": 5, "phrase": "locate command binary path" },
+      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
+      { "slug": "alias", "boost": 5, "phrase": "create custom command" },
+      { "slug": "env", "boost": 5, "phrase": "run command with env" },
+      { "slug": "history", "boost": 5, "phrase": "search command history" },
+      { "slug": "man", "boost": 5, "phrase": "how to use a command" },
+      { "slug": "su", "boost": 5, "phrase": "run command as different user" },
+      { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
+      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" }
+    ],
+    "execute": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "execute dynamic shell command string"
+      },
+      {
+        "slug": "source",
+        "boost": 5,
+        "phrase": "execute file without subshell"
+      },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "execute what-if deployment azure"
+      },
+      { "slug": "sudo", "boost": 5, "phrase": "execute as admin" },
+      { "slug": "watch", "boost": 5, "phrase": "execute command every second" }
+    ],
+    "dynamic": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "execute dynamic shell command string"
+      }
+    ],
+    "metaprogramming": [
+      { "slug": "eval", "boost": 5, "phrase": "bash metaprogramming eval" }
+    ],
+    "construct": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "construct and execute command dynamically"
+      }
+    ],
+    "and": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "construct and execute command dynamically"
+      },
+      { "slug": "set", "boost": 5, "phrase": "set shell options and flags" },
+      {
+        "slug": "az-webapp-up",
+        "boost": 5,
+        "phrase": "create and deploy azure webapp"
+      },
+      {
+        "slug": "git-fetch",
+        "boost": 5,
+        "phrase": "download objects and refs from remote"
+      },
+      { "slug": "git-pull", "boost": 5, "phrase": "fetch and merge" },
+      {
+        "slug": "git-switch",
+        "boost": 5,
+        "phrase": "create and switch to new branch"
+      },
+      {
+        "slug": "dmesg",
+        "boost": 5,
+        "phrase": "diagnose hardware errors and panics"
+      },
+      {
+        "slug": "uptime",
+        "boost": 5,
+        "phrase": "see who is logged in and system load"
+      },
+      { "slug": "search-and-copy-logs", "boost": 5 }
+    ],
+    "dynamically": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "construct and execute command dynamically"
+      }
+    ],
+    "arguments": [
+      {
+        "slug": "eval",
+        "boost": 5,
+        "phrase": "evaluate arguments as shell command"
+      }
+    ],
+    "exec": [{ "slug": "exec", "boost": 5 }],
+    "replace": [
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "replace shell process with command"
+      },
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
+    ],
+    "with": [
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "replace shell process with command"
+      },
+      { "slug": "fg", "boost": 5, "phrase": "interact with background job" },
+      {
+        "slug": "az-group-create",
+        "boost": 5,
+        "phrase": "create resource group with tags"
+      },
+      {
+        "slug": "git-fetch",
+        "boost": 5,
+        "phrase": "sync with remote without merging"
+      },
+      { "slug": "git-pull", "boost": 5, "phrase": "sync with remote" },
+      {
+        "slug": "git-push",
+        "boost": 5,
+        "phrase": "sync local changes with server"
+      },
+      { "slug": "git-rebase", "boost": 5, "phrase": "update branch with main" },
+      {
+        "slug": "git-stash",
+        "boost": 5,
+        "phrase": "switch branches with modified files"
+      },
+      { "slug": "git-tag", "boost": 5, "phrase": "sign git tag with gpg" },
+      { "slug": "env", "boost": 5, "phrase": "run command with env" },
+      {
+        "slug": "tmux",
+        "boost": 5,
+        "phrase": "share terminal session with another user"
+      }
+    ],
+    "script": [
+      { "slug": "exec", "boost": 5, "phrase": "exec command in bash script" },
+      { "slug": "source", "boost": 5, "phrase": "run script in current shell" },
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "redirect": [
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "redirect file descriptors permanently"
+      }
+    ],
+    "file": [
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "redirect file descriptors permanently"
+      },
+      {
+        "slug": "source",
+        "boost": 5,
+        "phrase": "execute file without subshell"
+      },
+      { "slug": "which", "boost": 5, "phrase": "find binary file location" },
+      { "slug": "aws-s3-cp", "boost": 5, "phrase": "upload file to s3 bucket" },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "deploy bicep file to azure"
+      },
+      {
+        "slug": "az-storage-blob-upload",
+        "boost": 5,
+        "phrase": "upload file to azure blob storage"
+      },
+      {
+        "slug": "gcloud-storage-cp",
+        "boost": 5,
+        "phrase": "copy file to google cloud storage"
+      },
+      { "slug": "git-add", "boost": 5, "phrase": "track new file in git" },
+      {
+        "slug": "git-archive",
+        "boost": 5,
+        "phrase": "create zip file from git branch"
+      },
+      {
+        "slug": "git-blame",
+        "boost": 5,
+        "phrase": "inspect file history line by line"
+      },
+      {
+        "slug": "git-checkout",
+        "boost": 5,
+        "phrase": "discard local changes to a file"
+      },
+      { "slug": "git-restore", "boost": 5, "phrase": "unstage a file" },
+      { "slug": "git-rm", "boost": 5, "phrase": "stop tracking a file in git" },
+      {
+        "slug": "git-show",
+        "boost": 5,
+        "phrase": "show file at specific commit"
+      },
+      { "slug": "cp", "boost": 5, "phrase": "copy a file" },
+      { "slug": "echo", "boost": 5, "phrase": "write variable to file" },
+      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
+      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" },
+      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
+      {
+        "slug": "test",
+        "boost": 5,
+        "phrase": "check file existence in script"
+      },
+      { "slug": "awk", "boost": 5, "phrase": "process structured text file" },
+      { "slug": "cat", "boost": 5, "phrase": "read file content" }
+    ],
+    "descriptors": [
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "redirect file descriptors permanently"
+      }
+    ],
+    "permanently": [
+      {
+        "slug": "exec",
+        "boost": 5,
+        "phrase": "redirect file descriptors permanently"
+      }
+    ],
+    "spawn": [
+      { "slug": "exec", "boost": 5, "phrase": "spawn process without new pid" }
+    ],
+    "without": [
+      { "slug": "exec", "boost": 5, "phrase": "spawn process without new pid" },
+      {
+        "slug": "source",
+        "boost": 5,
+        "phrase": "execute file without subshell"
+      },
+      {
+        "slug": "git-archive",
+        "boost": 5,
+        "phrase": "export git repository without .git folder"
+      },
+      {
+        "slug": "git-fetch",
+        "boost": 5,
+        "phrase": "sync with remote without merging"
+      },
+      {
+        "slug": "git-revert",
+        "boost": 5,
+        "phrase": "remove bad commit without rewriting history"
+      }
+    ],
+    "new": [
+      { "slug": "exec", "boost": 5, "phrase": "spawn process without new pid" },
+      {
+        "slug": "aws-ec2-run-instances",
+        "boost": 5,
+        "phrase": "start new ec2 virtual machine"
+      },
+      {
+        "slug": "aws-s3-sync",
+        "boost": 5,
+        "phrase": "download only new files from s3"
+      },
+      {
+        "slug": "az-group-create",
+        "boost": 5,
+        "phrase": "make a new resource group in azure"
+      },
+      { "slug": "az-vm-create", "boost": 5, "phrase": "start new azure vm" },
+      {
+        "slug": "gcloud-iam-service-accounts-create",
+        "boost": 5,
+        "phrase": "make new service account google cloud"
+      },
+      { "slug": "git-add", "boost": 5, "phrase": "track new file in git" },
+      { "slug": "git-branch", "boost": 5, "phrase": "create a new branch" },
+      {
+        "slug": "git-checkout",
+        "boost": 5,
+        "phrase": "create a new git branch"
+      },
+      {
+        "slug": "git-fetch",
+        "boost": 5,
+        "phrase": "fetch new branches from github"
+      },
+      {
+        "slug": "git-init",
+        "boost": 5,
+        "phrase": "start a new git repository"
+      },
+      {
+        "slug": "git-subtree",
+        "boost": 5,
+        "phrase": "extract directory into new repository"
+      },
+      {
+        "slug": "git-switch",
+        "boost": 5,
+        "phrase": "create and switch to new branch"
+      }
+    ],
+    "pid": [
+      { "slug": "exec", "boost": 5, "phrase": "spawn process without new pid" }
+    ],
+    "close": [
+      { "slug": "exec", "boost": 5, "phrase": "close file descriptors shell" }
+    ],
+    "fg": [{ "slug": "fg", "boost": 5 }],
+    "foreground": [{ "slug": "fg", "boost": 5 }],
+    "bring": [
+      { "slug": "fg", "boost": 5, "phrase": "bring job to foreground" }
+    ],
+    "return": [
+      { "slug": "fg", "boost": 5, "phrase": "return to suspended process" }
+    ],
+    "interact": [
+      { "slug": "fg", "boost": 5, "phrase": "interact with background job" }
+    ],
+    "jobs": [{ "slug": "jobs", "boost": 5 }],
+    "show": [
+      { "slug": "jobs", "boost": 5, "phrase": "show suspended processes" },
+      { "slug": "pwd", "boost": 5, "phrase": "show current directory" },
+      { "slug": "aws-s3-ls", "boost": 5, "phrase": "show s3 folder contents" },
+      {
+        "slug": "az-account-list",
+        "boost": 5,
+        "phrase": "show all azure accounts"
+      },
+      {
+        "slug": "gcloud-compute-instances-list",
+        "boost": 5,
+        "phrase": "show compute engine instances"
+      },
+      {
+        "slug": "gcloud-storage-ls",
+        "boost": 5,
+        "phrase": "show cloud storage folder contents"
+      },
+      { "slug": "git-branch", "boost": 5, "phrase": "show remote branches" },
+      { "slug": "git-diff", "boost": 5, "phrase": "show staged changes" },
+      { "slug": "git-log", "boost": 5, "phrase": "show git log" },
+      { "slug": "git-show", "boost": 5 },
+      { "slug": "git-status", "boost": 5, "phrase": "show modified files" }
+    ],
+    "processes": [
+      { "slug": "jobs", "boost": 5, "phrase": "show suspended processes" },
+      {
+        "slug": "get-process",
+        "boost": 5,
+        "phrase": "list processes in powershell"
+      },
+      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
+    ],
+    "check": [
+      { "slug": "jobs", "boost": 5, "phrase": "check active shell tasks" },
+      { "slug": "shopt", "boost": 5, "phrase": "check bash shopt settings" },
+      { "slug": "type", "boost": 5, "phrase": "check if command is alias" },
+      {
+        "slug": "which",
+        "boost": 5,
+        "phrase": "check where command is installed"
+      },
+      {
+        "slug": "aws-ec2-describe-instances",
+        "boost": 5,
+        "phrase": "check running ec2 servers"
+      },
+      {
+        "slug": "aws-iam-get-user",
+        "boost": 5,
+        "phrase": "check aws identity"
+      },
+      { "slug": "aws-s3-ls", "boost": 5, "phrase": "check s3 storage objects" },
+      {
+        "slug": "aws-sts-get-caller-identity",
+        "boost": 5,
+        "phrase": "check current aws identity"
+      },
+      {
+        "slug": "gcloud-storage-ls",
+        "boost": 5,
+        "phrase": "check gcs storage objects"
+      },
+      { "slug": "df", "boost": 5, "phrase": "check free disk space" },
+      {
+        "slug": "git-blame",
+        "boost": 5,
+        "phrase": "check line authorship git"
+      },
+      { "slug": "git-log", "boost": 5, "phrase": "check past commits" },
+      { "slug": "git-status", "boost": 5, "phrase": "check git state" },
+      { "slug": "dmesg", "boost": 5, "phrase": "check kernel logs" },
+      { "slug": "journalctl", "boost": 5, "phrase": "check system logs" },
+      { "slug": "systemctl", "boost": 5, "phrase": "check service status" },
+      {
+        "slug": "uptime",
+        "boost": 5,
+        "phrase": "check how long server has been running"
+      },
+      { "slug": "whoami", "boost": 5, "phrase": "check current user" },
+      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
+    ],
+    "active": [
+      { "slug": "jobs", "boost": 5, "phrase": "check active shell tasks" },
+      {
+        "slug": "az-account-set",
+        "boost": 5,
+        "phrase": "set active azure subscription"
+      },
+      {
+        "slug": "gcloud-config-set",
+        "boost": 5,
+        "phrase": "set active gcloud account"
+      },
+      {
+        "slug": "git-switch",
+        "boost": 5,
+        "phrase": "change active git branch"
+      },
+      { "slug": "git-worktree", "boost": 5, "phrase": "list active worktrees" },
+      { "slug": "su", "boost": 5, "phrase": "change active user" }
+    ],
+    "tasks": [
+      { "slug": "jobs", "boost": 5, "phrase": "check active shell tasks" }
+    ],
+    "view": [
+      { "slug": "jobs", "boost": 5, "phrase": "view stopped jobs" },
+      {
+        "slug": "aws-logs-tail",
+        "boost": 5,
+        "phrase": "view recent cloudwatch log events"
+      },
+      {
+        "slug": "az-account-list",
+        "boost": 5,
+        "phrase": "view available azure tenants"
+      },
+      { "slug": "git-log", "boost": 5, "phrase": "view commit history" },
+      { "slug": "git-reflog", "boost": 5, "phrase": "view git reference logs" },
+      { "slug": "git-show", "boost": 5, "phrase": "view commit details" },
+      { "slug": "git-status", "boost": 5, "phrase": "view untracked files" },
+      {
+        "slug": "dmesg",
+        "boost": 5,
+        "phrase": "view boot initialization messages"
+      },
+      { "slug": "history", "boost": 5, "phrase": "view previous commands" },
+      { "slug": "journalctl", "boost": 5, "phrase": "view service logs" }
+    ],
+    "pwd": [{ "slug": "pwd", "boost": 5 }],
+    "print": [
+      { "slug": "pwd", "boost": 5 },
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
+      { "slug": "whoami", "boost": 5, "phrase": "print effective user id" }
+    ],
+    "current": [
+      { "slug": "pwd", "boost": 5, "phrase": "show current directory" },
+      { "slug": "source", "boost": 5, "phrase": "run script in current shell" },
+      {
+        "slug": "aws-iam-get-user",
+        "boost": 5,
+        "phrase": "get current aws user"
+      },
+      {
+        "slug": "aws-sts-get-caller-identity",
+        "boost": 5,
+        "phrase": "check current aws identity"
+      },
+      {
+        "slug": "az-account-set",
+        "boost": 5,
+        "phrase": "change current subscription az cli"
+      },
+      { "slug": "git-branch", "boost": 5, "phrase": "rename current branch" },
+      { "slug": "date", "boost": 5, "phrase": "get current time" },
+      { "slug": "whoami", "boost": 5, "phrase": "check current user" }
+    ],
+    "where": [
+      { "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" },
+      { "slug": "type", "boost": 5, "phrase": "where is command executable" },
+      {
+        "slug": "which",
+        "boost": 5,
+        "phrase": "check where command is installed"
+      }
+    ],
+    "am": [
+      { "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" },
+      { "slug": "aws-iam-get-user", "boost": 5, "phrase": "who am i aws" },
+      {
+        "slug": "aws-sts-get-caller-identity",
+        "boost": 5,
+        "phrase": "who am i in aws"
+      },
+      { "slug": "whoami", "boost": 5, "phrase": "am i root" }
+    ],
+    "i": [
+      { "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" },
+      { "slug": "aws-iam-get-user", "boost": 5, "phrase": "who am i aws" },
+      {
+        "slug": "aws-sts-get-caller-identity",
+        "boost": 5,
+        "phrase": "who am i in aws"
+      },
+      { "slug": "whoami", "boost": 5, "phrase": "am i root" }
+    ],
+    "terminal": [
+      { "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" },
+      {
+        "slug": "aws-logs-tail",
+        "boost": 5,
+        "phrase": "tail cloudwatch logs from terminal"
+      },
+      { "slug": "alias", "boost": 5, "phrase": "shorten terminal command" },
+      { "slug": "clear", "boost": 5, "phrase": "clear the terminal screen" },
+      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
+      { "slug": "history", "boost": 5, "phrase": "find old terminal commands" },
+      {
+        "slug": "screen",
+        "boost": 5,
+        "phrase": "keep terminal alive after disconnect"
+      },
+      {
+        "slug": "tmux",
+        "boost": 5,
+        "phrase": "split terminal into multiple panes"
+      },
+      { "slug": "watch", "boost": 5, "phrase": "refresh terminal command" }
+    ],
+    "get": [
+      { "slug": "pwd", "boost": 5, "phrase": "get current path" },
+      { "slug": "aws-iam-get-user", "boost": 5 },
+      { "slug": "aws-sts-get-caller-identity", "boost": 5 },
+      {
+        "slug": "az-account-list",
+        "boost": 5,
+        "phrase": "get azure subscription list cli"
+      },
+      { "slug": "az-aks-get-credentials", "boost": 5 },
+      {
+        "slug": "gcloud-compute-instances-list",
+        "boost": 5,
+        "phrase": "get vm ips in gcp"
+      },
+      { "slug": "gcloud-container-clusters-get-credentials", "boost": 5 },
+      { "slug": "git-clone", "boost": 5, "phrase": "get source code" },
+      { "slug": "kubectl-get", "boost": 5 },
+      { "slug": "date", "boost": 5, "phrase": "get current time" },
+      { "slug": "get-process", "boost": 5 }
+    ],
+    "display": [
+      { "slug": "pwd", "boost": 5, "phrase": "display absolute path" },
+      { "slug": "clear", "boost": 5, "phrase": "reset console display" },
+      { "slug": "echo", "boost": 5, "phrase": "display environment variable" }
+    ],
+    "absolute": [
+      { "slug": "pwd", "boost": 5, "phrase": "display absolute path" }
+    ],
+    "options": [
+      { "slug": "set", "boost": 5, "phrase": "set shell options and flags" },
+      { "slug": "shopt", "boost": 5, "phrase": "configure bash shell options" },
+      { "slug": "man", "boost": 5, "phrase": "find command options" }
+    ],
+    "flags": [
+      { "slug": "set", "boost": 5, "phrase": "set shell options and flags" }
+    ],
+    "positional": [
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "change positional parameters bash"
+      }
+    ],
+    "parameters": [
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "change positional parameters bash"
+      },
+      { "slug": "sysctl", "boost": 5, "phrase": "tune kernel parameters" }
+    ],
+    "enable": [
+      { "slug": "set", "boost": 5, "phrase": "enable bash debugging mode" },
+      {
+        "slug": "shopt",
+        "boost": 5,
+        "phrase": "enable globstar recursive matching"
+      },
+      { "slug": "systemctl", "boost": 5, "phrase": "enable service on boot" }
+    ],
+    "debugging": [
+      { "slug": "set", "boost": 5, "phrase": "enable bash debugging mode" }
+    ],
+    "behavior": [
+      { "slug": "set", "boost": 5, "phrase": "configure shell behavior flags" },
+      {
+        "slug": "shopt",
+        "boost": 5,
+        "phrase": "toggle bash optional behavior"
+      },
+      {
+        "slug": "alias",
+        "boost": 5,
+        "phrase": "override default command behavior"
+      }
+    ],
+    "variables": [
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "list shell variables and functions"
+      },
+      { "slug": "source", "boost": 5, "phrase": "load environment variables" },
+      { "slug": "env", "boost": 5, "phrase": "list environment variables" }
+    ],
+    "functions": [
+      {
+        "slug": "set",
+        "boost": 5,
+        "phrase": "list shell variables and functions"
+      },
+      { "slug": "source", "boost": 5, "phrase": "import shell functions" },
+      { "slug": "gcloud-functions-deploy", "boost": 5 }
+    ],
+    "shopt": [{ "slug": "shopt", "boost": 5 }],
+    "toggle": [
+      { "slug": "shopt", "boost": 5, "phrase": "toggle bash optional behavior" }
+    ],
+    "optional": [
+      { "slug": "shopt", "boost": 5, "phrase": "toggle bash optional behavior" }
+    ],
+    "globstar": [
+      {
+        "slug": "shopt",
+        "boost": 5,
+        "phrase": "enable globstar recursive matching"
+      }
+    ],
+    "recursive": [
+      {
+        "slug": "shopt",
+        "boost": 5,
+        "phrase": "enable globstar recursive matching"
+      }
+    ],
+    "matching": [
+      {
+        "slug": "shopt",
+        "boost": 5,
+        "phrase": "enable globstar recursive matching"
+      },
+      { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" }
+    ],
+    "settings": [
+      { "slug": "shopt", "boost": 5, "phrase": "check bash shopt settings" },
+      {
+        "slug": "gcloud-config-set",
+        "boost": 5,
+        "phrase": "update gcloud settings"
+      },
+      { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
+    ],
+    "extglob": [
+      { "slug": "shopt", "boost": 5, "phrase": "enable extglob bash patterns" }
+    ],
+    "patterns": [
+      { "slug": "shopt", "boost": 5, "phrase": "enable extglob bash patterns" }
+    ],
+    "source": [
+      { "slug": "source", "boost": 5 },
+      {
+        "slug": "git-archive",
+        "boost": 5,
+        "phrase": "package git source code for release"
+      },
+      { "slug": "git-clone", "boost": 5, "phrase": "get source code" }
+    ],
+    "reload": [{ "slug": "source", "boost": 5, "phrase": "reload bashrc" }],
+    "bashrc": [{ "slug": "source", "boost": 5, "phrase": "reload bashrc" }],
+    "load": [
+      { "slug": "source", "boost": 5, "phrase": "load environment variables" },
+      { "slug": "uptime", "boost": 5, "phrase": "find system load average" }
+    ],
+    "environment": [
+      { "slug": "source", "boost": 5, "phrase": "load environment variables" },
+      { "slug": "echo", "boost": 5, "phrase": "display environment variable" },
+      { "slug": "env", "boost": 5, "phrase": "list environment variables" },
+      { "slug": "export", "boost": 5, "phrase": "set environment variable" }
+    ],
+    "subshell": [
+      {
+        "slug": "source",
+        "boost": 5,
+        "phrase": "execute file without subshell"
+      }
+    ],
+    "import": [
+      { "slug": "source", "boost": 5, "phrase": "import shell functions" }
+    ],
+    "type": [{ "slug": "type", "boost": 5 }],
+    "find": [
+      { "slug": "type", "boost": 5, "phrase": "find command location" },
+      { "slug": "which", "boost": 5, "phrase": "find path to executable" },
+      {
+        "slug": "aws-ec2-describe-instances",
+        "boost": 5,
+        "phrase": "find ec2 instance id"
+      },
+      { "slug": "aws-iam-get-user", "boost": 5, "phrase": "find iam user arn" },
+      { "slug": "aws-s3-ls", "boost": 5, "phrase": "find s3 bucket files" },
+      {
+        "slug": "az-account-list",
+        "boost": 5,
+        "phrase": "find azure subscription id"
+      },
+      {
+        "slug": "gcloud-compute-instances-list",
+        "boost": 5,
+        "phrase": "find virtual machine status google cloud"
+      },
+      {
+        "slug": "gcloud-storage-ls",
+        "boost": 5,
+        "phrase": "find gcs bucket objects cli"
+      },
+      {
+        "slug": "git-bisect",
+        "boost": 5,
+        "phrase": "find which commit broke the code"
+      },
+      {
+        "slug": "git-blame",
+        "boost": 5,
+        "phrase": "find commit that changed line"
+      },
+      { "slug": "git-log", "boost": 5, "phrase": "find who changed a line" },
+      {
+        "slug": "git-reflog",
+        "boost": 5,
+        "phrase": "find lost git commit hash"
+      },
+      {
+        "slug": "dmesg",
+        "boost": 5,
+        "phrase": "find out why process was killed by oom killer"
+      },
+      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
+      { "slug": "history", "boost": 5, "phrase": "find old terminal commands" },
+      { "slug": "journalctl", "boost": 5, "phrase": "find boot errors" },
+      { "slug": "man", "boost": 5, "phrase": "find command options" },
+      { "slug": "strace", "boost": 5, "phrase": "find missing shared library" },
+      { "slug": "uptime", "boost": 5, "phrase": "find system load average" },
+      { "slug": "ps", "boost": 5, "phrase": "find process id" }
+    ],
+    "location": [
+      { "slug": "type", "boost": 5, "phrase": "find command location" },
+      { "slug": "which", "boost": 5, "phrase": "find binary file location" }
+    ],
+    "if": [
+      { "slug": "type", "boost": 5, "phrase": "check if command is alias" },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "execute what-if deployment azure"
+      }
+    ],
+    "is": [
+      { "slug": "type", "boost": 5, "phrase": "check if command is alias" },
+      {
+        "slug": "which",
+        "boost": 5,
+        "phrase": "check where command is installed"
+      },
+      {
+        "slug": "uptime",
+        "boost": 5,
+        "phrase": "see who is logged in and system load"
+      }
+    ],
+    "alias": [
+      { "slug": "type", "boost": 5, "phrase": "check if command is alias" },
+      { "slug": "alias", "boost": 5 }
+    ],
+    "executable": [
+      { "slug": "type", "boost": 5, "phrase": "where is command executable" },
+      { "slug": "which", "boost": 5, "phrase": "find path to executable" },
+      { "slug": "chmod", "boost": 5, "phrase": "make file executable" }
+    ],
+    "what": [
+      { "slug": "type", "boost": 5, "phrase": "what kind of command is this" },
+      {
+        "slug": "az-deployment-group-create",
+        "boost": 5,
+        "phrase": "execute what-if deployment azure"
+      },
+      { "slug": "git-fetch", "boost": 5, "phrase": "see what others pushed" },
+      { "slug": "git-status", "boost": 5, "phrase": "see what to commit" },
+      {
+        "slug": "strace",
+        "boost": 5,
+        "phrase": "see what files a process opens"
+      }
+    ],
+    "kind": [
+      { "slug": "type", "boost": 5, "phrase": "what kind of command is this" }
+    ],
+    "of": [
+      { "slug": "type", "boost": 5, "phrase": "what kind of command is this" },
+      {
+        "slug": "git-add",
+        "boost": 5,
+        "phrase": "stage specific lines of code"
+      },
+      {
+        "slug": "git-archive",
+        "boost": 5,
+        "phrase": "download tarball of git commit"
+      },
+      {
+        "slug": "git-blame",
+        "boost": 5,
+        "phrase": "who wrote this line of code"
+      },
+      {
+        "slug": "grep",
+        "boost": 5,
+        "phrase": "find all occurrences of word in codebase"
+      },
+      {
+        "slug": "strace",
+        "boost": 5,
+        "phrase": "trace system calls of a process"
+      }
+    ],
+    "this": [
+      { "slug": "type", "boost": 5, "phrase": "what kind of command is this" },
+      {
+        "slug": "git-blame",
+        "boost": 5,
+        "phrase": "who wrote this line of code"
+      }
+    ],
+    "determine": [
+      { "slug": "type", "boost": 5, "phrase": "determine command type" }
+    ],
+    "which": [
+      { "slug": "which", "boost": 5 },
+      {
+        "slug": "git-bisect",
+        "boost": 5,
+        "phrase": "find which commit broke the code"
+      }
+    ],
+    "locate": [
+      { "slug": "which", "boost": 5, "phrase": "locate command binary path" }
+    ],
+    "binary": [
+      { "slug": "which", "boost": 5, "phrase": "locate command binary path" },
+      {
+        "slug": "git-bisect",
+        "boost": 5,
+        "phrase": "binary search git history"
+      }
+    ],
+    "installed": [
+      {
+        "slug": "which",
+        "boost": 5,
+        "phrase": "check where command is installed"
+      }
+    ],
     "aws": [
       { "slug": "aws-configure", "boost": 5 },
       { "slug": "aws-ec2-describe-instances", "boost": 5 },
@@ -12,15 +1570,6 @@
       { "slug": "aws-s3-sync", "boost": 5 },
       { "slug": "aws-sts-get-caller-identity", "boost": 5 },
       { "slug": "aws", "boost": 5 }
-    ],
-    "configure": [
-      { "slug": "aws-configure", "boost": 5 },
-      {
-        "slug": "gcloud-config-set",
-        "boost": 5,
-        "phrase": "configure default compute zone"
-      },
-      { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
     ],
     "credentials": [
       {
@@ -130,18 +1679,6 @@
         "phrase": "find gcs bucket objects cli"
       }
     ],
-    "set": [
-      {
-        "slug": "aws-configure",
-        "boost": 5,
-        "phrase": "set aws default region"
-      },
-      { "slug": "az-account-set", "boost": 5 },
-      { "slug": "gcloud-config-set", "boost": 5 },
-      { "slug": "date", "boost": 5, "phrase": "set system clock" },
-      { "slug": "env", "boost": 5, "phrase": "set env var temporarily" },
-      { "slug": "export", "boost": 5, "phrase": "set environment variable" }
-    ],
     "default": [
       {
         "slug": "aws-configure",
@@ -218,80 +1755,6 @@
       { "slug": "aws-ec2-run-instances", "boost": 5 },
       { "slug": "gcloud-compute-instances-list", "boost": 5 }
     ],
-    "list": [
-      {
-        "slug": "aws-ec2-describe-instances",
-        "boost": 5,
-        "phrase": "list aws ec2 instances"
-      },
-      { "slug": "aws-s3-ls", "boost": 5, "phrase": "list s3 buckets" },
-      { "slug": "az-account-list", "boost": 5 },
-      { "slug": "gcloud-compute-instances-list", "boost": 5 },
-      {
-        "slug": "gcloud-storage-ls",
-        "boost": 5,
-        "phrase": "list google cloud storage buckets"
-      },
-      { "slug": "git-branch", "boost": 5, "phrase": "list all git branches" },
-      { "slug": "git-remote", "boost": 5, "phrase": "list git remotes" },
-      { "slug": "git-tag", "boost": 5, "phrase": "list git tags" },
-      { "slug": "git-worktree", "boost": 5, "phrase": "list active worktrees" },
-      {
-        "slug": "kubectl-get",
-        "boost": 5,
-        "phrase": "list kubernetes resources"
-      },
-      { "slug": "alias", "boost": 5, "phrase": "list shell aliases" },
-      { "slug": "env", "boost": 5, "phrase": "list environment variables" },
-      { "slug": "systemctl", "boost": 5, "phrase": "list running services" },
-      {
-        "slug": "get-process",
-        "boost": 5,
-        "phrase": "list processes in powershell"
-      },
-      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
-    ],
-    "check": [
-      {
-        "slug": "aws-ec2-describe-instances",
-        "boost": 5,
-        "phrase": "check running ec2 servers"
-      },
-      {
-        "slug": "aws-iam-get-user",
-        "boost": 5,
-        "phrase": "check aws identity"
-      },
-      { "slug": "aws-s3-ls", "boost": 5, "phrase": "check s3 storage objects" },
-      {
-        "slug": "aws-sts-get-caller-identity",
-        "boost": 5,
-        "phrase": "check current aws identity"
-      },
-      {
-        "slug": "gcloud-storage-ls",
-        "boost": 5,
-        "phrase": "check gcs storage objects"
-      },
-      { "slug": "df", "boost": 5, "phrase": "check free disk space" },
-      {
-        "slug": "git-blame",
-        "boost": 5,
-        "phrase": "check line authorship git"
-      },
-      { "slug": "git-log", "boost": 5, "phrase": "check past commits" },
-      { "slug": "git-status", "boost": 5, "phrase": "check git state" },
-      { "slug": "dmesg", "boost": 5, "phrase": "check kernel logs" },
-      { "slug": "journalctl", "boost": 5, "phrase": "check system logs" },
-      { "slug": "systemctl", "boost": 5, "phrase": "check service status" },
-      {
-        "slug": "uptime",
-        "boost": 5,
-        "phrase": "check how long server has been running"
-      },
-      { "slug": "whoami", "boost": 5, "phrase": "check current user" },
-      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
-    ],
     "running": [
       {
         "slug": "aws-ec2-describe-instances",
@@ -317,58 +1780,6 @@
         "boost": 5,
         "phrase": "check running ec2 servers"
       }
-    ],
-    "find": [
-      {
-        "slug": "aws-ec2-describe-instances",
-        "boost": 5,
-        "phrase": "find ec2 instance id"
-      },
-      { "slug": "aws-iam-get-user", "boost": 5, "phrase": "find iam user arn" },
-      { "slug": "aws-s3-ls", "boost": 5, "phrase": "find s3 bucket files" },
-      {
-        "slug": "az-account-list",
-        "boost": 5,
-        "phrase": "find azure subscription id"
-      },
-      {
-        "slug": "gcloud-compute-instances-list",
-        "boost": 5,
-        "phrase": "find virtual machine status google cloud"
-      },
-      {
-        "slug": "gcloud-storage-ls",
-        "boost": 5,
-        "phrase": "find gcs bucket objects cli"
-      },
-      {
-        "slug": "git-bisect",
-        "boost": 5,
-        "phrase": "find which commit broke the code"
-      },
-      {
-        "slug": "git-blame",
-        "boost": 5,
-        "phrase": "find commit that changed line"
-      },
-      { "slug": "git-log", "boost": 5, "phrase": "find who changed a line" },
-      {
-        "slug": "git-reflog",
-        "boost": 5,
-        "phrase": "find lost git commit hash"
-      },
-      {
-        "slug": "dmesg",
-        "boost": 5,
-        "phrase": "find out why process was killed by oom killer"
-      },
-      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
-      { "slug": "history", "boost": 5, "phrase": "find old terminal commands" },
-      { "slug": "journalctl", "boost": 5, "phrase": "find boot errors" },
-      { "slug": "man", "boost": 5, "phrase": "find command options" },
-      { "slug": "strace", "boost": 5, "phrase": "find missing shared library" },
-      { "slug": "uptime", "boost": 5, "phrase": "find system load average" },
-      { "slug": "ps", "boost": 5, "phrase": "find process id" }
     ],
     "instance": [
       {
@@ -451,20 +1862,6 @@
       { "slug": "git-status", "boost": 5 },
       { "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" },
       { "slug": "systemctl", "boost": 5, "phrase": "check service status" }
-    ],
-    "run": [
-      { "slug": "aws-ec2-run-instances", "boost": 5 },
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "run arm template deployment"
-      },
-      { "slug": "docker-run", "boost": 5 },
-      { "slug": "env", "boost": 5, "phrase": "run command with env" },
-      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
-      { "slug": "su", "boost": 5, "phrase": "run command as different user" },
-      { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
-      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" }
     ],
     "launch": [
       {
@@ -620,56 +2017,6 @@
       },
       { "slug": "systemctl", "boost": 5, "phrase": "start a service" }
     ],
-    "new": [
-      {
-        "slug": "aws-ec2-run-instances",
-        "boost": 5,
-        "phrase": "start new ec2 virtual machine"
-      },
-      {
-        "slug": "aws-s3-sync",
-        "boost": 5,
-        "phrase": "download only new files from s3"
-      },
-      {
-        "slug": "az-group-create",
-        "boost": 5,
-        "phrase": "make a new resource group in azure"
-      },
-      { "slug": "az-vm-create", "boost": 5, "phrase": "start new azure vm" },
-      {
-        "slug": "gcloud-iam-service-accounts-create",
-        "boost": 5,
-        "phrase": "make new service account google cloud"
-      },
-      { "slug": "git-add", "boost": 5, "phrase": "track new file in git" },
-      { "slug": "git-branch", "boost": 5, "phrase": "create a new branch" },
-      {
-        "slug": "git-checkout",
-        "boost": 5,
-        "phrase": "create a new git branch"
-      },
-      {
-        "slug": "git-fetch",
-        "boost": 5,
-        "phrase": "fetch new branches from github"
-      },
-      {
-        "slug": "git-init",
-        "boost": 5,
-        "phrase": "start a new git repository"
-      },
-      {
-        "slug": "git-subtree",
-        "boost": 5,
-        "phrase": "extract directory into new repository"
-      },
-      {
-        "slug": "git-switch",
-        "boost": 5,
-        "phrase": "create and switch to new branch"
-      }
-    ],
     "virtual": [
       {
         "slug": "aws-ec2-run-instances",
@@ -807,119 +2154,6 @@
         "slug": "gcloud-container-clusters-get-credentials",
         "boost": 5,
         "phrase": "connect to gke cluster"
-      },
-      { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
-    ],
-    "to": [
-      {
-        "slug": "aws-eks-update-kubeconfig",
-        "boost": 5,
-        "phrase": "connect to eks cluster"
-      },
-      { "slug": "aws-s3-cp", "boost": 5, "phrase": "upload file to s3 bucket" },
-      {
-        "slug": "aws-s3-sync",
-        "boost": 5,
-        "phrase": "sync local folder to s3 bucket"
-      },
-      {
-        "slug": "az-aks-get-credentials",
-        "boost": 5,
-        "phrase": "connect to aks cluster"
-      },
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "deploy bicep file to azure"
-      },
-      {
-        "slug": "az-functionapp-update",
-        "boost": 5,
-        "phrase": "add tags to function app"
-      },
-      { "slug": "az-login", "boost": 5, "phrase": "authenticate to azure" },
-      {
-        "slug": "az-storage-blob-upload",
-        "boost": 5,
-        "phrase": "upload file to azure blob storage"
-      },
-      {
-        "slug": "az-webapp-up",
-        "boost": 5,
-        "phrase": "deploy app to azure web app"
-      },
-      {
-        "slug": "gcloud-app-deploy",
-        "boost": 5,
-        "phrase": "deploy nodejs app to app engine"
-      },
-      {
-        "slug": "gcloud-auth-login",
-        "boost": 5,
-        "phrase": "authenticate to google cloud"
-      },
-      {
-        "slug": "gcloud-compute-ssh",
-        "boost": 5,
-        "phrase": "connect to compute engine instance"
-      },
-      {
-        "slug": "gcloud-container-clusters-get-credentials",
-        "boost": 5,
-        "phrase": "connect to gke cluster"
-      },
-      {
-        "slug": "gcloud-storage-cp",
-        "boost": 5,
-        "phrase": "copy file to google cloud storage"
-      },
-      { "slug": "git-add", "boost": 5, "phrase": "add files to git index" },
-      {
-        "slug": "git-checkout",
-        "boost": 5,
-        "phrase": "switch to another branch"
-      },
-      {
-        "slug": "git-cherry-pick",
-        "boost": 5,
-        "phrase": "apply single commit to branch"
-      },
-      { "slug": "git-commit", "boost": 5, "phrase": "save changes to git" },
-      {
-        "slug": "git-push",
-        "boost": 5,
-        "phrase": "upload local commits to github"
-      },
-      {
-        "slug": "git-rebase",
-        "boost": 5,
-        "phrase": "move branch to another base"
-      },
-      {
-        "slug": "git-restore",
-        "boost": 5,
-        "phrase": "revert file to last commit"
-      },
-      { "slug": "git-status", "boost": 5, "phrase": "see what to commit" },
-      {
-        "slug": "git-subtree",
-        "boost": 5,
-        "phrase": "push subdirectory changes to upstream repo"
-      },
-      {
-        "slug": "git-switch",
-        "boost": 5,
-        "phrase": "create and switch to new branch"
-      },
-      { "slug": "date", "boost": 5, "phrase": "convert timestamp to date" },
-      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
-      { "slug": "export", "boost": 5, "phrase": "add to path" },
-      { "slug": "man", "boost": 5, "phrase": "how to use a command" },
-      { "slug": "su", "boost": 5, "phrase": "switch to root user" },
-      {
-        "slug": "tmux",
-        "boost": 5,
-        "phrase": "attach to background terminal session"
       },
       { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
     ],
@@ -1126,26 +2360,6 @@
       { "slug": "aws-iam-get-user", "boost": 5 },
       { "slug": "gcloud-iam-service-accounts-create", "boost": 5 }
     ],
-    "get": [
-      { "slug": "aws-iam-get-user", "boost": 5 },
-      { "slug": "aws-sts-get-caller-identity", "boost": 5 },
-      {
-        "slug": "az-account-list",
-        "boost": 5,
-        "phrase": "get azure subscription list cli"
-      },
-      { "slug": "az-aks-get-credentials", "boost": 5 },
-      {
-        "slug": "gcloud-compute-instances-list",
-        "boost": 5,
-        "phrase": "get vm ips in gcp"
-      },
-      { "slug": "gcloud-container-clusters-get-credentials", "boost": 5 },
-      { "slug": "git-clone", "boost": 5, "phrase": "get source code" },
-      { "slug": "kubectl-get", "boost": 5 },
-      { "slug": "date", "boost": 5, "phrase": "get current time" },
-      { "slug": "get-process", "boost": 5 }
-    ],
     "user": [
       { "slug": "aws-iam-get-user", "boost": 5 },
       {
@@ -1160,26 +2374,6 @@
         "boost": 5,
         "phrase": "share terminal session with another user"
       },
-      { "slug": "whoami", "boost": 5, "phrase": "check current user" }
-    ],
-    "current": [
-      {
-        "slug": "aws-iam-get-user",
-        "boost": 5,
-        "phrase": "get current aws user"
-      },
-      {
-        "slug": "aws-sts-get-caller-identity",
-        "boost": 5,
-        "phrase": "check current aws identity"
-      },
-      {
-        "slug": "az-account-set",
-        "boost": 5,
-        "phrase": "change current subscription az cli"
-      },
-      { "slug": "git-branch", "boost": 5, "phrase": "rename current branch" },
-      { "slug": "date", "boost": 5, "phrase": "get current time" },
       { "slug": "whoami", "boost": 5, "phrase": "check current user" }
     ],
     "identity": [
@@ -1240,24 +2434,6 @@
         "phrase": "see who is logged in and system load"
       },
       { "slug": "whoami", "boost": 5, "phrase": "who am i logged in as" }
-    ],
-    "am": [
-      { "slug": "aws-iam-get-user", "boost": 5, "phrase": "who am i aws" },
-      {
-        "slug": "aws-sts-get-caller-identity",
-        "boost": 5,
-        "phrase": "who am i in aws"
-      },
-      { "slug": "whoami", "boost": 5, "phrase": "am i root" }
-    ],
-    "i": [
-      { "slug": "aws-iam-get-user", "boost": 5, "phrase": "who am i aws" },
-      {
-        "slug": "aws-sts-get-caller-identity",
-        "boost": 5,
-        "phrase": "who am i in aws"
-      },
-      { "slug": "whoami", "boost": 5, "phrase": "am i root" }
     ],
     "logs": [
       { "slug": "aws-logs-tail", "boost": 5 },
@@ -1331,28 +2507,6 @@
       },
       { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
     ],
-    "terminal": [
-      {
-        "slug": "aws-logs-tail",
-        "boost": 5,
-        "phrase": "tail cloudwatch logs from terminal"
-      },
-      { "slug": "alias", "boost": 5, "phrase": "shorten terminal command" },
-      { "slug": "clear", "boost": 5, "phrase": "clear the terminal screen" },
-      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
-      { "slug": "history", "boost": 5, "phrase": "find old terminal commands" },
-      {
-        "slug": "screen",
-        "boost": 5,
-        "phrase": "keep terminal alive after disconnect"
-      },
-      {
-        "slug": "tmux",
-        "boost": 5,
-        "phrase": "split terminal into multiple panes"
-      },
-      { "slug": "watch", "boost": 5, "phrase": "refresh terminal command" }
-    ],
     "stream": [
       {
         "slug": "aws-logs-tail",
@@ -1396,29 +2550,6 @@
         "phrase": "stream aws log group live"
       }
     ],
-    "view": [
-      {
-        "slug": "aws-logs-tail",
-        "boost": 5,
-        "phrase": "view recent cloudwatch log events"
-      },
-      {
-        "slug": "az-account-list",
-        "boost": 5,
-        "phrase": "view available azure tenants"
-      },
-      { "slug": "git-log", "boost": 5, "phrase": "view commit history" },
-      { "slug": "git-reflog", "boost": 5, "phrase": "view git reference logs" },
-      { "slug": "git-show", "boost": 5, "phrase": "view commit details" },
-      { "slug": "git-status", "boost": 5, "phrase": "view untracked files" },
-      {
-        "slug": "dmesg",
-        "boost": 5,
-        "phrase": "view boot initialization messages"
-      },
-      { "slug": "history", "boost": 5, "phrase": "view previous commands" },
-      { "slug": "journalctl", "boost": 5, "phrase": "view service logs" }
-    ],
     "recent": [
       {
         "slug": "aws-logs-tail",
@@ -1439,82 +2570,6 @@
         "boost": 5,
         "phrase": "follow aws logs in real time"
       }
-    ],
-    "in": [
-      {
-        "slug": "aws-logs-tail",
-        "boost": 5,
-        "phrase": "follow aws logs in real time"
-      },
-      { "slug": "aws-s3-ls", "boost": 5, "phrase": "list files in s3 bucket" },
-      {
-        "slug": "aws-sts-get-caller-identity",
-        "boost": 5,
-        "phrase": "who am i in aws"
-      },
-      {
-        "slug": "az-group-create",
-        "boost": 5,
-        "phrase": "make a new resource group in azure"
-      },
-      {
-        "slug": "gcloud-compute-instances-list",
-        "boost": 5,
-        "phrase": "get vm ips in gcp"
-      },
-      {
-        "slug": "gcloud-storage-ls",
-        "boost": 5,
-        "phrase": "list files in gcs bucket"
-      },
-      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
-      { "slug": "git-add", "boost": 5, "phrase": "track new file in git" },
-      { "slug": "git-bisect", "boost": 5, "phrase": "find bug origin in git" },
-      {
-        "slug": "git-commit",
-        "boost": 5,
-        "phrase": "record a snapshot in git"
-      },
-      { "slug": "git-diff", "boost": 5, "phrase": "compare files in git" },
-      { "slug": "git-init", "boost": 5, "phrase": "initialize git in folder" },
-      {
-        "slug": "git-restore",
-        "boost": 5,
-        "phrase": "discard local changes in git"
-      },
-      { "slug": "git-rm", "boost": 5, "phrase": "stop tracking a file in git" },
-      { "slug": "git-show", "boost": 5, "phrase": "see changes in a commit" },
-      {
-        "slug": "git-stash",
-        "boost": 5,
-        "phrase": "hide local changes in git"
-      },
-      { "slug": "echo", "boost": 5, "phrase": "output string in bash" },
-      {
-        "slug": "export",
-        "boost": 5,
-        "phrase": "make variable global in bash"
-      },
-      { "slug": "grep", "boost": 5, "phrase": "search text in files" },
-      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
-      {
-        "slug": "uptime",
-        "boost": 5,
-        "phrase": "see who is logged in and system load"
-      },
-      {
-        "slug": "watch",
-        "boost": 5,
-        "phrase": "monitor command output in real time"
-      },
-      { "slug": "whoami", "boost": 5, "phrase": "who am i logged in as" },
-      {
-        "slug": "get-process",
-        "boost": 5,
-        "phrase": "list processes in powershell"
-      },
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
-      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
     ],
     "real": [
       {
@@ -1580,59 +2635,6 @@
         "boost": 5,
         "phrase": "upload local commits to github"
       }
-    ],
-    "file": [
-      { "slug": "aws-s3-cp", "boost": 5, "phrase": "upload file to s3 bucket" },
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "deploy bicep file to azure"
-      },
-      {
-        "slug": "az-storage-blob-upload",
-        "boost": 5,
-        "phrase": "upload file to azure blob storage"
-      },
-      {
-        "slug": "gcloud-storage-cp",
-        "boost": 5,
-        "phrase": "copy file to google cloud storage"
-      },
-      { "slug": "git-add", "boost": 5, "phrase": "track new file in git" },
-      {
-        "slug": "git-archive",
-        "boost": 5,
-        "phrase": "create zip file from git branch"
-      },
-      {
-        "slug": "git-blame",
-        "boost": 5,
-        "phrase": "inspect file history line by line"
-      },
-      {
-        "slug": "git-checkout",
-        "boost": 5,
-        "phrase": "discard local changes to a file"
-      },
-      { "slug": "git-restore", "boost": 5, "phrase": "unstage a file" },
-      { "slug": "git-rm", "boost": 5, "phrase": "stop tracking a file in git" },
-      {
-        "slug": "git-show",
-        "boost": 5,
-        "phrase": "show file at specific commit"
-      },
-      { "slug": "cp", "boost": 5, "phrase": "copy a file" },
-      { "slug": "echo", "boost": 5, "phrase": "write variable to file" },
-      { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
-      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" },
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
-      {
-        "slug": "test",
-        "boost": 5,
-        "phrase": "check file existence in script"
-      },
-      { "slug": "awk", "boost": 5, "phrase": "process structured text file" },
-      { "slug": "cat", "boost": 5, "phrase": "read file content" }
     ],
     "bucket": [
       { "slug": "aws-s3-cp", "boost": 5, "phrase": "upload file to s3 bucket" },
@@ -1761,56 +2763,6 @@
         "phrase": "transfer files between gcs buckets"
       }
     ],
-    "directory": [
-      {
-        "slug": "aws-s3-cp",
-        "boost": 5,
-        "phrase": "transfer local directory to s3"
-      },
-      {
-        "slug": "aws-s3-sync",
-        "boost": 5,
-        "phrase": "mirror directory to aws s3"
-      },
-      {
-        "slug": "az-webapp-up",
-        "boost": 5,
-        "phrase": "deploy web app from directory azure cli"
-      },
-      {
-        "slug": "gcloud-storage-cp",
-        "boost": 5,
-        "phrase": "copy directory to cloud storage cli"
-      },
-      {
-        "slug": "git-init",
-        "boost": 5,
-        "phrase": "turn directory into git repo"
-      },
-      { "slug": "git-reset", "boost": 5, "phrase": "reset working directory" },
-      {
-        "slug": "git-rm",
-        "boost": 5,
-        "phrase": "untrack a directory but keep it locally"
-      },
-      { "slug": "git-stash", "boost": 5, "phrase": "shelve working directory" },
-      {
-        "slug": "git-subtree",
-        "boost": 5,
-        "phrase": "extract directory into new repository"
-      },
-      { "slug": "cp", "boost": 5, "phrase": "copy directory recursively" },
-      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
-    ],
-    "move": [
-      { "slug": "aws-s3-cp", "boost": 5, "phrase": "move file to aws storage" },
-      {
-        "slug": "git-rebase",
-        "boost": 5,
-        "phrase": "move branch to another base"
-      },
-      { "slug": "git-reset", "boost": 5, "phrase": "move head pointer" }
-    ],
     "storage": [
       { "slug": "aws-s3-cp", "boost": 5, "phrase": "move file to aws storage" },
       { "slug": "aws-s3-ls", "boost": 5, "phrase": "check s3 storage objects" },
@@ -1883,53 +2835,6 @@
       },
       { "slug": "cat", "boost": 5, "phrase": "concatenate files" },
       { "slug": "search-and-copy-logs", "boost": 5 }
-    ],
-    "show": [
-      { "slug": "aws-s3-ls", "boost": 5, "phrase": "show s3 folder contents" },
-      {
-        "slug": "az-account-list",
-        "boost": 5,
-        "phrase": "show all azure accounts"
-      },
-      {
-        "slug": "gcloud-compute-instances-list",
-        "boost": 5,
-        "phrase": "show compute engine instances"
-      },
-      {
-        "slug": "gcloud-storage-ls",
-        "boost": 5,
-        "phrase": "show cloud storage folder contents"
-      },
-      { "slug": "git-branch", "boost": 5, "phrase": "show remote branches" },
-      { "slug": "git-diff", "boost": 5, "phrase": "show staged changes" },
-      { "slug": "git-log", "boost": 5, "phrase": "show git log" },
-      { "slug": "git-show", "boost": 5 },
-      { "slug": "git-status", "boost": 5, "phrase": "show modified files" }
-    ],
-    "folder": [
-      { "slug": "aws-s3-ls", "boost": 5, "phrase": "show s3 folder contents" },
-      {
-        "slug": "aws-s3-sync",
-        "boost": 5,
-        "phrase": "sync local folder to s3 bucket"
-      },
-      {
-        "slug": "gcloud-storage-ls",
-        "boost": 5,
-        "phrase": "show cloud storage folder contents"
-      },
-      {
-        "slug": "git-archive",
-        "boost": 5,
-        "phrase": "export git repository without .git folder"
-      },
-      { "slug": "git-init", "boost": 5, "phrase": "initialize git in folder" },
-      {
-        "slug": "git-subtree",
-        "boost": 5,
-        "phrase": "split folder into its own git repo"
-      }
     ],
     "contents": [
       { "slug": "aws-s3-ls", "boost": 5, "phrase": "show s3 folder contents" },
@@ -2208,70 +3113,6 @@
         "phrase": "view available azure tenants"
       }
     ],
-    "active": [
-      {
-        "slug": "az-account-set",
-        "boost": 5,
-        "phrase": "set active azure subscription"
-      },
-      {
-        "slug": "gcloud-config-set",
-        "boost": 5,
-        "phrase": "set active gcloud account"
-      },
-      {
-        "slug": "git-switch",
-        "boost": 5,
-        "phrase": "change active git branch"
-      },
-      { "slug": "git-worktree", "boost": 5, "phrase": "list active worktrees" },
-      { "slug": "su", "boost": 5, "phrase": "change active user" }
-    ],
-    "change": [
-      {
-        "slug": "az-account-set",
-        "boost": 5,
-        "phrase": "change current subscription az cli"
-      },
-      {
-        "slug": "az-functionapp-update",
-        "boost": 5,
-        "phrase": "change function app service plan"
-      },
-      {
-        "slug": "gcloud-config-set",
-        "boost": 5,
-        "phrase": "change gcloud region"
-      },
-      { "slug": "git-remote", "boost": 5, "phrase": "change remote url" },
-      {
-        "slug": "git-switch",
-        "boost": 5,
-        "phrase": "change active git branch"
-      },
-      { "slug": "su", "boost": 5, "phrase": "change active user" },
-      { "slug": "chmod", "boost": 5, "phrase": "change file permissions" }
-    ],
-    "switch": [
-      {
-        "slug": "az-account-set",
-        "boost": 5,
-        "phrase": "switch azure account context"
-      },
-      {
-        "slug": "git-checkout",
-        "boost": 5,
-        "phrase": "switch to another branch"
-      },
-      {
-        "slug": "git-stash",
-        "boost": 5,
-        "phrase": "switch branches with modified files"
-      },
-      { "slug": "git-switch", "boost": 5 },
-      { "slug": "su", "boost": 5, "phrase": "switch to root user" },
-      { "slug": "sudo", "boost": 5, "phrase": "switch user context" }
-    ],
     "context": [
       {
         "slug": "az-account-set",
@@ -2349,16 +3190,6 @@
         "phrase": "provision azure infrastructure as code"
       }
     ],
-    "as": [
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "provision azure infrastructure as code"
-      },
-      { "slug": "su", "boost": 5, "phrase": "login as another user" },
-      { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
-      { "slug": "whoami", "boost": 5, "phrase": "who am i logged in as" }
-    ],
     "code": [
       {
         "slug": "az-deployment-group-create",
@@ -2402,36 +3233,6 @@
         "slug": "az-group-create",
         "boost": 5,
         "phrase": "create an azure resource group"
-      }
-    ],
-    "execute": [
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "execute what-if deployment azure"
-      },
-      { "slug": "sudo", "boost": 5, "phrase": "execute as admin" },
-      { "slug": "watch", "boost": 5, "phrase": "execute command every second" }
-    ],
-    "what": [
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "execute what-if deployment azure"
-      },
-      { "slug": "git-fetch", "boost": 5, "phrase": "see what others pushed" },
-      { "slug": "git-status", "boost": 5, "phrase": "see what to commit" },
-      {
-        "slug": "strace",
-        "boost": 5,
-        "phrase": "see what files a process opens"
-      }
-    ],
-    "if": [
-      {
-        "slug": "az-deployment-group-create",
-        "boost": 5,
-        "phrase": "execute what-if deployment azure"
       }
     ],
     "functionapp": [{ "slug": "az-functionapp-update", "boost": 5 }],
@@ -2642,37 +3443,6 @@
       { "slug": "gcloud-container-clusters-get-credentials", "boost": 5 },
       { "slug": "docker-run", "boost": 5, "phrase": "run a container" }
     ],
-    "with": [
-      {
-        "slug": "az-group-create",
-        "boost": 5,
-        "phrase": "create resource group with tags"
-      },
-      {
-        "slug": "git-fetch",
-        "boost": 5,
-        "phrase": "sync with remote without merging"
-      },
-      { "slug": "git-pull", "boost": 5, "phrase": "sync with remote" },
-      {
-        "slug": "git-push",
-        "boost": 5,
-        "phrase": "sync local changes with server"
-      },
-      { "slug": "git-rebase", "boost": 5, "phrase": "update branch with main" },
-      {
-        "slug": "git-stash",
-        "boost": 5,
-        "phrase": "switch branches with modified files"
-      },
-      { "slug": "git-tag", "boost": 5, "phrase": "sign git tag with gpg" },
-      { "slug": "env", "boost": 5, "phrase": "run command with env" },
-      {
-        "slug": "tmux",
-        "boost": 5,
-        "phrase": "share terminal session with another user"
-      }
-    ],
     "login": [
       { "slug": "az-login", "boost": 5 },
       { "slug": "gcloud-auth-login", "boost": 5 },
@@ -2708,13 +3478,6 @@
         "phrase": "put blob azure storage"
       }
     ],
-    "send": [
-      {
-        "slug": "az-storage-blob-upload",
-        "boost": 5,
-        "phrase": "send backup to azure container"
-      }
-    ],
     "vm": [
       { "slug": "az-vm-create", "boost": 5 },
       {
@@ -2732,35 +3495,6 @@
         "boost": 5,
         "phrase": "deploy app to azure web app"
       }
-    ],
-    "and": [
-      {
-        "slug": "az-webapp-up",
-        "boost": 5,
-        "phrase": "create and deploy azure webapp"
-      },
-      {
-        "slug": "git-fetch",
-        "boost": 5,
-        "phrase": "download objects and refs from remote"
-      },
-      { "slug": "git-pull", "boost": 5, "phrase": "fetch and merge" },
-      {
-        "slug": "git-switch",
-        "boost": 5,
-        "phrase": "create and switch to new branch"
-      },
-      {
-        "slug": "dmesg",
-        "boost": 5,
-        "phrase": "diagnose hardware errors and panics"
-      },
-      {
-        "slug": "uptime",
-        "boost": 5,
-        "phrase": "see who is logged in and system load"
-      },
-      { "slug": "search-and-copy-logs", "boost": 5 }
     ],
     "publish": [
       {
@@ -3080,14 +3814,6 @@
         "phrase": "configure default compute zone"
       }
     ],
-    "settings": [
-      {
-        "slug": "gcloud-config-set",
-        "boost": 5,
-        "phrase": "update gcloud settings"
-      },
-      { "slug": "sysctl", "boost": 5, "phrase": "configure sysctl settings" }
-    ],
     "clusters": [
       { "slug": "gcloud-container-clusters-get-credentials", "boost": 5 }
     ],
@@ -3110,7 +3836,6 @@
         "phrase": "list kubernetes resources"
       }
     ],
-    "functions": [{ "slug": "gcloud-functions-deploy", "boost": 5 }],
     "non": [
       {
         "slug": "gcloud-iam-service-accounts-create",
@@ -3156,7 +3881,6 @@
       { "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }
     ],
     "cron": [{ "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }],
-    "job": [{ "slug": "crontab", "boost": 5, "phrase": "schedule cron job" }],
     "edit": [{ "slug": "crontab", "boost": 5, "phrase": "edit crontab" }],
     "jq": [{ "slug": "jq", "boost": 5 }],
     "parse": [
@@ -3164,16 +3888,6 @@
     ],
     "json": [
       { "slug": "jq", "boost": 5, "phrase": "parse json in command line" }
-    ],
-    "command": [
-      { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
-      { "slug": "alias", "boost": 5, "phrase": "create custom command" },
-      { "slug": "env", "boost": 5, "phrase": "run command with env" },
-      { "slug": "history", "boost": 5, "phrase": "search command history" },
-      { "slug": "man", "boost": 5, "phrase": "how to use a command" },
-      { "slug": "su", "boost": 5, "phrase": "run command as different user" },
-      { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
-      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" }
     ],
     "line": [
       { "slug": "jq", "boost": 5, "phrase": "parse json in command line" },
@@ -3203,9 +3917,6 @@
     "free": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
     "disk": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
     "space": [{ "slug": "df", "boost": 5, "phrase": "check free disk space" }],
-    "filesystem": [
-      { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
-    ],
     "usage": [
       { "slug": "df", "boost": 5, "phrase": "filesystem usage report" }
     ],
@@ -3378,33 +4089,6 @@
       },
       { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" }
     ],
-    "of": [
-      {
-        "slug": "git-add",
-        "boost": 5,
-        "phrase": "stage specific lines of code"
-      },
-      {
-        "slug": "git-archive",
-        "boost": 5,
-        "phrase": "download tarball of git commit"
-      },
-      {
-        "slug": "git-blame",
-        "boost": 5,
-        "phrase": "who wrote this line of code"
-      },
-      {
-        "slug": "grep",
-        "boost": 5,
-        "phrase": "find all occurrences of word in codebase"
-      },
-      {
-        "slug": "strace",
-        "boost": 5,
-        "phrase": "trace system calls of a process"
-      }
-    ],
     "archive": [{ "slug": "git-archive", "boost": 5 }],
     "export": [
       {
@@ -3445,23 +4129,6 @@
         "slug": "git-subtree",
         "boost": 5,
         "phrase": "merge another repository into a subdirectory"
-      }
-    ],
-    "without": [
-      {
-        "slug": "git-archive",
-        "boost": 5,
-        "phrase": "export git repository without .git folder"
-      },
-      {
-        "slug": "git-fetch",
-        "boost": 5,
-        "phrase": "sync with remote without merging"
-      },
-      {
-        "slug": "git-revert",
-        "boost": 5,
-        "phrase": "remove bad commit without rewriting history"
       }
     ],
     "zip": [
@@ -3527,14 +4194,6 @@
       },
       { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
     ],
-    "source": [
-      {
-        "slug": "git-archive",
-        "boost": 5,
-        "phrase": "package git source code for release"
-      },
-      { "slug": "git-clone", "boost": 5, "phrase": "get source code" }
-    ],
     "release": [
       {
         "slug": "git-archive",
@@ -3598,13 +4257,6 @@
       { "slug": "history", "boost": 5 }
     ],
     "bisect": [{ "slug": "git-bisect", "boost": 5 }],
-    "which": [
-      {
-        "slug": "git-bisect",
-        "boost": 5,
-        "phrase": "find which commit broke the code"
-      }
-    ],
     "broke": [
       {
         "slug": "git-bisect",
@@ -3629,13 +4281,6 @@
         "phrase": "see who contributed the most"
       },
       { "slug": "clear", "boost": 5, "phrase": "clear the terminal screen" }
-    ],
-    "binary": [
-      {
-        "slug": "git-bisect",
-        "boost": 5,
-        "phrase": "binary search git history"
-      }
     ],
     "search": [
       {
@@ -3691,13 +4336,6 @@
     "blame": [{ "slug": "git-blame", "boost": 5 }],
     "annotate": [{ "slug": "git-blame", "boost": 5 }],
     "wrote": [
-      {
-        "slug": "git-blame",
-        "boost": 5,
-        "phrase": "who wrote this line of code"
-      }
-    ],
-    "this": [
       {
         "slug": "git-blame",
         "boost": 5,
@@ -3796,14 +4434,6 @@
         "boost": 5,
         "phrase": "discard local changes in git"
       }
-    ],
-    "go": [
-      {
-        "slug": "git-checkout",
-        "boost": 5,
-        "phrase": "go back to a previous commit"
-      },
-      { "slug": "git-switch", "boost": 5, "phrase": "go to previous branch" }
     ],
     "back": [
       {
@@ -3979,20 +4609,6 @@
       { "slug": "git-reflog", "boost": 5, "phrase": "undo git reset hard" },
       { "slug": "git-reset", "boost": 5 },
       { "slug": "clear", "boost": 5, "phrase": "reset console display" }
-    ],
-    "working": [
-      {
-        "slug": "git-clean",
-        "boost": 5,
-        "phrase": "reset working tree untracked"
-      },
-      { "slug": "git-reset", "boost": 5, "phrase": "reset working directory" },
-      { "slug": "git-stash", "boost": 5, "phrase": "shelve working directory" },
-      {
-        "slug": "git-worktree",
-        "boost": 5,
-        "phrase": "manage multiple git working directories"
-      }
     ],
     "tree": [
       {
@@ -4622,23 +5238,12 @@
       { "slug": "sysctl", "boost": 5, "phrase": "tune kernel parameters" },
       { "slug": "dmesg", "boost": 5, "phrase": "check kernel logs" }
     ],
-    "parameters": [
-      { "slug": "sysctl", "boost": 5, "phrase": "tune kernel parameters" }
-    ],
     "pod": [{ "slug": "kubectl-get", "boost": 5, "phrase": "get pod status" }],
-    "alias": [{ "slug": "alias", "boost": 5 }],
     "custom": [
       { "slug": "alias", "boost": 5, "phrase": "create custom command" }
     ],
     "shorten": [
       { "slug": "alias", "boost": 5, "phrase": "shorten terminal command" }
-    ],
-    "shell": [
-      { "slug": "alias", "boost": 5, "phrase": "list shell aliases" },
-      { "slug": "clear", "boost": 5, "phrase": "clean shell screen" },
-      { "slug": "screen", "boost": 5, "phrase": "multiplex shell" },
-      { "slug": "su", "boost": 5, "phrase": "bypass nologin shell" },
-      { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
     ],
     "aliases": [
       { "slug": "alias", "boost": 5, "phrase": "list shell aliases" }
@@ -4648,20 +5253,6 @@
         "slug": "alias",
         "boost": 5,
         "phrase": "override default command behavior"
-      }
-    ],
-    "behavior": [
-      {
-        "slug": "alias",
-        "boost": 5,
-        "phrase": "override default command behavior"
-      }
-    ],
-    "shortcut": [
-      {
-        "slug": "alias",
-        "boost": 5,
-        "phrase": "make shortcut for long command"
       }
     ],
     "long": [
@@ -4695,10 +5286,6 @@
     "console": [
       { "slug": "clear", "boost": 5, "phrase": "reset console display" }
     ],
-    "display": [
-      { "slug": "clear", "boost": 5, "phrase": "reset console display" },
-      { "slug": "echo", "boost": 5, "phrase": "display environment variable" }
-    ],
     "duplicate": [{ "slug": "cp", "boost": 5, "phrase": "duplicate a file" }],
     "recursively": [
       { "slug": "cp", "boost": 5, "phrase": "copy directory recursively" }
@@ -4725,11 +5312,6 @@
       { "slug": "cp", "boost": 5, "phrase": "backup a file before editing" }
     ],
     "date": [{ "slug": "date", "boost": 5 }],
-    "string": [
-      { "slug": "date", "boost": 5, "phrase": "format date string" },
-      { "slug": "echo", "boost": 5, "phrase": "output string in bash" },
-      { "slug": "grep", "boost": 5, "phrase": "search for string in directory" }
-    ],
     "system": [
       { "slug": "date", "boost": 5, "phrase": "set system clock" },
       { "slug": "journalctl", "boost": 5, "phrase": "check system logs" },
@@ -4765,32 +5347,6 @@
         "boost": 5,
         "phrase": "find out why process was killed by oom killer"
       }
-    ],
-    "process": [
-      {
-        "slug": "dmesg",
-        "boost": 5,
-        "phrase": "find out why process was killed by oom killer"
-      },
-      {
-        "slug": "export",
-        "boost": 5,
-        "phrase": "pass variable to child process"
-      },
-      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
-      {
-        "slug": "strace",
-        "boost": 5,
-        "phrase": "trace system calls of a process"
-      },
-      {
-        "slug": "tmux",
-        "boost": 5,
-        "phrase": "keep process running after ssh disconnects"
-      },
-      { "slug": "get-process", "boost": 5 },
-      { "slug": "ps", "boost": 5, "phrase": "find process id" },
-      { "slug": "awk", "boost": 5, "phrase": "process structured text file" }
     ],
     "was": [
       {
@@ -4907,10 +5463,6 @@
       }
     ],
     "echo": [{ "slug": "echo", "boost": 5 }],
-    "print": [
-      { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
-      { "slug": "whoami", "boost": 5, "phrase": "print effective user id" }
-    ],
     "text": [
       { "slug": "echo", "boost": 5, "phrase": "print text to terminal" },
       { "slug": "grep", "boost": 5, "phrase": "search text in files" },
@@ -4921,31 +5473,13 @@
       { "slug": "echo", "boost": 5, "phrase": "write variable to file" },
       { "slug": "export", "boost": 5, "phrase": "set environment variable" }
     ],
-    "bash": [
-      { "slug": "echo", "boost": 5, "phrase": "output string in bash" },
-      {
-        "slug": "export",
-        "boost": 5,
-        "phrase": "make variable global in bash"
-      },
-      { "slug": "history", "boost": 5, "phrase": "clear bash history" }
-    ],
-    "environment": [
-      { "slug": "echo", "boost": 5, "phrase": "display environment variable" },
-      { "slug": "env", "boost": 5, "phrase": "list environment variables" },
-      { "slug": "export", "boost": 5, "phrase": "set environment variable" }
-    ],
     "append": [{ "slug": "echo", "boost": 5, "phrase": "append text to file" }],
     "env": [{ "slug": "env", "boost": 5 }],
-    "variables": [
-      { "slug": "env", "boost": 5, "phrase": "list environment variables" }
-    ],
     "var": [{ "slug": "env", "boost": 5, "phrase": "set env var temporarily" }],
     "shebang": [{ "slug": "env", "boost": 5, "phrase": "shebang env python" }],
     "global": [
       { "slug": "export", "boost": 5, "phrase": "make variable global in bash" }
     ],
-    "path": [{ "slug": "export", "boost": 5, "phrase": "add to path" }],
     "pass": [
       {
         "slug": "export",
@@ -4967,9 +5501,6 @@
     "filter": [
       { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" },
       { "slug": "journalctl", "boost": 5, "phrase": "filter logs by time" }
-    ],
-    "matching": [
-      { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" }
     ],
     "occurrences": [
       {
@@ -5014,9 +5545,6 @@
         "phrase": "check how long server has been running"
       }
     ],
-    "options": [
-      { "slug": "man", "boost": 5, "phrase": "find command options" }
-    ],
     "linux": [{ "slug": "man", "boost": 5, "phrase": "linux manual pages" }],
     "manual": [{ "slug": "man", "boost": 5, "phrase": "linux manual pages" }],
     "pages": [{ "slug": "man", "boost": 5, "phrase": "linux manual pages" }],
@@ -5025,17 +5553,6 @@
     ],
     "syntax": [
       { "slug": "man", "boost": 5, "phrase": "search for command syntax" }
-    ],
-    "background": [
-      { "slug": "screen", "boost": 5, "phrase": "run process in background" },
-      {
-        "slug": "tmux",
-        "boost": 5,
-        "phrase": "attach to background terminal session"
-      }
-    ],
-    "resume": [
-      { "slug": "screen", "boost": 5, "phrase": "resume ssh session" }
     ],
     "session": [
       { "slug": "screen", "boost": 5, "phrase": "resume ssh session" },
@@ -5151,9 +5668,6 @@
     "systemctl": [{ "slug": "systemctl", "boost": 5 }],
     "restart": [{ "slug": "systemctl", "boost": 5, "phrase": "restart nginx" }],
     "nginx": [{ "slug": "systemctl", "boost": 5, "phrase": "restart nginx" }],
-    "enable": [
-      { "slug": "systemctl", "boost": 5, "phrase": "enable service on boot" }
-    ],
     "services": [
       { "slug": "systemctl", "boost": 5, "phrase": "list running services" }
     ],
@@ -5201,18 +5715,8 @@
         "phrase": "check how long server has been running"
       }
     ],
-    "load": [
-      { "slug": "uptime", "boost": 5, "phrase": "find system load average" }
-    ],
     "average": [
       { "slug": "uptime", "boost": 5, "phrase": "find system load average" }
-    ],
-    "is": [
-      {
-        "slug": "uptime",
-        "boost": 5,
-        "phrase": "see who is logged in and system load"
-      }
     ],
     "logged": [
       {
@@ -5285,17 +5789,6 @@
       { "slug": "apt", "boost": 5, "phrase": "update system packages" }
     ],
     "chmod": [{ "slug": "chmod", "boost": 5 }],
-    "executable": [
-      { "slug": "chmod", "boost": 5, "phrase": "make file executable" }
-    ],
-    "processes": [
-      {
-        "slug": "get-process",
-        "boost": 5,
-        "phrase": "list processes in powershell"
-      },
-      { "slug": "ps", "boost": 5, "phrase": "list running processes" }
-    ],
     "powershell": [
       {
         "slug": "get-process",
@@ -5308,9 +5801,6 @@
     ],
     "ps": [{ "slug": "ps", "boost": 5 }],
     "sed": [{ "slug": "sed", "boost": 5 }],
-    "replace": [
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
-    ],
     "editor": [
       { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
     ],
@@ -5320,16 +5810,6 @@
     "test": [{ "slug": "test", "boost": 5 }],
     "existence": [
       { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
-    ],
-    "script": [
-      { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
-    ],
-    "evaluate": [
-      {
-        "slug": "test",
-        "boost": 5,
-        "phrase": "evaluate conditional expression"
-      }
     ],
     "conditional": [
       {
@@ -5361,171 +5841,60 @@
     ]
   },
   "trigrams": {
-    "^aw": ["aws", "awk"],
-    "aws": ["aws"],
-    "ws$": ["aws"],
-    "^co": [
-      "configure",
-      "compute",
-      "connect",
-      "copy",
-      "contents",
-      "context",
-      "code",
-      "configuration",
-      "container",
-      "config",
-      "command",
-      "commit",
-      "conflicts",
-      "compare",
-      "commits",
-      "combine",
-      "count",
-      "contributed",
-      "console",
-      "convert",
-      "connection",
-      "codebase",
-      "commands",
-      "content",
-      "conditional",
-      "column",
-      "concatenate"
-    ],
-    "con": [
-      "configure",
-      "kubeconfig",
-      "connect",
-      "contents",
-      "context",
-      "configuration",
-      "container",
-      "config",
-      "conflicts",
-      "contributed",
-      "console",
-      "convert",
-      "connection",
-      "disconnect",
-      "disconnects",
-      "second",
-      "content",
-      "conditional",
-      "concatenate"
-    ],
-    "onf": ["configure", "kubeconfig", "configuration", "config", "conflicts"],
-    "nfi": ["configure", "kubeconfig", "configuration", "config"],
-    "fig": ["configure", "kubeconfig", "configuration", "config"],
-    "igu": ["configure", "configuration"],
-    "gur": ["configure", "configuration"],
-    "ure": [
-      "configure",
-      "azure",
-      "infrastructure",
-      "feature",
-      "secure",
-      "structured"
-    ],
-    "re$": [
-      "configure",
-      "azure",
-      "infrastructure",
-      "prepare",
-      "compare",
+    "^bg": ["bg"],
+    "bg$": ["bg"],
+    "^ba": [
+      "background",
+      "bash",
+      "bashrc",
+      "backup",
+      "bad",
+      "back",
       "bare",
-      "feature",
-      "restore",
-      "software",
-      "before",
-      "hardware",
-      "share",
-      "secure"
+      "base"
     ],
-    "^cr": ["credentials", "create", "crontab", "cron"],
-    "cre": ["credentials", "create", "screen"],
-    "red": ["credentials", "vendored", "shared", "structured"],
-    "ede": ["credentials"],
-    "den": ["credentials", "identity", "dependencies", "denied"],
-    "ent": [
-      "credentials",
-      "authenticate",
-      "current",
-      "identity",
-      "recent",
-      "events",
-      "contents",
-      "deployment",
-      "development",
-      "movement",
-      "environment",
-      "documentation",
-      "different",
-      "content",
-      "replacement"
+    "bac": ["background", "backup", "back", "rollback", "scrollback"],
+    "ack": [
+      "background",
+      "backup",
+      "track",
+      "package",
+      "back",
+      "untracked",
+      "tracking",
+      "rollback",
+      "tracked",
+      "untrack",
+      "scrollback",
+      "packages"
     ],
-    "nti": ["credentials", "authenticate", "identity"],
-    "tia": ["credentials", "initialize", "initialization"],
-    "ial": ["credentials", "initialize", "initialization"],
-    "als": ["credentials"],
-    "ls$": ["credentials", "details", "ls", "calls"],
-    "^se": [
-      "setup",
-      "set",
-      "servers",
-      "server",
-      "select",
-      "service",
-      "serverless",
+    "ckg": ["background"],
+    "kgr": ["background"],
+    "gro": ["background", "foreground", "group"],
+    "rou": ["background", "foreground", "group", "troubleshoot"],
+    "oun": ["background", "foreground", "account", "accounts", "count"],
+    "und": ["background", "foreground", "undo"],
+    "nd$": [
+      "background",
       "send",
-      "settings",
-      "search",
-      "see",
-      "session",
-      "services",
-      "sessions",
-      "second",
-      "sed",
-      "secure"
+      "bind",
+      "command",
+      "and",
+      "foreground",
+      "find",
+      "kind",
+      "amend",
+      "append",
+      "second"
     ],
-    "set": ["setup", "set", "settings", "reset"],
-    "etu": ["setup"],
-    "tup": ["setup"],
-    "up$": ["setup", "group", "backup", "up"],
-    "^cl": [
-      "cli",
-      "cloud",
-      "cluster",
-      "cloudwatch",
-      "clusters",
-      "clean",
-      "clone",
-      "clear",
-      "clock"
-    ],
-    "cli": ["cli"],
-    "li$": ["cli"],
-    "et$": ["set", "get", "bucket", "reset"],
-    "^de": [
-      "default",
-      "describe",
-      "deploy",
-      "details",
-      "deployment",
-      "delete",
-      "development",
-      "deleted",
-      "dependencies",
-      "debug",
-      "denied"
-    ],
-    "def": ["default"],
-    "efa": ["default"],
-    "fau": ["default"],
-    "aul": ["default"],
-    "ult": ["default", "multiple", "simultaneously", "multiplex"],
-    "lt$": ["default"],
     "^re": [
+      "resume",
+      "readline",
+      "replace",
+      "redirect",
+      "return",
+      "recursive",
+      "reload",
       "region",
       "recent",
       "real",
@@ -5557,19 +5926,1374 @@
       "reapply",
       "recursively",
       "repeat",
-      "resume",
       "restart",
       "rebooted",
       "repeatedly",
       "refresh",
       "request",
-      "replace",
       "replacement"
     ],
-    "reg": ["region", "regression"],
-    "egi": ["region"],
-    "gio": ["region"],
+    "res": [
+      "resume",
+      "resources",
+      "resource",
+      "regression",
+      "resolve",
+      "reset",
+      "restore",
+      "preserving",
+      "restart",
+      "refresh",
+      "expression"
+    ],
+    "esu": ["resume"],
+    "sum": ["resume", "summarize"],
+    "ume": ["resume", "arguments", "documentation"],
+    "me$": ["resume", "time", "blame", "rename", "uptime"],
+    "^st": [
+      "stopped",
+      "string",
+      "status",
+      "start",
+      "stream",
+      "storage",
+      "sts",
+      "stage",
+      "staged",
+      "stop",
+      "stash",
+      "state",
+      "strace",
+      "structured"
+    ],
+    "sto": [
+      "stopped",
+      "customize",
+      "storage",
+      "history",
+      "histories",
+      "restore",
+      "stop",
+      "custom"
+    ],
+    "top": ["stopped", "stop"],
+    "opp": ["stopped"],
+    "ppe": ["stopped", "append"],
+    "ped": ["stopped"],
+    "ed$": [
+      "stopped",
+      "suspended",
+      "installed",
+      "managed",
+      "changed",
+      "untracked",
+      "unversioned",
+      "staged",
+      "uncommitted",
+      "pushed",
+      "deleted",
+      "tracked",
+      "contributed",
+      "modified",
+      "saved",
+      "vendored",
+      "killed",
+      "shared",
+      "denied",
+      "logged",
+      "rebooted",
+      "sed",
+      "structured"
+    ],
+    "^jo": ["job", "jobs", "join", "journalctl"],
+    "job": ["job", "jobs"],
+    "ob$": ["job", "extglob", "blob"],
+    "^ru": ["run", "running"],
+    "run": ["run", "running"],
+    "un$": ["run"],
+    "^pr": [
+      "process",
+      "processes",
+      "print",
+      "profile",
+      "provision",
+      "properties",
+      "principal",
+      "project",
+      "prepare",
+      "previous",
+      "preserving",
+      "privileges"
+    ],
+    "pro": [
+      "process",
+      "metaprogramming",
+      "processes",
+      "profile",
+      "provision",
+      "properties",
+      "project"
+    ],
+    "roc": ["process", "processes"],
+    "oce": ["process", "processes"],
+    "ces": [
+      "process",
+      "processes",
+      "access",
+      "instances",
+      "resources",
+      "occurrences",
+      "services"
+    ],
+    "ess": [
+      "process",
+      "processes",
+      "access",
+      "serverless",
+      "regression",
+      "message",
+      "messages",
+      "session",
+      "sessions",
+      "expression"
+    ],
+    "ss$": ["process", "access", "serverless", "pass", "bypass"],
+    "^in": [
+      "in",
+      "interact",
+      "installed",
+      "instances",
+      "instance",
+      "infrastructure",
+      "initialize",
+      "into",
+      "internal",
+      "index",
+      "inspect",
+      "init",
+      "incorporate",
+      "initialization",
+      "install",
+      "info"
+    ],
+    "in$": ["in", "login", "origin", "join", "main", "nologin", "admin"],
+    "^co": [
+      "continue",
+      "configure",
+      "command",
+      "construct",
+      "compute",
+      "connect",
+      "copy",
+      "contents",
+      "context",
+      "code",
+      "configuration",
+      "container",
+      "config",
+      "commit",
+      "conflicts",
+      "compare",
+      "commits",
+      "combine",
+      "count",
+      "contributed",
+      "console",
+      "convert",
+      "connection",
+      "codebase",
+      "commands",
+      "content",
+      "conditional",
+      "column",
+      "concatenate"
+    ],
+    "con": [
+      "continue",
+      "configure",
+      "construct",
+      "kubeconfig",
+      "connect",
+      "contents",
+      "context",
+      "configuration",
+      "container",
+      "config",
+      "conflicts",
+      "contributed",
+      "console",
+      "convert",
+      "connection",
+      "disconnect",
+      "disconnects",
+      "second",
+      "content",
+      "conditional",
+      "concatenate"
+    ],
+    "ont": [
+      "continue",
+      "contents",
+      "context",
+      "container",
+      "crontab",
+      "contributed",
+      "content"
+    ],
+    "nti": ["continue", "credentials", "authenticate", "identity"],
+    "tin": ["continue", "settings", "testing", "rewriting", "editing"],
+    "inu": ["continue", "linux"],
+    "nue": ["continue"],
+    "ue$": ["continue"],
+    "^su": [
+      "suspended",
+      "subshell",
+      "subscriptions",
+      "subscription",
+      "summarize",
+      "subtree",
+      "subdirectory",
+      "su",
+      "sudo"
+    ],
+    "sus": ["suspended"],
+    "usp": ["suspended"],
+    "spe": ["suspended", "specific", "inspect"],
+    "pen": ["suspended", "dependencies", "append", "opens"],
+    "end": ["suspended", "send", "amend", "vendored", "dependencies", "append"],
+    "nde": ["suspended", "index", "dependencies"],
+    "ded": ["suspended"],
+    "^ta": ["task", "tasks", "tail", "tags", "tarball", "tag"],
+    "tas": ["task", "tasks", "stash"],
+    "ask": ["task", "tasks"],
+    "sk$": ["task", "disk"],
+    "^se": [
+      "send",
+      "set",
+      "settings",
+      "setup",
+      "servers",
+      "server",
+      "select",
+      "service",
+      "serverless",
+      "search",
+      "see",
+      "session",
+      "services",
+      "sessions",
+      "second",
+      "sed",
+      "secure"
+    ],
+    "sen": ["send"],
+    "^to": ["to", "toggle", "together"],
+    "to$": ["to", "into"],
+    "^bi": ["bind", "bindings", "binary", "bicep", "bisect"],
+    "bin": ["bind", "keybindings", "bindings", "binary", "combine"],
+    "ind": ["bind", "keybindings", "bindings", "find", "kind", "index"],
+    "onf": ["configure", "kubeconfig", "configuration", "config", "conflicts"],
+    "nfi": ["configure", "kubeconfig", "configuration", "config"],
+    "fig": ["configure", "kubeconfig", "configuration", "config"],
+    "igu": ["configure", "configuration"],
+    "gur": ["configure", "configuration"],
+    "ure": [
+      "configure",
+      "azure",
+      "infrastructure",
+      "feature",
+      "secure",
+      "structured"
+    ],
+    "re$": [
+      "configure",
+      "where",
+      "azure",
+      "infrastructure",
+      "prepare",
+      "compare",
+      "bare",
+      "feature",
+      "restore",
+      "software",
+      "before",
+      "hardware",
+      "share",
+      "secure"
+    ],
+    "bas": ["bash", "bashrc", "rebase", "base", "codebase"],
+    "ash": ["bash", "bashrc", "squash", "hash", "stash"],
+    "sh$": [
+      "bash",
+      "publish",
+      "ssh",
+      "push",
+      "squash",
+      "hash",
+      "stash",
+      "refresh"
+    ],
+    "^ke": ["keybindings", "keyboard", "key", "keys", "keep", "kernel"],
+    "key": ["keybindings", "keyboard", "key", "keys"],
+    "eyb": ["keybindings", "keyboard"],
+    "ybi": ["keybindings"],
+    "ndi": ["keybindings", "bindings", "conditional"],
+    "din": ["keybindings", "bindings"],
+    "ing": [
+      "keybindings",
+      "bindings",
+      "working",
+      "string",
+      "metaprogramming",
+      "bring",
+      "debugging",
+      "matching",
+      "settings",
+      "running",
+      "testing",
+      "using",
+      "single",
+      "merging",
+      "tracking",
+      "rewriting",
+      "preserving",
+      "editing",
+      "hanging",
+      "missing"
+    ],
+    "ngs": ["keybindings", "bindings", "settings"],
+    "gs$": ["keybindings", "bindings", "flags", "settings", "logs", "tags"],
+    "rea": [
+      "readline",
+      "create",
+      "stream",
+      "real",
+      "read",
+      "reapply",
+      "upstream"
+    ],
+    "ead": ["readline", "read", "head"],
+    "adl": ["readline"],
+    "dli": ["readline"],
+    "lin": ["readline", "line", "lines", "linux"],
+    "ine": [
+      "readline",
+      "determine",
+      "machine",
+      "container",
+      "engine",
+      "line",
+      "lines",
+      "combine"
+    ],
+    "ne$": [
+      "readline",
+      "determine",
+      "machine",
+      "engine",
+      "zone",
+      "line",
+      "clone",
+      "combine",
+      "tune"
+    ],
+    "^ma": [
+      "macro",
+      "matching",
+      "machine",
+      "manage",
+      "make",
+      "managed",
+      "main",
+      "man",
+      "manual"
+    ],
+    "mac": ["macro", "emacs", "machine"],
+    "acr": ["macro"],
+    "cro": ["macro", "crontab", "cron", "scrollback"],
+    "ro$": ["macro"],
+    "^sh": [
+      "shortcut",
+      "shell",
+      "shortcuts",
+      "show",
+      "shopt",
+      "shortlog",
+      "shelve",
+      "shorten",
+      "shebang",
+      "share",
+      "shared"
+    ],
+    "sho": [
+      "shortcut",
+      "shortcuts",
+      "show",
+      "shopt",
+      "snapshot",
+      "shortlog",
+      "shorten",
+      "troubleshoot"
+    ],
+    "hor": [
+      "shortcut",
+      "shortcuts",
+      "authorize",
+      "authorship",
+      "shortlog",
+      "author",
+      "shorten"
+    ],
+    "ort": [
+      "shortcut",
+      "shortcuts",
+      "import",
+      "report",
+      "export",
+      "port",
+      "shortlog",
+      "shorten"
+    ],
+    "rtc": ["shortcut", "shortcuts"],
+    "tcu": ["shortcut", "shortcuts"],
+    "cut": ["shortcut", "shortcuts", "execute", "executable"],
+    "ut$": ["shortcut", "without", "put", "output", "checkout", "but", "out"],
+    "^cu": ["customize", "current", "custom", "curl"],
+    "cus": ["customize", "custom"],
+    "ust": ["customize", "cluster", "clusters", "custom"],
+    "tom": ["customize", "automate", "custom"],
+    "omi": ["customize"],
+    "miz": ["customize"],
+    "ize": ["customize", "synchronize", "initialize", "authorize", "summarize"],
+    "ze$": ["customize", "synchronize", "initialize", "authorize", "summarize"],
+    "she": ["shell", "subshell", "pushed", "shelve", "shebang", "powershell"],
+    "hel": ["shell", "subshell", "shelve", "powershell"],
+    "ell": ["shell", "subshell", "powershell"],
+    "ll$": [
+      "shell",
+      "subshell",
+      "all",
+      "tarball",
+      "pull",
+      "call",
+      "install",
+      "powershell"
+    ],
+    "ybo": ["keyboard"],
+    "boa": ["keyboard"],
+    "oar": ["keyboard"],
+    "ard": ["keyboard", "discard", "hard", "hardware"],
+    "rd$": ["keyboard", "discard", "record", "hard", "word"],
+    "uts": ["shortcuts"],
+    "ts$": [
+      "shortcuts",
+      "arguments",
+      "events",
+      "buckets",
+      "contents",
+      "objects",
+      "sts",
+      "accounts",
+      "tenants",
+      "conflicts",
+      "commits",
+      "its",
+      "disconnects"
+    ],
+    "set": ["set", "settings", "setup", "reset"],
+    "et$": ["set", "get", "bucket", "reset"],
+    "^vi": ["vi", "view", "virtual", "via"],
+    "vi$": ["vi"],
+    "^em": ["emacs"],
+    "ema": ["emacs"],
+    "acs": ["emacs"],
+    "cs$": ["emacs", "gcs", "panics"],
+    "^mo": [
+      "mode",
+      "move",
+      "modify",
+      "movement",
+      "most",
+      "modified",
+      "monitor"
+    ],
+    "mod": ["mode", "modify", "modified", "chmod"],
+    "ode": ["mode", "code", "nodejs", "codebase"],
+    "de$": ["mode", "code", "hide", "override"],
+    "^li": ["list", "live", "line", "lines", "linux", "library"],
+    "lis": ["list", "publish"],
+    "ist": ["list", "history", "histories", "existence"],
+    "st$": ["list", "last", "past", "lost", "most", "request", "test"],
+    "ey$": ["key"],
+    "^cd": ["cd"],
+    "cd$": ["cd"],
+    "^ch": [
+      "chdir",
+      "change",
+      "check",
+      "changes",
+      "changed",
+      "checkout",
+      "cherry",
+      "changelog",
+      "child",
+      "chmod"
+    ],
+    "chd": ["chdir"],
+    "hdi": ["chdir"],
+    "dir": ["chdir", "directory", "redirect", "directories", "subdirectory"],
+    "ir$": ["chdir"],
+    "cha": ["change", "changes", "changed", "changelog"],
+    "han": ["change", "changes", "changed", "changelog", "hanging"],
+    "ang": ["change", "changes", "changed", "changelog", "shebang", "hanging"],
+    "nge": ["change", "changes", "changed", "changelog"],
+    "ge$": [
+      "change",
+      "storage",
+      "manage",
+      "usage",
+      "stage",
+      "package",
+      "merge",
+      "purge",
+      "message",
+      "unstage",
+      "average"
+    ],
+    "^di": [
+      "directory",
+      "display",
+      "disk",
+      "discard",
+      "directories",
+      "diff",
+      "diagnose",
+      "disconnect",
+      "different",
+      "disconnects"
+    ],
+    "ire": ["directory", "redirect", "directories", "subdirectory"],
+    "rec": [
+      "directory",
+      "redirect",
+      "recursive",
+      "recent",
+      "directories",
+      "record",
+      "recover",
+      "subdirectory",
+      "recursively"
+    ],
+    "ect": [
+      "directory",
+      "redirect",
+      "connect",
+      "kubectl",
+      "object",
+      "objects",
+      "select",
+      "project",
+      "bisect",
+      "inspect",
+      "directories",
+      "subdirectory",
+      "connection",
+      "disconnect",
+      "disconnects",
+      "effective"
+    ],
+    "cto": ["directory", "directories", "subdirectory"],
+    "tor": [
+      "directory",
+      "descriptors",
+      "storage",
+      "repository",
+      "history",
+      "directories",
+      "histories",
+      "repositories",
+      "restore",
+      "subdirectory",
+      "monitor",
+      "editor"
+    ],
+    "ory": ["directory", "repository", "history", "subdirectory"],
+    "ry$": [
+      "directory",
+      "binary",
+      "query",
+      "repository",
+      "history",
+      "cherry",
+      "subdirectory",
+      "library",
+      "every"
+    ],
+    "^go": ["go", "google"],
+    "go$": ["go"],
+    "^fo": ["folder", "foreground", "for", "follow", "format", "force"],
+    "fol": ["folder", "follow"],
+    "old": ["folder", "old"],
+    "lde": ["folder"],
+    "der": ["folder"],
+    "er$": [
+      "folder",
+      "server",
+      "cluster",
+      "user",
+      "another",
+      "transfer",
+      "caller",
+      "container",
+      "docker",
+      "over",
+      "together",
+      "recover",
+      "pointer",
+      "per",
+      "buffer",
+      "killer",
+      "filter",
+      "after"
+    ],
+    "^na": ["navigate"],
+    "nav": ["navigate"],
+    "avi": ["navigate", "behavior"],
+    "vig": ["navigate"],
+    "iga": ["navigate"],
+    "gat": ["navigate"],
+    "ate": [
+      "navigate",
+      "evaluate",
+      "locate",
+      "create",
+      "update",
+      "generate",
+      "authenticate",
+      "template",
+      "automate",
+      "annotate",
+      "incorporate",
+      "state",
+      "duplicate",
+      "date",
+      "elevate",
+      "repeatedly",
+      "concatenate"
+    ],
+    "te$": [
+      "navigate",
+      "evaluate",
+      "execute",
+      "absolute",
+      "locate",
+      "compute",
+      "create",
+      "update",
+      "generate",
+      "authenticate",
+      "template",
+      "remote",
+      "automate",
+      "annotate",
+      "wrote",
+      "delete",
+      "write",
+      "incorporate",
+      "rewrite",
+      "state",
+      "duplicate",
+      "date",
+      "elevate",
+      "concatenate"
+    ],
+    "^fi": ["filesystem", "file", "find", "files", "fix", "filter"],
+    "fil": ["filesystem", "file", "profile", "files", "filter"],
+    "ile": ["filesystem", "file", "profile", "files", "privileges"],
+    "les": ["filesystem", "variables", "files", "serverless", "troubleshoot"],
+    "esy": ["filesystem"],
+    "sys": ["filesystem", "sysctl", "system", "systemd", "systemctl"],
+    "yst": ["filesystem", "system", "systemd", "systemctl"],
+    "ste": [
+      "filesystem",
+      "cluster",
+      "clusters",
+      "system",
+      "systemd",
+      "systemctl",
+      "existence"
+    ],
+    "tem": [
+      "filesystem",
+      "template",
+      "temporarily",
+      "system",
+      "systemd",
+      "systemctl"
+    ],
+    "em$": ["filesystem", "system"],
+    "mov": ["move", "remove", "movement"],
+    "ove": ["move", "remove", "over", "recover", "movement", "override"],
+    "ve$": [
+      "move",
+      "active",
+      "recursive",
+      "live",
+      "archive",
+      "resolve",
+      "remove",
+      "save",
+      "shelve",
+      "drive",
+      "alive",
+      "effective"
+    ],
+    "^pa": [
+      "path",
+      "parameters",
+      "patterns",
+      "parse",
+      "package",
+      "past",
+      "panics",
+      "pass",
+      "pattern",
+      "pages",
+      "panes",
+      "packages"
+    ],
+    "pat": ["path", "patterns", "pattern"],
+    "ath": ["path"],
+    "th$": ["path", "with", "auth"],
+    "^sw": ["switch"],
+    "swi": ["switch"],
+    "wit": ["switch", "with", "without"],
+    "itc": ["switch"],
+    "tch": ["switch", "matching", "cloudwatch", "fetch", "watch"],
+    "ch$": [
+      "switch",
+      "which",
+      "launch",
+      "cloudwatch",
+      "branch",
+      "search",
+      "fetch",
+      "epoch",
+      "attach",
+      "watch"
+    ],
+    "^wo": [
+      "working",
+      "workload",
+      "workspace",
+      "worktree",
+      "work",
+      "worktrees",
+      "word"
+    ],
+    "wor": [
+      "working",
+      "workload",
+      "workspace",
+      "worktree",
+      "work",
+      "worktrees",
+      "word"
+    ],
+    "ork": [
+      "working",
+      "workload",
+      "workspace",
+      "worktree",
+      "work",
+      "worktrees"
+    ],
+    "rki": ["working"],
+    "kin": ["working", "kind", "tracking"],
+    "ng$": [
+      "working",
+      "string",
+      "metaprogramming",
+      "bring",
+      "debugging",
+      "matching",
+      "running",
+      "testing",
+      "using",
+      "merging",
+      "tracking",
+      "rewriting",
+      "long",
+      "preserving",
+      "editing",
+      "shebang",
+      "hanging",
+      "missing"
+    ],
+    "^ev": ["eval", "evaluate", "events", "every"],
+    "eva": ["eval", "evaluate", "elevate"],
+    "val": ["eval", "evaluate"],
+    "al$": [
+      "eval",
+      "terminal",
+      "positional",
+      "optional",
+      "virtual",
+      "local",
+      "real",
+      "logical",
+      "principal",
+      "internal",
+      "global",
+      "manual",
+      "conditional"
+    ],
+    "alu": ["evaluate"],
+    "lua": ["evaluate"],
+    "uat": ["evaluate"],
+    "str": [
+      "string",
+      "construct",
+      "stream",
+      "infrastructure",
+      "upstream",
+      "strace",
+      "structured"
+    ],
+    "tri": ["string", "contributed"],
+    "rin": ["string", "bring", "print", "principal"],
+    "^as": ["as"],
+    "as$": ["as", "alias", "was", "has"],
+    "com": [
+      "command",
+      "compute",
+      "commit",
+      "compare",
+      "uncommitted",
+      "commits",
+      "combine",
+      "commands"
+    ],
+    "omm": ["command", "commit", "uncommitted", "commits", "commands"],
+    "mma": ["command", "summarize", "commands"],
+    "man": [
+      "command",
+      "permanently",
+      "manage",
+      "managed",
+      "human",
+      "commands",
+      "man",
+      "manual"
+    ],
+    "and": ["command", "and", "commands"],
+    "^ex": [
+      "execute",
+      "exec",
+      "extglob",
+      "executable",
+      "export",
+      "extract",
+      "existence",
+      "expression"
+    ],
+    "exe": ["execute", "exec", "executable"],
+    "xec": ["execute", "exec", "executable"],
+    "ecu": ["execute", "recursive", "executable", "recursively", "secure"],
+    "ute": ["execute", "absolute", "compute", "contributed"],
+    "^dy": ["dynamic", "dynamically"],
+    "dyn": ["dynamic", "dynamically"],
+    "yna": ["dynamic", "dynamically"],
+    "nam": ["dynamic", "dynamically", "rename"],
+    "ami": ["dynamic", "dynamically", "whoami"],
+    "mic": ["dynamic", "dynamically"],
+    "ic$": ["dynamic", "specific"],
+    "^me": ["metaprogramming", "merge", "message", "merging", "messages"],
+    "met": ["metaprogramming", "parameters"],
+    "eta": ["metaprogramming", "details"],
+    "tap": ["metaprogramming"],
+    "apr": ["metaprogramming"],
+    "rog": ["metaprogramming"],
+    "ogr": ["metaprogramming"],
+    "gra": ["metaprogramming"],
+    "ram": ["metaprogramming", "parameters"],
+    "amm": ["metaprogramming"],
+    "mmi": ["metaprogramming", "commit", "uncommitted", "commits"],
+    "min": ["metaprogramming", "terminal", "determine", "admin"],
+    "ons": [
+      "construct",
+      "options",
+      "functions",
+      "subscriptions",
+      "console",
+      "permissions",
+      "sessions"
+    ],
+    "nst": [
+      "construct",
+      "installed",
+      "instances",
+      "instance",
+      "unstage",
+      "install"
+    ],
+    "tru": ["construct", "infrastructure", "structured"],
+    "ruc": ["construct", "infrastructure", "structured"],
+    "uct": ["construct", "infrastructure", "structured"],
+    "ct$": [
+      "construct",
+      "redirect",
+      "interact",
+      "connect",
+      "object",
+      "select",
+      "project",
+      "extract",
+      "bisect",
+      "inspect",
+      "disconnect"
+    ],
+    "^an": ["and", "another", "an", "annotate"],
+    "ica": [
+      "dynamically",
+      "authenticate",
+      "logical",
+      "application",
+      "duplicate"
+    ],
+    "cal": [
+      "dynamically",
+      "local",
+      "caller",
+      "logical",
+      "locally",
+      "calls",
+      "call"
+    ],
+    "all": [
+      "dynamically",
+      "installed",
+      "caller",
+      "all",
+      "tarball",
+      "locally",
+      "calls",
+      "call",
+      "install"
+    ],
+    "lly": ["dynamically", "locally"],
+    "ly$": [
+      "dynamically",
+      "permanently",
+      "only",
+      "apply",
+      "safely",
+      "locally",
+      "temporarily",
+      "reapply",
+      "simultaneously",
+      "recursively",
+      "repeatedly"
+    ],
+    "^ar": ["arguments", "arn", "arm", "archive"],
+    "arg": ["arguments"],
+    "rgu": ["arguments"],
+    "gum": ["arguments"],
+    "men": [
+      "arguments",
+      "environment",
+      "deployment",
+      "amend",
+      "development",
+      "movement",
+      "documentation",
+      "replacement"
+    ],
+    "ent": [
+      "arguments",
+      "permanently",
+      "current",
+      "environment",
+      "credentials",
+      "authenticate",
+      "identity",
+      "recent",
+      "events",
+      "contents",
+      "deployment",
+      "development",
+      "movement",
+      "documentation",
+      "different",
+      "content",
+      "replacement"
+    ],
+    "nts": ["arguments", "events", "contents", "accounts", "tenants"],
+    "ec$": ["exec"],
+    "rep": [
+      "replace",
+      "report",
+      "prepare",
+      "repository",
+      "repo",
+      "repositories",
+      "grep",
+      "repeat",
+      "repeatedly",
+      "replacement"
+    ],
+    "epl": ["replace", "deploy", "deployment", "replacement"],
+    "pla": ["replace", "display", "template", "plan", "replacement"],
+    "lac": ["replace", "replacement"],
+    "ace": ["replace", "space", "trace", "workspace", "strace", "replacement"],
+    "ce$": [
+      "replace",
+      "source",
+      "instance",
+      "resource",
+      "service",
+      "space",
+      "trace",
+      "workspace",
+      "force",
+      "reference",
+      "once",
+      "strace",
+      "existence"
+    ],
+    "^wi": ["with", "without", "wipe"],
+    "ith": ["with", "without", "github"],
+    "^sc": ["script", "schedule", "screen", "scrollback"],
+    "scr": [
+      "script",
+      "descriptors",
+      "describe",
+      "subscriptions",
+      "subscription",
+      "screen",
+      "scrollback"
+    ],
+    "cri": [
+      "script",
+      "descriptors",
+      "describe",
+      "subscriptions",
+      "subscription"
+    ],
+    "rip": ["script", "descriptors", "subscriptions", "subscription"],
+    "ipt": ["script", "descriptors", "subscriptions", "subscription"],
+    "pt$": ["script", "shopt", "apt"],
+    "red": ["redirect", "credentials", "vendored", "shared", "structured"],
+    "edi": ["redirect", "edit", "editing", "editor"],
+    "le$": [
+      "file",
+      "enable",
+      "toggle",
+      "executable",
+      "profile",
+      "available",
+      "google",
+      "schedule",
+      "single",
+      "multiple",
+      "console",
+      "variable"
+    ],
+    "^de": [
+      "descriptors",
+      "debugging",
+      "determine",
+      "default",
+      "describe",
+      "deploy",
+      "details",
+      "deployment",
+      "delete",
+      "development",
+      "deleted",
+      "dependencies",
+      "debug",
+      "denied"
+    ],
+    "des": ["descriptors", "describe"],
+    "esc": ["descriptors", "describe"],
+    "pto": ["descriptors"],
+    "ors": ["descriptors", "authorship", "errors"],
+    "rs$": [
+      "descriptors",
+      "parameters",
+      "servers",
+      "clusters",
+      "ours",
+      "theirs",
+      "others",
+      "errors"
+    ],
+    "^pe": ["permanently", "per", "permissions", "permission"],
+    "per": ["permanently", "properties", "per", "permissions", "permission"],
+    "erm": [
+      "permanently",
+      "terminal",
+      "determine",
+      "permissions",
+      "permission"
+    ],
+    "rma": ["permanently", "format"],
+    "ane": ["permanently", "simultaneously", "panes"],
+    "nen": ["permanently"],
+    "ntl": ["permanently"],
+    "tly": ["permanently"],
+    "^sp": ["spawn", "space", "specific", "split"],
+    "spa": ["spawn", "space", "workspace"],
+    "paw": ["spawn"],
+    "awn": ["spawn"],
+    "wn$": ["spawn", "down", "own"],
+    "tho": ["without", "python", "authorize", "authorship", "author"],
+    "hou": ["without"],
+    "out": ["without", "output", "checkout", "out"],
+    "^ne": ["new"],
+    "new": ["new"],
+    "ew$": ["new", "view"],
+    "^pi": ["pid", "pick"],
+    "pid": ["pid"],
+    "id$": ["pid", "id"],
+    "^cl": [
+      "close",
+      "cli",
+      "cloud",
+      "cluster",
+      "cloudwatch",
+      "clusters",
+      "clean",
+      "clone",
+      "clear",
+      "clock"
+    ],
+    "clo": ["close", "cloud", "cloudwatch", "gcloud", "clone", "clock"],
+    "los": ["close", "lost"],
+    "ose": ["close", "diagnose"],
+    "se$": [
+      "close",
+      "use",
+      "parse",
+      "release",
+      "rebase",
+      "base",
+      "diagnose",
+      "codebase"
+    ],
+    "^fg": ["fg"],
+    "fg$": ["fg"],
+    "for": ["foreground", "for", "format", "force", "before"],
+    "ore": ["foreground", "restore", "vendored", "before"],
+    "reg": ["foreground", "region", "regression"],
+    "egr": ["foreground", "regression"],
+    "^br": ["bring", "branch", "broke", "branches"],
+    "bri": ["bring"],
+    "ret": ["return"],
+    "etu": ["return", "setup"],
+    "tur": ["return", "infrastructure", "turn", "feature", "structured"],
+    "urn": ["return", "turn", "journalctl"],
+    "rn$": ["return", "arn", "turn", "pattern"],
+    "int": ["interact", "print", "into", "internal", "pointer"],
+    "nte": [
+      "interact",
+      "contents",
+      "context",
+      "internal",
+      "pointer",
+      "content"
+    ],
+    "ter": [
+      "interact",
+      "terminal",
+      "parameters",
+      "patterns",
+      "determine",
+      "cluster",
+      "internal",
+      "clusters",
+      "pointer",
+      "pattern",
+      "filter",
+      "after"
+    ],
+    "era": ["interact", "generate", "average"],
+    "rac": [
+      "interact",
+      "track",
+      "extract",
+      "trace",
+      "untracked",
+      "tracking",
+      "tracked",
+      "untrack",
+      "strace"
+    ],
+    "act": ["interact", "active", "extract"],
+    "obs": ["jobs", "globstar"],
+    "bs$": ["jobs"],
+    "how": ["show", "how"],
+    "ow$": ["show", "follow", "how"],
+    "sse": ["processes"],
+    "ses": ["processes", "aliases", "session", "sessions"],
+    "es$": [
+      "processes",
+      "variables",
+      "instances",
+      "files",
+      "resources",
+      "properties",
+      "kubernetes",
+      "changes",
+      "lines",
+      "branches",
+      "directories",
+      "histories",
+      "repositories",
+      "remotes",
+      "dependencies",
+      "worktrees",
+      "aliases",
+      "messages",
+      "occurrences",
+      "pages",
+      "privileges",
+      "services",
+      "panes",
+      "packages"
+    ],
+    "che": ["check", "schedule", "branches", "checkout", "cherry"],
+    "hec": ["check", "checkout"],
+    "eck": ["check", "checkout"],
+    "ck$": [
+      "check",
+      "quick",
+      "track",
+      "back",
+      "pick",
+      "rollback",
+      "untrack",
+      "scrollback",
+      "clock"
+    ],
+    "^ac": ["active", "access", "account", "accounts"],
+    "cti": [
+      "active",
+      "functions",
+      "functionapp",
+      "function",
+      "connection",
+      "effective"
+    ],
+    "tiv": ["active", "effective"],
+    "ive": [
+      "active",
+      "recursive",
+      "live",
+      "archive",
+      "recursively",
+      "drive",
+      "alive",
+      "effective"
+    ],
+    "sks": ["tasks"],
+    "ks$": ["tasks", "eks", "aks"],
+    "vie": ["view"],
+    "iew": ["view"],
+    "^pw": ["pwd"],
+    "pwd": ["pwd"],
+    "wd$": ["pwd"],
+    "pri": ["print", "principal", "privileges"],
+    "nt$": [
+      "print",
+      "current",
+      "environment",
+      "recent",
+      "account",
+      "deployment",
+      "development",
+      "movement",
+      "count",
+      "different",
+      "content",
+      "replacement"
+    ],
+    "cur": [
+      "current",
+      "recursive",
+      "recursively",
+      "occurrences",
+      "curl",
+      "secure"
+    ],
+    "urr": ["current", "occurrences"],
+    "rre": ["current", "occurrences"],
+    "ren": ["current", "rename", "reference", "occurrences", "different"],
+    "^wh": ["where", "what", "which", "who", "why", "when", "whoami"],
+    "whe": ["where", "when"],
+    "her": ["where", "another", "cherry", "others", "together"],
+    "ere": ["where", "reference", "different"],
+    "^am": ["am", "amend"],
+    "am$": ["am", "iam", "stream", "upstream"],
+    "^te": [
+      "terminal",
+      "tenants",
+      "template",
+      "testing",
+      "temporarily",
+      "text",
+      "test"
+    ],
+    "rmi": ["terminal", "determine", "permissions", "permission"],
+    "ina": ["terminal", "binary"],
+    "nal": [
+      "terminal",
+      "positional",
+      "optional",
+      "internal",
+      "journalctl",
+      "conditional"
+    ],
+    "^ge": ["get", "generate"],
+    "get": ["get", "together"],
+    "dis": ["display", "disk", "discard", "disconnect", "disconnects"],
+    "isp": ["display"],
+    "spl": ["display", "split"],
+    "lay": ["display"],
+    "ay$": ["display"],
+    "^ab": ["absolute"],
+    "abs": ["absolute"],
+    "bso": ["absolute"],
+    "sol": ["absolute", "resolve", "console"],
+    "olu": ["absolute", "column"],
+    "lut": ["absolute"],
+    "^op": ["options", "optional", "opens"],
+    "opt": ["options", "shopt", "optional"],
+    "pti": ["options", "optional", "subscriptions", "subscription", "uptime"],
+    "tio": [
+      "options",
+      "positional",
+      "functions",
+      "optional",
+      "location",
+      "subscriptions",
+      "subscription",
+      "functionapp",
+      "function",
+      "configuration",
+      "application",
+      "connection",
+      "initialization",
+      "documentation",
+      "conditional"
+    ],
     "ion": [
+      "options",
+      "positional",
+      "functions",
+      "optional",
+      "location",
       "region",
       "provision",
       "subscriptions",
@@ -5578,13 +7302,11 @@
       "function",
       "configuration",
       "application",
-      "functions",
       "regression",
       "unversioned",
       "permissions",
       "connection",
       "initialization",
-      "options",
       "documentation",
       "session",
       "permission",
@@ -5592,7 +7314,223 @@
       "conditional",
       "expression"
     ],
+    "ns$": [
+      "options",
+      "functions",
+      "patterns",
+      "subscriptions",
+      "origins",
+      "permissions",
+      "opens",
+      "sessions"
+    ],
+    "^fl": ["flags"],
+    "fla": ["flags"],
+    "lag": ["flags"],
+    "ags": ["flags", "tags"],
+    "^po": ["positional", "port", "pointer", "pod", "powershell"],
+    "pos": ["positional", "repository", "repositories"],
+    "osi": ["positional", "repository", "repositories"],
+    "sit": ["positional", "repository", "repositories"],
+    "iti": [
+      "positional",
+      "initialize",
+      "rewriting",
+      "editing",
+      "initialization",
+      "conditional"
+    ],
+    "ona": ["positional", "optional", "functionapp", "conditional"],
+    "par": ["parameters", "parse", "prepare", "compare"],
+    "ara": ["parameters"],
+    "ame": ["parameters", "blame", "rename", "amend"],
+    "ete": ["parameters", "determine", "kubernetes", "delete", "deleted"],
+    "ers": [
+      "parameters",
+      "servers",
+      "clusters",
+      "unversioned",
+      "others",
+      "powershell"
+    ],
+    "^en": ["enable", "environment", "engine", "env"],
+    "ena": ["enable", "tenants", "rename", "concatenate"],
+    "nab": ["enable"],
+    "abl": ["enable", "variables", "executable", "available", "variable"],
+    "ble": [
+      "enable",
+      "variables",
+      "executable",
+      "available",
+      "troubleshoot",
+      "variable"
+    ],
+    "deb": ["debugging", "codebase", "debug"],
+    "ebu": ["debugging", "debug"],
+    "bug": ["debugging", "bug", "debug"],
+    "ugg": ["debugging"],
+    "ggi": ["debugging"],
+    "gin": [
+      "debugging",
+      "login",
+      "engine",
+      "origin",
+      "origins",
+      "merging",
+      "hanging",
+      "nologin",
+      "nginx"
+    ],
+    "^be": ["behavior", "between", "before", "been"],
+    "beh": ["behavior"],
+    "eha": ["behavior"],
+    "hav": ["behavior"],
+    "vio": ["behavior", "previous"],
+    "ior": ["behavior"],
+    "or$": ["behavior", "for", "mirror", "or", "author", "monitor", "editor"],
+    "^va": ["variables", "variable", "var"],
+    "var": ["variables", "variable", "var"],
+    "ari": ["variables", "summarize", "temporarily", "variable"],
+    "ria": ["variables", "variable"],
+    "iab": ["variables", "variable"],
+    "^fu": ["functions", "functionapp", "function"],
+    "fun": ["functions", "functionapp", "function"],
+    "unc": ["functions", "launch", "functionapp", "function", "uncommitted"],
+    "nct": ["functions", "functionapp", "function"],
+    "hop": ["shopt"],
+    "tog": ["toggle", "together"],
+    "ogg": ["toggle", "logged"],
+    "ggl": ["toggle"],
+    "gle": ["toggle", "google", "single"],
+    "^gl": ["globstar", "global"],
+    "glo": ["globstar", "extglob", "global"],
+    "lob": ["globstar", "extglob", "blob", "global"],
+    "bst": ["globstar"],
+    "sta": [
+      "globstar",
+      "installed",
+      "instances",
+      "instance",
+      "status",
+      "start",
+      "stage",
+      "staged",
+      "unstage",
+      "stash",
+      "state",
+      "timestamp",
+      "restart",
+      "install"
+    ],
+    "tar": ["globstar", "start", "tarball", "restart"],
+    "ar$": ["globstar", "clear", "var"],
+    "urs": ["recursive", "ours", "recursively"],
+    "rsi": ["recursive", "unversioned", "recursively"],
+    "siv": ["recursive", "recursively"],
+    "mat": ["matching", "format", "automate"],
+    "atc": ["matching", "cloudwatch", "watch"],
+    "chi": ["matching", "machine", "archive", "child"],
+    "hin": ["matching", "machine"],
+    "ett": ["settings"],
+    "tti": ["settings"],
+    "ext": ["extglob", "context", "extract", "text"],
+    "xtg": ["extglob"],
+    "tgl": ["extglob"],
+    "att": ["patterns", "pattern", "attach"],
+    "tte": ["patterns", "uncommitted", "pattern"],
+    "ern": ["patterns", "internal", "kubernetes", "kernel", "pattern"],
+    "rns": ["patterns"],
+    "^so": ["source", "software"],
+    "sou": ["source", "resources", "resource"],
+    "our": ["source", "resources", "resource", "ours", "journalctl"],
+    "urc": ["source", "resources", "resource"],
+    "rce": ["source", "resources", "resource", "force"],
+    "rel": ["reload", "release"],
+    "elo": ["reload", "development", "changelog"],
+    "loa": ["reload", "load", "upload", "download", "workload"],
+    "oad": ["reload", "load", "upload", "download", "workload"],
+    "ad$": [
+      "reload",
+      "load",
+      "read",
+      "upload",
+      "download",
+      "workload",
+      "bad",
+      "head"
+    ],
+    "shr": ["bashrc"],
+    "hrc": ["bashrc"],
+    "rc$": ["bashrc"],
+    "^lo": [
+      "load",
+      "location",
+      "locate",
+      "local",
+      "logs",
+      "log",
+      "logical",
+      "login",
+      "lost",
+      "locally",
+      "long",
+      "logged"
+    ],
+    "env": ["environment", "env"],
+    "nvi": ["environment"],
+    "vir": ["environment", "virtual"],
+    "iro": ["environment"],
+    "ron": ["environment", "synchronize", "crontab", "cron"],
+    "onm": ["environment"],
+    "nme": ["environment"],
+    "sub": [
+      "subshell",
+      "subscriptions",
+      "subscription",
+      "subtree",
+      "subdirectory"
+    ],
+    "ubs": ["subshell", "subscriptions", "subscription"],
+    "bsh": ["subshell"],
+    "^im": ["import"],
+    "imp": ["import"],
+    "mpo": ["import", "temporarily"],
+    "por": ["import", "report", "export", "port", "incorporate", "temporarily"],
+    "rt$": [
+      "import",
+      "start",
+      "report",
+      "export",
+      "port",
+      "revert",
+      "convert",
+      "restart"
+    ],
+    "^ty": ["type"],
+    "typ": ["type"],
+    "ype": ["type"],
+    "pe$": ["type", "wipe"],
+    "fin": ["find"],
+    "loc": ["location", "locate", "local", "locally", "clock"],
+    "oca": ["location", "locate", "local", "locally"],
+    "cat": [
+      "location",
+      "locate",
+      "authenticate",
+      "application",
+      "duplicate",
+      "cat",
+      "concatenate"
+    ],
+    "ati": [
+      "location",
+      "configuration",
+      "application",
+      "initialization",
+      "documentation"
+    ],
     "on$": [
+      "location",
       "region",
       "provision",
       "subscription",
@@ -5612,123 +7550,77 @@
       "permission",
       "expression"
     ],
-    "^ac": ["access", "account", "accounts", "active"],
+    "^if": ["if"],
+    "if$": ["if"],
+    "^is": ["is"],
+    "is$": ["is", "this"],
+    "^al": ["alias", "all", "aliases", "alive"],
+    "ali": ["alias", "initialize", "aliases", "initialization", "alive"],
+    "lia": ["alias", "aliases"],
+    "ias": ["alias", "aliases"],
+    "uta": ["executable"],
+    "tab": ["executable", "crontab"],
+    "wha": ["what"],
+    "hat": ["what", "that"],
+    "at$": ["what", "format", "that", "at", "repeat", "cat"],
+    "^ki": ["kind", "killed", "killer"],
+    "^of": ["of"],
+    "of$": ["of"],
+    "^th": ["this", "the", "that", "theirs"],
+    "thi": ["this"],
+    "his": ["this", "history", "histories"],
+    "det": ["determine", "details"],
+    "whi": ["which"],
+    "hic": ["which"],
+    "ich": ["which"],
+    "nar": ["binary"],
+    "ary": ["binary", "library"],
+    "ins": [
+      "installed",
+      "instances",
+      "instance",
+      "inspect",
+      "origins",
+      "install"
+    ],
+    "tal": ["installed", "install"],
+    "lle": ["installed", "caller", "killed", "killer"],
+    "led": ["installed", "killed"],
+    "^aw": ["aws", "awk"],
+    "aws": ["aws"],
+    "ws$": ["aws"],
+    "^cr": ["credentials", "create", "crontab", "cron"],
+    "cre": ["credentials", "create", "screen"],
+    "ede": ["credentials"],
+    "den": ["credentials", "identity", "dependencies", "denied"],
+    "tia": ["credentials", "initialize", "initialization"],
+    "ial": ["credentials", "initialize", "initialization"],
+    "als": ["credentials"],
+    "ls$": ["credentials", "details", "ls", "calls"],
+    "tup": ["setup"],
+    "up$": ["setup", "group", "backup", "up"],
+    "cli": ["cli"],
+    "li$": ["cli"],
+    "def": ["default"],
+    "efa": ["default"],
+    "fau": ["default"],
+    "aul": ["default"],
+    "ult": ["default", "multiple", "simultaneously", "multiplex"],
+    "lt$": ["default"],
+    "egi": ["region"],
+    "gio": ["region"],
     "acc": ["access", "account", "accounts"],
     "cce": ["access"],
-    "ces": [
-      "access",
-      "instances",
-      "resources",
-      "process",
-      "occurrences",
-      "services",
-      "processes"
-    ],
-    "ess": [
-      "access",
-      "serverless",
-      "regression",
-      "message",
-      "process",
-      "messages",
-      "session",
-      "sessions",
-      "processes",
-      "expression"
-    ],
-    "ss$": ["access", "serverless", "process", "pass", "bypass"],
-    "^ke": ["keys", "keep", "kernel"],
-    "key": ["keys"],
     "eys": ["keys"],
     "ys$": ["keys"],
-    "^pr": [
-      "profile",
-      "provision",
-      "properties",
-      "principal",
-      "project",
-      "prepare",
-      "previous",
-      "preserving",
-      "process",
-      "print",
-      "privileges",
-      "processes"
-    ],
-    "pro": [
-      "profile",
-      "provision",
-      "properties",
-      "project",
-      "process",
-      "processes"
-    ],
     "rof": ["profile"],
     "ofi": ["profile"],
-    "fil": ["profile", "file", "files", "filesystem", "filter"],
-    "ile": ["profile", "file", "files", "filesystem", "privileges"],
-    "le$": [
-      "profile",
-      "file",
-      "available",
-      "google",
-      "schedule",
-      "single",
-      "multiple",
-      "console",
-      "variable",
-      "enable",
-      "executable"
-    ],
     "^ec": ["ec2", "echo"],
     "ec2": ["ec2"],
     "c2$": ["ec2"],
-    "des": ["describe"],
-    "esc": ["describe"],
-    "scr": [
-      "describe",
-      "subscriptions",
-      "subscription",
-      "screen",
-      "scrollback",
-      "script"
-    ],
-    "cri": ["describe", "subscriptions", "subscription", "script"],
     "rib": ["describe", "contributed"],
     "ibe": ["describe"],
     "be$": ["describe"],
-    "^in": [
-      "instances",
-      "instance",
-      "in",
-      "infrastructure",
-      "initialize",
-      "into",
-      "internal",
-      "index",
-      "inspect",
-      "init",
-      "incorporate",
-      "initialization",
-      "install",
-      "info"
-    ],
-    "ins": ["instances", "instance", "inspect", "origins", "install"],
-    "nst": ["instances", "instance", "unstage", "install"],
-    "sta": [
-      "instances",
-      "instance",
-      "status",
-      "start",
-      "stage",
-      "staged",
-      "unstage",
-      "stash",
-      "state",
-      "timestamp",
-      "restart",
-      "install"
-    ],
     "tan": ["instances", "instance", "simultaneously"],
     "anc": ["instances", "instance", "branch", "branches"],
     "nce": [
@@ -5739,100 +7631,9 @@
       "occurrences",
       "existence"
     ],
-    "es$": [
-      "instances",
-      "files",
-      "resources",
-      "properties",
-      "kubernetes",
-      "changes",
-      "lines",
-      "branches",
-      "directories",
-      "histories",
-      "repositories",
-      "remotes",
-      "dependencies",
-      "worktrees",
-      "aliases",
-      "messages",
-      "variables",
-      "occurrences",
-      "pages",
-      "privileges",
-      "services",
-      "panes",
-      "packages",
-      "processes"
-    ],
-    "^li": ["list", "live", "line", "lines", "linux", "library"],
-    "lis": ["list", "publish"],
-    "ist": ["list", "history", "histories", "existence"],
-    "st$": ["list", "last", "past", "lost", "most", "request", "test"],
-    "^ch": [
-      "check",
-      "change",
-      "changes",
-      "changed",
-      "checkout",
-      "cherry",
-      "changelog",
-      "child",
-      "chmod"
-    ],
-    "che": ["check", "schedule", "branches", "checkout", "cherry"],
-    "hec": ["check", "checkout"],
-    "eck": ["check", "checkout"],
-    "ck$": [
-      "check",
-      "quick",
-      "track",
-      "back",
-      "pick",
-      "rollback",
-      "untrack",
-      "scrollback",
-      "clock"
-    ],
-    "^ru": ["running", "run"],
-    "run": ["running", "run"],
     "unn": ["running", "tunnel"],
     "nni": ["running"],
     "nin": ["running"],
-    "ing": [
-      "running",
-      "settings",
-      "testing",
-      "using",
-      "single",
-      "working",
-      "merging",
-      "tracking",
-      "rewriting",
-      "preserving",
-      "editing",
-      "string",
-      "matching",
-      "hanging",
-      "missing"
-    ],
-    "ng$": [
-      "running",
-      "testing",
-      "using",
-      "working",
-      "merging",
-      "tracking",
-      "rewriting",
-      "long",
-      "preserving",
-      "editing",
-      "string",
-      "shebang",
-      "matching",
-      "hanging",
-      "missing"
-    ],
     "ser": [
       "servers",
       "server",
@@ -5865,181 +7666,23 @@
       "average",
       "every"
     ],
-    "ers": [
-      "servers",
-      "clusters",
-      "unversioned",
-      "others",
-      "parameters",
-      "powershell"
-    ],
-    "rs$": [
-      "servers",
-      "clusters",
-      "ours",
-      "theirs",
-      "others",
-      "parameters",
-      "errors"
-    ],
-    "^fi": ["find", "file", "files", "filesystem", "fix", "filter"],
-    "fin": ["find"],
-    "ind": ["find", "index"],
-    "nd$": [
-      "find",
-      "send",
-      "and",
-      "command",
-      "amend",
-      "append",
-      "background",
-      "second"
-    ],
-    "ce$": [
-      "instance",
-      "resource",
-      "service",
-      "space",
-      "source",
-      "trace",
-      "workspace",
-      "force",
-      "reference",
-      "once",
-      "strace",
-      "replace",
-      "existence"
-    ],
     "^id": ["id", "identity"],
-    "id$": ["id"],
     "^qu": ["query", "quick"],
     "que": ["query", "request"],
     "uer": ["query"],
     "ery": ["query", "every"],
-    "ry$": [
-      "query",
-      "directory",
-      "repository",
-      "history",
-      "binary",
-      "cherry",
-      "subdirectory",
-      "library",
-      "every"
-    ],
-    "com": [
-      "compute",
-      "command",
-      "commit",
-      "compare",
-      "uncommitted",
-      "commits",
-      "combine",
-      "commands"
-    ],
     "omp": ["compute", "compare"],
     "mpu": ["compute"],
     "put": ["compute", "put", "output"],
-    "ute": ["compute", "execute", "contributed"],
-    "te$": [
-      "compute",
-      "create",
-      "update",
-      "generate",
-      "authenticate",
-      "template",
-      "execute",
-      "remote",
-      "automate",
-      "annotate",
-      "wrote",
-      "delete",
-      "write",
-      "incorporate",
-      "rewrite",
-      "state",
-      "duplicate",
-      "date",
-      "elevate",
-      "evaluate",
-      "concatenate"
-    ],
-    "^st": [
-      "status",
-      "start",
-      "stream",
-      "storage",
-      "sts",
-      "stage",
-      "staged",
-      "stop",
-      "stash",
-      "state",
-      "string",
-      "strace",
-      "structured"
-    ],
     "tat": ["status", "annotate", "state", "documentation"],
     "atu": ["status", "feature"],
     "tus": ["status"],
     "us$": ["status", "previous"],
-    "un$": ["run"],
     "^la": ["launch", "label", "last"],
     "lau": ["launch"],
     "aun": ["launch"],
-    "unc": ["launch", "functionapp", "function", "functions", "uncommitted"],
     "nch": ["launch", "synchronize", "branch", "branches"],
-    "ch$": [
-      "launch",
-      "cloudwatch",
-      "switch",
-      "branch",
-      "which",
-      "search",
-      "fetch",
-      "epoch",
-      "attach",
-      "watch"
-    ],
-    "rea": ["create", "stream", "real", "read", "reapply", "upstream"],
     "eat": ["create", "feature", "repeat", "repeatedly"],
-    "ate": [
-      "create",
-      "update",
-      "generate",
-      "authenticate",
-      "template",
-      "automate",
-      "annotate",
-      "incorporate",
-      "state",
-      "duplicate",
-      "date",
-      "elevate",
-      "repeatedly",
-      "evaluate",
-      "concatenate"
-    ],
-    "er$": [
-      "server",
-      "cluster",
-      "user",
-      "another",
-      "transfer",
-      "folder",
-      "caller",
-      "container",
-      "docker",
-      "over",
-      "together",
-      "recover",
-      "pointer",
-      "per",
-      "buffer",
-      "killer",
-      "filter",
-      "after"
-    ],
     "rov": ["provision"],
     "ovi": ["provision"],
     "vis": ["provision"],
@@ -6054,60 +7697,16 @@
       "sessions",
       "expression"
     ],
-    "clo": ["cloud", "cloudwatch", "gcloud", "clone", "clock"],
     "lou": ["cloud", "cloudwatch", "gcloud"],
     "oud": ["cloud", "cloudwatch", "gcloud"],
     "ud$": ["cloud", "gcloud"],
-    "tar": ["start", "tarball", "restart"],
     "art": ["start", "restart"],
-    "rt$": [
-      "start",
-      "report",
-      "export",
-      "port",
-      "revert",
-      "convert",
-      "restart"
-    ],
-    "^ne": ["new"],
-    "new": ["new"],
-    "ew$": ["new", "view"],
-    "^vi": ["virtual", "via", "view"],
-    "vir": ["virtual", "environment"],
     "irt": ["virtual"],
     "rtu": ["virtual"],
     "tua": ["virtual"],
     "ual": ["virtual", "manual"],
-    "al$": [
-      "virtual",
-      "local",
-      "terminal",
-      "real",
-      "logical",
-      "principal",
-      "internal",
-      "global",
-      "manual",
-      "conditional"
-    ],
-    "^ma": [
-      "machine",
-      "manage",
-      "make",
-      "managed",
-      "main",
-      "matching",
-      "man",
-      "manual"
-    ],
-    "mac": ["machine"],
     "ach": ["machine", "attach"],
-    "chi": ["machine", "archive", "child", "matching"],
-    "hin": ["machine", "matching"],
-    "ine": ["machine", "container", "engine", "line", "lines", "combine"],
-    "ne$": ["machine", "engine", "zone", "line", "clone", "combine", "tune"],
     "dep": ["deploy", "deployment", "dependencies"],
-    "epl": ["deploy", "deployment", "replace", "replacement"],
     "plo": ["deploy", "upload", "deployment"],
     "loy": ["deploy", "deployment"],
     "oy$": ["deploy"],
@@ -6115,7 +7714,6 @@
     "ia$": ["via"],
     "^ek": ["eks"],
     "eks": ["eks"],
-    "ks$": ["eks", "aks"],
     "^up": ["update", "upload", "up", "upstream", "uptime"],
     "upd": ["update"],
     "pda": ["update"],
@@ -6129,67 +7727,12 @@
     "onn": ["connect", "connection", "disconnect", "disconnects"],
     "nne": ["connect", "tunnel", "connection", "disconnect", "disconnects"],
     "nec": ["connect", "connection", "disconnect", "disconnects"],
-    "ect": [
-      "connect",
-      "kubectl",
-      "object",
-      "directory",
-      "objects",
-      "select",
-      "project",
-      "bisect",
-      "inspect",
-      "directories",
-      "subdirectory",
-      "connection",
-      "disconnect",
-      "disconnects",
-      "effective"
-    ],
-    "ct$": [
-      "connect",
-      "object",
-      "select",
-      "project",
-      "extract",
-      "bisect",
-      "inspect",
-      "disconnect"
-    ],
-    "^to": ["to", "together"],
-    "to$": ["to", "into"],
     "clu": ["cluster", "clusters"],
     "lus": ["cluster", "clusters"],
-    "ust": ["cluster", "clusters", "custom"],
-    "ste": [
-      "cluster",
-      "clusters",
-      "filesystem",
-      "system",
-      "systemd",
-      "systemctl",
-      "existence"
-    ],
-    "ter": [
-      "cluster",
-      "terminal",
-      "internal",
-      "clusters",
-      "pointer",
-      "parameters",
-      "pattern",
-      "filter",
-      "after"
-    ],
-    "^ge": ["generate", "get"],
     "gen": ["generate"],
     "ene": ["generate"],
     "ner": ["generate", "container"],
-    "era": ["generate", "average"],
     "rat": ["generate", "configuration", "incorporate"],
-    "^fo": ["for", "follow", "folder", "format", "force"],
-    "for": ["for", "format", "force", "before"],
-    "or$": ["for", "mirror", "or", "author", "behavior", "monitor", "editor"],
     "ctl": ["kubectl", "sysctl", "journalctl", "systemctl"],
     "tl$": ["kubectl", "sysctl", "journalctl", "systemctl"],
     "^au": [
@@ -6212,67 +7755,23 @@
     "the": ["authenticate", "another", "the", "theirs", "others", "together"],
     "hen": ["authenticate", "when"],
     "tic": ["authenticate"],
-    "ica": ["authenticate", "logical", "application", "duplicate"],
-    "cat": ["authenticate", "application", "duplicate", "cat", "concatenate"],
     "^ad": ["add", "admin"],
     "add": ["add"],
     "dd$": ["add"],
-    "^lo": [
-      "local",
-      "logs",
-      "log",
-      "logical",
-      "login",
-      "lost",
-      "locally",
-      "long",
-      "load",
-      "logged"
-    ],
-    "loc": ["local", "locally", "clock"],
-    "oca": ["local", "locally"],
-    "cal": ["local", "caller", "logical", "locally", "calls", "call"],
     "^ia": ["iam", "iap"],
     "iam": ["iam"],
-    "am$": ["iam", "am", "stream", "upstream"],
-    "get": ["get", "together"],
     "^us": ["user", "use", "usage", "using", "usb"],
     "use": ["user", "use"],
-    "^cu": ["current", "custom", "curl"],
-    "cur": ["current", "recursively", "occurrences", "curl", "secure"],
-    "urr": ["current", "occurrences"],
-    "rre": ["current", "occurrences"],
-    "ren": ["current", "rename", "reference", "occurrences", "different"],
-    "nt$": [
-      "current",
-      "recent",
-      "account",
-      "deployment",
-      "development",
-      "movement",
-      "count",
-      "print",
-      "environment",
-      "different",
-      "content",
-      "replacement"
-    ],
     "ide": ["identity", "hide", "override"],
     "tit": ["identity"],
     "ity": ["identity"],
     "ty$": ["identity"],
-    "^ar": ["arn", "arm", "archive"],
     "arn": ["arn"],
-    "rn$": ["arn", "turn", "pattern"],
-    "det": ["details"],
-    "eta": ["details"],
     "tai": ["details", "tail", "container"],
     "ail": ["details", "tail", "available"],
     "ils": ["details"],
-    "^wh": ["who", "what", "which", "why", "when", "whoami"],
     "who": ["who", "whoami"],
     "ho$": ["who", "echo"],
-    "^am": ["am", "amend"],
     "log": [
       "logs",
       "log",
@@ -6285,120 +7784,36 @@
       "logged"
     ],
     "ogs": ["logs"],
-    "gs$": ["logs", "tags", "settings"],
-    "^ta": ["tail", "tags", "tarball", "tag"],
     "il$": ["tail"],
     "udw": ["cloudwatch"],
     "dwa": ["cloudwatch", "hardware"],
     "wat": ["cloudwatch", "watch"],
-    "atc": ["cloudwatch", "matching", "watch"],
-    "tch": ["cloudwatch", "switch", "fetch", "matching", "watch"],
     "^fr": ["from", "free"],
     "fro": ["from"],
     "rom": ["from"],
     "om$": ["from", "custom", "oom"],
-    "^te": [
-      "terminal",
-      "tenants",
-      "template",
-      "testing",
-      "temporarily",
-      "text",
-      "test"
-    ],
-    "erm": ["terminal", "permissions", "permission"],
-    "rmi": ["terminal", "permissions", "permission"],
-    "min": ["terminal", "admin"],
-    "ina": ["terminal", "binary"],
-    "nal": ["terminal", "internal", "journalctl", "conditional"],
-    "str": [
-      "stream",
-      "infrastructure",
-      "upstream",
-      "string",
-      "strace",
-      "structured"
-    ],
     "tre": ["stream", "tree", "subtree", "upstream", "worktree", "worktrees"],
     "eam": ["stream", "upstream"],
     "og$": ["log", "reflog", "shortlog", "changelog"],
     "^gr": ["group", "grep"],
-    "gro": ["group", "background"],
-    "rou": ["group", "troubleshoot", "background"],
     "oup": ["group"],
     "liv": ["live", "alive"],
-    "ive": [
-      "live",
-      "active",
-      "archive",
-      "recursively",
-      "drive",
-      "alive",
-      "effective"
-    ],
-    "ve$": [
-      "live",
-      "move",
-      "active",
-      "archive",
-      "resolve",
-      "remove",
-      "save",
-      "shelve",
-      "drive",
-      "alive",
-      "effective"
-    ],
-    "vie": ["view"],
-    "iew": ["view"],
-    "rec": [
-      "recent",
-      "directory",
-      "directories",
-      "record",
-      "recover",
-      "subdirectory",
-      "recursively"
-    ],
     "ece": ["recent"],
     "cen": ["recent"],
-    "^ev": ["events", "every", "evaluate"],
     "eve": ["events", "development", "revert", "every"],
     "ven": ["events", "vendored"],
-    "nts": ["events", "contents", "accounts", "tenants"],
-    "ts$": [
-      "events",
-      "buckets",
-      "contents",
-      "objects",
-      "sts",
-      "accounts",
-      "tenants",
-      "conflicts",
-      "commits",
-      "its",
-      "disconnects"
-    ],
-    "fol": ["follow", "folder"],
     "oll": ["follow", "rollback", "scrollback"],
     "llo": ["follow"],
     "low": ["follow"],
-    "ow$": ["follow", "show", "how"],
-    "in$": ["in", "login", "origin", "join", "main", "nologin", "admin"],
     "eal": ["real"],
     "^ti": ["time", "timestamp"],
     "tim": ["time", "timestamp", "uptime"],
     "ime": ["time", "timestamp", "uptime"],
-    "me$": ["time", "blame", "rename", "resume", "uptime"],
-    "ead": ["read", "head"],
-    "ad$": ["read", "upload", "download", "workload", "bad", "head", "load"],
     "^s3": ["s3"],
     "s3$": ["s3"],
     "^cp": ["cp"],
     "cp$": ["cp", "gcp"],
     "upl": ["upload", "duplicate"],
-    "loa": ["upload", "download", "workload", "load"],
-    "oad": ["upload", "download", "workload", "load"],
     "^bu": ["bucket", "buckets", "bug", "but", "buffer"],
     "buc": ["bucket", "buckets"],
     "uck": ["bucket", "buckets"],
@@ -6416,11 +7831,9 @@
     "cop": ["copy"],
     "opy": ["copy"],
     "py$": ["copy"],
-    "^an": ["another", "an", "and", "annotate"],
     "ano": ["another"],
     "not": ["another", "annotate"],
     "oth": ["another", "others"],
-    "her": ["another", "cherry", "others", "together"],
     "^tr": [
       "transfer",
       "track",
@@ -6446,39 +7859,6 @@
     "nsf": ["transfer"],
     "sfe": ["transfer"],
     "fer": ["transfer", "reference", "buffer", "different"],
-    "^di": [
-      "directory",
-      "disk",
-      "discard",
-      "directories",
-      "diff",
-      "display",
-      "diagnose",
-      "disconnect",
-      "different",
-      "disconnects"
-    ],
-    "dir": ["directory", "directories", "subdirectory"],
-    "ire": ["directory", "directories", "subdirectory"],
-    "cto": ["directory", "directories", "subdirectory"],
-    "tor": [
-      "directory",
-      "storage",
-      "repository",
-      "history",
-      "directories",
-      "histories",
-      "repositories",
-      "restore",
-      "subdirectory",
-      "monitor",
-      "editor"
-    ],
-    "ory": ["directory", "repository", "history", "subdirectory"],
-    "^mo": ["move", "modify", "movement", "most", "modified", "monitor"],
-    "mov": ["move", "remove", "movement"],
-    "ove": ["move", "remove", "over", "recover", "movement", "override"],
-    "sto": ["storage", "history", "histories", "restore", "stop", "custom"],
     "ora": ["storage", "incorporate", "temporarily"],
     "rag": ["storage", "average"],
     "age": [
@@ -6496,54 +7876,8 @@
       "average",
       "packages"
     ],
-    "ge$": [
-      "storage",
-      "manage",
-      "change",
-      "usage",
-      "stage",
-      "package",
-      "merge",
-      "purge",
-      "message",
-      "unstage",
-      "average"
-    ],
     "^ls": ["ls"],
     "ets": ["buckets"],
-    "les": ["files", "serverless", "filesystem", "troubleshoot", "variables"],
-    "^sh": [
-      "show",
-      "shortlog",
-      "shelve",
-      "shorten",
-      "shell",
-      "shortcut",
-      "shebang",
-      "share",
-      "shared"
-    ],
-    "sho": [
-      "show",
-      "snapshot",
-      "shortlog",
-      "shorten",
-      "shortcut",
-      "troubleshoot"
-    ],
-    "how": ["show", "how"],
-    "old": ["folder", "old"],
-    "lde": ["folder"],
-    "der": ["folder"],
-    "ont": [
-      "contents",
-      "context",
-      "container",
-      "crontab",
-      "contributed",
-      "content"
-    ],
-    "nte": ["contents", "context", "internal", "pointer", "content"],
     "ten": [
       "contents",
       "tenants",
@@ -6573,177 +7907,42 @@
     "^on": ["only", "once", "on"],
     "onl": ["only"],
     "nly": ["only"],
-    "ly$": [
-      "only",
-      "apply",
-      "safely",
-      "locally",
-      "temporarily",
-      "reapply",
-      "simultaneously",
-      "recursively",
-      "repeatedly"
-    ],
-    "^ba": ["backup", "bad", "back", "bare", "base", "bash", "background"],
-    "bac": ["backup", "back", "rollback", "scrollback", "background"],
-    "ack": [
-      "backup",
-      "track",
-      "package",
-      "back",
-      "untracked",
-      "tracking",
-      "rollback",
-      "tracked",
-      "untrack",
-      "scrollback",
-      "background",
-      "packages"
-    ],
     "cku": ["backup"],
     "kup": ["backup"],
     "chr": ["synchronize"],
     "hro": ["synchronize"],
-    "ron": ["synchronize", "crontab", "cron", "environment"],
     "oni": ["synchronize", "monitor"],
     "niz": ["synchronize"],
-    "ize": ["synchronize", "initialize", "authorize", "summarize"],
-    "ze$": ["synchronize", "initialize", "authorize", "summarize"],
     "^tw": ["two"],
     "two": ["two"],
     "wo$": ["two"],
     "sts": ["sts"],
     "^ca": ["caller", "calls", "call", "cat"],
-    "all": ["caller", "all", "tarball", "locally", "calls", "call", "install"],
-    "lle": ["caller", "killed", "killer"],
     "ler": ["caller", "killer"],
     "cco": ["account", "accounts"],
     "cou": ["account", "accounts", "count"],
-    "oun": ["account", "accounts", "count", "background"],
     "unt": ["account", "accounts", "untracked", "untrack", "count", "ubuntu"],
     "^ve": ["verify", "vendored"],
     "eri": ["verify"],
     "rif": ["verify"],
     "ify": ["verify", "modify"],
     "fy$": ["verify", "modify"],
-    "man": [
-      "manage",
-      "managed",
-      "human",
-      "command",
-      "commands",
-      "man",
-      "manual"
-    ],
     "ana": ["manage", "managed"],
     "nag": ["manage", "managed"],
-    "res": [
-      "resources",
-      "resource",
-      "regression",
-      "resolve",
-      "reset",
-      "restore",
-      "preserving",
-      "resume",
-      "restart",
-      "refresh",
-      "expression"
-    ],
     "eso": ["resources", "resource", "resolve"],
-    "sou": ["resources", "resource", "source"],
-    "our": ["resources", "resource", "source", "ours", "journalctl"],
-    "urc": ["resources", "resource", "source"],
-    "rce": ["resources", "resource", "source", "force"],
     "^az": ["az", "azure"],
     "az$": ["az"],
     "azu": ["azure"],
     "zur": ["azure"],
-    "^su": [
-      "subscriptions",
-      "subscription",
-      "summarize",
-      "subtree",
-      "subdirectory",
-      "su",
-      "sudo"
-    ],
-    "sub": ["subscriptions", "subscription", "subtree", "subdirectory"],
-    "ubs": ["subscriptions", "subscription"],
     "bsc": ["subscriptions", "subscription"],
-    "rip": ["subscriptions", "subscription", "script"],
-    "ipt": ["subscriptions", "subscription", "script"],
-    "pti": ["subscriptions", "subscription", "options", "uptime"],
-    "tio": [
-      "subscriptions",
-      "subscription",
-      "functionapp",
-      "function",
-      "configuration",
-      "application",
-      "functions",
-      "connection",
-      "initialization",
-      "options",
-      "documentation",
-      "conditional"
-    ],
-    "ons": [
-      "subscriptions",
-      "functions",
-      "console",
-      "permissions",
-      "options",
-      "sessions"
-    ],
-    "ns$": [
-      "subscriptions",
-      "functions",
-      "origins",
-      "permissions",
-      "options",
-      "opens",
-      "sessions"
-    ],
-    "^al": ["all", "alias", "aliases", "alive"],
-    "ll$": ["all", "tarball", "pull", "shell", "call", "install", "powershell"],
     "^av": ["available", "average"],
     "ava": ["available"],
     "vai": ["available"],
     "ila": ["available"],
     "lab": ["available", "label"],
-    "abl": ["available", "variable", "variables", "enable", "executable"],
-    "ble": [
-      "available",
-      "troubleshoot",
-      "variable",
-      "variables",
-      "enable",
-      "executable"
-    ],
-    "ena": ["tenants", "rename", "enable", "concatenate"],
     "nan": ["tenants"],
     "ant": ["tenants"],
-    "act": ["active", "extract"],
-    "cti": [
-      "active",
-      "functionapp",
-      "function",
-      "functions",
-      "connection",
-      "effective"
-    ],
-    "tiv": ["active", "effective"],
-    "cha": ["change", "changes", "changed", "changelog"],
-    "han": ["change", "changes", "changed", "changelog", "hanging"],
-    "ang": ["change", "changes", "changed", "changelog", "shebang", "hanging"],
-    "nge": ["change", "changes", "changed", "changelog"],
-    "^sw": ["switch"],
-    "swi": ["switch"],
-    "wit": ["switch", "with", "without"],
-    "itc": ["switch"],
     "tex": ["context", "text"],
-    "ext": ["context", "extract", "text"],
     "xt$": ["context", "text"],
     "sel": ["select"],
     "ele": ["select", "release", "delete", "deleted", "elevate"],
@@ -6752,70 +7951,22 @@
     "aks": ["aks"],
     "oym": ["deployment"],
     "yme": ["deployment"],
-    "men": [
-      "deployment",
-      "amend",
-      "development",
-      "movement",
-      "environment",
-      "documentation",
-      "replacement"
-    ],
-    "^bi": ["bicep", "bisect", "binary"],
     "bic": ["bicep"],
     "ice": ["bicep", "service", "services"],
     "cep": ["bicep"],
     "ep$": ["bicep", "keep", "grep"],
     "arm": ["arm"],
     "rm$": ["arm", "rm"],
-    "tem": [
-      "template",
-      "filesystem",
-      "temporarily",
-      "system",
-      "systemd",
-      "systemctl"
-    ],
     "emp": ["template", "temporarily"],
     "mpl": ["template"],
-    "pla": ["template", "plan", "display", "replace", "replacement"],
     "lat": ["template"],
     "inf": ["infrastructure", "info"],
     "nfr": ["infrastructure"],
     "fra": ["infrastructure"],
     "ras": ["infrastructure"],
     "ast": ["infrastructure", "last", "past"],
-    "tru": ["infrastructure", "structured"],
-    "ruc": ["infrastructure", "structured"],
-    "uct": ["infrastructure", "structured"],
     "ctu": ["infrastructure", "structured"],
-    "tur": ["infrastructure", "turn", "feature", "structured"],
-    "^as": ["as"],
-    "as$": ["as", "alias", "was", "has"],
     "cod": ["code", "codebase"],
-    "ode": ["code", "nodejs", "codebase"],
-    "de$": ["code", "hide", "override"],
-    "^ex": [
-      "execute",
-      "export",
-      "extract",
-      "executable",
-      "existence",
-      "expression"
-    ],
-    "exe": ["execute", "executable"],
-    "xec": ["execute", "executable"],
-    "ecu": ["execute", "recursively", "executable", "secure"],
-    "cut": ["execute", "shortcut", "executable"],
-    "wha": ["what"],
-    "hat": ["what", "that"],
-    "at$": ["what", "format", "that", "at", "repeat", "cat"],
-    "^if": ["if"],
-    "if$": ["if"],
-    "^fu": ["functionapp", "function", "functions"],
-    "fun": ["functionapp", "function", "functions"],
-    "nct": ["functionapp", "function", "functions"],
-    "ona": ["functionapp", "conditional"],
     "nap": ["functionapp", "snapshot"],
     "app": [
       "functionapp",
@@ -6830,7 +7981,6 @@
     "^ap": ["app", "application", "apply", "append", "apt"],
     "rop": ["properties"],
     "ope": ["properties", "opens"],
-    "per": ["properties", "per", "permissions", "permission"],
     "ert": ["properties", "revert", "convert"],
     "rti": ["properties"],
     "tie": ["properties"],
@@ -6846,93 +7996,31 @@
     "^pl": ["plan"],
     "lan": ["plan"],
     "an$": ["plan", "an", "human", "clean", "man"],
-    "mod": ["modify", "modified", "chmod"],
     "odi": ["modify", "modified"],
     "dif": ["modify", "diff", "modified", "different"],
     "erl": ["serverless"],
     "rle": ["serverless"],
     "ura": ["configuration"],
-    "ati": ["configuration", "application", "initialization", "documentation"],
     "tag": ["tags", "stage", "staged", "unstage", "tag"],
-    "ags": ["tags"],
     "mak": ["make"],
     "ake": ["make"],
     "ke$": ["make", "gke", "broke"],
     "ini": ["initialize", "init", "initialization"],
     "nit": ["initialize", "init", "initialization", "monitor"],
-    "iti": [
-      "initialize",
-      "rewriting",
-      "editing",
-      "initialization",
-      "conditional"
-    ],
-    "ali": ["initialize", "alias", "aliases", "initialization", "alive"],
     "liz": ["initialize", "initialization"],
     "ogi": ["logical", "login", "nologin"],
     "gic": ["logical"],
     "nta": ["container", "crontab", "documentation", "syntax"],
     "ain": ["container", "main"],
-    "^wi": ["with", "without", "wipe"],
-    "ith": ["with", "without", "github"],
-    "th$": ["with", "auth", "path"],
-    "gin": [
-      "login",
-      "engine",
-      "origin",
-      "origins",
-      "merging",
-      "hanging",
-      "nologin",
-      "nginx"
-    ],
-    "pri": ["principal", "print", "privileges"],
-    "rin": ["principal", "string", "print"],
     "inc": ["principal", "incorporate"],
     "nci": ["principal", "dependencies"],
     "cip": ["principal"],
     "ipa": ["principal"],
     "pal": ["principal"],
-    "se$": [
-      "use",
-      "parse",
-      "release",
-      "rebase",
-      "base",
-      "diagnose",
-      "codebase"
-    ],
     "ged": ["managed", "changed", "staged", "logged"],
-    "ed$": [
-      "managed",
-      "changed",
-      "untracked",
-      "unversioned",
-      "staged",
-      "uncommitted",
-      "pushed",
-      "deleted",
-      "tracked",
-      "contributed",
-      "modified",
-      "saved",
-      "vendored",
-      "killed",
-      "shared",
-      "denied",
-      "logged",
-      "rebooted",
-      "sed",
-      "structured"
-    ],
     "^bl": ["blob", "blame"],
     "blo": ["blob"],
-    "lob": ["blob", "global"],
-    "ob$": ["blob", "job"],
     "^pu": ["put", "publish", "purge", "pushed", "pull", "push"],
-    "ut$": ["put", "output", "without", "checkout", "but", "shortcut", "out"],
-    "sen": ["send"],
-    "end": ["send", "amend", "vendored", "dependencies", "append"],
     "^vm": ["vm", "vms"],
     "vm$": ["vm"],
     "^we": ["webapp", "web"],
@@ -6940,27 +8028,15 @@
     "eba": ["webapp", "rebase", "shebang", "codebase"],
     "bap": ["webapp"],
     "eb$": ["web"],
-    "and": ["and", "command", "commands"],
     "pub": ["publish"],
     "ubl": ["publish", "troubleshoot"],
     "bli": ["publish"],
     "ish": ["publish"],
-    "sh$": [
-      "publish",
-      "ssh",
-      "push",
-      "squash",
-      "hash",
-      "stash",
-      "bash",
-      "refresh"
-    ],
     "qui": ["quick"],
     "uic": ["quick"],
     "ick": ["quick", "pick"],
     "^gc": ["gcloud", "gcp", "gcs"],
     "gcl": ["gcloud"],
-    "^en": ["engine", "environment", "env", "enable"],
     "eng": ["engine"],
     "ngi": ["engine", "hanging", "nginx"],
     "ppl": ["application", "apply", "reapply"],
@@ -6970,26 +8046,15 @@
     "^py": ["python"],
     "pyt": ["python"],
     "yth": ["python"],
-    "tho": ["python", "authorize", "without", "authorship", "author"],
     "hon": ["python"],
-    "^go": ["google", "go"],
     "goo": ["google"],
     "oog": ["google"],
     "ogl": ["google"],
-    "gle": ["google", "single"],
     "^no": ["nodejs", "non", "nologin"],
     "nod": ["nodejs"],
     "dej": ["nodejs"],
     "ejs": ["nodejs"],
     "js$": ["nodejs"],
-    "hor": [
-      "authorize",
-      "authorship",
-      "shortlog",
-      "author",
-      "shorten",
-      "shortcut"
-    ],
     "ori": [
       "authorize",
       "origin",
@@ -7011,7 +8076,6 @@
     "el$": ["label", "tunnel", "kernel"],
     "^ss": ["ssh"],
     "ssh": ["ssh"],
-    "int": ["into", "internal", "pointer", "print"],
     "nto": ["into"],
     "rem": ["remote", "remove", "remotes"],
     "emo": ["remote", "remove", "remotes"],
@@ -7022,109 +8086,49 @@
     "nel": ["tunnel", "kernel"],
     "iap": ["iap"],
     "ap$": ["iap"],
-    "ern": ["internal", "kubernetes", "kernel", "pattern"],
     "rna": ["internal", "journalctl"],
     "roj": ["project"],
     "oje": ["project"],
     "^zo": ["zone"],
     "zon": ["zone"],
     "one": ["zone", "unversioned", "clone"],
-    "ett": ["settings"],
-    "tti": ["settings"],
-    "tin": ["settings", "testing", "rewriting", "editing"],
-    "ngs": ["settings"],
     "^gk": ["gke"],
     "gke": ["gke"],
     "ber": ["kubernetes"],
     "rne": ["kubernetes", "kernel"],
     "net": ["kubernetes"],
-    "ete": ["kubernetes", "delete", "deleted", "parameters"],
     "tes": ["kubernetes", "testing", "remotes", "test"],
     "non": ["non"],
     "^hu": ["human"],
     "hum": ["human"],
     "uma": ["human"],
-    "^wo": [
-      "workload",
-      "workspace",
-      "working",
-      "worktree",
-      "work",
-      "worktrees",
-      "word"
-    ],
-    "wor": [
-      "workload",
-      "workspace",
-      "working",
-      "worktree",
-      "work",
-      "worktrees",
-      "word"
-    ],
-    "ork": [
-      "workload",
-      "workspace",
-      "working",
-      "worktree",
-      "work",
-      "worktrees"
-    ],
     "rkl": ["workload"],
     "klo": ["workload"],
     "gcs": ["gcs"],
-    "cs$": ["gcs", "panics"],
-    "^be": ["between", "behavior", "before", "been"],
     "bet": ["between"],
     "etw": ["between"],
     "twe": ["between"],
     "wee": ["between"],
     "een": ["between", "screen", "been"],
     "en$": ["between", "shorten", "screen", "been", "when"],
-    "cro": ["crontab", "cron", "scrollback"],
-    "tab": ["crontab", "executable"],
     "ab$": ["crontab"],
-    "^sc": ["schedule", "screen", "scrollback", "script"],
     "sch": ["schedule"],
     "hed": ["schedule", "pushed"],
     "edu": ["schedule"],
     "dul": ["schedule"],
     "ule": ["schedule"],
-    "^jo": ["job", "join", "journalctl"],
-    "job": ["job"],
     "^ed": ["edit", "editing", "editor"],
-    "edi": ["edit", "editing", "editor"],
     "dit": ["edit", "editing", "editor", "conditional"],
     "it$": ["edit", "git", "commit", "init", "it", "split"],
     "^jq": ["jq"],
     "jq$": ["jq"],
-    "^pa": [
-      "parse",
-      "package",
-      "past",
-      "parameters",
-      "panics",
-      "path",
-      "pass",
-      "pattern",
-      "pages",
-      "panes",
-      "packages"
-    ],
-    "par": ["parse", "prepare", "compare", "parameters"],
     "ars": ["parse"],
     "rse": ["parse"],
     "^js": ["json"],
     "jso": ["json"],
     "son": ["json"],
-    "omm": ["command", "commit", "uncommitted", "commits", "commands"],
-    "mma": ["command", "summarize", "commands"],
-    "lin": ["line", "lines", "linux"],
     "orm": ["format"],
-    "rma": ["format"],
-    "mat": ["format", "automate", "matching"],
     "^ou": ["output", "ours", "out"],
-    "out": ["output", "without", "checkout", "out"],
     "utp": ["output"],
     "tpu": ["output"],
     "doc": ["docker", "documentation"],
@@ -7135,39 +8139,14 @@
     "fre": ["free", "refresh"],
     "ree": ["free", "tree", "subtree", "worktree", "worktrees", "screen"],
     "ee$": ["free", "tree", "see", "subtree", "worktree"],
-    "dis": ["disk", "discard", "display", "disconnect", "disconnects"],
     "isk": ["disk"],
-    "sk$": ["disk"],
-    "^sp": ["space", "specific", "split"],
-    "spa": ["space", "workspace"],
     "pac": ["space", "package", "workspace", "packages"],
-    "ace": ["space", "trace", "workspace", "strace", "replace", "replacement"],
-    "esy": ["filesystem"],
-    "sys": ["filesystem", "sysctl", "system", "systemd", "systemctl"],
-    "yst": ["filesystem", "system", "systemd", "systemctl"],
-    "em$": ["filesystem", "system"],
     "usa": ["usage"],
     "sag": ["usage", "message", "messages"],
-    "rep": [
-      "report",
-      "prepare",
-      "repository",
-      "repo",
-      "repositories",
-      "grep",
-      "repeat",
-      "repeatedly",
-      "replace",
-      "replacement"
-    ],
     "epo": ["report", "repository", "repo", "repositories", "epoch"],
-    "por": ["report", "export", "port", "incorporate", "temporarily"],
-    "ort": ["report", "export", "port", "shortlog", "shorten", "shortcut"],
     "^gi": ["git", "github"],
     "git": ["git", "github"],
-    "mmi": ["commit", "uncommitted", "commits"],
     "mit": ["commit", "uncommitted", "commits"],
-    "nde": ["index", "dependencies"],
     "dex": ["index"],
     "ex$": ["index", "multiplex"],
     "pre": ["prepare", "previous", "preserving", "expression"],
@@ -7182,79 +8161,47 @@
       "shared"
     ],
     "ges": ["changes", "messages", "pages", "privileges", "packages"],
-    "rac": [
-      "track",
-      "extract",
-      "trace",
-      "untracked",
-      "tracking",
-      "tracked",
-      "untrack",
-      "strace"
-    ],
-    "spe": ["specific", "inspect"],
     "pec": ["specific", "inspect"],
     "eci": ["specific"],
     "cif": ["specific"],
     "ifi": ["specific", "modified"],
     "fic": ["specific"],
-    "ic$": ["specific"],
     "nes": ["lines", "panes"],
-    "^of": ["of"],
-    "of$": ["of"],
     "arc": ["archive", "search"],
     "rch": ["archive", "search"],
     "hiv": ["archive"],
     "exp": ["export", "expression"],
     "xpo": ["export"],
-    "pos": ["repository", "repositories"],
-    "osi": ["repository", "repositories"],
-    "sit": ["repository", "repositories"],
     "ito": ["repository", "repositories", "monitor", "editor"],
-    "hou": ["without"],
     "^zi": ["zip"],
     "zip": ["zip"],
     "ip$": ["zip", "authorship"],
-    "^br": ["branch", "broke", "branches"],
     "bra": ["branch", "branches", "library"],
     "arb": ["tarball"],
     "rba": ["tarball"],
     "bal": ["tarball", "global"],
     "cka": ["package", "packages"],
     "kag": ["package", "packages"],
-    "^so": ["source", "software"],
-    "rel": ["release"],
     "lea": ["release", "clean", "clear"],
     "eas": ["release"],
     "ase": ["release", "rebase", "base", "aliases", "codebase"],
     "xtr": ["extract"],
     "^hi": ["history", "histories", "hide", "highlight"],
-    "his": ["history", "this", "histories"],
     "bis": ["bisect"],
     "ise": ["bisect"],
     "sec": ["bisect", "second", "secure"],
-    "whi": ["which"],
-    "hic": ["which"],
-    "ich": ["which"],
     "bro": ["broke"],
     "rok": ["broke"],
     "oke": ["broke"],
-    "^th": ["the", "this", "that", "theirs"],
     "he$": ["the"],
-    "bin": ["binary", "combine"],
-    "nar": ["binary"],
-    "ary": ["binary", "library"],
     "sea": ["search"],
     "ear": ["search", "clear"],
-    "bug": ["bug", "debug"],
     "ug$": ["bug", "debug"],
     "^or": ["origin", "origins", "or"],
     "rig": ["origin", "origins"],
     "igi": ["origin", "origins"],
     "uto": ["automate"],
-    "tom": ["automate", "custom"],
     "oma": ["automate"],
-    "egr": ["regression"],
     "gre": ["regression", "grep"],
     "ssi": [
       "regression",
@@ -7267,20 +8214,15 @@
     ],
     "est": ["testing", "restore", "timestamp", "restart", "request", "test"],
     "sti": ["testing"],
-    "wn$": ["down", "own"],
     "bad": ["bad"],
     "bla": ["blame"],
     "lam": ["blame"],
-    "ame": ["blame", "rename", "amend", "parameters"],
     "ann": ["annotate"],
     "nno": ["annotate"],
     "ota": ["annotate"],
     "^wr": ["wrote", "write"],
     "wro": ["wrote"],
     "rot": ["wrote"],
-    "thi": ["this"],
-    "is$": ["this", "is"],
-    "ors": ["authorship", "errors"],
     "rsh": ["authorship", "powershell"],
     "shi": ["authorship"],
     "hip": ["authorship"],
@@ -7289,24 +8231,17 @@
     "hes": ["branches"],
     "del": ["delete", "deleted"],
     "let": ["delete", "deleted"],
-    "nam": ["rename"],
     "cko": ["checkout"],
     "kou": ["checkout"],
     "isc": ["discard", "disconnect", "disconnects"],
     "sca": ["discard"],
     "car": ["discard"],
-    "ard": ["discard", "hard", "hardware"],
-    "rd$": ["discard", "record", "hard", "word"],
-    "go$": ["go"],
     "rev": ["previous", "revert"],
     "evi": ["previous"],
-    "vio": ["previous", "behavior"],
     "iou": ["previous"],
     "ous": ["previous", "simultaneously"],
-    "sol": ["resolve", "console"],
     "olv": ["resolve"],
     "lve": ["resolve", "shelve"],
-    "^me": ["merge", "message", "merging", "messages"],
     "mer": ["merge", "merging"],
     "erg": ["merge", "merging"],
     "rge": ["merge", "purge"],
@@ -7315,18 +8250,15 @@
     "ict": ["conflicts"],
     "usi": ["using"],
     "sin": ["using", "single", "missing"],
-    "urs": ["ours", "recursively"],
     "hei": ["theirs"],
     "eir": ["theirs"],
     "irs": ["theirs"],
     "err": ["cherry", "override", "errors"],
     "rry": ["cherry"],
-    "^pi": ["pick"],
     "pic": ["pick"],
     "ply": ["apply", "reapply"],
     "^si": ["single", "sign", "simultaneously"],
     "ngl": ["single"],
-    "^po": ["port", "pointer", "pod", "powershell"],
     "fix": ["fix"],
     "ix$": ["fix", "unix"],
     "cle": ["clean", "clear"],
@@ -7346,14 +8278,11 @@
     "ksp": ["workspace"],
     "unv": ["unversioned"],
     "nve": ["unversioned", "convert"],
-    "rsi": ["unversioned", "recursively"],
     "ned": ["unversioned"],
     "pur": ["purge"],
     "urg": ["purge"],
     "rie": ["directories", "histories", "repositories"],
     "ese": ["reset", "preserving"],
-    "rki": ["working"],
-    "kin": ["working", "tracking"],
     "lon": ["clone", "long"],
     "po$": ["repo"],
     "thu": ["github"],
@@ -7382,7 +8311,6 @@
     "see": ["see"],
     "nco": ["uncommitted", "incorporate"],
     "itt": ["uncommitted"],
-    "tte": ["uncommitted", "pattern"],
     "ted": ["uncommitted", "deleted", "contributed", "rebooted", "repeatedly"],
     "its": ["commits", "its"],
     "^fe": ["fetch", "feature"],
@@ -7396,8 +8324,6 @@
     "^ot": ["others"],
     "pus": ["pushed", "push"],
     "ush": ["pushed", "push"],
-    "she": ["pushed", "shelve", "shell", "shebang", "powershell"],
-    "urn": ["turn", "journalctl"],
     "bar": ["bare"],
     "pas": ["past", "pass", "bypass"],
     "omb": ["combine"],
@@ -7406,7 +8332,6 @@
     "oin": ["join", "pointer"],
     "dev": ["development"],
     "vel": ["development", "recursively"],
-    "elo": ["development", "changelog"],
     "lop": ["development"],
     "opm": ["development"],
     "pme": ["development"],
@@ -7418,13 +8343,10 @@
     "orc": ["force"],
     "^ov": ["over", "override"],
     "reb": ["rebase", "rebooted"],
-    "bas": ["rebase", "base", "bash", "codebase"],
     "^sq": ["squash"],
     "squ": ["squash"],
     "qua": ["squash"],
     "uas": ["squash"],
-    "ash": ["squash", "hash", "stash", "bash"],
-    "tog": ["together"],
     "oge": ["together"],
     "eth": ["together"],
     "mai": ["main"],
@@ -7433,15 +8355,12 @@
     "efl": ["reflog"],
     "flo": ["reflog"],
     "efe": ["reference"],
-    "ere": ["reference", "different"],
     "enc": ["reference", "dependencies", "occurrences", "existence"],
     "cov": ["recover"],
-    "und": ["undo", "background"],
     "ndo": ["undo", "vendored"],
     "do$": ["undo", "sudo"],
     "^ha": ["hard", "hash", "hardware", "hanging", "has"],
     "har": ["hard", "hardware", "share", "shared"],
-    "los": ["lost"],
     "ost": ["lost", "most"],
     "has": ["hash", "has"],
     "^he": ["head"],
@@ -7453,7 +8372,6 @@
     "rl$": ["url", "curl"],
     "uns": ["unstage"],
     "poi": ["pointer"],
-    "ore": ["restore", "vendored", "before"],
     "^ro": ["rollback", "root"],
     "rol": ["rollback", "scrollback"],
     "llb": ["rollback", "scrollback"],
@@ -7463,34 +8381,25 @@
     "fel": ["safely"],
     "ely": ["safely", "recursively"],
     "^rm": ["rm"],
-    "top": ["stop"],
     "op$": ["stop"],
     "but": ["but", "contributed"],
     "kee": ["keep"],
     "eep": ["keep"],
     "^it": ["it", "its"],
-    "lly": ["locally"],
     "rtl": ["shortlog"],
     "tlo": ["shortlog"],
     "gel": ["changelog"],
-    "sum": ["summarize", "resume"],
     "umm": ["summarize"],
     "mar": ["summarize"],
-    "ari": ["summarize", "temporarily", "variable", "variables"],
-    "^pe": ["per", "permissions", "permission"],
-    "tri": ["contributed", "string"],
     "ibu": ["contributed"],
     "mos": ["most"],
     "^at": ["at", "attach"],
     "^ra": ["raw"],
     "raw": ["raw"],
     "aw$": ["raw"],
-    "tas": ["stash"],
-    "mpo": ["temporarily"],
     "rar": ["temporarily", "library"],
     "ril": ["temporarily"],
     "ily": ["temporarily"],
-    "hel": ["shelve", "shell", "powershell"],
     "elv": ["shelve"],
     "fie": ["modified"],
     "ied": ["modified", "denied"],
@@ -7503,9 +8412,7 @@
     "bdi": ["subdirectory"],
     "dor": ["vendored"],
     "epe": ["dependencies", "repeat", "repeatedly"],
-    "pen": ["dependencies", "append", "opens"],
     "cie": ["dependencies"],
-    "spl": ["split", "display"],
     "lit": ["split"],
     "^ow": ["own"],
     "ups": ["upstream"],
@@ -7535,7 +8442,6 @@
     "sim": ["simultaneously"],
     "imu": ["simultaneously"],
     "lta": ["simultaneously"],
-    "ane": ["simultaneously", "panes"],
     "neo": ["simultaneously"],
     "eou": ["simultaneously"],
     "usl": ["simultaneously"],
@@ -7544,42 +8450,21 @@
     "ysc": ["sysctl"],
     "sct": ["sysctl"],
     "une": ["tune"],
-    "ara": ["parameters"],
-    "ram": ["parameters"],
-    "met": ["parameters"],
     "pod": ["pod"],
     "od$": ["pod", "chmod"],
-    "lia": ["alias", "aliases"],
-    "ias": ["alias", "aliases"],
-    "cus": ["custom"],
     "rte": ["shorten"],
-    "ell": ["shell", "powershell"],
-    "ses": ["aliases", "session", "sessions", "processes"],
     "rri": ["override"],
     "rid": ["override"],
-    "beh": ["behavior"],
-    "eha": ["behavior"],
-    "hav": ["behavior"],
-    "avi": ["behavior"],
-    "ior": ["behavior"],
-    "rtc": ["shortcut"],
-    "tcu": ["shortcut"],
     "ong": ["long"],
-    "ar$": ["clear", "var"],
     "wip": ["wipe"],
     "ipe": ["wipe"],
-    "pe$": ["wipe"],
     "buf": ["buffer"],
     "uff": ["buffer"],
     "ffe": ["buffer", "different", "effective"],
     "nso": ["console"],
     "ole": ["console"],
-    "isp": ["display"],
-    "lay": ["display"],
-    "ay$": ["display"],
     "^du": ["duplicate"],
     "dup": ["duplicate"],
-    "siv": ["recursively"],
     "vin": ["preserving"],
     "mis": ["permissions", "missing", "permission"],
     "iss": ["permissions", "missing", "permission"],
@@ -7601,14 +8486,10 @@
     "sg$": ["dmesg"],
     "why": ["why"],
     "hy$": ["why"],
-    "roc": ["process", "processes"],
-    "oce": ["process", "processes"],
     "^wa": ["was", "watch"],
     "was": ["was"],
-    "^ki": ["killed", "killer"],
     "kil": ["killed", "killer"],
     "ill": ["killed", "killer"],
-    "led": ["killed"],
     "^oo": ["oom"],
     "oom": ["oom"],
     "tro": ["troubleshoot"],
@@ -7630,7 +8511,6 @@
     "agn": ["diagnose"],
     "gno": ["diagnose"],
     "nos": ["diagnose"],
-    "ose": ["diagnose"],
     "rdw": ["hardware"],
     "^er": ["errors"],
     "pan": ["panics", "panes"],
@@ -7639,35 +8519,19 @@
     "ics": ["panics"],
     "ech": ["echo"],
     "cho": ["echo"],
-    "^va": ["variable", "variables", "var"],
-    "var": ["variable", "variables", "var"],
-    "ria": ["variable", "variables"],
-    "iab": ["variable", "variables"],
-    "env": ["environment", "env"],
-    "nvi": ["environment"],
-    "iro": ["environment"],
-    "onm": ["environment"],
-    "nme": ["environment"],
-    "ppe": ["append"],
     "nv$": ["env"],
     "heb": ["shebang"],
     "ban": ["shebang"],
-    "^gl": ["global"],
-    "glo": ["global"],
     "oba": ["global"],
-    "pat": ["path", "pattern"],
-    "ath": ["path"],
     "ass": ["pass", "bypass"],
     "hil": ["child"],
     "ild": ["child"],
     "ld$": ["child", "old"],
-    "att": ["pattern", "attach"],
     "ilt": ["filter"],
     "lte": ["filter"],
     "^oc": ["occurrences"],
     "occ": ["occurrences"],
     "ccu": ["occurrences"],
-    "deb": ["codebase", "debug"],
     "nds": ["commands"],
     "ds$": ["commands"],
     "pea": ["repeat", "repeatedly"],
@@ -7678,9 +8542,6 @@
     "emd": ["systemd"],
     "md$": ["systemd"],
     "^ho": ["how"],
-    "^op": ["options", "opens"],
-    "opt": ["options"],
-    "inu": ["linux"],
     "nux": ["linux"],
     "ux$": ["linux", "tmux"],
     "anu": ["manual"],
@@ -7688,13 +8549,9 @@
     "pag": ["pages"],
     "ocu": ["documentation"],
     "cum": ["documentation"],
-    "ume": ["documentation", "resume"],
     "ynt": ["syntax"],
     "tax": ["syntax"],
     "ax$": ["syntax"],
-    "ckg": ["background"],
-    "kgr": ["background"],
-    "esu": ["resume"],
     "^af": ["after"],
     "aft": ["after"],
     "fte": ["after"],
@@ -7702,7 +8559,6 @@
     "lex": ["multiplex"],
     "sha": ["share", "shared"],
     "lls": ["calls"],
-    "ebu": ["debug"],
     "ens": ["opens"],
     "lib": ["library"],
     "ibr": ["library"],
@@ -7720,7 +8576,6 @@
     "nie": ["denied"],
     "^el": ["elevate"],
     "lev": ["elevate"],
-    "eva": ["elevate", "evaluate"],
     "vat": ["elevate"],
     "ivi": ["privileges"],
     "vil": ["privileges"],
@@ -7731,7 +8586,6 @@
     "^ng": ["nginx"],
     "inx": ["nginx"],
     "nx$": ["nginx"],
-    "nab": ["enable"],
     "^tm": ["tmux"],
     "tmu": ["tmux"],
     "mux": ["tmux"],
@@ -7739,10 +8593,7 @@
     "tac": ["attach"],
     "upt": ["uptime"],
     "bee": ["been"],
-    "^is": ["is"],
-    "ogg": ["logged"],
     "gge": ["logged"],
-    "whe": ["when"],
     "ebo": ["rebooted"],
     "edl": ["repeatedly"],
     "dly": ["repeatedly"],
@@ -7758,7 +8609,6 @@
     "ond": ["second", "conditional"],
     "hoa": ["whoami"],
     "oam": ["whoami"],
-    "ami": ["whoami"],
     "mi$": ["whoami"],
     "^ef": ["effective"],
     "eff": ["effective"],
@@ -7771,8 +8621,6 @@
     "equ": ["request"],
     "ues": ["request"],
     "apt": ["apt"],
-    "pt$": ["apt", "script"],
-    "tal": ["install"],
     "^ub": ["ubuntu"],
     "ubu": ["ubuntu"],
     "bun": ["ubuntu"],
@@ -7780,8 +8628,6 @@
     "tu$": ["ubuntu"],
     "chm": ["chmod"],
     "hmo": ["chmod"],
-    "uta": ["executable"],
-    "sse": ["processes"],
     "pow": ["powershell"],
     "owe": ["powershell"],
     "wer": ["powershell"],
@@ -7789,20 +8635,13 @@
     "fo$": ["info"],
     "^ps": ["ps"],
     "sed": ["sed"],
-    "lac": ["replace", "replacement"],
     "cem": ["replacement"],
     "exi": ["existence"],
     "xis": ["existence"],
-    "val": ["evaluate"],
-    "alu": ["evaluate"],
-    "lua": ["evaluate"],
-    "uat": ["evaluate"],
-    "ndi": ["conditional"],
     "xpr": ["expression"],
     "awk": ["awk"],
     "wk$": ["awk"],
     "col": ["column"],
-    "olu": ["column"],
     "lum": ["column"],
     "umn": ["column"],
     "mn$": ["column"],
@@ -7810,6 +8649,118 @@
     "nat": ["concatenate"]
   },
   "facets": {
+    "bg": {
+      "category": "bash",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["shell", "built-in", "job-control", "processes", "background"]
+    },
+    "bind": {
+      "category": "bash",
+      "difficulty": "advanced",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "bash",
+        "shell",
+        "readline",
+        "keybindings",
+        "macros",
+        "configuration"
+      ]
+    },
+    "cd": {
+      "category": "bash",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["shell", "built-in", "navigation", "directory", "filesystem"]
+    },
+    "eval": {
+      "category": "bash",
+      "difficulty": "advanced",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "bash",
+        "shell",
+        "builtin",
+        "evaluation",
+        "execution",
+        "metaprogramming"
+      ]
+    },
+    "exec": {
+      "category": "bash",
+      "difficulty": "advanced",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "bash",
+        "shell",
+        "builtin",
+        "process",
+        "replacement",
+        "file-descriptors"
+      ]
+    },
+    "fg": {
+      "category": "bash",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["shell", "built-in", "job-control", "processes", "foreground"]
+    },
+    "jobs": {
+      "category": "bash",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["shell", "built-in", "job-control", "processes", "monitoring"]
+    },
+    "pwd": {
+      "category": "bash",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["shell", "built-in", "navigation", "directory", "filesystem"]
+    },
+    "set": {
+      "category": "bash",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "bash",
+        "shell",
+        "builtin",
+        "attributes",
+        "positional-parameters",
+        "debugging"
+      ]
+    },
+    "shopt": {
+      "category": "bash",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["bash", "shell", "builtin", "options", "behavior", "globbing"]
+    },
+    "source": {
+      "category": "bash",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["shell", "built-in", "scripting", "execution", "environment"]
+    },
+    "type": {
+      "category": "bash",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "shell",
+        "built-in",
+        "introspection",
+        "path",
+        "command-resolution"
+      ]
+    },
+    "which": {
+      "category": "bash",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["bash", "shell", "executable", "path", "utility", "search"]
+    },
     "aws-configure": {
       "category": "cloud-cli",
       "difficulty": "beginner",

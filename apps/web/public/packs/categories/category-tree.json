@@ -24,7 +24,7 @@
       "description": "Bash shell built-in commands and scripting constructs. These are not external programs but features of the Bash shell itself, available in any Bash session without additional installation.\n",
       "parent": null,
       "order": 3,
-      "commandCount": 0,
+      "commandCount": 13,
       "children": []
     },
     {
