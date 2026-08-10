@@ -23,7 +23,7 @@ intentPhrases:
   - list shell aliases
   - override default command behavior
   - make shortcut for long command
-relatedCommands: []
+relatedCommands: [type]
 alternatives: []
 status: published
 contentVersion: 1

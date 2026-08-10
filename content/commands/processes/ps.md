@@ -20,8 +20,8 @@ supportedShells:
 intentPhrases:
   - list running processes
   - find process ID
-relatedCommands: []
-alternatives: []
+relatedCommands: [jobs]
+alternatives: [jobs]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

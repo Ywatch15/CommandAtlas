@@ -24,7 +24,7 @@ intentPhrases:
   - multiplex shell
   - share terminal session
 relatedCommands: []
-alternatives: []
+alternatives: [bg, fg]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
