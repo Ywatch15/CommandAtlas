@@ -20,7 +20,7 @@ supportedShells:
 intentPhrases:
   - download URL content
   - make HTTP request
-relatedCommands: []
+relatedCommands: [jq]
 alternatives: []
 status: published
 contentVersion: 1

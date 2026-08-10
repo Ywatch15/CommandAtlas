@@ -23,7 +23,7 @@ intentPhrases:
   - filter lines matching pattern
   - search for string in directory
   - find all occurrences of word in codebase
-relatedCommands: []
+relatedCommands: [jq]
 alternatives: []
 status: published
 contentVersion: 1

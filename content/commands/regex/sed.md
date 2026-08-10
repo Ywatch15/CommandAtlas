@@ -20,8 +20,8 @@ supportedShells:
 intentPhrases:
   - replace text in file
   - stream editor text replacement
-relatedCommands: []
-alternatives: []
+relatedCommands: [jq, yq]
+alternatives: [yq]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
