@@ -15,17 +15,19 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').catch(function() {});
-                });
-              }
-            `,
-          }}
-        />
+        {process.env.NEXT_PUBLIC_ENABLE_SW === 'true' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').catch(function() {});
+                  });
+                }
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   );

@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node -e \"const fs=require('fs'); if(fs.existsSync('../../generated')){fs.cpSync('../../generated','./public',{recursive:true});console.log('Copied generated to public/')}\"",
     "prebuild": "node -e \"const fs=require('fs'); if(fs.existsSync('../../generated')){fs.cpSync('../../generated','./public',{recursive:true});console.log('Copied generated to public/')}\"",
-    "dev": "next dev",
+    "dev": "next dev -p 4400",
     "build": "next build",
     "start": "next start"
   },
