@@ -25,63 +25,10 @@ scanDir(commandsDir);
 
 console.log('Total discovered command slugs in corpus:', allSlugs.size);
 
-const cloudDir = path.resolve('content/commands/cloud-cli');
-fs.readdirSync(cloudDir).forEach((file) => {
-  if (!file.endsWith('.md')) return;
-  const full = path.join(cloudDir, file);
-  let content = fs.readFileSync(full, 'utf8');
-
-  const sanitizeArr = (rawStr) => {
-    if (!rawStr) return [];
-    let items = [];
-    if (rawStr.startsWith('[')) {
-      items = rawStr
-        .slice(1, -1)
-        .split(',')
-        .map((s) => s.trim().replace(/^['"]|['"]$/g, ''));
-    } else {
-      items = rawStr.split('\n').map((s) =>
-        s
-          .replace(/^\s*-\s*/, '')
-          .trim()
-          .replace(/^['"]|['"]$/g, '')
-      );
-    }
-    return items
-      .map((s) => s.toLowerCase().replace(/\s+/g, '-'))
-      .filter((s) => s && allSlugs.has(s));
-  };
-
-  const fmM = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!fmM) return;
-  let fm = fmM[1];
-
-  const relM = fm.match(/relatedCommands:\s*(\[[^\]]*\]|(?:\r?\n\s*-[^\n]+)+)/);
-  const altM = fm.match(/alternatives:\s*(\[[^\]]*\]|(?:\r?\n\s*-[^\n]+)+)/);
-
-  let rel = relM ? sanitizeArr(relM[1]) : [];
-  let alt = altM ? sanitizeArr(altM[1]) : [];
-
-  const selfSlugM = fm.match(/^slug:\s*(.+)$/m);
-  const selfSlug = selfSlugM ? selfSlugM[1].trim() : '';
-  rel = Array.from(new Set(rel)).filter((s) => s !== selfSlug);
-  alt = Array.from(new Set(alt)).filter((s) => s !== selfSlug);
-
-  fm = fm.replace(
-    /relatedCommands:\s*(\[[^\]]*\]|(?:\r?\n\s*-[^\n]+)+)/,
-    'relatedCommands: [' + rel.join(', ') + ']'
-  );
-  fm = fm.replace(
-    /alternatives:\s*(\[[^\]]*\]|(?:\r?\n\s*-[^\n]+)+)/,
-    'alternatives: [' + alt.join(', ') + ']'
-  );
-
-  content = content.replace(/^---\r?\n[\s\S]*?\r?\n---/, '---\n' + fm + '\n---');
-  fs.writeFileSync(full, content, 'utf8');
-});
-
+// Synchronize bidirectional references for all files in corpus
 allSlugs.forEach((slug) => {
   const file = fileMap.get(slug);
+  if (!file || !fs.existsSync(file)) return;
   const c = fs.readFileSync(file, 'utf8');
   const fmM = c.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fmM) return;
@@ -93,7 +40,7 @@ allSlugs.forEach((slug) => {
   const alts = altM && altM[1].trim() ? altM[1].split(',').map((s) => s.trim()) : [];
 
   rels.forEach((target) => {
-    if (!allSlugs.has(target)) return;
+    if (!allSlugs.has(target) || target === slug) return;
     const tf = fileMap.get(target);
     let tc = fs.readFileSync(tf, 'utf8');
     const tfmM = tc.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -113,7 +60,7 @@ allSlugs.forEach((slug) => {
   });
 
   alts.forEach((target) => {
-    if (!allSlugs.has(target)) return;
+    if (!allSlugs.has(target) || target === slug) return;
     const tf = fileMap.get(target);
     let tc = fs.readFileSync(tf, 'utf8');
     const tfmM = tc.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -130,4 +77,4 @@ allSlugs.forEach((slug) => {
   });
 });
 
-console.log('Sanitized and synchronized cross-references successfully.');
+console.log('Sanitized and synchronized cross-references successfully across entire corpus.');

@@ -13,7 +13,7 @@ intentPhrases:
   - 'format json output'
   - 'filter json array by key'
   - 'modify json from curl'
-relatedCommands: [yq, grep, awk, sed, curl]
+relatedCommands: [yq, grep, awk, sed, curl, docker-inspect]
 alternatives: [yq]
 status: published
 ---

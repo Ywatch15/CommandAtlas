@@ -24,7 +24,7 @@ intentPhrases:
   - find boot errors
   - filter logs by time
 relatedCommands: []
-alternatives: []
+alternatives: [docker-logs]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
