@@ -13,7 +13,7 @@ intentPhrases:
   - 'navigate filesystem'
   - 'move to path'
   - 'switch working directory'
-relatedCommands: [pwd]
+relatedCommands: [pwd, ls, mkdir]
 alternatives: []
 status: draft
 ---

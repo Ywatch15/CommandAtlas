@@ -20,7 +20,7 @@ supportedShells:
 intentPhrases:
   - list running processes
   - find process ID
-relatedCommands: [jobs]
+relatedCommands: [jobs, lsof]
 alternatives: [jobs]
 status: published
 contentVersion: 1

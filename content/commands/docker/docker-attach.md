@@ -102,7 +102,7 @@ When you execute `docker attach`, the CLI transmits an HTTP `POST /containers/{i
 
 The daemon upgrades the HTTP connection to a raw TCP multiplexed stream using the Docker stream protocol. It wires your local terminal's file descriptors (STDIN, STDOUT, STDERR) directly to the file descriptors of the container's primary PID 1 process.
 
-Because `sig-proxy` is true by default, the Docker CLI intercepts any OS signals generated in your local terminal (like SIGINT when pressing `Ctrl+C`) and forwards them across the socket to the container's primary process namespace. If PID 1 receives a SIGINT, it typically shuts down, which causes the entire container to exit. To detach safely without sending signals, the CLI intercepts the specific "detach keys" sequence (default `Ctrl-P, Ctrl-Q`), terminating the local socket connection while leaving the container running unaffected.
+Because `sig-proxy` is true by default, the Docker CLI intercepts any OS signals generated in your local terminal (like SIGINT when pressing `Ctrl+C`) and forwards them across the socket to the container's PID 1 process. If PID 1 receives a SIGINT, it typically shuts down, which causes the entire container to exit. To detach safely without sending signals, the CLI intercepts the specific "detach keys" sequence (default `Ctrl-P, Ctrl-Q`), terminating the local socket connection while leaving the container running unaffected.
 
 ## Performance Notes
 
@@ -116,15 +116,9 @@ Because `sig-proxy` is true by default, the Docker CLI intercepts any OS signals
 
 ## Common Mistakes
 
-- **Killing the container accidentally with Ctrl+C**
-  - _Mistake:_ Using `docker attach` to watch logs, then pressing `Ctrl+C` to quit.
-  - _Why:_ `Ctrl+C` passes a SIGINT signal directly to the main process (PID 1), stopping the container. Use `Ctrl-P, Ctrl-Q` to detach safely, or use `docker logs -f` instead.
-- **Attaching to non-interactive background services**
-  - _Mistake:_ Running `docker attach` on a Postgres container and wondering why typing commands does nothing.
-  - _Why:_ The database process (PID 1) does not read STDIN for terminal commands; it listens on a network port. You need `docker exec -it postgres bash` to get a shell.
-- **Expecting a prompt immediately**
-  - _Mistake:_ Attaching to a bash shell and seeing a blank screen.
-  - _Why:_ The shell is waiting for input. You must press `Enter` once to trigger the shell to redraw the command prompt.
+- **Killing the container accidentally with Ctrl+C:** Using `docker attach` to watch logs, then pressing `Ctrl+C` to quit. **Why it's wrong:** `Ctrl+C` passes a SIGINT signal directly to the main process (PID 1), stopping the container. Use `Ctrl-P, Ctrl-Q` to detach safely, or use `docker logs -f` instead.
+- **Attaching to non-interactive background services:** Running `docker attach` on a Postgres container and wondering why typing commands does nothing. **Why it's wrong:** The database process (PID 1) does not read STDIN for terminal commands; it listens on a network port. You need `docker exec -it postgres bash` to get a shell.
+- **Expecting a prompt immediately:** Attaching to a bash shell and seeing a blank screen. **Why it's wrong:** The shell is waiting for input. You must press `Enter` once to trigger the shell to redraw the command prompt.
 
 ## Best Practices
 
@@ -134,32 +128,21 @@ Because `sig-proxy` is true by default, the Docker CLI intercepts any OS signals
 
 ## Interview Questions
 
-**Q: What is the functional difference between `docker logs -f` and `docker attach`?**
-**A:** `docker logs -f` streams both historical and live output from the container without connecting your terminal's standard input or forwarding system signals. `docker attach` connects your terminal directly to the live primary process (PID 1), passing STDIN and proxying signals (like `Ctrl+C`), which can inadvertently shut down the container.
-
-**Q: If you are attached to an interactive Docker container, how do you disconnect your terminal session and return to the host without killing the container?**
-**A:** You must use the Docker detach escape sequence: `Ctrl+P` followed by `Ctrl+Q`. This signals the Docker CLI to safely drop the multiplexed socket connection while leaving the container process running in the background.
-
-**Q: Why does pressing `Ctrl+C` while attached to a container typically cause the entire container to exit?**
-**A:** By default, `docker attach` enables signal proxying (`--sig-proxy=true`). Pressing `Ctrl+C` generates a `SIGINT` signal, which the Docker CLI intercepts and forwards to the container's primary process (PID 1). When PID 1 terminates, the container runtime automatically stops the entire container.
+- _Query:_ What is the functional difference between `docker logs -f` and `docker attach`?
+  - _A:_ `docker logs -f` streams both historical and live output from the container without connecting your terminal's standard input or forwarding system signals. `docker attach` connects your terminal directly to the live primary process (PID 1), passing STDIN and proxying signals (like `Ctrl+C`), which can inadvertently shut down the container.
+- _Query:_ If you are attached to an interactive Docker container, how do you disconnect your terminal session and return to the host without killing the container?
+  - _A:_ You must use the Docker detach escape sequence: `Ctrl+P` followed by `Ctrl+Q`. This signals the Docker CLI to safely drop the multiplexed socket connection while leaving the container process running in the background.
+- _Query:_ Why does pressing `Ctrl+C` while attached to a container typically cause the entire container to exit?
+  - _A:_ By default, `docker attach` enables signal proxying (`--sig-proxy=true`). Pressing `Ctrl+C` generates a `SIGINT` signal, which the Docker CLI intercepts and forwards to the container's primary process (PID 1). When PID 1 terminates, the container runtime automatically stops the entire container.
 
 ## Practice Problems
 
-**Problem:** Attach to a background container named `log-generator`, ensuring that you only view the output and cannot accidentally pass keystrokes or kill signals to the container.
-**Hint:** Combine the attach command with both the no-stdin flag and the disable signal proxy flag.
-**Solution:**
-
-```bash
-docker attach --no-stdin --sig-proxy=false log-generator
-```
-
-**Problem:** Connect your terminal to an interactive container named `dev-shell`, overriding the detach key sequence so you can disconnect using `Ctrl-X` pressed twice.
-**Hint:** Use the attach command paired with the detach-keys override flag.
-**Solution:**
-
-```bash
-docker attach --detach-keys="ctrl-x,ctrl-x" dev-shell
-```
+- _Problem:_ Attach to a background container named `log-generator`, ensuring that you only view the output and cannot accidentally pass keystrokes or kill signals to the container.
+  - _Hint:_ Combine the attach command with both the no-stdin flag and the disable signal proxy flag.
+  - _Solution:_ `docker attach --no-stdin --sig-proxy=false log-generator` (This creates a perfectly safe, read-only live viewing session).
+- _Problem:_ Connect your terminal to an interactive container named `dev-shell`, overriding the detach key sequence so you can disconnect using `Ctrl-X` pressed twice.
+  - _Hint:_ Use the attach command paired with the detach-keys override flag.
+  - _Solution:_ `docker attach --detach-keys="ctrl-x,ctrl-x" dev-shell` (This binds to the container but alters the hardcoded escape sequence for clean disconnection).
 
 ## References
 
