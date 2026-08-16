@@ -23,7 +23,7 @@ intentPhrases:
   - troubleshoot USB drive connection
   - view boot initialization messages
   - diagnose hardware errors and panics
-relatedCommands: []
+relatedCommands: [kmod]
 alternatives: []
 status: published
 contentVersion: 1

@@ -24,7 +24,7 @@ intentPhrases:
   - enable service on boot
   - check service status
   - list running services
-relatedCommands: [cron]
+relatedCommands: [cron, sysctl]
 alternatives: []
 status: published
 contentVersion: 1
