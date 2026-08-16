@@ -3,17 +3,33 @@ slug: aws-eks-update-kubeconfig
 name: aws eks update-kubeconfig
 aliases: []
 category: cloud-cli
-tags: [aws, eks, kubernetes, kubeconfig, authentication, containers]
+tags:
+  - aws
+  - eks
+  - kubernetes
+  - kubeconfig
+  - authentication
+  - containers
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'connect to eks cluster'
-  - 'generate kubeconfig for aws eks'
-  - 'setup kubectl for eks'
-  - 'authenticate kubectl to aws'
-  - 'add eks cluster to local kubeconfig'
-relatedCommands: [aws-sts-get-caller-identity]
+  - connect to eks cluster
+  - generate kubeconfig for aws eks
+  - setup kubectl for eks
+  - authenticate kubectl to aws
+  - add eks cluster to local kubeconfig
+relatedCommands:
+  - aws-sts-get-caller-identity
 alternatives: []
 status: draft
 ---

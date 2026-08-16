@@ -1,19 +1,36 @@
 ---
 slug: df
 name: df
-aliases: [disk free]
+aliases:
+  - disk free
 category: file-systems
-tags: [linux, storage, disk-space, monitoring, filesystem]
+tags:
+  - linux
+  - storage
+  - disk-space
+  - monitoring
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'check disk space'
-  - 'show free storage'
-  - 'list mounted filesystems'
-  - 'view disk usage linux'
-  - 'check available disk capacity'
-relatedCommands: [du, mount, lsblk, fdisk, fsck]
+  - check disk space
+  - show free storage
+  - list mounted filesystems
+  - view disk usage linux
+  - check available disk capacity
+relatedCommands:
+  - du
+  - mount
+  - lsblk
+  - fdisk
+  - fsck
 alternatives: []
 status: draft
 ---

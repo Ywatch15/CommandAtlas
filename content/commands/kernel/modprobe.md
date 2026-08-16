@@ -3,18 +3,37 @@ slug: modprobe
 name: modprobe
 aliases: []
 category: kernel
-tags: [linux, kernel, modules, drivers, sysadmin, hardware]
+tags:
+  - linux
+  - kernel
+  - modules
+  - drivers
+  - sysadmin
+  - hardware
 difficulty: intermediate
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'load kernel module safely'
-  - 'remove linux driver and dependencies'
-  - 'add module to linux kernel'
-  - 'force load kernel module'
-  - 'check module dependencies'
-relatedCommands: [lsmod, insmod, rmmod, modinfo, depmod, kmod, sysctl]
-alternatives: [insmod, rmmod]
+  - load kernel module safely
+  - remove linux driver and dependencies
+  - add module to linux kernel
+  - force load kernel module
+  - check module dependencies
+relatedCommands:
+  - lsmod
+  - insmod
+  - rmmod
+  - modinfo
+  - depmod
+  - kmod
+  - sysctl
+alternatives:
+  - insmod
+  - rmmod
 status: draft
 ---
 

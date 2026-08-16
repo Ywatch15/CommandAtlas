@@ -3,18 +3,33 @@ slug: gcloud-app-deploy
 name: gcloud app deploy
 aliases: []
 category: cloud-cli
-tags: [gcloud, cloud, google-cloud, app-engine, deployment, paas]
+tags:
+  - gcloud
+  - cloud
+  - google-cloud
+  - app-engine
+  - deployment
+  - paas
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'deploy app engine application gcp'
-  - 'publish app engine app cli'
-  - 'deploy python app engine'
-  - 'update google app engine deployment'
-  - 'deploy nodejs app to app engine'
+  - deploy app engine application gcp
+  - publish app engine app cli
+  - deploy python app engine
+  - update google app engine deployment
+  - deploy nodejs app to app engine
 relatedCommands: []
-alternatives: [gcloud-functions-deploy]
+alternatives:
+  - gcloud-functions-deploy
 status: draft
 ---
 

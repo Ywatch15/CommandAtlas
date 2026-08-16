@@ -3,18 +3,33 @@ slug: anacron
 name: anacron
 aliases: []
 category: cron
-tags: [linux, daemon, scheduling, background, maintenance, laptops]
+tags:
+  - linux
+  - daemon
+  - scheduling
+  - background
+  - maintenance
+  - laptops
 difficulty: intermediate
-supportedOS: [linux, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run missed cron jobs'
-  - 'schedule tasks on laptop'
-  - 'execute daily maintenance tasks'
-  - 'force anacron to run'
-  - 'check anacrontab syntax'
-relatedCommands: [cron, crontab]
-alternatives: [cron, crontab]
+  - run missed cron jobs
+  - schedule tasks on laptop
+  - execute daily maintenance tasks
+  - force anacron to run
+  - check anacrontab syntax
+relatedCommands:
+  - cron
+  - crontab
+alternatives:
+  - cron
+  - crontab
 status: published
 ---
 

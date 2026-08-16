@@ -1,19 +1,37 @@
 ---
 slug: mkdir
 name: mkdir
-aliases: [make directory]
+aliases:
+  - make directory
 category: file-systems
-tags: [linux, file-system, directory, coreutils, creation]
+tags:
+  - linux
+  - file-system
+  - directory
+  - coreutils
+  - creation
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'create new directory linux'
-  - 'make multiple nested folders'
-  - 'create directory with specific permissions'
-  - 'create folder structure silently'
-  - 'setup directory tree'
-relatedCommands: [rmdir, rm, cd, ls]
+  - create new directory linux
+  - make multiple nested folders
+  - create directory with specific permissions
+  - create folder structure silently
+  - setup directory tree
+relatedCommands:
+  - rmdir
+  - rm
+  - cd
+  - ls
 alternatives: []
 status: draft
 ---

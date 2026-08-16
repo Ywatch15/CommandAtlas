@@ -3,16 +3,28 @@ slug: ansible-galaxy
 name: ansible-galaxy
 aliases: []
 category: devops-utilities
-tags: [ansible, galaxy, roles, collections, packaging, sharing]
+tags:
+  - ansible
+  - galaxy
+  - roles
+  - collections
+  - packaging
+  - sharing
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'install ansible roles'
-  - 'manage ansible collections'
-  - 'download shared galaxy roles'
-  - 'publish ansible collection'
-  - 'initialize ansible role structure'
+  - install ansible roles
+  - manage ansible collections
+  - download shared galaxy roles
+  - publish ansible collection
+  - initialize ansible role structure
 relatedCommands: []
 alternatives: []
 status: published

@@ -3,17 +3,37 @@ slug: docker-inspect
 name: docker inspect
 aliases: []
 category: cloud-cli
-tags: [docker, introspection, debugging, json, metadata, observability]
+tags:
+  - docker
+  - introspection
+  - debugging
+  - json
+  - metadata
+  - observability
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'get container ip address'
-  - 'view docker object details'
-  - 'extract docker metadata json'
-  - 'inspect docker volume path'
-  - 'find container environment variables'
-relatedCommands: [docker-ps, jq, docker-logs, docker-network, docker-volume]
+  - get container ip address
+  - view docker object details
+  - extract docker metadata json
+  - inspect docker volume path
+  - find container environment variables
+relatedCommands:
+  - docker-ps
+  - jq
+  - docker-logs
+  - docker-network
+  - docker-volume
 alternatives: []
 status: draft
 ---

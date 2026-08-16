@@ -3,18 +3,35 @@ slug: az-account-list
 name: az account list
 aliases: []
 category: cloud-cli
-tags: [azure, cloud, cli, subscription, account, management]
+tags:
+  - azure
+  - cloud
+  - cli
+  - subscription
+  - account
+  - management
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'list azure subscriptions'
-  - 'show all azure accounts'
-  - 'get azure subscription list cli'
-  - 'find azure subscription id'
-  - 'view available azure tenants'
-relatedCommands: [az-account-set, az-login]
-alternatives: [az-login]
+  - list azure subscriptions
+  - show all azure accounts
+  - get azure subscription list cli
+  - find azure subscription id
+  - view available azure tenants
+relatedCommands:
+  - az-account-set
+  - az-login
+alternatives:
+  - az-login
 status: draft
 ---
 

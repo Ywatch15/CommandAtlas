@@ -3,18 +3,31 @@ slug: at
 name: at
 aliases: []
 category: cron
-tags: [cron, scheduling, background, jobs, utilities]
+tags:
+  - cron
+  - scheduling
+  - background
+  - jobs
+  - utilities
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'schedule one time command'
-  - 'run job later at specific time'
-  - 'queue command for future execution'
-  - 'execute task at specified time'
-  - 'defer script execution'
-relatedCommands: [crontab]
-alternatives: [crontab]
+  - schedule one time command
+  - run job later at specific time
+  - queue command for future execution
+  - execute task at specified time
+  - defer script execution
+relatedCommands:
+  - crontab
+alternatives:
+  - crontab
 status: published
 ---
 

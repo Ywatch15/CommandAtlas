@@ -1,19 +1,37 @@
 ---
 slug: docker-tag
 name: docker tag
-aliases: [docker image tag]
+aliases:
+  - docker image tag
 category: cloud-cli
-tags: [docker, images, versioning, registries, tagging]
+tags:
+  - docker
+  - images
+  - versioning
+  - registries
+  - tagging
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'rename docker image'
-  - 'add tag to docker image'
-  - 'prepare image for pushing'
-  - 'change repository name docker'
-  - 'version a docker container image'
-relatedCommands: [docker-build, docker-push, docker-images, docker-rmi]
+  - rename docker image
+  - add tag to docker image
+  - prepare image for pushing
+  - change repository name docker
+  - version a docker container image
+relatedCommands:
+  - docker-build
+  - docker-push
+  - docker-images
+  - docker-rmi
 alternatives: []
 status: draft
 ---

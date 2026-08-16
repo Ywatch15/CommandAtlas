@@ -3,18 +3,38 @@ slug: git-diff
 name: git diff
 aliases: []
 category: git
-tags: [version-control, comparison, diff, code-review, changes]
+tags:
+  - version-control
+  - comparison
+  - diff
+  - code-review
+  - changes
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'compare files in git'
-  - 'see uncommitted changes'
-  - 'diff two branches'
-  - 'show staged changes'
-  - 'compare commits'
-relatedCommands: [git-add, git-blame, git-log, git-show, git-status]
-alternatives: [git-show]
+  - compare files in git
+  - see uncommitted changes
+  - diff two branches
+  - show staged changes
+  - compare commits
+relatedCommands:
+  - git-add
+  - git-blame
+  - git-log
+  - git-show
+  - git-status
+alternatives:
+  - git-show
 status: draft
 ---
 

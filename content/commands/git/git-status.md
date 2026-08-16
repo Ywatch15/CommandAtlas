@@ -23,7 +23,11 @@ intentPhrases:
   - view untracked files
   - check staged changes
   - see what to commit
-relatedCommands: [git-clean, git-diff, git-log, git-rm]
+relatedCommands:
+  - git-clean
+  - git-diff
+  - git-log
+  - git-rm
 alternatives: []
 status: published
 contentVersion: 1

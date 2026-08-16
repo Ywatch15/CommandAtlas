@@ -30,7 +30,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `strace` is a diagnostic, instructional, and debugging utility for Linux that monitors the interactions between a user-space process and the Linux kernel. It intercepts and records the system calls (syscalls) executed by a process, as well as the signals it receives, printing the name of each call, its arguments, and its return value. System administrators and developers use it to diagnose application crashes, hunt down missing dependencies, and understand the internal behavior of compiled binaries without needing access to their source code.

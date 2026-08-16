@@ -3,17 +3,32 @@ slug: gcloud-auth-login
 name: gcloud auth login
 aliases: []
 category: cloud-cli
-tags: [gcp, authentication, identity, cloud, gcloud, oauth]
+tags:
+  - gcp
+  - authentication
+  - identity
+  - cloud
+  - gcloud
+  - oauth
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'authenticate to google cloud'
-  - 'login to gcp cli'
-  - 'connect to google cloud account'
-  - 'setup gcloud credentials'
-  - 'authorize gcloud access'
-relatedCommands: [gcloud-container-clusters-get-credentials]
+  - authenticate to google cloud
+  - login to gcp cli
+  - connect to google cloud account
+  - setup gcloud credentials
+  - authorize gcloud access
+relatedCommands:
+  - gcloud-container-clusters-get-credentials
 alternatives: []
 status: draft
 ---

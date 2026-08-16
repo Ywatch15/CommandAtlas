@@ -3,16 +3,32 @@ slug: az-functionapp-update
 name: az functionapp update
 aliases: []
 category: cloud-cli
-tags: [azure, serverless, function-app, cli, cloud, arm, configuration]
+tags:
+  - azure
+  - serverless
+  - function-app
+  - cli
+  - cloud
+  - arm
+  - configuration
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'update azure function app properties'
-  - 'change function app service plan'
-  - 'modify azure serverless configuration'
-  - 'update arm properties function app'
-  - 'add tags to function app'
+  - update azure function app properties
+  - change function app service plan
+  - modify azure serverless configuration
+  - update arm properties function app
+  - add tags to function app
 relatedCommands: []
 alternatives: []
 status: draft

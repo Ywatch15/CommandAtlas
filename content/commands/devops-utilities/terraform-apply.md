@@ -3,17 +3,34 @@ slug: terraform-apply
 name: terraform apply
 aliases: []
 category: devops-utilities
-tags: [terraform, infrastructure-as-code, iac, deployment, provisioning, execution]
+tags:
+  - terraform
+  - infrastructure-as-code
+  - iac
+  - deployment
+  - provisioning
+  - execution
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'execute terraform plan'
-  - 'deploy terraform infrastructure'
-  - 'run terraform changes'
-  - 'apply tf state'
-  - 'provision cloud resources with terraform'
-relatedCommands: [terraform-plan, terraform-init, terraform-destroy]
+  - execute terraform plan
+  - deploy terraform infrastructure
+  - run terraform changes
+  - apply tf state
+  - provision cloud resources with terraform
+relatedCommands:
+  - terraform-plan
+  - terraform-init
+  - terraform-destroy
 alternatives: []
 status: published
 ---

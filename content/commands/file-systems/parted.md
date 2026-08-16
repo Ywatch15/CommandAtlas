@@ -1,20 +1,37 @@
 ---
 slug: parted
 name: parted
-aliases: [gnu parted]
+aliases:
+  - gnu parted
 category: file-systems
-tags: [linux, storage, disk, partitions, gpt, formatting]
+tags:
+  - linux
+  - storage
+  - disk
+  - partitions
+  - gpt
+  - formatting
 difficulty: advanced
-supportedOS: [linux, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'create disk partition linux'
-  - 'initialize gpt disk parted'
-  - 'resize partition command line'
-  - 'script disk partitioning'
-  - 'create massive storage volume'
-relatedCommands: [fdisk, lsblk, mkfs, blkid]
-alternatives: [fdisk]
+  - create disk partition linux
+  - initialize gpt disk parted
+  - resize partition command line
+  - script disk partitioning
+  - create massive storage volume
+relatedCommands:
+  - fdisk
+  - lsblk
+  - mkfs
+  - blkid
+alternatives:
+  - fdisk
 status: draft
 ---
 

@@ -1,18 +1,33 @@
 ---
 slug: helm-list
 name: helm list
-aliases: [helm ls]
+aliases:
+  - helm ls
 category: devops-utilities
-tags: [helm, kubernetes, package-manager, listing, releases, audit]
+tags:
+  - helm
+  - kubernetes
+  - package-manager
+  - listing
+  - releases
+  - audit
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'list deployed helm releases'
-  - 'show helm charts in cluster'
-  - 'check active helm installations'
-  - 'list helm packages namespace'
-  - 'audit helm releases kubernetes'
+  - list deployed helm releases
+  - show helm charts in cluster
+  - check active helm installations
+  - list helm packages namespace
+  - audit helm releases kubernetes
 relatedCommands: []
 alternatives: []
 status: published

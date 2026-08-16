@@ -1,19 +1,39 @@
 ---
 slug: rm
 name: rm
-aliases: [remove, unlink]
+aliases:
+  - remove
+  - unlink
 category: file-systems
-tags: [linux, file-system, delete, coreutils, automation]
+tags:
+  - linux
+  - file-system
+  - delete
+  - coreutils
+  - automation
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'delete file linux'
-  - 'remove directory and contents'
-  - 'force delete files'
-  - 'safely delete folder'
-  - 'permanently remove data'
-relatedCommands: [rmdir, cp, mv, find, mkdir]
+  - delete file linux
+  - remove directory and contents
+  - force delete files
+  - safely delete folder
+  - permanently remove data
+relatedCommands:
+  - rmdir
+  - cp
+  - mv
+  - find
+  - mkdir
 alternatives: []
 status: draft
 ---

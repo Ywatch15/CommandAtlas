@@ -3,18 +3,38 @@ slug: git-bisect
 name: git bisect
 aliases: []
 category: git
-tags: [debugging, troubleshooting, bisection, commits, testing]
+tags:
+  - debugging
+  - troubleshooting
+  - bisection
+  - commits
+  - testing
 difficulty: advanced
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'find which commit broke the code'
-  - 'binary search git history'
-  - 'find bug origin in git'
-  - 'automate git regression testing'
-  - 'track down bad commit'
-relatedCommands: [git-blame, git-checkout, git-log, git-reset]
-alternatives: [git-blame, git-log]
+  - find which commit broke the code
+  - binary search git history
+  - find bug origin in git
+  - automate git regression testing
+  - track down bad commit
+relatedCommands:
+  - git-blame
+  - git-checkout
+  - git-log
+  - git-reset
+alternatives:
+  - git-blame
+  - git-log
 status: draft
 ---
 

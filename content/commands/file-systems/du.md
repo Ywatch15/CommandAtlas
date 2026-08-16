@@ -1,20 +1,36 @@
 ---
 slug: du
 name: du
-aliases: [disk usage]
+aliases:
+  - disk usage
 category: file-systems
-tags: [linux, storage, disk-space, auditing, files]
+tags:
+  - linux
+  - storage
+  - disk-space
+  - auditing
+  - files
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'find largest directories'
-  - 'calculate folder size'
-  - 'estimate file space usage'
-  - 'check directory size linux'
-  - 'find what is taking up disk space'
-relatedCommands: [df, ls, find]
-alternatives: [tree]
+  - find largest directories
+  - calculate folder size
+  - estimate file space usage
+  - check directory size linux
+  - find what is taking up disk space
+relatedCommands:
+  - df
+  - ls
+  - find
+alternatives:
+  - tree
 status: draft
 ---
 

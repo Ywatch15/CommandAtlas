@@ -3,18 +3,37 @@ slug: git-revert
 name: git revert
 aliases: []
 category: git
-tags: [version-control, history-management, rollback, undo, commits]
+tags:
+  - version-control
+  - history-management
+  - rollback
+  - undo
+  - commits
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'undo a specific commit'
-  - 'rollback changes safely'
-  - 'revert a merge commit'
-  - 'remove bad commit without rewriting history'
-  - 'undo git push'
-relatedCommands: [git-cherry-pick, git-commit, git-rebase, git-reset]
-alternatives: [git-reset]
+  - undo a specific commit
+  - rollback changes safely
+  - revert a merge commit
+  - remove bad commit without rewriting history
+  - undo git push
+relatedCommands:
+  - git-cherry-pick
+  - git-commit
+  - git-rebase
+  - git-reset
+alternatives:
+  - git-reset
 status: draft
 ---
 

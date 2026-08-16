@@ -3,18 +3,37 @@ slug: aws-s3-sync
 name: aws s3 sync
 aliases: []
 category: cloud-cli
-tags: [aws, s3, storage, object-storage, file-transfer, cloud, synchronization]
+tags:
+  - aws
+  - s3
+  - storage
+  - object-storage
+  - file-transfer
+  - cloud
+  - synchronization
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'sync local folder to s3 bucket'
-  - 'mirror directory to aws s3'
-  - 'download only new files from s3'
-  - 'backup local files to s3'
-  - 'synchronize two s3 buckets'
-relatedCommands: [aws-s3-cp, aws-s3-ls]
-alternatives: [aws-s3-cp]
+  - sync local folder to s3 bucket
+  - mirror directory to aws s3
+  - download only new files from s3
+  - backup local files to s3
+  - synchronize two s3 buckets
+relatedCommands:
+  - aws-s3-cp
+  - aws-s3-ls
+alternatives:
+  - aws-s3-cp
 status: draft
 ---
 

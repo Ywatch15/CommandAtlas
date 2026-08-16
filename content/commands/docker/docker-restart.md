@@ -3,17 +3,35 @@ slug: docker-restart
 name: docker restart
 aliases: []
 category: cloud-cli
-tags: [docker, containers, lifecycle, management, automation, devops]
+tags:
+  - docker
+  - containers
+  - lifecycle
+  - management
+  - automation
+  - devops
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'restart docker container'
-  - 'reload containerized application'
-  - 'reboot docker app'
-  - 'stop and start container'
-  - 'apply config changes to container'
-relatedCommands: [docker-stop, docker-start, docker-run]
+  - restart docker container
+  - reload containerized application
+  - reboot docker app
+  - stop and start container
+  - apply config changes to container
+relatedCommands:
+  - docker-stop
+  - docker-start
+  - docker-run
 alternatives: []
 status: draft
 ---

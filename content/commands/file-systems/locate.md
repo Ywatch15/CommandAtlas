@@ -1,20 +1,35 @@
 ---
 slug: locate
 name: locate
-aliases: [mlocate, plocate]
+aliases:
+  - mlocate
+  - plocate
 category: file-systems
-tags: [linux, search, file-management, database, optimization]
+tags:
+  - linux
+  - search
+  - file-management
+  - database
+  - optimization
 difficulty: beginner
-supportedOS: [linux, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'find file quickly'
-  - 'search file by name fast'
-  - 'find path of file linux'
-  - 'search entire filesystem'
-  - 'update locate database'
-relatedCommands: [find, grep]
-alternatives: [find]
+  - find file quickly
+  - search file by name fast
+  - find path of file linux
+  - search entire filesystem
+  - update locate database
+relatedCommands:
+  - find
+  - grep
+alternatives:
+  - find
 status: draft
 ---
 

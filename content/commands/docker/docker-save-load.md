@@ -1,19 +1,37 @@
 ---
 slug: docker-save-load
 name: docker save
-aliases: [docker image save]
+aliases:
+  - docker image save
 category: cloud-cli
-tags: [docker, images, export, archive, offline, tar]
+tags:
+  - docker
+  - images
+  - export
+  - archive
+  - offline
+  - tar
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'export docker image to tar file'
-  - 'save docker image for offline transfer'
-  - 'backup docker image locally'
-  - 'convert docker image to archive'
-  - 'package docker image for airgapped system'
-relatedCommands: [docker-load, docker-images, docker-push]
+  - export docker image to tar file
+  - save docker image for offline transfer
+  - backup docker image locally
+  - convert docker image to archive
+  - package docker image for airgapped system
+relatedCommands:
+  - docker-load
+  - docker-images
+  - docker-push
 alternatives: []
 status: draft
 ---

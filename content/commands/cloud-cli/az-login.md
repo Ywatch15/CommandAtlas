@@ -3,19 +3,39 @@ slug: az-login
 name: az login
 aliases: []
 category: cloud-cli
-tags: [azure, authentication, entra-id, cli, cloud, identity]
+tags:
+  - azure
+  - authentication
+  - entra-id
+  - cli
+  - cloud
+  - identity
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'authenticate to azure'
-  - 'login to azure cli'
-  - 'connect to azure subscription'
-  - 'authenticate service principal azure'
-  - 'use managed identity azure cli'
+  - authenticate to azure
+  - login to azure cli
+  - connect to azure subscription
+  - authenticate service principal azure
+  - use managed identity azure cli
 relatedCommands:
-  [az-account-set, az-account-list, az-aks-get-credentials, az-storage-blob-upload, az-webapp-up]
-alternatives: [az-account-list, az-account-set]
+  - az-account-set
+  - az-account-list
+  - az-aks-get-credentials
+  - az-storage-blob-upload
+  - az-webapp-up
+alternatives:
+  - az-account-list
+  - az-account-set
 status: draft
 ---
 

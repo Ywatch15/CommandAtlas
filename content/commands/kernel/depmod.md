@@ -3,17 +3,32 @@ slug: depmod
 name: depmod
 aliases: []
 category: kernel
-tags: [linux, kernel, modules, dependencies, boot]
+tags:
+  - linux
+  - kernel
+  - modules
+  - dependencies
+  - boot
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'generate modules.dep'
-  - 'update kernel module dependencies'
-  - 'fix broken modprobe'
-  - 'rebuild module map files'
-  - 'map kernel symbols'
-relatedCommands: [modprobe, kmod, mkinitcpio, dracut, insmod, lsmod]
+  - generate modules.dep
+  - update kernel module dependencies
+  - fix broken modprobe
+  - rebuild module map files
+  - map kernel symbols
+relatedCommands:
+  - modprobe
+  - kmod
+  - mkinitcpio
+  - dracut
+  - insmod
+  - lsmod
 alternatives: []
 status: draft
 ---

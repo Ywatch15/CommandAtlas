@@ -3,16 +3,28 @@ slug: ansible-vault
 name: ansible-vault
 aliases: []
 category: devops-utilities
-tags: [ansible, vault, security, encryption, secrets, credentials]
+tags:
+  - ansible
+  - vault
+  - security
+  - encryption
+  - secrets
+  - credentials
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'encrypt ansible secret files'
-  - 'decrypt sensitive yaml data'
-  - 'view encrypted vault file'
-  - 'edit ansible vault password'
-  - 'encrypt string for playbook'
+  - encrypt ansible secret files
+  - decrypt sensitive yaml data
+  - view encrypted vault file
+  - edit ansible vault password
+  - encrypt string for playbook
 relatedCommands: []
 alternatives: []
 status: published

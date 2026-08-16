@@ -3,17 +3,33 @@ slug: terraform-destroy
 name: terraform destroy
 aliases: []
 category: devops-utilities
-tags: [terraform, infrastructure-as-code, iac, teardown, deletion, state]
+tags:
+  - terraform
+  - infrastructure-as-code
+  - iac
+  - teardown
+  - deletion
+  - state
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'delete all terraform resources'
-  - 'tear down terraform infrastructure'
-  - 'remove resources in tf state'
-  - 'destroy specific terraform resource'
-  - 'clean up terraform environment'
-relatedCommands: [terraform-apply, terraform-plan]
+  - delete all terraform resources
+  - tear down terraform infrastructure
+  - remove resources in tf state
+  - destroy specific terraform resource
+  - clean up terraform environment
+relatedCommands:
+  - terraform-apply
+  - terraform-plan
 alternatives: []
 status: published
 ---

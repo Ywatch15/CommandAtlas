@@ -1,19 +1,40 @@
 ---
 slug: docker-ps
 name: docker ps
-aliases: [docker container ls]
+aliases:
+  - docker container ls
 category: cloud-cli
-tags: [docker, containers, monitoring, processes, devops, infrastructure]
+tags:
+  - docker
+  - containers
+  - monitoring
+  - processes
+  - devops
+  - infrastructure
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'list running docker containers'
-  - 'show docker container status'
-  - 'find docker container id'
-  - 'view active containers'
-  - 'list all stopped containers'
-relatedCommands: [docker-inspect, docker-logs, docker-exec, docker-rm, docker-run]
+  - list running docker containers
+  - show docker container status
+  - find docker container id
+  - view active containers
+  - list all stopped containers
+relatedCommands:
+  - docker-inspect
+  - docker-logs
+  - docker-exec
+  - docker-rm
+  - docker-run
 alternatives: []
 status: draft
 ---

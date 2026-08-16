@@ -3,14 +3,26 @@ slug: aws
 name: aws
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, cli]
+tags:
+  - aws
+  - cloud
+  - cli
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'manage aws cloud resources'
-  - 'aws s3 sync files'
-relatedCommands: [aws-configure]
+  - manage aws cloud resources
+  - aws s3 sync files
+relatedCommands:
+  - aws-configure
 alternatives: []
 status: published
 ---

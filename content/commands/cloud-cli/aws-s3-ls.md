@@ -3,17 +3,35 @@ slug: aws-s3-ls
 name: aws s3 ls
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, s3, storage, listing, object-storage]
+tags:
+  - aws
+  - cloud
+  - s3
+  - storage
+  - listing
+  - object-storage
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'list s3 buckets'
-  - 'list files in s3 bucket'
-  - 'show s3 folder contents'
-  - 'check s3 storage objects'
-  - 'find s3 bucket files'
-relatedCommands: [aws-configure, aws-sts-get-caller-identity, aws-s3-cp, aws-s3-sync]
+  - list s3 buckets
+  - list files in s3 bucket
+  - show s3 folder contents
+  - check s3 storage objects
+  - find s3 bucket files
+relatedCommands:
+  - aws-configure
+  - aws-sts-get-caller-identity
+  - aws-s3-cp
+  - aws-s3-sync
 alternatives: []
 status: draft
 ---

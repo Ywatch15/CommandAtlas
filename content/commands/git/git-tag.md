@@ -3,18 +3,36 @@ slug: git-tag
 name: git tag
 aliases: []
 category: git
-tags: [version-control, tags, release, repository, scm]
+tags:
+  - version-control
+  - tags
+  - release
+  - repository
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'create git tag'
-  - 'list git tags'
-  - 'tag a software release'
-  - 'delete a git tag'
-  - 'sign git tag with gpg'
-relatedCommands: [git-checkout, git-commit, git-log, git-push]
-alternatives: [git-branch]
+  - create git tag
+  - list git tags
+  - tag a software release
+  - delete a git tag
+  - sign git tag with gpg
+relatedCommands:
+  - git-checkout
+  - git-commit
+  - git-log
+  - git-push
+alternatives:
+  - git-branch
 status: draft
 ---
 

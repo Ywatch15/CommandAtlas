@@ -1,18 +1,30 @@
 ---
 slug: batch
 name: batch
-aliases: [at -b]
+aliases:
+  - at -b
 category: cron
-tags: [cron, scheduling, load-average, batch-jobs, background]
+tags:
+  - cron
+  - scheduling
+  - load-average
+  - batch-jobs
+  - background
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run job when system load permits'
-  - 'execute batch task low load'
-  - 'schedule command under load threshold'
-  - 'defer job to idle time'
-  - 'queue background load-managed job'
+  - run job when system load permits
+  - execute batch task low load
+  - schedule command under load threshold
+  - defer job to idle time
+  - queue background load-managed job
 relatedCommands: []
 alternatives: []
 status: published

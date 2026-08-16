@@ -3,18 +3,31 @@ slug: mkinitcpio
 name: mkinitcpio
 aliases: []
 category: kernel
-tags: [linux, arch-linux, boot, initramfs, kernel, systemd]
+tags:
+  - linux
+  - arch-linux
+  - boot
+  - initramfs
+  - kernel
+  - systemd
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'create initial ramdisk'
-  - 'generate initramfs arch linux'
-  - 'rebuild arch boot image'
-  - 'add module to initramfs'
-  - 'update mkinitcpio hooks'
-relatedCommands: [depmod, dracut]
-alternatives: [dracut]
+  - create initial ramdisk
+  - generate initramfs arch linux
+  - rebuild arch boot image
+  - add module to initramfs
+  - update mkinitcpio hooks
+relatedCommands:
+  - depmod
+  - dracut
+alternatives:
+  - dracut
 status: draft
 ---
 

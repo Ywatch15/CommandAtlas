@@ -1,19 +1,38 @@
 ---
 slug: docker-pull
 name: docker pull
-aliases: [docker image pull]
+aliases:
+  - docker image pull
 category: cloud-cli
-tags: [docker, images, registry, download, networking]
+tags:
+  - docker
+  - images
+  - registry
+  - download
+  - networking
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'download a docker image'
-  - 'fetch image from docker hub'
-  - 'pull container image from registry'
-  - 'update local docker image'
-  - 'get base image for dockerfile'
-relatedCommands: [docker-push, docker-images, docker-run, docker-login, docker-rmi]
+  - download a docker image
+  - fetch image from docker hub
+  - pull container image from registry
+  - update local docker image
+  - get base image for dockerfile
+relatedCommands:
+  - docker-push
+  - docker-images
+  - docker-run
+  - docker-login
+  - docker-rmi
 alternatives: []
 status: draft
 ---

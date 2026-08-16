@@ -3,18 +3,40 @@ slug: git-rebase
 name: git rebase
 aliases: []
 category: git
-tags: [version-control, history-rewriting, commits, branching, interactive]
+tags:
+  - version-control
+  - history-rewriting
+  - commits
+  - branching
+  - interactive
 difficulty: advanced
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'squash commits together'
-  - 'update branch with main'
-  - 'rewrite git history'
-  - 'move branch to another base'
-  - 'resolve rebase conflicts'
-relatedCommands: [git-cherry-pick, git-commit, git-merge, git-push, git-revert]
-alternatives: [git-cherry-pick, git-merge, git-reset]
+  - squash commits together
+  - update branch with main
+  - rewrite git history
+  - move branch to another base
+  - resolve rebase conflicts
+relatedCommands:
+  - git-cherry-pick
+  - git-commit
+  - git-merge
+  - git-push
+  - git-revert
+alternatives:
+  - git-cherry-pick
+  - git-merge
+  - git-reset
 status: draft
 ---
 

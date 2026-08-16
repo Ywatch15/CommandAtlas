@@ -3,18 +3,33 @@ slug: gcloud-functions-deploy
 name: gcloud functions deploy
 aliases: []
 category: cloud-cli
-tags: [gcloud, cloud, google-cloud, cloud-functions, serverless, deployment]
+tags:
+  - gcloud
+  - cloud
+  - google-cloud
+  - cloud-functions
+  - serverless
+  - deployment
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'deploy google cloud function'
-  - 'publish serverless function gcp'
-  - 'update cloud function deployment cli'
-  - 'deploy python cloud function gcp'
-  - 'deploy nodejs function gcloud'
+  - deploy google cloud function
+  - publish serverless function gcp
+  - update cloud function deployment cli
+  - deploy python cloud function gcp
+  - deploy nodejs function gcloud
 relatedCommands: []
-alternatives: [gcloud-app-deploy]
+alternatives:
+  - gcloud-app-deploy
 status: draft
 ---
 

@@ -1,19 +1,36 @@
 ---
 slug: fsck
 name: fsck
-aliases: [file system check]
+aliases:
+  - file system check
 category: file-systems
-tags: [linux, filesystem, repair, storage, recovery, maintenance]
+tags:
+  - linux
+  - filesystem
+  - repair
+  - storage
+  - recovery
+  - maintenance
 difficulty: advanced
-supportedOS: [linux, unix, macos]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+  - macos
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'repair broken filesystem'
-  - 'check hard drive for errors'
-  - 'fix corrupted disk linux'
-  - 'force fsck on boot'
-  - 'check ext4 consistency'
-relatedCommands: [mount, df, fdisk, tune2fs]
+  - repair broken filesystem
+  - check hard drive for errors
+  - fix corrupted disk linux
+  - force fsck on boot
+  - check ext4 consistency
+relatedCommands:
+  - mount
+  - df
+  - fdisk
+  - tune2fs
 alternatives: []
 status: draft
 ---

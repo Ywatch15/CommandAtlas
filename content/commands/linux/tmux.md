@@ -24,13 +24,14 @@ intentPhrases:
   - share terminal session with another user
   - attach to background terminal session
 relatedCommands: []
-alternatives: [bg, fg]
+alternatives:
+  - bg
+  - fg
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `tmux` (Terminal Multiplexer) is a command-line utility that allows multiple virtual terminal sessions to be created, accessed, and controlled from a single physical terminal or window. It provides the ability to detach from a running session—leaving all running processes executing in the background—and later reattach to that exact session from a different machine or terminal emulator. System administrators and developers rely on it to orchestrate complex multi-pane development environments and to safeguard long-running tasks against unstable network connections.

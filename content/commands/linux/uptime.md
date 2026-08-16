@@ -30,7 +30,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `uptime` is a standard POSIX diagnostic command that reports the current system time, the duration the system has been running since the last boot, the number of users currently logged in, and the system load averages for the past 1, 5, and 15 minutes. It provides an immediate, high-level snapshot of system availability and recent resource saturation. System administrators rely on it as a first-response tool when investigating potential performance degradation, capacity limits, or unexpected server reboots.

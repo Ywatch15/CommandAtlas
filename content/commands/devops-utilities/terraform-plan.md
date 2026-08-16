@@ -3,17 +3,35 @@ slug: terraform-plan
 name: terraform plan
 aliases: []
 category: devops-utilities
-tags: [terraform, infrastructure-as-code, iac, execution-plan, diff, dry-run]
+tags:
+  - terraform
+  - infrastructure-as-code
+  - iac
+  - execution-plan
+  - diff
+  - dry-run
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'preview terraform changes'
-  - 'create execution plan terraform'
-  - 'terraform dry run'
-  - 'compare terraform state to config'
-  - 'generate tf plan'
-relatedCommands: [terraform-apply, terraform-init, terraform-destroy, terraform-state-list]
+  - preview terraform changes
+  - create execution plan terraform
+  - terraform dry run
+  - compare terraform state to config
+  - generate tf plan
+relatedCommands:
+  - terraform-apply
+  - terraform-init
+  - terraform-destroy
+  - terraform-state-list
 alternatives: []
 status: published
 ---

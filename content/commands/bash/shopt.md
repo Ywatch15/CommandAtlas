@@ -3,16 +3,27 @@ slug: shopt
 name: shopt
 aliases: []
 category: bash
-tags: [bash, shell, builtin, options, behavior, globbing]
+tags:
+  - bash
+  - shell
+  - builtin
+  - options
+  - behavior
+  - globbing
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
 intentPhrases:
-  - 'toggle bash optional behavior'
-  - 'enable globstar recursive matching'
-  - 'configure bash shell options'
-  - 'check bash shopt settings'
-  - 'enable extglob bash patterns'
+  - toggle bash optional behavior
+  - enable globstar recursive matching
+  - configure bash shell options
+  - check bash shopt settings
+  - enable extglob bash patterns
 relatedCommands: []
 alternatives: []
 status: draft

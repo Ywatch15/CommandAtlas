@@ -3,36 +3,50 @@ slug: docker-run
 name: docker run
 aliases: []
 category: cloud-cli
-tags: [docker, containers, execution, runtime, isolation, virtualization]
+tags:
+  - docker
+  - containers
+  - execution
+  - runtime
+  - isolation
+  - virtualization
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'start a docker container'
-  - 'run a container from image'
-  - 'create and start docker container'
-  - 'execute command in isolated container'
-  - 'spin up docker environment'
+  - start a docker container
+  - run a container from image
+  - create and start docker container
+  - execute command in isolated container
+  - spin up docker environment
 relatedCommands:
-  [
-    docker-exec,
-    docker-build,
-    docker-ps,
-    docker-rm,
-    docker-attach,
-    docker-commit,
-    docker-compose,
-    docker-cp,
-    docker-images,
-    docker-load,
-    docker-logs,
-    docker-network,
-    docker-pull,
-    docker-restart,
-    docker-start,
-    docker-volume,
-  ]
-alternatives: [docker-compose, docker-start]
+  - docker-exec
+  - docker-build
+  - docker-ps
+  - docker-rm
+  - docker-attach
+  - docker-commit
+  - docker-compose
+  - docker-cp
+  - docker-images
+  - docker-load
+  - docker-logs
+  - docker-network
+  - docker-pull
+  - docker-restart
+  - docker-start
+  - docker-volume
+alternatives:
+  - docker-compose
+  - docker-start
 status: draft
 ---
 

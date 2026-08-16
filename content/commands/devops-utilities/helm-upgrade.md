@@ -3,18 +3,34 @@ slug: helm-upgrade
 name: helm upgrade
 aliases: []
 category: devops-utilities
-tags: [helm, kubernetes, package-manager, upgrade, deployment, release]
+tags:
+  - helm
+  - kubernetes
+  - package-manager
+  - upgrade
+  - deployment
+  - release
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'upgrade helm release kubernetes'
-  - 'update helm chart deployment'
-  - 'modify helm release values'
-  - 'upgrade application version helm'
-  - 'apply chart changes helm'
-relatedCommands: []
-alternatives: []
+  - upgrade helm release kubernetes
+  - update helm chart deployment
+  - modify helm release values
+  - upgrade application version helm
+  - apply chart changes helm
+relatedCommands:
+  - kubectl-rollout
+alternatives:
+  - kubectl-rollout
 status: published
 ---
 

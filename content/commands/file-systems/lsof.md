@@ -1,19 +1,34 @@
 ---
 slug: lsof
 name: lsof
-aliases: [list open files]
+aliases:
+  - list open files
 category: file-systems
-tags: [linux, processes, files, networking, debugging, system-administration]
+tags:
+  - linux
+  - processes
+  - files
+  - networking
+  - debugging
+  - system-administration
 difficulty: advanced
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list open files linux'
-  - 'find process using port'
-  - 'find deleted files taking up space'
-  - 'check what process has file locked'
-  - 'list network connections lsof'
-relatedCommands: [ps, umount]
+  - list open files linux
+  - find process using port
+  - find deleted files taking up space
+  - check what process has file locked
+  - list network connections lsof
+relatedCommands:
+  - ps
+  - umount
 alternatives: []
 status: draft
 ---

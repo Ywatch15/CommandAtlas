@@ -23,8 +23,15 @@ intentPhrases:
   - commit staged files
   - write a commit message
   - amend last commit
-relatedCommands: [git-cherry-pick, git-rebase, git-reset, git-revert, git-stash, git-tag]
-alternatives: [git-stash]
+relatedCommands:
+  - git-cherry-pick
+  - git-rebase
+  - git-reset
+  - git-revert
+  - git-stash
+  - git-tag
+alternatives:
+  - git-stash
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

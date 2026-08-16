@@ -3,18 +3,35 @@ slug: az-webapp-up
 name: az webapp up
 aliases: []
 category: cloud-cli
-tags: [azure, cloud, webapp, app-service, deployment]
+tags:
+  - azure
+  - cloud
+  - webapp
+  - app-service
+  - deployment
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'deploy app to azure web app'
-  - 'create and deploy azure webapp'
-  - 'publish local code to azure app service'
-  - 'deploy web app from directory azure cli'
-  - 'quick azure webapp deployment'
-relatedCommands: [az-group-create, az-account-set, az-login]
-alternatives: [az-storage-blob-upload]
+  - deploy app to azure web app
+  - create and deploy azure webapp
+  - publish local code to azure app service
+  - deploy web app from directory azure cli
+  - quick azure webapp deployment
+relatedCommands:
+  - az-group-create
+  - az-account-set
+  - az-login
+alternatives:
+  - az-storage-blob-upload
 status: draft
 ---
 

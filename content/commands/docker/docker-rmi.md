@@ -1,21 +1,43 @@
 ---
 slug: docker-rmi
 name: docker rmi
-aliases: [docker image rm]
+aliases:
+  - docker image rm
 category: cloud-cli
-tags: [docker, containers, images, cleanup, storage, devops]
+tags:
+  - docker
+  - containers
+  - images
+  - cleanup
+  - storage
+  - devops
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'delete docker image'
-  - 'remove local docker image'
-  - 'clean up image cache'
-  - 'untag docker image'
-  - 'force delete docker image'
+  - delete docker image
+  - remove local docker image
+  - clean up image cache
+  - untag docker image
+  - force delete docker image
 relatedCommands:
-  [docker-rm, docker-pull, docker-build, docker-images, docker-system-prune, docker-tag]
-alternatives: [docker-system-prune]
+  - docker-rm
+  - docker-pull
+  - docker-build
+  - docker-images
+  - docker-system-prune
+  - docker-tag
+alternatives:
+  - docker-system-prune
 status: draft
 ---
 

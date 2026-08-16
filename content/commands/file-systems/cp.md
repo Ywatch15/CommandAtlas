@@ -1,19 +1,33 @@
 ---
 slug: cp
 name: cp
-aliases: [copy]
+aliases:
+  - copy
 category: file-systems
-tags: [linux, file-management, copy, coreutils, filesystem]
+tags:
+  - linux
+  - file-management
+  - copy
+  - coreutils
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'copy a file'
-  - 'duplicate a directory'
-  - 'backup file linux'
-  - 'copy files recursively'
-  - 'preserve file attributes'
-relatedCommands: [mv, rm]
+  - copy a file
+  - duplicate a directory
+  - backup file linux
+  - copy files recursively
+  - preserve file attributes
+relatedCommands:
+  - mv
+  - rm
 alternatives: []
 status: draft
 ---

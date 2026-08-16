@@ -3,26 +3,37 @@ slug: aws-configure
 name: aws configure
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, authentication, credentials, configuration]
+tags:
+  - aws
+  - cloud
+  - authentication
+  - credentials
+  - configuration
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'configure aws credentials'
-  - 'setup aws cli'
-  - 'set aws default region'
-  - 'configure aws access keys'
-  - 'setup aws profile'
+  - configure aws credentials
+  - setup aws cli
+  - set aws default region
+  - configure aws access keys
+  - setup aws profile
 relatedCommands:
-  [
-    aws,
-    aws-ec2-describe-instances,
-    aws-iam-get-user,
-    aws-logs-tail,
-    aws-s3-ls,
-    aws-sts-get-caller-identity,
-    aws-ec2-run-instances,
-  ]
+  - aws
+  - aws-ec2-describe-instances
+  - aws-iam-get-user
+  - aws-logs-tail
+  - aws-s3-ls
+  - aws-sts-get-caller-identity
+  - aws-ec2-run-instances
 alternatives: []
 status: draft
 ---

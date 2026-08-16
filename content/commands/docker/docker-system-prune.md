@@ -3,18 +3,37 @@ slug: docker-system-prune
 name: docker system prune
 aliases: []
 category: cloud-cli
-tags: [docker, cleanup, maintenance, storage, garbage-collection, devops]
+tags:
+  - docker
+  - cleanup
+  - maintenance
+  - storage
+  - garbage-collection
+  - devops
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'clean up docker disk space'
-  - 'remove all unused docker data'
-  - 'delete dangling docker images'
-  - 'clear docker cache'
-  - 'free up docker storage'
-relatedCommands: [docker-rm, docker-rmi, docker-volume]
-alternatives: [docker-rmi]
+  - clean up docker disk space
+  - remove all unused docker data
+  - delete dangling docker images
+  - clear docker cache
+  - free up docker storage
+relatedCommands:
+  - docker-rm
+  - docker-rmi
+  - docker-volume
+alternatives:
+  - docker-rmi
 status: draft
 ---
 

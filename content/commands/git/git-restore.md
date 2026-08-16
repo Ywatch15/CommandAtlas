@@ -3,18 +3,39 @@ slug: git-restore
 name: git restore
 aliases: []
 category: git
-tags: [version-control, workspace-management, undo, index, staging]
+tags:
+  - version-control
+  - workspace-management
+  - undo
+  - index
+  - staging
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'discard local changes in git'
-  - 'unstage a file'
-  - 'revert file to last commit'
-  - 'undo git add'
-  - 'restore deleted file in git'
-relatedCommands: [git-add, git-checkout, git-clean, git-reset, git-switch]
-alternatives: [git-checkout, git-reset]
+  - discard local changes in git
+  - unstage a file
+  - revert file to last commit
+  - undo git add
+  - restore deleted file in git
+relatedCommands:
+  - git-add
+  - git-checkout
+  - git-clean
+  - git-reset
+  - git-switch
+alternatives:
+  - git-checkout
+  - git-reset
 status: draft
 ---
 

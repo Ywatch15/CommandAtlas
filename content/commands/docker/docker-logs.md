@@ -3,18 +3,40 @@ slug: docker-logs
 name: docker logs
 aliases: []
 category: cloud-cli
-tags: [docker, containers, logging, troubleshooting, devops, observability]
+tags:
+  - docker
+  - containers
+  - logging
+  - troubleshooting
+  - devops
+  - observability
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'fetch container logs'
-  - 'tail docker output'
-  - 'view stdout of docker container'
-  - 'debug docker container errors'
-  - 'stream container logs real-time'
-relatedCommands: [docker-inspect, docker-run, docker-attach, docker-exec, docker-ps]
-alternatives: [journalctl, docker-attach]
+  - fetch container logs
+  - tail docker output
+  - view stdout of docker container
+  - debug docker container errors
+  - stream container logs real-time
+relatedCommands:
+  - docker-inspect
+  - docker-run
+  - docker-attach
+  - docker-exec
+  - docker-ps
+alternatives:
+  - journalctl
+  - docker-attach
 status: draft
 ---
 

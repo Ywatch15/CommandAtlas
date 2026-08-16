@@ -3,17 +3,32 @@ slug: terraform-state-list
 name: terraform state list
 aliases: []
 category: devops-utilities
-tags: [terraform, infrastructure-as-code, iac, state, introspection, auditing]
+tags:
+  - terraform
+  - infrastructure-as-code
+  - iac
+  - state
+  - introspection
+  - auditing
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'list resources in terraform state'
-  - 'show tracked terraform resources'
-  - 'get resource address terraform'
-  - 'view tfstate contents'
-  - 'find module addresses in state'
-relatedCommands: [terraform-plan]
+  - list resources in terraform state
+  - show tracked terraform resources
+  - get resource address terraform
+  - view tfstate contents
+  - find module addresses in state
+relatedCommands:
+  - terraform-plan
 alternatives: []
 status: published
 ---

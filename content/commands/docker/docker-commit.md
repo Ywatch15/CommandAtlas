@@ -1,20 +1,39 @@
 ---
 slug: docker-commit
 name: docker commit
-aliases: [docker container commit]
+aliases:
+  - docker container commit
 category: cloud-cli
-tags: [docker, images, containers, state, snapshot, debugging]
+tags:
+  - docker
+  - images
+  - containers
+  - state
+  - snapshot
+  - debugging
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'create image from container changes'
-  - 'save container state as image'
-  - 'snapshot running docker container'
-  - 'commit docker changes to image'
-  - 'export container modifications'
-relatedCommands: [docker-build, docker-run, docker-cp]
-alternatives: [docker-build]
+  - create image from container changes
+  - save container state as image
+  - snapshot running docker container
+  - commit docker changes to image
+  - export container modifications
+relatedCommands:
+  - docker-build
+  - docker-run
+  - docker-cp
+alternatives:
+  - docker-build
 status: draft
 ---
 

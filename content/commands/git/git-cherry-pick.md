@@ -3,18 +3,37 @@ slug: git-cherry-pick
 name: git cherry-pick
 aliases: []
 category: git
-tags: [version-control, commit-graph, integration, cherry-pick, scm]
+tags:
+  - version-control
+  - commit-graph
+  - integration
+  - cherry-pick
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'apply single commit to branch'
-  - 'cherry pick git commit'
-  - 'copy commit from another branch'
-  - 'port fix to release branch'
-  - 'select specific commit to merge'
-relatedCommands: [git-commit, git-log, git-merge, git-rebase, git-revert]
-alternatives: [git-rebase]
+  - apply single commit to branch
+  - cherry pick git commit
+  - copy commit from another branch
+  - port fix to release branch
+  - select specific commit to merge
+relatedCommands:
+  - git-commit
+  - git-log
+  - git-merge
+  - git-rebase
+  - git-revert
+alternatives:
+  - git-rebase
 status: draft
 ---
 

@@ -3,18 +3,37 @@ slug: gcloud-compute-ssh
 name: gcloud compute ssh
 aliases: []
 category: cloud-cli
-tags: [gcp, compute, ssh, gce, remote-access, security, cloud, gcloud]
+tags:
+  - gcp
+  - compute
+  - ssh
+  - gce
+  - remote-access
+  - security
+  - cloud
+  - gcloud
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'ssh into gcp vm'
-  - 'connect to compute engine instance'
-  - 'remote access google cloud vm'
-  - 'tunnel ssh via iap'
-  - 'access internal gcp vm'
-relatedCommands: [gcloud-compute-instances-list, ssh]
-alternatives: [ssh]
+  - ssh into gcp vm
+  - connect to compute engine instance
+  - remote access google cloud vm
+  - tunnel ssh via iap
+  - access internal gcp vm
+relatedCommands:
+  - gcloud-compute-instances-list
+  - ssh
+alternatives:
+  - ssh
 status: draft
 ---
 

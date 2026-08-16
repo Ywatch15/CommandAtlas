@@ -3,18 +3,35 @@ slug: git-clean
 name: git clean
 aliases: []
 category: git
-tags: [version-control, workspace, cleanup, file-management, scm]
+tags:
+  - version-control
+  - workspace
+  - cleanup
+  - file-management
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'remove untracked files'
-  - 'clean git workspace'
-  - 'delete unversioned files'
-  - 'purge untracked directories'
-  - 'reset working tree untracked'
-relatedCommands: [git-reset, git-restore, git-status]
-alternatives: [git-stash]
+  - remove untracked files
+  - clean git workspace
+  - delete unversioned files
+  - purge untracked directories
+  - reset working tree untracked
+relatedCommands:
+  - git-reset
+  - git-restore
+  - git-status
+alternatives:
+  - git-stash
 status: draft
 ---
 

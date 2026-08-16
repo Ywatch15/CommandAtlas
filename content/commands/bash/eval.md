@@ -3,18 +3,32 @@ slug: eval
 name: eval
 aliases: []
 category: bash
-tags: [bash, shell, builtin, evaluation, execution, metaprogramming]
+tags:
+  - bash
+  - shell
+  - builtin
+  - evaluation
+  - execution
+  - metaprogramming
 difficulty: advanced
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'evaluate string as bash command'
-  - 'execute dynamic shell command string'
-  - 'bash metaprogramming eval'
-  - 'construct and execute command dynamically'
-  - 'evaluate arguments as shell command'
-relatedCommands: [source]
-alternatives: [source]
+  - evaluate string as bash command
+  - execute dynamic shell command string
+  - bash metaprogramming eval
+  - construct and execute command dynamically
+  - evaluate arguments as shell command
+relatedCommands:
+  - source
+alternatives:
+  - source
 status: draft
 ---
 

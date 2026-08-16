@@ -3,29 +3,45 @@ slug: git-log
 name: git log
 aliases: []
 category: git
-tags: [version-control, history, inspection, commit-graph, scm]
+tags:
+  - version-control
+  - history
+  - inspection
+  - commit-graph
+  - scm
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'view commit history'
-  - 'show git log'
-  - 'check past commits'
-  - 'find who changed a line'
-  - 'search git history'
+  - view commit history
+  - show git log
+  - check past commits
+  - find who changed a line
+  - search git history
 relatedCommands:
-  [
-    git-bisect,
-    git-blame,
-    git-cherry-pick,
-    git-diff,
-    git-reflog,
-    git-shortlog,
-    git-show,
-    git-status,
-    git-tag,
-  ]
-alternatives: [git-bisect, git-blame, git-reflog, git-shortlog, git-show]
+  - git-bisect
+  - git-blame
+  - git-cherry-pick
+  - git-diff
+  - git-reflog
+  - git-shortlog
+  - git-show
+  - git-status
+  - git-tag
+alternatives:
+  - git-bisect
+  - git-blame
+  - git-reflog
+  - git-shortlog
+  - git-show
 status: draft
 ---
 

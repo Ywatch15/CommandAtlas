@@ -3,17 +3,34 @@ slug: git-remote
 name: git remote
 aliases: []
 category: git
-tags: [version-control, remote, repository, collaboration, scm]
+tags:
+  - version-control
+  - remote
+  - repository
+  - collaboration
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'manage git remote repositories'
-  - 'add remote origin'
-  - 'list git remotes'
-  - 'change remote url'
-  - 'remove remote repository'
-relatedCommands: [git-clone, git-fetch, git-push, git-subtree]
+  - manage git remote repositories
+  - add remote origin
+  - list git remotes
+  - change remote url
+  - remove remote repository
+relatedCommands:
+  - git-clone
+  - git-fetch
+  - git-push
+  - git-subtree
 alternatives: []
 status: draft
 ---

@@ -3,16 +3,28 @@ slug: set
 name: set
 aliases: []
 category: bash
-tags: [bash, shell, builtin, attributes, positional-parameters, debugging]
+tags:
+  - bash
+  - shell
+  - builtin
+  - attributes
+  - positional-parameters
+  - debugging
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'set shell options and flags'
-  - 'change positional parameters bash'
-  - 'enable bash debugging mode'
-  - 'configure shell behavior flags'
-  - 'list shell variables and functions'
+  - set shell options and flags
+  - change positional parameters bash
+  - enable bash debugging mode
+  - configure shell behavior flags
+  - list shell variables and functions
 relatedCommands: []
 alternatives: []
 status: draft

@@ -3,16 +3,27 @@ slug: bind
 name: bind
 aliases: []
 category: bash
-tags: [bash, shell, readline, keybindings, macros, configuration]
+tags:
+  - bash
+  - shell
+  - readline
+  - keybindings
+  - macros
+  - configuration
 difficulty: advanced
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
 intentPhrases:
-  - 'configure bash keybindings'
-  - 'bind readline macro shortcut'
-  - 'customize shell keyboard shortcuts'
-  - 'set vi emacs mode bash'
-  - 'list readline key bindings'
+  - configure bash keybindings
+  - bind readline macro shortcut
+  - customize shell keyboard shortcuts
+  - set vi emacs mode bash
+  - list readline key bindings
 relatedCommands: []
 alternatives: []
 status: draft

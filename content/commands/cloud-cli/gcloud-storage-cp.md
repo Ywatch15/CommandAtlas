@@ -3,17 +3,33 @@ slug: gcloud-storage-cp
 name: gcloud storage cp
 aliases: []
 category: cloud-cli
-tags: [gcloud, cloud, google-cloud, storage, gcs, copy, transfer]
+tags:
+  - gcloud
+  - cloud
+  - google-cloud
+  - storage
+  - gcs
+  - copy
+  - transfer
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'copy file to google cloud storage'
-  - 'upload file to gcs bucket'
-  - 'download file from gcs'
-  - 'transfer files between gcs buckets'
-  - 'copy directory to cloud storage cli'
-relatedCommands: [gcloud-storage-ls]
+  - copy file to google cloud storage
+  - upload file to gcs bucket
+  - download file from gcs
+  - transfer files between gcs buckets
+  - copy directory to cloud storage cli
+relatedCommands:
+  - gcloud-storage-ls
 alternatives: []
 status: draft
 ---

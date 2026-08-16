@@ -3,18 +3,36 @@ slug: git-worktree
 name: git worktree
 aliases: []
 category: git
-tags: [version-control, worktree, multiple-branches, repository, scm]
+tags:
+  - version-control
+  - worktree
+  - multiple-branches
+  - repository
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'manage multiple git working directories'
-  - 'checkout multiple branches at once'
-  - 'create git worktree'
-  - 'work on two branches simultaneously'
-  - 'list active worktrees'
-relatedCommands: [git-branch, git-checkout, git-clone, git-switch]
-alternatives: [git-clone]
+  - manage multiple git working directories
+  - checkout multiple branches at once
+  - create git worktree
+  - work on two branches simultaneously
+  - list active worktrees
+relatedCommands:
+  - git-branch
+  - git-checkout
+  - git-clone
+  - git-switch
+alternatives:
+  - git-clone
 status: draft
 ---
 

@@ -1,19 +1,37 @@
 ---
 slug: mkfs
 name: mkfs
-aliases: [make filesystem, format]
+aliases:
+  - make filesystem
+  - format
 category: file-systems
-tags: [linux, filesystem, formatting, storage, disk, ext4, xfs]
+tags:
+  - linux
+  - filesystem
+  - formatting
+  - storage
+  - disk
+  - ext4
+  - xfs
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'format a disk linux'
-  - 'create ext4 filesystem'
-  - 'make new filesystem on partition'
-  - 'format nvme drive xfs'
-  - 'setup raw block device'
-relatedCommands: [lsblk, fdisk, parted, mount, blkid]
+  - format a disk linux
+  - create ext4 filesystem
+  - make new filesystem on partition
+  - format nvme drive xfs
+  - setup raw block device
+relatedCommands:
+  - lsblk
+  - fdisk
+  - parted
+  - mount
+  - blkid
 alternatives: []
 status: draft
 ---

@@ -3,18 +3,31 @@ slug: dracut
 name: dracut
 aliases: []
 category: kernel
-tags: [linux, boot, initramfs, red-hat, fedora, kernel]
+tags:
+  - linux
+  - boot
+  - initramfs
+  - red-hat
+  - fedora
+  - kernel
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'generate initramfs dracut'
-  - 'rebuild red hat boot image'
-  - 'add drivers to initrd'
-  - 'create rescue boot image'
-  - 'update initramfs centos'
-relatedCommands: [depmod, mkinitcpio]
-alternatives: [mkinitcpio]
+  - generate initramfs dracut
+  - rebuild red hat boot image
+  - add drivers to initrd
+  - create rescue boot image
+  - update initramfs centos
+relatedCommands:
+  - depmod
+  - mkinitcpio
+alternatives:
+  - mkinitcpio
 status: draft
 ---
 

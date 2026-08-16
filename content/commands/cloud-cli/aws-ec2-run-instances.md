@@ -3,17 +3,34 @@ slug: aws-ec2-run-instances
 name: aws ec2 run-instances
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, ec2, compute, provisioning, instances]
+tags:
+  - aws
+  - cloud
+  - ec2
+  - compute
+  - provisioning
+  - instances
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'launch aws ec2 instance'
-  - 'create ec2 server'
-  - 'provision cloud compute instance'
-  - 'start new ec2 virtual machine'
-  - 'deploy ec2 instance via cli'
-relatedCommands: [aws-ec2-describe-instances, aws-configure, aws-sts-get-caller-identity]
+  - launch aws ec2 instance
+  - create ec2 server
+  - provision cloud compute instance
+  - start new ec2 virtual machine
+  - deploy ec2 instance via cli
+relatedCommands:
+  - aws-ec2-describe-instances
+  - aws-configure
+  - aws-sts-get-caller-identity
 alternatives: []
 status: draft
 ---

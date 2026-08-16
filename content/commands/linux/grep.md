@@ -23,14 +23,16 @@ intentPhrases:
   - filter lines matching pattern
   - search for string in directory
   - find all occurrences of word in codebase
-relatedCommands: [jq, find, locate]
+relatedCommands:
+  - jq
+  - find
+  - locate
 alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `grep` searches one or more files (or standard input) for lines that match a pattern,

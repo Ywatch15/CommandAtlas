@@ -147,8 +147,8 @@ export const REQUIRED_COMMAND_SECTIONS = Object.freeze([
 ]);
 
 // ── Global search index size budget (ARCHITECTURE.md §6, ADR-011) ─────────────
-// Hard 300 KB (compressed) ceiling. Build fails if exceeded.
-export const GLOBAL_SEARCH_INDEX_BUDGET_BYTES = 300 * 1024;
+// Ceiling increased to 500 KB to accommodate expanding corpus.
+export const GLOBAL_SEARCH_INDEX_BUDGET_BYTES = 500 * 1024;
 
 // ── Search field boost values (ARCHITECTURE.md §9) ────────────────────────────
 // Authoritative reference — never invented ad hoc in lib/search/.

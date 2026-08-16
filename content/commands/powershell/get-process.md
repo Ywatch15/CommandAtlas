@@ -27,7 +27,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `Get-Process` is a PowerShell cmdlet that retrieves process objects for active processes running on local or remote systems.

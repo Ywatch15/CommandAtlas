@@ -3,17 +3,31 @@ slug: lsmod
 name: lsmod
 aliases: []
 category: kernel
-tags: [linux, kernel, modules, drivers, sysadmin]
+tags:
+  - linux
+  - kernel
+  - modules
+  - drivers
+  - sysadmin
 difficulty: beginner
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list loaded kernel modules'
-  - 'show active linux drivers'
-  - 'check if kernel module is loaded'
-  - 'view loaded drivers'
-  - 'audit active linux modules'
-relatedCommands: [modprobe, insmod, rmmod, modinfo, depmod]
+  - list loaded kernel modules
+  - show active linux drivers
+  - check if kernel module is loaded
+  - view loaded drivers
+  - audit active linux modules
+relatedCommands:
+  - modprobe
+  - insmod
+  - rmmod
+  - modinfo
+  - depmod
 alternatives: []
 status: draft
 ---

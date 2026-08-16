@@ -1,20 +1,36 @@
 ---
 slug: rmmod
 name: rmmod
-aliases: [remove module]
+aliases:
+  - remove module
 category: kernel
-tags: [linux, kernel, modules, drivers, sysadmin]
+tags:
+  - linux
+  - kernel
+  - modules
+  - drivers
+  - sysadmin
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'remove kernel module directly'
-  - 'unload linux driver'
-  - 'force remove kernel module'
-  - 'delete active kernel object'
-  - 'detach module from linux kernel'
-relatedCommands: [modprobe, insmod, lsmod, modinfo]
-alternatives: [kmod, modprobe]
+  - remove kernel module directly
+  - unload linux driver
+  - force remove kernel module
+  - delete active kernel object
+  - detach module from linux kernel
+relatedCommands:
+  - modprobe
+  - insmod
+  - lsmod
+  - modinfo
+alternatives:
+  - kmod
+  - modprobe
 status: draft
 ---
 

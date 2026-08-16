@@ -3,18 +3,36 @@ slug: aws-s3-cp
 name: aws s3 cp
 aliases: []
 category: cloud-cli
-tags: [aws, s3, storage, object-storage, file-transfer, cloud]
+tags:
+  - aws
+  - s3
+  - storage
+  - object-storage
+  - file-transfer
+  - cloud
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'upload file to s3 bucket'
-  - 'download object from s3'
-  - 'copy s3 object to another bucket'
-  - 'transfer local directory to s3'
-  - 'move file to aws storage'
-relatedCommands: [aws-s3-sync, aws-s3-ls]
-alternatives: [aws-s3-sync]
+  - upload file to s3 bucket
+  - download object from s3
+  - copy s3 object to another bucket
+  - transfer local directory to s3
+  - move file to aws storage
+relatedCommands:
+  - aws-s3-sync
+  - aws-s3-ls
+alternatives:
+  - aws-s3-sync
 status: draft
 ---
 

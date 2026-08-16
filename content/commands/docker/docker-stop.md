@@ -3,17 +3,35 @@ slug: docker-stop
 name: docker stop
 aliases: []
 category: cloud-cli
-tags: [docker, containers, lifecycle, signals, management, devops]
+tags:
+  - docker
+  - containers
+  - lifecycle
+  - signals
+  - management
+  - devops
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'gracefully stop docker container'
-  - 'halt running container'
-  - 'shut down docker application'
-  - 'pause docker service cleanly'
-  - 'stop all running docker containers'
-relatedCommands: [docker-start, docker-restart, docker-rm]
+  - gracefully stop docker container
+  - halt running container
+  - shut down docker application
+  - pause docker service cleanly
+  - stop all running docker containers
+relatedCommands:
+  - docker-start
+  - docker-restart
+  - docker-rm
 alternatives: []
 status: draft
 ---

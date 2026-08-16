@@ -3,17 +3,32 @@ slug: docker-login
 name: docker login
 aliases: []
 category: cloud-cli
-tags: [docker, authentication, registry, security, credentials]
+tags:
+  - docker
+  - authentication
+  - registry
+  - security
+  - credentials
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'authenticate docker hub'
-  - 'login to docker registry'
-  - 'connect to private container registry'
-  - 'docker authenticate ecr gcr'
-  - 'store docker credentials'
-relatedCommands: [docker-pull, docker-push]
+  - authenticate docker hub
+  - login to docker registry
+  - connect to private container registry
+  - docker authenticate ecr gcr
+  - store docker credentials
+relatedCommands:
+  - docker-pull
+  - docker-push
 alternatives: []
 status: draft
 ---

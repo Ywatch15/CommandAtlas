@@ -3,16 +3,29 @@ slug: helm-repo-add
 name: helm repo add
 aliases: []
 category: devops-utilities
-tags: [helm, kubernetes, package-manager, repository, charts, registry]
+tags:
+  - helm
+  - kubernetes
+  - package-manager
+  - repository
+  - charts
+  - registry
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'add helm chart repository'
-  - 'register helm repo url'
-  - 'add stable helm repository'
-  - 'configure helm chart source'
-  - 'connect helm to chart registry'
+  - add helm chart repository
+  - register helm repo url
+  - add stable helm repository
+  - configure helm chart source
+  - connect helm to chart registry
 relatedCommands: []
 alternatives: []
 status: published

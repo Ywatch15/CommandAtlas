@@ -3,18 +3,31 @@ slug: type
 name: type
 aliases: []
 category: bash
-tags: [shell, built-in, introspection, path, command-resolution]
+tags:
+  - shell
+  - built-in
+  - introspection
+  - path
+  - command-resolution
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - sh
 intentPhrases:
-  - 'find command location'
-  - 'check if command is alias'
-  - 'where is command executable'
-  - 'what kind of command is this'
-  - 'determine command type'
-relatedCommands: [which, alias]
-alternatives: [which]
+  - find command location
+  - check if command is alias
+  - where is command executable
+  - what kind of command is this
+  - determine command type
+relatedCommands:
+  - which
+  - alias
+alternatives:
+  - which
 status: draft
 ---
 

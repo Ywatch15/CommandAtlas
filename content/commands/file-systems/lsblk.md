@@ -3,18 +3,36 @@ slug: lsblk
 name: lsblk
 aliases: []
 category: file-systems
-tags: [linux, storage, disk, partitions, block-device, formatting]
+tags:
+  - linux
+  - storage
+  - disk
+  - partitions
+  - block-device
+  - formatting
 difficulty: intermediate
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list block devices linux'
-  - 'show disk partitions and sizes'
-  - 'find where drive is mounted'
-  - 'get disk UUID and filesystem type'
-  - 'view storage topology'
-relatedCommands: [fdisk, parted, blkid, mount, mkfs, df, umount]
-alternatives: [blkid]
+  - list block devices linux
+  - show disk partitions and sizes
+  - find where drive is mounted
+  - get disk UUID and filesystem type
+  - view storage topology
+relatedCommands:
+  - fdisk
+  - parted
+  - blkid
+  - mount
+  - mkfs
+  - df
+  - umount
+alternatives:
+  - blkid
 status: draft
 ---
 

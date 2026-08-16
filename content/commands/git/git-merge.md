@@ -3,18 +3,38 @@ slug: git-merge
 name: git merge
 aliases: []
 category: git
-tags: [version-control, merge, branching, integration, scm]
+tags:
+  - version-control
+  - merge
+  - branching
+  - integration
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'merge branches'
-  - 'combine git branches'
-  - 'join development histories'
-  - 'incorporate feature branch'
-  - 'resolve merge conflicts'
-relatedCommands: [git-branch, git-checkout, git-cherry-pick, git-rebase, git-subtree, git-switch]
-alternatives: [git-rebase]
+  - merge branches
+  - combine git branches
+  - join development histories
+  - incorporate feature branch
+  - resolve merge conflicts
+relatedCommands:
+  - git-branch
+  - git-checkout
+  - git-cherry-pick
+  - git-rebase
+  - git-subtree
+  - git-switch
+alternatives:
+  - git-rebase
 status: draft
 ---
 

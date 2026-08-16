@@ -3,18 +3,36 @@ slug: git-shortlog
 name: git shortlog
 aliases: []
 category: git
-tags: [version-control, commits, history, statistics, changelog, attribution]
+tags:
+  - version-control
+  - commits
+  - history
+  - statistics
+  - changelog
+  - attribution
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'generate release changelog'
-  - 'summarize git commits by author'
-  - 'count commits per user'
-  - 'group git log by author'
-  - 'see who contributed the most'
-relatedCommands: [git-blame, git-log]
-alternatives: [git-log]
+  - generate release changelog
+  - summarize git commits by author
+  - count commits per user
+  - group git log by author
+  - see who contributed the most
+relatedCommands:
+  - git-blame
+  - git-log
+alternatives:
+  - git-log
 status: draft
 ---
 

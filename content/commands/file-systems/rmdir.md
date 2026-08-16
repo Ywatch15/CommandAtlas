@@ -1,19 +1,37 @@
 ---
 slug: rmdir
 name: rmdir
-aliases: [remove directory]
+aliases:
+  - remove directory
 category: file-systems
-tags: [linux, file-system, directory, delete, safety]
+tags:
+  - linux
+  - file-system
+  - directory
+  - delete
+  - safety
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'remove empty directory'
-  - 'delete folder safely'
-  - 'remove directory structure'
-  - 'delete empty folders linux'
-  - 'safely clean up directories'
-relatedCommands: [rm, mkdir, find, tree]
+  - remove empty directory
+  - delete folder safely
+  - remove directory structure
+  - delete empty folders linux
+  - safely clean up directories
+relatedCommands:
+  - rm
+  - mkdir
+  - find
+  - tree
 alternatives: []
 status: draft
 ---

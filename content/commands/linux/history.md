@@ -30,7 +30,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `history` is a shell builtin command that displays, manipulates, and manages the chronological list of previously executed commands in a user's terminal session. It interacts directly with the shell's active in-memory history buffer and the persistent on-disk history file.

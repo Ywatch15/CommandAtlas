@@ -30,7 +30,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `whoami` is a command-line utility that prints the effective user name associated with the current user's session. It resolves the current process's numeric effective user ID (EUID) into its corresponding human-readable string.

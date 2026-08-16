@@ -3,17 +3,30 @@ slug: ansible
 name: ansible
 aliases: []
 category: devops-utilities
-tags: [ansible, automation, configuration-management, devops, orchestration]
+tags:
+  - ansible
+  - automation
+  - configuration-management
+  - devops
+  - orchestration
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run ad-hoc ansible command'
-  - 'test connectivity inventory hosts'
-  - 'ping hosts with ansible'
-  - 'execute adhoc shell module'
-  - 'manage nodes without playbook'
-relatedCommands: [packer, vagrant]
+  - run ad-hoc ansible command
+  - test connectivity inventory hosts
+  - ping hosts with ansible
+  - execute adhoc shell module
+  - manage nodes without playbook
+relatedCommands:
+  - packer
+  - vagrant
 alternatives: []
 status: published
 ---

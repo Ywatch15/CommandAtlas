@@ -1,19 +1,37 @@
 ---
 slug: cd
 name: cd
-aliases: [chdir]
+aliases:
+  - chdir
 category: bash
-tags: [shell, built-in, navigation, directory, filesystem]
+tags:
+  - shell
+  - built-in
+  - navigation
+  - directory
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'change directory'
-  - 'go to folder'
-  - 'navigate filesystem'
-  - 'move to path'
-  - 'switch working directory'
-relatedCommands: [pwd, ls, mkdir]
+  - change directory
+  - go to folder
+  - navigate filesystem
+  - move to path
+  - switch working directory
+relatedCommands:
+  - pwd
+  - ls
+  - mkdir
 alternatives: []
 status: draft
 ---

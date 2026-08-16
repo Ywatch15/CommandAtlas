@@ -3,18 +3,42 @@ slug: jq
 name: jq
 aliases: []
 category: devops-utilities
-tags: [json, parsing, filtering, text-processing, api, devops]
+tags:
+  - json
+  - parsing
+  - filtering
+  - text-processing
+  - api
+  - devops
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'parse json in bash'
-  - 'extract value from json file'
-  - 'format json output'
-  - 'filter json array by key'
-  - 'modify json from curl'
-relatedCommands: [yq, grep, awk, sed, curl, docker-inspect]
-alternatives: [yq]
+  - parse json in bash
+  - extract value from json file
+  - format json output
+  - filter json array by key
+  - modify json from curl
+relatedCommands:
+  - yq
+  - grep
+  - awk
+  - sed
+  - curl
+  - docker-inspect
+  - kubectl-api-resources
+alternatives:
+  - yq
+  - kubectl-api-resources
 status: published
 ---
 

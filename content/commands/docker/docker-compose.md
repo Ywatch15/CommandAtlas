@@ -1,20 +1,42 @@
 ---
 slug: docker-compose
 name: docker compose
-aliases: [docker-compose]
+aliases:
+  - docker-compose
 category: cloud-cli
-tags: [docker, orchestration, containers, yaml, devops, infrastructure-as-code]
+tags:
+  - docker
+  - orchestration
+  - containers
+  - yaml
+  - devops
+  - infrastructure-as-code
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'run multi-container docker app'
-  - 'start docker compose stack'
-  - 'teardown compose environment'
-  - 'build docker compose images'
-  - 'view compose logs'
-relatedCommands: [docker-run, docker-network, docker-volume, docker-build]
-alternatives: [docker-network, docker-run]
+  - run multi-container docker app
+  - start docker compose stack
+  - teardown compose environment
+  - build docker compose images
+  - view compose logs
+relatedCommands:
+  - docker-run
+  - docker-network
+  - docker-volume
+  - docker-build
+alternatives:
+  - docker-network
+  - docker-run
 status: draft
 ---
 

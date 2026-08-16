@@ -1,19 +1,35 @@
 ---
 slug: bg
 name: bg
-aliases: [background]
+aliases:
+  - background
 category: bash
-tags: [shell, built-in, job-control, processes, background]
+tags:
+  - shell
+  - built-in
+  - job-control
+  - processes
+  - background
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'resume stopped job'
-  - 'run process in background'
-  - 'continue suspended task'
-  - 'send process to background'
-relatedCommands: [fg, jobs]
-alternatives: [screen, tmux]
+  - resume stopped job
+  - run process in background
+  - continue suspended task
+  - send process to background
+relatedCommands:
+  - fg
+  - jobs
+alternatives:
+  - screen
+  - tmux
 status: draft
 ---
 

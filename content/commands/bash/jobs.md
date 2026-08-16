@@ -3,17 +3,32 @@ slug: jobs
 name: jobs
 aliases: []
 category: bash
-tags: [shell, built-in, job-control, processes, monitoring]
+tags:
+  - shell
+  - built-in
+  - job-control
+  - processes
+  - monitoring
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list background jobs'
-  - 'show suspended processes'
-  - 'check active shell tasks'
-  - 'view stopped jobs'
-relatedCommands: [bg, fg, ps]
-alternatives: [ps]
+  - list background jobs
+  - show suspended processes
+  - check active shell tasks
+  - view stopped jobs
+relatedCommands:
+  - bg
+  - fg
+  - ps
+alternatives:
+  - ps
 status: draft
 ---
 

@@ -3,16 +3,30 @@ slug: gcloud-iam-service-accounts-create
 name: gcloud iam service-accounts create
 aliases: []
 category: cloud-cli
-tags: [gcp, iam, service-account, security, identity, cloud]
+tags:
+  - gcp
+  - iam
+  - service-account
+  - security
+  - identity
+  - cloud
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'create gcp service account'
-  - 'provision service account gcloud'
-  - 'make new service account google cloud'
-  - 'create non-human identity gcp'
-  - 'setup workload identity account'
+  - create gcp service account
+  - provision service account gcloud
+  - make new service account google cloud
+  - create non-human identity gcp
+  - setup workload identity account
 relatedCommands: []
 alternatives: []
 status: draft

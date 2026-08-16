@@ -3,16 +3,28 @@ slug: exec
 name: exec
 aliases: []
 category: bash
-tags: [bash, shell, builtin, process, replacement, file-descriptors]
+tags:
+  - bash
+  - shell
+  - builtin
+  - process
+  - replacement
+  - file-descriptors
 difficulty: advanced
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'replace shell process with command'
-  - 'exec command in bash script'
-  - 'redirect file descriptors permanently'
-  - 'spawn process without new PID'
-  - 'close file descriptors shell'
+  - replace shell process with command
+  - exec command in bash script
+  - redirect file descriptors permanently
+  - spawn process without new PID
+  - close file descriptors shell
 relatedCommands: []
 alternatives: []
 status: draft

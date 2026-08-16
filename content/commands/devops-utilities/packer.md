@@ -3,17 +3,33 @@ slug: packer
 name: packer
 aliases: []
 category: devops-utilities
-tags: [images, infrastructure-as-code, vm, build, provisioning, hashicorp]
+tags:
+  - images
+  - infrastructure-as-code
+  - vm
+  - build
+  - provisioning
+  - hashicorp
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'build machine image'
-  - 'create aws ami automatically'
-  - 'bake golden image'
-  - 'provision vm template'
-  - 'build multiple vm images at once'
-relatedCommands: [vagrant, ansible]
+  - build machine image
+  - create aws ami automatically
+  - bake golden image
+  - provision vm template
+  - build multiple vm images at once
+relatedCommands:
+  - vagrant
+  - ansible
 alternatives: []
 status: published
 ---

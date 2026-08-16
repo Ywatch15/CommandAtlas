@@ -3,18 +3,32 @@ slug: which
 name: which
 aliases: []
 category: bash
-tags: [bash, shell, executable, path, utility, search]
+tags:
+  - bash
+  - shell
+  - executable
+  - path
+  - utility
+  - search
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'find path to executable'
-  - 'locate command binary path'
-  - 'check where command is installed'
-  - 'locate executable in path'
-  - 'find binary file location'
-relatedCommands: [type]
-alternatives: [type]
+  - find path to executable
+  - locate command binary path
+  - check where command is installed
+  - locate executable in path
+  - find binary file location
+relatedCommands:
+  - type
+alternatives:
+  - type
 status: draft
 ---
 

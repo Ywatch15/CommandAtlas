@@ -20,14 +20,16 @@ supportedShells:
 intentPhrases:
   - list running processes
   - find process ID
-relatedCommands: [jobs, lsof]
-alternatives: [jobs]
+relatedCommands:
+  - jobs
+  - lsof
+alternatives:
+  - jobs
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `ps` (process status) displays information about active processes currently running on the system.

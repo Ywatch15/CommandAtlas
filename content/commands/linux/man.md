@@ -30,7 +30,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `man` is the system's manual pager, used to read, format, and navigate the on-system reference documentation. It provides access to detailed specifications for executable programs, configuration files, system calls, library functions, and kernel conventions.

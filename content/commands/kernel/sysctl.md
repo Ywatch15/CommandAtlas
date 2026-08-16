@@ -3,17 +3,31 @@ slug: sysctl
 name: sysctl
 aliases: []
 category: kernel
-tags: [linux, kernel, tuning, networking, configuration, sysadmin]
+tags:
+  - linux
+  - kernel
+  - tuning
+  - networking
+  - configuration
+  - sysadmin
 difficulty: intermediate
-supportedOS: [linux, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'configure kernel parameters at runtime'
-  - 'reload sysctl configuration'
-  - 'enable ip forwarding linux'
-  - 'read kernel variables'
-  - 'tune tcp network stack'
-relatedCommands: [modprobe, systemctl, kmod]
+  - configure kernel parameters at runtime
+  - reload sysctl configuration
+  - enable ip forwarding linux
+  - read kernel variables
+  - tune tcp network stack
+relatedCommands:
+  - modprobe
+  - systemctl
+  - kmod
 alternatives: []
 status: draft
 ---

@@ -3,18 +3,34 @@ slug: az-storage-blob-upload
 name: az storage blob upload
 aliases: []
 category: cloud-cli
-tags: [azure, cloud, storage, blob, upload, transfer]
+tags:
+  - azure
+  - cloud
+  - storage
+  - blob
+  - upload
+  - transfer
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'upload file to azure blob storage'
-  - 'upload local file to azure container'
-  - 'transfer file to azure storage az cli'
-  - 'put blob azure storage'
-  - 'send backup to azure container'
-relatedCommands: [az-login]
-alternatives: [az-webapp-up]
+  - upload file to azure blob storage
+  - upload local file to azure container
+  - transfer file to azure storage az cli
+  - put blob azure storage
+  - send backup to azure container
+relatedCommands:
+  - az-login
+alternatives:
+  - az-webapp-up
 status: draft
 ---
 

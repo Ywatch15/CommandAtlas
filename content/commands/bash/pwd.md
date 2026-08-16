@@ -1,19 +1,37 @@
 ---
 slug: pwd
 name: pwd
-aliases: [print working directory]
+aliases:
+  - print working directory
 category: bash
-tags: [shell, built-in, navigation, directory, filesystem]
+tags:
+  - shell
+  - built-in
+  - navigation
+  - directory
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'print working directory'
-  - 'show current directory'
-  - 'where am i in terminal'
-  - 'get current path'
-  - 'display absolute path'
-relatedCommands: [cd, ls, tree]
+  - print working directory
+  - show current directory
+  - where am i in terminal
+  - get current path
+  - display absolute path
+relatedCommands:
+  - cd
+  - ls
+  - tree
 alternatives: []
 status: draft
 ---

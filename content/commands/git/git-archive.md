@@ -3,17 +3,33 @@ slug: git-archive
 name: git archive
 aliases: []
 category: git
-tags: [version-control, export, packaging, deployment, distribution]
+tags:
+  - version-control
+  - export
+  - packaging
+  - deployment
+  - distribution
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'export git repository without .git folder'
-  - 'create zip file from git branch'
-  - 'download tarball of git commit'
-  - 'package git source code for release'
-  - 'extract specific folder from git history'
-relatedCommands: [git-checkout, git-clone]
+  - export git repository without .git folder
+  - create zip file from git branch
+  - download tarball of git commit
+  - package git source code for release
+  - extract specific folder from git history
+relatedCommands:
+  - git-checkout
+  - git-clone
 alternatives: []
 status: draft
 ---

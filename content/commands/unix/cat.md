@@ -27,7 +27,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `cat` (concatenate) reads files sequentially and writes them to standard output.

@@ -3,18 +3,37 @@ slug: git-show
 name: git show
 aliases: []
 category: git
-tags: [version-control, commits, inspection, diff, objects]
+tags:
+  - version-control
+  - commits
+  - inspection
+  - diff
+  - objects
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'view commit details'
-  - 'see changes in a commit'
-  - 'inspect git object'
-  - 'show file at specific commit'
-  - 'view raw file from another branch'
-relatedCommands: [git-blame, git-diff, git-log]
-alternatives: [git-diff, git-log]
+  - view commit details
+  - see changes in a commit
+  - inspect git object
+  - show file at specific commit
+  - view raw file from another branch
+relatedCommands:
+  - git-blame
+  - git-diff
+  - git-log
+alternatives:
+  - git-diff
+  - git-log
 status: draft
 ---
 

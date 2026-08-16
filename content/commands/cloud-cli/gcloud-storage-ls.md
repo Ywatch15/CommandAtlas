@@ -3,17 +3,32 @@ slug: gcloud-storage-ls
 name: gcloud storage ls
 aliases: []
 category: cloud-cli
-tags: [gcloud, cloud, google-cloud, storage, gcs, listing]
+tags:
+  - gcloud
+  - cloud
+  - google-cloud
+  - storage
+  - gcs
+  - listing
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'list google cloud storage buckets'
-  - 'list files in gcs bucket'
-  - 'show cloud storage folder contents'
-  - 'check gcs storage objects'
-  - 'find gcs bucket objects cli'
-relatedCommands: [gcloud-storage-cp]
+  - list google cloud storage buckets
+  - list files in gcs bucket
+  - show cloud storage folder contents
+  - check gcs storage objects
+  - find gcs bucket objects cli
+relatedCommands:
+  - gcloud-storage-cp
 alternatives: []
 status: draft
 ---

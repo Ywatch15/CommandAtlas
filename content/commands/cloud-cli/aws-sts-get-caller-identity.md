@@ -3,26 +3,39 @@ slug: aws-sts-get-caller-identity
 name: aws sts get-caller-identity
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, sts, identity, authentication, security]
+tags:
+  - aws
+  - cloud
+  - sts
+  - identity
+  - authentication
+  - security
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'check current aws identity'
-  - 'who am i in aws'
-  - 'get aws account id'
-  - 'verify aws credentials'
-  - 'check aws arn'
+  - check current aws identity
+  - who am i in aws
+  - get aws account id
+  - verify aws credentials
+  - check aws arn
 relatedCommands:
-  [
-    aws-configure,
-    aws-ec2-describe-instances,
-    aws-eks-update-kubeconfig,
-    aws-iam-get-user,
-    aws-s3-ls,
-    aws-ec2-run-instances,
-  ]
-alternatives: [aws-iam-get-user]
+  - aws-configure
+  - aws-ec2-describe-instances
+  - aws-eks-update-kubeconfig
+  - aws-iam-get-user
+  - aws-s3-ls
+  - aws-ec2-run-instances
+alternatives:
+  - aws-iam-get-user
 status: draft
 ---
 

@@ -3,18 +3,37 @@ slug: tree
 name: tree
 aliases: []
 category: file-systems
-tags: [linux, file-system, directory, visualizer, structure, hierarchy]
+tags:
+  - linux
+  - file-system
+  - directory
+  - visualizer
+  - structure
+  - hierarchy
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list directory structure visually'
-  - 'show nested folders tree'
-  - 'view folder hierarchy'
-  - 'print directory tree format'
-  - 'list all files recursively visual'
-relatedCommands: [ls, find, pwd, rmdir]
-alternatives: [find, du, ls]
+  - list directory structure visually
+  - show nested folders tree
+  - view folder hierarchy
+  - print directory tree format
+  - list all files recursively visual
+relatedCommands:
+  - ls
+  - find
+  - pwd
+  - rmdir
+alternatives:
+  - find
+  - du
+  - ls
 status: draft
 ---
 

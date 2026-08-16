@@ -1,20 +1,40 @@
 ---
 slug: fdisk
 name: fdisk
-aliases: [format disk]
+aliases:
+  - format disk
 category: file-systems
-tags: [linux, storage, disk, partitions, formatting, filesystem]
+tags:
+  - linux
+  - storage
+  - disk
+  - partitions
+  - formatting
+  - filesystem
 difficulty: intermediate
-supportedOS: [linux, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'create disk partition'
-  - 'format a drive linux'
-  - 'manage partition table'
-  - 'change partition type'
-  - 'list physical drives'
-relatedCommands: [parted, mkfs, lsblk, mount, blkid, df, fsck]
-alternatives: [parted]
+  - create disk partition
+  - format a drive linux
+  - manage partition table
+  - change partition type
+  - list physical drives
+relatedCommands:
+  - parted
+  - mkfs
+  - lsblk
+  - mount
+  - blkid
+  - df
+  - fsck
+alternatives:
+  - parted
 status: draft
 ---
 

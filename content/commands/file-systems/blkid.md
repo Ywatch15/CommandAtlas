@@ -3,18 +3,35 @@ slug: blkid
 name: blkid
 aliases: []
 category: file-systems
-tags: [linux, storage, filesystem, devices, uuid, metadata]
+tags:
+  - linux
+  - storage
+  - filesystem
+  - devices
+  - uuid
+  - metadata
 difficulty: beginner
-supportedOS: [linux, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'find UUID of disk'
-  - 'list block device attributes'
-  - 'get disk filesystem type'
-  - 'locate volume by label'
-  - 'print partition uuid'
-relatedCommands: [lsblk, fdisk, mount, mkfs, parted]
-alternatives: [lsblk]
+  - find UUID of disk
+  - list block device attributes
+  - get disk filesystem type
+  - locate volume by label
+  - print partition uuid
+relatedCommands:
+  - lsblk
+  - fdisk
+  - mount
+  - mkfs
+  - parted
+alternatives:
+  - lsblk
 status: draft
 ---
 

@@ -3,17 +3,32 @@ slug: aws-logs-tail
 name: aws logs tail
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, cloudwatch, logs, tail, monitoring]
+tags:
+  - aws
+  - cloud
+  - cloudwatch
+  - logs
+  - tail
+  - monitoring
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'tail cloudwatch logs from terminal'
-  - 'stream aws log group live'
-  - 'view recent cloudwatch log events'
-  - 'follow aws logs in real time'
-  - 'read cloudwatch log stream cli'
-relatedCommands: [aws-configure]
+  - tail cloudwatch logs from terminal
+  - stream aws log group live
+  - view recent cloudwatch log events
+  - follow aws logs in real time
+  - read cloudwatch log stream cli
+relatedCommands:
+  - aws-configure
 alternatives: []
 status: draft
 ---

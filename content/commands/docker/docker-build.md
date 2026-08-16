@@ -1,30 +1,44 @@
 ---
 slug: docker-build
 name: docker build
-aliases: [docker image build]
+aliases:
+  - docker image build
 category: cloud-cli
-tags: [docker, build, images, dockerfile, ci-cd, containers]
+tags:
+  - docker
+  - build
+  - images
+  - dockerfile
+  - ci-cd
+  - containers
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'build a docker image'
-  - 'create image from dockerfile'
-  - 'compile container image'
-  - 'build docker container context'
-  - 'generate docker image from source'
+  - build a docker image
+  - create image from dockerfile
+  - compile container image
+  - build docker container context
+  - generate docker image from source
 relatedCommands:
-  [
-    docker-push,
-    docker-images,
-    docker-run,
-    docker-tag,
-    docker-commit,
-    docker-compose,
-    docker-cp,
-    docker-rmi,
-  ]
-alternatives: [docker-commit]
+  - docker-push
+  - docker-images
+  - docker-run
+  - docker-tag
+  - docker-commit
+  - docker-compose
+  - docker-cp
+  - docker-rmi
+alternatives:
+  - docker-commit
 status: draft
 ---
 

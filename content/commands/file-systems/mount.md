@@ -3,17 +3,36 @@ slug: mount
 name: mount
 aliases: []
 category: file-systems
-tags: [linux, storage, filesystem, attach, fstab, hierarchy]
+tags:
+  - linux
+  - storage
+  - filesystem
+  - attach
+  - fstab
+  - hierarchy
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'attach a filesystem linux'
-  - 'mount a disk drive'
-  - 'bind mount directory'
-  - 'remount filesystem read write'
-  - 'mount all fstab entries'
-relatedCommands: [umount, lsblk, fdisk, mkfs, blkid, df, fsck]
+  - attach a filesystem linux
+  - mount a disk drive
+  - bind mount directory
+  - remount filesystem read write
+  - mount all fstab entries
+relatedCommands:
+  - umount
+  - lsblk
+  - fdisk
+  - mkfs
+  - blkid
+  - df
+  - fsck
 alternatives: []
 status: draft
 ---

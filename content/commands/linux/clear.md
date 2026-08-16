@@ -30,7 +30,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `clear` is a standard Unix command-line utility used to clear the visible terminal screen and push the command prompt to the top of the display. Depending on the active flags and the terminal emulator's capabilities, it can also permanently wipe the terminal's scrollback buffer.

@@ -1,20 +1,42 @@
 ---
 slug: ls
 name: ls
-aliases: [dir, vdir]
+aliases:
+  - dir
+  - vdir
 category: file-systems
-tags: [linux, file-system, directory, list, coreutils, metadata]
+tags:
+  - linux
+  - file-system
+  - directory
+  - list
+  - coreutils
+  - metadata
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list directory contents'
-  - 'show hidden files linux'
-  - 'view file permissions and ownership'
-  - 'sort files by size or date'
-  - 'list files with human readable sizes'
-relatedCommands: [cd, pwd, tree, find, du, mkdir]
-alternatives: [tree, find]
+  - list directory contents
+  - show hidden files linux
+  - view file permissions and ownership
+  - sort files by size or date
+  - list files with human readable sizes
+relatedCommands:
+  - cd
+  - pwd
+  - tree
+  - find
+  - du
+  - mkdir
+alternatives:
+  - tree
+  - find
 status: draft
 ---
 

@@ -3,18 +3,35 @@ slug: crontab
 name: crontab
 aliases: []
 category: cron
-tags: [linux, scheduling, automation, jobs, maintenance, time]
+tags:
+  - linux
+  - scheduling
+  - automation
+  - jobs
+  - maintenance
+  - time
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'edit the cron table file'
-  - 'list contents of cron table'
-  - 'remove current user cron table'
-  - 'schedule a recurring linux job'
-  - 'automate scripts with crontab'
-relatedCommands: [cron, anacron, at]
-alternatives: [anacron, at]
+  - edit the cron table file
+  - list contents of cron table
+  - remove current user cron table
+  - schedule a recurring linux job
+  - automate scripts with crontab
+relatedCommands:
+  - cron
+  - anacron
+  - at
+alternatives:
+  - anacron
+  - at
 status: published
 ---
 

@@ -1,20 +1,41 @@
 ---
 slug: git-blame
 name: git blame
-aliases: [git annotate]
+aliases:
+  - git annotate
 category: git
-tags: [version-control, history, inspection, authorship, scm]
+tags:
+  - version-control
+  - history
+  - inspection
+  - authorship
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'who wrote this line of code'
-  - 'check line authorship git'
-  - 'find commit that changed line'
-  - 'inspect file history line by line'
-  - 'trace code origins'
-relatedCommands: [git-bisect, git-diff, git-log, git-shortlog, git-show]
-alternatives: [git-bisect, git-log]
+  - who wrote this line of code
+  - check line authorship git
+  - find commit that changed line
+  - inspect file history line by line
+  - trace code origins
+relatedCommands:
+  - git-bisect
+  - git-diff
+  - git-log
+  - git-shortlog
+  - git-show
+alternatives:
+  - git-bisect
+  - git-log
 status: draft
 ---
 

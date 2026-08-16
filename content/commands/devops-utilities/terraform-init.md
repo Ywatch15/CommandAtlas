@@ -3,17 +3,33 @@ slug: terraform-init
 name: terraform init
 aliases: []
 category: devops-utilities
-tags: [terraform, infrastructure-as-code, iac, initialization, providers, backend]
+tags:
+  - terraform
+  - infrastructure-as-code
+  - iac
+  - initialization
+  - providers
+  - backend
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'initialize terraform working directory'
-  - 'download terraform providers'
-  - 'setup terraform backend'
-  - 'install terraform modules'
-  - 'prepare terraform project'
-relatedCommands: [terraform-plan, terraform-apply]
+  - initialize terraform working directory
+  - download terraform providers
+  - setup terraform backend
+  - install terraform modules
+  - prepare terraform project
+relatedCommands:
+  - terraform-plan
+  - terraform-apply
 alternatives: []
 status: published
 ---

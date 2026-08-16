@@ -1,20 +1,43 @@
 ---
 slug: docker-exec
 name: docker exec
-aliases: [docker container exec]
+aliases:
+  - docker container exec
 category: cloud-cli
-tags: [docker, execution, shell, debugging, containers, processes]
+tags:
+  - docker
+  - execution
+  - shell
+  - debugging
+  - containers
+  - processes
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'run a command inside a running container'
-  - 'open shell in docker container'
-  - 'bash into active docker container'
-  - 'execute script inside container'
-  - 'access running container terminal'
-relatedCommands: [docker-run, docker-attach, docker-ps, docker-logs, docker-cp]
-alternatives: [docker-attach, docker-cp]
+  - run a command inside a running container
+  - open shell in docker container
+  - bash into active docker container
+  - execute script inside container
+  - access running container terminal
+relatedCommands:
+  - docker-run
+  - docker-attach
+  - docker-ps
+  - docker-logs
+  - docker-cp
+  - kubectl-exec
+alternatives:
+  - docker-attach
+  - docker-cp
 status: draft
 ---
 

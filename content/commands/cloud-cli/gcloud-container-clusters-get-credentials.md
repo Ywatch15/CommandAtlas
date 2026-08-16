@@ -3,17 +3,33 @@ slug: gcloud-container-clusters-get-credentials
 name: gcloud container clusters get-credentials
 aliases: []
 category: cloud-cli
-tags: [gcp, gke, kubernetes, kubeconfig, authentication, containers, gcloud]
+tags:
+  - gcp
+  - gke
+  - kubernetes
+  - kubeconfig
+  - authentication
+  - containers
+  - gcloud
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'connect to gke cluster'
-  - 'generate kubeconfig for google kubernetes engine'
-  - 'setup kubectl for gcp'
-  - 'authenticate kubectl to gke'
-  - 'add gke cluster to local kubeconfig'
-relatedCommands: [gcloud-auth-login]
+  - connect to gke cluster
+  - generate kubeconfig for google kubernetes engine
+  - setup kubectl for gcp
+  - authenticate kubectl to gke
+  - add gke cluster to local kubeconfig
+relatedCommands:
+  - gcloud-auth-login
 alternatives: []
 status: draft
 ---

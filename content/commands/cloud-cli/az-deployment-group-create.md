@@ -3,17 +3,34 @@ slug: az-deployment-group-create
 name: az deployment group create
 aliases: []
 category: cloud-cli
-tags: [azure, arm, bicep, iac, infrastructure-as-code, deployment, automation]
+tags:
+  - azure
+  - arm
+  - bicep
+  - iac
+  - infrastructure-as-code
+  - deployment
+  - automation
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'deploy bicep file to azure'
-  - 'run arm template deployment'
-  - 'provision azure infrastructure as code'
-  - 'deploy azure resources to resource group'
-  - 'execute what-if deployment azure'
-relatedCommands: [az-group-create]
+  - deploy bicep file to azure
+  - run arm template deployment
+  - provision azure infrastructure as code
+  - deploy azure resources to resource group
+  - execute what-if deployment azure
+relatedCommands:
+  - az-group-create
 alternatives: []
 status: draft
 ---

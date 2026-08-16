@@ -3,18 +3,34 @@ slug: helm-install
 name: helm install
 aliases: []
 category: devops-utilities
-tags: [helm, kubernetes, package-manager, deployment, charts, containers]
+tags:
+  - helm
+  - kubernetes
+  - package-manager
+  - deployment
+  - charts
+  - containers
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'deploy helm chart kubernetes'
-  - 'install helm release'
-  - 'deploy application via helm'
-  - 'install chart cluster'
-  - 'create new helm release'
-relatedCommands: []
-alternatives: []
+  - deploy helm chart kubernetes
+  - install helm release
+  - deploy application via helm
+  - install chart cluster
+  - create new helm release
+relatedCommands:
+  - kubectl-apply
+alternatives:
+  - kubectl-apply
 status: published
 ---
 

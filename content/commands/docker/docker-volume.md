@@ -3,17 +3,36 @@ slug: docker-volume
 name: docker volume
 aliases: []
 category: cloud-cli
-tags: [docker, storage, volumes, persistence, data-management, devops]
+tags:
+  - docker
+  - storage
+  - volumes
+  - persistence
+  - data-management
+  - devops
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'create docker volume'
-  - 'list docker volumes'
-  - 'manage persistent container data'
-  - 'inspect docker volume path'
-  - 'delete unused docker volumes'
-relatedCommands: [docker-run, docker-inspect, docker-system-prune, docker-compose]
+  - create docker volume
+  - list docker volumes
+  - manage persistent container data
+  - inspect docker volume path
+  - delete unused docker volumes
+relatedCommands:
+  - docker-run
+  - docker-inspect
+  - docker-system-prune
+  - docker-compose
 alternatives: []
 status: draft
 ---

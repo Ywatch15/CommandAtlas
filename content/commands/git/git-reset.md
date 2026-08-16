@@ -3,19 +3,42 @@ slug: git-reset
 name: git reset
 aliases: []
 category: git
-tags: [version-control, repository, staging, index, reset]
+tags:
+  - version-control
+  - repository
+  - staging
+  - index
+  - reset
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'reset git commit'
-  - 'unstage files'
-  - 'undo last git commit'
-  - 'reset working directory'
-  - 'move head pointer'
+  - reset git commit
+  - unstage files
+  - undo last git commit
+  - reset working directory
+  - move head pointer
 relatedCommands:
-  [git-bisect, git-checkout, git-clean, git-commit, git-reflog, git-restore, git-revert]
-alternatives: [git-rebase, git-restore, git-revert, git-rm]
+  - git-bisect
+  - git-checkout
+  - git-clean
+  - git-commit
+  - git-reflog
+  - git-restore
+  - git-revert
+alternatives:
+  - git-rebase
+  - git-restore
+  - git-revert
+  - git-rm
 status: draft
 ---
 

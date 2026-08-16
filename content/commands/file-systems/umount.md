@@ -1,19 +1,34 @@
 ---
 slug: umount
 name: umount
-aliases: [unmount]
+aliases:
+  - unmount
 category: file-systems
-tags: [linux, storage, filesystem, detach, disk]
+tags:
+  - linux
+  - storage
+  - filesystem
+  - detach
+  - disk
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'unmount a disk linux'
-  - 'safely eject usb drive'
-  - 'detach network share'
-  - 'force unmount busy directory'
-  - 'unmount filesystem mount point'
-relatedCommands: [mount, lsof, lsblk]
+  - unmount a disk linux
+  - safely eject usb drive
+  - detach network share
+  - force unmount busy directory
+  - unmount filesystem mount point
+relatedCommands:
+  - mount
+  - lsof
+  - lsblk
 alternatives: []
 status: draft
 ---

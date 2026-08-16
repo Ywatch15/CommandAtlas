@@ -3,18 +3,36 @@ slug: aws-iam-get-user
 name: aws iam get-user
 aliases: []
 category: cloud-cli
-tags: [aws, iam, security, identity, cloud, authentication]
+tags:
+  - aws
+  - iam
+  - security
+  - identity
+  - cloud
+  - authentication
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'get current aws user'
-  - 'check aws identity'
-  - 'find iam user arn'
-  - 'get aws user details'
-  - 'who am i aws'
-relatedCommands: [aws-sts-get-caller-identity, aws-configure]
-alternatives: [aws-sts-get-caller-identity]
+  - get current aws user
+  - check aws identity
+  - find iam user arn
+  - get aws user details
+  - who am i aws
+relatedCommands:
+  - aws-sts-get-caller-identity
+  - aws-configure
+alternatives:
+  - aws-sts-get-caller-identity
 status: draft
 ---
 

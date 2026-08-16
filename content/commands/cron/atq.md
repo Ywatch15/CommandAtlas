@@ -1,18 +1,30 @@
 ---
 slug: atq
 name: atq
-aliases: [at -l]
+aliases:
+  - at -l
 category: cron
-tags: [cron, scheduling, queue, jobs, utilities]
+tags:
+  - cron
+  - scheduling
+  - queue
+  - jobs
+  - utilities
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list pending at jobs'
-  - 'view at queue'
-  - 'check scheduled one-time tasks'
-  - 'show pending deferred jobs'
-  - 'audit at queue jobs'
+  - list pending at jobs
+  - view at queue
+  - check scheduled one-time tasks
+  - show pending deferred jobs
+  - audit at queue jobs
 relatedCommands: []
 alternatives: []
 status: published

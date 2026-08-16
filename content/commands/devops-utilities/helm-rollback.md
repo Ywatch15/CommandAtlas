@@ -3,18 +3,33 @@ slug: helm-rollback
 name: helm rollback
 aliases: []
 category: devops-utilities
-tags: [helm, kubernetes, package-manager, rollback, deployment, recovery]
+tags:
+  - helm
+  - kubernetes
+  - package-manager
+  - rollback
+  - deployment
+  - recovery
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'rollback helm release kubernetes'
-  - 'revert helm deployment to previous version'
-  - 'undo failed helm upgrade'
-  - 'restore previous helm revision'
-  - 'rollback release cluster'
-relatedCommands: []
-alternatives: []
+  - rollback helm release kubernetes
+  - revert helm deployment to previous version
+  - undo failed helm upgrade
+  - restore previous helm revision
+  - rollback release cluster
+relatedCommands:
+  - kubectl-rollout
+alternatives:
+  - kubectl-rollout
 status: published
 ---
 

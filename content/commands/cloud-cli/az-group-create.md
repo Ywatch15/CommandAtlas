@@ -3,17 +3,35 @@ slug: az-group-create
 name: az group create
 aliases: []
 category: cloud-cli
-tags: [azure, resource-manager, resource-group, cli, cloud, arm]
+tags:
+  - azure
+  - resource-manager
+  - resource-group
+  - cli
+  - cloud
+  - arm
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'create an azure resource group'
-  - 'make a new resource group in azure'
-  - 'provision azure resource group'
-  - 'initialize arm logical container'
-  - 'create resource group with tags'
-relatedCommands: [az-vm-create, az-deployment-group-create, az-webapp-up]
+  - create an azure resource group
+  - make a new resource group in azure
+  - provision azure resource group
+  - initialize arm logical container
+  - create resource group with tags
+relatedCommands:
+  - az-vm-create
+  - az-deployment-group-create
+  - az-webapp-up
 alternatives: []
 status: draft
 ---

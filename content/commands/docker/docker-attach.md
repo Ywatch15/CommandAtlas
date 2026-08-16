@@ -1,20 +1,41 @@
 ---
 slug: docker-attach
 name: docker attach
-aliases: [docker container attach]
+aliases:
+  - docker container attach
 category: cloud-cli
-tags: [docker, containers, terminal, debugging, processes, streams]
+tags:
+  - docker
+  - containers
+  - terminal
+  - debugging
+  - processes
+  - streams
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'connect terminal to docker container'
-  - 'view live output of running container'
-  - 'attach to docker process'
-  - 'interact with container pid 1'
-  - 'reconnect to detached docker container'
-relatedCommands: [docker-exec, docker-run, docker-logs, docker-start]
-alternatives: [docker-exec, docker-logs]
+  - connect terminal to docker container
+  - view live output of running container
+  - attach to docker process
+  - interact with container pid 1
+  - reconnect to detached docker container
+relatedCommands:
+  - docker-exec
+  - docker-run
+  - docker-logs
+  - docker-start
+alternatives:
+  - docker-exec
+  - docker-logs
 status: draft
 ---
 

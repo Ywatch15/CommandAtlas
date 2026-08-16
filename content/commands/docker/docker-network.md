@@ -3,18 +3,37 @@ slug: docker-network
 name: docker network
 aliases: []
 category: cloud-cli
-tags: [docker, networks, routing, dns, security, devops]
+tags:
+  - docker
+  - networks
+  - routing
+  - dns
+  - security
+  - devops
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'create docker network bridge'
-  - 'list docker networks'
-  - 'connect container to network'
-  - 'inspect docker subnet'
-  - 'remove docker network'
-relatedCommands: [docker-run, docker-inspect, docker-compose]
-alternatives: [docker-compose]
+  - create docker network bridge
+  - list docker networks
+  - connect container to network
+  - inspect docker subnet
+  - remove docker network
+relatedCommands:
+  - docker-run
+  - docker-inspect
+  - docker-compose
+alternatives:
+  - docker-compose
 status: draft
 ---
 

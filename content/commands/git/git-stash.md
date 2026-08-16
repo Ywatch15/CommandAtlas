@@ -3,18 +3,36 @@ slug: git-stash
 name: git stash
 aliases: []
 category: git
-tags: [version-control, workspace-management, context-switching, uncommitted-changes]
+tags:
+  - version-control
+  - workspace-management
+  - context-switching
+  - uncommitted-changes
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'save uncommitted changes temporarily'
-  - 'shelve working directory'
-  - 'switch branches with modified files'
-  - 'hide local changes in git'
-  - 'reapply saved git stash'
-relatedCommands: [git-checkout, git-commit, git-switch]
-alternatives: [git-clean, git-commit]
+  - save uncommitted changes temporarily
+  - shelve working directory
+  - switch branches with modified files
+  - hide local changes in git
+  - reapply saved git stash
+relatedCommands:
+  - git-checkout
+  - git-commit
+  - git-switch
+alternatives:
+  - git-clean
+  - git-commit
 status: draft
 ---
 

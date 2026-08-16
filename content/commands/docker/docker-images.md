@@ -1,20 +1,41 @@
 ---
 slug: docker-images
 name: docker images
-aliases: [docker image ls, docker image list]
+aliases:
+  - docker image ls
+  - docker image list
 category: cloud-cli
-tags: [docker, images, inspection, storage, local-registry]
+tags:
+  - docker
+  - images
+  - inspection
+  - storage
+  - local-registry
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'list local docker images'
-  - 'check downloaded docker images'
-  - 'find docker image size'
-  - 'list dangling images'
-  - 'view cached docker images'
+  - list local docker images
+  - check downloaded docker images
+  - find docker image size
+  - list dangling images
+  - view cached docker images
 relatedCommands:
-  [docker-rmi, docker-build, docker-pull, docker-run, docker-load, docker-save-load, docker-tag]
+  - docker-rmi
+  - docker-build
+  - docker-pull
+  - docker-run
+  - docker-load
+  - docker-save-load
+  - docker-tag
 alternatives: []
 status: draft
 ---

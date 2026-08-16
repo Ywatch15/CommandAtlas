@@ -1,20 +1,40 @@
 ---
 slug: kmod
 name: kmod
-aliases: [modprobe, lsmod, rmmod, insmod, modinfo]
+aliases:
+  - modprobe
+  - lsmod
+  - rmmod
+  - insmod
+  - modinfo
 category: kernel
-tags: [linux, kernel, modules, drivers, hardware]
+tags:
+  - linux
+  - kernel
+  - modules
+  - drivers
+  - hardware
 difficulty: intermediate
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'manage linux kernel modules'
-  - 'list loaded kernel modules'
-  - 'interact with libkmod'
-  - 'check module static nodes'
-  - 'load driver into kernel'
-relatedCommands: [depmod, sysctl, dmesg, modprobe]
-alternatives: [insmod, rmmod]
+  - manage linux kernel modules
+  - list loaded kernel modules
+  - interact with libkmod
+  - check module static nodes
+  - load driver into kernel
+relatedCommands:
+  - depmod
+  - sysctl
+  - dmesg
+  - modprobe
+alternatives:
+  - insmod
+  - rmmod
 status: draft
 ---
 

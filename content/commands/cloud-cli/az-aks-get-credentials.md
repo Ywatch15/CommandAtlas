@@ -3,17 +3,33 @@ slug: az-aks-get-credentials
 name: az aks get-credentials
 aliases: []
 category: cloud-cli
-tags: [azure, aks, kubernetes, kubeconfig, authentication, containers, arm]
+tags:
+  - azure
+  - aks
+  - kubernetes
+  - kubeconfig
+  - authentication
+  - containers
+  - arm
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'connect to aks cluster'
-  - 'generate kubeconfig for azure aks'
-  - 'setup kubectl for aks'
-  - 'authenticate kubectl to azure'
-  - 'add aks cluster to local kubeconfig'
-relatedCommands: [az-login]
+  - connect to aks cluster
+  - generate kubeconfig for azure aks
+  - setup kubectl for aks
+  - authenticate kubectl to azure
+  - add aks cluster to local kubeconfig
+relatedCommands:
+  - az-login
 alternatives: []
 status: draft
 ---

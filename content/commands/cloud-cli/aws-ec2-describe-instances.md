@@ -3,17 +3,34 @@ slug: aws-ec2-describe-instances
 name: aws ec2 describe-instances
 aliases: []
 category: cloud-cli
-tags: [aws, cloud, ec2, compute, instances, listing]
+tags:
+  - aws
+  - cloud
+  - ec2
+  - compute
+  - instances
+  - listing
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'list aws ec2 instances'
-  - 'describe ec2 instances'
-  - 'check running ec2 servers'
-  - 'find ec2 instance id'
-  - 'query ec2 compute status'
-relatedCommands: [aws-configure, aws-sts-get-caller-identity, aws-ec2-run-instances]
+  - list aws ec2 instances
+  - describe ec2 instances
+  - check running ec2 servers
+  - find ec2 instance id
+  - query ec2 compute status
+relatedCommands:
+  - aws-configure
+  - aws-sts-get-caller-identity
+  - aws-ec2-run-instances
 alternatives: []
 status: draft
 ---

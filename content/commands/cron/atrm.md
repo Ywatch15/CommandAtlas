@@ -1,18 +1,30 @@
 ---
 slug: atrm
 name: atrm
-aliases: [at -d]
+aliases:
+  - at -d
 category: cron
-tags: [cron, scheduling, queue, remove, jobs]
+tags:
+  - cron
+  - scheduling
+  - queue
+  - remove
+  - jobs
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'delete scheduled at job'
-  - 'remove job from at queue'
-  - 'cancel pending deferred task'
-  - 'delete at queue entry'
-  - 'cancel at job by id'
+  - delete scheduled at job
+  - remove job from at queue
+  - cancel pending deferred task
+  - delete at queue entry
+  - cancel at job by id
 relatedCommands: []
 alternatives: []
 status: published

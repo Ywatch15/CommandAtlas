@@ -3,16 +3,30 @@ slug: gcloud-config-set
 name: gcloud config set
 aliases: []
 category: cloud-cli
-tags: [gcp, configuration, environments, cli, properties, gcloud]
+tags:
+  - gcp
+  - configuration
+  - environments
+  - cli
+  - properties
+  - gcloud
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'set default gcp project'
-  - 'change gcloud region'
-  - 'configure default compute zone'
-  - 'update gcloud settings'
-  - 'set active gcloud account'
+  - set default gcp project
+  - change gcloud region
+  - configure default compute zone
+  - update gcloud settings
+  - set active gcloud account
 relatedCommands: []
 alternatives: []
 status: draft

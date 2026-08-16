@@ -3,17 +3,32 @@ slug: vagrant
 name: vagrant
 aliases: []
 category: devops-utilities
-tags: [virtual-machines, local-development, provisioning, environments, hashicorp]
+tags:
+  - virtual-machines
+  - local-development
+  - provisioning
+  - environments
+  - hashicorp
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'start local virtual machine'
-  - 'manage vagrant environment'
-  - 'ssh into vagrant box'
-  - 'provision local dev environment'
-  - 'stop running vagrant vm'
-relatedCommands: [packer, ansible]
+  - start local virtual machine
+  - manage vagrant environment
+  - ssh into vagrant box
+  - provision local dev environment
+  - stop running vagrant vm
+relatedCommands:
+  - packer
+  - ansible
 alternatives: []
 status: published
 ---

@@ -20,14 +20,14 @@ supportedShells:
 intentPhrases:
   - extract column from text
   - process structured text file
-relatedCommands: [jq]
+relatedCommands:
+  - jq
 alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `awk` is a domain-specific programming language designed for text processing, pattern scanning, and data extraction from structured records.

@@ -3,18 +3,37 @@ slug: docker-cp
 name: docker cp
 aliases: []
 category: cloud-cli
-tags: [docker, containers, files, copy, extraction, filesystem]
+tags:
+  - docker
+  - containers
+  - files
+  - copy
+  - extraction
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'copy file from docker container'
-  - 'copy folder to docker container'
-  - 'extract logs from container'
-  - 'move files to local host from docker'
-  - 'docker copy command'
-relatedCommands: [docker-run, docker-exec, docker-commit, docker-build]
-alternatives: [docker-exec]
+  - copy file from docker container
+  - copy folder to docker container
+  - extract logs from container
+  - move files to local host from docker
+  - docker copy command
+relatedCommands:
+  - docker-run
+  - docker-exec
+  - docker-commit
+  - docker-build
+alternatives:
+  - docker-exec
 status: draft
 ---
 

@@ -3,17 +3,31 @@ slug: modinfo
 name: modinfo
 aliases: []
 category: kernel
-tags: [linux, kernel, modules, drivers, sysadmin, metadata]
+tags:
+  - linux
+  - kernel
+  - modules
+  - drivers
+  - sysadmin
+  - metadata
 difficulty: intermediate
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'show kernel module information'
-  - 'find module parameters linux'
-  - 'check driver version'
-  - 'inspect .ko file metadata'
-  - 'get author and license of module'
-relatedCommands: [lsmod, modprobe, insmod, rmmod]
+  - show kernel module information
+  - find module parameters linux
+  - check driver version
+  - inspect .ko file metadata
+  - get author and license of module
+relatedCommands:
+  - lsmod
+  - modprobe
+  - insmod
+  - rmmod
 alternatives: []
 status: draft
 ---

@@ -1,19 +1,39 @@
 ---
 slug: docker-push
 name: docker push
-aliases: [docker image push]
+aliases:
+  - docker image push
 category: cloud-cli
-tags: [docker, images, registry, upload, distribution, ci-cd]
+tags:
+  - docker
+  - images
+  - registry
+  - upload
+  - distribution
+  - ci-cd
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'upload docker image'
-  - 'push local image to registry'
-  - 'publish container image'
-  - 'push to docker hub'
-  - 'distribute docker image to ecr'
-relatedCommands: [docker-pull, docker-build, docker-tag, docker-login, docker-save-load]
+  - upload docker image
+  - push local image to registry
+  - publish container image
+  - push to docker hub
+  - distribute docker image to ecr
+relatedCommands:
+  - docker-pull
+  - docker-build
+  - docker-tag
+  - docker-login
+  - docker-save-load
 alternatives: []
 status: draft
 ---

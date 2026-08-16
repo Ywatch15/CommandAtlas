@@ -1,19 +1,35 @@
 ---
 slug: fg
 name: fg
-aliases: [foreground]
+aliases:
+  - foreground
 category: bash
-tags: [shell, built-in, job-control, processes, foreground]
+tags:
+  - shell
+  - built-in
+  - job-control
+  - processes
+  - foreground
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'bring job to foreground'
-  - 'resume stopped job'
-  - 'return to suspended process'
-  - 'interact with background job'
-relatedCommands: [bg, jobs]
-alternatives: [screen, tmux]
+  - bring job to foreground
+  - resume stopped job
+  - return to suspended process
+  - interact with background job
+relatedCommands:
+  - bg
+  - jobs
+alternatives:
+  - screen
+  - tmux
 status: draft
 ---
 

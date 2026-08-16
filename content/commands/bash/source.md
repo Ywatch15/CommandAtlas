@@ -1,20 +1,35 @@
 ---
 slug: source
 name: source
-aliases: [.]
+aliases:
+  - .
 category: bash
-tags: [shell, built-in, scripting, execution, environment]
+tags:
+  - shell
+  - built-in
+  - scripting
+  - execution
+  - environment
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run script in current shell'
-  - 'reload bashrc'
-  - 'load environment variables'
-  - 'execute file without subshell'
-  - 'import shell functions'
-relatedCommands: [export, eval]
-alternatives: [eval]
+  - run script in current shell
+  - reload bashrc
+  - load environment variables
+  - execute file without subshell
+  - import shell functions
+relatedCommands:
+  - export
+  - eval
+alternatives:
+  - eval
 status: draft
 ---
 

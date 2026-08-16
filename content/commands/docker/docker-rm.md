@@ -1,19 +1,40 @@
 ---
 slug: docker-rm
 name: docker rm
-aliases: [docker container rm]
+aliases:
+  - docker container rm
 category: cloud-cli
-tags: [docker, containers, cleanup, garbage-collection, lifecycle, devops]
+tags:
+  - docker
+  - containers
+  - cleanup
+  - garbage-collection
+  - lifecycle
+  - devops
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'delete docker container'
-  - 'remove stopped container'
-  - 'force kill and delete container'
-  - 'clean up old docker containers'
-  - 'destroy container and volumes'
-relatedCommands: [docker-ps, docker-stop, docker-rmi, docker-system-prune, docker-run]
+  - delete docker container
+  - remove stopped container
+  - force kill and delete container
+  - clean up old docker containers
+  - destroy container and volumes
+relatedCommands:
+  - docker-ps
+  - docker-stop
+  - docker-rmi
+  - docker-system-prune
+  - docker-run
 alternatives: []
 status: draft
 ---

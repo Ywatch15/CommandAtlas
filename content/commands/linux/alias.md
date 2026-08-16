@@ -23,14 +23,14 @@ intentPhrases:
   - list shell aliases
   - override default command behavior
   - make shortcut for long command
-relatedCommands: [type]
+relatedCommands:
+  - type
 alternatives: []
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `alias` is a shell builtin command that instructs the command-line interpreter to replace one string with another before executing it. It is used to create custom, memorable shortcuts for long, complex, or frequently used command sequences.

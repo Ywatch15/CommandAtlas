@@ -3,18 +3,40 @@ slug: find
 name: find
 aliases: []
 category: file-systems
-tags: [linux, file-management, search, filesystem, coreutils]
+tags:
+  - linux
+  - file-management
+  - search
+  - filesystem
+  - coreutils
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'search for files in directory'
-  - 'find files modified recently'
-  - 'locate large files'
-  - 'execute command on found files'
-  - 'search files by extension'
-relatedCommands: [locate, grep, du, ls, mv, rm, rmdir, tree]
-alternatives: [locate, tree, ls]
+  - search for files in directory
+  - find files modified recently
+  - locate large files
+  - execute command on found files
+  - search files by extension
+relatedCommands:
+  - locate
+  - grep
+  - du
+  - ls
+  - mv
+  - rm
+  - rmdir
+  - tree
+alternatives:
+  - locate
+  - tree
+  - ls
 status: draft
 ---
 

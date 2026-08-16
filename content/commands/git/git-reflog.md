@@ -3,18 +3,36 @@ slug: git-reflog
 name: git reflog
 aliases: []
 category: git
-tags: [version-control, history, recovery, reference-logs, scm]
+tags:
+  - version-control
+  - history
+  - recovery
+  - reference-logs
+  - scm
 difficulty: intermediate
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'view git reference logs'
-  - 'recover deleted git commits'
-  - 'undo git reset hard'
-  - 'find lost git commit hash'
-  - 'inspect head movement history'
-relatedCommands: [git-branch, git-checkout, git-log, git-reset]
-alternatives: [git-log]
+  - view git reference logs
+  - recover deleted git commits
+  - undo git reset hard
+  - find lost git commit hash
+  - inspect head movement history
+relatedCommands:
+  - git-branch
+  - git-checkout
+  - git-log
+  - git-reset
+alternatives:
+  - git-log
 status: draft
 ---
 

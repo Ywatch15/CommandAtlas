@@ -3,17 +3,32 @@ slug: gcloud-compute-instances-list
 name: gcloud compute instances list
 aliases: []
 category: cloud-cli
-tags: [gcp, compute, gce, virtual-machines, cloud, gcloud]
+tags:
+  - gcp
+  - compute
+  - gce
+  - virtual-machines
+  - cloud
+  - gcloud
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'list all gcp vms'
-  - 'show compute engine instances'
-  - 'get vm ips in gcp'
-  - 'find virtual machine status google cloud'
-  - 'list vms by label gcloud'
-relatedCommands: [gcloud-compute-ssh]
+  - list all gcp vms
+  - show compute engine instances
+  - get vm ips in gcp
+  - find virtual machine status google cloud
+  - list vms by label gcloud
+relatedCommands:
+  - gcloud-compute-ssh
 alternatives: []
 status: draft
 ---

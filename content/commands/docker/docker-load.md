@@ -1,19 +1,37 @@
 ---
 slug: docker-load
 name: docker load
-aliases: [docker image load]
+aliases:
+  - docker image load
 category: cloud-cli
-tags: [docker, images, import, archive, offline, tar]
+tags:
+  - docker
+  - images
+  - import
+  - archive
+  - offline
+  - tar
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'import docker image from tar file'
-  - 'load docker image from archive'
-  - 'restore docker image locally'
-  - 'import airgapped docker image'
-  - 'extract docker save file'
-relatedCommands: [docker-images, docker-run, docker-save-load]
+  - import docker image from tar file
+  - load docker image from archive
+  - restore docker image locally
+  - import airgapped docker image
+  - extract docker save file
+relatedCommands:
+  - docker-images
+  - docker-run
+  - docker-save-load
 alternatives: []
 status: draft
 ---

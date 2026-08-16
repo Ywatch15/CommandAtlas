@@ -3,17 +3,33 @@ slug: az-vm-create
 name: az vm create
 aliases: []
 category: cloud-cli
-tags: [azure, cloud, vm, compute, virtual-machine, provisioning]
+tags:
+  - azure
+  - cloud
+  - vm
+  - compute
+  - virtual-machine
+  - provisioning
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'create azure virtual machine'
-  - 'provision azure vm cli'
-  - 'deploy azure server'
-  - 'start new azure vm'
-  - 'launch azure virtual machine'
-relatedCommands: [az-account-set, az-group-create]
+  - create azure virtual machine
+  - provision azure vm cli
+  - deploy azure server
+  - start new azure vm
+  - launch azure virtual machine
+relatedCommands:
+  - az-account-set
+  - az-group-create
 alternatives: []
 status: draft
 ---

@@ -1,19 +1,31 @@
 ---
 slug: tune2fs
 name: tune2fs
-aliases: [ext4 tuning]
+aliases:
+  - ext4 tuning
 category: file-systems
-tags: [linux, storage, filesystem, ext4, optimization, system-administration]
+tags:
+  - linux
+  - storage
+  - filesystem
+  - ext4
+  - optimization
+  - system-administration
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'adjust ext4 filesystem parameters'
-  - 'change reserved disk space linux'
-  - 'disable periodic fsck checks'
-  - 'set filesystem volume label'
-  - 'view ext4 superblock data'
-relatedCommands: [fsck]
+  - adjust ext4 filesystem parameters
+  - change reserved disk space linux
+  - disable periodic fsck checks
+  - set filesystem volume label
+  - view ext4 superblock data
+relatedCommands:
+  - fsck
 alternatives: []
 status: draft
 ---

@@ -3,16 +3,27 @@ slug: ansible-playbook
 name: ansible-playbook
 aliases: []
 category: devops-utilities
-tags: [ansible, playbook, automation, configuration-management, yaml]
+tags:
+  - ansible
+  - playbook
+  - automation
+  - configuration-management
+  - yaml
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run an ansible playbook'
-  - 'execute yaml automation tasks'
-  - 'apply configuration management playbook'
-  - 'provision infrastructure playbook'
-  - 'run automated playbook script'
+  - run an ansible playbook
+  - execute yaml automation tasks
+  - apply configuration management playbook
+  - provision infrastructure playbook
+  - run automated playbook script
 relatedCommands: []
 alternatives: []
 status: published

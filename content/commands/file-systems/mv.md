@@ -1,19 +1,37 @@
 ---
 slug: mv
 name: mv
-aliases: [move]
+aliases:
+  - move
 category: file-systems
-tags: [linux, files, coreutils, move, rename, inode]
+tags:
+  - linux
+  - files
+  - coreutils
+  - move
+  - rename
+  - inode
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'move file linux'
-  - 'rename file or directory'
-  - 'move folder to another location'
-  - 'safely overwrite files'
-  - 'batch move files'
-relatedCommands: [cp, rm, find]
+  - move file linux
+  - rename file or directory
+  - move folder to another location
+  - safely overwrite files
+  - batch move files
+relatedCommands:
+  - cp
+  - rm
+  - find
 alternatives: []
 status: draft
 ---

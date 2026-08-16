@@ -20,14 +20,17 @@ supportedShells:
 intentPhrases:
   - connect to remote server
   - secure shell connection
-relatedCommands: [gcloud-compute-ssh]
-alternatives: [gcloud-compute-ssh]
+relatedCommands:
+  - gcloud-compute-ssh
+  - kubectl-exec
+alternatives:
+  - gcloud-compute-ssh
+  - kubectl-exec
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `ssh` (OpenSSH SSH client) connects securely to a remote machine's shell server over an encrypted network protocol.

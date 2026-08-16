@@ -1,20 +1,37 @@
 ---
 slug: cron
 name: cron
-aliases: [crond]
+aliases:
+  - crond
 category: cron
-tags: [linux, daemon, scheduling, background, automation, service]
+tags:
+  - linux
+  - daemon
+  - scheduling
+  - background
+  - automation
+  - service
 difficulty: advanced
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'run cron daemon'
-  - 'start scheduled tasks daemon'
-  - 'manage cron service'
-  - 'troubleshoot cron execution'
-  - 'configure crond'
-relatedCommands: [crontab, anacron, systemctl]
-alternatives: [anacron]
+  - run cron daemon
+  - start scheduled tasks daemon
+  - manage cron service
+  - troubleshoot cron execution
+  - configure crond
+relatedCommands:
+  - crontab
+  - anacron
+  - systemctl
+alternatives:
+  - anacron
 status: published
 ---
 

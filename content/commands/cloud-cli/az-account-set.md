@@ -3,18 +3,37 @@ slug: az-account-set
 name: az account set
 aliases: []
 category: cloud-cli
-tags: [azure, cloud, cli, subscription, account, management]
+tags:
+  - azure
+  - cloud
+  - cli
+  - subscription
+  - account
+  - management
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'set active azure subscription'
-  - 'change current subscription az cli'
-  - 'switch azure account context'
-  - 'select azure subscription id'
-  - 'set default subscription azure'
-relatedCommands: [az-account-list, az-login, az-vm-create, az-webapp-up]
-alternatives: [az-login]
+  - set active azure subscription
+  - change current subscription az cli
+  - switch azure account context
+  - select azure subscription id
+  - set default subscription azure
+relatedCommands:
+  - az-account-list
+  - az-login
+  - az-vm-create
+  - az-webapp-up
+alternatives:
+  - az-login
 status: draft
 ---
 

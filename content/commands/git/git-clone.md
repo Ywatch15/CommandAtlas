@@ -23,8 +23,12 @@ intentPhrases:
   - get source code
   - initialize local repository from remote
   - clone git branch
-relatedCommands: [git-archive, git-remote, git-worktree]
-alternatives: [git-worktree]
+relatedCommands:
+  - git-archive
+  - git-remote
+  - git-worktree
+alternatives:
+  - git-worktree
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

@@ -3,17 +3,34 @@ slug: git-subtree
 name: git subtree
 aliases: []
 category: git
-tags: [version-control, monorepo, submodules, dependencies, merging]
+tags:
+  - version-control
+  - monorepo
+  - submodules
+  - dependencies
+  - merging
 difficulty: advanced
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'merge another repository into a subdirectory'
-  - 'extract directory into new repository'
-  - 'manage vendored dependencies'
-  - 'split folder into its own git repo'
-  - 'push subdirectory changes to upstream repo'
-relatedCommands: [git-fetch, git-merge, git-remote]
+  - merge another repository into a subdirectory
+  - extract directory into new repository
+  - manage vendored dependencies
+  - split folder into its own git repo
+  - push subdirectory changes to upstream repo
+relatedCommands:
+  - git-fetch
+  - git-merge
+  - git-remote
 alternatives: []
 status: draft
 ---

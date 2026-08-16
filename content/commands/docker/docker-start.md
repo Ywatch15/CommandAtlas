@@ -3,18 +3,38 @@ slug: docker-start
 name: docker start
 aliases: []
 category: cloud-cli
-tags: [docker, containers, lifecycle, management, state, devops]
+tags:
+  - docker
+  - containers
+  - lifecycle
+  - management
+  - state
+  - devops
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'start a stopped container'
-  - 'resume docker container execution'
-  - 'boot existing docker app'
-  - 'restart container without new image'
-  - 'attach to starting container'
-relatedCommands: [docker-run, docker-stop, docker-restart, docker-attach]
-alternatives: [docker-run]
+  - start a stopped container
+  - resume docker container execution
+  - boot existing docker app
+  - restart container without new image
+  - attach to starting container
+relatedCommands:
+  - docker-run
+  - docker-stop
+  - docker-restart
+  - docker-attach
+alternatives:
+  - docker-run
 status: draft
 ---
 

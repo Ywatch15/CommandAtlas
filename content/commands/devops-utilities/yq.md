@@ -3,18 +3,37 @@ slug: yq
 name: yq
 aliases: []
 category: devops-utilities
-tags: [yaml, parsing, kubernetes, text-processing, json, devops]
+tags:
+  - yaml
+  - parsing
+  - kubernetes
+  - text-processing
+  - json
+  - devops
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'parse yaml in bash'
-  - 'extract value from yaml file'
-  - 'update kubernetes manifest'
-  - 'convert yaml to json'
-  - 'modify yaml inline'
-relatedCommands: [jq, sed]
-alternatives: [jq, sed]
+  - parse yaml in bash
+  - extract value from yaml file
+  - update kubernetes manifest
+  - convert yaml to json
+  - modify yaml inline
+relatedCommands:
+  - jq
+  - sed
+alternatives:
+  - jq
+  - sed
 status: published
 ---
 

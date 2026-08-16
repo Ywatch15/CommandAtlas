@@ -3,18 +3,35 @@ slug: git-rm
 name: git rm
 aliases: []
 category: git
-tags: [version-control, file-management, index, tracking, deletion]
+tags:
+  - version-control
+  - file-management
+  - index
+  - tracking
+  - deletion
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, sh, powershell, cmd]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - sh
+  - powershell
+  - cmd
 intentPhrases:
-  - 'stop tracking a file in git'
-  - 'remove a file from the repository'
-  - 'delete tracked files'
-  - 'untrack a directory but keep it locally'
-  - 'remove files from git index'
-relatedCommands: [git-add, git-status]
-alternatives: [git-reset]
+  - stop tracking a file in git
+  - remove a file from the repository
+  - delete tracked files
+  - untrack a directory but keep it locally
+  - remove files from git index
+relatedCommands:
+  - git-add
+  - git-status
+alternatives:
+  - git-reset
 status: draft
 ---
 

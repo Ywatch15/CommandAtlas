@@ -1,20 +1,38 @@
 ---
 slug: insmod
 name: insmod
-aliases: [insert module]
+aliases:
+  - insert module
 category: kernel
-tags: [linux, kernel, modules, drivers, sysadmin, c]
+tags:
+  - linux
+  - kernel
+  - modules
+  - drivers
+  - sysadmin
+  - c
 difficulty: advanced
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'insert kernel module directly'
-  - 'load .ko file linux'
-  - 'load driver without modprobe'
-  - 'insert module from path'
-  - 'test newly compiled kernel module'
-relatedCommands: [modprobe, rmmod, lsmod, modinfo, depmod]
-alternatives: [modprobe, kmod]
+  - insert kernel module directly
+  - load .ko file linux
+  - load driver without modprobe
+  - insert module from path
+  - test newly compiled kernel module
+relatedCommands:
+  - modprobe
+  - rmmod
+  - lsmod
+  - modinfo
+  - depmod
+alternatives:
+  - modprobe
+  - kmod
 status: draft
 ---
 

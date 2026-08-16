@@ -27,7 +27,6 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
-
 ## What is it?
 
 `test` evaluates conditional expressions and returns exit status `0` (true) or `1` (false). It is also invoked via the `[` bracket syntax.
