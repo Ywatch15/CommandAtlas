@@ -2,7 +2,7 @@
 slug: docker-system-prune
 name: docker system prune
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - cleanup

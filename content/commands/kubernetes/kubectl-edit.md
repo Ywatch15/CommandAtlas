@@ -37,6 +37,7 @@ alternatives:
   - kubectl-annotate
 status: draft
 ---
+
 ## What is it?
 
 `kubectl edit` is an imperative configuration tool that allows administrators to modify the state of a live Kubernetes resource directly from the terminal. It seamlessly fetches the current JSON representation of an object from the API server, converts it to human-readable YAML, and opens it in the user's default text editor. Upon saving and closing the editor, it automatically computes the differential patch and applies the updates back to the cluster.

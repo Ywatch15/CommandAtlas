@@ -38,6 +38,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl logs` is an essential diagnostic utility that retrieves and prints the standard output (`stdout`) and standard error (`stderr`) streams from a container running inside a Kubernetes Pod. It provides immediate observability into application execution, error traces, and health check output without requiring SSH access to the underlying worker node.
@@ -188,4 +189,3 @@ The Kubelet interacts with the underlying Container Runtime Interface (CRI) (suc
 
 - [Kubernetes Documentation - Logging Architecture](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 - [Kubectl Reference - logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs)
-  

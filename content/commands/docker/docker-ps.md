@@ -3,7 +3,7 @@ slug: docker-ps
 name: docker ps
 aliases:
   - docker container ls
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

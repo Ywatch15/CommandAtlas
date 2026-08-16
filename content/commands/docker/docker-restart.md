@@ -2,7 +2,7 @@
 slug: docker-restart
 name: docker restart
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

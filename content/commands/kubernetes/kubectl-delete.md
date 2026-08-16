@@ -32,6 +32,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl delete` is the primary command-line utility used to destroy Kubernetes resources. It instructs the Kubernetes API server to remove specified objects—such as Pods, Services, Deployments, or custom resources—identified either by their imperative name, a collection of labels, or declaratively via a YAML/JSON file.

@@ -2,7 +2,7 @@
 slug: docker-login
 name: docker login
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - authentication

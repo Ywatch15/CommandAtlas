@@ -3,7 +3,7 @@ slug: docker-rmi
 name: docker rmi
 aliases:
   - docker image rm
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

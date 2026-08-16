@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `su` (substitute user or switch user) is a command-line utility that allows a user to temporarily assume the identity, privileges, and group memberships of another system user. It accomplishes this by authenticating the target user's password and spawning a new shell process under their User ID (UID).

@@ -67,7 +67,7 @@
       "slug": "cd",
       "name": "cd",
       "category": "bash",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "cd",
         "name": "cd",
@@ -84,7 +84,7 @@
           "move to path",
           "switch working directory"
         ],
-        "relatedCommands": ["pwd"],
+        "relatedCommands": ["pwd", "ls", "mkdir"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -219,7 +219,7 @@
       "slug": "pwd",
       "name": "pwd",
       "category": "bash",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "pwd",
         "name": "pwd",
@@ -236,7 +236,7 @@
           "get current path",
           "display absolute path"
         ],
-        "relatedCommands": ["cd"],
+        "relatedCommands": ["cd", "ls", "tree"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

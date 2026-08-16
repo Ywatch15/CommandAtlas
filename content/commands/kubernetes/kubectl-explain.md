@@ -34,6 +34,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl explain` is a built-in documentation and introspection utility for the Kubernetes CLI. It queries the active cluster's API server to retrieve the exact OpenAPI schema definitions for any supported Kubernetes resource. It outputs a formatted, offline-accessible manual detailing the precise hierarchy, data types, and descriptions of every field available for creating or modifying YAML/JSON manifests.

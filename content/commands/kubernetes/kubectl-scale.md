@@ -38,6 +38,7 @@ alternatives:
   - kubectl-apply
 status: draft
 ---
+
 ## What is it?
 
 `kubectl scale` is an imperative command-line utility used to instantly change the desired number of replicas for a supported Kubernetes workload resource (Deployments, ReplicaSets, ReplicationControllers, or StatefulSets). It directly modifies the `.spec.replicas` field of the target object, instructing the controller to immediately create or terminate pods to meet the new capacity demand.
@@ -186,4 +187,3 @@ If the `--current-replicas` precondition is specified, `kubectl` fetches the sca
 
 - [Kubernetes Documentation - Scaling a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment)
 - [Kubectl Reference - scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale)
-  

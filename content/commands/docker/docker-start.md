@@ -2,7 +2,7 @@
 slug: docker-start
 name: docker start
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

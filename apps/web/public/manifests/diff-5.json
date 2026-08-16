@@ -1,9 +1,26 @@
 {
   "fromVersion": 4,
   "toVersion": 5,
-  "generatedAt": "2026-08-10T07:52:50.253Z",
-  "added": [],
-  "modified": ["alias", "export", "screen", "tmux", "ps"],
+  "generatedAt": "2026-08-16T15:25:25.535Z",
+  "added": [
+    "depmod",
+    "dracut",
+    "insmod",
+    "kmod",
+    "lsmod",
+    "mkinitcpio",
+    "modinfo",
+    "modprobe",
+    "rmmod"
+  ],
+  "modified": ["cd", "pwd", "docker-attach", "df", "grep", "ps"],
   "removed": [],
-  "affectedPacks": ["linux", "processes"]
+  "affectedPacks": [
+    "bash",
+    "cloud-cli",
+    "file-systems",
+    "kernel",
+    "linux",
+    "processes"
+  ]
 }

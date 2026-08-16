@@ -3,7 +3,7 @@ slug: docker-build
 name: docker build
 aliases:
   - docker image build
-category: cloud-cli
+category: docker
 tags:
   - docker
   - build

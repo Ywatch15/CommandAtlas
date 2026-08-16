@@ -3,7 +3,7 @@ slug: docker-exec
 name: docker exec
 aliases:
   - docker container exec
-category: cloud-cli
+category: docker
 tags:
   - docker
   - execution

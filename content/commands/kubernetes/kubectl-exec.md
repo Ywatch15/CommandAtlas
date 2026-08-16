@@ -37,6 +37,7 @@ alternatives:
   - ssh
 status: draft
 ---
+
 ## What is it?
 
 `kubectl exec` is a diagnostic and operational command that allows a user to execute an arbitrary command inside a running container within a Kubernetes Pod. By bridging standard input, output, and error streams between the local terminal and the remote container runtime, it effectively simulates an SSH connection, granting administrators interactive shell access or the ability to run headless diagnostic scripts deep within the cluster's isolated networking namespaces.

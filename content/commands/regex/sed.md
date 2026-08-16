@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `sed` (stream editor) parses and transforms text streams using regular expression replacement commands.

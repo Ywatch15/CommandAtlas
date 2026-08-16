@@ -4,7 +4,7 @@ name: docker images
 aliases:
   - docker image ls
   - docker image list
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

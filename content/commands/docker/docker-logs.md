@@ -2,7 +2,7 @@
 slug: docker-logs
 name: docker logs
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

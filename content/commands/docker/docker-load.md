@@ -3,7 +3,7 @@ slug: docker-load
 name: docker load
 aliases:
   - docker image load
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

@@ -27,6 +27,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `apt` (Advanced Package Tool) is the high-level command-line interface for package management on Debian and Ubuntu Linux distributions.

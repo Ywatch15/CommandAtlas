@@ -38,6 +38,7 @@ alternatives:
   - kubectl-cordon
 status: draft
 ---
+
 ## What is it?
 
 `kubectl taint` is a cluster administration command used to update taints on one or more Kubernetes nodes. A taint applies a repellent property to a node, instructing the Kubernetes scheduler to reject any Pods from being assigned to it unless those Pods explicitly possess a corresponding "toleration" in their manifest.
@@ -188,4 +189,3 @@ Once saved in `etcd`, two independent control plane components react:
 
 - [Kubernetes Documentation - Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 - [Kubectl Reference - taint](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint)
-  

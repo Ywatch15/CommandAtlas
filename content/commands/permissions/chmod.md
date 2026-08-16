@@ -27,6 +27,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `chmod` (change mode) modifies read, write, and execute permissions of files and directories.

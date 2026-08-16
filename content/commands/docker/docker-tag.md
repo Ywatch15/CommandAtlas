@@ -3,7 +3,7 @@ slug: docker-tag
 name: docker tag
 aliases:
   - docker image tag
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

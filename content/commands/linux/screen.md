@@ -32,6 +32,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 GNU `screen` is a full-screen window manager that multiplexes a physical terminal between several processes (typically interactive shells). It allows you to detach a running session from the current display and reattach it later from a completely different location, ensuring long-running processes survive network disconnects.

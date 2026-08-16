@@ -34,6 +34,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl config` is a suite of subcommands used to manage, inspect, and modify `kubeconfig` files. These files store the crucial routing information (API server endpoints), authentication payloads (client certificates or bearer tokens), and logical context mappings required by `kubectl` to communicate securely with various Kubernetes clusters.

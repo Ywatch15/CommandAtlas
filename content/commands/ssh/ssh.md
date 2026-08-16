@@ -31,6 +31,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `ssh` (OpenSSH SSH client) connects securely to a remote machine's shell server over an encrypted network protocol.

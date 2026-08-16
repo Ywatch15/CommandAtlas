@@ -3,7 +3,7 @@ slug: docker-compose
 name: docker compose
 aliases:
   - docker-compose
-category: cloud-cli
+category: docker
 tags:
   - docker
   - orchestration

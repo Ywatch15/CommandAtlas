@@ -5,7 +5,7 @@
       "slug": "ps",
       "name": "ps",
       "category": "processes",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "ps",
         "name": "ps",
@@ -16,7 +16,7 @@
         "supportedOS": ["linux", "macos", "unix", "windows"],
         "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": ["list running processes", "find process ID"],
-        "relatedCommands": ["jobs"],
+        "relatedCommands": ["jobs", "lsof"],
         "alternatives": ["jobs"],
         "status": "published",
         "contentVersion": 1,

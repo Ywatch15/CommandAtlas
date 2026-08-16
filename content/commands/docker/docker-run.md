@@ -2,7 +2,7 @@
 slug: docker-run
 name: docker run
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

@@ -5315,6 +5315,15 @@
       { "slug": "pwd", "boost": 5 },
       { "slug": "type", "boost": 1 }
     ],
+    "ls": [
+      { "slug": "cd", "boost": 2 },
+      { "slug": "eval", "boost": 1 },
+      { "slug": "pwd", "boost": 2 },
+      { "slug": "shopt", "boost": 1 },
+      { "slug": "type", "boost": 1 },
+      { "slug": "which", "boost": 1 }
+    ],
+    "mkdir": [{ "slug": "cd", "boost": 2 }],
     "environment": [
       { "slug": "cd", "boost": 1 },
       { "slug": "eval", "boost": 1 },
@@ -6017,13 +6026,6 @@
     "proj": [{ "slug": "cd", "boost": 1 }],
     "golang": [{ "slug": "cd", "boost": 1 }],
     "fuzzy": [{ "slug": "cd", "boost": 1 }],
-    "ls": [
-      { "slug": "cd", "boost": 1 },
-      { "slug": "eval", "boost": 1 },
-      { "slug": "shopt", "boost": 1 },
-      { "slug": "type", "boost": 1 },
-      { "slug": "which", "boost": 1 }
-    ],
     "grep": [
       { "slug": "cd", "boost": 1 },
       { "slug": "fg", "boost": 1 },
@@ -8218,6 +8220,7 @@
       { "slug": "which", "boost": 1 }
     ],
     "am": [{ "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" }],
+    "tree": [{ "slug": "pwd", "boost": 2 }],
     "hierarchy": [
       { "slug": "pwd", "boost": 1 },
       { "slug": "shopt", "boost": 1 },
@@ -8397,7 +8400,6 @@
     ],
     "structures": [{ "slug": "pwd", "boost": 1 }],
     "walking": [{ "slug": "pwd", "boost": 1 }],
-    "tree": [{ "slug": "pwd", "boost": 1 }],
     "inode": [{ "slug": "pwd", "boost": 1 }],
     "reaches": [
       { "slug": "pwd", "boost": 1 },
@@ -14124,7 +14126,7 @@
     ],
     "hei": ["their"],
     "eir": ["their"],
-    "ir$": ["their", "chdir", "dir"],
+    "ir$": ["their", "chdir", "mkdir", "dir"],
     "rom": [
       "prompt",
       "from",
@@ -18487,9 +18489,9 @@
       "signals",
       "shells",
       "fails",
+      "ls",
       "levels",
       "tools",
-      "ls",
       "calls",
       "subshells",
       "reveals",
@@ -19420,6 +19422,7 @@
       "redirect",
       "chdir",
       "directory",
+      "mkdir",
       "dir",
       "directories",
       "indirect",
@@ -21596,8 +21599,8 @@
       "triggering",
       "treated",
       "true",
-      "traversing",
       "tree",
+      "traversing",
       "tracing",
       "treat",
       "trace",
@@ -24222,6 +24225,10 @@
     "^pw": ["pwd"],
     "pwd": ["pwd", "oldpwd"],
     "wd$": ["pwd", "oldpwd", "getcwd"],
+    "^ls": ["ls"],
+    "^mk": ["mkdir"],
+    "mkd": ["mkdir"],
+    "kdi": ["mkdir"],
     "^ol": ["oldpwd", "older", "old"],
     "ldp": ["oldpwd", "tldp", "ldp"],
     "dpw": ["oldpwd"],
@@ -24491,7 +24498,6 @@
     "uzz": ["fuzzy"],
     "zzy": ["fuzzy"],
     "zy$": ["fuzzy"],
-    "^ls": ["ls"],
     "^ow": ["own"],
     "una": ["unaffected", "uname", "unauthorized", "unaware"],
     "naf": ["unaffected"],

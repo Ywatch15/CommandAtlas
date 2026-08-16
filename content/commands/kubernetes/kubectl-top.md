@@ -36,6 +36,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl top` is a diagnostic command-line utility used to display current resource consumption metrics—specifically CPU and Memory utilization—for Kubernetes Nodes and Pods. It acts as the cluster-native equivalent to the Linux `top` command, querying the control plane for instantaneous point-in-time performance data to identify overloaded hardware or resource-leaking applications.
@@ -187,4 +188,3 @@ When you execute `kubectl top`, the CLI makes an HTTP `GET` request to this `met
 
 - [Kubernetes Documentation - Tools for Monitoring Compute, Storage, and Network Resources](https://kubernetes.io/docs/tasks/debug/debug-cluster/resource-metrics-pipeline/)
 - [Kubectl Reference - top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)
-  

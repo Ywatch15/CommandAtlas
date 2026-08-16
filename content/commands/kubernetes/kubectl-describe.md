@@ -38,6 +38,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl describe` is an introspection and troubleshooting command that provides a deeply detailed, human-readable summary of one or more Kubernetes resources. Unlike `kubectl get`, which outputs raw system state, `describe` acts as an aggregator. It stitches together information from the target object, its associated child resources, and crucially, recent chronological cluster Events related to that object, painting a complete picture of its lifecycle and health.

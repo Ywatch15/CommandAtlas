@@ -2,7 +2,7 @@
 slug: docker-network
 name: docker network
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - networks

@@ -3,7 +3,7 @@ slug: docker-commit
 name: docker commit
 aliases:
   - docker container commit
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

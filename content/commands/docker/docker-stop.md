@@ -2,7 +2,7 @@
 slug: docker-stop
 name: docker stop
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

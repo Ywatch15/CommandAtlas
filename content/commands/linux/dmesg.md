@@ -31,6 +31,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `dmesg` (diagnostic message) is a command-line utility used to print and control the kernel ring buffer. It provides immediate access to kernel-level events, including hardware detection during the boot process, device driver state changes, and critical system faults like Out-Of-Memory (OOM) kills or hardware I/O errors. System administrators, infrastructure engineers, and kernel developers rely on it as a primary diagnostic tool to investigate low-level system panics and hardware compatibility issues.

@@ -44,6 +44,7 @@ alternatives:
   - kubectl-scale
 status: draft
 ---
+
 ## What is it?
 
 `kubectl apply` is the foundational declarative management command in Kubernetes. It reads configuration files (YAML or JSON) and applies their desired state to the cluster. If the targeted resource does not exist, it creates it. If the resource already exists, it intelligently computes a patch to update the live object to match the newly submitted configuration file.

@@ -2,7 +2,7 @@
 slug: docker-volume
 name: docker volume
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - storage

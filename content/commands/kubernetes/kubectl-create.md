@@ -35,6 +35,7 @@ alternatives:
   - kubectl-apply
 status: draft
 ---
+
 ## What is it?
 
 `kubectl create` is an imperative command-line utility used to instantiate a brand new Kubernetes resource. It can generate objects either by reading a structured manifest file (YAML/JSON) or by executing specific subcommands (like `create secret` or `create configmap`) that dynamically construct and submit resources directly via CLI arguments.
@@ -176,4 +177,3 @@ Crucially, unlike `kubectl apply`, `kubectl create` does _not_ embed the `kubect
 
 - [Kubernetes Documentation - Managing Resources Imperatively](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-command/)
 - [Kubectl Reference - create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create)
-  

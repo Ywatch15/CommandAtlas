@@ -5,7 +5,7 @@
       "slug": "awk",
       "name": "awk",
       "category": "text-processing",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "awk",
         "name": "awk",
@@ -19,7 +19,7 @@
           "extract column from text",
           "process structured text file"
         ],
-        "relatedCommands": [],
+        "relatedCommands": ["jq"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,

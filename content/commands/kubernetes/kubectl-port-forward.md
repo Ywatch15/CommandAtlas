@@ -35,6 +35,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl port-forward` is a network utility that creates a secure, encrypted tunnel between your local workstation and a specific resource (Pod, Service, or Deployment) inside a Kubernetes cluster. It binds a port on your local machine (`localhost`) and proxies all TCP traffic through the Kubernetes API server directly into the target container's network namespace.
@@ -184,4 +185,3 @@ Once the request is authenticated, the connection is upgraded using the **SPDY**
 
 - [Kubernetes Documentation - Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 - [Kubectl Reference - port-forward](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward)
-  

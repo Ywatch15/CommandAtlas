@@ -3,7 +3,7 @@ slug: docker-pull
 name: docker pull
 aliases:
   - docker image pull
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

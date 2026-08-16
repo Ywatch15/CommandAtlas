@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `date` is a command-line utility used to display the current system time and date in highly customizable formats, or to forcefully set the kernel's software clock. It excels at parsing, converting, and translating arbitrary time strings and Unix epoch timestamps into human-readable or machine-parsable layouts.

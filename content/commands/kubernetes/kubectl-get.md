@@ -38,6 +38,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl get` is the most frequently used command in the Kubernetes ecosystem. It queries the Kubernetes API server to retrieve and list one or more resources (such as Pods, Nodes, Services, or Custom Resources). By default, it outputs a human-readable, tabular summary of the resources' critical status metrics. With formatting flags, it serves as a powerful extraction tool, dumping the raw, absolute declarative state (YAML/JSON) of any object in the cluster.

@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `env` is a standard Unix utility used to either print a list of current environment variables or execute another utility within a modified environment. It allows you to inject, overwrite, or remove environment variables exclusively for the lifespan of a single child process without altering the current shell's persistent state.

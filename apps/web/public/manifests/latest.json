@@ -1,12 +1,12 @@
 {
   "version": 5,
-  "generatedAt": "2026-08-10T07:55:27.079Z",
+  "generatedAt": "2026-08-16T17:28:24.233Z",
   "packs": [
     {
       "packId": "bash",
-      "version": 1,
-      "size": 158412,
-      "checksum": "1150a5eb522593b60c6f38515f9f1d08d2e32bf6b82ee93921b39031eb93c3c9",
+      "version": 2,
+      "size": 158481,
+      "checksum": "19283995cdbf0e5edc41cd8415fc52179638791876f758110d89cd41b5c763c2",
       "url": "/packs/commands/bash.json"
     },
     {
@@ -18,30 +18,30 @@
     },
     {
       "packId": "cron",
-      "version": 3,
-      "size": 4177,
-      "checksum": "15b56fdeb0901ee9b8bdfa80ad18905dfb10cb6f6ab1b6d73b9e884230d2b4fc",
+      "version": 4,
+      "size": 89206,
+      "checksum": "6ce57719b1a5c4811512219c6c7cf489eecb56af64c6c637ea1df0e3cfe73184",
       "url": "/packs/commands/cron.json"
     },
     {
       "packId": "devops-utilities",
-      "version": 3,
-      "size": 4531,
-      "checksum": "7beba1517259c2735feeca6fabd709e590c2ca9d3c8291bff4bccb5e424ad3b0",
+      "version": 5,
+      "size": 248301,
+      "checksum": "1cc0b48983d3aa09a82cd86f80fe2c8b0d115fb83629f2d53d66208078548a04",
       "url": "/packs/commands/devops-utilities.json"
     },
     {
       "packId": "docker",
-      "version": 3,
-      "size": 4497,
-      "checksum": "147f85d12b3bb9a27e0c2506a096882478bed46a512afdbd3d5f8c750c23d854",
+      "version": 4,
+      "size": 353696,
+      "checksum": "8ce7c811ea78a6ddadf1732ac4ed8f6bc6068fd6307e5b4ad9885533009ee99a",
       "url": "/packs/commands/docker.json"
     },
     {
       "packId": "file-systems",
-      "version": 3,
-      "size": 4314,
-      "checksum": "0115af29d9ad68ca77762a64c9d72a79ecb9404e39e37f9007f55507e93e5499",
+      "version": 4,
+      "size": 295689,
+      "checksum": "5965b75cb32218eea6223fe2a4fd5fc07aff40f3b4ec683ff8e3e6e41136c35a",
       "url": "/packs/commands/file-systems.json"
     },
     {
@@ -53,30 +53,30 @@
     },
     {
       "packId": "kernel",
-      "version": 3,
-      "size": 4237,
-      "checksum": "3e3941c38d7146b40ba1a738bac5ba1a0db2b6f1cb67f0cdf1a35fc1ad2e57b1",
+      "version": 4,
+      "size": 135298,
+      "checksum": "033d925b3ffec2433755e96dfa3b2ee390c51b6cda9a4d6c92d5f26853109878",
       "url": "/packs/commands/kernel.json"
     },
     {
       "packId": "kubernetes",
       "version": 3,
-      "size": 4253,
-      "checksum": "529d7070d1921a3f1bf2f914bbe16f922ab1d6e8d8255e049a4b233738c8e8cd",
+      "size": 308234,
+      "checksum": "9d544ba32835fbc924e048af4ef674157a85d3c43f97705b26585ca4592ceb66",
       "url": "/packs/commands/kubernetes.json"
     },
     {
       "packId": "linux",
-      "version": 3,
-      "size": 314169,
-      "checksum": "44098bafa93428068a6a172f86cd8ad5e8e1ef3ec8791a12ba7183cabffd6b37",
+      "version": 5,
+      "size": 300634,
+      "checksum": "420920e314b713c0d04b2cd5028e5217419d94622de873fa98aeb3b2cd85f383",
       "url": "/packs/commands/linux.json"
     },
     {
       "packId": "networking",
-      "version": 3,
-      "size": 4413,
-      "checksum": "579be3c07fc3a86c1ddf36bed3fabeb98bfdda8e89cb639b05041a3686558a15",
+      "version": 4,
+      "size": 4515,
+      "checksum": "36f414f8b2cfbb5c3dcd3e5fa858b9c03f6d7347f18bed214db2c6268a532560",
       "url": "/packs/commands/networking.json"
     },
     {
@@ -102,16 +102,16 @@
     },
     {
       "packId": "processes",
-      "version": 4,
-      "size": 4222,
-      "checksum": "912ef4dbec0fbacfb3205bb0971e5f82eaaa1d2831bb7c3ecf7170ef7e0809b5",
+      "version": 5,
+      "size": 4240,
+      "checksum": "567298f8e6be5668f7671a63d76cfe6c89bba676064385a95886e8608f38add9",
       "url": "/packs/commands/processes.json"
     },
     {
       "packId": "regex",
-      "version": 3,
-      "size": 4347,
-      "checksum": "1b687611d38529050170604e61983ef5a620d13a2d7cc4cb88ed759ddd177541",
+      "version": 4,
+      "size": 4411,
+      "checksum": "05a274fdf0905ca78d0c9b950985e1142dd6badc9f58cd1cae4532eb093a0d2d",
       "url": "/packs/commands/regex.json"
     },
     {
@@ -124,15 +124,15 @@
     {
       "packId": "ssh",
       "version": 4,
-      "size": 4427,
-      "checksum": "d94f7b7883777829a70d10bea6e2bb47cf58d49694d115fb3f6252b875d4d77b",
+      "size": 4479,
+      "checksum": "4a93c48e6bc366a7028aa2dad468abb1b5581f6b0fec1a18bfa3cc7ebcded9df",
       "url": "/packs/commands/ssh.json"
     },
     {
       "packId": "text-processing",
-      "version": 3,
-      "size": 5966,
-      "checksum": "428e9a7874cd477ef2ebd8fa418b9db5e61b3d6b0dc1fd4c9c5bb89b8013216e",
+      "version": 4,
+      "size": 5990,
+      "checksum": "99a2e67562eed1f66bbab1bbe0de7a8db3506a2d4a330e5625289ae7fb803cc9",
       "url": "/packs/commands/text-processing.json"
     },
     {

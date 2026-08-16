@@ -31,6 +31,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `export` is a shell builtin command used to mark shell variables or functions so they are automatically passed into the environment of subsequently executed child processes. It transitions a variable from being strictly local to the current shell session into a global environment variable inherited by downstream commands.

@@ -33,6 +33,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `grep` searches one or more files (or standard input) for lines that match a pattern,

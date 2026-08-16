@@ -35,6 +35,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl drain` is an administrative cluster management command used to safely prepare a Kubernetes Node for hardware maintenance, kernel upgrades, or decommissioning. It cordons the node (preventing new Pods from being scheduled on it) and then systematically and gracefully evicts all actively running Pods, forcing their managing controllers (like Deployments or StatefulSets) to spin up replacement Pods on other healthy nodes in the cluster before the target node is taken offline.

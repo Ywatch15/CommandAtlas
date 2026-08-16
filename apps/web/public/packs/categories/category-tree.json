@@ -6,7 +6,7 @@
       "description": "Core Linux command-line tools for file management, text processing, process control, and system administration. The commands in this category run on Linux and most Unix systems; macOS support is noted per command where it differs.\n",
       "parent": null,
       "order": 1,
-      "commandCount": 21,
+      "commandCount": 20,
       "children": []
     },
     {
@@ -33,7 +33,7 @@
       "description": "Docker container management commands for building, running, inspecting, and orchestrating containerized applications. All commands are subcommands of the docker CLI binary.\n",
       "parent": null,
       "order": 4,
-      "commandCount": 1,
+      "commandCount": 25,
       "children": []
     },
     {
@@ -96,7 +96,7 @@
       "description": "Kubernetes cluster management commands using kubectl and related tools. Covers pod lifecycle, deployments, services, configuration, and cluster operations.\n",
       "parent": null,
       "order": 11,
-      "commandCount": 1,
+      "commandCount": 21,
       "children": []
     },
     {
@@ -105,7 +105,7 @@
       "description": "Linux kernel interaction commands for tuning kernel parameters, loading modules, and inspecting kernel state. These commands modify or query the running kernel directly.\n",
       "parent": null,
       "order": 12,
-      "commandCount": 1,
+      "commandCount": 10,
       "children": []
     },
     {
@@ -132,7 +132,7 @@
       "description": "Scheduled task management with cron, at, and related utilities. Covers crontab syntax, scheduling patterns, and best practices for reliable job scheduling.\n",
       "parent": null,
       "order": 15,
-      "commandCount": 1,
+      "commandCount": 7,
       "children": []
     },
     {
@@ -159,7 +159,7 @@
       "description": "File system management commands for mounting, unmounting, checking, and inspecting disk usage and filesystem state. Covers both traditional and modern Linux file systems.\n",
       "parent": null,
       "order": 18,
-      "commandCount": 1,
+      "commandCount": 21,
       "children": []
     },
     {
@@ -186,7 +186,7 @@
       "description": "Cross-cutting DevOps tools for CI/CD, infrastructure management, monitoring, and deployment automation. These utilities bridge development and operations workflows.\n",
       "parent": null,
       "order": 21,
-      "commandCount": 1,
+      "commandCount": 18,
       "children": []
     }
   ]

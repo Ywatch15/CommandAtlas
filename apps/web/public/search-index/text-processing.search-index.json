@@ -40,6 +40,7 @@
       { "slug": "awk", "boost": 3 },
       { "slug": "search-and-copy-logs", "boost": 3 }
     ],
+    "jq": [{ "slug": "awk", "boost": 2 }],
     "what": [{ "slug": "awk", "boost": 1 }],
     "is": [{ "slug": "awk", "boost": 1 }],
     "it": [{ "slug": "awk", "boost": 1 }],
@@ -150,7 +151,6 @@
     "used": [{ "slug": "awk", "boost": 1 }],
     "json": [{ "slug": "awk", "boost": 1 }],
     "parsing": [{ "slug": "awk", "boost": 1 }],
-    "jq": [{ "slug": "awk", "boost": 1 }],
     "where": [{ "slug": "awk", "boost": 1 }],
     "ordering": [{ "slug": "awk", "boost": 1 }],
     "nested": [{ "slug": "awk", "boost": 1 }],
@@ -471,6 +471,8 @@
       "staging",
       "conducting"
     ],
+    "^jq": ["jq"],
+    "jq$": ["jq"],
     "^wh": ["what", "why", "when", "where", "whitespace", "while"],
     "wha": ["what"],
     "hat": ["what"],
@@ -918,8 +920,6 @@
     "son": ["json"],
     "ars": ["parsing"],
     "rsi": ["parsing", "recursive"],
-    "^jq": ["jq"],
-    "jq$": ["jq"],
     "her": ["where"],
     "ere": ["where", "references"],
     "re$": ["where", "ensure", "software", "are"],

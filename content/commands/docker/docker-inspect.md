@@ -2,7 +2,7 @@
 slug: docker-inspect
 name: docker inspect
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - introspection

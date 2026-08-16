@@ -3,7 +3,7 @@ slug: docker-save-load
 name: docker save
 aliases:
   - docker image save
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

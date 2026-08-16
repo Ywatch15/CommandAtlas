@@ -39,6 +39,7 @@ alternatives:
   - helm-rollback
 status: draft
 ---
+
 ## What is it?
 
 `kubectl rollout` is a suite of subcommands designed to manage the lifecycle and revision history of higher-order Kubernetes workloads, specifically Deployments, StatefulSets, and DaemonSets. It allows operators to monitor the status of ongoing rolling updates, pause and resume deployments in progress, manually trigger restarts without altering container images, and instantly revert workloads to previous stable revisions.
@@ -189,4 +190,3 @@ When you execute `kubectl rollout undo`, the API server retrieves the historical
 
 - [Kubernetes Documentation - Managing Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 - [Kubectl Reference - rollout](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#rollout)
-  

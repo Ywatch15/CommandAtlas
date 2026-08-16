@@ -36,6 +36,7 @@ alternatives:
   - kubectl-edit
 status: draft
 ---
+
 ## What is it?
 
 `kubectl annotate` is a command-line utility used to attach, update, or remove non-identifying metadata (annotations) on Kubernetes resources. Annotations accept large, arbitrary string values—such as JSON payloads, configuration flags for ingress controllers, or CI/CD audit trails—that are not used by the core Kubernetes scheduler for identifying or selecting objects.

@@ -2,7 +2,7 @@
 slug: docker-cp
 name: docker cp
 aliases: []
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

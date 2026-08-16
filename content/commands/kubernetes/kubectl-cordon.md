@@ -37,6 +37,7 @@ alternatives:
   - kubectl-taint
 status: draft
 ---
+
 ## What is it?
 
 `kubectl cordon` is a cluster administration command used to mark a specific Kubernetes worker Node as "unschedulable." It alters the node's metadata so the control plane scheduler immediately ceases assigning any newly created or evicted Pods to that specific underlying hardware or virtual machine.

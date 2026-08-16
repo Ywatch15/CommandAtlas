@@ -3,7 +3,7 @@ slug: docker-attach
 name: docker attach
 aliases:
   - docker container attach
-category: cloud-cli
+category: docker
 tags:
   - docker
   - containers

@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `watch` is a command-line utility that repeatedly executes a specified program at a fixed interval and displays its standard output and standard error fullscreen. It utilizes terminal control sequences to overwrite the display in place, providing a flicker-free, real-time dashboard for any arbitrary command.

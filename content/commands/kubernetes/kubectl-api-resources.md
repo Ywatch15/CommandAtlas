@@ -40,6 +40,7 @@ alternatives:
   - jq
 status: draft
 ---
+
 ## What is it?
 
 `kubectl api-resources` is a discovery command used to list the API resources supported by the connected Kubernetes API Server. It queries the cluster's discovery endpoints to output a tabular map of resource names, shortnames, API groups, namespaces capabilities, and supported CRUD verbs.

@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `curl` is a command-line tool for transferring data to or from a server using protocols such as HTTP, HTTPS, FTP, and SFTP.

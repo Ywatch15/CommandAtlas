@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `sudo` (superuser do) is a command-line utility that allows authorized users to execute commands as the superuser or another distinct user account. It evaluates a centralized security policy to validate permissions before execution.

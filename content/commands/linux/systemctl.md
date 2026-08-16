@@ -33,6 +33,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `systemctl` is the primary command-line utility used to control the **systemd init system**. It allows administrators and users with sufficient privileges to manage services, inspect system state, configure startup behavior, analyze dependencies, and interact with nearly every component managed by systemd.

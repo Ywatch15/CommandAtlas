@@ -35,6 +35,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl cluster-info` is a lightweight diagnostic command used to display the network endpoint addresses of the core Kubernetes Control Plane (API server) and essential cluster add-ons (such as CoreDNS or KubeDNS). It provides immediate verification that the local `kubectl` client can successfully route traffic to and authenticate with the target cluster.
@@ -166,4 +167,3 @@ When the `dump` subcommand is invoked, the behavior shifts radically. `kubectl` 
 
 - [Kubernetes Documentation - Interacting with clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/)
 - [Kubectl Reference - cluster-info](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#cluster-info)
-  

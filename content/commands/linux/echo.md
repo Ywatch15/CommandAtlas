@@ -30,6 +30,7 @@ contentVersion: 1
 lastUpdated: 2026-08-08
 author: commandatlas
 ---
+
 ## What is it?
 
 `echo` is a fundamental command-line utility and shell builtin used to print text, string payloads, and evaluated variables to standard output (stdout). By default, it processes the raw arguments provided to it, concatenates them with a single space, and appends a trailing newline character.

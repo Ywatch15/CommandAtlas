@@ -3,7 +3,7 @@ slug: docker-push
 name: docker push
 aliases:
   - docker image push
-category: cloud-cli
+category: docker
 tags:
   - docker
   - images

@@ -38,6 +38,7 @@ relatedCommands:
 alternatives: []
 status: draft
 ---
+
 ## What is it?
 
 `kubectl label` is an imperative command-line utility used to add, update, or remove identifying metadata tags (labels) on Kubernetes resources. Labels are strictly indexed key-value pairs that the Kubernetes API server uses to group, select, and operationalize subsets of objects—such as Services selecting Pods or DaemonSets targeting specific Nodes.
