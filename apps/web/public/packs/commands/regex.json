@@ -5,22 +5,40 @@
       "slug": "sed",
       "name": "sed",
       "category": "regex",
-      "contentVersion": 4,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "sed",
         "name": "sed",
         "aliases": [],
         "category": "regex",
-        "tags": ["sed"],
+        "tags": [
+          "sed"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "replace text in file",
           "stream editor text replacement"
         ],
-        "relatedCommands": ["jq", "yq"],
-        "alternatives": ["yq"],
+        "relatedCommands": [
+          "jq",
+          "yq"
+        ],
+        "alternatives": [
+          "yq"
+        ],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",

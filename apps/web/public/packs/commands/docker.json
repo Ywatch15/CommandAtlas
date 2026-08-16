@@ -5,11 +5,13 @@
       "slug": "docker-attach",
       "name": "docker attach",
       "category": "docker",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "docker-attach",
         "name": "docker attach",
-        "aliases": ["docker container attach"],
+        "aliases": [
+          "docker container attach"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -20,8 +22,18 @@
           "streams"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "connect terminal to docker container",
           "view live output of running container",
@@ -35,7 +47,10 @@
           "docker-logs",
           "docker-start"
         ],
-        "alternatives": ["docker-exec", "docker-logs"],
+        "alternatives": [
+          "docker-exec",
+          "docker-logs"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -45,11 +60,13 @@
       "slug": "docker-build",
       "name": "docker build",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-build",
         "name": "docker build",
-        "aliases": ["docker image build"],
+        "aliases": [
+          "docker image build"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -60,8 +77,18 @@
           "containers"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "build a docker image",
           "create image from dockerfile",
@@ -79,7 +106,9 @@
           "docker-cp",
           "docker-rmi"
         ],
-        "alternatives": ["docker-commit"],
+        "alternatives": [
+          "docker-commit"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -89,11 +118,13 @@
       "slug": "docker-commit",
       "name": "docker commit",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-commit",
         "name": "docker commit",
-        "aliases": ["docker container commit"],
+        "aliases": [
+          "docker container commit"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -104,8 +135,18 @@
           "debugging"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "create image from container changes",
           "save container state as image",
@@ -113,8 +154,14 @@
           "commit docker changes to image",
           "export container modifications"
         ],
-        "relatedCommands": ["docker-build", "docker-run", "docker-cp"],
-        "alternatives": ["docker-build"],
+        "relatedCommands": [
+          "docker-build",
+          "docker-run",
+          "docker-cp"
+        ],
+        "alternatives": [
+          "docker-build"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -124,11 +171,13 @@
       "slug": "docker-compose",
       "name": "docker compose",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-compose",
         "name": "docker compose",
-        "aliases": ["docker-compose"],
+        "aliases": [
+          "docker-compose"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -139,8 +188,19 @@
           "infrastructure-as-code"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "run multi-container docker app",
           "start docker compose stack",
@@ -154,7 +214,10 @@
           "docker-volume",
           "docker-build"
         ],
-        "alternatives": ["docker-network", "docker-run"],
+        "alternatives": [
+          "docker-network",
+          "docker-run"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -164,7 +227,7 @@
       "slug": "docker-cp",
       "name": "docker cp",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-cp",
         "name": "docker cp",
@@ -179,8 +242,18 @@
           "filesystem"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "copy file from docker container",
           "copy folder to docker container",
@@ -194,7 +267,9 @@
           "docker-commit",
           "docker-build"
         ],
-        "alternatives": ["docker-exec"],
+        "alternatives": [
+          "docker-exec"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -204,11 +279,13 @@
       "slug": "docker-exec",
       "name": "docker exec",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-exec",
         "name": "docker exec",
-        "aliases": ["docker container exec"],
+        "aliases": [
+          "docker container exec"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -219,8 +296,18 @@
           "processes"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "run a command inside a running container",
           "open shell in docker container",
@@ -236,7 +323,10 @@
           "docker-cp",
           "kubectl-exec"
         ],
-        "alternatives": ["docker-attach", "docker-cp"],
+        "alternatives": [
+          "docker-attach",
+          "docker-cp"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -246,16 +336,35 @@
       "slug": "docker-images",
       "name": "docker images",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-images",
         "name": "docker images",
-        "aliases": ["docker image ls", "docker image list"],
+        "aliases": [
+          "docker image ls",
+          "docker image list"
+        ],
         "category": "docker",
-        "tags": ["docker", "images", "inspection", "storage", "local-registry"],
+        "tags": [
+          "docker",
+          "images",
+          "inspection",
+          "storage",
+          "local-registry"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "list local docker images",
           "check downloaded docker images",
@@ -282,7 +391,7 @@
       "slug": "docker-inspect",
       "name": "docker inspect",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-inspect",
         "name": "docker inspect",
@@ -297,8 +406,19 @@
           "observability"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "get container ip address",
           "view docker object details",
@@ -323,16 +443,35 @@
       "slug": "docker-load",
       "name": "docker load",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-load",
         "name": "docker load",
-        "aliases": ["docker image load"],
+        "aliases": [
+          "docker image load"
+        ],
         "category": "docker",
-        "tags": ["docker", "images", "import", "archive", "offline", "tar"],
+        "tags": [
+          "docker",
+          "images",
+          "import",
+          "archive",
+          "offline",
+          "tar"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "import docker image from tar file",
           "load docker image from archive",
@@ -340,7 +479,11 @@
           "import airgapped docker image",
           "extract docker save file"
         ],
-        "relatedCommands": ["docker-images", "docker-run", "docker-save-load"],
+        "relatedCommands": [
+          "docker-images",
+          "docker-run",
+          "docker-save-load"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -351,7 +494,7 @@
       "slug": "docker-login",
       "name": "docker login",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-login",
         "name": "docker login",
@@ -365,8 +508,18 @@
           "credentials"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "authenticate docker hub",
           "login to docker registry",
@@ -374,7 +527,10 @@
           "docker authenticate ecr gcr",
           "store docker credentials"
         ],
-        "relatedCommands": ["docker-pull", "docker-push"],
+        "relatedCommands": [
+          "docker-pull",
+          "docker-push"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -385,7 +541,7 @@
       "slug": "docker-logs",
       "name": "docker logs",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-logs",
         "name": "docker logs",
@@ -400,8 +556,19 @@
           "observability"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "fetch container logs",
           "tail docker output",
@@ -416,7 +583,10 @@
           "docker-exec",
           "docker-ps"
         ],
-        "alternatives": ["journalctl", "docker-attach"],
+        "alternatives": [
+          "journalctl",
+          "docker-attach"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -426,16 +596,34 @@
       "slug": "docker-network",
       "name": "docker network",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-network",
         "name": "docker network",
         "aliases": [],
         "category": "docker",
-        "tags": ["docker", "networks", "routing", "dns", "security", "devops"],
+        "tags": [
+          "docker",
+          "networks",
+          "routing",
+          "dns",
+          "security",
+          "devops"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "create docker network bridge",
           "list docker networks",
@@ -443,8 +631,14 @@
           "inspect docker subnet",
           "remove docker network"
         ],
-        "relatedCommands": ["docker-run", "docker-inspect", "docker-compose"],
-        "alternatives": ["docker-compose"],
+        "relatedCommands": [
+          "docker-run",
+          "docker-inspect",
+          "docker-compose"
+        ],
+        "alternatives": [
+          "docker-compose"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -454,11 +648,13 @@
       "slug": "docker-ps",
       "name": "docker ps",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-ps",
         "name": "docker ps",
-        "aliases": ["docker container ls"],
+        "aliases": [
+          "docker container ls"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -469,8 +665,19 @@
           "infrastructure"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "list running docker containers",
           "show docker container status",
@@ -495,16 +702,34 @@
       "slug": "docker-pull",
       "name": "docker pull",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-pull",
         "name": "docker pull",
-        "aliases": ["docker image pull"],
+        "aliases": [
+          "docker image pull"
+        ],
         "category": "docker",
-        "tags": ["docker", "images", "registry", "download", "networking"],
+        "tags": [
+          "docker",
+          "images",
+          "registry",
+          "download",
+          "networking"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "download a docker image",
           "fetch image from docker hub",
@@ -529,11 +754,13 @@
       "slug": "docker-push",
       "name": "docker push",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-push",
         "name": "docker push",
-        "aliases": ["docker image push"],
+        "aliases": [
+          "docker image push"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -544,8 +771,18 @@
           "ci-cd"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "upload docker image",
           "push local image to registry",
@@ -570,7 +807,7 @@
       "slug": "docker-restart",
       "name": "docker restart",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-restart",
         "name": "docker restart",
@@ -585,8 +822,19 @@
           "devops"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "restart docker container",
           "reload containerized application",
@@ -594,7 +842,11 @@
           "stop and start container",
           "apply config changes to container"
         ],
-        "relatedCommands": ["docker-stop", "docker-start", "docker-run"],
+        "relatedCommands": [
+          "docker-stop",
+          "docker-start",
+          "docker-run"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -605,11 +857,13 @@
       "slug": "docker-rm",
       "name": "docker rm",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-rm",
         "name": "docker rm",
-        "aliases": ["docker container rm"],
+        "aliases": [
+          "docker container rm"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -620,8 +874,19 @@
           "devops"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "delete docker container",
           "remove stopped container",
@@ -646,11 +911,13 @@
       "slug": "docker-rmi",
       "name": "docker rmi",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-rmi",
         "name": "docker rmi",
-        "aliases": ["docker image rm"],
+        "aliases": [
+          "docker image rm"
+        ],
         "category": "docker",
         "tags": [
           "docker",
@@ -661,8 +928,19 @@
           "devops"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "delete docker image",
           "remove local docker image",
@@ -678,7 +956,9 @@
           "docker-system-prune",
           "docker-tag"
         ],
-        "alternatives": ["docker-system-prune"],
+        "alternatives": [
+          "docker-system-prune"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -688,7 +968,7 @@
       "slug": "docker-run",
       "name": "docker run",
       "category": "docker",
-      "contentVersion": 4,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "docker-run",
         "name": "docker run",
@@ -703,8 +983,18 @@
           "virtualization"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "start a docker container",
           "run a container from image",
@@ -730,7 +1020,10 @@
           "docker-start",
           "docker-volume"
         ],
-        "alternatives": ["docker-compose", "docker-start"],
+        "alternatives": [
+          "docker-compose",
+          "docker-start"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -740,16 +1033,35 @@
       "slug": "docker-save-load",
       "name": "docker save",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-save-load",
         "name": "docker save",
-        "aliases": ["docker image save"],
+        "aliases": [
+          "docker image save"
+        ],
         "category": "docker",
-        "tags": ["docker", "images", "export", "archive", "offline", "tar"],
+        "tags": [
+          "docker",
+          "images",
+          "export",
+          "archive",
+          "offline",
+          "tar"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "export docker image to tar file",
           "save docker image for offline transfer",
@@ -757,7 +1069,11 @@
           "convert docker image to archive",
           "package docker image for airgapped system"
         ],
-        "relatedCommands": ["docker-load", "docker-images", "docker-push"],
+        "relatedCommands": [
+          "docker-load",
+          "docker-images",
+          "docker-push"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -768,7 +1084,7 @@
       "slug": "docker-start",
       "name": "docker start",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-start",
         "name": "docker start",
@@ -783,8 +1099,19 @@
           "devops"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "start a stopped container",
           "resume docker container execution",
@@ -798,7 +1125,9 @@
           "docker-restart",
           "docker-attach"
         ],
-        "alternatives": ["docker-run"],
+        "alternatives": [
+          "docker-run"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -808,7 +1137,7 @@
       "slug": "docker-stop",
       "name": "docker stop",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-stop",
         "name": "docker stop",
@@ -823,8 +1152,19 @@
           "devops"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "gracefully stop docker container",
           "halt running container",
@@ -832,7 +1172,11 @@
           "pause docker service cleanly",
           "stop all running docker containers"
         ],
-        "relatedCommands": ["docker-start", "docker-restart", "docker-rm"],
+        "relatedCommands": [
+          "docker-start",
+          "docker-restart",
+          "docker-rm"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -843,7 +1187,7 @@
       "slug": "docker-system-prune",
       "name": "docker system prune",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-system-prune",
         "name": "docker system prune",
@@ -858,8 +1202,19 @@
           "devops"
         ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "clean up docker disk space",
           "remove all unused docker data",
@@ -867,8 +1222,14 @@
           "clear docker cache",
           "free up docker storage"
         ],
-        "relatedCommands": ["docker-rm", "docker-rmi", "docker-volume"],
-        "alternatives": ["docker-rmi"],
+        "relatedCommands": [
+          "docker-rm",
+          "docker-rmi",
+          "docker-volume"
+        ],
+        "alternatives": [
+          "docker-rmi"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -878,16 +1239,34 @@
       "slug": "docker-tag",
       "name": "docker tag",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-tag",
         "name": "docker tag",
-        "aliases": ["docker image tag"],
+        "aliases": [
+          "docker image tag"
+        ],
         "category": "docker",
-        "tags": ["docker", "images", "versioning", "registries", "tagging"],
+        "tags": [
+          "docker",
+          "images",
+          "versioning",
+          "registries",
+          "tagging"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "sh"
+        ],
         "intentPhrases": [
           "rename docker image",
           "add tag to docker image",
@@ -911,7 +1290,7 @@
       "slug": "docker-volume",
       "name": "docker volume",
       "category": "docker",
-      "contentVersion": 1,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "docker-volume",
         "name": "docker volume",
@@ -926,8 +1305,19 @@
           "devops"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "windows", "unix"],
-        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "windows",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "powershell",
+          "cmd",
+          "sh"
+        ],
         "intentPhrases": [
           "create docker volume",
           "list docker volumes",

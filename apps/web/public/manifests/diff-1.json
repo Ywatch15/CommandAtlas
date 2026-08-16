@@ -22,5 +22,7 @@
   ],
   "modified": [],
   "removed": [],
-  "affectedPacks": ["linux"]
+  "affectedPacks": [
+    "linux"
+  ]
 }

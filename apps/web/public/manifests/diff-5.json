@@ -13,7 +13,14 @@
     "modprobe",
     "rmmod"
   ],
-  "modified": ["cd", "pwd", "docker-attach", "df", "grep", "ps"],
+  "modified": [
+    "cd",
+    "pwd",
+    "docker-attach",
+    "df",
+    "grep",
+    "ps"
+  ],
   "removed": [],
   "affectedPacks": [
     "bash",

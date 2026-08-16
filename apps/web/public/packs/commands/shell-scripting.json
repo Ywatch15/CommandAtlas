@@ -5,16 +5,29 @@
       "slug": "test",
       "name": "test",
       "category": "shell-scripting",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "test",
         "name": "test",
         "aliases": [],
         "category": "shell-scripting",
-        "tags": ["test"],
+        "tags": [
+          "test"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "check file existence in script",
           "evaluate conditional expression"

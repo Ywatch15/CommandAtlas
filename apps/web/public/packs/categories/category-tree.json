@@ -42,7 +42,7 @@
       "description": "Network diagnostic, configuration, and transfer commands for inspecting connectivity, managing interfaces, transferring data, and troubleshooting network issues from the command line.\n",
       "parent": null,
       "order": 5,
-      "commandCount": 1,
+      "commandCount": 26,
       "children": []
     },
     {

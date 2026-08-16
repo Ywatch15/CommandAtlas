@@ -5,21 +5,36 @@
       "slug": "awk",
       "name": "awk",
       "category": "text-processing",
-      "contentVersion": 4,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "awk",
         "name": "awk",
         "aliases": [],
         "category": "text-processing",
-        "tags": ["awk"],
+        "tags": [
+          "awk"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "extract column from text",
           "process structured text file"
         ],
-        "relatedCommands": ["jq"],
+        "relatedCommands": [
+          "jq"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -41,9 +56,17 @@
         "title": "Search and Extract Server Log Files",
         "category": "text-processing",
         "difficulty": "intermediate",
-        "tags": ["logs", "grep", "cp", "extraction"],
+        "tags": [
+          "logs",
+          "grep",
+          "cp",
+          "extraction"
+        ],
         "estimatedTime": "10 minutes",
-        "prerequisites": ["grep", "cp"],
+        "prerequisites": [
+          "grep",
+          "cp"
+        ],
         "steps": [
           {
             "command": "grep",

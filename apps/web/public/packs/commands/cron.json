@@ -5,7 +5,7 @@
       "slug": "anacron",
       "name": "anacron",
       "category": "cron",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "anacron",
         "name": "anacron",
@@ -20,8 +20,15 @@
           "laptops"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "run missed cron jobs",
           "schedule tasks on laptop",
@@ -29,8 +36,14 @@
           "force anacron to run",
           "check anacrontab syntax"
         ],
-        "relatedCommands": ["cron", "crontab"],
-        "alternatives": ["cron", "crontab"],
+        "relatedCommands": [
+          "cron",
+          "crontab"
+        ],
+        "alternatives": [
+          "cron",
+          "crontab"
+        ],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -40,16 +53,30 @@
       "slug": "at",
       "name": "at",
       "category": "cron",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "at",
         "name": "at",
         "aliases": [],
         "category": "cron",
-        "tags": ["cron", "scheduling", "background", "jobs", "utilities"],
+        "tags": [
+          "cron",
+          "scheduling",
+          "background",
+          "jobs",
+          "utilities"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "schedule one time command",
           "run job later at specific time",
@@ -57,8 +84,12 @@
           "execute task at specified time",
           "defer script execution"
         ],
-        "relatedCommands": ["crontab"],
-        "alternatives": ["crontab"],
+        "relatedCommands": [
+          "crontab"
+        ],
+        "alternatives": [
+          "crontab"
+        ],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -68,16 +99,32 @@
       "slug": "atq",
       "name": "atq",
       "category": "cron",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "atq",
         "name": "atq",
-        "aliases": ["at -l"],
+        "aliases": [
+          "at -l"
+        ],
         "category": "cron",
-        "tags": ["cron", "scheduling", "queue", "jobs", "utilities"],
+        "tags": [
+          "cron",
+          "scheduling",
+          "queue",
+          "jobs",
+          "utilities"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "list pending at jobs",
           "view at queue",
@@ -96,16 +143,32 @@
       "slug": "atrm",
       "name": "atrm",
       "category": "cron",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "atrm",
         "name": "atrm",
-        "aliases": ["at -d"],
+        "aliases": [
+          "at -d"
+        ],
         "category": "cron",
-        "tags": ["cron", "scheduling", "queue", "remove", "jobs"],
+        "tags": [
+          "cron",
+          "scheduling",
+          "queue",
+          "remove",
+          "jobs"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "delete scheduled at job",
           "remove job from at queue",
@@ -124,11 +187,13 @@
       "slug": "batch",
       "name": "batch",
       "category": "cron",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "batch",
         "name": "batch",
-        "aliases": ["at -b"],
+        "aliases": [
+          "at -b"
+        ],
         "category": "cron",
         "tags": [
           "cron",
@@ -138,8 +203,16 @@
           "background"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "run job when system load permits",
           "execute batch task low load",
@@ -158,11 +231,13 @@
       "slug": "cron",
       "name": "cron",
       "category": "cron",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "cron",
         "name": "cron",
-        "aliases": ["crond"],
+        "aliases": [
+          "crond"
+        ],
         "category": "cron",
         "tags": [
           "linux",
@@ -173,8 +248,16 @@
           "service"
         ],
         "difficulty": "advanced",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "run cron daemon",
           "start scheduled tasks daemon",
@@ -182,8 +265,14 @@
           "troubleshoot cron execution",
           "configure crond"
         ],
-        "relatedCommands": ["crontab", "anacron", "systemctl"],
-        "alternatives": ["anacron"],
+        "relatedCommands": [
+          "crontab",
+          "anacron",
+          "systemctl"
+        ],
+        "alternatives": [
+          "anacron"
+        ],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -193,7 +282,7 @@
       "slug": "crontab",
       "name": "crontab",
       "category": "cron",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "crontab",
         "name": "crontab",
@@ -208,8 +297,16 @@
           "time"
         ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix"],
-        "supportedShells": ["bash", "zsh", "sh"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh"
+        ],
         "intentPhrases": [
           "edit the cron table file",
           "list contents of cron table",
@@ -217,8 +314,15 @@
           "schedule a recurring linux job",
           "automate scripts with crontab"
         ],
-        "relatedCommands": ["cron", "anacron", "at"],
-        "alternatives": ["anacron", "at"],
+        "relatedCommands": [
+          "cron",
+          "anacron",
+          "at"
+        ],
+        "alternatives": [
+          "anacron",
+          "at"
+        ],
         "status": "published",
         "usedInWorkflows": []
       },

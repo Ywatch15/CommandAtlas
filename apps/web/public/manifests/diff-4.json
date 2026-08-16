@@ -29,5 +29,7 @@
     "git-switch"
   ],
   "removed": [],
-  "affectedPacks": ["git"]
+  "affectedPacks": [
+    "git"
+  ]
 }

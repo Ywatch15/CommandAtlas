@@ -5,17 +5,33 @@
       "slug": "cat",
       "name": "cat",
       "category": "unix",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "cat",
         "name": "cat",
         "aliases": [],
         "category": "unix",
-        "tags": ["cat"],
+        "tags": [
+          "cat"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
-        "intentPhrases": ["read file content", "concatenate files"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
+        "intentPhrases": [
+          "read file content",
+          "concatenate files"
+        ],
         "relatedCommands": [],
         "alternatives": [],
         "status": "published",

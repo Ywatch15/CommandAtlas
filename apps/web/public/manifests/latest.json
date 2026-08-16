@@ -1,145 +1,145 @@
 {
-  "version": 5,
-  "generatedAt": "2026-08-16T17:28:24.233Z",
+  "version": 7,
+  "generatedAt": "2026-08-16T18:14:26.032Z",
   "packs": [
     {
       "packId": "bash",
-      "version": 2,
+      "version": 3,
       "size": 158481,
-      "checksum": "19283995cdbf0e5edc41cd8415fc52179638791876f758110d89cd41b5c763c2",
+      "checksum": "bef4691993e0283b1ad30fc1078bdcb927109d3130cb26aff5af03cd8da55871",
       "url": "/packs/commands/bash.json"
     },
     {
       "packId": "cloud-cli",
-      "version": 4,
+      "version": 5,
       "size": 497228,
-      "checksum": "598b6e37bb426ee9a54260c671467bca5145b00b9fff9ca85d56c0b96645523b",
+      "checksum": "f773d081f1f905174b80adaaa2288fccb10969f1e884c7b96cd4ade68428e7c6",
       "url": "/packs/commands/cloud-cli.json"
     },
     {
       "packId": "cron",
-      "version": 4,
+      "version": 5,
       "size": 89206,
-      "checksum": "6ce57719b1a5c4811512219c6c7cf489eecb56af64c6c637ea1df0e3cfe73184",
+      "checksum": "610f07b49fa42d267e786cba40d9aab167ffa94f7efdebd3e71a86e74584bcf8",
       "url": "/packs/commands/cron.json"
     },
     {
       "packId": "devops-utilities",
-      "version": 5,
+      "version": 6,
       "size": 248301,
-      "checksum": "1cc0b48983d3aa09a82cd86f80fe2c8b0d115fb83629f2d53d66208078548a04",
+      "checksum": "411e153bd8ff6f836e8594648e615e68172bf3f0c71acbe980f5a71d61ad4350",
       "url": "/packs/commands/devops-utilities.json"
     },
     {
       "packId": "docker",
-      "version": 4,
+      "version": 6,
       "size": 353696,
-      "checksum": "8ce7c811ea78a6ddadf1732ac4ed8f6bc6068fd6307e5b4ad9885533009ee99a",
+      "checksum": "161f9046ee4551f3e721d00ed5d168dd5f168a7aca0ba6bb4c71e2249a269a9b",
       "url": "/packs/commands/docker.json"
     },
     {
       "packId": "file-systems",
-      "version": 4,
+      "version": 5,
       "size": 295689,
-      "checksum": "5965b75cb32218eea6223fe2a4fd5fc07aff40f3b4ec683ff8e3e6e41136c35a",
+      "checksum": "2c5076381142dd1abf6b9181837cffe658531104c462904e38dce153cffd57d9",
       "url": "/packs/commands/file-systems.json"
     },
     {
       "packId": "git",
-      "version": 5,
+      "version": 6,
       "size": 523953,
-      "checksum": "a3d27a82607409896976f3d8b0d3ee5afad7c41af2f87d576aae435136234a1e",
+      "checksum": "53980a66744da2a5a26aab62788aef04c51ba2f2bae472d00ee18c0b1e2d73d5",
       "url": "/packs/commands/git.json"
     },
     {
       "packId": "kernel",
-      "version": 4,
+      "version": 5,
       "size": 135298,
-      "checksum": "033d925b3ffec2433755e96dfa3b2ee390c51b6cda9a4d6c92d5f26853109878",
+      "checksum": "d936e74359accbac16ecc4fae4ecebd8cf1c5c5f3252e82007b0bcb466de37f9",
       "url": "/packs/commands/kernel.json"
     },
     {
       "packId": "kubernetes",
-      "version": 3,
-      "size": 308234,
-      "checksum": "9d544ba32835fbc924e048af4ef674157a85d3c43f97705b26585ca4592ceb66",
+      "version": 5,
+      "size": 308218,
+      "checksum": "6955b0854604a5ce0fa67cf2296bdd81ee9dae1fa0f66cca2e789e98c64e501b",
       "url": "/packs/commands/kubernetes.json"
     },
     {
       "packId": "linux",
-      "version": 5,
+      "version": 7,
       "size": 300634,
-      "checksum": "420920e314b713c0d04b2cd5028e5217419d94622de873fa98aeb3b2cd85f383",
+      "checksum": "b18d1df5dc4c34820c16971731a1be77ba3a76fd3d73b03771eea991fe3bf8a0",
       "url": "/packs/commands/linux.json"
     },
     {
       "packId": "networking",
-      "version": 4,
-      "size": 4515,
-      "checksum": "36f414f8b2cfbb5c3dcd3e5fa858b9c03f6d7347f18bed214db2c6268a532560",
+      "version": 6,
+      "size": 368639,
+      "checksum": "8968c06bf136696e9428f704ad8dff7cf15fbc54a77d103e719ab6e1fcc34c81",
       "url": "/packs/commands/networking.json"
     },
     {
       "packId": "package-managers",
-      "version": 3,
+      "version": 5,
       "size": 4527,
-      "checksum": "a7e4c50cd4cb36bd076ea806ec68d0f4f3f22617e360798d73129bc0a2df347f",
+      "checksum": "b9301e96df73007de3ddd60f05857639817c98beeed5455f1d47e28b26c73b9c",
       "url": "/packs/commands/package-managers.json"
     },
     {
       "packId": "permissions",
-      "version": 3,
+      "version": 5,
       "size": 4181,
-      "checksum": "19599ae96f1c4df32bb507bc00b5dbe779df50f18aa2e9864e9cff5b1963ded2",
+      "checksum": "d75e282e289d3343fa9ce3b5a3bb8db7266b095dde0a75258132ebb26dc94419",
       "url": "/packs/commands/permissions.json"
     },
     {
       "packId": "powershell",
-      "version": 3,
+      "version": 5,
       "size": 4764,
-      "checksum": "0d2903761bffdadddbaf999b315c7911e04e64b462f38cc4d3c9c8b7240a5c28",
+      "checksum": "386ecbd3fda8b895c9980055007e99979f70217aa391646c8b3ef25cc061978a",
       "url": "/packs/commands/powershell.json"
     },
     {
       "packId": "processes",
-      "version": 5,
+      "version": 7,
       "size": 4240,
-      "checksum": "567298f8e6be5668f7671a63d76cfe6c89bba676064385a95886e8608f38add9",
+      "checksum": "df16c5bd0bc077eabf165d58a2d57c8e891dd47dd548c3a3acd4865d23884f1f",
       "url": "/packs/commands/processes.json"
     },
     {
       "packId": "regex",
-      "version": 4,
+      "version": 6,
       "size": 4411,
-      "checksum": "05a274fdf0905ca78d0c9b950985e1142dd6badc9f58cd1cae4532eb093a0d2d",
+      "checksum": "128a74056a8f087344bc3d113c59150b1bc0572156cf8609373eb4ac42554c6f",
       "url": "/packs/commands/regex.json"
     },
     {
       "packId": "shell-scripting",
-      "version": 3,
+      "version": 5,
       "size": 4500,
-      "checksum": "d154e6feccb59c487b3fada152adc1f0b8a7df4e6998c383eab7c0de94712c75",
+      "checksum": "b2fa43a8efd94a7514bba845eced4d1050137fe523f23a6c6d1e3c64f9559fc8",
       "url": "/packs/commands/shell-scripting.json"
     },
     {
       "packId": "ssh",
-      "version": 4,
+      "version": 6,
       "size": 4479,
-      "checksum": "4a93c48e6bc366a7028aa2dad468abb1b5581f6b0fec1a18bfa3cc7ebcded9df",
+      "checksum": "6cf12faf9c32959efe625a043816858b6a128db853ef83c73ac248a6d7c6225b",
       "url": "/packs/commands/ssh.json"
     },
     {
       "packId": "text-processing",
-      "version": 4,
+      "version": 6,
       "size": 5990,
-      "checksum": "99a2e67562eed1f66bbab1bbe0de7a8db3506a2d4a330e5625289ae7fb803cc9",
+      "checksum": "7bc6b2f1382424e1f52c727d85f1bcf3d70e35f80aebe49d89e8a492c7118893",
       "url": "/packs/commands/text-processing.json"
     },
     {
       "packId": "unix",
-      "version": 3,
+      "version": 5,
       "size": 3986,
-      "checksum": "6d8e6772f156701f83cd3de72156b1df56ae6247495a21273cabc6eb183969ef",
+      "checksum": "bc0e27dadb3f64ceba13f53a97053e11416d261a454af113efec761f72ebc999",
       "url": "/packs/commands/unix.json"
     },
     {

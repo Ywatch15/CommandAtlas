@@ -11,9 +11,17 @@
         "title": "Search and Extract Server Log Files",
         "category": "text-processing",
         "difficulty": "intermediate",
-        "tags": ["logs", "grep", "cp", "extraction"],
+        "tags": [
+          "logs",
+          "grep",
+          "cp",
+          "extraction"
+        ],
         "estimatedTime": "10 minutes",
-        "prerequisites": ["grep", "cp"],
+        "prerequisites": [
+          "grep",
+          "cp"
+        ],
         "steps": [
           {
             "command": "grep",

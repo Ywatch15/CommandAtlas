@@ -1,0 +1,37 @@
+{
+  "fromVersion": 6,
+  "toVersion": 7,
+  "generatedAt": "2026-08-16T18:10:39.747Z",
+  "added": [
+    "arp",
+    "dig",
+    "ethtool",
+    "firewall-cmd",
+    "host",
+    "hostname",
+    "ifconfig",
+    "ip",
+    "iptables",
+    "iw",
+    "iwconfig",
+    "mtr",
+    "nc",
+    "netstat",
+    "nmap",
+    "nmcli",
+    "nslookup",
+    "ping",
+    "route",
+    "ss",
+    "tcpdump",
+    "traceroute",
+    "ufw",
+    "wget",
+    "whois"
+  ],
+  "modified": [],
+  "removed": [],
+  "affectedPacks": [
+    "networking"
+  ]
+}

@@ -7,6 +7,9 @@
         "phrase": "interact with container pid 1"
       }
     ],
+    "80": [
+      { "slug": "iptables", "boost": 5, "phrase": "open port 80 iptables" }
+    ],
     "bg": [{ "slug": "bg", "boost": 5 }],
     "background": [
       { "slug": "bg", "boost": 5 },
@@ -22,7 +25,8 @@
         "slug": "tmux",
         "boost": 5,
         "phrase": "attach to background terminal session"
-      }
+      },
+      { "slug": "wget", "boost": 5, "phrase": "download file in background" }
     ],
     "resume": [
       { "slug": "bg", "boost": 5, "phrase": "resume stopped job" },
@@ -32,7 +36,8 @@
         "boost": 5,
         "phrase": "resume docker container execution"
       },
-      { "slug": "screen", "boost": 5, "phrase": "resume ssh session" }
+      { "slug": "screen", "boost": 5, "phrase": "resume ssh session" },
+      { "slug": "wget", "boost": 5, "phrase": "resume a broken download" }
     ],
     "stopped": [
       { "slug": "bg", "boost": 5, "phrase": "resume stopped job" },
@@ -115,7 +120,9 @@
       { "slug": "screen", "boost": 5, "phrase": "run process in background" },
       { "slug": "su", "boost": 5, "phrase": "run command as different user" },
       { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
-      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" }
+      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" },
+      { "slug": "mtr", "boost": 5, "phrase": "run mtr network test" },
+      { "slug": "nmap", "boost": 5, "phrase": "run vulnerability scan nmap" }
     ],
     "process": [
       { "slug": "bg", "boost": 5, "phrase": "run process in background" },
@@ -152,6 +159,12 @@
         "boost": 5,
         "phrase": "keep process running after ssh disconnects"
       },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "find process using port netstat"
+      },
+      { "slug": "ss", "boost": 5, "phrase": "find process using port ss" },
       { "slug": "get-process", "boost": 5 },
       { "slug": "ps", "boost": 5, "phrase": "find process id" },
       { "slug": "awk", "boost": 5, "phrase": "process structured text file" }
@@ -277,6 +290,12 @@
       },
       { "slug": "whoami", "boost": 5, "phrase": "who am i logged in as" },
       {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "open port in firewalld"
+      },
+      { "slug": "wget", "boost": 5, "phrase": "download file in background" },
+      {
         "slug": "get-process",
         "boost": 5,
         "phrase": "list processes in powershell"
@@ -304,7 +323,8 @@
         "slug": "az-storage-blob-upload",
         "boost": 5,
         "phrase": "send backup to azure container"
-      }
+      },
+      { "slug": "curl", "boost": 5, "phrase": "send post request with json" }
     ],
     "to": [
       { "slug": "bg", "boost": 5, "phrase": "send process to background" },
@@ -514,6 +534,20 @@
         "boost": 5,
         "phrase": "attach to background terminal session"
       },
+      { "slug": "host", "boost": 5, "phrase": "resolve hostname to ip" },
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "check packet loss to destination"
+      },
+      { "slug": "nmcli", "boost": 5, "phrase": "connect to wifi command line" },
+      { "slug": "nslookup", "boost": 5, "phrase": "resolve hostname to ip" },
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "dump network traffic to pcap"
+      },
+      { "slug": "traceroute", "boost": 5, "phrase": "trace route to server" },
       { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
     ],
     "bind": [
@@ -540,7 +574,29 @@
         "slug": "sysctl",
         "boost": 5,
         "phrase": "configure kernel parameters at runtime"
-      }
+      },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "configure network interface"
+      },
+      { "slug": "iptables", "boost": 5, "phrase": "configure linux firewall" },
+      {
+        "slug": "iw",
+        "boost": 5,
+        "phrase": "configure wireless interface linux"
+      },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "configure wireless interface legacy linux"
+      },
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "configure network interface linux"
+      },
+      { "slug": "route", "boost": 5, "phrase": "configure static routes" }
     ],
     "bash": [
       { "slug": "bind", "boost": 5, "phrase": "configure bash keybindings" },
@@ -673,7 +729,14 @@
       },
       { "slug": "date", "boost": 5, "phrase": "set system clock" },
       { "slug": "env", "boost": 5, "phrase": "set env var temporarily" },
-      { "slug": "export", "boost": 5, "phrase": "set environment variable" }
+      { "slug": "export", "boost": 5, "phrase": "set environment variable" },
+      { "slug": "hostname", "boost": 5, "phrase": "set linux hostname" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "set wifi essid command line"
+      },
+      { "slug": "nmcli", "boost": 5, "phrase": "set static ip address nmcli" }
     ],
     "vi": [{ "slug": "bind", "boost": 5, "phrase": "set vi emacs mode bash" }],
     "emacs": [
@@ -755,6 +818,17 @@
       { "slug": "env", "boost": 5, "phrase": "list environment variables" },
       { "slug": "systemctl", "boost": 5, "phrase": "list running services" },
       {
+        "slug": "iptables",
+        "boost": 5,
+        "phrase": "list active firewall rules"
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "list active network connections"
+      },
+      { "slug": "ss", "boost": 5, "phrase": "list active sockets linux" },
+      {
         "slug": "get-process",
         "boost": 5,
         "phrase": "list processes in powershell"
@@ -825,6 +899,16 @@
         "phrase": "change replica count kubernetes"
       },
       { "slug": "su", "boost": 5, "phrase": "change active user" },
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "change ethernet autonegotiation"
+      },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "change wifi frequency iwconfig"
+      },
       { "slug": "chmod", "boost": 5, "phrase": "change file permissions" }
     ],
     "directory": [
@@ -1003,7 +1087,8 @@
       },
       { "slug": "locate", "boost": 5, "phrase": "find path of file linux" },
       { "slug": "insmod", "boost": 5, "phrase": "insert module from path" },
-      { "slug": "export", "boost": 5, "phrase": "add to path" }
+      { "slug": "export", "boost": 5, "phrase": "add to path" },
+      { "slug": "traceroute", "boost": 5, "phrase": "trace network path" }
     ],
     "switch": [
       { "slug": "cd", "boost": 5, "phrase": "switch working directory" },
@@ -1157,7 +1242,18 @@
       { "slug": "man", "boost": 5, "phrase": "how to use a command" },
       { "slug": "su", "boost": 5, "phrase": "run command as different user" },
       { "slug": "sudo", "boost": 5, "phrase": "run command as root" },
-      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" }
+      { "slug": "watch", "boost": 5, "phrase": "run command repeatedly" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "set wifi essid command line"
+      },
+      { "slug": "nmcli", "boost": 5, "phrase": "connect to wifi command line" },
+      {
+        "slug": "route",
+        "boost": 5,
+        "phrase": "add default gateway command line"
+      }
     ],
     "execute": [
       {
@@ -1298,6 +1394,17 @@
         "boost": 5,
         "phrase": "see who is logged in and system load"
       },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "view network links and mac addresses"
+      },
+      { "slug": "mtr", "boost": 5, "phrase": "combine ping and traceroute" },
+      {
+        "slug": "nc",
+        "boost": 5,
+        "phrase": "read and write over network sockets"
+      },
       { "slug": "search-and-copy-logs", "boost": 5 }
     ],
     "dynamically": [
@@ -1394,6 +1501,12 @@
         "slug": "tmux",
         "boost": 5,
         "phrase": "share terminal session with another user"
+      },
+      { "slug": "curl", "boost": 5, "phrase": "send post request with json" },
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "trace route with latency mapping"
       }
     ],
     "script": [
@@ -1524,6 +1637,13 @@
       },
       { "slug": "echo", "boost": 5, "phrase": "write variable to file" },
       { "slug": "grep", "boost": 5, "phrase": "find pattern in file" },
+      { "slug": "curl", "boost": 5, "phrase": "download a file from url" },
+      { "slug": "nc", "boost": 5, "phrase": "transfer file via nc" },
+      {
+        "slug": "wget",
+        "boost": 5,
+        "phrase": "download a file from the internet"
+      },
       { "slug": "chmod", "boost": 5, "phrase": "change file permissions" },
       { "slug": "sed", "boost": 5, "phrase": "replace text in file" },
       {
@@ -1667,7 +1787,17 @@
     "fg": [{ "slug": "fg", "boost": 5 }],
     "foreground": [{ "slug": "fg", "boost": 5 }],
     "bring": [
-      { "slug": "fg", "boost": 5, "phrase": "bring job to foreground" }
+      { "slug": "fg", "boost": 5, "phrase": "bring job to foreground" },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "bring interface up or down"
+      },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "bring network interface up or down"
+      }
     ],
     "return": [
       { "slug": "fg", "boost": 5, "phrase": "return to suspended process" }
@@ -1745,7 +1875,17 @@
         "boost": 5,
         "phrase": "show detailed kubernetes resource state"
       },
-      { "slug": "kubectl-get", "boost": 5, "phrase": "show running pods" }
+      { "slug": "kubectl-get", "boost": 5, "phrase": "show running pods" },
+      { "slug": "hostname", "boost": 5, "phrase": "show computer name" },
+      { "slug": "ifconfig", "boost": 5, "phrase": "show ip address" },
+      { "slug": "ip", "boost": 5, "phrase": "show ip addresses linux" },
+      { "slug": "netstat", "boost": 5, "phrase": "show listening ports linux" },
+      { "slug": "route", "boost": 5, "phrase": "show linux routing table" },
+      {
+        "slug": "ss",
+        "boost": 5,
+        "phrase": "show established network connections"
+      }
     ],
     "processes": [
       { "slug": "jobs", "boost": 5, "phrase": "show suspended processes" },
@@ -1851,6 +1991,51 @@
         "phrase": "check how long server has been running"
       },
       { "slug": "whoami", "boost": 5, "phrase": "check current user" },
+      { "slug": "dig", "boost": 5, "phrase": "check mx records" },
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "check network interface speed"
+      },
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "check active firewall zones"
+      },
+      { "slug": "host", "boost": 5, "phrase": "check reverse dns" },
+      { "slug": "hostname", "boost": 5, "phrase": "check system identity" },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "check network traffic statistics"
+      },
+      { "slug": "iw", "boost": 5, "phrase": "check wifi signal strength" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "check wifi signal quality iwconfig"
+      },
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "check packet loss to destination"
+      },
+      { "slug": "nc", "boost": 5, "phrase": "check if port is open netcat" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "check network interface statistics"
+      },
+      { "slug": "nslookup", "boost": 5, "phrase": "check mx records nslookup" },
+      { "slug": "ping", "boost": 5, "phrase": "check host reachability" },
+      { "slug": "ss", "boost": 5, "phrase": "check tcp queue limits" },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "check network routing hops"
+      },
+      { "slug": "ufw", "boost": 5, "phrase": "check firewall status" },
+      { "slug": "whois", "boost": 5, "phrase": "check domain expiration date" },
       { "slug": "test", "boost": 5, "phrase": "check file existence in script" }
     ],
     "active": [
@@ -1889,7 +2074,23 @@
         "boost": 5,
         "phrase": "change active namespace kubectl"
       },
-      { "slug": "su", "boost": 5, "phrase": "change active user" }
+      { "slug": "su", "boost": 5, "phrase": "change active user" },
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "check active firewall zones"
+      },
+      {
+        "slug": "iptables",
+        "boost": 5,
+        "phrase": "list active firewall rules"
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "list active network connections"
+      },
+      { "slug": "ss", "boost": 5, "phrase": "list active sockets linux" }
     ],
     "tasks": [
       { "slug": "jobs", "boost": 5, "phrase": "check active shell tasks" },
@@ -1988,7 +2189,18 @@
         "phrase": "view boot initialization messages"
       },
       { "slug": "history", "boost": 5, "phrase": "view previous commands" },
-      { "slug": "journalctl", "boost": 5, "phrase": "view service logs" }
+      { "slug": "journalctl", "boost": 5, "phrase": "view service logs" },
+      { "slug": "arp", "boost": 5, "phrase": "view mac address cache" },
+      { "slug": "curl", "boost": 5, "phrase": "view http response headers" },
+      { "slug": "ethtool", "boost": 5, "phrase": "view nic hardware settings" },
+      { "slug": "ifconfig", "boost": 5, "phrase": "view mac address" },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "view network links and mac addresses"
+      },
+      { "slug": "iw", "boost": 5, "phrase": "view wifi interface details" },
+      { "slug": "route", "boost": 5, "phrase": "view ip routing" }
     ],
     "pwd": [{ "slug": "pwd", "boost": 5 }],
     "print": [
@@ -2038,7 +2250,12 @@
         "boost": 5,
         "phrase": "check where command is installed"
       },
-      { "slug": "lsblk", "boost": 5, "phrase": "find where drive is mounted" }
+      { "slug": "lsblk", "boost": 5, "phrase": "find where drive is mounted" },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "find where packets are dropping"
+      }
     ],
     "am": [
       { "slug": "pwd", "boost": 5, "phrase": "where am i in terminal" },
@@ -2148,7 +2365,17 @@
     "display": [
       { "slug": "pwd", "boost": 5, "phrase": "display absolute path" },
       { "slug": "clear", "boost": 5, "phrase": "reset console display" },
-      { "slug": "echo", "boost": 5, "phrase": "display environment variable" }
+      { "slug": "echo", "boost": 5, "phrase": "display environment variable" },
+      {
+        "slug": "hostname",
+        "boost": 5,
+        "phrase": "display fully qualified domain name"
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "display kernel routing table"
+      }
     ],
     "absolute": [
       { "slug": "pwd", "boost": 5, "phrase": "display absolute path" }
@@ -2275,7 +2502,8 @@
         "slug": "gcloud-config-set",
         "boost": 5,
         "phrase": "update gcloud settings"
-      }
+      },
+      { "slug": "ethtool", "boost": 5, "phrase": "view nic hardware settings" }
     ],
     "extglob": [
       { "slug": "shopt", "boost": 5, "phrase": "enable extglob bash patterns" }
@@ -2309,7 +2537,8 @@
         "boost": 5,
         "phrase": "reload containerized application"
       },
-      { "slug": "sysctl", "boost": 5, "phrase": "reload sysctl configuration" }
+      { "slug": "sysctl", "boost": 5, "phrase": "reload sysctl configuration" },
+      { "slug": "firewall-cmd", "boost": 5, "phrase": "reload firewall rules" }
     ],
     "bashrc": [{ "slug": "source", "boost": 5, "phrase": "reload bashrc" }],
     "load": [
@@ -2486,6 +2715,24 @@
       { "slug": "man", "boost": 5, "phrase": "find command options" },
       { "slug": "strace", "boost": 5, "phrase": "find missing shared library" },
       { "slug": "uptime", "boost": 5, "phrase": "find system load average" },
+      { "slug": "arp", "boost": 5, "phrase": "find hardware address from ip" },
+      { "slug": "host", "boost": 5, "phrase": "find mx records for domain" },
+      { "slug": "hostname", "boost": 5, "phrase": "find local ip address" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "find process using port netstat"
+      },
+      { "slug": "nmap", "boost": 5, "phrase": "find operating system nmap" },
+      { "slug": "nslookup", "boost": 5, "phrase": "find ip address of domain" },
+      { "slug": "ping", "boost": 5, "phrase": "find packet loss percentage" },
+      { "slug": "ss", "boost": 5, "phrase": "find process using port ss" },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "find where packets are dropping"
+      },
+      { "slug": "whois", "boost": 5, "phrase": "find domain owner" },
       { "slug": "ps", "boost": 5, "phrase": "find process id" }
     ],
     "location": [
@@ -2504,7 +2751,8 @@
         "slug": "lsmod",
         "boost": 5,
         "phrase": "check if kernel module is loaded"
-      }
+      },
+      { "slug": "nc", "boost": 5, "phrase": "check if port is open netcat" }
     ],
     "is": [
       { "slug": "type", "boost": 5, "phrase": "check if command is alias" },
@@ -2538,7 +2786,8 @@
         "slug": "uptime",
         "boost": 5,
         "phrase": "see who is logged in and system load"
-      }
+      },
+      { "slug": "nc", "boost": 5, "phrase": "check if port is open netcat" }
     ],
     "alias": [
       { "slug": "type", "boost": 5, "phrase": "check if command is alias" },
@@ -2630,7 +2879,8 @@
         "slug": "strace",
         "boost": 5,
         "phrase": "trace system calls of a process"
-      }
+      },
+      { "slug": "nslookup", "boost": 5, "phrase": "find ip address of domain" }
     ],
     "this": [
       { "slug": "type", "boost": 5, "phrase": "what kind of command is this" },
@@ -2749,7 +2999,14 @@
       },
       { "slug": "mkdir", "boost": 5, "phrase": "setup directory tree" },
       { "slug": "mkfs", "boost": 5, "phrase": "setup raw block device" },
-      { "slug": "git-init", "boost": 5, "phrase": "setup bare git server" }
+      { "slug": "git-init", "boost": 5, "phrase": "setup bare git server" },
+      {
+        "slug": "iptables",
+        "boost": 5,
+        "phrase": "setup network address translation nat"
+      },
+      { "slug": "iw", "boost": 5, "phrase": "setup ibss ad-hoc network" },
+      { "slug": "nc", "boost": 5, "phrase": "setup simple tcp listener" }
     ],
     "cli": [
       { "slug": "aws-configure", "boost": 5, "phrase": "setup aws cli" },
@@ -2836,6 +3093,11 @@
         "slug": "alias",
         "boost": 5,
         "phrase": "override default command behavior"
+      },
+      {
+        "slug": "route",
+        "boost": 5,
+        "phrase": "add default gateway command line"
       }
     ],
     "region": [
@@ -3022,7 +3284,11 @@
         "slug": "aws-ec2-describe-instances",
         "boost": 5,
         "phrase": "query ec2 compute status"
-      }
+      },
+      { "slug": "dig", "boost": 5, "phrase": "query dns records" },
+      { "slug": "host", "boost": 5, "phrase": "query a nameserver directly" },
+      { "slug": "nslookup", "boost": 5, "phrase": "query dns records" },
+      { "slug": "whois", "boost": 5, "phrase": "query registrar information" }
     ],
     "compute": [
       {
@@ -3060,7 +3326,8 @@
         "phrase": "show docker container status"
       },
       { "slug": "git-status", "boost": 5 },
-      { "slug": "systemctl", "boost": 5, "phrase": "check service status" }
+      { "slug": "systemctl", "boost": 5, "phrase": "check service status" },
+      { "slug": "ufw", "boost": 5, "phrase": "check firewall status" }
     ],
     "launch": [
       {
@@ -3171,6 +3438,8 @@
         "boost": 5,
         "phrase": "check how long server has been running"
       },
+      { "slug": "nslookup", "boost": 5 },
+      { "slug": "traceroute", "boost": 5, "phrase": "trace route to server" },
       { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" },
       { "slug": "search-and-copy-logs", "boost": 5 }
     ],
@@ -3402,7 +3671,8 @@
         "slug": "kubectl-apply",
         "boost": 5,
         "phrase": "update deployment via file"
-      }
+      },
+      { "slug": "nc", "boost": 5, "phrase": "transfer file via nc" }
     ],
     "eks": [{ "slug": "aws-eks-update-kubeconfig", "boost": 5 }],
     "update": [
@@ -3545,6 +3815,7 @@
         "boost": 5,
         "phrase": "connect to cluster database from localhost"
       },
+      { "slug": "nmcli", "boost": 5, "phrase": "connect to wifi command line" },
       { "slug": "ssh", "boost": 5, "phrase": "connect to remote server" }
     ],
     "cluster": [
@@ -3720,7 +3991,11 @@
         "boost": 5,
         "phrase": "search for string in directory"
       },
-      { "slug": "man", "boost": 5, "phrase": "search for command syntax" }
+      { "slug": "man", "boost": 5, "phrase": "search for command syntax" },
+      { "slug": "host", "boost": 5, "phrase": "find mx records for domain" },
+      { "slug": "iw", "boost": 5, "phrase": "scan for wifi networks" },
+      { "slug": "nmap", "boost": 5, "phrase": "scan network for open ports" },
+      { "slug": "whois", "boost": 5, "phrase": "find abuse contact for ip" }
     ],
     "kubectl": [
       {
@@ -3832,7 +4107,13 @@
         "phrase": "add label to kubernetes pod"
       },
       { "slug": "kubectl-taint", "boost": 5, "phrase": "add taint to node" },
-      { "slug": "export", "boost": 5, "phrase": "add to path" }
+      { "slug": "export", "boost": 5, "phrase": "add to path" },
+      { "slug": "arp", "boost": 5, "phrase": "add static arp entry" },
+      {
+        "slug": "route",
+        "boost": 5,
+        "phrase": "add default gateway command line"
+      }
     ],
     "local": [
       {
@@ -3930,7 +4211,8 @@
         "slug": "kubectl-port-forward",
         "boost": 5,
         "phrase": "port forward to local machine"
-      }
+      },
+      { "slug": "hostname", "boost": 5, "phrase": "find local ip address" }
     ],
     "iam": [
       { "slug": "aws-iam-get-user", "boost": 5 },
@@ -3973,7 +4255,8 @@
         "slug": "gcloud-iam-service-accounts-create",
         "boost": 5,
         "phrase": "create non-human identity gcp"
-      }
+      },
+      { "slug": "hostname", "boost": 5, "phrase": "check system identity" }
     ],
     "arn": [
       { "slug": "aws-iam-get-user", "boost": 5, "phrase": "find iam user arn" },
@@ -3994,7 +4277,8 @@
         "boost": 5,
         "phrase": "view docker object details"
       },
-      { "slug": "git-show", "boost": 5, "phrase": "view commit details" }
+      { "slug": "git-show", "boost": 5, "phrase": "view commit details" },
+      { "slug": "iw", "boost": 5, "phrase": "view wifi interface details" }
     ],
     "who": [
       { "slug": "aws-iam-get-user", "boost": 5, "phrase": "who am i aws" },
@@ -4184,6 +4468,13 @@
         "boost": 5,
         "phrase": "remove taint from kubernetes node"
       },
+      { "slug": "arp", "boost": 5, "phrase": "find hardware address from ip" },
+      { "slug": "curl", "boost": 5, "phrase": "download a file from url" },
+      {
+        "slug": "wget",
+        "boost": 5,
+        "phrase": "download a file from the internet"
+      },
       { "slug": "awk", "boost": 5, "phrase": "extract column from text" }
     ],
     "stream": [
@@ -4337,6 +4628,11 @@
         "phrase": "read previous crashed pod logs"
       },
       { "slug": "man", "boost": 5, "phrase": "read system documentation" },
+      {
+        "slug": "nc",
+        "boost": 5,
+        "phrase": "read and write over network sockets"
+      },
       { "slug": "cat", "boost": 5, "phrase": "read file content" }
     ],
     "s3": [
@@ -4428,7 +4724,12 @@
         "boost": 5,
         "phrase": "download changes from github"
       },
-      { "slug": "curl", "boost": 5, "phrase": "download url content" }
+      { "slug": "curl", "boost": 5, "phrase": "download a file from url" },
+      {
+        "slug": "wget",
+        "boost": 5,
+        "phrase": "download a file from the internet"
+      }
     ],
     "object": [
       { "slug": "aws-s3-cp", "boost": 5, "phrase": "download object from s3" },
@@ -4528,7 +4829,8 @@
         "slug": "docker-save-load",
         "boost": 5,
         "phrase": "save docker image for offline transfer"
-      }
+      },
+      { "slug": "nc", "boost": 5, "phrase": "transfer file via nc" }
     ],
     "storage": [
       { "slug": "aws-s3-cp", "boost": 5, "phrase": "move file to aws storage" },
@@ -4699,7 +5001,8 @@
         "slug": "aws-s3-sync",
         "boost": 5,
         "phrase": "mirror directory to aws s3"
-      }
+      },
+      { "slug": "wget", "boost": 5, "phrase": "mirror a website recursively" }
     ],
     "only": [
       {
@@ -4830,7 +5133,15 @@
         "slug": "tmux",
         "boost": 5,
         "phrase": "manage multiple terminal sessions"
-      }
+      },
+      { "slug": "firewall-cmd", "boost": 5, "phrase": "manage linux firewall" },
+      { "slug": "ip", "boost": 5, "phrase": "manage routing tables" },
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "manage networkmanager connections"
+      },
+      { "slug": "ufw", "boost": 5, "phrase": "manage ubuntu firewall" }
     ],
     "resources": [
       { "slug": "aws", "boost": 5, "phrase": "manage aws cloud resources" },
@@ -5359,7 +5670,13 @@
         "phrase": "tunnel kubernetes service"
       },
       { "slug": "journalctl", "boost": 5, "phrase": "view service logs" },
-      { "slug": "systemctl", "boost": 5, "phrase": "start a service" }
+      { "slug": "systemctl", "boost": 5, "phrase": "start a service" },
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "allow service through firewall"
+      },
+      { "slug": "nmap", "boost": 5, "phrase": "detect service versions nmap" }
     ],
     "plan": [
       {
@@ -5426,7 +5743,8 @@
         "slug": "kubectl-edit",
         "boost": 5,
         "phrase": "update k8s configuration terminal"
-      }
+      },
+      { "slug": "ifconfig", "boost": 5 }
     ],
     "tags": [
       {
@@ -5451,7 +5769,8 @@
         "slug": "ansible-playbook",
         "boost": 5,
         "phrase": "run an ansible playbook"
-      }
+      },
+      { "slug": "curl", "boost": 5, "phrase": "make an http request" }
     ],
     "make": [
       {
@@ -5476,7 +5795,7 @@
         "boost": 5,
         "phrase": "make variable global in bash"
       },
-      { "slug": "curl", "boost": 5, "phrase": "make http request" },
+      { "slug": "curl", "boost": 5, "phrase": "make an http request" },
       { "slug": "chmod", "boost": 5, "phrase": "make file executable" }
     ],
     "a": [
@@ -5559,7 +5878,14 @@
         "boost": 5,
         "phrase": "trace system calls of a process"
       },
-      { "slug": "systemctl", "boost": 5, "phrase": "start a service" }
+      { "slug": "systemctl", "boost": 5, "phrase": "start a service" },
+      { "slug": "curl", "boost": 5, "phrase": "download a file from url" },
+      { "slug": "host", "boost": 5, "phrase": "query a nameserver directly" },
+      {
+        "slug": "wget",
+        "boost": 5,
+        "phrase": "download a file from the internet"
+      }
     ],
     "initialize": [
       {
@@ -5782,6 +6108,16 @@
         "slug": "kubectl-scale",
         "boost": 5,
         "phrase": "scale up deployment pods"
+      },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "bring interface up or down"
+      },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "bring network interface up or down"
       }
     ],
     "web": [
@@ -6051,7 +6387,12 @@
         "boost": 5,
         "phrase": "find out why process was killed by oom killer"
       },
-      { "slug": "journalctl", "boost": 5, "phrase": "filter logs by time" }
+      { "slug": "journalctl", "boost": 5, "phrase": "filter logs by time" },
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "filter network traffic by port"
+      }
     ],
     "label": [
       {
@@ -6458,6 +6799,9 @@
         "phrase": "prevent pod scheduling on node"
       },
       { "slug": "systemctl", "boost": 5, "phrase": "enable service on boot" },
+      { "slug": "nmap", "boost": 5, "phrase": "discover hosts on subnet" },
+      { "slug": "tcpdump", "boost": 5, "phrase": "sniff packets on interface" },
+      { "slug": "ufw", "boost": 5, "phrase": "open port on linux" },
       { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
     ],
     "laptop": [
@@ -6601,7 +6945,9 @@
         "slug": "kubectl-taint",
         "boost": 5,
         "phrase": "dedicate node for specific workload"
-      }
+      },
+      { "slug": "dig", "boost": 5, "phrase": "query specific nameserver" },
+      { "slug": "nslookup", "boost": 5, "phrase": "test specific dns server" }
     ],
     "queue": [
       {
@@ -6615,7 +6961,8 @@
         "slug": "batch",
         "boost": 5,
         "phrase": "queue background load-managed job"
-      }
+      },
+      { "slug": "ss", "boost": 5, "phrase": "check tcp queue limits" }
     ],
     "future": [
       {
@@ -6706,7 +7053,8 @@
       { "slug": "git-rm", "boost": 5, "phrase": "delete tracked files" },
       { "slug": "git-tag", "boost": 5, "phrase": "delete a git tag" },
       { "slug": "rmmod", "boost": 5, "phrase": "delete active kernel object" },
-      { "slug": "kubectl-delete", "boost": 5 }
+      { "slug": "kubectl-delete", "boost": 5 },
+      { "slug": "route", "boost": 5, "phrase": "delete static route linux" }
     ],
     "remove": [
       { "slug": "atrm", "boost": 5, "phrase": "remove job from at queue" },
@@ -6795,7 +7143,8 @@
       { "slug": "atrm", "boost": 5, "phrase": "cancel pending deferred task" }
     ],
     "entry": [
-      { "slug": "atrm", "boost": 5, "phrase": "delete at queue entry" }
+      { "slug": "atrm", "boost": 5, "phrase": "delete at queue entry" },
+      { "slug": "arp", "boost": 5, "phrase": "add static arp entry" }
     ],
     "batch": [
       { "slug": "batch", "boost": 5 },
@@ -6836,6 +7185,8 @@
         "phrase": "trace system calls of a process"
       },
       { "slug": "uptime", "boost": 5, "phrase": "find system load average" },
+      { "slug": "hostname", "boost": 5, "phrase": "check system identity" },
+      { "slug": "nmap", "boost": 5, "phrase": "find operating system nmap" },
       { "slug": "apt", "boost": 5, "phrase": "update system packages" }
     ],
     "permits": [
@@ -6878,6 +7229,17 @@
         "slug": "dmesg",
         "boost": 5,
         "phrase": "troubleshoot usb drive connection"
+      },
+      { "slug": "dig", "boost": 5, "phrase": "troubleshoot dns resolution" },
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "troubleshoot dropped packets"
+      },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "troubleshoot high latency"
       }
     ],
     "crontab": [{ "slug": "crontab", "boost": 5 }],
@@ -6912,11 +7274,23 @@
         "boost": 5,
         "phrase": "modify k8s deployment on the fly"
       },
-      { "slug": "clear", "boost": 5, "phrase": "clear the terminal screen" }
+      { "slug": "clear", "boost": 5, "phrase": "clear the terminal screen" },
+      {
+        "slug": "wget",
+        "boost": 5,
+        "phrase": "download a file from the internet"
+      }
     ],
     "table": [
       { "slug": "crontab", "boost": 5, "phrase": "edit the cron table file" },
-      { "slug": "fdisk", "boost": 5, "phrase": "manage partition table" }
+      { "slug": "fdisk", "boost": 5, "phrase": "manage partition table" },
+      { "slug": "arp", "boost": 5, "phrase": "manipulate arp table" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "display kernel routing table"
+      },
+      { "slug": "route", "boost": 5, "phrase": "show linux routing table" }
     ],
     "recurring": [
       {
@@ -6973,7 +7347,30 @@
       },
       { "slug": "rmmod", "boost": 5, "phrase": "unload linux driver" },
       { "slug": "sysctl", "boost": 5, "phrase": "enable ip forwarding linux" },
-      { "slug": "man", "boost": 5, "phrase": "linux manual pages" }
+      { "slug": "man", "boost": 5, "phrase": "linux manual pages" },
+      { "slug": "firewall-cmd", "boost": 5, "phrase": "manage linux firewall" },
+      { "slug": "hostname", "boost": 5, "phrase": "set linux hostname" },
+      { "slug": "ip", "boost": 5, "phrase": "show ip addresses linux" },
+      { "slug": "iptables", "boost": 5, "phrase": "configure linux firewall" },
+      {
+        "slug": "iw",
+        "boost": 5,
+        "phrase": "configure wireless interface linux"
+      },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "configure wireless interface legacy linux"
+      },
+      { "slug": "netstat", "boost": 5, "phrase": "show listening ports linux" },
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "configure network interface linux"
+      },
+      { "slug": "route", "boost": 5, "phrase": "show linux routing table" },
+      { "slug": "ss", "boost": 5, "phrase": "list active sockets linux" },
+      { "slug": "ufw", "boost": 5, "phrase": "open port on linux" }
     ],
     "automate": [
       {
@@ -7142,6 +7539,11 @@
         "slug": "ansible-playbook",
         "boost": 5,
         "phrase": "apply configuration management playbook"
+      },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "disable power management wifi"
       }
     ],
     "automated": [
@@ -7219,10 +7621,12 @@
       }
     ],
     "ad": [
-      { "slug": "ansible", "boost": 5, "phrase": "run ad-hoc ansible command" }
+      { "slug": "ansible", "boost": 5, "phrase": "run ad-hoc ansible command" },
+      { "slug": "iw", "boost": 5, "phrase": "setup ibss ad-hoc network" }
     ],
     "hoc": [
-      { "slug": "ansible", "boost": 5, "phrase": "run ad-hoc ansible command" }
+      { "slug": "ansible", "boost": 5, "phrase": "run ad-hoc ansible command" },
+      { "slug": "iw", "boost": 5, "phrase": "setup ibss ad-hoc network" }
     ],
     "test": [
       {
@@ -7235,6 +7639,11 @@
         "boost": 5,
         "phrase": "test newly compiled kernel module"
       },
+      { "slug": "curl", "boost": 5, "phrase": "test rest api endpoint" },
+      { "slug": "mtr", "boost": 5, "phrase": "run mtr network test" },
+      { "slug": "nc", "boost": 5, "phrase": "test udp connection nc" },
+      { "slug": "nslookup", "boost": 5, "phrase": "test specific dns server" },
+      { "slug": "ping", "boost": 5, "phrase": "test internet connection ping" },
       { "slug": "test", "boost": 5 }
     ],
     "connectivity": [
@@ -7256,10 +7665,13 @@
         "slug": "ansible",
         "boost": 5,
         "phrase": "test connectivity inventory hosts"
-      }
+      },
+      { "slug": "nmap", "boost": 5, "phrase": "discover hosts on subnet" }
     ],
     "ping": [
-      { "slug": "ansible", "boost": 5, "phrase": "ping hosts with ansible" }
+      { "slug": "ansible", "boost": 5, "phrase": "ping hosts with ansible" },
+      { "slug": "mtr", "boost": 5, "phrase": "combine ping and traceroute" },
+      { "slug": "ping", "boost": 5 }
     ],
     "adhoc": [
       { "slug": "ansible", "boost": 5, "phrase": "execute adhoc shell module" }
@@ -7478,7 +7890,8 @@
         "boost": 5,
         "phrase": "find kubernetes control plane url"
       },
-      { "slug": "curl", "boost": 5, "phrase": "download url content" }
+      { "slug": "curl", "boost": 5, "phrase": "download a file from url" },
+      { "slug": "wget", "boost": 5, "phrase": "fetch file from url" }
     ],
     "stable": [
       {
@@ -7701,7 +8114,8 @@
         "slug": "docker-inspect",
         "boost": 5,
         "phrase": "extract docker metadata json"
-      }
+      },
+      { "slug": "curl", "boost": 5, "phrase": "send post request with json" }
     ],
     "extract": [
       { "slug": "jq", "boost": 5, "phrase": "extract value from json file" },
@@ -7769,7 +8183,12 @@
     "filter": [
       { "slug": "jq", "boost": 5, "phrase": "filter json array by key" },
       { "slug": "grep", "boost": 5, "phrase": "filter lines matching pattern" },
-      { "slug": "journalctl", "boost": 5, "phrase": "filter logs by time" }
+      { "slug": "journalctl", "boost": 5, "phrase": "filter logs by time" },
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "filter network traffic by port"
+      }
     ],
     "array": [
       { "slug": "jq", "boost": 5, "phrase": "filter json array by key" }
@@ -7949,6 +8368,16 @@
         "slug": "kubectl-drain",
         "boost": 5,
         "phrase": "safely shut down k8s node"
+      },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "bring interface up or down"
+      },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "bring network interface up or down"
       }
     ],
     "clean": [
@@ -8059,7 +8488,15 @@
         "slug": "docker-inspect",
         "boost": 5,
         "phrase": "get container ip address"
-      }
+      },
+      { "slug": "arp", "boost": 5, "phrase": "view mac address cache" },
+      { "slug": "hostname", "boost": 5, "phrase": "find local ip address" },
+      { "slug": "ifconfig", "boost": 5, "phrase": "show ip address" },
+      { "slug": "iptables", "boost": 5, "phrase": "block ip address iptables" },
+      { "slug": "nmcli", "boost": 5, "phrase": "set static ip address nmcli" },
+      { "slug": "nslookup", "boost": 5, "phrase": "find ip address of domain" },
+      { "slug": "ufw", "boost": 5, "phrase": "allow ip address ufw" },
+      { "slug": "whois", "boost": 5, "phrase": "lookup ip address owner" }
     ],
     "tfstate": [
       {
@@ -8073,7 +8510,8 @@
         "slug": "terraform-state-list",
         "boost": 5,
         "phrase": "find module addresses in state"
-      }
+      },
+      { "slug": "ip", "boost": 5, "phrase": "show ip addresses linux" }
     ],
     "vagrant": [{ "slug": "vagrant", "boost": 5 }],
     "box": [
@@ -8337,7 +8775,9 @@
         "slug": "docker-cp",
         "boost": 5,
         "phrase": "move files to local host from docker"
-      }
+      },
+      { "slug": "host", "boost": 5 },
+      { "slug": "ping", "boost": 5, "phrase": "check host reachability" }
     ],
     "inside": [
       {
@@ -8357,7 +8797,16 @@
         "slug": "kubectl-exec",
         "boost": 5,
         "phrase": "open shell in kubernetes"
-      }
+      },
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "open port in firewalld"
+      },
+      { "slug": "iptables", "boost": 5, "phrase": "open port 80 iptables" },
+      { "slug": "nc", "boost": 5, "phrase": "check if port is open netcat" },
+      { "slug": "nmap", "boost": 5, "phrase": "scan network for open ports" },
+      { "slug": "ufw", "boost": 5, "phrase": "open port on linux" }
     ],
     "downloaded": [
       {
@@ -8431,7 +8880,18 @@
         "boost": 5,
         "phrase": "get container ip address"
       },
-      { "slug": "sysctl", "boost": 5, "phrase": "enable ip forwarding linux" }
+      { "slug": "sysctl", "boost": 5, "phrase": "enable ip forwarding linux" },
+      { "slug": "arp", "boost": 5, "phrase": "find hardware address from ip" },
+      { "slug": "host", "boost": 5, "phrase": "resolve hostname to ip" },
+      { "slug": "hostname", "boost": 5, "phrase": "find local ip address" },
+      { "slug": "ifconfig", "boost": 5, "phrase": "show ip address" },
+      { "slug": "ip", "boost": 5 },
+      { "slug": "iptables", "boost": 5, "phrase": "block ip address iptables" },
+      { "slug": "nmcli", "boost": 5, "phrase": "set static ip address nmcli" },
+      { "slug": "nslookup", "boost": 5, "phrase": "find ip address of domain" },
+      { "slug": "route", "boost": 5, "phrase": "view ip routing" },
+      { "slug": "ufw", "boost": 5, "phrase": "allow ip address ufw" },
+      { "slug": "whois", "boost": 5, "phrase": "lookup ip address owner" }
     ],
     "metadata": [
       {
@@ -8574,7 +9034,8 @@
         "phrase": "fetch image from docker hub"
       },
       { "slug": "git-fetch", "boost": 5 },
-      { "slug": "git-pull", "boost": 5, "phrase": "fetch and merge" }
+      { "slug": "git-pull", "boost": 5, "phrase": "fetch and merge" },
+      { "slug": "wget", "boost": 5, "phrase": "fetch file from url" }
     ],
     "stdout": [
       {
@@ -8619,7 +9080,54 @@
         "slug": "kubectl-cluster-info",
         "boost": 5,
         "phrase": "view cluster network topology"
-      }
+      },
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "check network interface speed"
+      },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "configure network interface"
+      },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "bring network interface up or down"
+      },
+      {
+        "slug": "iptables",
+        "boost": 5,
+        "phrase": "setup network address translation nat"
+      },
+      { "slug": "iw", "boost": 5, "phrase": "setup ibss ad-hoc network" },
+      { "slug": "mtr", "boost": 5, "phrase": "run mtr network test" },
+      {
+        "slug": "nc",
+        "boost": 5,
+        "phrase": "read and write over network sockets"
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "list active network connections"
+      },
+      { "slug": "nmap", "boost": 5 },
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "configure network interface linux"
+      },
+      { "slug": "ping", "boost": 5, "phrase": "measure network latency" },
+      {
+        "slug": "ss",
+        "boost": 5,
+        "phrase": "show established network connections"
+      },
+      { "slug": "tcpdump", "boost": 5, "phrase": "capture network traffic" },
+      { "slug": "traceroute", "boost": 5, "phrase": "trace network path" },
+      { "slug": "ufw", "boost": 5, "phrase": "block network traffic" }
     ],
     "bridge": [
       {
@@ -8629,14 +9137,20 @@
       }
     ],
     "networks": [
-      { "slug": "docker-network", "boost": 5, "phrase": "list docker networks" }
+      {
+        "slug": "docker-network",
+        "boost": 5,
+        "phrase": "list docker networks"
+      },
+      { "slug": "iw", "boost": 5, "phrase": "scan for wifi networks" }
     ],
     "subnet": [
       {
         "slug": "docker-network",
         "boost": 5,
         "phrase": "inspect docker subnet"
-      }
+      },
+      { "slug": "nmap", "boost": 5, "phrase": "discover hosts on subnet" }
     ],
     "ps": [
       { "slug": "docker-ps", "boost": 5 },
@@ -8704,7 +9218,8 @@
         "boost": 5,
         "phrase": "restart deployment kubernetes"
       },
-      { "slug": "systemctl", "boost": 5, "phrase": "restart nginx" }
+      { "slug": "systemctl", "boost": 5, "phrase": "restart nginx" },
+      { "slug": "nmcli", "boost": 5, "phrase": "restart network interface" }
     ],
     "containerized": [
       {
@@ -8757,7 +9272,8 @@
         "slug": "docker-system-prune",
         "boost": 5,
         "phrase": "clear docker cache"
-      }
+      },
+      { "slug": "arp", "boost": 5, "phrase": "view mac address cache" }
     ],
     "untag": [
       { "slug": "docker-rmi", "boost": 5, "phrase": "untag docker image" }
@@ -8929,7 +9445,8 @@
       },
       { "slug": "clear", "boost": 5 },
       { "slug": "env", "boost": 5, "phrase": "clear environment variables" },
-      { "slug": "history", "boost": 5, "phrase": "clear bash history" }
+      { "slug": "history", "boost": 5, "phrase": "clear bash history" },
+      { "slug": "arp", "boost": 5, "phrase": "clear arp cache" }
     ],
     "free": [
       {
@@ -8971,7 +9488,9 @@
         "boost": 5,
         "phrase": "change repository name docker"
       },
-      { "slug": "locate", "boost": 5, "phrase": "search file by name fast" }
+      { "slug": "locate", "boost": 5, "phrase": "search file by name fast" },
+      { "slug": "hostname", "boost": 5, "phrase": "show computer name" },
+      { "slug": "nslookup", "boost": 5 }
     ],
     "persistent": [
       {
@@ -8992,7 +9511,9 @@
     "block": [
       { "slug": "blkid", "boost": 5, "phrase": "list block device attributes" },
       { "slug": "lsblk", "boost": 5, "phrase": "list block devices linux" },
-      { "slug": "mkfs", "boost": 5, "phrase": "setup raw block device" }
+      { "slug": "mkfs", "boost": 5, "phrase": "setup raw block device" },
+      { "slug": "iptables", "boost": 5, "phrase": "block ip address iptables" },
+      { "slug": "ufw", "boost": 5, "phrase": "block network traffic" }
     ],
     "device": [
       { "slug": "blkid", "boost": 5, "phrase": "list block device attributes" },
@@ -9021,7 +9542,8 @@
         "slug": "tree",
         "boost": 5,
         "phrase": "list all files recursively visual"
-      }
+      },
+      { "slug": "wget", "boost": 5, "phrase": "mirror a website recursively" }
     ],
     "preserve": [
       { "slug": "cp", "boost": 5, "phrase": "preserve file attributes" }
@@ -9149,7 +9671,8 @@
     ],
     "broken": [
       { "slug": "fsck", "boost": 5, "phrase": "repair broken filesystem" },
-      { "slug": "depmod", "boost": 5, "phrase": "fix broken modprobe" }
+      { "slug": "depmod", "boost": 5, "phrase": "fix broken modprobe" },
+      { "slug": "wget", "boost": 5, "phrase": "resume a broken download" }
     ],
     "hard": [
       { "slug": "fsck", "boost": 5, "phrase": "check hard drive for errors" },
@@ -9234,11 +9757,22 @@
         "slug": "git-checkout",
         "boost": 5,
         "phrase": "resolve merge conflicts using ours or theirs"
+      },
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "bring interface up or down"
+      },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "bring network interface up or down"
       }
     ],
     "date": [
       { "slug": "ls", "boost": 5, "phrase": "sort files by size or date" },
-      { "slug": "date", "boost": 5 }
+      { "slug": "date", "boost": 5 },
+      { "slug": "whois", "boost": 5, "phrase": "check domain expiration date" }
     ],
     "readable": [
       {
@@ -9295,7 +9829,13 @@
         "slug": "kubectl-top",
         "boost": 5,
         "phrase": "find pods using most ram"
-      }
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "find process using port netstat"
+      },
+      { "slug": "ss", "boost": 5, "phrase": "find process using port ss" }
     ],
     "port": [
       { "slug": "lsof", "boost": 5, "phrase": "find process using port" },
@@ -9304,7 +9844,26 @@
         "boost": 5,
         "phrase": "port fix to release branch"
       },
-      { "slug": "kubectl-port-forward", "boost": 5 }
+      { "slug": "kubectl-port-forward", "boost": 5 },
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "open port in firewalld"
+      },
+      { "slug": "iptables", "boost": 5, "phrase": "open port 80 iptables" },
+      { "slug": "nc", "boost": 5, "phrase": "check if port is open netcat" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "find process using port netstat"
+      },
+      { "slug": "ss", "boost": 5, "phrase": "find process using port ss" },
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "filter network traffic by port"
+      },
+      { "slug": "ufw", "boost": 5, "phrase": "open port on linux" }
     ],
     "deleted": [
       {
@@ -9343,7 +9902,22 @@
       }
     ],
     "connections": [
-      { "slug": "lsof", "boost": 5, "phrase": "list network connections lsof" }
+      { "slug": "lsof", "boost": 5, "phrase": "list network connections lsof" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "list active network connections"
+      },
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "manage networkmanager connections"
+      },
+      {
+        "slug": "ss",
+        "boost": 5,
+        "phrase": "show established network connections"
+      }
     ],
     "mkdir": [{ "slug": "mkdir", "boost": 5 }],
     "nested": [
@@ -9400,7 +9974,12 @@
         "phrase": "remount filesystem read write"
       },
       { "slug": "git-commit", "boost": 5, "phrase": "write a commit message" },
-      { "slug": "echo", "boost": 5, "phrase": "write variable to file" }
+      { "slug": "echo", "boost": 5, "phrase": "write variable to file" },
+      {
+        "slug": "nc",
+        "boost": 5,
+        "phrase": "read and write over network sockets"
+      }
     ],
     "fstab": [
       { "slug": "mount", "boost": 5, "phrase": "mount all fstab entries" }
@@ -9449,7 +10028,18 @@
         "boost": 5,
         "phrase": "who wrote this line of code"
       },
-      { "slug": "git-log", "boost": 5, "phrase": "find who changed a line" }
+      { "slug": "git-log", "boost": 5, "phrase": "find who changed a line" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "set wifi essid command line"
+      },
+      { "slug": "nmcli", "boost": 5, "phrase": "connect to wifi command line" },
+      {
+        "slug": "route",
+        "boost": 5,
+        "phrase": "add default gateway command line"
+      }
     ],
     "partitioning": [
       { "slug": "parted", "boost": 5, "phrase": "script disk partitioning" }
@@ -9515,6 +10105,12 @@
         "slug": "kubectl-cordon",
         "boost": 5,
         "phrase": "disable pod placement on node"
+      },
+      { "slug": "ethtool", "boost": 5, "phrase": "disable tso offloading" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "disable power management wifi"
       }
     ],
     "periodic": [
@@ -9785,7 +10381,14 @@
         "slug": "strace",
         "boost": 5,
         "phrase": "trace system calls of a process"
-      }
+      },
+      { "slug": "dig", "boost": 5, "phrase": "trace dns propagation" },
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "trace route with latency mapping"
+      },
+      { "slug": "traceroute", "boost": 5, "phrase": "trace network path" }
     ],
     "origins": [
       { "slug": "git-blame", "boost": 5, "phrase": "trace code origins" }
@@ -9847,7 +10450,13 @@
       },
       { "slug": "git-merge", "boost": 5, "phrase": "resolve merge conflicts" },
       { "slug": "git-pull", "boost": 5, "phrase": "resolve remote conflicts" },
-      { "slug": "git-rebase", "boost": 5, "phrase": "resolve rebase conflicts" }
+      {
+        "slug": "git-rebase",
+        "boost": 5,
+        "phrase": "resolve rebase conflicts"
+      },
+      { "slug": "host", "boost": 5, "phrase": "resolve hostname to ip" },
+      { "slug": "nslookup", "boost": 5, "phrase": "resolve hostname to ip" }
     ],
     "merge": [
       {
@@ -10067,7 +10676,8 @@
     ],
     "past": [{ "slug": "git-log", "boost": 5, "phrase": "check past commits" }],
     "combine": [
-      { "slug": "git-merge", "boost": 5, "phrase": "combine git branches" }
+      { "slug": "git-merge", "boost": 5, "phrase": "combine git branches" },
+      { "slug": "mtr", "boost": 5, "phrase": "combine ping and traceroute" }
     ],
     "join": [
       {
@@ -10109,6 +10719,11 @@
         "slug": "git-push",
         "boost": 5,
         "phrase": "force push over remote branch"
+      },
+      {
+        "slug": "nc",
+        "boost": 5,
+        "phrase": "read and write over network sockets"
       }
     ],
     "rebase": [{ "slug": "git-rebase", "boost": 5 }],
@@ -10436,7 +11051,12 @@
         "boost": 5,
         "phrase": "configure kernel parameters at runtime"
       },
-      { "slug": "dmesg", "boost": 5, "phrase": "check kernel logs" }
+      { "slug": "dmesg", "boost": 5, "phrase": "check kernel logs" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "display kernel routing table"
+      }
     ],
     "modprobe": [
       { "slug": "depmod", "boost": 5, "phrase": "fix broken modprobe" },
@@ -10498,7 +11118,12 @@
         "boost": 5,
         "phrase": "insert kernel module directly"
       },
-      { "slug": "rmmod", "boost": 5, "phrase": "remove kernel module directly" }
+      {
+        "slug": "rmmod",
+        "boost": 5,
+        "phrase": "remove kernel module directly"
+      },
+      { "slug": "host", "boost": 5, "phrase": "query a nameserver directly" }
     ],
     "ko": [
       { "slug": "insmod", "boost": 5, "phrase": "load .ko file linux" },
@@ -10554,7 +11179,10 @@
       { "slug": "kmod", "boost": 5, "phrase": "interact with libkmod" }
     ],
     "static": [
-      { "slug": "kmod", "boost": 5, "phrase": "check module static nodes" }
+      { "slug": "kmod", "boost": 5, "phrase": "check module static nodes" },
+      { "slug": "arp", "boost": 5, "phrase": "add static arp entry" },
+      { "slug": "nmcli", "boost": 5, "phrase": "set static ip address nmcli" },
+      { "slug": "route", "boost": 5, "phrase": "delete static route linux" }
     ],
     "mkinitcpio": [{ "slug": "mkinitcpio", "boost": 5 }],
     "initial": [
@@ -10583,7 +11211,9 @@
         "slug": "kubectl-cluster-info",
         "boost": 5,
         "phrase": "dump cluster state information"
-      }
+      },
+      { "slug": "dig", "boost": 5 },
+      { "slug": "whois", "boost": 5, "phrase": "query registrar information" }
     ],
     "license": [
       {
@@ -10610,7 +11240,9 @@
       { "slug": "sysctl", "boost": 5, "phrase": "tune tcp network stack" }
     ],
     "tcp": [
-      { "slug": "sysctl", "boost": 5, "phrase": "tune tcp network stack" }
+      { "slug": "sysctl", "boost": 5, "phrase": "tune tcp network stack" },
+      { "slug": "nc", "boost": 5, "phrase": "setup simple tcp listener" },
+      { "slug": "ss", "boost": 5, "phrase": "check tcp queue limits" }
     ],
     "pod": [
       {
@@ -10767,7 +11399,8 @@
         "slug": "kubectl-explain",
         "boost": 5,
         "phrase": "describe k8s api schema"
-      }
+      },
+      { "slug": "curl", "boost": 5, "phrase": "test rest api endpoint" }
     ],
     "shortnames": [
       {
@@ -10803,7 +11436,8 @@
         "slug": "kubectl-api-resources",
         "boost": 5,
         "phrase": "discover kubernetes api endpoints"
-      }
+      },
+      { "slug": "nmap", "boost": 5, "phrase": "discover hosts on subnet" }
     ],
     "endpoints": [
       {
@@ -10835,7 +11469,8 @@
         "slug": "kubectl-cluster-info",
         "boost": 5,
         "phrase": "check kubernetes api endpoint"
-      }
+      },
+      { "slug": "curl", "boost": 5, "phrase": "test rest api endpoint" }
     ],
     "control": [
       {
@@ -10863,6 +11498,11 @@
         "slug": "kubectl-cluster-info",
         "boost": 5,
         "phrase": "dump cluster state information"
+      },
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "dump network traffic to pcap"
       }
     ],
     "cordon": [{ "slug": "kubectl-cordon", "boost": 5 }],
@@ -11088,6 +11728,11 @@
         "slug": "kubectl-explain",
         "boost": 5,
         "phrase": "what fields are in a pod spec"
+      },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "find where packets are dropping"
       }
     ],
     "spec": [
@@ -11136,7 +11781,15 @@
         "slug": "kubectl-port-forward",
         "boost": 5,
         "phrase": "route localhost to k8s pod"
-      }
+      },
+      { "slug": "ip", "boost": 5 },
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "trace route with latency mapping"
+      },
+      { "slug": "route", "boost": 5 },
+      { "slug": "traceroute", "boost": 5, "phrase": "trace route to server" }
     ],
     "rollout": [{ "slug": "kubectl-rollout", "boost": 5 }],
     "scale": [{ "slug": "kubectl-scale", "boost": 5 }],
@@ -11312,6 +11965,8 @@
         "boost": 5,
         "phrase": "troubleshoot usb drive connection"
       },
+      { "slug": "nc", "boost": 5, "phrase": "test udp connection nc" },
+      { "slug": "ping", "boost": 5, "phrase": "test internet connection ping" },
       { "slug": "ssh", "boost": 5, "phrase": "secure shell connection" }
     ],
     "initialization": [
@@ -11333,14 +11988,17 @@
         "slug": "dmesg",
         "boost": 5,
         "phrase": "diagnose hardware errors and panics"
-      }
+      },
+      { "slug": "mtr", "boost": 5, "phrase": "diagnose network bottleneck" }
     ],
     "hardware": [
       {
         "slug": "dmesg",
         "boost": 5,
         "phrase": "diagnose hardware errors and panics"
-      }
+      },
+      { "slug": "arp", "boost": 5, "phrase": "find hardware address from ip" },
+      { "slug": "ethtool", "boost": 5, "phrase": "view nic hardware settings" }
     ],
     "panics": [
       {
@@ -11597,16 +12255,587 @@
     "effective": [
       { "slug": "whoami", "boost": 5, "phrase": "print effective user id" }
     ],
-    "content": [
-      { "slug": "curl", "boost": 5, "phrase": "download url content" },
-      { "slug": "cat", "boost": 5, "phrase": "read file content" }
+    "arp": [{ "slug": "arp", "boost": 5 }],
+    "mac": [
+      { "slug": "arp", "boost": 5, "phrase": "view mac address cache" },
+      { "slug": "ifconfig", "boost": 5, "phrase": "view mac address" },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "view network links and mac addresses"
+      }
     ],
-    "http": [{ "slug": "curl", "boost": 5, "phrase": "make http request" }],
-    "request": [{ "slug": "curl", "boost": 5, "phrase": "make http request" }],
-    "apt": [{ "slug": "apt", "boost": 5 }],
+    "manipulate": [
+      { "slug": "arp", "boost": 5, "phrase": "manipulate arp table" }
+    ],
+    "http": [{ "slug": "curl", "boost": 5, "phrase": "make an http request" }],
+    "request": [
+      { "slug": "curl", "boost": 5, "phrase": "make an http request" }
+    ],
+    "rest": [
+      { "slug": "curl", "boost": 5, "phrase": "test rest api endpoint" }
+    ],
+    "post": [
+      { "slug": "curl", "boost": 5, "phrase": "send post request with json" }
+    ],
+    "response": [
+      { "slug": "curl", "boost": 5, "phrase": "view http response headers" }
+    ],
+    "headers": [
+      { "slug": "curl", "boost": 5, "phrase": "view http response headers" }
+    ],
+    "dig": [{ "slug": "dig", "boost": 5 }],
+    "domain": [
+      { "slug": "dig", "boost": 5 },
+      { "slug": "host", "boost": 5, "phrase": "find mx records for domain" },
+      {
+        "slug": "hostname",
+        "boost": 5,
+        "phrase": "display fully qualified domain name"
+      },
+      { "slug": "nslookup", "boost": 5, "phrase": "find ip address of domain" },
+      { "slug": "whois", "boost": 5, "phrase": "find domain owner" }
+    ],
+    "groper": [{ "slug": "dig", "boost": 5 }],
+    "dns": [
+      { "slug": "dig", "boost": 5, "phrase": "query dns records" },
+      { "slug": "host", "boost": 5, "phrase": "perform simple dns lookup" },
+      { "slug": "nslookup", "boost": 5, "phrase": "query dns records" }
+    ],
+    "records": [
+      { "slug": "dig", "boost": 5, "phrase": "query dns records" },
+      { "slug": "host", "boost": 5, "phrase": "find mx records for domain" },
+      { "slug": "nslookup", "boost": 5, "phrase": "query dns records" }
+    ],
+    "mx": [
+      { "slug": "dig", "boost": 5, "phrase": "check mx records" },
+      { "slug": "host", "boost": 5, "phrase": "find mx records for domain" },
+      { "slug": "nslookup", "boost": 5, "phrase": "check mx records nslookup" }
+    ],
+    "resolution": [
+      { "slug": "dig", "boost": 5, "phrase": "troubleshoot dns resolution" }
+    ],
+    "propagation": [
+      { "slug": "dig", "boost": 5, "phrase": "trace dns propagation" }
+    ],
+    "nameserver": [
+      { "slug": "dig", "boost": 5, "phrase": "query specific nameserver" },
+      { "slug": "host", "boost": 5, "phrase": "query a nameserver directly" }
+    ],
+    "ethtool": [{ "slug": "ethtool", "boost": 5 }],
+    "interface": [
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "check network interface speed"
+      },
+      { "slug": "ifconfig", "boost": 5 },
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "bring network interface up or down"
+      },
+      {
+        "slug": "iw",
+        "boost": 5,
+        "phrase": "configure wireless interface linux"
+      },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "configure wireless interface legacy linux"
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "check network interface statistics"
+      },
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "configure network interface linux"
+      },
+      { "slug": "tcpdump", "boost": 5, "phrase": "sniff packets on interface" }
+    ],
+    "speed": [
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "check network interface speed"
+      }
+    ],
+    "nic": [
+      { "slug": "ethtool", "boost": 5, "phrase": "view nic hardware settings" }
+    ],
+    "ethernet": [
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "change ethernet autonegotiation"
+      }
+    ],
+    "autonegotiation": [
+      {
+        "slug": "ethtool",
+        "boost": 5,
+        "phrase": "change ethernet autonegotiation"
+      }
+    ],
+    "tso": [
+      { "slug": "ethtool", "boost": 5, "phrase": "disable tso offloading" }
+    ],
+    "offloading": [
+      { "slug": "ethtool", "boost": 5, "phrase": "disable tso offloading" }
+    ],
+    "blink": [
+      { "slug": "ethtool", "boost": 5, "phrase": "blink network card led" }
+    ],
+    "card": [
+      { "slug": "ethtool", "boost": 5, "phrase": "blink network card led" }
+    ],
+    "led": [
+      { "slug": "ethtool", "boost": 5, "phrase": "blink network card led" }
+    ],
+    "firewall": [
+      { "slug": "firewall-cmd", "boost": 5 },
+      { "slug": "iptables", "boost": 5, "phrase": "configure linux firewall" },
+      { "slug": "ufw", "boost": 5 }
+    ],
+    "cmd": [{ "slug": "firewall-cmd", "boost": 5 }],
+    "firewalld": [
+      { "slug": "firewall-cmd", "boost": 5, "phrase": "open port in firewalld" }
+    ],
+    "rules": [
+      { "slug": "firewall-cmd", "boost": 5, "phrase": "reload firewall rules" },
+      { "slug": "iptables", "boost": 5, "phrase": "list active firewall rules" }
+    ],
+    "allow": [
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "allow service through firewall"
+      },
+      { "slug": "ufw", "boost": 5, "phrase": "allow ip address ufw" }
+    ],
+    "through": [
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "allow service through firewall"
+      }
+    ],
+    "zones": [
+      {
+        "slug": "firewall-cmd",
+        "boost": 5,
+        "phrase": "check active firewall zones"
+      }
+    ],
+    "perform": [
+      { "slug": "host", "boost": 5, "phrase": "perform simple dns lookup" }
+    ],
+    "simple": [
+      { "slug": "host", "boost": 5, "phrase": "perform simple dns lookup" },
+      { "slug": "nc", "boost": 5, "phrase": "setup simple tcp listener" }
+    ],
+    "lookup": [
+      { "slug": "host", "boost": 5, "phrase": "perform simple dns lookup" },
+      { "slug": "nslookup", "boost": 5 },
+      { "slug": "whois", "boost": 5, "phrase": "lookup ip address owner" }
+    ],
+    "hostname": [
+      { "slug": "host", "boost": 5, "phrase": "resolve hostname to ip" },
+      { "slug": "hostname", "boost": 5 },
+      { "slug": "nslookup", "boost": 5, "phrase": "resolve hostname to ip" }
+    ],
+    "reverse": [{ "slug": "host", "boost": 5, "phrase": "check reverse dns" }],
+    "computer": [
+      { "slug": "hostname", "boost": 5, "phrase": "show computer name" }
+    ],
+    "fully": [
+      {
+        "slug": "hostname",
+        "boost": 5,
+        "phrase": "display fully qualified domain name"
+      }
+    ],
+    "qualified": [
+      {
+        "slug": "hostname",
+        "boost": 5,
+        "phrase": "display fully qualified domain name"
+      }
+    ],
+    "ifconfig": [
+      { "slug": "ifconfig", "boost": 5 },
+      { "slug": "ip", "boost": 5 }
+    ],
+    "traffic": [
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "check network traffic statistics"
+      },
+      { "slug": "tcpdump", "boost": 5, "phrase": "capture network traffic" },
+      { "slug": "ufw", "boost": 5, "phrase": "block network traffic" }
+    ],
+    "statistics": [
+      {
+        "slug": "ifconfig",
+        "boost": 5,
+        "phrase": "check network traffic statistics"
+      },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "check network interface statistics"
+      },
+      { "slug": "ss", "boost": 5 }
+    ],
+    "routing": [
+      { "slug": "ip", "boost": 5, "phrase": "manage routing tables" },
+      {
+        "slug": "netstat",
+        "boost": 5,
+        "phrase": "display kernel routing table"
+      },
+      { "slug": "route", "boost": 5, "phrase": "show linux routing table" },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "check network routing hops"
+      }
+    ],
+    "tables": [{ "slug": "ip", "boost": 5, "phrase": "manage routing tables" }],
+    "links": [
+      {
+        "slug": "ip",
+        "boost": 5,
+        "phrase": "view network links and mac addresses"
+      }
+    ],
+    "namespaces": [
+      { "slug": "ip", "boost": 5, "phrase": "manage linux network namespaces" }
+    ],
+    "iptables": [{ "slug": "iptables", "boost": 5 }],
+    "translation": [
+      {
+        "slug": "iptables",
+        "boost": 5,
+        "phrase": "setup network address translation nat"
+      }
+    ],
+    "nat": [
+      {
+        "slug": "iptables",
+        "boost": 5,
+        "phrase": "setup network address translation nat"
+      }
+    ],
+    "iw": [{ "slug": "iw", "boost": 5 }],
+    "wireless": [
+      {
+        "slug": "iw",
+        "boost": 5,
+        "phrase": "configure wireless interface linux"
+      },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "configure wireless interface legacy linux"
+      }
+    ],
+    "scan": [
+      { "slug": "iw", "boost": 5, "phrase": "scan for wifi networks" },
+      { "slug": "nmap", "boost": 5, "phrase": "scan network for open ports" }
+    ],
+    "wifi": [
+      { "slug": "iw", "boost": 5, "phrase": "scan for wifi networks" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "check wifi signal quality iwconfig"
+      },
+      { "slug": "nmcli", "boost": 5, "phrase": "connect to wifi command line" }
+    ],
+    "signal": [
+      { "slug": "iw", "boost": 5, "phrase": "check wifi signal strength" },
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "check wifi signal quality iwconfig"
+      }
+    ],
+    "strength": [
+      { "slug": "iw", "boost": 5, "phrase": "check wifi signal strength" }
+    ],
+    "ibss": [
+      { "slug": "iw", "boost": 5, "phrase": "setup ibss ad-hoc network" }
+    ],
+    "iwconfig": [{ "slug": "iwconfig", "boost": 5 }],
+    "legacy": [
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "configure wireless interface legacy linux"
+      }
+    ],
+    "quality": [
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "check wifi signal quality iwconfig"
+      }
+    ],
+    "essid": [
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "set wifi essid command line"
+      }
+    ],
+    "frequency": [
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "change wifi frequency iwconfig"
+      }
+    ],
+    "power": [
+      {
+        "slug": "iwconfig",
+        "boost": 5,
+        "phrase": "disable power management wifi"
+      }
+    ],
+    "mtr": [{ "slug": "mtr", "boost": 5 }],
+    "my": [{ "slug": "mtr", "boost": 5 }],
+    "traceroute": [
+      { "slug": "mtr", "boost": 5 },
+      { "slug": "traceroute", "boost": 5 }
+    ],
+    "latency": [
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "trace route with latency mapping"
+      },
+      { "slug": "ping", "boost": 5, "phrase": "measure network latency" },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "troubleshoot high latency"
+      }
+    ],
+    "mapping": [
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "trace route with latency mapping"
+      }
+    ],
+    "packet": [
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "check packet loss to destination"
+      },
+      { "slug": "ping", "boost": 5, "phrase": "find packet loss percentage" }
+    ],
+    "loss": [
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "check packet loss to destination"
+      },
+      { "slug": "ping", "boost": 5, "phrase": "find packet loss percentage" }
+    ],
+    "destination": [
+      {
+        "slug": "mtr",
+        "boost": 5,
+        "phrase": "check packet loss to destination"
+      }
+    ],
+    "bottleneck": [
+      { "slug": "mtr", "boost": 5, "phrase": "diagnose network bottleneck" }
+    ],
+    "nc": [{ "slug": "nc", "boost": 5 }],
+    "netcat": [{ "slug": "nc", "boost": 5 }],
+    "sockets": [
+      {
+        "slug": "nc",
+        "boost": 5,
+        "phrase": "read and write over network sockets"
+      },
+      { "slug": "ss", "boost": 5, "phrase": "list active sockets linux" }
+    ],
+    "listener": [
+      { "slug": "nc", "boost": 5, "phrase": "setup simple tcp listener" }
+    ],
+    "udp": [{ "slug": "nc", "boost": 5, "phrase": "test udp connection nc" }],
+    "netstat": [
+      { "slug": "netstat", "boost": 5 },
+      { "slug": "ss", "boost": 5, "phrase": "modern netstat replacement" }
+    ],
+    "listening": [
+      { "slug": "netstat", "boost": 5, "phrase": "show listening ports linux" }
+    ],
+    "ports": [
+      { "slug": "netstat", "boost": 5, "phrase": "show listening ports linux" },
+      { "slug": "nmap", "boost": 5, "phrase": "scan network for open ports" }
+    ],
+    "nmap": [{ "slug": "nmap", "boost": 5 }],
+    "mapper": [{ "slug": "nmap", "boost": 5 }],
+    "operating": [
+      { "slug": "nmap", "boost": 5, "phrase": "find operating system nmap" }
+    ],
+    "detect": [
+      { "slug": "nmap", "boost": 5, "phrase": "detect service versions nmap" }
+    ],
+    "versions": [
+      { "slug": "nmap", "boost": 5, "phrase": "detect service versions nmap" }
+    ],
+    "vulnerability": [
+      { "slug": "nmap", "boost": 5, "phrase": "run vulnerability scan nmap" }
+    ],
+    "nmcli": [{ "slug": "nmcli", "boost": 5 }],
+    "networkmanager": [
+      {
+        "slug": "nmcli",
+        "boost": 5,
+        "phrase": "manage networkmanager connections"
+      }
+    ],
+    "nslookup": [{ "slug": "nslookup", "boost": 5 }],
+    "internet": [
+      { "slug": "ping", "boost": 5, "phrase": "test internet connection ping" },
+      {
+        "slug": "wget",
+        "boost": 5,
+        "phrase": "download a file from the internet"
+      }
+    ],
+    "reachability": [
+      { "slug": "ping", "boost": 5, "phrase": "check host reachability" }
+    ],
+    "measure": [
+      { "slug": "ping", "boost": 5, "phrase": "measure network latency" }
+    ],
+    "percentage": [
+      { "slug": "ping", "boost": 5, "phrase": "find packet loss percentage" }
+    ],
+    "mtu": [
+      { "slug": "ping", "boost": 5, "phrase": "test mtu fragmentation ping" }
+    ],
+    "fragmentation": [
+      { "slug": "ping", "boost": 5, "phrase": "test mtu fragmentation ping" }
+    ],
+    "gateway": [
+      {
+        "slug": "route",
+        "boost": 5,
+        "phrase": "add default gateway command line"
+      }
+    ],
+    "routes": [
+      { "slug": "route", "boost": 5, "phrase": "configure static routes" }
+    ],
+    "ss": [{ "slug": "ss", "boost": 5 }],
+    "socket": [{ "slug": "ss", "boost": 5 }],
+    "established": [
+      {
+        "slug": "ss",
+        "boost": 5,
+        "phrase": "show established network connections"
+      }
+    ],
+    "limits": [
+      { "slug": "ss", "boost": 5, "phrase": "check tcp queue limits" }
+    ],
+    "modern": [
+      { "slug": "ss", "boost": 5, "phrase": "modern netstat replacement" }
+    ],
+    "replacement": [
+      { "slug": "ss", "boost": 5, "phrase": "modern netstat replacement" },
+      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
+    ],
+    "tcpdump": [{ "slug": "tcpdump", "boost": 5 }],
+    "capture": [
+      { "slug": "tcpdump", "boost": 5, "phrase": "capture network traffic" }
+    ],
+    "sniff": [
+      { "slug": "tcpdump", "boost": 5, "phrase": "sniff packets on interface" }
+    ],
+    "packets": [
+      { "slug": "tcpdump", "boost": 5, "phrase": "sniff packets on interface" },
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "find where packets are dropping"
+      }
+    ],
+    "dropped": [
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "troubleshoot dropped packets"
+      }
+    ],
+    "pcap": [
+      {
+        "slug": "tcpdump",
+        "boost": 5,
+        "phrase": "dump network traffic to pcap"
+      }
+    ],
+    "tracert": [{ "slug": "traceroute", "boost": 5 }],
+    "dropping": [
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "find where packets are dropping"
+      }
+    ],
+    "hops": [
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "check network routing hops"
+      }
+    ],
+    "high": [
+      {
+        "slug": "traceroute",
+        "boost": 5,
+        "phrase": "troubleshoot high latency"
+      }
+    ],
+    "ufw": [{ "slug": "ufw", "boost": 5 }],
+    "uncomplicated": [{ "slug": "ufw", "boost": 5 }],
     "ubuntu": [
+      { "slug": "ufw", "boost": 5, "phrase": "manage ubuntu firewall" },
       { "slug": "apt", "boost": 5, "phrase": "install package on ubuntu" }
     ],
+    "wget": [{ "slug": "wget", "boost": 5 }],
+    "website": [
+      { "slug": "wget", "boost": 5, "phrase": "mirror a website recursively" }
+    ],
+    "whois": [{ "slug": "whois", "boost": 5 }],
+    "owner": [{ "slug": "whois", "boost": 5, "phrase": "find domain owner" }],
+    "expiration": [
+      { "slug": "whois", "boost": 5, "phrase": "check domain expiration date" }
+    ],
+    "registrar": [
+      { "slug": "whois", "boost": 5, "phrase": "query registrar information" }
+    ],
+    "abuse": [
+      { "slug": "whois", "boost": 5, "phrase": "find abuse contact for ip" }
+    ],
+    "contact": [
+      { "slug": "whois", "boost": 5, "phrase": "find abuse contact for ip" }
+    ],
+    "apt": [{ "slug": "apt", "boost": 5 }],
     "chmod": [{ "slug": "chmod", "boost": 5 }],
     "powershell": [
       {
@@ -11617,9 +12846,6 @@
     ],
     "sed": [{ "slug": "sed", "boost": 5 }],
     "editor": [
-      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
-    ],
-    "replacement": [
       { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
     ],
     "existence": [
@@ -11650,6 +12876,7 @@
       { "slug": "awk", "boost": 5, "phrase": "process structured text file" }
     ],
     "cat": [{ "slug": "cat", "boost": 5 }],
+    "content": [{ "slug": "cat", "boost": 5, "phrase": "read file content" }],
     "concatenate": [
       { "slug": "cat", "boost": 5, "phrase": "concatenate files" }
     ]
@@ -11693,12 +12920,24 @@
       "untracked",
       "tracking",
       "untrack",
-      "scrollback"
+      "scrollback",
+      "packet",
+      "packets"
     ],
     "ckg": ["background"],
     "kgr": ["background"],
-    "gro": ["background", "foreground", "group"],
-    "rou": ["background", "foreground", "group", "troubleshoot", "route"],
+    "gro": ["background", "foreground", "group", "groper"],
+    "rou": [
+      "background",
+      "foreground",
+      "group",
+      "troubleshoot",
+      "route",
+      "through",
+      "routing",
+      "traceroute",
+      "routes"
+    ],
     "oun": [
       "background",
       "foreground",
@@ -11790,7 +13029,14 @@
       "repeatedly",
       "refresh",
       "request",
-      "replacement"
+      "rest",
+      "response",
+      "records",
+      "resolution",
+      "reverse",
+      "reachability",
+      "replacement",
+      "registrar"
     ],
     "res": [
       "resume",
@@ -11809,6 +13055,9 @@
       "reset",
       "rescue",
       "refresh",
+      "rest",
+      "response",
+      "resolution",
       "expression"
     ],
     "esu": ["resume"],
@@ -11823,7 +13072,8 @@
       "nvme",
       "blame",
       "runtime",
-      "uptime"
+      "uptime",
+      "hostname"
     ],
     "^st": [
       "stopped",
@@ -11847,6 +13097,8 @@
       "static",
       "stuck",
       "strace",
+      "statistics",
+      "strength",
       "structured"
     ],
     "sto": [
@@ -11862,9 +13114,9 @@
       "kustomization"
     ],
     "top": ["stopped", "laptop", "stop", "topology", "top"],
-    "opp": ["stopped"],
-    "ppe": ["stopped", "airgapped", "append"],
-    "ped": ["stopped", "airgapped"],
+    "opp": ["stopped", "dropped", "dropping"],
+    "ppe": ["stopped", "airgapped", "append", "mapper", "dropped"],
+    "ped": ["stopped", "airgapped", "dropped"],
     "ed$": [
       "stopped",
       "suspended",
@@ -11914,13 +13166,19 @@
       "denied",
       "logged",
       "rebooted",
+      "speed",
+      "led",
+      "qualified",
+      "established",
+      "dropped",
+      "uncomplicated",
       "sed",
       "structured"
     ],
     "^jo": ["job", "jobs", "join", "journalctl"],
     "job": ["job", "jobs"],
     "ob$": ["job", "extglob", "blob"],
-    "^ru": ["run", "running", "runtime"],
+    "^ru": ["run", "running", "runtime", "rules"],
     "run": ["run", "running", "prune", "runtime"],
     "un$": ["run"],
     "^pr": [
@@ -11940,7 +13198,8 @@
       "prune",
       "preserve",
       "prevent",
-      "privileges"
+      "privileges",
+      "propagation"
     ],
     "pro": [
       "process",
@@ -11951,7 +13210,8 @@
       "properties",
       "project",
       "providers",
-      "modprobe"
+      "modprobe",
+      "propagation"
     ],
     "roc": ["process", "processes"],
     "oce": ["process", "processes"],
@@ -11963,7 +13223,8 @@
       "resources",
       "devices",
       "services",
-      "occurrences"
+      "occurrences",
+      "namespaces"
     ],
     "ess": [
       "process",
@@ -11977,9 +13238,22 @@
       "messages",
       "session",
       "sessions",
+      "wireless",
+      "essid",
       "expression"
     ],
-    "ss$": ["process", "access", "serverless", "address", "pass", "bypass"],
+    "ss$": [
+      "process",
+      "access",
+      "serverless",
+      "address",
+      "pass",
+      "bypass",
+      "wireless",
+      "ibss",
+      "loss",
+      "ss"
+    ],
     "^in": [
       "in",
       "interact",
@@ -12007,7 +13281,9 @@
       "information",
       "info",
       "instantiate",
-      "initialization"
+      "initialization",
+      "interface",
+      "internet"
     ],
     "in$": [
       "in",
@@ -12019,7 +13295,8 @@
       "drain",
       "explain",
       "nologin",
-      "admin"
+      "admin",
+      "domain"
     ],
     "^co": [
       "continue",
@@ -12062,9 +13339,11 @@
       "connection",
       "codebase",
       "commands",
-      "content",
+      "computer",
+      "contact",
       "conditional",
       "column",
+      "content",
       "concatenate"
     ],
     "con": [
@@ -12094,8 +13373,11 @@
       "disconnect",
       "disconnects",
       "second",
-      "content",
+      "ifconfig",
+      "iwconfig",
+      "contact",
       "conditional",
+      "content",
       "concatenate"
     ],
     "ont": [
@@ -12109,6 +13391,7 @@
       "containerized",
       "contributed",
       "control",
+      "contact",
       "content"
     ],
     "nti": [
@@ -12128,7 +13411,10 @@
       "starting",
       "testing",
       "rewriting",
-      "terminating"
+      "terminating",
+      "routing",
+      "destination",
+      "operating"
     ],
     "inu": ["continue", "linux"],
     "nue": ["continue"],
@@ -12148,7 +13434,7 @@
     ],
     "sus": ["suspended"],
     "usp": ["suspended"],
-    "spe": ["suspended", "specific", "specified", "inspect", "spec"],
+    "spe": ["suspended", "specific", "specified", "inspect", "spec", "speed"],
     "pen": ["suspended", "pending", "open", "dependencies", "append", "opens"],
     "end": [
       "suspended",
@@ -12174,7 +13460,8 @@
       "tag",
       "taking",
       "tarball",
-      "taint"
+      "taint",
+      "tables"
     ],
     "tas": ["task", "tasks", "stash"],
     "ask": ["task", "tasks"],
@@ -12213,10 +13500,28 @@
       "configuration",
       "config",
       "conflicts",
-      "configmap"
+      "configmap",
+      "ifconfig",
+      "iwconfig"
     ],
-    "nfi": ["configure", "kubeconfig", "configuration", "config", "configmap"],
-    "fig": ["configure", "kubeconfig", "configuration", "config", "configmap"],
+    "nfi": [
+      "configure",
+      "kubeconfig",
+      "configuration",
+      "config",
+      "configmap",
+      "ifconfig",
+      "iwconfig"
+    ],
+    "fig": [
+      "configure",
+      "kubeconfig",
+      "configuration",
+      "config",
+      "configmap",
+      "ifconfig",
+      "iwconfig"
+    ],
     "igu": ["configure", "configuration"],
     "gur": ["configure", "configuration"],
     "ure": [
@@ -12226,6 +13531,8 @@
       "future",
       "structure",
       "feature",
+      "measure",
+      "capture",
       "secure",
       "structured"
     ],
@@ -12247,6 +13554,8 @@
       "software",
       "are",
       "hardware",
+      "measure",
+      "capture",
       "secure"
     ],
     "bas": ["bash", "bashrc", "base", "database", "rebase", "codebase"],
@@ -12266,7 +13575,14 @@
     "eyb": ["keybindings", "keyboard"],
     "ybi": ["keybindings"],
     "ndi": ["keybindings", "bindings", "pending", "conditional"],
-    "din": ["keybindings", "bindings", "pending", "modinfo", "forwarding"],
+    "din": [
+      "keybindings",
+      "bindings",
+      "pending",
+      "modinfo",
+      "forwarding",
+      "offloading"
+    ],
     "ing": [
       "keybindings",
       "bindings",
@@ -12299,7 +13615,13 @@
       "scheduling",
       "terminating",
       "hanging",
-      "missing"
+      "missing",
+      "offloading",
+      "routing",
+      "mapping",
+      "listening",
+      "operating",
+      "dropping"
     ],
     "ngs": ["keybindings", "bindings", "settings"],
     "gs$": ["keybindings", "bindings", "flags", "settings", "logs", "tags"],
@@ -12312,9 +13634,10 @@
       "readable",
       "reapply",
       "upstream",
-      "decrease"
+      "decrease",
+      "reachability"
     ],
-    "ead": ["readline", "read", "readable", "head"],
+    "ead": ["readline", "read", "readable", "head", "headers"],
     "adl": ["readline"],
     "dli": ["readline"],
     "lin": [
@@ -12326,7 +13649,9 @@
       "line",
       "unlink",
       "lines",
-      "scheduling"
+      "scheduling",
+      "blink",
+      "links"
     ],
     "ine": [
       "readline",
@@ -12373,9 +13698,13 @@
       "map",
       "mark",
       "man",
-      "manual"
+      "manual",
+      "mac",
+      "manipulate",
+      "mapping",
+      "mapper"
     ],
-    "mac": ["macro", "emacs", "machine"],
+    "mac": ["macro", "emacs", "machine", "mac"],
     "acr": ["macro", "anacron", "anacrontab"],
     "cro": [
       "macro",
@@ -12433,7 +13762,8 @@
       "port",
       "shortlog",
       "shortnames",
-      "shorten"
+      "shorten",
+      "ports"
     ],
     "rtc": ["shortcut", "shortcuts"],
     "tcu": ["shortcut", "shortcuts"],
@@ -12507,6 +13837,7 @@
       "shelve",
       "crashed",
       "shebang",
+      "established",
       "powershell"
     ],
     "hel": ["shell", "subshell", "helm", "shelve", "powershell"],
@@ -12520,6 +13851,7 @@
       "kill",
       "tarball",
       "call",
+      "firewall",
       "powershell"
     ],
     "ybo": ["keyboard", "playbook"],
@@ -12532,7 +13864,8 @@
       "discard",
       "forwarding",
       "forward",
-      "hardware"
+      "hardware",
+      "card"
     ],
     "rd$": [
       "keyboard",
@@ -12542,7 +13875,8 @@
       "record",
       "initrd",
       "forward",
-      "word"
+      "word",
+      "card"
     ],
     "uts": ["shortcuts"],
     "ts$": [
@@ -12563,16 +13897,33 @@
       "commits",
       "its",
       "endpoints",
-      "disconnects"
+      "disconnects",
+      "sockets",
+      "ports",
+      "limits",
+      "packets"
     ],
     "set": ["set", "settings", "setup", "reset", "replicaset"],
-    "et$": ["set", "get", "bucket", "secret", "subnet", "reset", "replicaset"],
+    "et$": [
+      "set",
+      "get",
+      "bucket",
+      "secret",
+      "subnet",
+      "reset",
+      "replicaset",
+      "ethernet",
+      "packet",
+      "internet",
+      "socket",
+      "wget"
+    ],
     "^vi": ["vi", "view", "virtual", "via", "visually", "visual"],
     "vi$": ["vi"],
     "^em": ["emacs", "empty"],
     "ema": ["emacs", "schema"],
     "acs": ["emacs"],
-    "cs$": ["emacs", "gcs", "metrics", "panics"],
+    "cs$": ["emacs", "gcs", "metrics", "panics", "statistics"],
     "^mo": [
       "mode",
       "move",
@@ -12587,7 +13938,8 @@
       "most",
       "modprobe",
       "modinfo",
-      "monitor"
+      "monitor",
+      "modern"
     ],
     "mod": [
       "mode",
@@ -12604,9 +13956,10 @@
       "rmmod",
       "modinfo",
       "libkmod",
+      "modern",
       "chmod"
     ],
-    "ode": ["mode", "code", "nodejs", "nodes", "node", "codebase"],
+    "ode": ["mode", "code", "nodejs", "nodes", "node", "codebase", "modern"],
     "de$": ["mode", "code", "upgrade", "inside", "hide", "node", "override"],
     "^li": [
       "list",
@@ -12616,9 +13969,13 @@
       "lines",
       "libkmod",
       "license",
-      "library"
+      "library",
+      "links",
+      "listener",
+      "listening",
+      "limits"
     ],
-    "lis": ["list", "publish"],
+    "lis": ["list", "publish", "listener", "listening", "established"],
     "ist": [
       "list",
       "register",
@@ -12629,6 +13986,10 @@
       "consistency",
       "history",
       "histories",
+      "statistics",
+      "listener",
+      "listening",
+      "registrar",
       "existence"
     ],
     "st$": [
@@ -12644,7 +14005,9 @@
       "lost",
       "most",
       "localhost",
-      "request"
+      "request",
+      "rest",
+      "post"
     ],
     "ey$": ["key"],
     "^cd": ["cd"],
@@ -12679,7 +14042,15 @@
       "directly"
     ],
     "ir$": ["chdir", "repair", "dir", "vdir", "mkdir", "rmdir"],
-    "cha": ["change", "chart", "charts", "changes", "changed", "changelog"],
+    "cha": [
+      "change",
+      "chart",
+      "charts",
+      "changes",
+      "changed",
+      "changelog",
+      "reachability"
+    ],
     "han": ["change", "changes", "changed", "changelog", "hanging"],
     "ang": [
       "change",
@@ -12705,7 +14076,8 @@
       "purge",
       "message",
       "unstage",
-      "average"
+      "average",
+      "percentage"
     ],
     "^di": [
       "directory",
@@ -12722,7 +14094,8 @@
       "diagnose",
       "disconnect",
       "different",
-      "disconnects"
+      "disconnects",
+      "dig"
     ],
     "ire": [
       "directory",
@@ -12730,7 +14103,10 @@
       "directories",
       "entire",
       "subdirectory",
-      "directly"
+      "directly",
+      "firewall",
+      "firewalld",
+      "wireless"
     ],
     "rec": [
       "directory",
@@ -12745,7 +14121,8 @@
       "record",
       "recover",
       "subdirectory",
-      "directly"
+      "directly",
+      "records"
     ],
     "ect": [
       "directory",
@@ -12771,7 +14148,8 @@
       "connection",
       "disconnect",
       "disconnects",
-      "effective"
+      "effective",
+      "detect"
     ],
     "cto": ["directory", "directories", "subdirectory"],
     "tor": [
@@ -12831,7 +14209,7 @@
     "fol": ["folder", "follow", "folders"],
     "old": ["folder", "threshold", "golden", "old", "folders"],
     "lde": ["folder", "golden", "folders"],
-    "der": ["folder", "under", "providers", "folders"],
+    "der": ["folder", "under", "providers", "folders", "headers", "modern"],
     "er$": [
       "folder",
       "server",
@@ -12859,14 +14237,30 @@
       "finalizer",
       "buffer",
       "killer",
-      "after"
+      "after",
+      "groper",
+      "nameserver",
+      "computer",
+      "power",
+      "listener",
+      "mapper",
+      "networkmanager",
+      "owner"
     ],
-    "^na": ["navigate", "namespace", "name", "namespaced"],
+    "^na": [
+      "navigate",
+      "namespace",
+      "name",
+      "namespaced",
+      "nameserver",
+      "namespaces",
+      "nat"
+    ],
     "nav": ["navigate"],
     "avi": ["navigate", "behavior"],
     "vig": ["navigate"],
     "iga": ["navigate"],
-    "gat": ["navigate"],
+    "gat": ["navigate", "propagation", "gateway"],
     "ate": [
       "navigate",
       "evaluate",
@@ -12895,6 +14289,10 @@
       "dedicate",
       "elevate",
       "repeatedly",
+      "manipulate",
+      "latency",
+      "gateway",
+      "uncomplicated",
       "concatenate"
     ],
     "te$": [
@@ -12932,6 +14330,9 @@
       "route",
       "dedicate",
       "elevate",
+      "manipulate",
+      "traceroute",
+      "website",
       "concatenate"
     ],
     "^fi": [
@@ -12943,7 +14344,9 @@
       "filesystems",
       "fix",
       "finalizer",
-      "fields"
+      "fields",
+      "firewall",
+      "firewalld"
     ],
     "fil": [
       "filesystem",
@@ -12976,7 +14379,11 @@
       "troubleshoot",
       "roles",
       "modules",
-      "filesystems"
+      "filesystems",
+      "rules",
+      "tables",
+      "iptables",
+      "wireless"
     ],
     "esy": ["filesystem", "filesystems"],
     "sys": [
@@ -13000,6 +14407,8 @@
       "nested",
       "systemd",
       "systemctl",
+      "listener",
+      "listening",
       "existence"
     ],
     "tem": [
@@ -13059,11 +14468,13 @@
       "pass",
       "pattern",
       "pages",
-      "panes"
+      "panes",
+      "packet",
+      "packets"
     ],
     "pat": ["path", "patterns", "pattern"],
     "ath": ["path"],
-    "th$": ["path", "with", "auth"],
+    "th$": ["path", "with", "auth", "strength"],
     "^sw": ["switch"],
     "swi": ["switch"],
     "wit": ["switch", "with", "without"],
@@ -13105,7 +14516,8 @@
       "work",
       "worktrees",
       "worker",
-      "word"
+      "word",
+      "networkmanager"
     ],
     "ork": [
       "working",
@@ -13116,7 +14528,8 @@
       "worktree",
       "work",
       "worktrees",
-      "worker"
+      "worker",
+      "networkmanager"
     ],
     "rki": ["working"],
     "kin": ["working", "kind", "taking", "tracking", "mkinitcpio"],
@@ -13150,7 +14563,13 @@
       "long",
       "shebang",
       "hanging",
-      "missing"
+      "missing",
+      "offloading",
+      "routing",
+      "mapping",
+      "listening",
+      "operating",
+      "dropping"
     ],
     "^ev": ["eval", "evaluate", "events", "evict", "every"],
     "eva": ["eval", "evaluate", "elevate"],
@@ -13171,6 +14590,7 @@
       "initial",
       "global",
       "manual",
+      "signal",
       "conditional"
     ],
     "alu": ["evaluate", "values", "value"],
@@ -13187,6 +14607,8 @@
       "distribute",
       "upstream",
       "strace",
+      "strength",
+      "registrar",
       "structured"
     ],
     "tri": [
@@ -13211,7 +14633,9 @@
       "commits",
       "combine",
       "compiled",
-      "commands"
+      "commands",
+      "computer",
+      "uncomplicated"
     ],
     "omm": ["command", "commit", "uncommitted", "commits", "commands"],
     "mma": ["command", "summarize", "commands"],
@@ -13225,7 +14649,9 @@
       "manifest",
       "commands",
       "man",
-      "manual"
+      "manual",
+      "manipulate",
+      "networkmanager"
     ],
     "and": ["command", "and", "commands"],
     "^ex": [
@@ -13240,6 +14666,7 @@
       "extension",
       "ext4",
       "explain",
+      "expiration",
       "existence",
       "expression"
     ],
@@ -13261,7 +14688,10 @@
       "distribute",
       "attributes",
       "contributed",
-      "route"
+      "route",
+      "computer",
+      "traceroute",
+      "routes"
     ],
     "^dy": ["dynamic", "dynamically"],
     "dyn": ["dynamic", "dynamically"],
@@ -13273,11 +14703,14 @@
       "rename",
       "name",
       "shortnames",
-      "namespaced"
+      "namespaced",
+      "nameserver",
+      "hostname",
+      "namespaces"
     ],
     "ami": ["dynamic", "dynamically", "ami", "whoami"],
     "mic": ["dynamic", "dynamically"],
-    "ic$": ["dynamic", "specific", "periodic", "static"],
+    "ic$": ["dynamic", "specific", "periodic", "static", "nic", "traffic"],
     "^me": [
       "metaprogramming",
       "metadata",
@@ -13286,7 +14719,8 @@
       "merging",
       "memory",
       "metrics",
-      "messages"
+      "messages",
+      "measure"
     ],
     "met": ["metaprogramming", "parameters", "metadata", "metrics"],
     "eta": [
@@ -13321,7 +14755,9 @@
       "annotations",
       "definitions",
       "console",
-      "sessions"
+      "sessions",
+      "response",
+      "versions"
     ],
     "nst": [
       "construct",
@@ -13350,7 +14786,9 @@
       "eject",
       "bisect",
       "evict",
-      "disconnect"
+      "disconnect",
+      "detect",
+      "contact"
     ],
     "^an": [
       "and",
@@ -13374,7 +14812,8 @@
       "physical",
       "replica",
       "replicaset",
-      "dedicate"
+      "dedicate",
+      "uncomplicated"
     ],
     "cal": [
       "dynamically",
@@ -13402,14 +14841,18 @@
       "visually",
       "tarball",
       "calls",
-      "call"
+      "call",
+      "firewall",
+      "firewalld",
+      "allow"
     ],
     "lly": [
       "dynamically",
       "automatically",
       "locally",
       "gracefully",
-      "visually"
+      "visually",
+      "fully"
     ],
     "ly$": [
       "dynamically",
@@ -13435,9 +14878,19 @@
       "declaratively",
       "imperatively",
       "fly",
-      "repeatedly"
+      "repeatedly",
+      "fully"
     ],
-    "^ar": ["arguments", "arn", "arm", "array", "archive", "arch", "are"],
+    "^ar": [
+      "arguments",
+      "arn",
+      "arm",
+      "array",
+      "archive",
+      "arch",
+      "are",
+      "arp"
+    ],
     "arg": ["arguments", "largest", "large"],
     "rgu": ["arguments"],
     "gum": ["arguments"],
@@ -13451,6 +14904,7 @@
       "movement",
       "placement",
       "documentation",
+      "fragmentation",
       "replacement"
     ],
     "ent": [
@@ -13481,8 +14935,10 @@
       "documentation",
       "prevent",
       "different",
-      "content",
-      "replacement"
+      "percentage",
+      "fragmentation",
+      "replacement",
+      "content"
     ],
     "nts": [
       "arguments",
@@ -13538,7 +14994,11 @@
       "namespaced",
       "placement",
       "strace",
-      "replacement"
+      "interface",
+      "namespaces",
+      "traceroute",
+      "replacement",
+      "tracert"
     ],
     "ce$": [
       "replace",
@@ -13556,9 +15016,10 @@
       "workspace",
       "reference",
       "strace",
+      "interface",
       "existence"
     ],
-    "^wi": ["with", "without", "wipe"],
+    "^wi": ["with", "without", "wipe", "wireless", "wifi"],
     "ith": ["with", "without", "github"],
     "^sc": [
       "script",
@@ -13569,7 +15030,8 @@
       "schema",
       "scale",
       "screen",
-      "scrollback"
+      "scrollback",
+      "scan"
     ],
     "scr": [
       "script",
@@ -13601,7 +15063,8 @@
       "descriptors",
       "subscriptions",
       "subscription",
-      "scripts"
+      "scripts",
+      "iptables"
     ],
     "pt$": ["script", "shopt", "encrypt", "decrypt", "gpt", "apt"],
     "red": [
@@ -13639,7 +15102,8 @@
       "unschedulable",
       "scale",
       "console",
-      "variable"
+      "variable",
+      "simple"
     ],
     "^de": [
       "descriptors",
@@ -13672,9 +15136,11 @@
       "detailed",
       "decrease",
       "dedicate",
-      "denied"
+      "denied",
+      "destination",
+      "detect"
     ],
-    "des": ["descriptors", "describe", "nodes", "destroy"],
+    "des": ["descriptors", "describe", "nodes", "destroy", "destination"],
     "esc": ["descriptors", "describe", "rescue"],
     "pto": ["descriptors", "laptop"],
     "ors": ["descriptors", "errors", "authorship"],
@@ -13690,7 +15156,8 @@
       "ours",
       "theirs",
       "others",
-      "drivers"
+      "drivers",
+      "headers"
     ],
     "^pe": [
       "permanently",
@@ -13700,7 +15167,9 @@
       "permissions",
       "periodic",
       "per",
-      "permission"
+      "permission",
+      "perform",
+      "percentage"
     ],
     "per": [
       "permanently",
@@ -13712,7 +15181,12 @@
       "superblock",
       "per",
       "imperatively",
-      "permission"
+      "permission",
+      "groper",
+      "perform",
+      "mapper",
+      "operating",
+      "percentage"
     ],
     "erm": [
       "permanently",
@@ -13728,8 +15202,24 @@
     "nen": ["permanently"],
     "ntl": ["permanently", "recently", "silently"],
     "tly": ["permanently", "recently", "silently", "directly"],
-    "^sp": ["spawn", "specific", "specified", "spin", "space", "split", "spec"],
-    "spa": ["spawn", "namespace", "space", "workspace", "namespaced"],
+    "^sp": [
+      "spawn",
+      "specific",
+      "specified",
+      "spin",
+      "space",
+      "split",
+      "spec",
+      "speed"
+    ],
+    "spa": [
+      "spawn",
+      "namespace",
+      "space",
+      "workspace",
+      "namespaced",
+      "namespaces"
+    ],
     "paw": ["spawn"],
     "awn": ["spawn"],
     "wn$": ["spawn", "down", "teardown", "own"],
@@ -13742,14 +15232,26 @@
       "checkout",
       "route",
       "rollout",
-      "out"
+      "out",
+      "routing",
+      "traceroute",
+      "routes"
     ],
-    "^ne": ["new", "network", "networks", "nested", "newly"],
+    "^ne": [
+      "new",
+      "network",
+      "networks",
+      "nested",
+      "newly",
+      "netcat",
+      "netstat",
+      "networkmanager"
+    ],
     "new": ["new", "newly"],
     "ew$": ["new", "view", "preview"],
     "^pi": ["pid", "ping", "pick"],
     "pid": ["pid"],
-    "id$": ["pid", "id", "blkid", "uuid"],
+    "id$": ["pid", "id", "blkid", "uuid", "essid"],
     "^cl": [
       "close",
       "cli",
@@ -13764,7 +15266,7 @@
       "clock"
     ],
     "clo": ["close", "cloud", "cloudwatch", "gcloud", "clone", "clock"],
-    "los": ["close", "lost"],
+    "los": ["close", "lost", "loss"],
     "ose": ["close", "compose", "diagnose"],
     "se$": [
       "close",
@@ -13779,7 +15281,10 @@
       "license",
       "decrease",
       "diagnose",
-      "codebase"
+      "codebase",
+      "response",
+      "reverse",
+      "abuse"
     ],
     "^fg": ["fg"],
     "fg$": ["fg"],
@@ -13791,10 +15296,18 @@
       "terraform",
       "information",
       "forwarding",
-      "forward"
+      "forward",
+      "perform"
     ],
     "ore": ["foreground", "restore", "store", "vendored", "coredns"],
-    "reg": ["foreground", "region", "register", "registry", "regression"],
+    "reg": [
+      "foreground",
+      "region",
+      "register",
+      "registry",
+      "regression",
+      "registrar"
+    ],
     "egr": ["foreground", "regression"],
     "^br": ["bring", "bridge", "broken", "branch", "broke", "branches"],
     "bri": ["bring", "bridge"],
@@ -13807,10 +15320,11 @@
       "structure",
       "turn",
       "feature",
+      "capture",
       "structured"
     ],
     "urn": ["return", "turn", "journalctl"],
-    "rn$": ["return", "arn", "turn", "pattern"],
+    "rn$": ["return", "arn", "turn", "pattern", "modern"],
     "int": [
       "interact",
       "print",
@@ -13821,7 +15335,9 @@
       "pointer",
       "endpoints",
       "endpoint",
-      "taint"
+      "taint",
+      "interface",
+      "internet"
     ],
     "nte": [
       "interact",
@@ -13831,6 +15347,8 @@
       "maintenance",
       "mounted",
       "pointer",
+      "interface",
+      "internet",
       "content"
     ],
     "ter": [
@@ -13849,9 +15367,20 @@
       "pointer",
       "terminating",
       "pattern",
-      "after"
+      "after",
+      "interface",
+      "computer",
+      "internet"
     ],
-    "era": ["interact", "generate", "hierarchy", "imperatively", "average"],
+    "era": [
+      "interact",
+      "generate",
+      "hierarchy",
+      "imperatively",
+      "average",
+      "operating",
+      "vulnerability"
+    ],
     "rac": [
       "interact",
       "extract",
@@ -13863,13 +15392,15 @@
       "tracking",
       "untrack",
       "dracut",
-      "strace"
+      "strace",
+      "traceroute",
+      "tracert"
     ],
-    "act": ["interact", "active", "extract"],
+    "act": ["interact", "active", "extract", "contact"],
     "obs": ["jobs", "globstar"],
     "bs$": ["jobs"],
     "how": ["show", "how"],
-    "ow$": ["show", "follow", "low", "how"],
+    "ow$": ["show", "follow", "low", "how", "allow"],
     "sse": ["processes", "missed", "addresses"],
     "ses": [
       "processes",
@@ -13917,7 +15448,13 @@
       "occurrences",
       "pages",
       "privileges",
-      "panes"
+      "panes",
+      "rules",
+      "zones",
+      "tables",
+      "namespaces",
+      "iptables",
+      "routes"
     ],
     "che": [
       "check",
@@ -13935,7 +15472,7 @@
       "schema"
     ],
     "hec": ["check", "checks", "checkout"],
-    "eck": ["check", "checks", "checkout"],
+    "eck": ["check", "checks", "checkout", "bottleneck"],
     "ck$": [
       "check",
       "quick",
@@ -13950,7 +15487,8 @@
       "untrack",
       "stuck",
       "scrollback",
-      "clock"
+      "clock",
+      "bottleneck"
     ],
     "^ac": ["active", "access", "account", "accounts"],
     "cti": [
@@ -13992,7 +15530,7 @@
       "effective"
     ],
     "sks": ["tasks"],
-    "ks$": ["tasks", "eks", "aks", "networks", "checks", "hooks"],
+    "ks$": ["tasks", "eks", "aks", "networks", "checks", "hooks", "links"],
     "vie": ["view", "preview"],
     "iew": ["view", "preview"],
     "^pw": ["pwd"],
@@ -14022,8 +15560,8 @@
       "taint",
       "prevent",
       "different",
-      "content",
-      "replacement"
+      "replacement",
+      "content"
     ],
     "cur": [
       "current",
@@ -14036,10 +15574,17 @@
     ],
     "urr": ["current", "recurring", "occurrences"],
     "rre": ["current", "deferred", "occurrences"],
-    "ren": ["current", "rename", "reference", "occurrences", "different"],
-    "^wh": ["where", "what", "which", "who", "when", "why", "whoami"],
+    "ren": [
+      "current",
+      "rename",
+      "reference",
+      "occurrences",
+      "different",
+      "strength"
+    ],
+    "^wh": ["where", "what", "which", "who", "when", "why", "whoami", "whois"],
     "whe": ["where", "when"],
-    "her": ["where", "another", "cherry", "others", "together"],
+    "her": ["where", "another", "cherry", "others", "together", "ethernet"],
     "ere": ["where", "reference", "different"],
     "^am": ["am", "ami", "amend"],
     "am$": ["am", "iam", "stream", "upstream", "ram"],
@@ -14065,7 +15610,7 @@
       "terminating",
       "permission"
     ],
-    "ina": ["terminal", "binary", "terminating", "finalizer"],
+    "ina": ["terminal", "binary", "terminating", "finalizer", "destination"],
     "nal": [
       "terminal",
       "positional",
@@ -14073,10 +15618,11 @@
       "internal",
       "finalizer",
       "journalctl",
+      "signal",
       "conditional"
     ],
     "^ge": ["get", "generate"],
-    "get": ["get", "together"],
+    "get": ["get", "together", "wget"],
     "dis": [
       "display",
       "distribute",
@@ -14092,14 +15638,14 @@
     "isp": ["display"],
     "spl": ["display", "split"],
     "lay": ["display", "playbook"],
-    "ay$": ["display", "array"],
-    "^ab": ["absolute"],
+    "ay$": ["display", "array", "gateway"],
+    "^ab": ["absolute", "abuse"],
     "abs": ["absolute"],
     "bso": ["absolute"],
-    "sol": ["absolute", "isolated", "resolve", "console"],
-    "olu": ["absolute", "volume", "volumes", "column"],
-    "lut": ["absolute"],
-    "^op": ["options", "optional", "open", "opens"],
+    "sol": ["absolute", "isolated", "resolve", "console", "resolution"],
+    "olu": ["absolute", "volume", "volumes", "resolution", "column"],
+    "lut": ["absolute", "resolution"],
+    "^op": ["options", "optional", "open", "opens", "operating"],
     "opt": ["options", "shopt", "optional"],
     "pti": ["options", "optional", "subscriptions", "subscription", "uptime"],
     "tio": [
@@ -14134,6 +15680,13 @@
       "utilization",
       "connection",
       "initialization",
+      "resolution",
+      "propagation",
+      "autonegotiation",
+      "translation",
+      "destination",
+      "fragmentation",
+      "expiration",
       "conditional"
     ],
     "ion": [
@@ -14179,6 +15732,14 @@
       "session",
       "permission",
       "sessions",
+      "resolution",
+      "propagation",
+      "autonegotiation",
+      "translation",
+      "destination",
+      "versions",
+      "fragmentation",
+      "expiration",
       "conditional",
       "expression"
     ],
@@ -14198,7 +15759,9 @@
       "definitions",
       "coredns",
       "opens",
-      "sessions"
+      "sessions",
+      "dns",
+      "versions"
     ],
     "^fl": ["flags", "fly"],
     "fla": ["flags"],
@@ -14211,11 +15774,14 @@
       "pointer",
       "pod",
       "pods",
+      "post",
+      "power",
+      "ports",
       "powershell"
     ],
-    "pos": ["positional", "repository", "compose", "repositories"],
+    "pos": ["positional", "repository", "compose", "repositories", "post"],
     "osi": ["positional", "repository", "repositories"],
-    "sit": ["positional", "sensitive", "repository", "repositories"],
+    "sit": ["positional", "sensitive", "repository", "repositories", "website"],
     "iti": [
       "positional",
       "initialize",
@@ -14249,9 +15815,19 @@
       "blame",
       "amend",
       "shortnames",
-      "namespaced"
+      "namespaced",
+      "nameserver",
+      "hostname",
+      "namespaces"
     ],
-    "ete": ["parameters", "determine", "kubernetes", "delete", "deleted"],
+    "ete": [
+      "parameters",
+      "determine",
+      "kubernetes",
+      "delete",
+      "deleted",
+      "detect"
+    ],
     "ers": [
       "parameters",
       "servers",
@@ -14265,6 +15841,9 @@
       "unversioned",
       "others",
       "drivers",
+      "headers",
+      "reverse",
+      "versions",
       "powershell"
     ],
     "^en": [
@@ -14292,7 +15871,10 @@
       "readable",
       "disable",
       "unschedulable",
-      "variable"
+      "variable",
+      "tables",
+      "iptables",
+      "established"
     ],
     "ble": [
       "enable",
@@ -14306,7 +15888,9 @@
       "readable",
       "disable",
       "unschedulable",
-      "variable"
+      "variable",
+      "tables",
+      "iptables"
     ],
     "deb": ["debugging", "debug", "codebase"],
     "ebu": ["debugging", "debug", "rebuild"],
@@ -14344,11 +15928,18 @@
     "ari": ["variables", "summarize", "temporarily", "variable"],
     "ria": ["variables", "variable"],
     "iab": ["variables", "variable"],
-    "^fu": ["functions", "functionapp", "function", "future"],
+    "^fu": ["functions", "functionapp", "function", "future", "fully"],
     "fun": ["functions", "functionapp", "function"],
-    "unc": ["functions", "launch", "functionapp", "function", "uncommitted"],
+    "unc": [
+      "functions",
+      "launch",
+      "functionapp",
+      "function",
+      "uncommitted",
+      "uncomplicated"
+    ],
     "nct": ["functions", "functionapp", "function"],
-    "hop": ["shopt"],
+    "hop": ["shopt", "hops"],
     "tog": ["toggle", "together"],
     "ogg": ["toggle", "logged"],
     "ggl": ["toggle"],
@@ -14379,12 +15970,22 @@
       "stash",
       "static",
       "instantiate",
-      "timestamp"
+      "timestamp",
+      "statistics",
+      "netstat",
+      "established"
     ],
     "tar": ["globstar", "start", "tar", "restart", "starting", "tarball"],
-    "ar$": ["globstar", "tear", "tar", "clear", "var"],
+    "ar$": ["globstar", "tear", "tar", "clear", "var", "registrar"],
     "urs": ["recursive", "recursively", "ours"],
-    "rsi": ["recursive", "version", "persistent", "recursively", "unversioned"],
+    "rsi": [
+      "recursive",
+      "version",
+      "persistent",
+      "recursively",
+      "unversioned",
+      "versions"
+    ],
     "siv": ["recursive", "recursively", "massive"],
     "mat": [
       "matching",
@@ -14406,14 +16007,23 @@
     "tgl": ["extglob"],
     "att": ["patterns", "attach", "attributes", "pattern"],
     "tte": ["patterns", "uncommitted", "pattern"],
-    "ern": ["patterns", "internal", "kubernetes", "kernel", "pattern"],
+    "ern": [
+      "patterns",
+      "internal",
+      "kubernetes",
+      "kernel",
+      "pattern",
+      "ethernet",
+      "internet",
+      "modern"
+    ],
     "rns": ["patterns"],
-    "^so": ["source", "sort", "software"],
+    "^so": ["source", "sort", "software", "sockets", "socket"],
     "sou": ["source", "resources", "resource"],
     "our": ["source", "resources", "resource", "ours", "journalctl"],
     "urc": ["source", "resources", "resource"],
-    "rce": ["source", "resources", "resource", "force"],
-    "rel": ["reload", "release", "releases"],
+    "rce": ["source", "resources", "resource", "force", "percentage"],
+    "rel": ["reload", "release", "releases", "wireless"],
     "elo": ["reload", "development", "changelog"],
     "loa": [
       "reload",
@@ -14423,7 +16033,8 @@
       "workload",
       "downloaded",
       "loaded",
-      "unload"
+      "unload",
+      "offloading"
     ],
     "oad": [
       "reload",
@@ -14433,7 +16044,8 @@
       "workload",
       "downloaded",
       "loaded",
-      "unload"
+      "unload",
+      "offloading"
     ],
     "ad$": [
       "reload",
@@ -14466,7 +16078,9 @@
       "loaded",
       "localhost",
       "long",
-      "logged"
+      "logged",
+      "lookup",
+      "loss"
     ],
     "env": ["environment", "env"],
     "nvi": ["environment"],
@@ -14494,9 +16108,9 @@
     "ubs": ["subshell", "subscriptions", "subscription"],
     "bsh": ["subshell"],
     "^im": ["import", "image", "images", "imperatively"],
-    "imp": ["import", "imperatively"],
+    "imp": ["import", "imperatively", "simple"],
     "mpo": ["import", "compose", "temporarily"],
-    "por": ["import", "export", "port", "incorporate", "temporarily"],
+    "por": ["import", "export", "port", "incorporate", "temporarily", "ports"],
     "rt$": [
       "import",
       "start",
@@ -14507,7 +16121,8 @@
       "restart",
       "sort",
       "port",
-      "insert"
+      "insert",
+      "tracert"
     ],
     "^ty": ["type"],
     "typ": ["type"],
@@ -14546,6 +16161,8 @@
       "mlocate",
       "plocate",
       "dedicate",
+      "netcat",
+      "uncomplicated",
       "cat",
       "concatenate"
     ],
@@ -14567,7 +16184,15 @@
       "terminating",
       "documentation",
       "utilization",
-      "initialization"
+      "initialization",
+      "propagation",
+      "autonegotiation",
+      "statistics",
+      "translation",
+      "destination",
+      "operating",
+      "fragmentation",
+      "expiration"
     ],
     "on$": [
       "location",
@@ -14603,20 +16228,29 @@
       "initialization",
       "session",
       "permission",
+      "resolution",
+      "propagation",
+      "autonegotiation",
+      "translation",
+      "destination",
+      "fragmentation",
+      "expiration",
       "expression"
     ],
-    "^if": ["if"],
+    "^if": ["if", "ifconfig"],
     "if$": ["if"],
     "^is": ["is", "isolated"],
-    "is$": ["is", "this"],
-    "^al": ["alias", "all", "aliases", "alive"],
+    "is$": ["is", "this", "whois"],
+    "^al": ["alias", "all", "aliases", "alive", "allow"],
     "ali": [
       "alias",
       "initialize",
       "finalizer",
       "aliases",
       "initialization",
-      "alive"
+      "alive",
+      "qualified",
+      "quality"
     ],
     "lia": ["alias", "aliases"],
     "ias": ["alias", "aliases"],
@@ -14628,18 +16262,32 @@
       "table",
       "stable",
       "database",
-      "fstab"
+      "fstab",
+      "tables",
+      "iptables",
+      "established"
     ],
     "wha": ["what"],
     "hat": ["what", "that", "hat"],
-    "at$": ["what", "at", "format", "that", "hat", "repeat", "cat"],
+    "at$": [
+      "what",
+      "at",
+      "format",
+      "that",
+      "hat",
+      "repeat",
+      "nat",
+      "netcat",
+      "netstat",
+      "cat"
+    ],
     "^ki": ["kind", "kill", "killed", "killer"],
-    "^of": ["of", "offline"],
+    "^of": ["of", "offline", "offloading"],
     "of$": ["of", "lsof"],
-    "^th": ["this", "threshold", "the", "that", "theirs"],
+    "^th": ["this", "threshold", "the", "that", "theirs", "through"],
     "thi": ["this"],
     "his": ["this", "history", "histories"],
-    "det": ["determine", "details", "detached", "detach", "detailed"],
+    "det": ["determine", "details", "detached", "detach", "detailed", "detect"],
     "whi": ["which"],
     "hic": ["which"],
     "ich": ["which"],
@@ -14673,7 +16321,8 @@
       "failed",
       "compiled",
       "detailed",
-      "killed"
+      "killed",
+      "led"
     ],
     "^aw": ["aws", "awk"],
     "aws": ["aws"],
@@ -14695,15 +16344,16 @@
       "initialize",
       "initial",
       "instantiate",
-      "initialization"
+      "initialization",
+      "autonegotiation"
     ],
     "ial": ["credentials", "initialize", "initial", "initialization"],
     "als": ["credentials"],
     "ls$": ["credentials", "details", "ls", "symbols", "labels", "calls"],
     "tup": ["setup"],
-    "up$": ["setup", "group", "backup", "up"],
-    "cli": ["cli"],
-    "li$": ["cli"],
+    "up$": ["setup", "group", "backup", "up", "lookup", "nslookup"],
+    "cli": ["cli", "nmcli"],
+    "li$": ["cli", "nmcli"],
     "def": ["default", "defer", "deferred", "definitions"],
     "efa": ["default"],
     "fau": ["default"],
@@ -14717,7 +16367,7 @@
       "multiplex"
     ],
     "lt$": ["default", "vault", "halt"],
-    "egi": ["region", "register", "registry"],
+    "egi": ["region", "register", "registry", "registrar"],
     "gio": ["region"],
     "acc": ["access", "account", "accounts"],
     "cce": ["access"],
@@ -14752,7 +16402,7 @@
     ],
     "unn": ["running", "tunnel"],
     "nni": ["running"],
-    "nin": ["running", "partitioning", "tuning"],
+    "nin": ["running", "partitioning", "tuning", "listening"],
     "ser": [
       "servers",
       "server",
@@ -14762,7 +16412,8 @@
       "preserve",
       "reserved",
       "insert",
-      "services"
+      "services",
+      "nameserver"
     ],
     "erv": [
       "servers",
@@ -14771,9 +16422,17 @@
       "serverless",
       "preserve",
       "reserved",
-      "services"
+      "services",
+      "nameserver"
     ],
-    "rve": ["servers", "server", "serverless", "preserve", "reserved"],
+    "rve": [
+      "servers",
+      "server",
+      "serverless",
+      "preserve",
+      "reserved",
+      "nameserver"
+    ],
     "ver": [
       "servers",
       "server",
@@ -14791,16 +16450,27 @@
       "discover",
       "override",
       "average",
-      "every"
+      "every",
+      "nameserver",
+      "reverse",
+      "versions"
     ],
     "^id": ["id", "identity", "idle", "identifying"],
-    "^qu": ["query", "quick", "queue", "quickly"],
-    "que": ["query", "queue", "request"],
+    "^qu": ["query", "quick", "queue", "quickly", "qualified", "quality"],
+    "que": ["query", "queue", "request", "frequency"],
     "uer": ["query"],
     "ery": ["query", "every"],
-    "omp": ["compute", "compare", "compile", "compose", "compiled"],
-    "mpu": ["compute"],
-    "put": ["compute", "put", "output"],
+    "omp": [
+      "compute",
+      "compare",
+      "compile",
+      "compose",
+      "compiled",
+      "computer",
+      "uncomplicated"
+    ],
+    "mpu": ["compute", "computer"],
+    "put": ["compute", "put", "output", "computer"],
     "tat": [
       "status",
       "state",
@@ -14809,7 +16479,10 @@
       "static",
       "annotations",
       "annotation",
-      "documentation"
+      "documentation",
+      "statistics",
+      "netstat",
+      "fragmentation"
     ],
     "atu": ["status", "feature"],
     "tus": ["status"],
@@ -14822,7 +16495,8 @@
       "largest",
       "large",
       "last",
-      "labels"
+      "labels",
+      "latency"
     ],
     "lau": ["launch"],
     "aun": ["launch"],
@@ -14843,6 +16517,7 @@
       "session",
       "permission",
       "sessions",
+      "versions",
       "expression"
     ],
     "lou": ["cloud", "cloudwatch", "gcloud", "rollout"],
@@ -14862,8 +16537,16 @@
     "irt": ["virtual"],
     "rtu": ["virtual"],
     "tua": ["virtual"],
-    "ual": ["virtual", "visually", "visual", "manual"],
-    "ach": ["machine", "attach", "detached", "cached", "cache", "detach"],
+    "ual": ["virtual", "visually", "visual", "manual", "qualified", "quality"],
+    "ach": [
+      "machine",
+      "attach",
+      "detached",
+      "cached",
+      "cache",
+      "detach",
+      "reachability"
+    ],
     "dep": [
       "deploy",
       "deployment",
@@ -14887,8 +16570,15 @@
     "kub": ["kubeconfig", "kubectl", "kubernetes"],
     "ube": ["kubeconfig", "kubectl", "kubernetes"],
     "bec": ["kubeconfig", "kubectl"],
-    "eco": ["kubeconfig", "reconnect", "record", "recover", "second"],
-    "ig$": ["kubeconfig", "config"],
+    "eco": [
+      "kubeconfig",
+      "reconnect",
+      "record",
+      "recover",
+      "second",
+      "records"
+    ],
+    "ig$": ["kubeconfig", "config", "dig", "ifconfig", "iwconfig"],
     "onn": [
       "connect",
       "connectivity",
@@ -14915,25 +16605,31 @@
       "connections",
       "connection",
       "disconnect",
-      "disconnects"
+      "disconnects",
+      "bottleneck"
     ],
     "clu": ["cluster", "clusters"],
     "lus": ["cluster", "clusters"],
     "gen": ["generate"],
-    "ene": ["generate"],
+    "ene": ["generate", "bottleneck", "listener"],
     "ner": [
       "generate",
       "container",
       "containers",
       "containerized",
-      "ownership"
+      "ownership",
+      "listener",
+      "vulnerability",
+      "owner"
     ],
     "rat": [
       "generate",
       "configuration",
       "incorporate",
       "declaratively",
-      "imperatively"
+      "imperatively",
+      "operating",
+      "expiration"
     ],
     "ctl": ["kubectl", "directly", "sysctl", "journalctl", "systemctl"],
     "tl$": ["kubectl", "sysctl", "journalctl", "systemctl"],
@@ -14947,7 +16643,8 @@
       "automated",
       "automatically",
       "authorship",
-      "author"
+      "author",
+      "autonegotiation"
     ],
     "aut": [
       "authenticate",
@@ -14958,19 +16655,28 @@
       "automated",
       "automatically",
       "authorship",
-      "author"
+      "author",
+      "autonegotiation"
     ],
     "uth": ["authenticate", "auth", "authorize", "authorship", "author"],
-    "the": ["authenticate", "another", "the", "theirs", "others", "together"],
+    "the": [
+      "authenticate",
+      "another",
+      "the",
+      "theirs",
+      "others",
+      "together",
+      "ethernet"
+    ],
     "hen": ["authenticate", "when"],
-    "tic": ["authenticate", "automatically", "static"],
+    "tic": ["authenticate", "automatically", "static", "statistics"],
     "^ad": ["add", "ad", "adhoc", "address", "addresses", "adjust", "admin"],
     "add": ["add", "address", "addresses"],
     "dd$": ["add"],
     "^ia": ["iam", "iap"],
     "iam": ["iam"],
     "^us": ["user", "use", "usage", "using", "usb"],
-    "use": ["user", "use", "pause", "unused"],
+    "use": ["user", "use", "pause", "unused", "abuse"],
     "ide": [
       "identity",
       "providers",
@@ -14980,8 +16686,23 @@
       "override"
     ],
     "tit": ["identity", "partition", "partitions", "partitioning"],
-    "ity": ["identity", "connectivity", "capacity"],
-    "ty$": ["identity", "connectivity", "capacity", "empty"],
+    "ity": [
+      "identity",
+      "connectivity",
+      "capacity",
+      "quality",
+      "vulnerability",
+      "reachability"
+    ],
+    "ty$": [
+      "identity",
+      "connectivity",
+      "capacity",
+      "empty",
+      "quality",
+      "vulnerability",
+      "reachability"
+    ],
     "arn": ["arn"],
     "tai": [
       "details",
@@ -14994,7 +16715,7 @@
     ],
     "ail": ["details", "tail", "available", "daily", "failed", "detailed"],
     "ils": ["details"],
-    "who": ["who", "whoami"],
+    "who": ["who", "whoami", "whois"],
     "ho$": ["who", "echo"],
     "log": [
       "logs",
@@ -15013,19 +16734,27 @@
     "udw": ["cloudwatch"],
     "dwa": ["cloudwatch", "hardware"],
     "wat": ["cloudwatch", "watch"],
-    "^fr": ["from", "free"],
+    "^fr": ["from", "free", "frequency", "fragmentation"],
     "fro": ["from"],
     "rom": ["from"],
     "om$": ["from", "custom", "oom"],
-    "tre": ["stream", "tree", "subtree", "upstream", "worktree", "worktrees"],
+    "tre": [
+      "stream",
+      "tree",
+      "subtree",
+      "upstream",
+      "worktree",
+      "worktrees",
+      "strength"
+    ],
     "eam": ["stream", "upstream"],
     "og$": ["log", "reflog", "shortlog", "changelog"],
-    "^gr": ["group", "gracefully", "grep"],
+    "^gr": ["group", "gracefully", "grep", "groper"],
     "oup": ["group"],
     "liv": ["live", "alive"],
     "ece": ["recent", "recently"],
-    "cen": ["recent", "recently", "centos", "license"],
-    "eve": ["events", "revert", "development", "prevent", "every"],
+    "cen": ["recent", "recently", "centos", "license", "percentage"],
+    "eve": ["events", "revert", "development", "prevent", "every", "reverse"],
     "ven": ["events", "inventory", "vendored", "prevent"],
     "oll": [
       "follow",
@@ -15035,8 +16764,8 @@
       "rollout",
       "scrollback"
     ],
-    "llo": ["follow", "rollout"],
-    "low": ["follow", "low"],
+    "llo": ["follow", "rollout", "allow"],
+    "low": ["follow", "low", "allow"],
     "eal": ["real"],
     "^ti": ["time", "timestamp"],
     "tim": ["time", "estimate", "runtime", "timestamp", "uptime"],
@@ -15058,19 +16787,32 @@
       "docker",
       "dockerfile",
       "locked",
-      "untracked"
+      "untracked",
+      "packet",
+      "sockets",
+      "socket",
+      "packets"
     ],
-    "ket": ["bucket", "buckets"],
+    "ket": ["bucket", "buckets", "packet", "sockets", "socket", "packets"],
     "^do": [
       "download",
       "down",
       "docker",
       "dockerfile",
       "downloaded",
-      "documentation"
+      "documentation",
+      "domain"
     ],
     "dow": ["download", "down", "teardown", "downloaded"],
-    "own": ["download", "down", "teardown", "downloaded", "ownership", "own"],
+    "own": [
+      "download",
+      "down",
+      "teardown",
+      "downloaded",
+      "ownership",
+      "own",
+      "owner"
+    ],
     "wnl": ["download", "downloaded"],
     "nlo": ["download", "downloaded", "unload"],
     "^ob": ["object", "objects"],
@@ -15090,7 +16832,11 @@
       "tree",
       "track",
       "trace",
-      "tracking"
+      "tracking",
+      "traffic",
+      "translation",
+      "traceroute",
+      "tracert"
     ],
     "tra": [
       "transfer",
@@ -15102,10 +16848,15 @@
       "tracking",
       "untrack",
       "initramfs",
-      "strace"
+      "strace",
+      "traffic",
+      "translation",
+      "traceroute",
+      "tracert",
+      "registrar"
     ],
-    "ran": ["transfer", "vagrant", "branch", "branches"],
-    "ans": ["transfer", "ansible"],
+    "ran": ["transfer", "vagrant", "branch", "branches", "translation"],
+    "ans": ["transfer", "ansible", "translation"],
     "nsf": ["transfer"],
     "sfe": ["transfer"],
     "fer": [
@@ -15117,7 +16868,7 @@
       "different"
     ],
     "ora": ["storage", "incorporate", "temporarily"],
-    "rag": ["storage", "average"],
+    "rag": ["storage", "average", "fragmentation"],
     "age": [
       "storage",
       "manage",
@@ -15134,10 +16885,12 @@
       "unstage",
       "messages",
       "pages",
-      "average"
+      "average",
+      "networkmanager",
+      "percentage"
     ],
     "^ls": ["ls", "lsblk", "lsof", "lsmod"],
-    "ets": ["buckets"],
+    "ets": ["buckets", "sockets", "netstat", "packets"],
     "ten": [
       "contents",
       "tenants",
@@ -15146,8 +16899,11 @@
       "extension",
       "consistency",
       "shorten",
-      "content",
+      "latency",
+      "listener",
+      "listening",
       "existence",
+      "content",
       "concatenate"
     ],
     "cts": ["objects", "conflicts", "disconnects"],
@@ -15163,7 +16919,7 @@
     ],
     "syn": ["sync", "synchronize", "syntax"],
     "ync": ["sync", "synchronize"],
-    "nc$": ["sync"],
+    "nc$": ["sync", "nc"],
     "^mi": ["mirror", "missed", "missing"],
     "mir": ["mirror"],
     "irr": ["mirror"],
@@ -15173,13 +16929,13 @@
     "onl": ["only"],
     "nly": ["only", "cleanly"],
     "cku": ["backup"],
-    "kup": ["backup"],
+    "kup": ["backup", "lookup", "nslookup"],
     "chr": ["synchronize"],
-    "hro": ["synchronize"],
+    "hro": ["synchronize", "through"],
     "oni": ["synchronize", "partitioning", "monitor"],
     "niz": ["synchronize"],
     "^tw": ["two"],
-    "two": ["two", "network", "networks"],
+    "two": ["two", "network", "networks", "networkmanager"],
     "wo$": ["two"],
     "sts": ["sts", "hosts"],
     "^ca": [
@@ -15191,6 +16947,8 @@
       "calculate",
       "calls",
       "call",
+      "card",
+      "capture",
       "cat"
     ],
     "ler": ["caller", "killer"],
@@ -15211,14 +16969,21 @@
       "runtime",
       "ubuntu"
     ],
-    "^ve": ["verify", "version", "vendored"],
+    "^ve": ["verify", "version", "vendored", "versions"],
     "eri": ["verify", "containerized", "periodic"],
     "rif": ["verify"],
     "ify": ["verify", "modify", "identifying"],
     "fy$": ["verify", "modify"],
-    "ana": ["manage", "managed", "anacron", "anacrontab", "management"],
-    "nag": ["manage", "managed", "management"],
-    "eso": ["resources", "resource", "resolve"],
+    "ana": [
+      "manage",
+      "managed",
+      "anacron",
+      "anacrontab",
+      "management",
+      "networkmanager"
+    ],
+    "nag": ["manage", "managed", "management", "networkmanager"],
+    "eso": ["resources", "resource", "resolve", "resolution"],
     "^az": ["az", "azure"],
     "az$": ["az"],
     "azu": ["azure"],
@@ -15241,7 +17006,8 @@
       "releases",
       "deleted",
       "selection",
-      "elevate"
+      "elevate",
+      "wireless"
     ],
     "lec": ["select", "collections", "collection", "selection"],
     "^ak": ["aks"],
@@ -15253,13 +17019,22 @@
     "cep": ["bicep"],
     "ep$": ["bicep", "keep", "dep", "grep"],
     "arm": ["arm"],
-    "rm$": ["arm", "atrm", "terraform", "rm"],
+    "rm$": ["arm", "atrm", "terraform", "rm", "perform"],
     "emp": ["template", "empty", "temporarily"],
-    "mpl": ["template"],
-    "lat": ["template", "later", "installations", "isolated", "calculate"],
+    "mpl": ["template", "simple", "uncomplicated"],
+    "lat": [
+      "template",
+      "later",
+      "installations",
+      "isolated",
+      "calculate",
+      "manipulate",
+      "translation",
+      "latency"
+    ],
     "inf": ["infrastructure", "modinfo", "information", "info"],
     "nfr": ["infrastructure"],
-    "fra": ["infrastructure"],
+    "fra": ["infrastructure", "fragmentation"],
     "ras": ["infrastructure", "crashed"],
     "ast": ["infrastructure", "fast", "last", "past"],
     "ctu": ["infrastructure", "structure", "structured"],
@@ -15273,13 +17048,15 @@
       "apply",
       "airgapped",
       "reapply",
-      "append"
+      "append",
+      "mapping",
+      "mapper"
     ],
     "pp$": ["functionapp", "app", "webapp"],
     "^ap": ["app", "application", "apply", "api", "append", "apt"],
-    "rop": ["properties"],
-    "ope": ["properties", "open", "opens"],
-    "ert": ["properties", "revert", "convert", "insert"],
+    "rop": ["properties", "groper", "propagation", "dropped", "dropping"],
+    "ope": ["properties", "open", "opens", "groper", "operating"],
+    "ert": ["properties", "revert", "convert", "insert", "tracert"],
     "rti": [
       "properties",
       "starting",
@@ -15300,13 +17077,13 @@
     "vic": ["service", "device", "devices", "evict", "services"],
     "^pl": ["plan", "playbook", "plocate", "plane", "placement"],
     "lan": ["plan", "plane"],
-    "an$": ["plan", "an", "human", "clean", "man"],
+    "an$": ["plan", "an", "human", "clean", "man", "scan"],
     "odi": ["modify", "modifications", "modified", "periodic", "modinfo"],
     "dif": ["modify", "modifications", "modified", "diff", "different"],
     "erl": ["serverless"],
     "rle": ["serverless"],
     "ura": ["configuration"],
-    "tag": ["tags", "untag", "tag", "stage", "staged", "unstage"],
+    "tag": ["tags", "untag", "tag", "stage", "staged", "unstage", "percentage"],
     "mak": ["make"],
     "ake": ["make", "bake"],
     "ke$": ["make", "gke", "bake", "broke"],
@@ -15342,7 +17119,10 @@
       "containers",
       "containerized",
       "untag",
-      "documentation"
+      "documentation",
+      "percentage",
+      "fragmentation",
+      "contact"
     ],
     "ain": [
       "container",
@@ -15352,7 +17132,8 @@
       "main",
       "drain",
       "explain",
-      "taint"
+      "taint",
+      "domain"
     ],
     "inc": ["principal", "incorporate"],
     "nci": ["principal", "dependencies"],
@@ -15360,36 +17141,44 @@
     "ipa": ["principal"],
     "pal": ["principal"],
     "ged": ["managed", "changed", "staged", "logged"],
-    "^bl": ["blob", "blkid", "block", "blame"],
+    "^bl": ["blob", "blkid", "block", "blame", "blink"],
     "blo": ["blob", "block", "superblock"],
     "^pu": ["put", "publish", "pull", "push", "pushing", "purge", "pushed"],
     "^vm": ["vm", "vms"],
     "vm$": ["vm"],
-    "^we": ["webapp", "web"],
-    "web": ["webapp", "web"],
+    "^we": ["webapp", "web", "website"],
+    "web": ["webapp", "web", "website"],
     "eba": ["webapp", "rebase", "shebang", "codebase"],
     "bap": ["webapp"],
     "eb$": ["web"],
     "pub": ["publish"],
     "ubl": ["publish", "troubleshoot"],
-    "bli": ["publish"],
-    "ish": ["publish"],
+    "bli": ["publish", "blink", "established"],
+    "ish": ["publish", "established"],
     "qui": ["quick", "quickly"],
     "uic": ["quick", "quickly"],
     "ick": ["quick", "quickly", "pick"],
     "^gc": ["gcloud", "gcp", "gcs", "gcr"],
     "gcl": ["gcloud"],
-    "eng": ["engine"],
+    "eng": ["engine", "strength"],
     "ngi": ["engine", "hanging", "nginx"],
     "ppl": ["application", "apply", "reapply"],
-    "pli": ["application", "duplicate", "split", "replica", "replicaset"],
+    "pli": [
+      "application",
+      "duplicate",
+      "split",
+      "replica",
+      "replicaset",
+      "uncomplicated"
+    ],
     "lic": [
       "application",
       "duplicate",
       "conflicts",
       "license",
       "replica",
-      "replicaset"
+      "replicaset",
+      "uncomplicated"
     ],
     "gcp": ["gcp"],
     "^py": ["python"],
@@ -15415,15 +17204,15 @@
     "riz": ["authorize", "containerized", "summarize"],
     "vms": ["vms"],
     "ms$": ["vms", "filesystems"],
-    "^ip": ["ips", "ip"],
+    "^ip": ["ips", "ip", "iptables"],
     "ips": ["ips"],
-    "ps$": ["ips", "ps"],
+    "ps$": ["ips", "ps", "hops"],
     "^by": ["by", "bypass"],
     "by$": ["by"],
     "abe": ["label", "labels"],
     "bel": ["label", "labels"],
     "el$": ["label", "tunnel", "cancel", "kernel"],
-    "^ss": ["ssh"],
+    "^ss": ["ssh", "ss"],
     "ssh": ["ssh"],
     "nto": ["into", "inventory", "centos"],
     "rem": ["remote", "remove", "remount", "remotes"],
@@ -15434,19 +17223,29 @@
     "tun": ["tunnel", "tune2fs", "tuning", "tune"],
     "nel": ["tunnel", "kernel"],
     "iap": ["iap"],
-    "ap$": ["iap", "map", "configmap"],
+    "ap$": ["iap", "map", "configmap", "nmap", "pcap"],
     "rna": ["internal", "journalctl"],
     "roj": ["project"],
     "oje": ["project"],
-    "^zo": ["zone"],
-    "zon": ["zone"],
-    "one": ["zone", "one", "unversioned", "clone"],
+    "^zo": ["zone", "zones"],
+    "zon": ["zone", "zones"],
+    "one": ["zone", "one", "unversioned", "clone", "autonegotiation", "zones"],
     "^gk": ["gke"],
     "gke": ["gke"],
     "ber": ["kubernetes"],
-    "rne": ["kubernetes", "kernel"],
-    "net": ["kubernetes", "network", "networks", "subnet"],
-    "tes": ["kubernetes", "test", "attributes", "testing", "remotes"],
+    "rne": ["kubernetes", "kernel", "ethernet", "internet"],
+    "net": [
+      "kubernetes",
+      "network",
+      "networks",
+      "subnet",
+      "ethernet",
+      "netcat",
+      "netstat",
+      "networkmanager",
+      "internet"
+    ],
+    "tes": ["kubernetes", "test", "attributes", "testing", "remotes", "routes"],
     "non": ["non"],
     "^hu": ["human", "hub"],
     "hum": ["human"],
@@ -15455,7 +17254,7 @@
     "klo": ["workload"],
     "gcs": ["gcs"],
     "bet": ["between"],
-    "etw": ["between", "network", "networks"],
+    "etw": ["between", "network", "networks", "networkmanager"],
     "twe": ["between"],
     "wee": ["between"],
     "een": ["between", "screen", "been"],
@@ -15483,7 +17282,8 @@
       "pushed",
       "unschedulable",
       "scheduling",
-      "crashed"
+      "crashed",
+      "established"
     ],
     "edu": ["schedule", "scheduled", "unschedulable", "scheduling"],
     "dul": [
@@ -15494,14 +17294,14 @@
       "unschedulable",
       "scheduling"
     ],
-    "ule": ["schedule", "scheduled", "module", "modules"],
+    "ule": ["schedule", "scheduled", "module", "modules", "rules"],
     "lap": ["laptop"],
-    "apt": ["laptop", "apt"],
+    "apt": ["laptop", "capture", "apt"],
     "op$": ["laptop", "stop", "top"],
     "^da": ["daily", "daemon", "data", "dangling", "database", "date"],
     "dai": ["daily"],
     "ily": ["daily", "temporarily"],
-    "mai": ["maintenance", "main"],
+    "mai": ["maintenance", "main", "domain"],
     "orc": ["force"],
     "ab$": ["anacrontab", "crontab", "fstab"],
     "ynt": ["syntax"],
@@ -15511,15 +17311,22 @@
     "pec": ["specific", "specified", "inspect", "spec"],
     "eci": ["specific", "specified"],
     "cif": ["specific", "specified"],
-    "ifi": ["specific", "specified", "modifications", "modified"],
-    "fic": ["specific", "modifications"],
+    "ifi": [
+      "specific",
+      "specified",
+      "modifications",
+      "modified",
+      "qualified",
+      "wifi"
+    ],
+    "fic": ["specific", "modifications", "traffic"],
     "ueu": ["queue"],
     "eue": ["queue"],
     "fut": ["future"],
     "utu": ["future"],
-    "uti": ["execution", "utilization"],
-    "fie": ["specified", "modified", "fields"],
-    "ied": ["specified", "modified", "denied"],
+    "uti": ["execution", "utilization", "resolution", "routing"],
+    "fie": ["specified", "modified", "fields", "qualified"],
+    "ied": ["specified", "modified", "denied", "qualified"],
     "efe": ["defer", "deferred", "reference"],
     "atq": ["atq"],
     "tq$": ["atq"],
@@ -15532,7 +17339,7 @@
     "trm": ["atrm"],
     "del": ["delete", "deleted"],
     "let": ["delete", "deleted"],
-    "can": ["cancel"],
+    "can": ["cancel", "scan"],
     "cel": ["cancel"],
     "ntr": [
       "entry",
@@ -15544,8 +17351,8 @@
     ],
     "try": ["entry", "registry"],
     "bat": ["batch"],
-    "mit": ["permits", "commit", "uncommitted", "commits"],
-    "its": ["permits", "commits", "its"],
+    "mit": ["permits", "commit", "uncommitted", "commits", "limits"],
+    "its": ["permits", "commits", "its", "limits"],
     "^un": [
       "under",
       "undo",
@@ -15560,13 +17367,14 @@
       "untrack",
       "unload",
       "unschedulable",
-      "unix"
+      "unix",
+      "uncomplicated"
     ],
-    "thr": ["threshold"],
+    "thr": ["threshold", "through"],
     "hre": ["threshold"],
     "esh": ["threshold", "troubleshoot", "refresh"],
     "hol": ["threshold"],
-    "ld$": ["threshold", "build", "old", "rebuild", "child"],
+    "ld$": ["threshold", "build", "old", "rebuild", "child", "firewalld"],
     "idl": ["idle"],
     "dle": ["idle"],
     "ond": ["crond", "second", "conditional"],
@@ -15583,19 +17391,34 @@
     "rri": ["recurring", "override"],
     "nux": ["linux"],
     "ux$": ["linux", "tmux"],
-    "uto": ["automate", "automation", "automated", "automatically"],
-    "oma": ["automate", "automation", "automated", "automatically"],
+    "uto": [
+      "automate",
+      "automation",
+      "automated",
+      "automatically",
+      "autonegotiation"
+    ],
+    "oma": ["automate", "automation", "automated", "automatically", "domain"],
     "pts": ["scripts"],
     "nsi": ["ansible", "sensitive", "inside", "extension", "consistency"],
     "sib": ["ansible"],
     "ibl": ["ansible"],
-    "^ga": ["galaxy"],
+    "^ga": ["galaxy", "gateway"],
     "gal": ["galaxy"],
     "ala": ["galaxy"],
     "lax": ["galaxy"],
     "axy": ["galaxy"],
     "xy$": ["galaxy"],
-    "^ro": ["roles", "role", "rollback", "route", "rollout", "root"],
+    "^ro": [
+      "roles",
+      "role",
+      "rollback",
+      "route",
+      "rollout",
+      "root",
+      "routing",
+      "routes"
+    ],
     "rol": ["roles", "role", "rollback", "control", "rollout", "scrollback"],
     "ole": ["roles", "role", "console"],
     "col": ["collections", "collection", "column"],
@@ -15613,7 +17436,7 @@
     ],
     "ayb": ["playbook"],
     "boo": ["playbook", "reboot", "boot", "rebooted"],
-    "ook": ["playbook", "hooks"],
+    "ook": ["playbook", "hooks", "lookup", "nslookup"],
     "ok$": ["playbook"],
     "^ya": ["yaml"],
     "yam": ["yaml"],
@@ -15634,7 +17457,8 @@
       "uncommitted",
       "contributed",
       "rebooted",
-      "repeatedly"
+      "repeatedly",
+      "uncomplicated"
     ],
     "vau": ["vault"],
     "enc": [
@@ -15644,6 +17468,8 @@
       "reference",
       "dependencies",
       "occurrences",
+      "frequency",
+      "latency",
       "existence"
     ],
     "ncr": ["encrypt", "encrypted"],
@@ -15661,8 +17487,8 @@
     "ass": ["password", "massive", "pass", "bypass"],
     "ssw": ["password"],
     "swo": ["password"],
-    "ord": ["password", "record", "cordon", "word"],
-    "^ho": ["hoc", "hosts", "host", "hooks", "how"],
+    "ord": ["password", "record", "cordon", "word", "records"],
+    "^ho": ["hoc", "hosts", "host", "hooks", "how", "hostname", "hops"],
     "hoc": ["hoc", "adhoc"],
     "oc$": ["hoc", "adhoc"],
     "est": [
@@ -15676,23 +17502,26 @@
       "nested",
       "testing",
       "timestamp",
-      "request"
+      "request",
+      "rest",
+      "destination",
+      "established"
     ],
     "ivi": ["connectivity", "privileges"],
     "vit": ["connectivity"],
     "inv": ["inventory"],
     "nve": ["inventory", "convert", "unversioned"],
-    "hos": ["hosts", "host", "localhost"],
-    "ost": ["hosts", "host", "lost", "most", "localhost"],
-    "pin": ["ping", "spin"],
+    "hos": ["hosts", "host", "localhost", "hostname"],
+    "ost": ["hosts", "host", "lost", "most", "localhost", "post", "hostname"],
+    "pin": ["ping", "spin", "mapping", "dropping"],
     "adh": ["adhoc"],
     "dho": ["adhoc"],
     "odu": ["module", "modules"],
-    "^he": ["helm", "head"],
+    "^he": ["helm", "head", "headers"],
     "elm": ["helm"],
     "lm$": ["helm"],
     "lea": ["release", "releases", "clean", "cleanly", "clear"],
-    "eas": ["release", "releases", "decrease"],
+    "eas": ["release", "releases", "decrease", "measure"],
     "ase": [
       "release",
       "releases",
@@ -15706,7 +17535,7 @@
     ],
     "oye": ["deployed"],
     "yed": ["deployed"],
-    "rts": ["charts"],
+    "rts": ["charts", "ports"],
     "lla": ["installations"],
     "pac": [
       "packages",
@@ -15716,7 +17545,10 @@
       "space",
       "capacity",
       "workspace",
-      "namespaced"
+      "namespaced",
+      "namespaces",
+      "packet",
+      "packets"
     ],
     "cka": ["packages", "package"],
     "kag": ["packages", "package"],
@@ -15737,19 +17569,21 @@
       "namespaced",
       "timestamp",
       "dmesg",
-      "messages"
+      "messages",
+      "nameserver",
+      "namespaces"
     ],
-    "esp": ["namespace", "namespaced"],
+    "esp": ["namespace", "namespaced", "response", "namespaces"],
     "epo": ["repo", "repository", "repositories", "epoch"],
     "po$": ["repo"],
     "ito": ["repository", "repositories", "monitor", "editor"],
-    "gis": ["register", "registry"],
+    "gis": ["register", "registry", "registrar"],
     "^ur": ["url"],
     "url": ["url", "curl"],
     "rl$": ["url", "curl"],
     "llb": ["rollback", "scrollback"],
     "lba": ["rollback", "scrollback"],
-    "rev": ["revert", "previous", "revision", "preview", "prevent"],
+    "rev": ["revert", "previous", "revision", "preview", "prevent", "reverse"],
     "pre": [
       "previous",
       "prepare",
@@ -15768,18 +17602,18 @@
     "upg": ["upgrade"],
     "pgr": ["upgrade"],
     "rad": ["upgrade"],
-    "ade": ["upgrade", "downloaded", "loaded"],
+    "ade": ["upgrade", "downloaded", "loaded", "headers"],
     "lue": ["values", "value"],
     "ues": ["values", "request"],
     "^jq": ["jq"],
     "jq$": ["jq"],
     "ars": ["parse"],
-    "rse": ["parse"],
+    "rse": ["parse", "reverse"],
     "^js": ["json"],
     "jso": ["json"],
     "son": ["json"],
     "xtr": ["extract"],
-    "orm": ["format", "terraform", "information"],
+    "orm": ["format", "terraform", "information", "perform"],
     "^ou": ["output", "ours", "out"],
     "utp": ["output"],
     "tpu": ["output"],
@@ -15802,9 +17636,9 @@
     "lti": ["multiple", "multi", "multiplex"],
     "tip": ["multiple", "multiplex"],
     "ipl": ["multiple", "multiplex"],
-    "ple": ["multiple", "multiplex"],
+    "ple": ["multiple", "multiplex", "simple"],
     "onc": ["once", "concatenate"],
-    "raf": ["terraform"],
+    "raf": ["terraform", "traffic"],
     "afo": ["terraform"],
     "^tf": ["tf", "tfstate"],
     "tf$": ["tf"],
@@ -15816,7 +17650,17 @@
     "vid": ["providers"],
     "ken": ["backend", "broken"],
     "epa": ["prepare", "repair"],
-    "^dr": ["dry", "drive", "drives", "dracut", "drivers", "driver", "drain"],
+    "^dr": [
+      "dry",
+      "drive",
+      "drives",
+      "dracut",
+      "drivers",
+      "driver",
+      "drain",
+      "dropped",
+      "dropping"
+    ],
     "dry": ["dry"],
     "mpa": ["compare"],
     "ked": ["tracked", "locked", "untracked"],
@@ -15826,42 +17670,60 @@
     "fst": ["tfstate", "fstab"],
     "vag": ["vagrant"],
     "agr": ["vagrant"],
-    "^bo": ["box", "boot"],
+    "^bo": ["box", "boot", "bottleneck"],
     "box": ["box"],
     "ox$": ["box"],
     "dev": ["dev", "device", "devices", "development"],
     "ev$": ["dev"],
     "^yq": ["yq"],
     "yq$": ["yq"],
-    "ani": ["manifest", "panics"],
-    "nif": ["manifest"],
+    "ani": ["manifest", "panics", "manipulate"],
+    "nif": ["manifest", "sniff"],
     "ife": ["manifest"],
     "fes": ["manifest"],
     "onv": ["convert"],
     "inl": ["inline"],
     "nli": ["inline", "unlink"],
     "doc": ["docker", "dockerfile", "documentation"],
-    "ock": ["docker", "dockerfile", "block", "locked", "superblock", "clock"],
+    "ock": [
+      "docker",
+      "dockerfile",
+      "block",
+      "locked",
+      "superblock",
+      "clock",
+      "sockets",
+      "socket"
+    ],
     "tta": ["attach"],
-    "tac": ["attach", "detached", "stack", "detach"],
-    "erf": ["dockerfile"],
+    "tac": ["attach", "detached", "stack", "detach", "contact"],
+    "erf": ["dockerfile", "interface", "perform"],
     "rfi": ["dockerfile"],
     "mpi": ["compile", "compiled"],
     "pil": ["compile", "compiled"],
     "^sa": ["save", "safely", "saved"],
     "sav": ["save", "saved"],
     "ave": ["save", "saved", "average"],
-    "^sn": ["snapshot"],
+    "^sn": ["snapshot", "sniff"],
     "sna": ["snapshot"],
     "aps": ["snapshot"],
     "psh": ["snapshot"],
     "hot": ["snapshot"],
-    "exp": ["export", "explain", "expression"],
+    "exp": ["export", "explain", "expiration", "expression"],
     "xpo": ["export"],
     "ti$": ["multi"],
     "rdo": ["teardown", "cordon"],
-    "sid": ["inside"],
-    "^si": ["size", "sizes", "silently", "single", "sign", "simultaneously"],
+    "sid": ["inside", "essid"],
+    "^si": [
+      "size",
+      "sizes",
+      "silently",
+      "single",
+      "sign",
+      "simultaneously",
+      "simple",
+      "signal"
+    ],
     "siz": ["size", "sizes", "resize"],
     "dan": ["dangling"],
     "ngl": ["dangling", "single"],
@@ -15891,7 +17753,7 @@
     "gcr": ["gcr"],
     "^fe": ["fetch", "feature"],
     "fet": ["fetch"],
-    "etc": ["fetch"],
+    "etc": ["fetch", "netcat"],
     "std": ["stdout"],
     "tdo": ["stdout"],
     "dou": ["stdout"],
@@ -15905,8 +17767,8 @@
     "ubn": ["subnet"],
     "bne": ["subnet"],
     "^ps": ["ps"],
-    "pul": ["pull"],
-    "ull": ["pull", "gracefully"],
+    "pul": ["pull", "manipulate"],
+    "ull": ["pull", "gracefully", "fully"],
     "pus": ["push", "pushing", "pushed"],
     "ush": ["push", "pushing", "pushed"],
     "ibu": ["distribute", "attributes", "contributed"],
@@ -15922,15 +17784,15 @@
     "iso": ["isolated"],
     "ola": ["isolated"],
     "spi": ["spin"],
-    "off": ["offline"],
-    "ffl": ["offline"],
+    "off": ["offline", "offloading"],
+    "ffl": ["offline", "offloading"],
     "fli": ["offline", "conflicts"],
     "exi": ["existing", "existence"],
     "xis": ["existing", "existence"],
-    "sti": ["existing", "estimate", "testing"],
+    "sti": ["existing", "estimate", "testing", "statistics", "destination"],
     "cef": ["gracefully"],
     "efu": ["gracefully"],
-    "ful": ["gracefully"],
+    "ful": ["gracefully", "fully"],
     "^ha": ["halt", "hard", "has", "hash", "hat", "hardware", "hanging"],
     "hal": ["halt"],
     "alt": ["halt"],
@@ -15944,7 +17806,7 @@
     "isk": ["disk", "fdisk", "ramdisk"],
     "unu": ["unused"],
     "nus": ["unused"],
-    "fre": ["free", "refresh"],
+    "fre": ["free", "refresh", "frequency"],
     "ree": ["free", "tree", "subtree", "worktree", "worktrees", "screen"],
     "ee$": ["free", "tree", "see", "subtree", "worktree"],
     "shi": ["pushing", "ownership", "authorship"],
@@ -15960,14 +17822,14 @@
     "dup": ["duplicate"],
     "vel": ["recursively", "development", "declaratively", "imperatively"],
     "ely": ["recursively", "safely", "declaratively", "imperatively"],
-    "ese": ["preserve", "reserved", "reset"],
+    "ese": ["preserve", "reserved", "reset", "nameserver"],
     "^df": ["df"],
     "df$": ["df"],
     "mou": ["mounted", "mount", "remount", "umount", "unmount"],
     "ems": ["filesystems"],
     "usa": ["usage"],
     "sag": ["usage", "message", "messages"],
-    "cap": ["capacity"],
+    "cap": ["capacity", "capture", "pcap"],
     "apa": ["capacity"],
     "aci": ["capacity"],
     "cit": ["capacity"],
@@ -15978,8 +17840,8 @@
     "alc": ["calculate", "journalctl"],
     "lcu": ["calculate"],
     "cul": ["calculate"],
-    "ula": ["calculate", "unschedulable"],
-    "^es": ["estimate"],
+    "ula": ["calculate", "unschedulable", "manipulate"],
+    "^es": ["estimate", "essid", "established"],
     "tak": ["taking"],
     "aki": ["taking"],
     "^fd": ["fdisk"],
@@ -16003,15 +17865,22 @@
     "oke": ["broken", "broke"],
     "fix": ["fix"],
     "ix$": ["fix", "unix"],
-    "cor": ["corrupted", "record", "incorporate", "coredns", "cordon"],
+    "cor": [
+      "corrupted",
+      "record",
+      "incorporate",
+      "coredns",
+      "cordon",
+      "records"
+    ],
     "orr": ["corrupted"],
     "rru": ["corrupted"],
     "rup": ["corrupted"],
     "upt": ["corrupted", "uptime"],
     "xt4": ["ext4"],
     "t4$": ["ext4"],
-    "ncy": ["consistency"],
-    "cy$": ["consistency"],
+    "ncy": ["consistency", "frequency", "latency"],
+    "cy$": ["consistency", "legacy", "frequency", "latency"],
     "^ml": ["mlocate"],
     "mlo": ["mlocate"],
     "ckl": ["quickly"],
@@ -16021,7 +17890,15 @@
     "aba": ["database"],
     "^vd": ["vdir"],
     "vdi": ["vdir"],
-    "^hi": ["hidden", "hierarchy", "history", "histories", "hide", "highlight"],
+    "^hi": [
+      "hidden",
+      "hierarchy",
+      "history",
+      "histories",
+      "hide",
+      "highlight",
+      "high"
+    ],
     "hid": ["hidden", "hide"],
     "idd": ["hidden"],
     "dde": ["hidden"],
@@ -16033,10 +17910,11 @@
       "missing",
       "permission",
       "sessions",
+      "essid",
       "expression"
     ],
-    "^ow": ["ownership", "own"],
-    "wne": ["ownership"],
+    "^ow": ["ownership", "own", "owner"],
+    "wne": ["ownership", "owner"],
     "rsh": ["ownership", "authorship", "powershell"],
     "hip": ["ownership", "authorship"],
     "sor": ["sort"],
@@ -16059,9 +17937,9 @@
     "^mk": ["mkdir", "mkfs", "mkinitcpio"],
     "mkd": ["mkdir"],
     "kdi": ["mkdir"],
-    "nes": ["nested", "lines", "panes"],
+    "nes": ["nested", "lines", "panes", "zones"],
     "sil": ["silently"],
-    "len": ["silently"],
+    "len": ["silently", "bottleneck"],
     "mkf": ["mkfs"],
     "kfs": ["mkfs"],
     "fs$": ["mkfs", "xfs", "tune2fs", "refs", "initramfs"],
@@ -16076,7 +17954,7 @@
     "^wr": ["write", "wrote"],
     "wri": ["write", "overwrite", "rewrite", "rewriting"],
     "rit": ["write", "overwrite", "rewrite", "rewriting"],
-    "ite": ["write", "overwrite", "rewrite"],
+    "ite": ["write", "overwrite", "rewrite", "website"],
     "^mv": ["mv"],
     "mv$": ["mv"],
     "saf": ["safely"],
@@ -16094,8 +17972,8 @@
     "esi": ["resize"],
     "mas": ["massive"],
     "unl": ["unlink", "unload"],
-    "ink": ["unlink"],
-    "nk$": ["unlink"],
+    "ink": ["unlink", "blink", "links"],
+    "nk$": ["unlink", "blink"],
     "rmd": ["rmdir"],
     "mdi": ["rmdir", "ramdisk"],
     "mpt": ["empty"],
@@ -16104,7 +17982,7 @@
     "sua": ["visually", "visual"],
     "hie": ["hierarchy"],
     "ier": ["hierarchy"],
-    "rar": ["hierarchy", "temporarily", "library"],
+    "rar": ["hierarchy", "temporarily", "library", "registrar"],
     "chy": ["hierarchy"],
     "hy$": ["hierarchy", "why"],
     "ne2": ["tune2fs"],
@@ -16133,7 +18011,7 @@
     "eje": ["eject"],
     "usb": ["usb"],
     "sb$": ["usb"],
-    "bus": ["busy"],
+    "bus": ["busy", "abuse"],
     "usy": ["busy"],
     "sy$": ["busy"],
     "poi": ["point", "pointer", "endpoints", "endpoint"],
@@ -16166,8 +18044,8 @@
     "cko": ["checkout"],
     "kou": ["checkout"],
     "isc": ["discard", "discover", "disconnect", "disconnects"],
-    "sca": ["discard", "scale"],
-    "car": ["discard"],
+    "sca": ["discard", "scale", "scan"],
+    "car": ["discard", "card"],
     "olv": ["resolve"],
     "lve": ["resolve", "shelve"],
     "mer": ["merge", "merging"],
@@ -16188,10 +18066,10 @@
     "thu": ["github"],
     "ssa": ["message", "messages"],
     "las": ["last"],
-    "iff": ["diff", "different"],
-    "ff$": ["diff"],
+    "iff": ["diff", "different", "sniff"],
+    "ff$": ["diff", "sniff"],
     "see": ["see"],
-    "nco": ["uncommitted", "incorporate"],
+    "nco": ["uncommitted", "incorporate", "uncomplicated"],
     "itt": ["uncommitted"],
     "ref": ["refs", "reflog", "reference", "refresh"],
     "efs": ["refs"],
@@ -16210,16 +18088,16 @@
     "fea": ["feature"],
     "^sq": ["squash"],
     "squ": ["squash"],
-    "qua": ["squash"],
+    "qua": ["squash", "qualified", "quality"],
     "uas": ["squash"],
     "oge": ["together"],
-    "eth": ["together"],
-    "rew": ["rewrite", "rewriting"],
+    "eth": ["together", "ethtool", "ethernet"],
+    "rew": ["rewrite", "rewriting", "firewall", "firewalld"],
     "ewr": ["rewrite", "rewriting"],
     "efl": ["reflog"],
-    "flo": ["reflog"],
+    "flo": ["reflog", "offloading"],
     "cov": ["recover", "discover"],
-    "hea": ["head"],
+    "hea": ["head", "headers"],
     "vem": ["movement"],
     "uns": ["unstage", "unschedulable"],
     "kee": ["keep"],
@@ -16241,21 +18119,21 @@
     "dor": ["vendored"],
     "epe": ["dependencies", "repeat", "repeatedly"],
     "cie": ["dependencies"],
-    "lit": ["split"],
+    "lit": ["split", "quality", "vulnerability", "reachability"],
     "ups": ["upstream"],
     "pst": ["upstream"],
     "oft": ["software"],
     "ftw": ["software"],
     "twa": ["software"],
     "war": ["software", "forwarding", "forward", "hardware"],
-    "sig": ["sign"],
-    "ign": ["sign"],
+    "sig": ["sign", "signal"],
+    "ign": ["sign", "signal"],
     "gn$": ["sign"],
     "gpg": ["gpg"],
     "pg$": ["gpg"],
     "rkt": ["worktree", "worktrees"],
     "ktr": ["worktree", "worktrees"],
-    "sim": ["simultaneously"],
+    "sim": ["simultaneously", "simple"],
     "imu": ["simultaneously"],
     "lta": ["simultaneously"],
     "neo": ["simultaneously"],
@@ -16279,7 +18157,7 @@
     "dpr": ["modprobe"],
     "rob": ["modprobe"],
     "obe": ["modprobe"],
-    "map": ["map", "configmap"],
+    "map": ["map", "configmap", "mapping", "nmap", "mapper"],
     "sym": ["symbols"],
     "ymb": ["symbols"],
     "mbo": ["symbols"],
@@ -16298,7 +18176,7 @@
     "os$": ["centos"],
     "nsm": ["insmod"],
     "smo": ["insmod", "lsmod"],
-    "nse": ["insert", "license"],
+    "nse": ["insert", "license", "response"],
     "^ko": ["ko"],
     "ko$": ["ko"],
     "ewl": ["newly"],
@@ -16314,7 +18192,7 @@
     "ibk": ["libkmod"],
     "bkm": ["libkmod"],
     "mki": ["mkinitcpio"],
-    "tcp": ["mkinitcpio", "tcp"],
+    "tcp": ["mkinitcpio", "tcp", "tcpdump"],
     "cpi": ["mkinitcpio"],
     "pio": ["mkinitcpio"],
     "io$": ["mkinitcpio"],
@@ -16325,7 +18203,7 @@
     "orw": ["forwarding", "forward"],
     "rwa": ["forwarding", "forward"],
     "rdi": ["forwarding"],
-    "^tc": ["tcp"],
+    "^tc": ["tcp", "tcpdump"],
     "pod": ["pod", "pods"],
     "^k8": ["k8s"],
     "k8s": ["k8s"],
@@ -16336,7 +18214,7 @@
     "api": ["api"],
     "pi$": ["api"],
     "rtn": ["shortnames"],
-    "tna": ["shortnames"],
+    "tna": ["shortnames", "hostname"],
     "ced": ["namespaced"],
     "efi": ["definitions"],
     "sco": ["discover", "disconnect", "disconnects"],
@@ -16347,24 +18225,24 @@
     "kus": ["kustomization"],
     "iza": ["kustomization", "utilization", "initialization"],
     "zat": ["kustomization", "utilization", "initialization"],
-    "ol$": ["control"],
+    "ol$": ["control", "ethtool"],
     "edn": ["coredns"],
-    "dns": ["coredns"],
-    "dum": ["dump"],
-    "ump": ["dump"],
-    "mp$": ["dump", "timestamp"],
+    "dns": ["coredns", "dns"],
+    "dum": ["dump", "tcpdump"],
+    "ump": ["dump", "tcpdump"],
+    "mp$": ["dump", "timestamp", "tcpdump"],
     "don": ["cordon"],
     "ark": ["mark"],
     "nsc": ["unschedulable"],
     "ods": ["pods"],
-    "ds$": ["pods", "fields", "commands"],
+    "ds$": ["pods", "fields", "commands", "records"],
     "uli": ["scheduling"],
     "cem": ["placement", "replacement"],
     "igm": ["configmap"],
     "gma": ["configmap"],
     "mpe": ["imperatively"],
-    "iat": ["instantiate"],
-    "nat": ["terminating", "concatenate"],
+    "iat": ["instantiate", "autonegotiation"],
+    "nat": ["terminating", "nat", "destination", "concatenate"],
     "why": ["why"],
     "rai": ["drain"],
     "rke": ["worker"],
@@ -16395,10 +18273,10 @@
     "pu$": ["cpu"],
     "etr": ["metrics"],
     "ric": ["metrics"],
-    "ics": ["metrics", "panics"],
+    "ics": ["metrics", "panics", "statistics"],
     "^ut": ["utilization"],
     "til": ["utilization"],
-    "ili": ["utilization"],
+    "ili": ["utilization", "vulnerability", "reachability"],
     "ong": ["long"],
     "wip": ["wipe"],
     "ipe": ["wipe"],
@@ -16426,7 +18304,7 @@
     "nos": ["diagnose"],
     "rdw": ["hardware"],
     "pan": ["panics", "panes"],
-    "nic": ["panics"],
+    "nic": ["panics", "nic"],
     "ech": ["echo"],
     "cho": ["echo"],
     "nv$": ["env"],
@@ -16442,10 +18320,10 @@
     "jou": ["journalctl"],
     "lct": ["journalctl"],
     "emd": ["systemd"],
-    "md$": ["systemd"],
+    "md$": ["systemd", "cmd"],
     "anu": ["manual"],
     "nua": ["manual"],
-    "pag": ["pages"],
+    "pag": ["pages", "propagation"],
     "^af": ["after"],
     "aft": ["after"],
     "fte": ["after"],
@@ -16461,12 +18339,12 @@
     "udo": ["sudo"],
     "adm": ["admin"],
     "dmi": ["admin"],
-    "eni": ["denied"],
+    "eni": ["denied", "listening"],
     "nie": ["denied"],
     "^el": ["elevate"],
     "lev": ["elevate"],
     "vil": ["privileges"],
-    "leg": ["privileges"],
+    "leg": ["privileges", "legacy"],
     "ege": ["privileges"],
     "emc": ["systemctl"],
     "mct": ["systemctl"],
@@ -16481,8 +18359,8 @@
     "edl": ["repeatedly"],
     "dly": ["repeatedly"],
     "efr": ["refresh"],
-    "hig": ["highlight"],
-    "igh": ["highlight"],
+    "hig": ["highlight", "high"],
+    "igh": ["highlight", "high"],
     "ghl": ["highlight"],
     "hli": ["highlight"],
     "lig": ["highlight"],
@@ -16493,22 +18371,171 @@
     "^ef": ["effective"],
     "eff": ["effective"],
     "fec": ["effective"],
+    "arp": ["arp"],
+    "rp$": ["arp"],
+    "ac$": ["mac"],
+    "nip": ["manipulate"],
+    "ipu": ["manipulate"],
     "^ht": ["http"],
     "htt": ["http"],
     "ttp": ["http"],
     "tp$": ["http"],
-    "req": ["request"],
-    "equ": ["request"],
+    "req": ["request", "frequency"],
+    "equ": ["request", "frequency"],
+    "spo": ["response"],
+    "pon": ["response"],
+    "dig": ["dig"],
+    "dom": ["domain"],
+    "^dn": ["dns"],
+    "rds": ["records"],
+    "^mx": ["mx"],
+    "mx$": ["mx"],
+    "opa": ["propagation"],
+    "aga": ["propagation"],
+    "^et": ["ethtool", "ethernet"],
+    "tht": ["ethtool"],
+    "hto": ["ethtool"],
+    "too": ["ethtool"],
+    "ool": ["ethtool"],
+    "rfa": ["interface"],
+    "fac": ["interface"],
+    "pee": ["speed"],
+    "eed": ["speed"],
+    "^ni": ["nic"],
+    "ton": ["autonegotiation"],
+    "neg": ["autonegotiation"],
+    "ego": ["autonegotiation"],
+    "got": ["autonegotiation"],
+    "oti": ["autonegotiation"],
+    "^ts": ["tso"],
+    "tso": ["tso"],
+    "so$": ["tso"],
+    "adi": ["offloading"],
+    "^le": ["led", "legacy"],
+    "fir": ["firewall", "firewalld"],
+    "ewa": ["firewall", "firewalld", "gateway"],
+    "wal": ["firewall", "firewalld"],
+    "^cm": ["cmd"],
+    "cmd": ["cmd"],
+    "lld": ["firewalld"],
+    "rul": ["rules"],
+    "oug": ["through"],
+    "ugh": ["through"],
+    "gh$": ["through", "high"],
+    "rfo": ["perform"],
+    "loo": ["lookup", "nslookup"],
+    "oku": ["lookup", "nslookup"],
+    "stn": ["hostname"],
+    "lif": ["qualified"],
+    "ifc": ["ifconfig"],
+    "fco": ["ifconfig"],
+    "aff": ["traffic"],
+    "ffi": ["traffic"],
+    "tis": ["statistics"],
+    "nks": ["links"],
+    "pta": ["iptables"],
+    "^80": ["80"],
+    "80$": ["80"],
+    "nsl": ["translation", "nslookup"],
+    "sla": ["translation"],
+    "^iw": ["iw", "iwconfig"],
+    "iw$": ["iw"],
+    "wir": ["wireless"],
+    "wif": ["wifi"],
+    "fi$": ["wifi"],
+    "gna": ["signal"],
+    "ngt": ["strength"],
+    "gth": ["strength"],
+    "^ib": ["ibss"],
+    "ibs": ["ibss"],
+    "bss": ["ibss"],
+    "iwc": ["iwconfig"],
+    "wco": ["iwconfig"],
+    "ega": ["legacy"],
+    "gac": ["legacy"],
+    "acy": ["legacy"],
+    "uen": ["frequency"],
+    "pow": ["power", "powershell"],
+    "owe": ["power", "powershell"],
+    "wer": ["power", "powershell"],
+    "^mt": ["mtr", "mtu"],
+    "mtr": ["mtr"],
+    "tr$": ["mtr"],
+    "^my": ["my"],
+    "my$": ["my"],
+    "cer": ["traceroute", "tracert"],
+    "ero": ["traceroute"],
+    "ppi": ["mapping", "dropping"],
+    "oss": ["loss"],
+    "bot": ["bottleneck"],
+    "ott": ["bottleneck"],
+    "ttl": ["bottleneck"],
+    "tle": ["bottleneck"],
+    "^nc": ["nc"],
+    "tca": ["netcat"],
+    "soc": ["sockets", "socket"],
+    "^ud": ["udp"],
+    "udp": ["udp"],
+    "dp$": ["udp"],
+    "tst": ["netstat"],
+    "^nm": ["nmap", "nmcli"],
+    "nma": ["nmap"],
+    "tec": ["detect"],
+    "^vu": ["vulnerability"],
+    "vul": ["vulnerability"],
+    "uln": ["vulnerability"],
+    "lne": ["vulnerability"],
+    "rab": ["vulnerability"],
+    "abi": ["vulnerability", "reachability"],
+    "bil": ["vulnerability", "reachability"],
+    "nmc": ["nmcli"],
+    "mcl": ["nmcli"],
+    "rkm": ["networkmanager"],
+    "kma": ["networkmanager"],
+    "ger": ["networkmanager"],
+    "^ns": ["nslookup"],
+    "slo": ["nslookup"],
+    "eac": ["reachability"],
+    "hab": ["reachability"],
+    "mea": ["measure"],
+    "asu": ["measure"],
+    "sur": ["measure"],
+    "erc": ["percentage"],
+    "mtu": ["mtu"],
+    "tu$": ["mtu", "ubuntu"],
+    "agm": ["fragmentation"],
+    "gme": ["fragmentation"],
+    "tew": ["gateway"],
+    "way": ["gateway"],
+    "lim": ["limits"],
+    "imi": ["limits"],
+    "cpd": ["tcpdump"],
+    "pdu": ["tcpdump"],
+    "ptu": ["capture"],
+    "sni": ["sniff"],
+    "dro": ["dropped", "dropping"],
+    "^pc": ["pcap"],
+    "pca": ["pcap"],
+    "ops": ["hops"],
+    "^uf": ["ufw"],
+    "ufw": ["ufw"],
+    "fw$": ["ufw"],
     "^ub": ["ubuntu"],
     "ubu": ["ubuntu"],
     "bun": ["ubuntu"],
     "ntu": ["ubuntu"],
-    "tu$": ["ubuntu"],
+    "^wg": ["wget"],
+    "wge": ["wget"],
+    "ebs": ["website"],
+    "bsi": ["website"],
+    "hoi": ["whois"],
+    "ois": ["whois"],
+    "xpi": ["expiration"],
+    "pir": ["expiration"],
+    "ira": ["expiration"],
+    "abu": ["abuse"],
     "chm": ["chmod"],
     "hmo": ["chmod"],
-    "pow": ["powershell"],
-    "owe": ["powershell"],
-    "wer": ["powershell"],
     "xpr": ["expression"],
     "awk": ["awk"],
     "wk$": ["awk"],
@@ -18403,11 +20430,257 @@
       "supportedOS": ["linux", "macos", "unix", "windows"],
       "tags": ["whoami"]
     },
-    "curl": {
+    "arp": {
       "category": "networking",
       "difficulty": "intermediate",
       "supportedOS": ["linux", "macos", "unix", "windows"],
-      "tags": ["curl"]
+      "tags": [
+        "linux",
+        "networking",
+        "mac-address",
+        "local-network",
+        "troubleshooting"
+      ]
+    },
+    "curl": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": [
+        "http",
+        "api",
+        "networking",
+        "data-transfer",
+        "rest",
+        "debugging"
+      ]
+    },
+    "dig": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": ["dns", "networking", "troubleshooting", "nslookup", "bind"]
+    },
+    "ethtool": {
+      "category": "networking",
+      "difficulty": "advanced",
+      "supportedOS": ["linux"],
+      "tags": [
+        "linux",
+        "networking",
+        "hardware",
+        "nic",
+        "troubleshooting",
+        "offload"
+      ]
+    },
+    "firewall-cmd": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux"],
+      "tags": [
+        "linux",
+        "security",
+        "firewall",
+        "network",
+        "red-hat",
+        "firewalld"
+      ]
+    },
+    "host": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["dns", "networking", "troubleshooting", "resolution", "bind"]
+    },
+    "hostname": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["linux", "networking", "system-identity", "configuration"]
+    },
+    "ifconfig": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": ["linux", "networking", "interfaces", "ip-address", "legacy"]
+    },
+    "ip": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux"],
+      "tags": ["linux", "networking", "routing", "interfaces", "iproute2"]
+    },
+    "iptables": {
+      "category": "networking",
+      "difficulty": "advanced",
+      "supportedOS": ["linux"],
+      "tags": ["linux", "security", "firewall", "network", "nat", "netfilter"]
+    },
+    "iw": {
+      "category": "networking",
+      "difficulty": "advanced",
+      "supportedOS": ["linux"],
+      "tags": ["linux", "networking", "wireless", "wifi", "nl80211"]
+    },
+    "iwconfig": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux"],
+      "tags": ["linux", "networking", "wireless", "wifi", "wext", "legacy"]
+    },
+    "mtr": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "linux",
+        "networking",
+        "diagnostic",
+        "traceroute",
+        "ping",
+        "latency"
+      ]
+    },
+    "nc": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": [
+        "linux",
+        "networking",
+        "sockets",
+        "port-scanning",
+        "proxy",
+        "security"
+      ]
+    },
+    "netstat": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "linux",
+        "networking",
+        "routing",
+        "sockets",
+        "diagnostics",
+        "legacy"
+      ]
+    },
+    "nmap": {
+      "category": "networking",
+      "difficulty": "advanced",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": [
+        "security",
+        "networking",
+        "port-scanning",
+        "reconnaissance",
+        "vulnerability",
+        "diagnostics"
+      ]
+    },
+    "nmcli": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux"],
+      "tags": [
+        "linux",
+        "networking",
+        "networkmanager",
+        "configuration",
+        "interfaces"
+      ]
+    },
+    "nslookup": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": ["networking", "dns", "troubleshooting", "bind", "lookup"]
+    },
+    "ping": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": ["networking", "diagnostics", "icmp", "latency", "connectivity"]
+    },
+    "route": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "linux",
+        "networking",
+        "routing",
+        "legacy",
+        "gateways",
+        "sysadmin"
+      ]
+    },
+    "ss": {
+      "category": "networking",
+      "difficulty": "intermediate",
+      "supportedOS": ["linux"],
+      "tags": [
+        "linux",
+        "networking",
+        "sockets",
+        "diagnostic",
+        "iproute2",
+        "netlink"
+      ]
+    },
+    "tcpdump": {
+      "category": "networking",
+      "difficulty": "advanced",
+      "supportedOS": ["linux", "macos", "unix"],
+      "tags": [
+        "linux",
+        "networking",
+        "packet-capture",
+        "pcap",
+        "troubleshooting",
+        "security"
+      ]
+    },
+    "traceroute": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": ["linux", "networking", "troubleshooting", "routing", "icmp"]
+    },
+    "ufw": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux"],
+      "tags": ["linux", "security", "firewall", "network", "ubuntu", "debian"]
+    },
+    "wget": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "windows", "unix"],
+      "tags": [
+        "download",
+        "networking",
+        "http",
+        "ftp",
+        "automation",
+        "mirroring"
+      ]
+    },
+    "whois": {
+      "category": "networking",
+      "difficulty": "beginner",
+      "supportedOS": ["linux", "macos", "unix", "windows"],
+      "tags": [
+        "networking",
+        "osint",
+        "domains",
+        "dns",
+        "internet",
+        "troubleshooting"
+      ]
     },
     "apt": {
       "category": "package-managers",

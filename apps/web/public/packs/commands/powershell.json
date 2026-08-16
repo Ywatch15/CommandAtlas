@@ -5,17 +5,33 @@
       "slug": "get-process",
       "name": "get-process",
       "category": "powershell",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "get-process",
         "name": "get-process",
         "aliases": [],
         "category": "powershell",
-        "tags": ["get-process"],
+        "tags": [
+          "get-process"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
-        "intentPhrases": ["list processes in powershell", "get process info"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
+        "intentPhrases": [
+          "list processes in powershell",
+          "get process info"
+        ],
         "relatedCommands": [],
         "alternatives": [],
         "status": "published",

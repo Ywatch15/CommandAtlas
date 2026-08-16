@@ -5,16 +5,29 @@
       "slug": "alias",
       "name": "alias",
       "category": "linux",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "alias",
         "name": "alias",
         "aliases": [],
         "category": "linux",
-        "tags": ["alias"],
+        "tags": [
+          "alias"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "create custom command",
           "shorten terminal command",
@@ -22,7 +35,9 @@
           "override default command behavior",
           "make shortcut for long command"
         ],
-        "relatedCommands": ["type"],
+        "relatedCommands": [
+          "type"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -36,16 +51,29 @@
       "slug": "clear",
       "name": "clear",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "clear",
         "name": "clear",
         "aliases": [],
         "category": "linux",
-        "tags": ["clear"],
+        "tags": [
+          "clear"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "clear the terminal screen",
           "wipe terminal output",
@@ -67,16 +95,29 @@
       "slug": "date",
       "name": "date",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "date",
         "name": "date",
         "aliases": [],
         "category": "linux",
-        "tags": ["date"],
+        "tags": [
+          "date"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "get current time",
           "format date string",
@@ -98,16 +139,29 @@
       "slug": "dmesg",
       "name": "dmesg",
       "category": "linux",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "dmesg",
         "name": "dmesg",
         "aliases": [],
         "category": "linux",
-        "tags": ["dmesg"],
+        "tags": [
+          "dmesg"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "check kernel logs",
           "find out why process was killed by OOM killer",
@@ -115,7 +169,9 @@
           "view boot initialization messages",
           "diagnose hardware errors and panics"
         ],
-        "relatedCommands": ["kmod"],
+        "relatedCommands": [
+          "kmod"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -129,16 +185,29 @@
       "slug": "echo",
       "name": "echo",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "echo",
         "name": "echo",
         "aliases": [],
         "category": "linux",
-        "tags": ["echo"],
+        "tags": [
+          "echo"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "print text to terminal",
           "write variable to file",
@@ -160,16 +229,29 @@
       "slug": "env",
       "name": "env",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "env",
         "name": "env",
         "aliases": [],
         "category": "linux",
-        "tags": ["env"],
+        "tags": [
+          "env"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "list environment variables",
           "set env var temporarily",
@@ -191,16 +273,29 @@
       "slug": "export",
       "name": "export",
       "category": "linux",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "export",
         "name": "export",
         "aliases": [],
         "category": "linux",
-        "tags": ["export"],
+        "tags": [
+          "export"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "set environment variable",
           "make variable global in bash",
@@ -208,7 +303,9 @@
           "pass variable to child process",
           "export bash function"
         ],
-        "relatedCommands": ["source"],
+        "relatedCommands": [
+          "source"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -222,16 +319,29 @@
       "slug": "grep",
       "name": "grep",
       "category": "linux",
-      "contentVersion": 5,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "grep",
         "name": "grep",
         "aliases": [],
         "category": "linux",
-        "tags": ["grep"],
+        "tags": [
+          "grep"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "search text in files",
           "find pattern in file",
@@ -239,7 +349,11 @@
           "search for string in directory",
           "find all occurrences of word in codebase"
         ],
-        "relatedCommands": ["jq", "find", "locate"],
+        "relatedCommands": [
+          "jq",
+          "find",
+          "locate"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -259,16 +373,29 @@
       "slug": "history",
       "name": "history",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "history",
         "name": "history",
         "aliases": [],
         "category": "linux",
-        "tags": ["history"],
+        "tags": [
+          "history"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "view previous commands",
           "search command history",
@@ -290,16 +417,29 @@
       "slug": "journalctl",
       "name": "journalctl",
       "category": "linux",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "journalctl",
         "name": "journalctl",
         "aliases": [],
         "category": "linux",
-        "tags": ["journalctl"],
+        "tags": [
+          "journalctl"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "check system logs",
           "view service logs",
@@ -308,7 +448,9 @@
           "filter logs by time"
         ],
         "relatedCommands": [],
-        "alternatives": ["docker-logs"],
+        "alternatives": [
+          "docker-logs"
+        ],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -321,16 +463,29 @@
       "slug": "man",
       "name": "man",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "man",
         "name": "man",
         "aliases": [],
         "category": "linux",
-        "tags": ["man"],
+        "tags": [
+          "man"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "how to use a command",
           "find command options",
@@ -352,16 +507,29 @@
       "slug": "screen",
       "name": "screen",
       "category": "linux",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "screen",
         "name": "screen",
         "aliases": [],
         "category": "linux",
-        "tags": ["screen"],
+        "tags": [
+          "screen"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "run process in background",
           "resume ssh session",
@@ -370,7 +538,10 @@
           "share terminal session"
         ],
         "relatedCommands": [],
-        "alternatives": ["bg", "fg"],
+        "alternatives": [
+          "bg",
+          "fg"
+        ],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -383,16 +554,29 @@
       "slug": "strace",
       "name": "strace",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "strace",
         "name": "strace",
         "aliases": [],
         "category": "linux",
-        "tags": ["strace"],
+        "tags": [
+          "strace"
+        ],
         "difficulty": "advanced",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "trace system calls of a process",
           "debug hanging process",
@@ -414,16 +598,29 @@
       "slug": "su",
       "name": "su",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "su",
         "name": "su",
         "aliases": [],
         "category": "linux",
-        "tags": ["su"],
+        "tags": [
+          "su"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "switch to root user",
           "login as another user",
@@ -445,16 +642,29 @@
       "slug": "sudo",
       "name": "sudo",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "sudo",
         "name": "sudo",
         "aliases": [],
         "category": "linux",
-        "tags": ["sudo"],
+        "tags": [
+          "sudo"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "run command as root",
           "execute as admin",
@@ -476,16 +686,29 @@
       "slug": "systemctl",
       "name": "systemctl",
       "category": "linux",
-      "contentVersion": 5,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "systemctl",
         "name": "systemctl",
         "aliases": [],
         "category": "linux",
-        "tags": ["systemctl"],
+        "tags": [
+          "systemctl"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "start a service",
           "stop a service",
@@ -494,7 +717,10 @@
           "check service status",
           "list running services"
         ],
-        "relatedCommands": ["cron", "sysctl"],
+        "relatedCommands": [
+          "cron",
+          "sysctl"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -508,16 +734,29 @@
       "slug": "tmux",
       "name": "tmux",
       "category": "linux",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "tmux",
         "name": "tmux",
         "aliases": [],
         "category": "linux",
-        "tags": ["tmux"],
+        "tags": [
+          "tmux"
+        ],
         "difficulty": "intermediate",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "keep process running after ssh disconnects",
           "split terminal into multiple panes",
@@ -526,7 +765,10 @@
           "attach to background terminal session"
         ],
         "relatedCommands": [],
-        "alternatives": ["bg", "fg"],
+        "alternatives": [
+          "bg",
+          "fg"
+        ],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -539,16 +781,29 @@
       "slug": "uptime",
       "name": "uptime",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "uptime",
         "name": "uptime",
         "aliases": [],
         "category": "linux",
-        "tags": ["uptime"],
+        "tags": [
+          "uptime"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "check how long server has been running",
           "find system load average",
@@ -570,16 +825,29 @@
       "slug": "watch",
       "name": "watch",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "watch",
         "name": "watch",
         "aliases": [],
         "category": "linux",
-        "tags": ["watch"],
+        "tags": [
+          "watch"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "run command repeatedly",
           "monitor command output in real time",
@@ -601,16 +869,29 @@
       "slug": "whoami",
       "name": "whoami",
       "category": "linux",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "whoami",
         "name": "whoami",
         "aliases": [],
         "category": "linux",
-        "tags": ["whoami"],
+        "tags": [
+          "whoami"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
         "intentPhrases": [
           "check current user",
           "am i root",

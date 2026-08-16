@@ -5,17 +5,33 @@
       "slug": "chmod",
       "name": "chmod",
       "category": "permissions",
-      "contentVersion": 3,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "chmod",
         "name": "chmod",
         "aliases": [],
         "category": "permissions",
-        "tags": ["chmod"],
+        "tags": [
+          "chmod"
+        ],
         "difficulty": "beginner",
-        "supportedOS": ["linux", "macos", "unix", "windows"],
-        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
-        "intentPhrases": ["change file permissions", "make file executable"],
+        "supportedOS": [
+          "linux",
+          "macos",
+          "unix",
+          "windows"
+        ],
+        "supportedShells": [
+          "bash",
+          "zsh",
+          "sh",
+          "powershell",
+          "cmd"
+        ],
+        "intentPhrases": [
+          "change file permissions",
+          "make file executable"
+        ],
         "relatedCommands": [],
         "alternatives": [],
         "status": "published",
