@@ -30,18 +30,17 @@ intentPhrases:
   - apply kustomization directory
   - update deployment via file
 relatedCommands:
-  - kubectl-create
-  - kubectl-delete
-  - helm-install
-  - kubectl-annotate
-  - kubectl-edit
-  - kubectl-label
-  - kubectl-rollout
-  - kubectl-scale
-alternatives:
-  - helm-install
-  - kubectl-create
-  - kubectl-scale
+  [
+    kubectl-create,
+    kubectl-delete,
+    helm-install,
+    kubectl-annotate,
+    kubectl-edit,
+    kubectl-label,
+    kubectl-rollout,
+    kubectl-scale,
+  ]
+alternatives: [helm-install, kubectl-create, kubectl-scale]
 status: draft
 ---
 

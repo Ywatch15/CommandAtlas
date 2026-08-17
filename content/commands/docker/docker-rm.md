@@ -29,12 +29,7 @@ intentPhrases:
   - force kill and delete container
   - clean up old docker containers
   - destroy container and volumes
-relatedCommands:
-  - docker-ps
-  - docker-stop
-  - docker-rmi
-  - docker-system-prune
-  - docker-run
+relatedCommands: [docker-ps, docker-stop, docker-rmi, docker-system-prune, docker-run]
 alternatives: []
 status: draft
 ---

@@ -26,13 +26,8 @@ intentPhrases:
   - tag a software release
   - delete a git tag
   - sign git tag with gpg
-relatedCommands:
-  - git-checkout
-  - git-commit
-  - git-log
-  - git-push
-alternatives:
-  - git-branch
+relatedCommands: [git-checkout, git-commit, git-log, git-push]
+alternatives: [git-branch]
 status: draft
 ---
 

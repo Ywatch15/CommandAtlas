@@ -28,12 +28,7 @@ intentPhrases:
   - publish container image
   - push to docker hub
   - distribute docker image to ecr
-relatedCommands:
-  - docker-pull
-  - docker-build
-  - docker-tag
-  - docker-login
-  - docker-save-load
+relatedCommands: [docker-pull, docker-build, docker-tag, docker-login, docker-save-load]
 alternatives: []
 status: draft
 ---

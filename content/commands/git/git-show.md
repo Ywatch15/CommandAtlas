@@ -27,13 +27,8 @@ intentPhrases:
   - inspect git object
   - show file at specific commit
   - view raw file from another branch
-relatedCommands:
-  - git-blame
-  - git-diff
-  - git-log
-alternatives:
-  - git-diff
-  - git-log
+relatedCommands: [git-blame, git-diff, git-log]
+alternatives: [git-diff, git-log]
 status: draft
 ---
 

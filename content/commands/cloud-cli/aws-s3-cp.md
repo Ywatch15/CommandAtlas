@@ -28,11 +28,8 @@ intentPhrases:
   - copy s3 object to another bucket
   - transfer local directory to s3
   - move file to aws storage
-relatedCommands:
-  - aws-s3-sync
-  - aws-s3-ls
-alternatives:
-  - aws-s3-sync
+relatedCommands: [aws-s3-sync, aws-s3-ls]
+alternatives: [aws-s3-sync]
 status: draft
 ---
 

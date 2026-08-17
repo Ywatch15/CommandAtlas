@@ -13,7 +13,7 @@ intentPhrases:
   - 'check mx records nslookup'
   - 'test specific dns server'
   - 'resolve hostname to ip'
-relatedCommands: [dig, host, ping, mtr, nc]
+relatedCommands: [dig, host, ping, mtr, nc, whois]
 alternatives: [dig, host]
 status: draft
 ---

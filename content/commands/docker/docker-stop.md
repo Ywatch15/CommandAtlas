@@ -28,10 +28,7 @@ intentPhrases:
   - shut down docker application
   - pause docker service cleanly
   - stop all running docker containers
-relatedCommands:
-  - docker-start
-  - docker-restart
-  - docker-rm
+relatedCommands: [docker-start, docker-restart, docker-rm]
 alternatives: []
 status: draft
 ---

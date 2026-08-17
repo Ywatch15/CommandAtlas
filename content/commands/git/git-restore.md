@@ -27,15 +27,8 @@ intentPhrases:
   - revert file to last commit
   - undo git add
   - restore deleted file in git
-relatedCommands:
-  - git-add
-  - git-checkout
-  - git-clean
-  - git-reset
-  - git-switch
-alternatives:
-  - git-checkout
-  - git-reset
+relatedCommands: [git-add, git-checkout, git-clean, git-reset, git-switch]
+alternatives: [git-checkout, git-reset]
 status: draft
 ---
 

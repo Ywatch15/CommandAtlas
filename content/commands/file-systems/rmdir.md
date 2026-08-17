@@ -27,11 +27,7 @@ intentPhrases:
   - remove directory structure
   - delete empty folders linux
   - safely clean up directories
-relatedCommands:
-  - rm
-  - mkdir
-  - find
-  - tree
+relatedCommands: [rm, mkdir, find, tree]
 alternatives: []
 status: draft
 ---

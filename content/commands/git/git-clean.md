@@ -26,12 +26,8 @@ intentPhrases:
   - delete unversioned files
   - purge untracked directories
   - reset working tree untracked
-relatedCommands:
-  - git-reset
-  - git-restore
-  - git-status
-alternatives:
-  - git-stash
+relatedCommands: [git-reset, git-restore, git-status]
+alternatives: [git-stash]
 status: draft
 ---
 

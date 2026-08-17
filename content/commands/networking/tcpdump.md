@@ -13,7 +13,7 @@ intentPhrases:
   - 'troubleshoot dropped packets'
   - 'dump network traffic to pcap'
   - 'filter network traffic by port'
-relatedCommands: [ip, ping, netstat]
+relatedCommands: [ip, ping, netstat, ethtool, nmap, traceroute]
 alternatives: []
 status: draft
 ---

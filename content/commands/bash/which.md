@@ -25,10 +25,8 @@ intentPhrases:
   - check where command is installed
   - locate executable in path
   - find binary file location
-relatedCommands:
-  - type
-alternatives:
-  - type
+relatedCommands: [type]
+alternatives: [type]
 status: draft
 ---
 

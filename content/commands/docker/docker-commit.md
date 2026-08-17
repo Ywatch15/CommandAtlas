@@ -28,12 +28,8 @@ intentPhrases:
   - snapshot running docker container
   - commit docker changes to image
   - export container modifications
-relatedCommands:
-  - docker-build
-  - docker-run
-  - docker-cp
-alternatives:
-  - docker-build
+relatedCommands: [docker-build, docker-run, docker-cp]
+alternatives: [docker-build]
 status: draft
 ---
 

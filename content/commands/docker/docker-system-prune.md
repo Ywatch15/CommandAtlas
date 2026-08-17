@@ -28,12 +28,8 @@ intentPhrases:
   - delete dangling docker images
   - clear docker cache
   - free up docker storage
-relatedCommands:
-  - docker-rm
-  - docker-rmi
-  - docker-volume
-alternatives:
-  - docker-rmi
+relatedCommands: [docker-rm, docker-rmi, docker-volume]
+alternatives: [docker-rmi]
 status: draft
 ---
 

@@ -24,12 +24,8 @@ intentPhrases:
   - execute daily maintenance tasks
   - force anacron to run
   - check anacrontab syntax
-relatedCommands:
-  - cron
-  - crontab
-alternatives:
-  - cron
-  - crontab
+relatedCommands: [cron, crontab]
+alternatives: [cron, crontab]
 status: published
 ---
 

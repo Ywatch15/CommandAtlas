@@ -27,10 +27,7 @@ intentPhrases:
   - check running ec2 servers
   - find ec2 instance id
   - query ec2 compute status
-relatedCommands:
-  - aws-configure
-  - aws-sts-get-caller-identity
-  - aws-ec2-run-instances
+relatedCommands: [aws-configure, aws-sts-get-caller-identity, aws-ec2-run-instances]
 alternatives: []
 status: draft
 ---

@@ -29,13 +29,8 @@ intentPhrases:
   - decrease replicaset size
   - stop all pods in deployment
   - adjust kubernetes capacity imperatively
-relatedCommands:
-  - kubectl-apply
-  - kubectl-rollout
-  - kubectl-edit
-  - kubectl-delete
-alternatives:
-  - kubectl-apply
+relatedCommands: [kubectl-apply, kubectl-rollout, kubectl-edit, kubectl-delete]
+alternatives: [kubectl-apply]
 status: draft
 ---
 

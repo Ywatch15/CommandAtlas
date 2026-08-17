@@ -28,10 +28,7 @@ intentPhrases:
   - prepare node for maintenance
   - remove kubernetes worker node
   - empty kubernetes node
-relatedCommands:
-  - kubectl-cordon
-  - kubectl-delete
-  - kubectl-taint
+relatedCommands: [kubectl-cordon, kubectl-delete, kubectl-taint]
 alternatives: []
 status: draft
 ---

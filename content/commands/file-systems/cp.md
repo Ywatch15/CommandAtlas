@@ -25,9 +25,7 @@ intentPhrases:
   - backup file linux
   - copy files recursively
   - preserve file attributes
-relatedCommands:
-  - mv
-  - rm
+relatedCommands: [mv, rm]
 alternatives: []
 status: draft
 ---

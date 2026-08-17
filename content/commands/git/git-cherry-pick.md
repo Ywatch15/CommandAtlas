@@ -26,14 +26,8 @@ intentPhrases:
   - copy commit from another branch
   - port fix to release branch
   - select specific commit to merge
-relatedCommands:
-  - git-commit
-  - git-log
-  - git-merge
-  - git-rebase
-  - git-revert
-alternatives:
-  - git-rebase
+relatedCommands: [git-commit, git-log, git-merge, git-rebase, git-revert]
+alternatives: [git-rebase]
 status: draft
 ---
 

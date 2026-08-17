@@ -23,17 +23,8 @@ intentPhrases:
   - add module to linux kernel
   - force load kernel module
   - check module dependencies
-relatedCommands:
-  - lsmod
-  - insmod
-  - rmmod
-  - modinfo
-  - depmod
-  - kmod
-  - sysctl
-alternatives:
-  - insmod
-  - rmmod
+relatedCommands: [lsmod, insmod, rmmod, modinfo, depmod, kmod, sysctl]
+alternatives: [insmod, rmmod]
 status: draft
 ---
 

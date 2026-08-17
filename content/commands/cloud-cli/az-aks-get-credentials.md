@@ -28,8 +28,7 @@ intentPhrases:
   - setup kubectl for aks
   - authenticate kubectl to azure
   - add aks cluster to local kubeconfig
-relatedCommands:
-  - az-login
+relatedCommands: [az-login]
 alternatives: []
 status: draft
 ---

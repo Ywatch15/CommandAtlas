@@ -29,10 +29,7 @@ intentPhrases:
   - monitor node resources k8s
   - find pods using most ram
   - check cluster utilization top
-relatedCommands:
-  - kubectl-get
-  - kubectl-describe
-  - kubectl-logs
+relatedCommands: [kubectl-get, kubectl-describe, kubectl-logs]
 alternatives: []
 status: draft
 ---

@@ -24,12 +24,8 @@ intentPhrases:
   - resume stopped job
   - return to suspended process
   - interact with background job
-relatedCommands:
-  - bg
-  - jobs
-alternatives:
-  - screen
-  - tmux
+relatedCommands: [bg, jobs]
+alternatives: [screen, tmux]
 status: draft
 ---
 

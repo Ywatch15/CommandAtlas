@@ -27,14 +27,8 @@ intentPhrases:
   - interact with libkmod
   - check module static nodes
   - load driver into kernel
-relatedCommands:
-  - depmod
-  - sysctl
-  - dmesg
-  - modprobe
-alternatives:
-  - insmod
-  - rmmod
+relatedCommands: [depmod, sysctl, dmesg, modprobe]
+alternatives: [insmod, rmmod]
 status: draft
 ---
 

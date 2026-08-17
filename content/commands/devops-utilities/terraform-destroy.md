@@ -27,9 +27,7 @@ intentPhrases:
   - remove resources in tf state
   - destroy specific terraform resource
   - clean up terraform environment
-relatedCommands:
-  - terraform-apply
-  - terraform-plan
+relatedCommands: [terraform-apply, terraform-plan]
 alternatives: []
 status: published
 ---

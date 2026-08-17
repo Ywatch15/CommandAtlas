@@ -28,8 +28,7 @@ intentPhrases:
   - setup kubectl for gcp
   - authenticate kubectl to gke
   - add gke cluster to local kubeconfig
-relatedCommands:
-  - gcloud-auth-login
+relatedCommands: [gcloud-auth-login]
 alternatives: []
 status: draft
 ---

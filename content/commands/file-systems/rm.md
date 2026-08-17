@@ -28,12 +28,7 @@ intentPhrases:
   - force delete files
   - safely delete folder
   - permanently remove data
-relatedCommands:
-  - rmdir
-  - cp
-  - mv
-  - find
-  - mkdir
+relatedCommands: [rmdir, cp, mv, find, mkdir]
 alternatives: []
 status: draft
 ---

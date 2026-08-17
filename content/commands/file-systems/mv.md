@@ -28,10 +28,7 @@ intentPhrases:
   - move folder to another location
   - safely overwrite files
   - batch move files
-relatedCommands:
-  - cp
-  - rm
-  - find
+relatedCommands: [cp, rm, find]
 alternatives: []
 status: draft
 ---

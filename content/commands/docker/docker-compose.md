@@ -29,14 +29,8 @@ intentPhrases:
   - teardown compose environment
   - build docker compose images
   - view compose logs
-relatedCommands:
-  - docker-run
-  - docker-network
-  - docker-volume
-  - docker-build
-alternatives:
-  - docker-network
-  - docker-run
+relatedCommands: [docker-run, docker-network, docker-volume, docker-build]
+alternatives: [docker-network, docker-run]
 status: draft
 ---
 

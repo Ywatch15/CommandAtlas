@@ -27,10 +27,8 @@ intentPhrases:
   - transfer file to azure storage az cli
   - put blob azure storage
   - send backup to azure container
-relatedCommands:
-  - az-login
-alternatives:
-  - az-webapp-up
+relatedCommands: [az-login]
+alternatives: [az-webapp-up]
 status: draft
 ---
 

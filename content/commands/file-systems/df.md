@@ -25,12 +25,7 @@ intentPhrases:
   - list mounted filesystems
   - view disk usage linux
   - check available disk capacity
-relatedCommands:
-  - du
-  - mount
-  - lsblk
-  - fdisk
-  - fsck
+relatedCommands: [du, mount, lsblk, fdisk, fsck]
 alternatives: []
 status: draft
 ---

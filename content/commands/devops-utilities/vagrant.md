@@ -26,9 +26,7 @@ intentPhrases:
   - ssh into vagrant box
   - provision local dev environment
   - stop running vagrant vm
-relatedCommands:
-  - packer
-  - ansible
+relatedCommands: [packer, ansible]
 alternatives: []
 status: published
 ---

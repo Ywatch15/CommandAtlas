@@ -25,13 +25,8 @@ intentPhrases:
   - resize partition command line
   - script disk partitioning
   - create massive storage volume
-relatedCommands:
-  - fdisk
-  - lsblk
-  - mkfs
-  - blkid
-alternatives:
-  - fdisk
+relatedCommands: [fdisk, lsblk, mkfs, blkid]
+alternatives: [fdisk]
 status: draft
 ---
 

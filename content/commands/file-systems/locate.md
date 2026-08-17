@@ -25,11 +25,8 @@ intentPhrases:
   - find path of file linux
   - search entire filesystem
   - update locate database
-relatedCommands:
-  - find
-  - grep
-alternatives:
-  - find
+relatedCommands: [find, grep]
+alternatives: [find]
 status: draft
 ---
 

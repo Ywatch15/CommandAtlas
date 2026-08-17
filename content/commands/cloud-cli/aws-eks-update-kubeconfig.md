@@ -28,8 +28,7 @@ intentPhrases:
   - setup kubectl for eks
   - authenticate kubectl to aws
   - add eks cluster to local kubeconfig
-relatedCommands:
-  - aws-sts-get-caller-identity
+relatedCommands: [aws-sts-get-caller-identity]
 alternatives: []
 status: draft
 ---

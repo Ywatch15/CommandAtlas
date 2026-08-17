@@ -26,11 +26,7 @@ intentPhrases:
   - fix corrupted disk linux
   - force fsck on boot
   - check ext4 consistency
-relatedCommands:
-  - mount
-  - df
-  - fdisk
-  - tune2fs
+relatedCommands: [mount, df, fdisk, tune2fs]
 alternatives: []
 status: draft
 ---

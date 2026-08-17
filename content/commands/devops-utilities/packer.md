@@ -27,9 +27,7 @@ intentPhrases:
   - bake golden image
   - provision vm template
   - build multiple vm images at once
-relatedCommands:
-  - vagrant
-  - ansible
+relatedCommands: [vagrant, ansible]
 alternatives: []
 status: published
 ---

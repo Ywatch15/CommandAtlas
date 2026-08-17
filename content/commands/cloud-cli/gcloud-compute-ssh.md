@@ -29,11 +29,8 @@ intentPhrases:
   - remote access google cloud vm
   - tunnel ssh via iap
   - access internal gcp vm
-relatedCommands:
-  - gcloud-compute-instances-list
-  - ssh
-alternatives:
-  - ssh
+relatedCommands: [gcloud-compute-instances-list, ssh]
+alternatives: [ssh]
 status: draft
 ---
 

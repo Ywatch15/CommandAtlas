@@ -28,15 +28,8 @@ intentPhrases:
   - rollback kubernetes deployment
   - check deployment rollout
 relatedCommands:
-  - kubectl-apply
-  - kubectl-scale
-  - kubectl-describe
-  - kubectl-get
-  - helm-upgrade
-  - helm-rollback
-alternatives:
-  - helm-upgrade
-  - helm-rollback
+  [kubectl-apply, kubectl-scale, kubectl-describe, kubectl-get, helm-upgrade, helm-rollback]
+alternatives: [helm-upgrade, helm-rollback]
 status: draft
 ---
 

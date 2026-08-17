@@ -28,11 +28,7 @@ intentPhrases:
   - manage persistent container data
   - inspect docker volume path
   - delete unused docker volumes
-relatedCommands:
-  - docker-run
-  - docker-inspect
-  - docker-system-prune
-  - docker-compose
+relatedCommands: [docker-run, docker-inspect, docker-system-prune, docker-compose]
 alternatives: []
 status: draft
 ---

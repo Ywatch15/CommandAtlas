@@ -28,13 +28,8 @@ intentPhrases:
   - open shell in kubernetes
   - execute bash in pod
   - access running container k8s
-relatedCommands:
-  - kubectl-logs
-  - kubectl-port-forward
-  - docker-exec
-  - ssh
-alternatives:
-  - ssh
+relatedCommands: [kubectl-logs, kubectl-port-forward, docker-exec, ssh]
+alternatives: [ssh]
 status: draft
 ---
 

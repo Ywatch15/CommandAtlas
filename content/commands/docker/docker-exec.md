@@ -28,16 +28,8 @@ intentPhrases:
   - bash into active docker container
   - execute script inside container
   - access running container terminal
-relatedCommands:
-  - docker-run
-  - docker-attach
-  - docker-ps
-  - docker-logs
-  - docker-cp
-  - kubectl-exec
-alternatives:
-  - docker-attach
-  - docker-cp
+relatedCommands: [docker-run, docker-attach, docker-ps, docker-logs, docker-cp, kubectl-exec]
+alternatives: [docker-attach, docker-cp]
 status: draft
 ---
 

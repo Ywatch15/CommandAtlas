@@ -24,9 +24,7 @@ intentPhrases:
   - enable service on boot
   - check service status
   - list running services
-relatedCommands:
-  - cron
-  - sysctl
+relatedCommands: [cron, sysctl, firewall-cmd, nmcli, ufw, pacman, snap]
 alternatives: []
 status: published
 contentVersion: 1

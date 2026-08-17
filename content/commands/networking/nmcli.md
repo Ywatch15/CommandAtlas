@@ -13,8 +13,8 @@ intentPhrases:
   - 'set static ip address nmcli'
   - 'manage networkmanager connections'
   - 'restart network interface'
-relatedCommands: [ip, ping, netstat, systemctl]
-alternatives: [ip]
+relatedCommands: [ip, ping, netstat, systemctl, iw]
+alternatives: [ip, iw, iwconfig]
 status: draft
 ---
 

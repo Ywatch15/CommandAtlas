@@ -20,12 +20,8 @@ supportedShells:
 intentPhrases:
   - connect to remote server
   - secure shell connection
-relatedCommands:
-  - gcloud-compute-ssh
-  - kubectl-exec
-alternatives:
-  - gcloud-compute-ssh
-  - kubectl-exec
+relatedCommands: [gcloud-compute-ssh, kubectl-exec]
+alternatives: [gcloud-compute-ssh, kubectl-exec]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

@@ -26,12 +26,7 @@ intentPhrases:
   - make new filesystem on partition
   - format nvme drive xfs
   - setup raw block device
-relatedCommands:
-  - lsblk
-  - fdisk
-  - parted
-  - mount
-  - blkid
+relatedCommands: [lsblk, fdisk, parted, mount, blkid]
 alternatives: []
 status: draft
 ---

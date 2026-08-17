@@ -27,13 +27,15 @@ intentPhrases:
   - configure aws access keys
   - setup aws profile
 relatedCommands:
-  - aws
-  - aws-ec2-describe-instances
-  - aws-iam-get-user
-  - aws-logs-tail
-  - aws-s3-ls
-  - aws-sts-get-caller-identity
-  - aws-ec2-run-instances
+  [
+    aws,
+    aws-ec2-describe-instances,
+    aws-iam-get-user,
+    aws-logs-tail,
+    aws-s3-ls,
+    aws-sts-get-caller-identity,
+    aws-ec2-run-instances,
+  ]
 alternatives: []
 status: draft
 ---

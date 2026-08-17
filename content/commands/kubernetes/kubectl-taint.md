@@ -29,13 +29,8 @@ intentPhrases:
   - dedicate node for specific workload
   - remove taint from kubernetes node
   - evict pods using taint
-relatedCommands:
-  - kubectl-cordon
-  - kubectl-drain
-  - kubectl-label
-  - kubectl-get
-alternatives:
-  - kubectl-cordon
+relatedCommands: [kubectl-cordon, kubectl-drain, kubectl-label, kubectl-get]
+alternatives: [kubectl-cordon]
 status: draft
 ---
 

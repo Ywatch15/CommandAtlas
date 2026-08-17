@@ -23,14 +23,8 @@ intentPhrases:
   - force remove kernel module
   - delete active kernel object
   - detach module from linux kernel
-relatedCommands:
-  - modprobe
-  - insmod
-  - lsmod
-  - modinfo
-alternatives:
-  - kmod
-  - modprobe
+relatedCommands: [modprobe, insmod, lsmod, modinfo]
+alternatives: [kmod, modprobe]
 status: draft
 ---
 

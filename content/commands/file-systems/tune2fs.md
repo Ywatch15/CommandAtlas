@@ -24,8 +24,7 @@ intentPhrases:
   - disable periodic fsck checks
   - set filesystem volume label
   - view ext4 superblock data
-relatedCommands:
-  - fsck
+relatedCommands: [fsck]
 alternatives: []
 status: draft
 ---

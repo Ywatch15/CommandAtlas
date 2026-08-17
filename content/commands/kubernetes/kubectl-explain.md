@@ -28,9 +28,7 @@ intentPhrases:
   - describe k8s api schema
   - what fields are in a pod spec
   - kubernetes syntax reference
-relatedCommands:
-  - kubectl-api-resources
-  - kubectl-describe
+relatedCommands: [kubectl-api-resources, kubectl-describe]
 alternatives: []
 status: draft
 ---

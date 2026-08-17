@@ -28,14 +28,8 @@ intentPhrases:
   - authenticate service principal azure
   - use managed identity azure cli
 relatedCommands:
-  - az-account-set
-  - az-account-list
-  - az-aks-get-credentials
-  - az-storage-blob-upload
-  - az-webapp-up
-alternatives:
-  - az-account-list
-  - az-account-set
+  [az-account-set, az-account-list, az-aks-get-credentials, az-storage-blob-upload, az-webapp-up]
+alternatives: [az-account-list, az-account-set]
 status: draft
 ---
 

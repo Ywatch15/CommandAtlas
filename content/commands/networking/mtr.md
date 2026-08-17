@@ -13,7 +13,7 @@ intentPhrases:
   - 'check packet loss to destination'
   - 'diagnose network bottleneck'
   - 'combine ping and traceroute'
-relatedCommands: [ping, traceroute, nmap, netstat]
+relatedCommands: [ping, traceroute, nmap, netstat, ip, nc, nslookup]
 alternatives: [traceroute, ping]
 status: draft
 ---

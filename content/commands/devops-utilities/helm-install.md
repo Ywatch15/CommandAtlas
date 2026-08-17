@@ -27,10 +27,8 @@ intentPhrases:
   - deploy application via helm
   - install chart cluster
   - create new helm release
-relatedCommands:
-  - kubectl-apply
-alternatives:
-  - kubectl-apply
+relatedCommands: [kubectl-apply]
+alternatives: [kubectl-apply]
 status: published
 ---
 

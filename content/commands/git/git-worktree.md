@@ -26,13 +26,8 @@ intentPhrases:
   - create git worktree
   - work on two branches simultaneously
   - list active worktrees
-relatedCommands:
-  - git-branch
-  - git-checkout
-  - git-clone
-  - git-switch
-alternatives:
-  - git-clone
+relatedCommands: [git-branch, git-checkout, git-clone, git-switch]
+alternatives: [git-clone]
 status: draft
 ---
 

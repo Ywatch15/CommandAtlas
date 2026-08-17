@@ -27,14 +27,8 @@ intentPhrases:
   - change pod labels quickly
   - update k8s configuration terminal
   - remove finalizer from stuck resource
-relatedCommands:
-  - kubectl-apply
-  - kubectl-get
-  - kubectl-annotate
-  - kubectl-label
-  - kubectl-scale
-alternatives:
-  - kubectl-annotate
+relatedCommands: [kubectl-apply, kubectl-get, kubectl-annotate, kubectl-label, kubectl-scale]
+alternatives: [kubectl-annotate]
 status: draft
 ---
 

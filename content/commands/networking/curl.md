@@ -13,8 +13,8 @@ intentPhrases:
   - 'test rest api endpoint'
   - 'send post request with json'
   - 'view http response headers'
-relatedCommands: [wget, ping, dig]
-alternatives: [wget]
+relatedCommands: [wget, ping, dig, brew, jq, kubectl-api-resources]
+alternatives: [wget, kubectl-api-resources]
 status: draft
 ---
 

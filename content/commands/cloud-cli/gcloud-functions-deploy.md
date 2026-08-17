@@ -28,8 +28,7 @@ intentPhrases:
   - deploy python cloud function gcp
   - deploy nodejs function gcloud
 relatedCommands: []
-alternatives:
-  - gcloud-app-deploy
+alternatives: [gcloud-app-deploy]
 status: draft
 ---
 

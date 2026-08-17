@@ -28,10 +28,7 @@ intentPhrases:
   - where am i in terminal
   - get current path
   - display absolute path
-relatedCommands:
-  - cd
-  - ls
-  - tree
+relatedCommands: [cd, ls, tree]
 alternatives: []
 status: draft
 ---

@@ -29,9 +29,7 @@ intentPhrases:
   - port forward to local machine
   - connect to cluster database from localhost
   - route localhost to k8s pod
-relatedCommands:
-  - kubectl-exec
-  - kubectl-logs
+relatedCommands: [kubectl-exec, kubectl-logs]
 alternatives: []
 status: draft
 ---

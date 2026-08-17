@@ -28,11 +28,8 @@ intentPhrases:
   - find iam user arn
   - get aws user details
   - who am i aws
-relatedCommands:
-  - aws-sts-get-caller-identity
-  - aws-configure
-alternatives:
-  - aws-sts-get-caller-identity
+relatedCommands: [aws-sts-get-caller-identity, aws-configure]
+alternatives: [aws-sts-get-caller-identity]
 status: draft
 ---
 

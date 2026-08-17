@@ -26,15 +26,8 @@ intentPhrases:
   - join development histories
   - incorporate feature branch
   - resolve merge conflicts
-relatedCommands:
-  - git-branch
-  - git-checkout
-  - git-cherry-pick
-  - git-rebase
-  - git-subtree
-  - git-switch
-alternatives:
-  - git-rebase
+relatedCommands: [git-branch, git-checkout, git-cherry-pick, git-rebase, git-subtree, git-switch]
+alternatives: [git-rebase]
 status: draft
 ---
 

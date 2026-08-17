@@ -27,11 +27,7 @@ intentPhrases:
   - terraform dry run
   - compare terraform state to config
   - generate tf plan
-relatedCommands:
-  - terraform-apply
-  - terraform-init
-  - terraform-destroy
-  - terraform-state-list
+relatedCommands: [terraform-apply, terraform-init, terraform-destroy, terraform-state-list]
 alternatives: []
 status: published
 ---

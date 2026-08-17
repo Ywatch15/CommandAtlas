@@ -28,15 +28,8 @@ intentPhrases:
   - view stdout of docker container
   - debug docker container errors
   - stream container logs real-time
-relatedCommands:
-  - docker-inspect
-  - docker-run
-  - docker-attach
-  - docker-exec
-  - docker-ps
-alternatives:
-  - journalctl
-  - docker-attach
+relatedCommands: [docker-inspect, docker-run, docker-attach, docker-exec, docker-ps]
+alternatives: [journalctl, docker-attach]
 status: draft
 ---
 

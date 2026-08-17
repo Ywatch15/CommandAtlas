@@ -25,12 +25,8 @@ intentPhrases:
   - estimate file space usage
   - check directory size linux
   - find what is taking up disk space
-relatedCommands:
-  - df
-  - ls
-  - find
-alternatives:
-  - tree
+relatedCommands: [df, ls, find]
+alternatives: [tree]
 status: draft
 ---
 

@@ -29,12 +29,7 @@ intentPhrases:
   - inspect node resources
   - troubleshoot k8s deployment
 relatedCommands:
-  - kubectl-get
-  - kubectl-logs
-  - kubectl-explain
-  - kubectl-cordon
-  - kubectl-rollout
-  - kubectl-top
+  [kubectl-get, kubectl-logs, kubectl-explain, kubectl-cordon, kubectl-rollout, kubectl-top]
 alternatives: []
 status: draft
 ---

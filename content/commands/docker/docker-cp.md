@@ -27,13 +27,8 @@ intentPhrases:
   - extract logs from container
   - move files to local host from docker
   - docker copy command
-relatedCommands:
-  - docker-run
-  - docker-exec
-  - docker-commit
-  - docker-build
-alternatives:
-  - docker-exec
+relatedCommands: [docker-run, docker-exec, docker-commit, docker-build]
+alternatives: [docker-exec]
 status: draft
 ---
 

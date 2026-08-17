@@ -29,12 +29,7 @@ intentPhrases:
   - check deployment logs k8s
   - read previous crashed pod logs
   - stream container stdout
-relatedCommands:
-  - kubectl-describe
-  - kubectl-exec
-  - kubectl-top
-  - kubectl-get
-  - kubectl-port-forward
+relatedCommands: [kubectl-describe, kubectl-exec, kubectl-top, kubectl-get, kubectl-port-forward]
 alternatives: []
 status: draft
 ---

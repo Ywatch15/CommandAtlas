@@ -23,12 +23,8 @@ intentPhrases:
   - show suspended processes
   - check active shell tasks
   - view stopped jobs
-relatedCommands:
-  - bg
-  - fg
-  - ps
-alternatives:
-  - ps
+relatedCommands: [bg, fg, ps]
+alternatives: [ps]
 status: draft
 ---
 

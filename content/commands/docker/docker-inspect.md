@@ -28,12 +28,7 @@ intentPhrases:
   - extract docker metadata json
   - inspect docker volume path
   - find container environment variables
-relatedCommands:
-  - docker-ps
-  - jq
-  - docker-logs
-  - docker-network
-  - docker-volume
+relatedCommands: [docker-ps, jq, docker-logs, docker-network, docker-volume]
 alternatives: []
 status: draft
 ---

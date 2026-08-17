@@ -24,11 +24,7 @@ intentPhrases:
   - force kill terminating pod
   - teardown k8s deployment
   - delete resources by label
-relatedCommands:
-  - kubectl-apply
-  - kubectl-scale
-  - kubectl-drain
-  - kubectl-create
+relatedCommands: [kubectl-apply, kubectl-scale, kubectl-drain, kubectl-create]
 alternatives: []
 status: draft
 ---

@@ -27,9 +27,7 @@ intentPhrases:
   - download tarball of git commit
   - package git source code for release
   - extract specific folder from git history
-relatedCommands:
-  - git-checkout
-  - git-clone
+relatedCommands: [git-checkout, git-clone]
 alternatives: []
 status: draft
 ---

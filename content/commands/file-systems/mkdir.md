@@ -27,11 +27,7 @@ intentPhrases:
   - create directory with specific permissions
   - create folder structure silently
   - setup directory tree
-relatedCommands:
-  - rmdir
-  - rm
-  - cd
-  - ls
+relatedCommands: [rmdir, rm, cd, ls]
 alternatives: []
 status: draft
 ---

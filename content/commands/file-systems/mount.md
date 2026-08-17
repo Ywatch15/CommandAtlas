@@ -25,14 +25,7 @@ intentPhrases:
   - bind mount directory
   - remount filesystem read write
   - mount all fstab entries
-relatedCommands:
-  - umount
-  - lsblk
-  - fdisk
-  - mkfs
-  - blkid
-  - df
-  - fsck
+relatedCommands: [umount, lsblk, fdisk, mkfs, blkid, df, fsck]
 alternatives: []
 status: draft
 ---

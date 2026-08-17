@@ -23,8 +23,7 @@ intentPhrases:
   - add to PATH
   - pass variable to child process
   - export bash function
-relatedCommands:
-  - source
+relatedCommands: [source]
 alternatives: []
 status: published
 contentVersion: 1

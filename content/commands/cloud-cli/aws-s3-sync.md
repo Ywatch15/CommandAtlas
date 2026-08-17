@@ -29,11 +29,8 @@ intentPhrases:
   - download only new files from s3
   - backup local files to s3
   - synchronize two s3 buckets
-relatedCommands:
-  - aws-s3-cp
-  - aws-s3-ls
-alternatives:
-  - aws-s3-cp
+relatedCommands: [aws-s3-cp, aws-s3-ls]
+alternatives: [aws-s3-cp]
 status: draft
 ---
 

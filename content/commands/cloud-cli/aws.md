@@ -21,8 +21,7 @@ supportedShells:
 intentPhrases:
   - manage aws cloud resources
   - aws s3 sync files
-relatedCommands:
-  - aws-configure
+relatedCommands: [aws-configure]
 alternatives: []
 status: published
 ---

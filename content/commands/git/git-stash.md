@@ -26,13 +26,8 @@ intentPhrases:
   - switch branches with modified files
   - hide local changes in git
   - reapply saved git stash
-relatedCommands:
-  - git-checkout
-  - git-commit
-  - git-switch
-alternatives:
-  - git-clean
-  - git-commit
+relatedCommands: [git-checkout, git-commit, git-switch]
+alternatives: [git-clean, git-commit]
 status: draft
 ---
 

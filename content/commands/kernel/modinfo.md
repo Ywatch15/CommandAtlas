@@ -23,11 +23,7 @@ intentPhrases:
   - check driver version
   - inspect .ko file metadata
   - get author and license of module
-relatedCommands:
-  - lsmod
-  - modprobe
-  - insmod
-  - rmmod
+relatedCommands: [lsmod, modprobe, insmod, rmmod]
 alternatives: []
 status: draft
 ---

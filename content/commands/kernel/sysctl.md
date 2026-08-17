@@ -24,10 +24,7 @@ intentPhrases:
   - enable ip forwarding linux
   - read kernel variables
   - tune tcp network stack
-relatedCommands:
-  - modprobe
-  - systemctl
-  - kmod
+relatedCommands: [modprobe, systemctl, kmod]
 alternatives: []
 status: draft
 ---

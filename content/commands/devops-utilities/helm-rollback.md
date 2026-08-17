@@ -26,10 +26,8 @@ intentPhrases:
   - undo failed helm upgrade
   - restore previous helm revision
   - rollback release cluster
-relatedCommands:
-  - kubectl-rollout
-alternatives:
-  - kubectl-rollout
+relatedCommands: [kubectl-rollout]
+alternatives: [kubectl-rollout]
 status: published
 ---
 

@@ -13,8 +13,25 @@ intentPhrases:
   - 'bring network interface up or down'
   - 'view network links and mac addresses'
   - 'manage linux network namespaces'
-relatedCommands: [netstat, ss, ping, iptables, mtr]
-alternatives: [ifconfig, route, nmcli]
+relatedCommands:
+  [
+    netstat,
+    ss,
+    ping,
+    iptables,
+    mtr,
+    ethtool,
+    hostname,
+    ifconfig,
+    iw,
+    iwconfig,
+    nc,
+    nmcli,
+    route,
+    tcpdump,
+    traceroute,
+  ]
+alternatives: [ifconfig, route, nmcli, ethtool, netstat]
 status: draft
 ---
 

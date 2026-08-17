@@ -27,11 +27,8 @@ intentPhrases:
   - delete tracked files
   - untrack a directory but keep it locally
   - remove files from git index
-relatedCommands:
-  - git-add
-  - git-status
-alternatives:
-  - git-reset
+relatedCommands: [git-add, git-status]
+alternatives: [git-reset]
 status: draft
 ---
 

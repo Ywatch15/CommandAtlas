@@ -29,12 +29,7 @@ intentPhrases:
   - remove label from node
   - tag resource for selection
   - group kubernetes objects
-relatedCommands:
-  - kubectl-annotate
-  - kubectl-get
-  - kubectl-apply
-  - kubectl-edit
-  - kubectl-taint
+relatedCommands: [kubectl-annotate, kubectl-get, kubectl-apply, kubectl-edit, kubectl-taint]
 alternatives: []
 status: draft
 ---

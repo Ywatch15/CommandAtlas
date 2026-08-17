@@ -27,11 +27,7 @@ intentPhrases:
   - prepare image for pushing
   - change repository name docker
   - version a docker container image
-relatedCommands:
-  - docker-build
-  - docker-push
-  - docker-images
-  - docker-rmi
+relatedCommands: [docker-build, docker-push, docker-images, docker-rmi]
 alternatives: []
 status: draft
 ---

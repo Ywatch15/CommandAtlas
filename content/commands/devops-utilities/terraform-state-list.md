@@ -27,8 +27,7 @@ intentPhrases:
   - get resource address terraform
   - view tfstate contents
   - find module addresses in state
-relatedCommands:
-  - terraform-plan
+relatedCommands: [terraform-plan]
 alternatives: []
 status: published
 ---

@@ -24,12 +24,8 @@ intentPhrases:
   - run process in background
   - continue suspended task
   - send process to background
-relatedCommands:
-  - fg
-  - jobs
-alternatives:
-  - screen
-  - tmux
+relatedCommands: [fg, jobs]
+alternatives: [screen, tmux]
 status: draft
 ---
 

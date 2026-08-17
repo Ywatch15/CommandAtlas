@@ -24,10 +24,8 @@ intentPhrases:
   - queue command for future execution
   - execute task at specified time
   - defer script execution
-relatedCommands:
-  - crontab
-alternatives:
-  - crontab
+relatedCommands: [crontab]
+alternatives: [crontab]
 status: published
 ---
 

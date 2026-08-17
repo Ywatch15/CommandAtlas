@@ -24,14 +24,8 @@ intentPhrases:
   - get disk filesystem type
   - locate volume by label
   - print partition uuid
-relatedCommands:
-  - lsblk
-  - fdisk
-  - mount
-  - mkfs
-  - parted
-alternatives:
-  - lsblk
+relatedCommands: [lsblk, fdisk, mount, mkfs, parted]
+alternatives: [lsblk]
 status: draft
 ---
 

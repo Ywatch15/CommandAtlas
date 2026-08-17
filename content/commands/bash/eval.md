@@ -25,10 +25,8 @@ intentPhrases:
   - bash metaprogramming eval
   - construct and execute command dynamically
   - evaluate arguments as shell command
-relatedCommands:
-  - source
-alternatives:
-  - source
+relatedCommands: [source]
+alternatives: [source]
 status: draft
 ---
 

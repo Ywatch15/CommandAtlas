@@ -29,15 +29,8 @@ intentPhrases:
   - list namespaced api resources
   - check available custom resource definitions
   - discover kubernetes api endpoints
-relatedCommands:
-  - kubectl-get
-  - kubectl-explain
-  - kubectl-cluster-info
-  - curl
-  - jq
-alternatives:
-  - curl
-  - jq
+relatedCommands: [kubectl-get, kubectl-explain, kubectl-cluster-info, curl, jq]
+alternatives: [curl, jq]
 status: draft
 ---
 

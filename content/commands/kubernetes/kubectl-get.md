@@ -25,16 +25,18 @@ intentPhrases:
   - find kubernetes services
   - watch pod
 relatedCommands:
-  - kubectl-describe
-  - kubectl-top
-  - kubectl-api-resources
-  - kubectl-cluster-info
-  - kubectl-cordon
-  - kubectl-edit
-  - kubectl-label
-  - kubectl-logs
-  - kubectl-rollout
-  - kubectl-taint
+  [
+    kubectl-describe,
+    kubectl-top,
+    kubectl-api-resources,
+    kubectl-cluster-info,
+    kubectl-cordon,
+    kubectl-edit,
+    kubectl-label,
+    kubectl-logs,
+    kubectl-rollout,
+    kubectl-taint,
+  ]
 alternatives: []
 status: draft
 ---

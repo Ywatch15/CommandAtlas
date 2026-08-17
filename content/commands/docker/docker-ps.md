@@ -29,12 +29,7 @@ intentPhrases:
   - find docker container id
   - view active containers
   - list all stopped containers
-relatedCommands:
-  - docker-inspect
-  - docker-logs
-  - docker-exec
-  - docker-rm
-  - docker-run
+relatedCommands: [docker-inspect, docker-logs, docker-exec, docker-rm, docker-run]
 alternatives: []
 status: draft
 ---

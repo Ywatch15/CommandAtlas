@@ -25,15 +25,8 @@ intentPhrases:
   - view folder hierarchy
   - print directory tree format
   - list all files recursively visual
-relatedCommands:
-  - ls
-  - find
-  - pwd
-  - rmdir
-alternatives:
-  - find
-  - du
-  - ls
+relatedCommands: [ls, find, pwd, rmdir]
+alternatives: [find, du, ls]
 status: draft
 ---
 

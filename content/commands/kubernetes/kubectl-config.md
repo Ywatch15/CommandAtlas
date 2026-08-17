@@ -29,8 +29,7 @@ intentPhrases:
   - set kubernetes credentials
   - change active namespace kubectl
   - manage kubeconfig files
-relatedCommands:
-  - kubectl-cluster-info
+relatedCommands: [kubectl-cluster-info]
 alternatives: []
 status: draft
 ---

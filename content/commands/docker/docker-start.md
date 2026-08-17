@@ -28,13 +28,8 @@ intentPhrases:
   - boot existing docker app
   - restart container without new image
   - attach to starting container
-relatedCommands:
-  - docker-run
-  - docker-stop
-  - docker-restart
-  - docker-attach
-alternatives:
-  - docker-run
+relatedCommands: [docker-run, docker-stop, docker-restart, docker-attach]
+alternatives: [docker-run]
 status: draft
 ---
 

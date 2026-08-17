@@ -27,9 +27,7 @@ intentPhrases:
   - deploy azure server
   - start new azure vm
   - launch azure virtual machine
-relatedCommands:
-  - az-account-set
-  - az-group-create
+relatedCommands: [az-account-set, az-group-create]
 alternatives: []
 status: draft
 ---

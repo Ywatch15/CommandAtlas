@@ -28,8 +28,7 @@ intentPhrases:
   - download file from gcs
   - transfer files between gcs buckets
   - copy directory to cloud storage cli
-relatedCommands:
-  - gcloud-storage-ls
+relatedCommands: [gcloud-storage-ls]
 alternatives: []
 status: draft
 ---

@@ -26,13 +26,8 @@ intentPhrases:
   - undo git reset hard
   - find lost git commit hash
   - inspect head movement history
-relatedCommands:
-  - git-branch
-  - git-checkout
-  - git-log
-  - git-reset
-alternatives:
-  - git-log
+relatedCommands: [git-branch, git-checkout, git-log, git-reset]
+alternatives: [git-log]
 status: draft
 ---
 

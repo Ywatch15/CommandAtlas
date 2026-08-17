@@ -27,8 +27,7 @@ intentPhrases:
   - show cloud storage folder contents
   - check gcs storage objects
   - find gcs bucket objects cli
-relatedCommands:
-  - gcloud-storage-cp
+relatedCommands: [gcloud-storage-cp]
 alternatives: []
 status: draft
 ---

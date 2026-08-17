@@ -27,13 +27,8 @@ intentPhrases:
   - switch azure account context
   - select azure subscription id
   - set default subscription azure
-relatedCommands:
-  - az-account-list
-  - az-login
-  - az-vm-create
-  - az-webapp-up
-alternatives:
-  - az-login
+relatedCommands: [az-account-list, az-login, az-vm-create, az-webapp-up]
+alternatives: [az-login]
 status: draft
 ---
 

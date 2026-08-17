@@ -28,10 +28,7 @@ intentPhrases:
   - restore docker image locally
   - import airgapped docker image
   - extract docker save file
-relatedCommands:
-  - docker-images
-  - docker-run
-  - docker-save-load
+relatedCommands: [docker-images, docker-run, docker-save-load]
 alternatives: []
 status: draft
 ---

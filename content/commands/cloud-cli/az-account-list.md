@@ -27,11 +27,8 @@ intentPhrases:
   - get azure subscription list cli
   - find azure subscription id
   - view available azure tenants
-relatedCommands:
-  - az-account-set
-  - az-login
-alternatives:
-  - az-login
+relatedCommands: [az-account-set, az-login]
+alternatives: [az-login]
 status: draft
 ---
 

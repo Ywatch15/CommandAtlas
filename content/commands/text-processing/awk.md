@@ -20,8 +20,7 @@ supportedShells:
 intentPhrases:
   - extract column from text
   - process structured text file
-relatedCommands:
-  - jq
+relatedCommands: [jq]
 alternatives: []
 status: published
 contentVersion: 1

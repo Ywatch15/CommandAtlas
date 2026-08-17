@@ -23,11 +23,8 @@ intentPhrases:
   - add drivers to initrd
   - create rescue boot image
   - update initramfs centos
-relatedCommands:
-  - depmod
-  - mkinitcpio
-alternatives:
-  - mkinitcpio
+relatedCommands: [depmod, mkinitcpio]
+alternatives: [mkinitcpio]
 status: draft
 ---
 

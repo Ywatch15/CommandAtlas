@@ -27,13 +27,8 @@ intentPhrases:
   - revert a merge commit
   - remove bad commit without rewriting history
   - undo git push
-relatedCommands:
-  - git-cherry-pick
-  - git-commit
-  - git-rebase
-  - git-reset
-alternatives:
-  - git-reset
+relatedCommands: [git-cherry-pick, git-commit, git-rebase, git-reset]
+alternatives: [git-reset]
 status: draft
 ---
 

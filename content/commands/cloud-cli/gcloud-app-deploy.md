@@ -28,8 +28,7 @@ intentPhrases:
   - update google app engine deployment
   - deploy nodejs app to app engine
 relatedCommands: []
-alternatives:
-  - gcloud-functions-deploy
+alternatives: [gcloud-functions-deploy]
 status: draft
 ---
 

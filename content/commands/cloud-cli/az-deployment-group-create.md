@@ -29,8 +29,7 @@ intentPhrases:
   - provision azure infrastructure as code
   - deploy azure resources to resource group
   - execute what-if deployment azure
-relatedCommands:
-  - az-group-create
+relatedCommands: [az-group-create]
 alternatives: []
 status: draft
 ---

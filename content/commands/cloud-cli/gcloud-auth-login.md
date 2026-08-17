@@ -27,8 +27,7 @@ intentPhrases:
   - connect to google cloud account
   - setup gcloud credentials
   - authorize gcloud access
-relatedCommands:
-  - gcloud-container-clusters-get-credentials
+relatedCommands: [gcloud-container-clusters-get-credentials]
 alternatives: []
 status: draft
 ---

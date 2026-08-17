@@ -27,14 +27,8 @@ intentPhrases:
   - find bug origin in git
   - automate git regression testing
   - track down bad commit
-relatedCommands:
-  - git-blame
-  - git-checkout
-  - git-log
-  - git-reset
-alternatives:
-  - git-blame
-  - git-log
+relatedCommands: [git-blame, git-checkout, git-log, git-reset]
+alternatives: [git-blame, git-log]
 status: draft
 ---
 

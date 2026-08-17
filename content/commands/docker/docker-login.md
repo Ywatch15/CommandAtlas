@@ -26,9 +26,7 @@ intentPhrases:
   - connect to private container registry
   - docker authenticate ecr gcr
   - store docker credentials
-relatedCommands:
-  - docker-pull
-  - docker-push
+relatedCommands: [docker-pull, docker-push]
 alternatives: []
 status: draft
 ---

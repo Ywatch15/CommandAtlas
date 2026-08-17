@@ -28,10 +28,7 @@ intentPhrases:
   - verify coredns is running
   - dump cluster state information
   - view cluster network topology
-relatedCommands:
-  - kubectl-config
-  - kubectl-api-resources
-  - kubectl-get
+relatedCommands: [kubectl-config, kubectl-api-resources, kubectl-get]
 alternatives: []
 status: draft
 ---

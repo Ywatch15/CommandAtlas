@@ -13,7 +13,7 @@ intentPhrases:
   - 'view mac address'
   - 'bring interface up or down'
   - 'check network traffic statistics'
-relatedCommands: [ip, route, netstat, ethtool]
+relatedCommands: [ip, route, netstat, ethtool, arp, hostname, iwconfig]
 alternatives: [ip]
 status: draft
 ---

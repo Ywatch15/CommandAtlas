@@ -28,10 +28,7 @@ intentPhrases:
   - provision azure resource group
   - initialize arm logical container
   - create resource group with tags
-relatedCommands:
-  - az-vm-create
-  - az-deployment-group-create
-  - az-webapp-up
+relatedCommands: [az-vm-create, az-deployment-group-create, az-webapp-up]
 alternatives: []
 status: draft
 ---

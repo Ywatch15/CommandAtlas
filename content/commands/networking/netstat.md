@@ -13,8 +13,8 @@ intentPhrases:
   - 'find process using port netstat'
   - 'display kernel routing table'
   - 'check network interface statistics'
-relatedCommands: [ss, lsof, ip, ifconfig, route]
-alternatives: [ss, ip]
+relatedCommands: [ss, lsof, ip, ifconfig, route, iptables, mtr, nmcli, tcpdump]
+alternatives: [ss, ip, route]
 status: draft
 ---
 

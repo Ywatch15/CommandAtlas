@@ -28,13 +28,8 @@ intentPhrases:
   - prepare kubernetes node for maintenance
   - disable pod placement on node
   - cordon k8s node
-relatedCommands:
-  - kubectl-drain
-  - kubectl-get
-  - kubectl-describe
-  - kubectl-taint
-alternatives:
-  - kubectl-taint
+relatedCommands: [kubectl-drain, kubectl-get, kubectl-describe, kubectl-taint]
+alternatives: [kubectl-taint]
 status: draft
 ---
 

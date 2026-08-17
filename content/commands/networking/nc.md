@@ -13,7 +13,7 @@ intentPhrases:
   - 'transfer file via nc'
   - 'setup simple tcp listener'
   - 'test udp connection nc'
-relatedCommands: [nmap, mtr, ip]
+relatedCommands: [nmap, mtr, ip, nslookup, ping, ss]
 alternatives: []
 status: draft
 ---

@@ -27,9 +27,7 @@ intentPhrases:
   - setup terraform backend
   - install terraform modules
   - prepare terraform project
-relatedCommands:
-  - terraform-plan
-  - terraform-apply
+relatedCommands: [terraform-plan, terraform-apply]
 alternatives: []
 status: published
 ---

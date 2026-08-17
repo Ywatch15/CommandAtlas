@@ -28,11 +28,8 @@ intentPhrases:
   - count commits per user
   - group git log by author
   - see who contributed the most
-relatedCommands:
-  - git-blame
-  - git-log
-alternatives:
-  - git-log
+relatedCommands: [git-blame, git-log]
+alternatives: [git-log]
 status: draft
 ---
 

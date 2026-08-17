@@ -24,15 +24,8 @@ intentPhrases:
   - load driver without modprobe
   - insert module from path
   - test newly compiled kernel module
-relatedCommands:
-  - modprobe
-  - rmmod
-  - lsmod
-  - modinfo
-  - depmod
-alternatives:
-  - modprobe
-  - kmod
+relatedCommands: [modprobe, rmmod, lsmod, modinfo, depmod]
+alternatives: [modprobe, kmod]
 status: draft
 ---
 

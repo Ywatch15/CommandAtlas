@@ -13,8 +13,8 @@ intentPhrases:
   - 'open port 80 iptables'
   - 'setup network address translation nat'
   - 'list active firewall rules'
-relatedCommands: [ip, netstat, ufw]
-alternatives: [ufw]
+relatedCommands: [ip, netstat, ufw, firewall-cmd]
+alternatives: [ufw, firewall-cmd]
 status: draft
 ---
 

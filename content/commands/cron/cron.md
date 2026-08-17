@@ -26,12 +26,8 @@ intentPhrases:
   - manage cron service
   - troubleshoot cron execution
   - configure crond
-relatedCommands:
-  - crontab
-  - anacron
-  - systemctl
-alternatives:
-  - anacron
+relatedCommands: [crontab, anacron, systemctl]
+alternatives: [anacron]
 status: published
 ---
 

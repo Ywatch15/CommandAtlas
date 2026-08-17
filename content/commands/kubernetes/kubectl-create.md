@@ -28,11 +28,8 @@ intentPhrases:
   - create kubernetes secret cli
   - imperatively create k8s object
   - instantiate kubernetes namespace
-relatedCommands:
-  - kubectl-apply
-  - kubectl-delete
-alternatives:
-  - kubectl-apply
+relatedCommands: [kubectl-apply, kubectl-delete]
+alternatives: [kubectl-apply]
 status: draft
 ---
 

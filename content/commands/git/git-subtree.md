@@ -27,10 +27,7 @@ intentPhrases:
   - manage vendored dependencies
   - split folder into its own git repo
   - push subdirectory changes to upstream repo
-relatedCommands:
-  - git-fetch
-  - git-merge
-  - git-remote
+relatedCommands: [git-fetch, git-merge, git-remote]
 alternatives: []
 status: draft
 ---

@@ -28,10 +28,7 @@ intentPhrases:
   - reboot docker app
   - stop and start container
   - apply config changes to container
-relatedCommands:
-  - docker-stop
-  - docker-start
-  - docker-run
+relatedCommands: [docker-stop, docker-start, docker-run]
 alternatives: []
 status: draft
 ---

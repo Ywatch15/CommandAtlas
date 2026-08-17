@@ -23,11 +23,8 @@ intentPhrases:
   - rebuild arch boot image
   - add module to initramfs
   - update mkinitcpio hooks
-relatedCommands:
-  - depmod
-  - dracut
-alternatives:
-  - dracut
+relatedCommands: [depmod, dracut]
+alternatives: [dracut]
 status: draft
 ---
 

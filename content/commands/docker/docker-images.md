@@ -29,13 +29,7 @@ intentPhrases:
   - list dangling images
   - view cached docker images
 relatedCommands:
-  - docker-rmi
-  - docker-build
-  - docker-pull
-  - docker-run
-  - docker-load
-  - docker-save-load
-  - docker-tag
+  [docker-rmi, docker-build, docker-pull, docker-run, docker-load, docker-save-load, docker-tag]
 alternatives: []
 status: draft
 ---

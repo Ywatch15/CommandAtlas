@@ -27,10 +27,8 @@ intentPhrases:
   - modify helm release values
   - upgrade application version helm
   - apply chart changes helm
-relatedCommands:
-  - kubectl-rollout
-alternatives:
-  - kubectl-rollout
+relatedCommands: [kubectl-rollout]
+alternatives: [kubectl-rollout]
 status: published
 ---
 

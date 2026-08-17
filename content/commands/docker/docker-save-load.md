@@ -28,10 +28,7 @@ intentPhrases:
   - backup docker image locally
   - convert docker image to archive
   - package docker image for airgapped system
-relatedCommands:
-  - docker-load
-  - docker-images
-  - docker-push
+relatedCommands: [docker-load, docker-images, docker-push]
 alternatives: []
 status: draft
 ---

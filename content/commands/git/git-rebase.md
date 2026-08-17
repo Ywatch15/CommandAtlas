@@ -27,16 +27,8 @@ intentPhrases:
   - rewrite git history
   - move branch to another base
   - resolve rebase conflicts
-relatedCommands:
-  - git-cherry-pick
-  - git-commit
-  - git-merge
-  - git-push
-  - git-revert
-alternatives:
-  - git-cherry-pick
-  - git-merge
-  - git-reset
+relatedCommands: [git-cherry-pick, git-commit, git-merge, git-push, git-revert]
+alternatives: [git-cherry-pick, git-merge, git-reset]
 status: draft
 ---
 

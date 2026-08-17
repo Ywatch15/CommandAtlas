@@ -22,12 +22,7 @@ intentPhrases:
   - check if kernel module is loaded
   - view loaded drivers
   - audit active linux modules
-relatedCommands:
-  - modprobe
-  - insmod
-  - rmmod
-  - modinfo
-  - depmod
+relatedCommands: [modprobe, insmod, rmmod, modinfo, depmod]
 alternatives: []
 status: draft
 ---

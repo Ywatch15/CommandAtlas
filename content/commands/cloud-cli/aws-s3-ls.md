@@ -27,11 +27,7 @@ intentPhrases:
   - show s3 folder contents
   - check s3 storage objects
   - find s3 bucket files
-relatedCommands:
-  - aws-configure
-  - aws-sts-get-caller-identity
-  - aws-s3-cp
-  - aws-s3-sync
+relatedCommands: [aws-configure, aws-sts-get-caller-identity, aws-s3-cp, aws-s3-sync]
 alternatives: []
 status: draft
 ---

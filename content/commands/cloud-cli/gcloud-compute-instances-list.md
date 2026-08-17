@@ -27,8 +27,7 @@ intentPhrases:
   - get vm ips in gcp
   - find virtual machine status google cloud
   - list vms by label gcloud
-relatedCommands:
-  - gcloud-compute-ssh
+relatedCommands: [gcloud-compute-ssh]
 alternatives: []
 status: draft
 ---

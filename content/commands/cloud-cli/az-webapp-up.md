@@ -26,12 +26,8 @@ intentPhrases:
   - publish local code to azure app service
   - deploy web app from directory azure cli
   - quick azure webapp deployment
-relatedCommands:
-  - az-group-create
-  - az-account-set
-  - az-login
-alternatives:
-  - az-storage-blob-upload
+relatedCommands: [az-group-create, az-account-set, az-login]
+alternatives: [az-storage-blob-upload]
 status: draft
 ---
 

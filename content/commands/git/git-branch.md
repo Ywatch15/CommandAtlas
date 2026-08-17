@@ -23,12 +23,8 @@ intentPhrases:
   - delete a git branch
   - rename current branch
   - show remote branches
-relatedCommands:
-  - git-merge
-  - git-reflog
-  - git-worktree
-alternatives:
-  - git-tag
+relatedCommands: [git-merge, git-reflog, git-worktree]
+alternatives: [git-tag]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

@@ -25,10 +25,7 @@ intentPhrases:
   - detach network share
   - force unmount busy directory
   - unmount filesystem mount point
-relatedCommands:
-  - mount
-  - lsof
-  - lsblk
+relatedCommands: [mount, lsof, lsblk]
 alternatives: []
 status: draft
 ---

@@ -29,16 +29,17 @@ intentPhrases:
   - build docker container context
   - generate docker image from source
 relatedCommands:
-  - docker-push
-  - docker-images
-  - docker-run
-  - docker-tag
-  - docker-commit
-  - docker-compose
-  - docker-cp
-  - docker-rmi
-alternatives:
-  - docker-commit
+  [
+    docker-push,
+    docker-images,
+    docker-run,
+    docker-tag,
+    docker-commit,
+    docker-compose,
+    docker-cp,
+    docker-rmi,
+  ]
+alternatives: [docker-commit]
 status: draft
 ---
 

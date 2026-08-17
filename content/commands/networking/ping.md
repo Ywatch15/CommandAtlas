@@ -13,7 +13,8 @@ intentPhrases:
   - 'measure network latency'
   - 'find packet loss percentage'
   - 'test MTU fragmentation ping'
-relatedCommands: [mtr, traceroute, nc, nmap, ip]
+relatedCommands:
+  [mtr, traceroute, nc, nmap, ip, arp, curl, dig, host, nmcli, nslookup, route, tcpdump]
 alternatives: [mtr]
 status: draft
 ---

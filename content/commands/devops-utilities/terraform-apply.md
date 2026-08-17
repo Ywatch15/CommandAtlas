@@ -27,10 +27,7 @@ intentPhrases:
   - run terraform changes
   - apply tf state
   - provision cloud resources with terraform
-relatedCommands:
-  - terraform-plan
-  - terraform-init
-  - terraform-destroy
+relatedCommands: [terraform-plan, terraform-init, terraform-destroy]
 alternatives: []
 status: published
 ---

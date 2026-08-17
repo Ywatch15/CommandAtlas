@@ -25,11 +25,8 @@ intentPhrases:
   - load environment variables
   - execute file without subshell
   - import shell functions
-relatedCommands:
-  - export
-  - eval
-alternatives:
-  - eval
+relatedCommands: [export, eval]
+alternatives: [eval]
 status: draft
 ---
 

@@ -27,10 +27,7 @@ intentPhrases:
   - provision cloud compute instance
   - start new ec2 virtual machine
   - deploy ec2 instance via cli
-relatedCommands:
-  - aws-ec2-describe-instances
-  - aws-configure
-  - aws-sts-get-caller-identity
+relatedCommands: [aws-ec2-describe-instances, aws-configure, aws-sts-get-caller-identity]
 alternatives: []
 status: draft
 ---

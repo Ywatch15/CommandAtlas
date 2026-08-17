@@ -30,14 +30,8 @@ intentPhrases:
   - untag docker image
   - force delete docker image
 relatedCommands:
-  - docker-rm
-  - docker-pull
-  - docker-build
-  - docker-images
-  - docker-system-prune
-  - docker-tag
-alternatives:
-  - docker-system-prune
+  [docker-rm, docker-pull, docker-build, docker-images, docker-system-prune, docker-tag]
+alternatives: [docker-system-prune]
 status: draft
 ---
 

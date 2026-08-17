@@ -27,8 +27,7 @@ intentPhrases:
   - view recent cloudwatch log events
   - follow aws logs in real time
   - read cloudwatch log stream cli
-relatedCommands:
-  - aws-configure
+relatedCommands: [aws-configure]
 alternatives: []
 status: draft
 ---

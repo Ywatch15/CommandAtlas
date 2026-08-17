@@ -27,15 +27,8 @@ intentPhrases:
   - find commit that changed line
   - inspect file history line by line
   - trace code origins
-relatedCommands:
-  - git-bisect
-  - git-diff
-  - git-log
-  - git-shortlog
-  - git-show
-alternatives:
-  - git-bisect
-  - git-log
+relatedCommands: [git-bisect, git-diff, git-log, git-shortlog, git-show]
+alternatives: [git-bisect, git-log]
 status: draft
 ---
 

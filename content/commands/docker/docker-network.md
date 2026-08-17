@@ -28,12 +28,8 @@ intentPhrases:
   - connect container to network
   - inspect docker subnet
   - remove docker network
-relatedCommands:
-  - docker-run
-  - docker-inspect
-  - docker-compose
-alternatives:
-  - docker-compose
+relatedCommands: [docker-run, docker-inspect, docker-compose]
+alternatives: [docker-compose]
 status: draft
 ---
 

@@ -27,12 +27,7 @@ intentPhrases:
   - pull container image from registry
   - update local docker image
   - get base image for dockerfile
-relatedCommands:
-  - docker-push
-  - docker-images
-  - docker-run
-  - docker-login
-  - docker-rmi
+relatedCommands: [docker-push, docker-images, docker-run, docker-login, docker-rmi]
 alternatives: []
 status: draft
 ---

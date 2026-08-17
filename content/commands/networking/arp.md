@@ -13,7 +13,7 @@ intentPhrases:
   - 'find hardware address from ip'
   - 'clear arp cache'
   - 'add static arp entry'
-relatedCommands: [ping, ifconfig]
+relatedCommands: [ping, ifconfig, nmap]
 alternatives: []
 status: draft
 ---

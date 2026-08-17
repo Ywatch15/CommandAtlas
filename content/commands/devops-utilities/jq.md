@@ -28,17 +28,8 @@ intentPhrases:
   - format json output
   - filter json array by key
   - modify json from curl
-relatedCommands:
-  - yq
-  - grep
-  - awk
-  - sed
-  - curl
-  - docker-inspect
-  - kubectl-api-resources
-alternatives:
-  - yq
-  - kubectl-api-resources
+relatedCommands: [yq, grep, awk, sed, curl, docker-inspect, kubectl-api-resources]
+alternatives: [yq, kubectl-api-resources]
 status: published
 ---
 

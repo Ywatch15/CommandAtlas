@@ -22,13 +22,7 @@ intentPhrases:
   - fix broken modprobe
   - rebuild module map files
   - map kernel symbols
-relatedCommands:
-  - modprobe
-  - kmod
-  - mkinitcpio
-  - dracut
-  - insmod
-  - lsmod
+relatedCommands: [modprobe, kmod, mkinitcpio, dracut, insmod, lsmod]
 alternatives: []
 status: draft
 ---

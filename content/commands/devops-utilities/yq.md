@@ -28,12 +28,8 @@ intentPhrases:
   - update kubernetes manifest
   - convert yaml to json
   - modify yaml inline
-relatedCommands:
-  - jq
-  - sed
-alternatives:
-  - jq
-  - sed
+relatedCommands: [jq, sed]
+alternatives: [jq, sed]
 status: published
 ---
 

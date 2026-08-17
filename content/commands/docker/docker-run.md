@@ -28,25 +28,25 @@ intentPhrases:
   - execute command in isolated container
   - spin up docker environment
 relatedCommands:
-  - docker-exec
-  - docker-build
-  - docker-ps
-  - docker-rm
-  - docker-attach
-  - docker-commit
-  - docker-compose
-  - docker-cp
-  - docker-images
-  - docker-load
-  - docker-logs
-  - docker-network
-  - docker-pull
-  - docker-restart
-  - docker-start
-  - docker-volume
-alternatives:
-  - docker-compose
-  - docker-start
+  [
+    docker-exec,
+    docker-build,
+    docker-ps,
+    docker-rm,
+    docker-attach,
+    docker-commit,
+    docker-compose,
+    docker-cp,
+    docker-images,
+    docker-load,
+    docker-logs,
+    docker-network,
+    docker-pull,
+    docker-restart,
+    docker-start,
+    docker-volume,
+  ]
+alternatives: [docker-compose, docker-start]
 status: draft
 ---
 

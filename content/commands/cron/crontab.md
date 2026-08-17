@@ -25,13 +25,8 @@ intentPhrases:
   - remove current user cron table
   - schedule a recurring linux job
   - automate scripts with crontab
-relatedCommands:
-  - cron
-  - anacron
-  - at
-alternatives:
-  - anacron
-  - at
+relatedCommands: [cron, anacron, at]
+alternatives: [anacron, at]
 status: published
 ---
 

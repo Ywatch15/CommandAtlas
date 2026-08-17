@@ -24,9 +24,7 @@ intentPhrases:
   - ping hosts with ansible
   - execute adhoc shell module
   - manage nodes without playbook
-relatedCommands:
-  - packer
-  - vagrant
+relatedCommands: [packer, vagrant]
 alternatives: []
 status: published
 ---

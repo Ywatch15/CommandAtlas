@@ -28,14 +28,8 @@ intentPhrases:
   - attach to docker process
   - interact with container pid 1
   - reconnect to detached docker container
-relatedCommands:
-  - docker-exec
-  - docker-run
-  - docker-logs
-  - docker-start
-alternatives:
-  - docker-exec
-  - docker-logs
+relatedCommands: [docker-exec, docker-run, docker-logs, docker-start]
+alternatives: [docker-exec, docker-logs]
 status: draft
 ---
 

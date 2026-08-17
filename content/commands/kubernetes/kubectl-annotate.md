@@ -28,12 +28,8 @@ intentPhrases:
   - update resource annotations k8s
   - remove kubernetes annotation
   - tag resource with non-identifying metadata
-relatedCommands:
-  - kubectl-label
-  - kubectl-apply
-  - kubectl-edit
-alternatives:
-  - kubectl-edit
+relatedCommands: [kubectl-label, kubectl-apply, kubectl-edit]
+alternatives: [kubectl-edit]
 status: draft
 ---
 

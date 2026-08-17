@@ -13,7 +13,7 @@ intentPhrases:
   - 'find operating system nmap'
   - 'detect service versions nmap'
   - 'run vulnerability scan nmap'
-relatedCommands: [nc, mtr, ping, tcpdump, arp]
+relatedCommands: [nc, mtr, ping, tcpdump, arp, ss]
 alternatives: []
 status: draft
 ---

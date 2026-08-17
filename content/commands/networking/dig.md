@@ -13,7 +13,7 @@ intentPhrases:
   - 'troubleshoot dns resolution'
   - 'trace dns propagation'
   - 'query specific nameserver'
-relatedCommands: [host, nslookup, ping, whois]
+relatedCommands: [host, nslookup, ping, whois, curl]
 alternatives: [host, nslookup]
 status: draft
 ---

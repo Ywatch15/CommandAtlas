@@ -28,14 +28,15 @@ intentPhrases:
   - verify aws credentials
   - check aws arn
 relatedCommands:
-  - aws-configure
-  - aws-ec2-describe-instances
-  - aws-eks-update-kubeconfig
-  - aws-iam-get-user
-  - aws-s3-ls
-  - aws-ec2-run-instances
-alternatives:
-  - aws-iam-get-user
+  [
+    aws-configure,
+    aws-ec2-describe-instances,
+    aws-eks-update-kubeconfig,
+    aws-iam-get-user,
+    aws-s3-ls,
+    aws-ec2-run-instances,
+  ]
+alternatives: [aws-iam-get-user]
 status: draft
 ---
 
