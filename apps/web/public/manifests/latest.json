@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "generatedAt": "2026-08-19T11:35:19.145Z",
+  "version": 9,
+  "generatedAt": "2026-08-19T12:33:19.187Z",
   "packs": [
     {
       "packId": "bash",
@@ -102,30 +102,30 @@
     },
     {
       "packId": "processes",
-      "version": 8,
-      "size": 4240,
-      "checksum": "fea5e1947732d7240d0194235701cbf9030908085c3c144b877a66ebae5c4fb4",
+      "version": 9,
+      "size": 238067,
+      "checksum": "b5bafe288177ca99918643df4fef1d05490a5ceb0abb140fa917ff2bafd201c7",
       "url": "/packs/commands/processes.json"
     },
     {
       "packId": "regex",
-      "version": 7,
-      "size": 4411,
-      "checksum": "3ecef494f17f6c905342ac110c59ba213d19a63b521586a994d0b3824aaec70b",
+      "version": 8,
+      "size": 119699,
+      "checksum": "e20576dea8a7001da3d9a4da1094e3ae7d82892d2f1b8033722cf0cf056a65cf",
       "url": "/packs/commands/regex.json"
     },
     {
       "packId": "shell-scripting",
-      "version": 5,
-      "size": 4500,
-      "checksum": "b2fa43a8efd94a7514bba845eced4d1050137fe523f23a6c6d1e3c64f9559fc8",
+      "version": 6,
+      "size": 230246,
+      "checksum": "a85bf8f3a45a1b6304b6f707713cea3210bb8f8303c6eeb8737e3436ca7f6024",
       "url": "/packs/commands/shell-scripting.json"
     },
     {
       "packId": "ssh",
-      "version": 7,
-      "size": 4479,
-      "checksum": "c1a980f56066a4eb78248facbcb8d8f8edf8bcbbfa092c639cb78196f293bed7",
+      "version": 8,
+      "size": 160022,
+      "checksum": "48096d9e10a080a3ff194ee337d7c3a8db9d58d642b24e37c08678be82d78a55",
       "url": "/packs/commands/ssh.json"
     },
     {

@@ -1,0 +1,9 @@
+{
+  "fromVersion": 8,
+  "toVersion": 9,
+  "generatedAt": "2026-08-19T12:33:19.192Z",
+  "added": [],
+  "modified": ["ssh"],
+  "removed": [],
+  "affectedPacks": ["ssh"]
+}
