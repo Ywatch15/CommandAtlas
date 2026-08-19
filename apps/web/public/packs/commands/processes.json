@@ -5,40 +5,19 @@
       "slug": "ps",
       "name": "ps",
       "category": "processes",
-      "contentVersion": 7,
+      "contentVersion": 8,
       "frontmatter": {
         "slug": "ps",
         "name": "ps",
         "aliases": [],
         "category": "processes",
-        "tags": [
-          "ps"
-        ],
+        "tags": ["ps"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
-        "intentPhrases": [
-          "list running processes",
-          "find process ID"
-        ],
-        "relatedCommands": [
-          "jobs",
-          "lsof"
-        ],
-        "alternatives": [
-          "jobs"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
+        "intentPhrases": ["list running processes", "find process ID"],
+        "relatedCommands": ["jobs", "lsof"],
+        "alternatives": ["jobs"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",

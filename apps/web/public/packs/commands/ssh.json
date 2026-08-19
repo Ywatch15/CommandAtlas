@@ -5,41 +5,22 @@
       "slug": "ssh",
       "name": "ssh",
       "category": "ssh",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "ssh",
         "name": "ssh",
         "aliases": [],
         "category": "ssh",
-        "tags": [
-          "ssh"
-        ],
+        "tags": ["ssh"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "connect to remote server",
           "secure shell connection"
         ],
-        "relatedCommands": [
-          "gcloud-compute-ssh",
-          "kubectl-exec"
-        ],
-        "alternatives": [
-          "gcloud-compute-ssh",
-          "kubectl-exec"
-        ],
+        "relatedCommands": ["gcloud-compute-ssh", "kubectl-exec"],
+        "alternatives": ["gcloud-compute-ssh", "kubectl-exec"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",

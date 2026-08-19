@@ -60,7 +60,7 @@
       "description": "File permission and ownership commands for controlling access to files and directories on Unix-like systems. Understanding permissions is fundamental to system security.\n",
       "parent": null,
       "order": 7,
-      "commandCount": 1,
+      "commandCount": 12,
       "children": []
     },
     {
@@ -87,7 +87,7 @@
       "description": "PowerShell cmdlets and scripting constructs for Windows and cross-platform system administration. PowerShell operates on objects rather than text streams, offering a fundamentally different approach from traditional Unix shells.\n",
       "parent": null,
       "order": 10,
-      "commandCount": 1,
+      "commandCount": 24,
       "children": []
     },
     {
@@ -168,7 +168,7 @@
       "description": "System and language package management commands for installing, updating, removing, and querying software packages across distributions and ecosystems.\n",
       "parent": null,
       "order": 19,
-      "commandCount": 1,
+      "commandCount": 9,
       "children": []
     },
     {

@@ -5,7 +5,7 @@
       "slug": "kubectl-annotate",
       "name": "kubectl annotate",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-annotate",
         "name": "kubectl annotate",
@@ -20,19 +20,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "add metadata to kubernetes resource",
           "annotate pod in kubectl",
@@ -40,14 +29,8 @@
           "remove kubernetes annotation",
           "tag resource with non-identifying metadata"
         ],
-        "relatedCommands": [
-          "kubectl-label",
-          "kubectl-apply",
-          "kubectl-edit"
-        ],
-        "alternatives": [
-          "kubectl-edit"
-        ],
+        "relatedCommands": ["kubectl-label", "kubectl-apply", "kubectl-edit"],
+        "alternatives": ["kubectl-edit"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -57,7 +40,7 @@
       "slug": "kubectl-api-resources",
       "name": "kubectl api-resources",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-api-resources",
         "name": "kubectl api-resources",
@@ -73,19 +56,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "list all kubernetes resources",
           "find shortnames for k8s resources",
@@ -100,10 +72,7 @@
           "curl",
           "jq"
         ],
-        "alternatives": [
-          "curl",
-          "jq"
-        ],
+        "alternatives": ["curl", "jq"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -113,7 +82,7 @@
       "slug": "kubectl-apply",
       "name": "kubectl apply",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-apply",
         "name": "kubectl apply",
@@ -129,19 +98,8 @@
           "k8s"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "apply kubernetes manifest file",
           "update k8s resource declaratively",
@@ -159,11 +117,7 @@
           "kubectl-rollout",
           "kubectl-scale"
         ],
-        "alternatives": [
-          "helm-install",
-          "kubectl-create",
-          "kubectl-scale"
-        ],
+        "alternatives": ["helm-install", "kubectl-create", "kubectl-scale"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -173,7 +127,7 @@
       "slug": "kubectl-cluster-info",
       "name": "kubectl cluster-info",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-cluster-info",
         "name": "kubectl cluster-info",
@@ -188,19 +142,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "check kubernetes api endpoint",
           "find kubernetes control plane url",
@@ -223,7 +166,7 @@
       "slug": "kubectl-config",
       "name": "kubectl config",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-config",
         "name": "kubectl config",
@@ -239,19 +182,8 @@
           "k8s"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "switch kubernetes cluster context",
           "view current kubernetes configuration",
@@ -259,9 +191,7 @@
           "change active namespace kubectl",
           "manage kubeconfig files"
         ],
-        "relatedCommands": [
-          "kubectl-cluster-info"
-        ],
+        "relatedCommands": ["kubectl-cluster-info"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -272,7 +202,7 @@
       "slug": "kubectl-cordon",
       "name": "kubectl cordon",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-cordon",
         "name": "kubectl cordon",
@@ -287,19 +217,8 @@
           "k8s"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "mark node as unschedulable",
           "stop pods from scheduling on node",
@@ -313,9 +232,7 @@
           "kubectl-describe",
           "kubectl-taint"
         ],
-        "alternatives": [
-          "kubectl-taint"
-        ],
+        "alternatives": ["kubectl-taint"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -325,7 +242,7 @@
       "slug": "kubectl-create",
       "name": "kubectl create",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-create",
         "name": "kubectl create",
@@ -340,19 +257,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "create kubernetes resource from file",
           "generate kubernetes configmap",
@@ -360,13 +266,8 @@
           "imperatively create k8s object",
           "instantiate kubernetes namespace"
         ],
-        "relatedCommands": [
-          "kubectl-apply",
-          "kubectl-delete"
-        ],
-        "alternatives": [
-          "kubectl-apply"
-        ],
+        "relatedCommands": ["kubectl-apply", "kubectl-delete"],
+        "alternatives": ["kubectl-apply"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -376,30 +277,16 @@
       "slug": "kubectl-delete",
       "name": "kubectl delete",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-delete",
         "name": "kubectl delete",
         "aliases": [],
         "category": "kubernetes",
-        "tags": [
-          "kubernetes",
-          "k8s"
-        ],
+        "tags": ["kubernetes", "k8s"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "delete kubernetes resources",
           "remove pod from cluster",
@@ -423,7 +310,7 @@
       "slug": "kubectl-describe",
       "name": "kubectl describe",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-describe",
         "name": "kubectl describe",
@@ -438,19 +325,8 @@
           "auditing"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "show detailed kubernetes resource state",
           "find why pod is pending",
@@ -476,7 +352,7 @@
       "slug": "kubectl-drain",
       "name": "kubectl drain",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-drain",
         "name": "kubectl drain",
@@ -491,19 +367,8 @@
           "lifecycle"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "evict pods from kubernetes node",
           "safely shut down k8s node",
@@ -526,7 +391,7 @@
       "slug": "kubectl-edit",
       "name": "kubectl edit",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-edit",
         "name": "kubectl edit",
@@ -540,19 +405,8 @@
           "live-editing"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "edit kubernetes resource inline",
           "modify k8s deployment on the fly",
@@ -567,9 +421,7 @@
           "kubectl-label",
           "kubectl-scale"
         ],
-        "alternatives": [
-          "kubectl-annotate"
-        ],
+        "alternatives": ["kubectl-annotate"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -579,7 +431,7 @@
       "slug": "kubectl-exec",
       "name": "kubectl exec",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-exec",
         "name": "kubectl exec",
@@ -594,19 +446,8 @@
           "containers"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "ssh into kubernetes pod",
           "run command in k8s container",
@@ -620,9 +461,7 @@
           "docker-exec",
           "ssh"
         ],
-        "alternatives": [
-          "ssh"
-        ],
+        "alternatives": ["ssh"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -632,7 +471,7 @@
       "slug": "kubectl-explain",
       "name": "kubectl explain",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-explain",
         "name": "kubectl explain",
@@ -647,19 +486,8 @@
           "reference"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "kubernetes yaml documentation",
           "find kubernetes resource fields",
@@ -667,10 +495,7 @@
           "what fields are in a pod spec",
           "kubernetes syntax reference"
         ],
-        "relatedCommands": [
-          "kubectl-api-resources",
-          "kubectl-describe"
-        ],
+        "relatedCommands": ["kubectl-api-resources", "kubectl-describe"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -681,30 +506,16 @@
       "slug": "kubectl-get",
       "name": "kubectl get",
       "category": "kubernetes",
-      "contentVersion": 5,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "kubectl-get",
         "name": "kubectl get",
         "aliases": [],
         "category": "kubernetes",
-        "tags": [
-          "kubernetes",
-          "k8s"
-        ],
+        "tags": ["kubernetes", "k8s"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "list kubernetes resources",
           "show running pods",
@@ -734,7 +545,7 @@
       "slug": "kubectl-label",
       "name": "kubectl label",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-label",
         "name": "kubectl label",
@@ -750,19 +561,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "add label to kubernetes pod",
           "update resource labels",
@@ -787,7 +587,7 @@
       "slug": "kubectl-logs",
       "name": "kubectl logs",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-logs",
         "name": "kubectl logs",
@@ -803,19 +603,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "view pod logs",
           "tail kubernetes container output",
@@ -840,7 +629,7 @@
       "slug": "kubectl-port-forward",
       "name": "kubectl port-forward",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-port-forward",
         "name": "kubectl port-forward",
@@ -856,19 +645,8 @@
           "k8s"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "access kubernetes pod locally",
           "tunnel kubernetes service",
@@ -876,10 +654,7 @@
           "connect to cluster database from localhost",
           "route localhost to k8s pod"
         ],
-        "relatedCommands": [
-          "kubectl-exec",
-          "kubectl-logs"
-        ],
+        "relatedCommands": ["kubectl-exec", "kubectl-logs"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -890,7 +665,7 @@
       "slug": "kubectl-rollout",
       "name": "kubectl rollout",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-rollout",
         "name": "kubectl rollout",
@@ -906,19 +681,8 @@
           "k8s"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "restart deployment kubernetes",
           "rollback kubernetes deployment",
@@ -932,10 +696,7 @@
           "helm-upgrade",
           "helm-rollback"
         ],
-        "alternatives": [
-          "helm-upgrade",
-          "helm-rollback"
-        ],
+        "alternatives": ["helm-upgrade", "helm-rollback"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -945,7 +706,7 @@
       "slug": "kubectl-scale",
       "name": "kubectl scale",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-scale",
         "name": "kubectl scale",
@@ -961,19 +722,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "change replica count kubernetes",
           "scale up deployment pods",
@@ -987,9 +737,7 @@
           "kubectl-edit",
           "kubectl-delete"
         ],
-        "alternatives": [
-          "kubectl-apply"
-        ],
+        "alternatives": ["kubectl-apply"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -999,7 +747,7 @@
       "slug": "kubectl-taint",
       "name": "kubectl taint",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-taint",
         "name": "kubectl taint",
@@ -1015,19 +763,8 @@
           "k8s"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "add taint to node",
           "prevent pod scheduling on node",
@@ -1041,9 +778,7 @@
           "kubectl-label",
           "kubectl-get"
         ],
-        "alternatives": [
-          "kubectl-cordon"
-        ],
+        "alternatives": ["kubectl-cordon"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1053,7 +788,7 @@
       "slug": "kubectl-top",
       "name": "kubectl top",
       "category": "kubernetes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kubectl-top",
         "name": "kubectl top",
@@ -1069,19 +804,8 @@
           "k8s"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "check pod memory usage",
           "view kubernetes cpu metrics",
@@ -1089,11 +813,7 @@
           "find pods using most ram",
           "check cluster utilization top"
         ],
-        "relatedCommands": [
-          "kubectl-get",
-          "kubectl-describe",
-          "kubectl-logs"
-        ],
+        "relatedCommands": ["kubectl-get", "kubectl-describe", "kubectl-logs"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

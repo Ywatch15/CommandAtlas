@@ -5,28 +5,16 @@
       "slug": "depmod",
       "name": "depmod",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "depmod",
         "name": "depmod",
         "aliases": [],
         "category": "kernel",
-        "tags": [
-          "linux",
-          "kernel",
-          "modules",
-          "dependencies",
-          "boot"
-        ],
+        "tags": ["linux", "kernel", "modules", "dependencies", "boot"],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "generate modules.dep",
           "update kernel module dependencies",
@@ -52,29 +40,16 @@
       "slug": "dracut",
       "name": "dracut",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "dracut",
         "name": "dracut",
         "aliases": [],
         "category": "kernel",
-        "tags": [
-          "linux",
-          "boot",
-          "initramfs",
-          "red-hat",
-          "fedora",
-          "kernel"
-        ],
+        "tags": ["linux", "boot", "initramfs", "red-hat", "fedora", "kernel"],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "generate initramfs dracut",
           "rebuild red hat boot image",
@@ -82,13 +57,8 @@
           "create rescue boot image",
           "update initramfs centos"
         ],
-        "relatedCommands": [
-          "depmod",
-          "mkinitcpio"
-        ],
-        "alternatives": [
-          "mkinitcpio"
-        ],
+        "relatedCommands": ["depmod", "mkinitcpio"],
+        "alternatives": ["mkinitcpio"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -98,31 +68,16 @@
       "slug": "insmod",
       "name": "insmod",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "insmod",
         "name": "insmod",
-        "aliases": [
-          "insert module"
-        ],
+        "aliases": ["insert module"],
         "category": "kernel",
-        "tags": [
-          "linux",
-          "kernel",
-          "modules",
-          "drivers",
-          "sysadmin",
-          "c"
-        ],
+        "tags": ["linux", "kernel", "modules", "drivers", "sysadmin", "c"],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "insert kernel module directly",
           "load .ko file linux",
@@ -130,17 +85,8 @@
           "insert module from path",
           "test newly compiled kernel module"
         ],
-        "relatedCommands": [
-          "modprobe",
-          "rmmod",
-          "lsmod",
-          "modinfo",
-          "depmod"
-        ],
-        "alternatives": [
-          "modprobe",
-          "kmod"
-        ],
+        "relatedCommands": ["modprobe", "rmmod", "lsmod", "modinfo", "depmod"],
+        "alternatives": ["modprobe", "kmod"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -150,34 +96,16 @@
       "slug": "kmod",
       "name": "kmod",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "kmod",
         "name": "kmod",
-        "aliases": [
-          "modprobe",
-          "lsmod",
-          "rmmod",
-          "insmod",
-          "modinfo"
-        ],
+        "aliases": ["modprobe", "lsmod", "rmmod", "insmod", "modinfo"],
         "category": "kernel",
-        "tags": [
-          "linux",
-          "kernel",
-          "modules",
-          "drivers",
-          "hardware"
-        ],
+        "tags": ["linux", "kernel", "modules", "drivers", "hardware"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "manage linux kernel modules",
           "list loaded kernel modules",
@@ -185,16 +113,8 @@
           "check module static nodes",
           "load driver into kernel"
         ],
-        "relatedCommands": [
-          "depmod",
-          "sysctl",
-          "dmesg",
-          "modprobe"
-        ],
-        "alternatives": [
-          "insmod",
-          "rmmod"
-        ],
+        "relatedCommands": ["depmod", "sysctl", "dmesg", "modprobe"],
+        "alternatives": ["insmod", "rmmod"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -204,28 +124,16 @@
       "slug": "lsmod",
       "name": "lsmod",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "lsmod",
         "name": "lsmod",
         "aliases": [],
         "category": "kernel",
-        "tags": [
-          "linux",
-          "kernel",
-          "modules",
-          "drivers",
-          "sysadmin"
-        ],
+        "tags": ["linux", "kernel", "modules", "drivers", "sysadmin"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list loaded kernel modules",
           "show active linux drivers",
@@ -233,13 +141,7 @@
           "view loaded drivers",
           "audit active linux modules"
         ],
-        "relatedCommands": [
-          "modprobe",
-          "insmod",
-          "rmmod",
-          "modinfo",
-          "depmod"
-        ],
+        "relatedCommands": ["modprobe", "insmod", "rmmod", "modinfo", "depmod"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -250,7 +152,7 @@
       "slug": "mkinitcpio",
       "name": "mkinitcpio",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "mkinitcpio",
         "name": "mkinitcpio",
@@ -265,14 +167,8 @@
           "systemd"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "create initial ramdisk",
           "generate initramfs arch linux",
@@ -280,13 +176,8 @@
           "add module to initramfs",
           "update mkinitcpio hooks"
         ],
-        "relatedCommands": [
-          "depmod",
-          "dracut"
-        ],
-        "alternatives": [
-          "dracut"
-        ],
+        "relatedCommands": ["depmod", "dracut"],
+        "alternatives": ["dracut"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -296,7 +187,7 @@
       "slug": "modinfo",
       "name": "modinfo",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "modinfo",
         "name": "modinfo",
@@ -311,14 +202,8 @@
           "metadata"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "show kernel module information",
           "find module parameters linux",
@@ -326,12 +211,7 @@
           "inspect .ko file metadata",
           "get author and license of module"
         ],
-        "relatedCommands": [
-          "lsmod",
-          "modprobe",
-          "insmod",
-          "rmmod"
-        ],
+        "relatedCommands": ["lsmod", "modprobe", "insmod", "rmmod"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -342,7 +222,7 @@
       "slug": "modprobe",
       "name": "modprobe",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "modprobe",
         "name": "modprobe",
@@ -357,14 +237,8 @@
           "hardware"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "load kernel module safely",
           "remove linux driver and dependencies",
@@ -381,10 +255,7 @@
           "kmod",
           "sysctl"
         ],
-        "alternatives": [
-          "insmod",
-          "rmmod"
-        ],
+        "alternatives": ["insmod", "rmmod"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -394,30 +265,16 @@
       "slug": "rmmod",
       "name": "rmmod",
       "category": "kernel",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "rmmod",
         "name": "rmmod",
-        "aliases": [
-          "remove module"
-        ],
+        "aliases": ["remove module"],
         "category": "kernel",
-        "tags": [
-          "linux",
-          "kernel",
-          "modules",
-          "drivers",
-          "sysadmin"
-        ],
+        "tags": ["linux", "kernel", "modules", "drivers", "sysadmin"],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "remove kernel module directly",
           "unload linux driver",
@@ -425,16 +282,8 @@
           "delete active kernel object",
           "detach module from linux kernel"
         ],
-        "relatedCommands": [
-          "modprobe",
-          "insmod",
-          "lsmod",
-          "modinfo"
-        ],
-        "alternatives": [
-          "kmod",
-          "modprobe"
-        ],
+        "relatedCommands": ["modprobe", "insmod", "lsmod", "modinfo"],
+        "alternatives": ["kmod", "modprobe"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -444,7 +293,7 @@
       "slug": "sysctl",
       "name": "sysctl",
       "category": "kernel",
-      "contentVersion": 5,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "sysctl",
         "name": "sysctl",
@@ -459,15 +308,8 @@
           "sysadmin"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "configure kernel parameters at runtime",
           "reload sysctl configuration",
@@ -475,11 +317,7 @@
           "read kernel variables",
           "tune tcp network stack"
         ],
-        "relatedCommands": [
-          "modprobe",
-          "systemctl",
-          "kmod"
-        ],
+        "relatedCommands": ["modprobe", "systemctl", "kmod"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

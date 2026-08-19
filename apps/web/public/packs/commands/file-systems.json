@@ -5,7 +5,7 @@
       "slug": "blkid",
       "name": "blkid",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "blkid",
         "name": "blkid",
@@ -20,15 +20,8 @@
           "metadata"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "find UUID of disk",
           "list block device attributes",
@@ -36,16 +29,8 @@
           "locate volume by label",
           "print partition uuid"
         ],
-        "relatedCommands": [
-          "lsblk",
-          "fdisk",
-          "mount",
-          "mkfs",
-          "parted"
-        ],
-        "alternatives": [
-          "lsblk"
-        ],
+        "relatedCommands": ["lsblk", "fdisk", "mount", "mkfs", "parted"],
+        "alternatives": ["lsblk"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -55,32 +40,16 @@
       "slug": "cp",
       "name": "cp",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "cp",
         "name": "cp",
-        "aliases": [
-          "copy"
-        ],
+        "aliases": ["copy"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "file-management",
-          "copy",
-          "coreutils",
-          "filesystem"
-        ],
+        "tags": ["linux", "file-management", "copy", "coreutils", "filesystem"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "copy a file",
           "duplicate a directory",
@@ -88,10 +57,7 @@
           "copy files recursively",
           "preserve file attributes"
         ],
-        "relatedCommands": [
-          "mv",
-          "rm"
-        ],
+        "relatedCommands": ["mv", "rm"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": [
@@ -108,32 +74,16 @@
       "slug": "df",
       "name": "df",
       "category": "file-systems",
-      "contentVersion": 5,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "df",
         "name": "df",
-        "aliases": [
-          "disk free"
-        ],
+        "aliases": ["disk free"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "storage",
-          "disk-space",
-          "monitoring",
-          "filesystem"
-        ],
+        "tags": ["linux", "storage", "disk-space", "monitoring", "filesystem"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "check disk space",
           "show free storage",
@@ -141,13 +91,7 @@
           "view disk usage linux",
           "check available disk capacity"
         ],
-        "relatedCommands": [
-          "du",
-          "mount",
-          "lsblk",
-          "fdisk",
-          "fsck"
-        ],
+        "relatedCommands": ["du", "mount", "lsblk", "fdisk", "fsck"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -158,32 +102,16 @@
       "slug": "du",
       "name": "du",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "du",
         "name": "du",
-        "aliases": [
-          "disk usage"
-        ],
+        "aliases": ["disk usage"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "storage",
-          "disk-space",
-          "auditing",
-          "files"
-        ],
+        "tags": ["linux", "storage", "disk-space", "auditing", "files"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "find largest directories",
           "calculate folder size",
@@ -191,14 +119,8 @@
           "check directory size linux",
           "find what is taking up disk space"
         ],
-        "relatedCommands": [
-          "df",
-          "ls",
-          "find"
-        ],
-        "alternatives": [
-          "tree"
-        ],
+        "relatedCommands": ["df", "ls", "find"],
+        "alternatives": ["tree"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -208,13 +130,11 @@
       "slug": "fdisk",
       "name": "fdisk",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "fdisk",
         "name": "fdisk",
-        "aliases": [
-          "format disk"
-        ],
+        "aliases": ["format disk"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -225,15 +145,8 @@
           "filesystem"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "create disk partition",
           "format a drive linux",
@@ -250,9 +163,7 @@
           "df",
           "fsck"
         ],
-        "alternatives": [
-          "parted"
-        ],
+        "alternatives": ["parted"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -262,7 +173,7 @@
       "slug": "find",
       "name": "find",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "find",
         "name": "find",
@@ -276,16 +187,8 @@
           "coreutils"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "search for files in directory",
           "find files modified recently",
@@ -303,11 +206,7 @@
           "rmdir",
           "tree"
         ],
-        "alternatives": [
-          "locate",
-          "tree",
-          "ls"
-        ],
+        "alternatives": ["locate", "tree", "ls"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -317,13 +216,11 @@
       "slug": "fsck",
       "name": "fsck",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "fsck",
         "name": "fsck",
-        "aliases": [
-          "file system check"
-        ],
+        "aliases": ["file system check"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -334,16 +231,8 @@
           "maintenance"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "unix",
-          "macos"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "unix", "macos"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "repair broken filesystem",
           "check hard drive for errors",
@@ -351,12 +240,7 @@
           "force fsck on boot",
           "check ext4 consistency"
         ],
-        "relatedCommands": [
-          "mount",
-          "df",
-          "fdisk",
-          "tune2fs"
-        ],
+        "relatedCommands": ["mount", "df", "fdisk", "tune2fs"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -367,14 +251,11 @@
       "slug": "locate",
       "name": "locate",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "locate",
         "name": "locate",
-        "aliases": [
-          "mlocate",
-          "plocate"
-        ],
+        "aliases": ["mlocate", "plocate"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -384,15 +265,8 @@
           "optimization"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "find file quickly",
           "search file by name fast",
@@ -400,13 +274,8 @@
           "search entire filesystem",
           "update locate database"
         ],
-        "relatedCommands": [
-          "find",
-          "grep"
-        ],
-        "alternatives": [
-          "find"
-        ],
+        "relatedCommands": ["find", "grep"],
+        "alternatives": ["find"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -416,14 +285,11 @@
       "slug": "ls",
       "name": "ls",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "ls",
         "name": "ls",
-        "aliases": [
-          "dir",
-          "vdir"
-        ],
+        "aliases": ["dir", "vdir"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -434,16 +300,8 @@
           "metadata"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list directory contents",
           "show hidden files linux",
@@ -457,12 +315,13 @@
           "tree",
           "find",
           "du",
-          "mkdir"
+          "mkdir",
+          "chmod",
+          "chown",
+          "getfacl",
+          "lsattr"
         ],
-        "alternatives": [
-          "tree",
-          "find"
-        ],
+        "alternatives": ["tree", "find", "lsattr"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -472,7 +331,7 @@
       "slug": "lsblk",
       "name": "lsblk",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "lsblk",
         "name": "lsblk",
@@ -487,14 +346,8 @@
           "formatting"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list block devices linux",
           "show disk partitions and sizes",
@@ -511,9 +364,7 @@
           "df",
           "umount"
         ],
-        "alternatives": [
-          "blkid"
-        ],
+        "alternatives": ["blkid"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -523,13 +374,11 @@
       "slug": "lsof",
       "name": "lsof",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "lsof",
         "name": "lsof",
-        "aliases": [
-          "list open files"
-        ],
+        "aliases": ["list open files"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -540,16 +389,8 @@
           "system-administration"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list open files linux",
           "find process using port",
@@ -557,11 +398,8 @@
           "check what process has file locked",
           "list network connections lsof"
         ],
-        "relatedCommands": [
-          "ps",
-          "umount"
-        ],
-        "alternatives": [],
+        "relatedCommands": ["ps", "umount", "netstat", "ss"],
+        "alternatives": ["ss"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -571,34 +409,16 @@
       "slug": "mkdir",
       "name": "mkdir",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "mkdir",
         "name": "mkdir",
-        "aliases": [
-          "make directory"
-        ],
+        "aliases": ["make directory"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "file-system",
-          "directory",
-          "coreutils",
-          "creation"
-        ],
+        "tags": ["linux", "file-system", "directory", "coreutils", "creation"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "create new directory linux",
           "make multiple nested folders",
@@ -606,12 +426,7 @@
           "create folder structure silently",
           "setup directory tree"
         ],
-        "relatedCommands": [
-          "rmdir",
-          "rm",
-          "cd",
-          "ls"
-        ],
+        "relatedCommands": ["rmdir", "rm", "cd", "ls"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -622,14 +437,11 @@
       "slug": "mkfs",
       "name": "mkfs",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "mkfs",
         "name": "mkfs",
-        "aliases": [
-          "make filesystem",
-          "format"
-        ],
+        "aliases": ["make filesystem", "format"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -641,14 +453,8 @@
           "xfs"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "format a disk linux",
           "create ext4 filesystem",
@@ -656,13 +462,7 @@
           "format nvme drive xfs",
           "setup raw block device"
         ],
-        "relatedCommands": [
-          "lsblk",
-          "fdisk",
-          "parted",
-          "mount",
-          "blkid"
-        ],
+        "relatedCommands": ["lsblk", "fdisk", "parted", "mount", "blkid"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -673,7 +473,7 @@
       "slug": "mount",
       "name": "mount",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "mount",
         "name": "mount",
@@ -688,16 +488,8 @@
           "hierarchy"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "attach a filesystem linux",
           "mount a disk drive",
@@ -724,35 +516,16 @@
       "slug": "mv",
       "name": "mv",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "mv",
         "name": "mv",
-        "aliases": [
-          "move"
-        ],
+        "aliases": ["move"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "files",
-          "coreutils",
-          "move",
-          "rename",
-          "inode"
-        ],
+        "tags": ["linux", "files", "coreutils", "move", "rename", "inode"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "move file linux",
           "rename file or directory",
@@ -760,11 +533,7 @@
           "safely overwrite files",
           "batch move files"
         ],
-        "relatedCommands": [
-          "cp",
-          "rm",
-          "find"
-        ],
+        "relatedCommands": ["cp", "rm", "find"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -775,32 +544,16 @@
       "slug": "parted",
       "name": "parted",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "parted",
         "name": "parted",
-        "aliases": [
-          "gnu parted"
-        ],
+        "aliases": ["gnu parted"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "storage",
-          "disk",
-          "partitions",
-          "gpt",
-          "formatting"
-        ],
+        "tags": ["linux", "storage", "disk", "partitions", "gpt", "formatting"],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "create disk partition linux",
           "initialize gpt disk parted",
@@ -808,15 +561,8 @@
           "script disk partitioning",
           "create massive storage volume"
         ],
-        "relatedCommands": [
-          "fdisk",
-          "lsblk",
-          "mkfs",
-          "blkid"
-        ],
-        "alternatives": [
-          "fdisk"
-        ],
+        "relatedCommands": ["fdisk", "lsblk", "mkfs", "blkid"],
+        "alternatives": ["fdisk"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -826,35 +572,16 @@
       "slug": "rm",
       "name": "rm",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "rm",
         "name": "rm",
-        "aliases": [
-          "remove",
-          "unlink"
-        ],
+        "aliases": ["remove", "unlink"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "file-system",
-          "delete",
-          "coreutils",
-          "automation"
-        ],
+        "tags": ["linux", "file-system", "delete", "coreutils", "automation"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "delete file linux",
           "remove directory and contents",
@@ -862,13 +589,7 @@
           "safely delete folder",
           "permanently remove data"
         ],
-        "relatedCommands": [
-          "rmdir",
-          "cp",
-          "mv",
-          "find",
-          "mkdir"
-        ],
+        "relatedCommands": ["rmdir", "cp", "mv", "find", "mkdir"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -879,34 +600,16 @@
       "slug": "rmdir",
       "name": "rmdir",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "rmdir",
         "name": "rmdir",
-        "aliases": [
-          "remove directory"
-        ],
+        "aliases": ["remove directory"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "file-system",
-          "directory",
-          "delete",
-          "safety"
-        ],
+        "tags": ["linux", "file-system", "directory", "delete", "safety"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "remove empty directory",
           "delete folder safely",
@@ -914,12 +617,7 @@
           "delete empty folders linux",
           "safely clean up directories"
         ],
-        "relatedCommands": [
-          "rm",
-          "mkdir",
-          "find",
-          "tree"
-        ],
+        "relatedCommands": ["rm", "mkdir", "find", "tree"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -930,7 +628,7 @@
       "slug": "tree",
       "name": "tree",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "tree",
         "name": "tree",
@@ -945,16 +643,8 @@
           "hierarchy"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list directory structure visually",
           "show nested folders tree",
@@ -962,17 +652,8 @@
           "print directory tree format",
           "list all files recursively visual"
         ],
-        "relatedCommands": [
-          "ls",
-          "find",
-          "pwd",
-          "rmdir"
-        ],
-        "alternatives": [
-          "find",
-          "du",
-          "ls"
-        ],
+        "relatedCommands": ["ls", "find", "pwd", "rmdir"],
+        "alternatives": ["find", "du", "ls"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -982,13 +663,11 @@
       "slug": "tune2fs",
       "name": "tune2fs",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "tune2fs",
         "name": "tune2fs",
-        "aliases": [
-          "ext4 tuning"
-        ],
+        "aliases": ["ext4 tuning"],
         "category": "file-systems",
         "tags": [
           "linux",
@@ -999,14 +678,8 @@
           "system-administration"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "adjust ext4 filesystem parameters",
           "change reserved disk space linux",
@@ -1014,9 +687,7 @@
           "set filesystem volume label",
           "view ext4 superblock data"
         ],
-        "relatedCommands": [
-          "fsck"
-        ],
+        "relatedCommands": ["fsck"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -1027,32 +698,16 @@
       "slug": "umount",
       "name": "umount",
       "category": "file-systems",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "umount",
         "name": "umount",
-        "aliases": [
-          "unmount"
-        ],
+        "aliases": ["unmount"],
         "category": "file-systems",
-        "tags": [
-          "linux",
-          "storage",
-          "filesystem",
-          "detach",
-          "disk"
-        ],
+        "tags": ["linux", "storage", "filesystem", "detach", "disk"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "unmount a disk linux",
           "safely eject usb drive",
@@ -1060,11 +715,7 @@
           "force unmount busy directory",
           "unmount filesystem mount point"
         ],
-        "relatedCommands": [
-          "mount",
-          "lsof",
-          "lsblk"
-        ],
+        "relatedCommands": ["mount", "lsof", "lsblk"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

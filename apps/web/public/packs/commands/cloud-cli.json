@@ -5,7 +5,7 @@
       "slug": "aws-configure",
       "name": "aws configure",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-configure",
         "name": "aws configure",
@@ -19,18 +19,8 @@
           "configuration"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "configure aws credentials",
           "setup aws cli",
@@ -57,33 +47,16 @@
       "slug": "aws-ec2-describe-instances",
       "name": "aws ec2 describe-instances",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-ec2-describe-instances",
         "name": "aws ec2 describe-instances",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "aws",
-          "cloud",
-          "ec2",
-          "compute",
-          "instances",
-          "listing"
-        ],
+        "tags": ["aws", "cloud", "ec2", "compute", "instances", "listing"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "list aws ec2 instances",
           "describe ec2 instances",
@@ -106,33 +79,16 @@
       "slug": "aws-ec2-run-instances",
       "name": "aws ec2 run-instances",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-ec2-run-instances",
         "name": "aws ec2 run-instances",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "aws",
-          "cloud",
-          "ec2",
-          "compute",
-          "provisioning",
-          "instances"
-        ],
+        "tags": ["aws", "cloud", "ec2", "compute", "provisioning", "instances"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "launch aws ec2 instance",
           "create ec2 server",
@@ -155,7 +111,7 @@
       "slug": "aws-eks-update-kubeconfig",
       "name": "aws eks update-kubeconfig",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-eks-update-kubeconfig",
         "name": "aws eks update-kubeconfig",
@@ -170,19 +126,8 @@
           "containers"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "connect to eks cluster",
           "generate kubeconfig for aws eks",
@@ -190,9 +135,7 @@
           "authenticate kubectl to aws",
           "add eks cluster to local kubeconfig"
         ],
-        "relatedCommands": [
-          "aws-sts-get-caller-identity"
-        ],
+        "relatedCommands": ["aws-sts-get-caller-identity"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -203,7 +146,7 @@
       "slug": "aws-iam-get-user",
       "name": "aws iam get-user",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-iam-get-user",
         "name": "aws iam get-user",
@@ -218,19 +161,8 @@
           "authentication"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "get current aws user",
           "check aws identity",
@@ -238,13 +170,8 @@
           "get aws user details",
           "who am i aws"
         ],
-        "relatedCommands": [
-          "aws-sts-get-caller-identity",
-          "aws-configure"
-        ],
-        "alternatives": [
-          "aws-sts-get-caller-identity"
-        ],
+        "relatedCommands": ["aws-sts-get-caller-identity", "aws-configure"],
+        "alternatives": ["aws-sts-get-caller-identity"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -254,33 +181,16 @@
       "slug": "aws-logs-tail",
       "name": "aws logs tail",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-logs-tail",
         "name": "aws logs tail",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "aws",
-          "cloud",
-          "cloudwatch",
-          "logs",
-          "tail",
-          "monitoring"
-        ],
+        "tags": ["aws", "cloud", "cloudwatch", "logs", "tail", "monitoring"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "tail cloudwatch logs from terminal",
           "stream aws log group live",
@@ -288,9 +198,7 @@
           "follow aws logs in real time",
           "read cloudwatch log stream cli"
         ],
-        "relatedCommands": [
-          "aws-configure"
-        ],
+        "relatedCommands": ["aws-configure"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -301,7 +209,7 @@
       "slug": "aws-s3-cp",
       "name": "aws s3 cp",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-s3-cp",
         "name": "aws s3 cp",
@@ -316,19 +224,8 @@
           "cloud"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "upload file to s3 bucket",
           "download object from s3",
@@ -336,13 +233,8 @@
           "transfer local directory to s3",
           "move file to aws storage"
         ],
-        "relatedCommands": [
-          "aws-s3-sync",
-          "aws-s3-ls"
-        ],
-        "alternatives": [
-          "aws-s3-sync"
-        ],
+        "relatedCommands": ["aws-s3-sync", "aws-s3-ls"],
+        "alternatives": ["aws-s3-sync"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -352,33 +244,16 @@
       "slug": "aws-s3-ls",
       "name": "aws s3 ls",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-s3-ls",
         "name": "aws s3 ls",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "aws",
-          "cloud",
-          "s3",
-          "storage",
-          "listing",
-          "object-storage"
-        ],
+        "tags": ["aws", "cloud", "s3", "storage", "listing", "object-storage"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "list s3 buckets",
           "list files in s3 bucket",
@@ -402,7 +277,7 @@
       "slug": "aws-s3-sync",
       "name": "aws s3 sync",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-s3-sync",
         "name": "aws s3 sync",
@@ -418,19 +293,8 @@
           "synchronization"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "sync local folder to s3 bucket",
           "mirror directory to aws s3",
@@ -438,13 +302,8 @@
           "backup local files to s3",
           "synchronize two s3 buckets"
         ],
-        "relatedCommands": [
-          "aws-s3-cp",
-          "aws-s3-ls"
-        ],
-        "alternatives": [
-          "aws-s3-cp"
-        ],
+        "relatedCommands": ["aws-s3-cp", "aws-s3-ls"],
+        "alternatives": ["aws-s3-cp"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -454,7 +313,7 @@
       "slug": "aws-sts-get-caller-identity",
       "name": "aws sts get-caller-identity",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "aws-sts-get-caller-identity",
         "name": "aws sts get-caller-identity",
@@ -469,18 +328,8 @@
           "security"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "check current aws identity",
           "who am i in aws",
@@ -496,9 +345,7 @@
           "aws-s3-ls",
           "aws-ec2-run-instances"
         ],
-        "alternatives": [
-          "aws-iam-get-user"
-        ],
+        "alternatives": ["aws-iam-get-user"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -508,37 +355,18 @@
       "slug": "aws",
       "name": "aws",
       "category": "cloud-cli",
-      "contentVersion": 5,
+      "contentVersion": 6,
       "frontmatter": {
         "slug": "aws",
         "name": "aws",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "aws",
-          "cloud",
-          "cli"
-        ],
+        "tags": ["aws", "cloud", "cli"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
-        "intentPhrases": [
-          "manage aws cloud resources",
-          "aws s3 sync files"
-        ],
-        "relatedCommands": [
-          "aws-configure"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
+        "intentPhrases": ["manage aws cloud resources", "aws s3 sync files"],
+        "relatedCommands": ["aws-configure"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -549,7 +377,7 @@
       "slug": "az-account-list",
       "name": "az account list",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-account-list",
         "name": "az account list",
@@ -564,18 +392,8 @@
           "management"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "list azure subscriptions",
           "show all azure accounts",
@@ -583,13 +401,8 @@
           "find azure subscription id",
           "view available azure tenants"
         ],
-        "relatedCommands": [
-          "az-account-set",
-          "az-login"
-        ],
-        "alternatives": [
-          "az-login"
-        ],
+        "relatedCommands": ["az-account-set", "az-login"],
+        "alternatives": ["az-login"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -599,7 +412,7 @@
       "slug": "az-account-set",
       "name": "az account set",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-account-set",
         "name": "az account set",
@@ -614,18 +427,8 @@
           "management"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "set active azure subscription",
           "change current subscription az cli",
@@ -639,9 +442,7 @@
           "az-vm-create",
           "az-webapp-up"
         ],
-        "alternatives": [
-          "az-login"
-        ],
+        "alternatives": ["az-login"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -651,7 +452,7 @@
       "slug": "az-aks-get-credentials",
       "name": "az aks get-credentials",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-aks-get-credentials",
         "name": "az aks get-credentials",
@@ -667,18 +468,8 @@
           "arm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "connect to aks cluster",
           "generate kubeconfig for azure aks",
@@ -686,9 +477,7 @@
           "authenticate kubectl to azure",
           "add aks cluster to local kubeconfig"
         ],
-        "relatedCommands": [
-          "az-login"
-        ],
+        "relatedCommands": ["az-login"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -699,7 +488,7 @@
       "slug": "az-deployment-group-create",
       "name": "az deployment group create",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-deployment-group-create",
         "name": "az deployment group create",
@@ -715,19 +504,8 @@
           "automation"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "deploy bicep file to azure",
           "run arm template deployment",
@@ -735,9 +513,7 @@
           "deploy azure resources to resource group",
           "execute what-if deployment azure"
         ],
-        "relatedCommands": [
-          "az-group-create"
-        ],
+        "relatedCommands": ["az-group-create"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -764,19 +540,8 @@
           "configuration"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "update azure function app properties",
           "change function app service plan",
@@ -795,7 +560,7 @@
       "slug": "az-group-create",
       "name": "az group create",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-group-create",
         "name": "az group create",
@@ -810,19 +575,8 @@
           "arm"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "create an azure resource group",
           "make a new resource group in azure",
@@ -845,7 +599,7 @@
       "slug": "az-login",
       "name": "az login",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-login",
         "name": "az login",
@@ -860,18 +614,8 @@
           "identity"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "authenticate to azure",
           "login to azure cli",
@@ -886,10 +630,7 @@
           "az-storage-blob-upload",
           "az-webapp-up"
         ],
-        "alternatives": [
-          "az-account-list",
-          "az-account-set"
-        ],
+        "alternatives": ["az-account-list", "az-account-set"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -899,33 +640,16 @@
       "slug": "az-storage-blob-upload",
       "name": "az storage blob upload",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-storage-blob-upload",
         "name": "az storage blob upload",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "azure",
-          "cloud",
-          "storage",
-          "blob",
-          "upload",
-          "transfer"
-        ],
+        "tags": ["azure", "cloud", "storage", "blob", "upload", "transfer"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "upload file to azure blob storage",
           "upload local file to azure container",
@@ -933,12 +657,8 @@
           "put blob azure storage",
           "send backup to azure container"
         ],
-        "relatedCommands": [
-          "az-login"
-        ],
-        "alternatives": [
-          "az-webapp-up"
-        ],
+        "relatedCommands": ["az-login"],
+        "alternatives": ["az-webapp-up"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -948,7 +668,7 @@
       "slug": "az-vm-create",
       "name": "az vm create",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-vm-create",
         "name": "az vm create",
@@ -963,18 +683,8 @@
           "provisioning"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "create azure virtual machine",
           "provision azure vm cli",
@@ -982,10 +692,7 @@
           "start new azure vm",
           "launch azure virtual machine"
         ],
-        "relatedCommands": [
-          "az-account-set",
-          "az-group-create"
-        ],
+        "relatedCommands": ["az-account-set", "az-group-create"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -996,32 +703,16 @@
       "slug": "az-webapp-up",
       "name": "az webapp up",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "az-webapp-up",
         "name": "az webapp up",
         "aliases": [],
         "category": "cloud-cli",
-        "tags": [
-          "azure",
-          "cloud",
-          "webapp",
-          "app-service",
-          "deployment"
-        ],
+        "tags": ["azure", "cloud", "webapp", "app-service", "deployment"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "deploy app to azure web app",
           "create and deploy azure webapp",
@@ -1029,14 +720,8 @@
           "deploy web app from directory azure cli",
           "quick azure webapp deployment"
         ],
-        "relatedCommands": [
-          "az-group-create",
-          "az-account-set",
-          "az-login"
-        ],
-        "alternatives": [
-          "az-storage-blob-upload"
-        ],
+        "relatedCommands": ["az-group-create", "az-account-set", "az-login"],
+        "alternatives": ["az-storage-blob-upload"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1046,7 +731,7 @@
       "slug": "gcloud-app-deploy",
       "name": "gcloud app deploy",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-app-deploy",
         "name": "gcloud app deploy",
@@ -1061,18 +746,8 @@
           "paas"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "deploy app engine application gcp",
           "publish app engine app cli",
@@ -1081,9 +756,7 @@
           "deploy nodejs app to app engine"
         ],
         "relatedCommands": [],
-        "alternatives": [
-          "gcloud-functions-deploy"
-        ],
+        "alternatives": ["gcloud-functions-deploy"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1093,7 +766,7 @@
       "slug": "gcloud-auth-login",
       "name": "gcloud auth login",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-auth-login",
         "name": "gcloud auth login",
@@ -1108,18 +781,8 @@
           "oauth"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "authenticate to google cloud",
           "login to gcp cli",
@@ -1127,9 +790,7 @@
           "setup gcloud credentials",
           "authorize gcloud access"
         ],
-        "relatedCommands": [
-          "gcloud-container-clusters-get-credentials"
-        ],
+        "relatedCommands": ["gcloud-container-clusters-get-credentials"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -1140,7 +801,7 @@
       "slug": "gcloud-compute-instances-list",
       "name": "gcloud compute instances list",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-compute-instances-list",
         "name": "gcloud compute instances list",
@@ -1155,18 +816,8 @@
           "gcloud"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "list all gcp vms",
           "show compute engine instances",
@@ -1174,9 +825,7 @@
           "find virtual machine status google cloud",
           "list vms by label gcloud"
         ],
-        "relatedCommands": [
-          "gcloud-compute-ssh"
-        ],
+        "relatedCommands": ["gcloud-compute-ssh"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -1187,7 +836,7 @@
       "slug": "gcloud-compute-ssh",
       "name": "gcloud compute ssh",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-compute-ssh",
         "name": "gcloud compute ssh",
@@ -1204,18 +853,8 @@
           "gcloud"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "ssh into gcp vm",
           "connect to compute engine instance",
@@ -1223,13 +862,8 @@
           "tunnel ssh via iap",
           "access internal gcp vm"
         ],
-        "relatedCommands": [
-          "gcloud-compute-instances-list",
-          "ssh"
-        ],
-        "alternatives": [
-          "ssh"
-        ],
+        "relatedCommands": ["gcloud-compute-instances-list", "ssh"],
+        "alternatives": ["ssh"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1254,18 +888,8 @@
           "gcloud"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "set default gcp project",
           "change gcloud region",
@@ -1284,7 +908,7 @@
       "slug": "gcloud-container-clusters-get-credentials",
       "name": "gcloud container clusters get-credentials",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-container-clusters-get-credentials",
         "name": "gcloud container clusters get-credentials",
@@ -1300,18 +924,8 @@
           "gcloud"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "connect to gke cluster",
           "generate kubeconfig for google kubernetes engine",
@@ -1319,9 +933,7 @@
           "authenticate kubectl to gke",
           "add gke cluster to local kubeconfig"
         ],
-        "relatedCommands": [
-          "gcloud-auth-login"
-        ],
+        "relatedCommands": ["gcloud-auth-login"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -1332,7 +944,7 @@
       "slug": "gcloud-functions-deploy",
       "name": "gcloud functions deploy",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-functions-deploy",
         "name": "gcloud functions deploy",
@@ -1347,18 +959,8 @@
           "deployment"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "deploy google cloud function",
           "publish serverless function gcp",
@@ -1367,9 +969,7 @@
           "deploy nodejs function gcloud"
         ],
         "relatedCommands": [],
-        "alternatives": [
-          "gcloud-app-deploy"
-        ],
+        "alternatives": ["gcloud-app-deploy"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1394,18 +994,8 @@
           "cloud"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "create gcp service account",
           "provision service account gcloud",
@@ -1424,7 +1014,7 @@
       "slug": "gcloud-storage-cp",
       "name": "gcloud storage cp",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-storage-cp",
         "name": "gcloud storage cp",
@@ -1440,18 +1030,8 @@
           "transfer"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "copy file to google cloud storage",
           "upload file to gcs bucket",
@@ -1459,9 +1039,7 @@
           "transfer files between gcs buckets",
           "copy directory to cloud storage cli"
         ],
-        "relatedCommands": [
-          "gcloud-storage-ls"
-        ],
+        "relatedCommands": ["gcloud-storage-ls"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -1472,7 +1050,7 @@
       "slug": "gcloud-storage-ls",
       "name": "gcloud storage ls",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-storage-ls",
         "name": "gcloud storage ls",
@@ -1487,18 +1065,8 @@
           "listing"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "list google cloud storage buckets",
           "list files in gcs bucket",
@@ -1506,9 +1074,7 @@
           "check gcs storage objects",
           "find gcs bucket objects cli"
         ],
-        "relatedCommands": [
-          "gcloud-storage-cp"
-        ],
+        "relatedCommands": ["gcloud-storage-cp"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

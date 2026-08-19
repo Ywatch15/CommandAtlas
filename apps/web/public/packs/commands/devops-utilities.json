@@ -20,16 +20,8 @@
           "sharing"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "install ansible roles",
           "manage ansible collections",
@@ -62,16 +54,8 @@
           "yaml"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "run an ansible playbook",
           "execute yaml automation tasks",
@@ -105,16 +89,8 @@
           "credentials"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "encrypt ansible secret files",
           "decrypt sensitive yaml data",
@@ -133,7 +109,7 @@
       "slug": "ansible",
       "name": "ansible",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "ansible",
         "name": "ansible",
@@ -147,16 +123,8 @@
           "orchestration"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "run ad-hoc ansible command",
           "test connectivity inventory hosts",
@@ -164,10 +132,7 @@
           "execute adhoc shell module",
           "manage nodes without playbook"
         ],
-        "relatedCommands": [
-          "packer",
-          "vagrant"
-        ],
+        "relatedCommands": ["packer", "vagrant"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -178,7 +143,7 @@
       "slug": "helm-install",
       "name": "helm install",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "helm-install",
         "name": "helm install",
@@ -193,18 +158,8 @@
           "containers"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "deploy helm chart kubernetes",
           "install helm release",
@@ -212,12 +167,8 @@
           "install chart cluster",
           "create new helm release"
         ],
-        "relatedCommands": [
-          "kubectl-apply"
-        ],
-        "alternatives": [
-          "kubectl-apply"
-        ],
+        "relatedCommands": ["kubectl-apply"],
+        "alternatives": ["kubectl-apply"],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -231,9 +182,7 @@
       "frontmatter": {
         "slug": "helm-list",
         "name": "helm list",
-        "aliases": [
-          "helm ls"
-        ],
+        "aliases": ["helm ls"],
         "category": "devops-utilities",
         "tags": [
           "helm",
@@ -244,18 +193,8 @@
           "audit"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "list deployed helm releases",
           "show helm charts in cluster",
@@ -289,17 +228,8 @@
           "registry"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "add helm chart repository",
           "register helm repo url",
@@ -318,7 +248,7 @@
       "slug": "helm-rollback",
       "name": "helm rollback",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "helm-rollback",
         "name": "helm rollback",
@@ -333,17 +263,8 @@
           "recovery"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "rollback helm release kubernetes",
           "revert helm deployment to previous version",
@@ -351,12 +272,8 @@
           "restore previous helm revision",
           "rollback release cluster"
         ],
-        "relatedCommands": [
-          "kubectl-rollout"
-        ],
-        "alternatives": [
-          "kubectl-rollout"
-        ],
+        "relatedCommands": ["kubectl-rollout"],
+        "alternatives": ["kubectl-rollout"],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -366,7 +283,7 @@
       "slug": "helm-upgrade",
       "name": "helm upgrade",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "helm-upgrade",
         "name": "helm upgrade",
@@ -381,18 +298,8 @@
           "release"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "upgrade helm release kubernetes",
           "update helm chart deployment",
@@ -400,12 +307,8 @@
           "upgrade application version helm",
           "apply chart changes helm"
         ],
-        "relatedCommands": [
-          "kubectl-rollout"
-        ],
-        "alternatives": [
-          "kubectl-rollout"
-        ],
+        "relatedCommands": ["kubectl-rollout"],
+        "alternatives": ["kubectl-rollout"],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -415,7 +318,7 @@
       "slug": "jq",
       "name": "jq",
       "category": "devops-utilities",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "jq",
         "name": "jq",
@@ -430,19 +333,8 @@
           "devops"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "parse json in bash",
           "extract value from json file",
@@ -459,10 +351,7 @@
           "docker-inspect",
           "kubectl-api-resources"
         ],
-        "alternatives": [
-          "yq",
-          "kubectl-api-resources"
-        ],
+        "alternatives": ["yq", "kubectl-api-resources"],
         "status": "published",
         "usedInWorkflows": []
       },
@@ -472,7 +361,7 @@
       "slug": "packer",
       "name": "packer",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "packer",
         "name": "packer",
@@ -487,18 +376,8 @@
           "hashicorp"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "build machine image",
           "create aws ami automatically",
@@ -506,10 +385,7 @@
           "provision vm template",
           "build multiple vm images at once"
         ],
-        "relatedCommands": [
-          "vagrant",
-          "ansible"
-        ],
+        "relatedCommands": ["vagrant", "ansible"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -520,7 +396,7 @@
       "slug": "terraform-apply",
       "name": "terraform apply",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "terraform-apply",
         "name": "terraform apply",
@@ -535,18 +411,8 @@
           "execution"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "execute terraform plan",
           "deploy terraform infrastructure",
@@ -569,7 +435,7 @@
       "slug": "terraform-destroy",
       "name": "terraform destroy",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "terraform-destroy",
         "name": "terraform destroy",
@@ -584,18 +450,8 @@
           "state"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "delete all terraform resources",
           "tear down terraform infrastructure",
@@ -603,10 +459,7 @@
           "destroy specific terraform resource",
           "clean up terraform environment"
         ],
-        "relatedCommands": [
-          "terraform-apply",
-          "terraform-plan"
-        ],
+        "relatedCommands": ["terraform-apply", "terraform-plan"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -617,7 +470,7 @@
       "slug": "terraform-init",
       "name": "terraform init",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "terraform-init",
         "name": "terraform init",
@@ -632,18 +485,8 @@
           "backend"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "initialize terraform working directory",
           "download terraform providers",
@@ -651,10 +494,7 @@
           "install terraform modules",
           "prepare terraform project"
         ],
-        "relatedCommands": [
-          "terraform-plan",
-          "terraform-apply"
-        ],
+        "relatedCommands": ["terraform-plan", "terraform-apply"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -665,7 +505,7 @@
       "slug": "terraform-plan",
       "name": "terraform plan",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "terraform-plan",
         "name": "terraform plan",
@@ -680,18 +520,8 @@
           "dry-run"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "preview terraform changes",
           "create execution plan terraform",
@@ -715,7 +545,7 @@
       "slug": "terraform-state-list",
       "name": "terraform state list",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "terraform-state-list",
         "name": "terraform state list",
@@ -730,18 +560,8 @@
           "auditing"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "list resources in terraform state",
           "show tracked terraform resources",
@@ -749,9 +569,7 @@
           "view tfstate contents",
           "find module addresses in state"
         ],
-        "relatedCommands": [
-          "terraform-plan"
-        ],
+        "relatedCommands": ["terraform-plan"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -762,7 +580,7 @@
       "slug": "vagrant",
       "name": "vagrant",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "vagrant",
         "name": "vagrant",
@@ -776,18 +594,8 @@
           "hashicorp"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd"],
         "intentPhrases": [
           "start local virtual machine",
           "manage vagrant environment",
@@ -795,10 +603,7 @@
           "provision local dev environment",
           "stop running vagrant vm"
         ],
-        "relatedCommands": [
-          "packer",
-          "ansible"
-        ],
+        "relatedCommands": ["packer", "ansible"],
         "alternatives": [],
         "status": "published",
         "usedInWorkflows": []
@@ -809,7 +614,7 @@
       "slug": "yq",
       "name": "yq",
       "category": "devops-utilities",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "yq",
         "name": "yq",
@@ -824,19 +629,8 @@
           "devops"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "parse yaml in bash",
           "extract value from yaml file",
@@ -844,14 +638,8 @@
           "convert yaml to json",
           "modify yaml inline"
         ],
-        "relatedCommands": [
-          "jq",
-          "sed"
-        ],
-        "alternatives": [
-          "jq",
-          "sed"
-        ],
+        "relatedCommands": ["jq", "sed"],
+        "alternatives": ["jq", "sed"],
         "status": "published",
         "usedInWorkflows": []
       },

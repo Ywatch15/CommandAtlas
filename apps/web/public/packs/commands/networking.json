@@ -5,7 +5,7 @@
       "slug": "arp",
       "name": "arp",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "arp",
         "name": "arp",
@@ -19,19 +19,8 @@
           "troubleshooting"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "view mac address cache",
           "manipulate arp table",
@@ -39,10 +28,7 @@
           "clear arp cache",
           "add static arp entry"
         ],
-        "relatedCommands": [
-          "ping",
-          "ifconfig"
-        ],
+        "relatedCommands": ["ping", "ifconfig", "nmap"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -53,13 +39,11 @@
       "slug": "curl",
       "name": "curl",
       "category": "networking",
-      "contentVersion": 6,
+      "contentVersion": 8,
       "frontmatter": {
         "slug": "curl",
         "name": "curl",
-        "aliases": [
-          "cURL"
-        ],
+        "aliases": ["cURL"],
         "category": "networking",
         "tags": [
           "http",
@@ -70,19 +54,8 @@
           "debugging"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "make an http request",
           "download a file from url",
@@ -93,11 +66,12 @@
         "relatedCommands": [
           "wget",
           "ping",
-          "dig"
+          "dig",
+          "brew",
+          "jq",
+          "kubectl-api-resources"
         ],
-        "alternatives": [
-          "wget"
-        ],
+        "alternatives": ["wget", "kubectl-api-resources"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -107,35 +81,16 @@
       "slug": "dig",
       "name": "dig",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "dig",
         "name": "dig",
-        "aliases": [
-          "domain information groper"
-        ],
+        "aliases": ["domain information groper"],
         "category": "networking",
-        "tags": [
-          "dns",
-          "networking",
-          "troubleshooting",
-          "nslookup",
-          "bind"
-        ],
+        "tags": ["dns", "networking", "troubleshooting", "nslookup", "bind"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "query dns records",
           "check mx records",
@@ -143,16 +98,8 @@
           "trace dns propagation",
           "query specific nameserver"
         ],
-        "relatedCommands": [
-          "host",
-          "nslookup",
-          "ping",
-          "whois"
-        ],
-        "alternatives": [
-          "host",
-          "nslookup"
-        ],
+        "relatedCommands": ["host", "nslookup", "ping", "whois", "curl"],
+        "alternatives": ["host", "nslookup"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -177,14 +124,8 @@
           "offload"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "check network interface speed",
           "view nic hardware settings",
@@ -192,14 +133,8 @@
           "disable tso offloading",
           "blink network card led"
         ],
-        "relatedCommands": [
-          "ip",
-          "ifconfig",
-          "tcpdump"
-        ],
-        "alternatives": [
-          "ip"
-        ],
+        "relatedCommands": ["ip", "ifconfig", "tcpdump"],
+        "alternatives": ["ip"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -224,14 +159,8 @@
           "firewalld"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "open port in firewalld",
           "manage linux firewall",
@@ -239,15 +168,8 @@
           "allow service through firewall",
           "check active firewall zones"
         ],
-        "relatedCommands": [
-          "iptables",
-          "ufw",
-          "systemctl"
-        ],
-        "alternatives": [
-          "iptables",
-          "ufw"
-        ],
+        "relatedCommands": ["iptables", "ufw", "systemctl"],
+        "alternatives": ["iptables", "ufw"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -263,24 +185,10 @@
         "name": "host",
         "aliases": [],
         "category": "networking",
-        "tags": [
-          "dns",
-          "networking",
-          "troubleshooting",
-          "resolution",
-          "bind"
-        ],
+        "tags": ["dns", "networking", "troubleshooting", "resolution", "bind"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "perform simple dns lookup",
           "resolve hostname to ip",
@@ -288,16 +196,8 @@
           "check reverse dns",
           "query a nameserver directly"
         ],
-        "relatedCommands": [
-          "dig",
-          "nslookup",
-          "ping",
-          "whois"
-        ],
-        "alternatives": [
-          "dig",
-          "nslookup"
-        ],
+        "relatedCommands": ["dig", "nslookup", "ping", "whois"],
+        "alternatives": ["dig", "nslookup"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -313,23 +213,10 @@
         "name": "hostname",
         "aliases": [],
         "category": "networking",
-        "tags": [
-          "linux",
-          "networking",
-          "system-identity",
-          "configuration"
-        ],
+        "tags": ["linux", "networking", "system-identity", "configuration"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "show computer name",
           "set linux hostname",
@@ -337,10 +224,7 @@
           "display fully qualified domain name",
           "check system identity"
         ],
-        "relatedCommands": [
-          "ifconfig",
-          "ip"
-        ],
+        "relatedCommands": ["ifconfig", "ip"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -351,32 +235,16 @@
       "slug": "ifconfig",
       "name": "ifconfig",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "ifconfig",
         "name": "ifconfig",
-        "aliases": [
-          "interface configuration"
-        ],
+        "aliases": ["interface configuration"],
         "category": "networking",
-        "tags": [
-          "linux",
-          "networking",
-          "interfaces",
-          "ip-address",
-          "legacy"
-        ],
+        "tags": ["linux", "networking", "interfaces", "ip-address", "legacy"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "show ip address",
           "configure network interface",
@@ -388,11 +256,12 @@
           "ip",
           "route",
           "netstat",
-          "ethtool"
+          "ethtool",
+          "arp",
+          "hostname",
+          "iwconfig"
         ],
-        "alternatives": [
-          "ip"
-        ],
+        "alternatives": ["ip"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -402,31 +271,16 @@
       "slug": "ip",
       "name": "ip",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "ip",
         "name": "ip",
-        "aliases": [
-          "ifconfig",
-          "route"
-        ],
+        "aliases": ["ifconfig", "route"],
         "category": "networking",
-        "tags": [
-          "linux",
-          "networking",
-          "routing",
-          "interfaces",
-          "iproute2"
-        ],
+        "tags": ["linux", "networking", "routing", "interfaces", "iproute2"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "show ip addresses linux",
           "manage routing tables",
@@ -439,13 +293,19 @@
           "ss",
           "ping",
           "iptables",
-          "mtr"
-        ],
-        "alternatives": [
+          "mtr",
+          "ethtool",
+          "hostname",
           "ifconfig",
+          "iw",
+          "iwconfig",
+          "nc",
+          "nmcli",
           "route",
-          "nmcli"
+          "tcpdump",
+          "traceroute"
         ],
+        "alternatives": ["ifconfig", "route", "nmcli", "ethtool", "netstat"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -455,7 +315,7 @@
       "slug": "iptables",
       "name": "iptables",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "iptables",
         "name": "iptables",
@@ -470,14 +330,8 @@
           "netfilter"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "configure linux firewall",
           "block ip address iptables",
@@ -485,14 +339,8 @@
           "setup network address translation nat",
           "list active firewall rules"
         ],
-        "relatedCommands": [
-          "ip",
-          "netstat",
-          "ufw"
-        ],
-        "alternatives": [
-          "ufw"
-        ],
+        "relatedCommands": ["ip", "netstat", "ufw", "firewall-cmd"],
+        "alternatives": ["ufw", "firewall-cmd"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -508,22 +356,10 @@
         "name": "iw",
         "aliases": [],
         "category": "networking",
-        "tags": [
-          "linux",
-          "networking",
-          "wireless",
-          "wifi",
-          "nl80211"
-        ],
+        "tags": ["linux", "networking", "wireless", "wifi", "nl80211"],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "configure wireless interface linux",
           "scan for wifi networks",
@@ -531,15 +367,8 @@
           "setup ibss ad-hoc network",
           "view wifi interface details"
         ],
-        "relatedCommands": [
-          "iwconfig",
-          "ip",
-          "nmcli"
-        ],
-        "alternatives": [
-          "nmcli",
-          "iwconfig"
-        ],
+        "relatedCommands": ["iwconfig", "ip", "nmcli"],
+        "alternatives": ["nmcli", "iwconfig"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -555,23 +384,10 @@
         "name": "iwconfig",
         "aliases": [],
         "category": "networking",
-        "tags": [
-          "linux",
-          "networking",
-          "wireless",
-          "wifi",
-          "wext",
-          "legacy"
-        ],
+        "tags": ["linux", "networking", "wireless", "wifi", "wext", "legacy"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "configure wireless interface legacy linux",
           "check wifi signal quality iwconfig",
@@ -579,15 +395,8 @@
           "change wifi frequency iwconfig",
           "disable power management wifi"
         ],
-        "relatedCommands": [
-          "iw",
-          "ifconfig",
-          "ip"
-        ],
-        "alternatives": [
-          "iw",
-          "nmcli"
-        ],
+        "relatedCommands": ["iw", "ifconfig", "ip"],
+        "alternatives": ["iw", "nmcli"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -597,13 +406,11 @@
       "slug": "mtr",
       "name": "mtr",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "mtr",
         "name": "mtr",
-        "aliases": [
-          "my traceroute"
-        ],
+        "aliases": ["my traceroute"],
         "category": "networking",
         "tags": [
           "linux",
@@ -614,16 +421,8 @@
           "latency"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "run mtr network test",
           "trace route with latency mapping",
@@ -635,12 +434,12 @@
           "ping",
           "traceroute",
           "nmap",
-          "netstat"
+          "netstat",
+          "ip",
+          "nc",
+          "nslookup"
         ],
-        "alternatives": [
-          "traceroute",
-          "ping"
-        ],
+        "alternatives": ["traceroute", "ping"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -650,13 +449,11 @@
       "slug": "nc",
       "name": "nc",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "nc",
         "name": "nc",
-        "aliases": [
-          "netcat"
-        ],
+        "aliases": ["netcat"],
         "category": "networking",
         "tags": [
           "linux",
@@ -667,18 +464,8 @@
           "security"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "check if port is open netcat",
           "read and write over network sockets",
@@ -686,11 +473,7 @@
           "setup simple tcp listener",
           "test udp connection nc"
         ],
-        "relatedCommands": [
-          "nmap",
-          "mtr",
-          "ip"
-        ],
+        "relatedCommands": ["nmap", "mtr", "ip", "nslookup", "ping", "ss"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -701,7 +484,7 @@
       "slug": "netstat",
       "name": "netstat",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "netstat",
         "name": "netstat",
@@ -716,16 +499,8 @@
           "legacy"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list active network connections",
           "show listening ports linux",
@@ -738,12 +513,13 @@
           "lsof",
           "ip",
           "ifconfig",
-          "route"
+          "route",
+          "iptables",
+          "mtr",
+          "nmcli",
+          "tcpdump"
         ],
-        "alternatives": [
-          "ss",
-          "ip"
-        ],
+        "alternatives": ["ss", "ip", "route"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -753,13 +529,11 @@
       "slug": "nmap",
       "name": "nmap",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "nmap",
         "name": "nmap",
-        "aliases": [
-          "network mapper"
-        ],
+        "aliases": ["network mapper"],
         "category": "networking",
         "tags": [
           "security",
@@ -770,18 +544,8 @@
           "diagnostics"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "scan network for open ports",
           "discover hosts on subnet",
@@ -789,13 +553,7 @@
           "detect service versions nmap",
           "run vulnerability scan nmap"
         ],
-        "relatedCommands": [
-          "nc",
-          "mtr",
-          "ping",
-          "tcpdump",
-          "arp"
-        ],
+        "relatedCommands": ["nc", "mtr", "ping", "tcpdump", "arp", "ss"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -806,7 +564,7 @@
       "slug": "nmcli",
       "name": "nmcli",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "nmcli",
         "name": "nmcli",
@@ -820,14 +578,8 @@
           "interfaces"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "configure network interface linux",
           "connect to wifi command line",
@@ -835,15 +587,8 @@
           "manage networkmanager connections",
           "restart network interface"
         ],
-        "relatedCommands": [
-          "ip",
-          "ping",
-          "netstat",
-          "systemctl"
-        ],
-        "alternatives": [
-          "ip"
-        ],
+        "relatedCommands": ["ip", "ping", "netstat", "systemctl", "iw"],
+        "alternatives": ["ip", "iw", "iwconfig"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -853,34 +598,16 @@
       "slug": "nslookup",
       "name": "nslookup",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "nslookup",
         "name": "nslookup",
-        "aliases": [
-          "name server lookup"
-        ],
+        "aliases": ["name server lookup"],
         "category": "networking",
-        "tags": [
-          "networking",
-          "dns",
-          "troubleshooting",
-          "bind",
-          "lookup"
-        ],
+        "tags": ["networking", "dns", "troubleshooting", "bind", "lookup"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "find ip address of domain",
           "query dns records",
@@ -888,17 +615,8 @@
           "test specific dns server",
           "resolve hostname to ip"
         ],
-        "relatedCommands": [
-          "dig",
-          "host",
-          "ping",
-          "mtr",
-          "nc"
-        ],
-        "alternatives": [
-          "dig",
-          "host"
-        ],
+        "relatedCommands": ["dig", "host", "ping", "mtr", "nc", "whois"],
+        "alternatives": ["dig", "host"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -908,7 +626,7 @@
       "slug": "ping",
       "name": "ping",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "ping",
         "name": "ping",
@@ -922,18 +640,8 @@
           "connectivity"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "test internet connection ping",
           "check host reachability",
@@ -946,11 +654,17 @@
           "traceroute",
           "nc",
           "nmap",
-          "ip"
+          "ip",
+          "arp",
+          "curl",
+          "dig",
+          "host",
+          "nmcli",
+          "nslookup",
+          "route",
+          "tcpdump"
         ],
-        "alternatives": [
-          "mtr"
-        ],
+        "alternatives": ["mtr"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -975,16 +689,8 @@
           "sysadmin"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "show linux routing table",
           "add default gateway command line",
@@ -992,16 +698,8 @@
           "view ip routing",
           "configure static routes"
         ],
-        "relatedCommands": [
-          "ip",
-          "netstat",
-          "ifconfig",
-          "ping"
-        ],
-        "alternatives": [
-          "ip",
-          "netstat"
-        ],
+        "relatedCommands": ["ip", "netstat", "ifconfig", "ping"],
+        "alternatives": ["ip", "netstat"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1015,9 +713,7 @@
       "frontmatter": {
         "slug": "ss",
         "name": "ss",
-        "aliases": [
-          "socket statistics"
-        ],
+        "aliases": ["socket statistics"],
         "category": "networking",
         "tags": [
           "linux",
@@ -1028,14 +724,8 @@
           "netlink"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list active sockets linux",
           "find process using port ss",
@@ -1043,17 +733,8 @@
           "check tcp queue limits",
           "modern netstat replacement"
         ],
-        "relatedCommands": [
-          "netstat",
-          "ip",
-          "lsof",
-          "nmap",
-          "nc"
-        ],
-        "alternatives": [
-          "netstat",
-          "lsof"
-        ],
+        "relatedCommands": ["netstat", "ip", "lsof", "nmap", "nc"],
+        "alternatives": ["netstat", "lsof"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1063,7 +744,7 @@
       "slug": "tcpdump",
       "name": "tcpdump",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "tcpdump",
         "name": "tcpdump",
@@ -1078,16 +759,8 @@
           "security"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "capture network traffic",
           "sniff packets on interface",
@@ -1098,7 +771,10 @@
         "relatedCommands": [
           "ip",
           "ping",
-          "netstat"
+          "netstat",
+          "ethtool",
+          "nmap",
+          "traceroute"
         ],
         "alternatives": [],
         "status": "draft",
@@ -1114,31 +790,12 @@
       "frontmatter": {
         "slug": "traceroute",
         "name": "traceroute",
-        "aliases": [
-          "tracert"
-        ],
+        "aliases": ["tracert"],
         "category": "networking",
-        "tags": [
-          "linux",
-          "networking",
-          "troubleshooting",
-          "routing",
-          "icmp"
-        ],
+        "tags": ["linux", "networking", "troubleshooting", "routing", "icmp"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "trace network path",
           "find where packets are dropping",
@@ -1146,19 +803,12 @@
           "troubleshoot high latency",
           "trace route to server"
         ],
-        "relatedCommands": [
-          "ping",
-          "mtr",
-          "ip",
-          "tcpdump"
-        ],
-        "alternatives": [
-          "mtr"
-        ],
+        "relatedCommands": ["ping", "mtr", "ip", "tcpdump"],
+        "alternatives": ["mtr"],
         "status": "draft",
         "usedInWorkflows": []
       },
-      "body": "## What is it?\n`traceroute` is a network diagnostic tool used to map the exact pathway that IP packets take from a local computer to a specified destination host. It outputs a sequential list of all the intermediate routers (hops) traversed, along with round-trip latency measurements for each hop, providing crucial visibility into network topology and identifying exact points of failure or congestion.\n\n## Why does it exist?\nWhen a server is unreachable, `ping` only tells you *that* the connection failed. The internet is a massive web of interconnected, disparate networks (Autonomous Systems). A packet might traverse 15 different routers owned by 5 different companies to reach its destination. If a router in the middle is misconfigured or dropping packets, standard networking tools are blind to it. `traceroute` exists to expose this hidden infrastructure. By cleverly manipulating IP header constraints (specifically the Time-To-Live field), it coerces intermediate routers into revealing their identities, allowing engineers to pinpoint exactly which ISP or firewall is blackholing their traffic.\n\n## Syntax\n```bash\ntraceroute [options] host [packet_len]\n```\n\n## Flags\n\n| Flag | Description | Example |\n|---|---|---|\n| `-I`, `--icmp` | Uses ICMP ECHO requests (like `ping`) instead of the default UDP packets. Essential for traversing strict firewalls. | `traceroute -I google.com` |\n| `-T`, `--tcp` | Uses TCP SYN requests for probing. Highly effective for testing if a specific port (e.g., 443) is open through firewalls. | `traceroute -T -p 443 github.com` |\n| `-p <port>` | Defines the destination port to use. For UDP, it's the base port. For TCP, it's the exact target port being tested. | `traceroute -T -p 80 example.com` |\n| `-n` | Prints IP addresses numerically, completely bypassing reverse-DNS resolution. Drastically speeds up execution. | `traceroute -n 1.1.1.1` |\n| `-q <queries>`| Sets the number of probe packets sent per hop. Defaults to 3. Changing to 1 speeds up the trace significantly. | `traceroute -q 1 example.com` |\n| `-w <wait>` | Sets the time (in seconds) to wait for a response from a hop before giving up and printing an asterisk `*`. | `traceroute -w 2 google.com` |\n| `-m <max_ttl>`| Specifies the maximum number of hops (max Time-To-Live) to probe before giving up. Defaults to 30. | `traceroute -m 15 example.com` |\n| `-4`, `-6` | Forcefully restricts the trace to use IPv4 or IPv6 routing exclusively. | `traceroute -6 ipv6.google.com` |\n| `-i <device>` | Specifies the local network interface to send the trace packets through. | `traceroute -i eth1 target.com` |\n| `-f <first_ttl>`| Starts the trace at a specific hop distance instead of 1. Useful for bypassing known internal network topology. | `traceroute -f 5 google.com` |\n\n## Examples\n\n```bash\ntraceroute google.com\n```\n> The standard Linux invocation. Resolves `google.com`, then sends UDP packets with incrementing TTLs. It prints three latency measurements for every router it passes through until it reaches the final destination.\n\n```bash\ntraceroute -n 8.8.8.8\n```\n> The fast diagnostic trace. By skipping reverse-DNS lookups (`-n`), it immediately prints the IP addresses of intermediate routers, preventing the command from hanging while attempting to resolve the hostnames of obscure internet backbone routers.\n\n```bash\ntraceroute -I -q 1 example.com\n```\n> Bypasses restrictive firewalls. Many enterprise networks drop strange UDP packets but permit standard `ping` traffic. Using `-I` switches the probe to ICMP, and `-q 1` sends only a single probe per hop, completing the trace almost instantly.\n\n```bash\ntraceroute -T -p 443 github.com\n```\n> A surgical port-reachability test. Instead of arbitrary UDP/ICMP packets, it crafts a legitimate TCP SYN packet targeting port 443. This perfectly simulates standard HTTPS web traffic, bypassing firewalls that allow web traffic but block ICMP, while simultaneously mapping the route.\n\n## Real-World Scenarios\n\n**Identifying an ISP Routing Loop**\n```bash\ntraceroute -n 10.0.5.50\n# 4  192.168.100.1  2.1 ms\n# 5  192.168.100.2  2.5 ms\n# 6  192.168.100.1  2.8 ms\n# 7  192.168.100.2  3.1 ms\n```\n> A server is unreachable. An engineer runs a trace and notices the output bouncing back and forth endlessly between two specific IP addresses. This reveals a routing loop—two routers are misconfigured to point to each other as the next hop, trapping the packet in an infinite loop until its TTL expires.\n\n**Locating a Firewall Blackhole**\n```bash\ntraceroute -T -p 3306 production-db.internal\n# 1  10.0.0.1  1.1 ms\n# 2  10.0.1.1  1.5 ms\n# 3  * * *\n# 4  * * *\n```\n> A developer cannot reach a database. The trace reveals that packets successfully traverse the first two subnets, but hit a wall at hop 3. The network engineer immediately knows that the router at `10.0.1.1` lacks the proper ACL (Access Control List) to forward TCP port 3306 traffic to the database subnet, isolating the exact firewall that needs updating.\n\n## When should it NOT be used?\n*   **Continuous Latency Monitoring:** **Do not use `traceroute` in a loop to monitor latency over time.** It runs sequentially and lacks statistical aggregation. Use `mtr` (My Traceroute), which continuously polls the route and displays a dynamic, self-updating dashboard of packet loss and average latency.\n*   **As absolute proof of routing:** **Traceroute lies.** Modern internet architectures use Equal-Cost Multi-Path (ECMP) routing and load balancers. A packet with TTL=4 might take path A, while TTL=5 takes path B. The resulting output mixes two different paths together, presenting a route that a single packet never actually took.\n*   **As absolute proof of latency:** Routers process ICMP TTL-Exceeded generation on their slow-path CPU, heavily deprioritizing it. A hop might show 150ms of latency, but the final destination shows 20ms. The intermediate router isn't congested; it is simply slow at responding to traceroutes. Always look at the *final* hop latency.\n\n## Alternatives\n*   **`mtr` (My Traceroute):** **Best for active troubleshooting.** Combines `ping` and `traceroute` into a continuously updating ncurses GUI, instantly revealing packet loss percentages at specific hops.\n*   **`tracepath`:** **Best for unprivileged users.** Requires no root access (uses standard UDP sockets) and additionally discovers the Path MTU (Maximum Transmission Unit) to identify where packet fragmentation occurs.\n*   **`tracert` (Windows):** The Windows equivalent. Notably, Windows `tracert` uses ICMP by default, whereas Linux `traceroute` uses UDP by default.\n\n## How it works internally\nThe IP header of every packet sent across a network contains an 8-bit field called Time-To-Live (TTL). To prevent packets from circulating endlessly in routing loops, every router that processes a packet decrements the TTL by 1. If the TTL reaches 0, the router drops the packet and sends an `ICMP Time Exceeded` error message back to the original sender.\n\n`traceroute` explicitly exploits this mechanism. \n1. It crafts a packet (UDP, ICMP, or TCP) destined for the target host, but artificially sets the TTL field to `1`. \n2. The packet hits the very first router (the default gateway). The router decrements the TTL to `0`, drops it, and replies with an `ICMP Time Exceeded`. `traceroute` records this router's IP and the round-trip time.\n3. `traceroute` crafts a second packet, this time setting the TTL to `2`. The first router decrements it to `1` and forwards it. The second router decrements it to `0`, drops it, and replies. \n4. This sequence continues, systematically mapping every hop.\n5. The process ends when the packet reaches the final destination. The destination host, receiving a UDP packet on an unusual closed port (default 33434), replies with an `ICMP Port Unreachable`. (If using ICMP `-I`, it replies with `ICMP Echo Reply`. If using TCP `-T`, it replies with a `RST` or `SYN-ACK`). `traceroute` recognizes this terminal response and stops the trace.\n\n## Performance Notes\n*   **Asterisks (`* * *`):** When you see asterisks, it does not necessarily mean the network is broken. Many core internet backbone routers and corporate firewalls are explicitly configured to silently drop expired packets (ignoring ICMP generation) to protect their control-plane CPUs from Denial of Service attacks.\n*   **Default UDP Weakness:** By default, Linux `traceroute` sends UDP packets to obscure high ports (33434+). Most modern firewalls drop unsolicited UDP traffic, causing the trace to time out midway. Switching to `-I` (ICMP) or `-T` (TCP) is almost always required for reliable tracing across the public internet.\n\n## Security Notes\n*   **Privileged Execution:** Crafting custom IP packets (like altering the TTL field or generating raw TCP SYN packets without establishing a full handshake) requires raw socket access. Therefore, advanced flags like `-I` (ICMP) and `-T` (TCP) require `root` or `sudo` privileges to execute.\n*   **Network Reconnaissance:** Attackers frequently use TCP tracerouting to map out internal network perimeters, identifying the exact IP addresses of hidden firewalls and DMZ boundaries. Security Operation Centers (SOCs) often monitor for sequential ICMP Time Exceeded generation to detect internal mapping attempts.\n\n## Common Mistakes\n*   **Misinterpreting Intermediate Latency Spikes**\n    *   *Mistake:* Seeing Hop 4 show 200ms latency, while Hop 5 shows 20ms, and concluding Hop 4 is a severe network bottleneck.\n    *   *Why:* Traffic traversing *through* a router is handled by ultra-fast hardware ASICs. Traffic addressed *to* the router (like generating ICMP TTL-Exceeded messages) is punted to the router's general-purpose CPU, which often rate-limits these responses. High latency on an intermediate hop is irrelevant if the downstream hops show low latency.\n*   **Forgetting to use `-n` in automation**\n    *   *Mistake:* Putting `traceroute google.com` in a diagnostic script.\n    *   *Why:* The script will hang unpredictably while trying to resolve the obscure internal hostnames of ISP infrastructure routers. Always use `-n` in scripts for deterministic execution speed.\n\n## Best Practices\n*   **Always prefer MTR for ongoing issues:** If a user complains about \"lag spikes\" while gaming or streaming, a single `traceroute` snapshot provides no useful data. Use `mtr` and let it run for 10 minutes to gather a statistical average of packet loss across the route.\n*   **Match the trace to the failing application:** If a web application on port 443 is failing, a standard UDP traceroute is useless because firewalls treat UDP and TCP differently. Always test the specific failing protocol: `sudo traceroute -T -p 443 target.com`.\n\n## Interview Questions\n**Q: Explain how `traceroute` manipulates the IP packet header to map intermediate routers across the internet.**\n**A:** `traceroute` intentionally sends packets with artificially restricted Time-To-Live (TTL) values. It starts by sending a packet with a TTL of 1. The first router decrements the TTL to 0, drops the packet, and returns an \"ICMP Time Exceeded\" message, revealing its IP. `traceroute` then sends a packet with TTL 2, then TTL 3, progressively forcing every router along the path to reveal itself until the packet finally reaches the destination.\n\n**Q: A standard `traceroute` using UDP packets fails at hop 5 with asterisks (`* * *`). However, `ping` successfully reaches the destination. Why did the traceroute fail, and what flag would you add to make it succeed?**\n**A:** The standard traceroute failed because a firewall at or after hop 5 is configured to block unsolicited UDP traffic (specifically on high ports like 33434). Because `ping` (which uses ICMP) succeeds, you know ICMP is permitted. To fix the trace, you must add the `-I` flag (`traceroute -I target.com`) to force `traceroute` to use ICMP Echo Requests, mimicking ping and bypassing the UDP firewall block.\n\n## Practice Problems\n**Problem:** You are trying to diagnose a routing issue to a server, but the output is taking forever because `traceroute` is attempting to perform reverse-DNS lookups on every single ISP router along the way. Write the command to trace the route instantly by printing only raw IP addresses.\n**Hint:** Use the numeric-only flag.\n**Solution:**\n```bash\ntraceroute -n server.example.com\n```\n\n**Problem:** You suspect a firewall is blocking SSH traffic to `secure-server.internal`. Standard ping works, but SSH fails. Write the command to perform a trace route using TCP packets specifically targeting port 22 to prove exactly where the firewall is dropping the connection.\n**Hint:** You need root privileges (`sudo`), the TCP flag, and the port flag.\n**Solution:**\n```bash\nsudo traceroute -T -p 22 secure-server.internal\n```\n\n## References\n*   [traceroute(8) - Linux man page](https://linux.die.net/man/8/traceroute)\n*   [A Practical Guide to (Correctly) Troubleshooting with Traceroute](https://archive.nanog.org/meetings/nanog47/presentations/Sunday/RAS_Traceroute_N47_Sun.pdf)\n"
+      "body": "## What is it?\n\n`traceroute` is a network diagnostic tool used to map the exact pathway that IP packets take from a local computer to a specified destination host. It outputs a sequential list of all the intermediate routers (hops) traversed, along with round-trip latency measurements for each hop, providing crucial visibility into network topology and identifying exact points of failure or congestion.\n\n## Why does it exist?\n\nWhen a server is unreachable, `ping` only tells you _that_ the connection failed. The internet is a massive web of interconnected, disparate networks (Autonomous Systems). A packet might traverse 15 different routers owned by 5 different companies to reach its destination. If a router in the middle is misconfigured or dropping packets, standard networking tools are blind to it. `traceroute` exists to expose this hidden infrastructure. By cleverly manipulating IP header constraints (specifically the Time-To-Live field), it coerces intermediate routers into revealing their identities, allowing engineers to pinpoint exactly which ISP or firewall is blackholing their traffic.\n\n## Syntax\n\n```bash\ntraceroute [options] host [packet_len]\n```\n\n## Flags\n\n| Flag             | Description                                                                                                               | Example                           |\n| ---------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |\n| `-I`, `--icmp`   | Uses ICMP ECHO requests (like `ping`) instead of the default UDP packets. Essential for traversing strict firewalls.      | `traceroute -I google.com`        |\n| `-T`, `--tcp`    | Uses TCP SYN requests for probing. Highly effective for testing if a specific port (e.g., 443) is open through firewalls. | `traceroute -T -p 443 github.com` |\n| `-p <port>`      | Defines the destination port to use. For UDP, it's the base port. For TCP, it's the exact target port being tested.       | `traceroute -T -p 80 example.com` |\n| `-n`             | Prints IP addresses numerically, completely bypassing reverse-DNS resolution. Drastically speeds up execution.            | `traceroute -n 1.1.1.1`           |\n| `-q <queries>`   | Sets the number of probe packets sent per hop. Defaults to 3. Changing to 1 speeds up the trace significantly.            | `traceroute -q 1 example.com`     |\n| `-w <wait>`      | Sets the time (in seconds) to wait for a response from a hop before giving up and printing an asterisk `*`.               | `traceroute -w 2 google.com`      |\n| `-m <max_ttl>`   | Specifies the maximum number of hops (max Time-To-Live) to probe before giving up. Defaults to 30.                        | `traceroute -m 15 example.com`    |\n| `-4`, `-6`       | Forcefully restricts the trace to use IPv4 or IPv6 routing exclusively.                                                   | `traceroute -6 ipv6.google.com`   |\n| `-i <device>`    | Specifies the local network interface to send the trace packets through.                                                  | `traceroute -i eth1 target.com`   |\n| `-f <first_ttl>` | Starts the trace at a specific hop distance instead of 1. Useful for bypassing known internal network topology.           | `traceroute -f 5 google.com`      |\n\n## Examples\n\n```bash\ntraceroute google.com\n```\n\n> The standard Linux invocation. Resolves `google.com`, then sends UDP packets with incrementing TTLs. It prints three latency measurements for every router it passes through until it reaches the final destination.\n\n```bash\ntraceroute -n 8.8.8.8\n```\n\n> The fast diagnostic trace. By skipping reverse-DNS lookups (`-n`), it immediately prints the IP addresses of intermediate routers, preventing the command from hanging while attempting to resolve the hostnames of obscure internet backbone routers.\n\n```bash\ntraceroute -I -q 1 example.com\n```\n\n> Bypasses restrictive firewalls. Many enterprise networks drop strange UDP packets but permit standard `ping` traffic. Using `-I` switches the probe to ICMP, and `-q 1` sends only a single probe per hop, completing the trace almost instantly.\n\n```bash\ntraceroute -T -p 443 github.com\n```\n\n> A surgical port-reachability test. Instead of arbitrary UDP/ICMP packets, it crafts a legitimate TCP SYN packet targeting port 443. This perfectly simulates standard HTTPS web traffic, bypassing firewalls that allow web traffic but block ICMP, while simultaneously mapping the route.\n\n## Real-World Scenarios\n\n**Identifying an ISP Routing Loop**\n\n```bash\ntraceroute -n 10.0.5.50\n# 4  192.168.100.1  2.1 ms\n# 5  192.168.100.2  2.5 ms\n# 6  192.168.100.1  2.8 ms\n# 7  192.168.100.2  3.1 ms\n```\n\n> A server is unreachable. An engineer runs a trace and notices the output bouncing back and forth endlessly between two specific IP addresses. This reveals a routing loop—two routers are misconfigured to point to each other as the next hop, trapping the packet in an infinite loop until its TTL expires.\n\n**Locating a Firewall Blackhole**\n\n```bash\ntraceroute -T -p 3306 production-db.internal\n# 1  10.0.0.1  1.1 ms\n# 2  10.0.1.1  1.5 ms\n# 3  * * *\n# 4  * * *\n```\n\n> A developer cannot reach a database. The trace reveals that packets successfully traverse the first two subnets, but hit a wall at hop 3. The network engineer immediately knows that the router at `10.0.1.1` lacks the proper ACL (Access Control List) to forward TCP port 3306 traffic to the database subnet, isolating the exact firewall that needs updating.\n\n## When should it NOT be used?\n\n- **Continuous Latency Monitoring:** **Do not use `traceroute` in a loop to monitor latency over time.** It runs sequentially and lacks statistical aggregation. Use `mtr` (My Traceroute), which continuously polls the route and displays a dynamic, self-updating dashboard of packet loss and average latency.\n- **As absolute proof of routing:** **Traceroute lies.** Modern internet architectures use Equal-Cost Multi-Path (ECMP) routing and load balancers. A packet with TTL=4 might take path A, while TTL=5 takes path B. The resulting output mixes two different paths together, presenting a route that a single packet never actually took.\n- **As absolute proof of latency:** Routers process ICMP TTL-Exceeded generation on their slow-path CPU, heavily deprioritizing it. A hop might show 150ms of latency, but the final destination shows 20ms. The intermediate router isn't congested; it is simply slow at responding to traceroutes. Always look at the _final_ hop latency.\n\n## Alternatives\n\n- **`mtr` (My Traceroute):** **Best for active troubleshooting.** Combines `ping` and `traceroute` into a continuously updating ncurses GUI, instantly revealing packet loss percentages at specific hops.\n- **`tracepath`:** **Best for unprivileged users.** Requires no root access (uses standard UDP sockets) and additionally discovers the Path MTU (Maximum Transmission Unit) to identify where packet fragmentation occurs.\n- **`tracert` (Windows):** The Windows equivalent. Notably, Windows `tracert` uses ICMP by default, whereas Linux `traceroute` uses UDP by default.\n\n## How it works internally\n\nThe IP header of every packet sent across a network contains an 8-bit field called Time-To-Live (TTL). To prevent packets from circulating endlessly in routing loops, every router that processes a packet decrements the TTL by 1. If the TTL reaches 0, the router drops the packet and sends an `ICMP Time Exceeded` error message back to the original sender.\n\n`traceroute` explicitly exploits this mechanism.\n\n1. It crafts a packet (UDP, ICMP, or TCP) destined for the target host, but artificially sets the TTL field to `1`.\n2. The packet hits the very first router (the default gateway). The router decrements the TTL to `0`, drops it, and replies with an `ICMP Time Exceeded`. `traceroute` records this router's IP and the round-trip time.\n3. `traceroute` crafts a second packet, this time setting the TTL to `2`. The first router decrements it to `1` and forwards it. The second router decrements it to `0`, drops it, and replies.\n4. This sequence continues, systematically mapping every hop.\n5. The process ends when the packet reaches the final destination. The destination host, receiving a UDP packet on an unusual closed port (default 33434), replies with an `ICMP Port Unreachable`. (If using ICMP `-I`, it replies with `ICMP Echo Reply`. If using TCP `-T`, it replies with a `RST` or `SYN-ACK`). `traceroute` recognizes this terminal response and stops the trace.\n\n## Performance Notes\n\n- **Asterisks (`* * *`):** When you see asterisks, it does not necessarily mean the network is broken. Many core internet backbone routers and corporate firewalls are explicitly configured to silently drop expired packets (ignoring ICMP generation) to protect their control-plane CPUs from Denial of Service attacks.\n- **Default UDP Weakness:** By default, Linux `traceroute` sends UDP packets to obscure high ports (33434+). Most modern firewalls drop unsolicited UDP traffic, causing the trace to time out midway. Switching to `-I` (ICMP) or `-T` (TCP) is almost always required for reliable tracing across the public internet.\n\n## Security Notes\n\n- **Privileged Execution:** Crafting custom IP packets (like altering the TTL field or generating raw TCP SYN packets without establishing a full handshake) requires raw socket access. Therefore, advanced flags like `-I` (ICMP) and `-T` (TCP) require `root` or `sudo` privileges to execute.\n- **Network Reconnaissance:** Attackers frequently use TCP tracerouting to map out internal network perimeters, identifying the exact IP addresses of hidden firewalls and DMZ boundaries. Security Operation Centers (SOCs) often monitor for sequential ICMP Time Exceeded generation to detect internal mapping attempts.\n\n## Common Mistakes\n\n- **Misinterpreting Intermediate Latency Spikes**\n  - _Mistake:_ Seeing Hop 4 show 200ms latency, while Hop 5 shows 20ms, and concluding Hop 4 is a severe network bottleneck.\n  - _Why:_ Traffic traversing _through_ a router is handled by ultra-fast hardware ASICs. Traffic addressed _to_ the router (like generating ICMP TTL-Exceeded messages) is punted to the router's general-purpose CPU, which often rate-limits these responses. High latency on an intermediate hop is irrelevant if the downstream hops show low latency.\n- **Forgetting to use `-n` in automation**\n  - _Mistake:_ Putting `traceroute google.com` in a diagnostic script.\n  - _Why:_ The script will hang unpredictably while trying to resolve the obscure internal hostnames of ISP infrastructure routers. Always use `-n` in scripts for deterministic execution speed.\n\n## Best Practices\n\n- **Always prefer MTR for ongoing issues:** If a user complains about \"lag spikes\" while gaming or streaming, a single `traceroute` snapshot provides no useful data. Use `mtr` and let it run for 10 minutes to gather a statistical average of packet loss across the route.\n- **Match the trace to the failing application:** If a web application on port 443 is failing, a standard UDP traceroute is useless because firewalls treat UDP and TCP differently. Always test the specific failing protocol: `sudo traceroute -T -p 443 target.com`.\n\n## Interview Questions\n\n**Q: Explain how `traceroute` manipulates the IP packet header to map intermediate routers across the internet.**\n**A:** `traceroute` intentionally sends packets with artificially restricted Time-To-Live (TTL) values. It starts by sending a packet with a TTL of 1. The first router decrements the TTL to 0, drops the packet, and returns an \"ICMP Time Exceeded\" message, revealing its IP. `traceroute` then sends a packet with TTL 2, then TTL 3, progressively forcing every router along the path to reveal itself until the packet finally reaches the destination.\n\n**Q: A standard `traceroute` using UDP packets fails at hop 5 with asterisks (`* * *`). However, `ping` successfully reaches the destination. Why did the traceroute fail, and what flag would you add to make it succeed?**\n**A:** The standard traceroute failed because a firewall at or after hop 5 is configured to block unsolicited UDP traffic (specifically on high ports like 33434). Because `ping` (which uses ICMP) succeeds, you know ICMP is permitted. To fix the trace, you must add the `-I` flag (`traceroute -I target.com`) to force `traceroute` to use ICMP Echo Requests, mimicking ping and bypassing the UDP firewall block.\n\n## Practice Problems\n\n**Problem:** You are trying to diagnose a routing issue to a server, but the output is taking forever because `traceroute` is attempting to perform reverse-DNS lookups on every single ISP router along the way. Write the command to trace the route instantly by printing only raw IP addresses.\n**Hint:** Use the numeric-only flag.\n**Solution:**\n\n```bash\ntraceroute -n server.example.com\n```\n\n**Problem:** You suspect a firewall is blocking SSH traffic to `secure-server.internal`. Standard ping works, but SSH fails. Write the command to perform a trace route using TCP packets specifically targeting port 22 to prove exactly where the firewall is dropping the connection.\n**Hint:** You need root privileges (`sudo`), the TCP flag, and the port flag.\n**Solution:**\n\n```bash\nsudo traceroute -T -p 22 secure-server.internal\n```\n\n## References\n\n- [traceroute(8) - Linux man page](https://linux.die.net/man/8/traceroute)\n- [A Practical Guide to (Correctly) Troubleshooting with Traceroute](https://archive.nanog.org/meetings/nanog47/presentations/Sunday/RAS_Traceroute_N47_Sun.pdf)\n"
     },
     {
       "slug": "ufw",
@@ -1168,9 +818,7 @@
       "frontmatter": {
         "slug": "ufw",
         "name": "ufw",
-        "aliases": [
-          "Uncomplicated Firewall"
-        ],
+        "aliases": ["Uncomplicated Firewall"],
         "category": "networking",
         "tags": [
           "linux",
@@ -1181,14 +829,8 @@
           "debian"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "manage ubuntu firewall",
           "open port on linux",
@@ -1196,15 +838,8 @@
           "block network traffic",
           "check firewall status"
         ],
-        "relatedCommands": [
-          "iptables",
-          "firewall-cmd",
-          "systemctl"
-        ],
-        "alternatives": [
-          "iptables",
-          "firewall-cmd"
-        ],
+        "relatedCommands": ["iptables", "firewall-cmd", "systemctl"],
+        "alternatives": ["iptables", "firewall-cmd"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1229,19 +864,8 @@
           "mirroring"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "windows",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "cmd",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "windows", "unix"],
+        "supportedShells": ["bash", "zsh", "powershell", "cmd", "sh"],
         "intentPhrases": [
           "download a file from the internet",
           "resume a broken download",
@@ -1249,12 +873,8 @@
           "download file in background",
           "fetch file from URL"
         ],
-        "relatedCommands": [
-          "curl"
-        ],
-        "alternatives": [
-          "curl"
-        ],
+        "relatedCommands": ["curl"],
+        "alternatives": ["curl"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1279,19 +899,8 @@
           "troubleshooting"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "find domain owner",
           "check domain expiration date",
@@ -1299,11 +908,7 @@
           "query registrar information",
           "find abuse contact for ip"
         ],
-        "relatedCommands": [
-          "dig",
-          "host",
-          "nslookup"
-        ],
+        "relatedCommands": ["dig", "host", "nslookup"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

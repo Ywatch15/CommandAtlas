@@ -5,29 +5,16 @@
       "slug": "git-add",
       "name": "git add",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-add",
         "name": "git add",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-add"
-        ],
+        "tags": ["git-add"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "stage files for commit",
           "add files to git index",
@@ -35,11 +22,7 @@
           "track new file in git",
           "stage specific lines of code"
         ],
-        "relatedCommands": [
-          "git-diff",
-          "git-restore",
-          "git-rm"
-        ],
+        "relatedCommands": ["git-diff", "git-restore", "git-rm"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -53,7 +36,7 @@
       "slug": "git-archive",
       "name": "git archive",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-archive",
         "name": "git archive",
@@ -67,19 +50,8 @@
           "distribution"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "export git repository without .git folder",
           "create zip file from git branch",
@@ -87,10 +59,7 @@
           "package git source code for release",
           "extract specific folder from git history"
         ],
-        "relatedCommands": [
-          "git-checkout",
-          "git-clone"
-        ],
+        "relatedCommands": ["git-checkout", "git-clone"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -101,7 +70,7 @@
       "slug": "git-bisect",
       "name": "git bisect",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-bisect",
         "name": "git bisect",
@@ -115,19 +84,8 @@
           "testing"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "find which commit broke the code",
           "binary search git history",
@@ -141,10 +99,7 @@
           "git-log",
           "git-reset"
         ],
-        "alternatives": [
-          "git-blame",
-          "git-log"
-        ],
+        "alternatives": ["git-blame", "git-log"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -154,13 +109,11 @@
       "slug": "git-blame",
       "name": "git blame",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-blame",
         "name": "git blame",
-        "aliases": [
-          "git annotate"
-        ],
+        "aliases": ["git annotate"],
         "category": "git",
         "tags": [
           "version-control",
@@ -170,18 +123,8 @@
           "scm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "who wrote this line of code",
           "check line authorship git",
@@ -196,10 +139,7 @@
           "git-shortlog",
           "git-show"
         ],
-        "alternatives": [
-          "git-bisect",
-          "git-log"
-        ],
+        "alternatives": ["git-bisect", "git-log"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -209,29 +149,16 @@
       "slug": "git-branch",
       "name": "git branch",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-branch",
         "name": "git branch",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-branch"
-        ],
+        "tags": ["git-branch"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "list all git branches",
           "create a new branch",
@@ -239,14 +166,8 @@
           "rename current branch",
           "show remote branches"
         ],
-        "relatedCommands": [
-          "git-merge",
-          "git-reflog",
-          "git-worktree"
-        ],
-        "alternatives": [
-          "git-tag"
-        ],
+        "relatedCommands": ["git-merge", "git-reflog", "git-worktree"],
+        "alternatives": ["git-tag"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -259,29 +180,16 @@
       "slug": "git-checkout",
       "name": "git checkout",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-checkout",
         "name": "git checkout",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-checkout"
-        ],
+        "tags": ["git-checkout"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "switch to another branch",
           "create a new git branch",
@@ -300,9 +208,7 @@
           "git-tag",
           "git-worktree"
         ],
-        "alternatives": [
-          "git-restore"
-        ],
+        "alternatives": ["git-restore"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -315,7 +221,7 @@
       "slug": "git-cherry-pick",
       "name": "git cherry-pick",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-cherry-pick",
         "name": "git cherry-pick",
@@ -329,18 +235,8 @@
           "scm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "apply single commit to branch",
           "cherry pick git commit",
@@ -355,9 +251,7 @@
           "git-rebase",
           "git-revert"
         ],
-        "alternatives": [
-          "git-rebase"
-        ],
+        "alternatives": ["git-rebase"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -367,7 +261,7 @@
       "slug": "git-clean",
       "name": "git clean",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-clean",
         "name": "git clean",
@@ -381,18 +275,8 @@
           "scm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "remove untracked files",
           "clean git workspace",
@@ -400,14 +284,8 @@
           "purge untracked directories",
           "reset working tree untracked"
         ],
-        "relatedCommands": [
-          "git-reset",
-          "git-restore",
-          "git-status"
-        ],
-        "alternatives": [
-          "git-stash"
-        ],
+        "relatedCommands": ["git-reset", "git-restore", "git-status"],
+        "alternatives": ["git-stash"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -417,29 +295,16 @@
       "slug": "git-clone",
       "name": "git clone",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-clone",
         "name": "git clone",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-clone"
-        ],
+        "tags": ["git-clone"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "download git repository",
           "copy repo from github",
@@ -447,14 +312,8 @@
           "initialize local repository from remote",
           "clone git branch"
         ],
-        "relatedCommands": [
-          "git-archive",
-          "git-remote",
-          "git-worktree"
-        ],
-        "alternatives": [
-          "git-worktree"
-        ],
+        "relatedCommands": ["git-archive", "git-remote", "git-worktree"],
+        "alternatives": ["git-worktree"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -467,29 +326,16 @@
       "slug": "git-commit",
       "name": "git commit",
       "category": "git",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "git-commit",
         "name": "git commit",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-commit"
-        ],
+        "tags": ["git-commit"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "save changes to git",
           "record a snapshot in git",
@@ -505,9 +351,7 @@
           "git-stash",
           "git-tag"
         ],
-        "alternatives": [
-          "git-stash"
-        ],
+        "alternatives": ["git-stash"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -520,7 +364,7 @@
       "slug": "git-diff",
       "name": "git diff",
       "category": "git",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "git-diff",
         "name": "git diff",
@@ -534,19 +378,8 @@
           "changes"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "compare files in git",
           "see uncommitted changes",
@@ -561,9 +394,7 @@
           "git-show",
           "git-status"
         ],
-        "alternatives": [
-          "git-show"
-        ],
+        "alternatives": ["git-show"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -573,29 +404,16 @@
       "slug": "git-fetch",
       "name": "git fetch",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-fetch",
         "name": "git fetch",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-fetch"
-        ],
+        "tags": ["git-fetch"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "download objects and refs from remote",
           "sync with remote without merging",
@@ -603,10 +421,7 @@
           "see what others pushed",
           "fetch new branches from github"
         ],
-        "relatedCommands": [
-          "git-remote",
-          "git-subtree"
-        ],
+        "relatedCommands": ["git-remote", "git-subtree"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -626,23 +441,10 @@
         "name": "git init",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-init"
-        ],
+        "tags": ["git-init"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "start a new git repository",
           "create git repo",
@@ -664,7 +466,7 @@
       "slug": "git-log",
       "name": "git log",
       "category": "git",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "git-log",
         "name": "git log",
@@ -678,18 +480,8 @@
           "scm"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "view commit history",
           "show git log",
@@ -724,32 +516,16 @@
       "slug": "git-merge",
       "name": "git merge",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-merge",
         "name": "git merge",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "version-control",
-          "merge",
-          "branching",
-          "integration",
-          "scm"
-        ],
+        "tags": ["version-control", "merge", "branching", "integration", "scm"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "merge branches",
           "combine git branches",
@@ -765,9 +541,7 @@
           "git-subtree",
           "git-switch"
         ],
-        "alternatives": [
-          "git-rebase"
-        ],
+        "alternatives": ["git-rebase"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -783,23 +557,10 @@
         "name": "git pull",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-pull"
-        ],
+        "tags": ["git-pull"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "sync with remote",
           "update local branch",
@@ -821,29 +582,16 @@
       "slug": "git-push",
       "name": "git push",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-push",
         "name": "git push",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-push"
-        ],
+        "tags": ["git-push"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "upload local commits to github",
           "push branch to remote repository",
@@ -851,11 +599,7 @@
           "force push over remote branch",
           "publish local git repository"
         ],
-        "relatedCommands": [
-          "git-rebase",
-          "git-remote",
-          "git-tag"
-        ],
+        "relatedCommands": ["git-rebase", "git-remote", "git-tag"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -869,7 +613,7 @@
       "slug": "git-rebase",
       "name": "git rebase",
       "category": "git",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "git-rebase",
         "name": "git rebase",
@@ -883,19 +627,8 @@
           "interactive"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "squash commits together",
           "update branch with main",
@@ -910,11 +643,7 @@
           "git-push",
           "git-revert"
         ],
-        "alternatives": [
-          "git-cherry-pick",
-          "git-merge",
-          "git-reset"
-        ],
+        "alternatives": ["git-cherry-pick", "git-merge", "git-reset"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -924,7 +653,7 @@
       "slug": "git-reflog",
       "name": "git reflog",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-reflog",
         "name": "git reflog",
@@ -938,18 +667,8 @@
           "scm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "view git reference logs",
           "recover deleted git commits",
@@ -963,9 +682,7 @@
           "git-log",
           "git-reset"
         ],
-        "alternatives": [
-          "git-log"
-        ],
+        "alternatives": ["git-log"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -975,7 +692,7 @@
       "slug": "git-remote",
       "name": "git remote",
       "category": "git",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "git-remote",
         "name": "git remote",
@@ -989,18 +706,8 @@
           "scm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "manage git remote repositories",
           "add remote origin",
@@ -1024,32 +731,16 @@
       "slug": "git-reset",
       "name": "git reset",
       "category": "git",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "git-reset",
         "name": "git reset",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "version-control",
-          "repository",
-          "staging",
-          "index",
-          "reset"
-        ],
+        "tags": ["version-control", "repository", "staging", "index", "reset"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "reset git commit",
           "unstage files",
@@ -1066,12 +757,7 @@
           "git-restore",
           "git-revert"
         ],
-        "alternatives": [
-          "git-rebase",
-          "git-restore",
-          "git-revert",
-          "git-rm"
-        ],
+        "alternatives": ["git-rebase", "git-restore", "git-revert", "git-rm"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1081,7 +767,7 @@
       "slug": "git-restore",
       "name": "git restore",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-restore",
         "name": "git restore",
@@ -1095,19 +781,8 @@
           "staging"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "discard local changes in git",
           "unstage a file",
@@ -1122,10 +797,7 @@
           "git-reset",
           "git-switch"
         ],
-        "alternatives": [
-          "git-checkout",
-          "git-reset"
-        ],
+        "alternatives": ["git-checkout", "git-reset"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1135,7 +807,7 @@
       "slug": "git-revert",
       "name": "git revert",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-revert",
         "name": "git revert",
@@ -1149,19 +821,8 @@
           "commits"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "undo a specific commit",
           "rollback changes safely",
@@ -1175,9 +836,7 @@
           "git-rebase",
           "git-reset"
         ],
-        "alternatives": [
-          "git-reset"
-        ],
+        "alternatives": ["git-reset"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1187,7 +846,7 @@
       "slug": "git-rm",
       "name": "git rm",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-rm",
         "name": "git rm",
@@ -1201,19 +860,8 @@
           "deletion"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "stop tracking a file in git",
           "remove a file from the repository",
@@ -1221,13 +869,8 @@
           "untrack a directory but keep it locally",
           "remove files from git index"
         ],
-        "relatedCommands": [
-          "git-add",
-          "git-status"
-        ],
-        "alternatives": [
-          "git-reset"
-        ],
+        "relatedCommands": ["git-add", "git-status"],
+        "alternatives": ["git-reset"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1237,7 +880,7 @@
       "slug": "git-shortlog",
       "name": "git shortlog",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-shortlog",
         "name": "git shortlog",
@@ -1252,19 +895,8 @@
           "attribution"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "generate release changelog",
           "summarize git commits by author",
@@ -1272,13 +904,8 @@
           "group git log by author",
           "see who contributed the most"
         ],
-        "relatedCommands": [
-          "git-blame",
-          "git-log"
-        ],
-        "alternatives": [
-          "git-log"
-        ],
+        "relatedCommands": ["git-blame", "git-log"],
+        "alternatives": ["git-log"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1288,33 +915,16 @@
       "slug": "git-show",
       "name": "git show",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-show",
         "name": "git show",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "version-control",
-          "commits",
-          "inspection",
-          "diff",
-          "objects"
-        ],
+        "tags": ["version-control", "commits", "inspection", "diff", "objects"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "view commit details",
           "see changes in a commit",
@@ -1322,15 +932,8 @@
           "show file at specific commit",
           "view raw file from another branch"
         ],
-        "relatedCommands": [
-          "git-blame",
-          "git-diff",
-          "git-log"
-        ],
-        "alternatives": [
-          "git-diff",
-          "git-log"
-        ],
+        "relatedCommands": ["git-blame", "git-diff", "git-log"],
+        "alternatives": ["git-diff", "git-log"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1340,7 +943,7 @@
       "slug": "git-stash",
       "name": "git stash",
       "category": "git",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "git-stash",
         "name": "git stash",
@@ -1353,19 +956,8 @@
           "uncommitted-changes"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "save uncommitted changes temporarily",
           "shelve working directory",
@@ -1373,15 +965,8 @@
           "hide local changes in git",
           "reapply saved git stash"
         ],
-        "relatedCommands": [
-          "git-checkout",
-          "git-commit",
-          "git-switch"
-        ],
-        "alternatives": [
-          "git-clean",
-          "git-commit"
-        ],
+        "relatedCommands": ["git-checkout", "git-commit", "git-switch"],
+        "alternatives": ["git-clean", "git-commit"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1391,29 +976,16 @@
       "slug": "git-status",
       "name": "git status",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-status",
         "name": "git status",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-status"
-        ],
+        "tags": ["git-status"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "check git state",
           "show modified files",
@@ -1421,12 +993,7 @@
           "check staged changes",
           "see what to commit"
         ],
-        "relatedCommands": [
-          "git-clean",
-          "git-diff",
-          "git-log",
-          "git-rm"
-        ],
+        "relatedCommands": ["git-clean", "git-diff", "git-log", "git-rm"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -1440,7 +1007,7 @@
       "slug": "git-subtree",
       "name": "git subtree",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-subtree",
         "name": "git subtree",
@@ -1454,19 +1021,8 @@
           "merging"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "merge another repository into a subdirectory",
           "extract directory into new repository",
@@ -1474,11 +1030,7 @@
           "split folder into its own git repo",
           "push subdirectory changes to upstream repo"
         ],
-        "relatedCommands": [
-          "git-fetch",
-          "git-merge",
-          "git-remote"
-        ],
+        "relatedCommands": ["git-fetch", "git-merge", "git-remote"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -1489,29 +1041,16 @@
       "slug": "git-switch",
       "name": "git switch",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "git-switch",
         "name": "git switch",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "git-switch"
-        ],
+        "tags": ["git-switch"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "switch branches",
           "create and switch to new branch",
@@ -1538,32 +1077,16 @@
       "slug": "git-tag",
       "name": "git tag",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-tag",
         "name": "git tag",
         "aliases": [],
         "category": "git",
-        "tags": [
-          "version-control",
-          "tags",
-          "release",
-          "repository",
-          "scm"
-        ],
+        "tags": ["version-control", "tags", "release", "repository", "scm"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "create git tag",
           "list git tags",
@@ -1577,9 +1100,7 @@
           "git-log",
           "git-push"
         ],
-        "alternatives": [
-          "git-branch"
-        ],
+        "alternatives": ["git-branch"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -1589,7 +1110,7 @@
       "slug": "git-worktree",
       "name": "git worktree",
       "category": "git",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-worktree",
         "name": "git worktree",
@@ -1603,18 +1124,8 @@
           "scm"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "powershell",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "powershell", "sh"],
         "intentPhrases": [
           "manage multiple git working directories",
           "checkout multiple branches at once",
@@ -1628,9 +1139,7 @@
           "git-clone",
           "git-switch"
         ],
-        "alternatives": [
-          "git-clone"
-        ],
+        "alternatives": ["git-clone"],
         "status": "draft",
         "usedInWorkflows": []
       },

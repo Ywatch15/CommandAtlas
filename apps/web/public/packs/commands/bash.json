@@ -5,46 +5,24 @@
       "slug": "bg",
       "name": "bg",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "bg",
         "name": "bg",
-        "aliases": [
-          "background"
-        ],
+        "aliases": ["background"],
         "category": "bash",
-        "tags": [
-          "shell",
-          "built-in",
-          "job-control",
-          "processes",
-          "background"
-        ],
+        "tags": ["shell", "built-in", "job-control", "processes", "background"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "resume stopped job",
           "run process in background",
           "continue suspended task",
           "send process to background"
         ],
-        "relatedCommands": [
-          "fg",
-          "jobs"
-        ],
-        "alternatives": [
-          "screen",
-          "tmux"
-        ],
+        "relatedCommands": ["fg", "jobs"],
+        "alternatives": ["screen", "tmux"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -69,15 +47,8 @@
           "configuration"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh"],
         "intentPhrases": [
           "configure bash keybindings",
           "bind readline macro shortcut",
@@ -96,35 +67,16 @@
       "slug": "cd",
       "name": "cd",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "cd",
         "name": "cd",
-        "aliases": [
-          "chdir"
-        ],
+        "aliases": ["chdir"],
         "category": "bash",
-        "tags": [
-          "shell",
-          "built-in",
-          "navigation",
-          "directory",
-          "filesystem"
-        ],
+        "tags": ["shell", "built-in", "navigation", "directory", "filesystem"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "change directory",
           "go to folder",
@@ -132,11 +84,7 @@
           "move to path",
           "switch working directory"
         ],
-        "relatedCommands": [
-          "pwd",
-          "ls",
-          "mkdir"
-        ],
+        "relatedCommands": ["pwd", "ls", "mkdir"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -147,7 +95,7 @@
       "slug": "eval",
       "name": "eval",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "eval",
         "name": "eval",
@@ -162,16 +110,8 @@
           "metaprogramming"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "evaluate string as bash command",
           "execute dynamic shell command string",
@@ -179,12 +119,8 @@
           "construct and execute command dynamically",
           "evaluate arguments as shell command"
         ],
-        "relatedCommands": [
-          "source"
-        ],
-        "alternatives": [
-          "source"
-        ],
+        "relatedCommands": ["source"],
+        "alternatives": ["source"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -209,16 +145,8 @@
           "file-descriptors"
         ],
         "difficulty": "advanced",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "replace shell process with command",
           "exec command in bash script",
@@ -237,46 +165,24 @@
       "slug": "fg",
       "name": "fg",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "fg",
         "name": "fg",
-        "aliases": [
-          "foreground"
-        ],
+        "aliases": ["foreground"],
         "category": "bash",
-        "tags": [
-          "shell",
-          "built-in",
-          "job-control",
-          "processes",
-          "foreground"
-        ],
+        "tags": ["shell", "built-in", "job-control", "processes", "foreground"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "bring job to foreground",
           "resume stopped job",
           "return to suspended process",
           "interact with background job"
         ],
-        "relatedCommands": [
-          "bg",
-          "jobs"
-        ],
-        "alternatives": [
-          "screen",
-          "tmux"
-        ],
+        "relatedCommands": ["bg", "jobs"],
+        "alternatives": ["screen", "tmux"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -286,44 +192,24 @@
       "slug": "jobs",
       "name": "jobs",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "jobs",
         "name": "jobs",
         "aliases": [],
         "category": "bash",
-        "tags": [
-          "shell",
-          "built-in",
-          "job-control",
-          "processes",
-          "monitoring"
-        ],
+        "tags": ["shell", "built-in", "job-control", "processes", "monitoring"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "list background jobs",
           "show suspended processes",
           "check active shell tasks",
           "view stopped jobs"
         ],
-        "relatedCommands": [
-          "bg",
-          "fg",
-          "ps"
-        ],
-        "alternatives": [
-          "ps"
-        ],
+        "relatedCommands": ["bg", "fg", "ps"],
+        "alternatives": ["ps"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -333,35 +219,16 @@
       "slug": "pwd",
       "name": "pwd",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "pwd",
         "name": "pwd",
-        "aliases": [
-          "print working directory"
-        ],
+        "aliases": ["print working directory"],
         "category": "bash",
-        "tags": [
-          "shell",
-          "built-in",
-          "navigation",
-          "directory",
-          "filesystem"
-        ],
+        "tags": ["shell", "built-in", "navigation", "directory", "filesystem"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix",
-          "windows"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh",
-          "powershell",
-          "cmd"
-        ],
+        "supportedOS": ["linux", "macos", "unix", "windows"],
+        "supportedShells": ["bash", "zsh", "sh", "powershell", "cmd"],
         "intentPhrases": [
           "print working directory",
           "show current directory",
@@ -369,11 +236,7 @@
           "get current path",
           "display absolute path"
         ],
-        "relatedCommands": [
-          "cd",
-          "ls",
-          "tree"
-        ],
+        "relatedCommands": ["cd", "ls", "tree"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -399,16 +262,8 @@
           "debugging"
         ],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "set shell options and flags",
           "change positional parameters bash",
@@ -433,24 +288,10 @@
         "name": "shopt",
         "aliases": [],
         "category": "bash",
-        "tags": [
-          "bash",
-          "shell",
-          "builtin",
-          "options",
-          "behavior",
-          "globbing"
-        ],
+        "tags": ["bash", "shell", "builtin", "options", "behavior", "globbing"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh"],
         "intentPhrases": [
           "toggle bash optional behavior",
           "enable globstar recursive matching",
@@ -469,32 +310,16 @@
       "slug": "source",
       "name": "source",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "source",
         "name": "source",
-        "aliases": [
-          "."
-        ],
+        "aliases": ["."],
         "category": "bash",
-        "tags": [
-          "shell",
-          "built-in",
-          "scripting",
-          "execution",
-          "environment"
-        ],
+        "tags": ["shell", "built-in", "scripting", "execution", "environment"],
         "difficulty": "intermediate",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "run script in current shell",
           "reload bashrc",
@@ -502,13 +327,8 @@
           "execute file without subshell",
           "import shell functions"
         ],
-        "relatedCommands": [
-          "export",
-          "eval"
-        ],
-        "alternatives": [
-          "eval"
-        ],
+        "relatedCommands": ["export", "eval"],
+        "alternatives": ["eval"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -518,7 +338,7 @@
       "slug": "type",
       "name": "type",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "type",
         "name": "type",
@@ -532,15 +352,8 @@
           "command-resolution"
         ],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "sh"],
         "intentPhrases": [
           "find command location",
           "check if command is alias",
@@ -548,13 +361,8 @@
           "what kind of command is this",
           "determine command type"
         ],
-        "relatedCommands": [
-          "which",
-          "alias"
-        ],
-        "alternatives": [
-          "which"
-        ],
+        "relatedCommands": ["which", "alias"],
+        "alternatives": ["which"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -564,31 +372,16 @@
       "slug": "which",
       "name": "which",
       "category": "bash",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "which",
         "name": "which",
         "aliases": [],
         "category": "bash",
-        "tags": [
-          "bash",
-          "shell",
-          "executable",
-          "path",
-          "utility",
-          "search"
-        ],
+        "tags": ["bash", "shell", "executable", "path", "utility", "search"],
         "difficulty": "beginner",
-        "supportedOS": [
-          "linux",
-          "macos",
-          "unix"
-        ],
-        "supportedShells": [
-          "bash",
-          "zsh",
-          "sh"
-        ],
+        "supportedOS": ["linux", "macos", "unix"],
+        "supportedShells": ["bash", "zsh", "sh"],
         "intentPhrases": [
           "find path to executable",
           "locate command binary path",
@@ -596,12 +389,8 @@
           "locate executable in path",
           "find binary file location"
         ],
-        "relatedCommands": [
-          "type"
-        ],
-        "alternatives": [
-          "type"
-        ],
+        "relatedCommands": ["type"],
+        "alternatives": ["type"],
         "status": "draft",
         "usedInWorkflows": []
       },
