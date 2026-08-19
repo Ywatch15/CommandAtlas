@@ -23,7 +23,7 @@ intentPhrases:
   - change active user
   - run command as different user
   - bypass nologin shell
-relatedCommands: []
+relatedCommands: [visudo]
 alternatives: []
 status: published
 contentVersion: 1

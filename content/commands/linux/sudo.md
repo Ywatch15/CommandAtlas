@@ -23,8 +23,8 @@ intentPhrases:
   - switch user context
   - bypass permission denied
   - elevate privileges
-relatedCommands: []
-alternatives: []
+relatedCommands: [setuid, visudo]
+alternatives: [setuid, visudo]
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08
