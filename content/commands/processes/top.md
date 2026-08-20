@@ -63,7 +63,7 @@ top [options]
 | `-i`         | Ignores idle or zombie processes, hiding them from the display to reduce noise, showing only actively working processes.       | `top -i`                |
 | `-O`         | Prints all available columns that `top` can sort by, acting as a quick reference for interactive field management.             | `top -O`                |
 
-## Interactive Commands
+### Interactive Commands
 
 _(Keys to press while `top` is running)_
 

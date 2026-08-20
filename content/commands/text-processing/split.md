@@ -2,7 +2,7 @@
 slug: split
 name: split
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - file-management

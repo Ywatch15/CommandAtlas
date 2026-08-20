@@ -3,7 +3,7 @@ slug: csplit
 name: csplit
 aliases:
   - context split
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

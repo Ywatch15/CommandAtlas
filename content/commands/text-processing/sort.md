@@ -2,7 +2,7 @@
 slug: sort
 name: sort
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - data-manipulation

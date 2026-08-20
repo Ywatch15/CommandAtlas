@@ -28,6 +28,7 @@ intentPhrases:
 alternatives:
   - systemctl
 status: draft
+relatedCommands: []
 ---
 
 ## What is it?

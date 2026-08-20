@@ -2,7 +2,7 @@
 slug: cut
 name: cut
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

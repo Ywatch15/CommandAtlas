@@ -3,7 +3,7 @@ slug: tr
 name: tr
 aliases:
   - translate
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

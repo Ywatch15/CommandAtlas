@@ -2,7 +2,7 @@
 slug: uniq
 name: uniq
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

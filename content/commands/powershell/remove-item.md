@@ -32,6 +32,7 @@ relatedCommands:
   - new-item
   - copy-item
 status: draft
+alternatives: []
 ---
 
 ## What is it?

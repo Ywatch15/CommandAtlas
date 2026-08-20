@@ -56,7 +56,7 @@ fdisk -l [device...]
 | `-s`, `--getsz`                       | (Legacy) Prints the size of a partition in 512-byte blocks. Deprecated in favor of `blockdev`.                                   | `fdisk -s /dev/sda1`        |
 | `-W`, `--wipe <mode>`                 | Wipes filesystem, RAID, and partition-table signatures from the device. Modes: `auto`, `always`, `never`.                        | `fdisk -W always /dev/sdb`  |
 
-## Interactive Menu Commands
+### Interactive Menu Commands
 
 _(When running `fdisk /dev/sda`, you enter an interactive prompt. These are the core internal commands.)_
 

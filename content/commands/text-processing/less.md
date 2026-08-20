@@ -2,7 +2,7 @@
 slug: less
 name: less
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - viewer

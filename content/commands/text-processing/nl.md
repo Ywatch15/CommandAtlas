@@ -3,7 +3,7 @@ slug: nl
 name: nl
 aliases:
   - number lines
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - formatting

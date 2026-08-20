@@ -28,6 +28,7 @@ intentPhrases:
 relatedCommands:
   - get-process
 status: draft
+alternatives: []
 ---
 
 ## What is it?

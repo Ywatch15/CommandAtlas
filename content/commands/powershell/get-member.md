@@ -30,6 +30,7 @@ relatedCommands:
   - get-command
   - get-help
 status: draft
+alternatives: []
 ---
 
 ## What is it?

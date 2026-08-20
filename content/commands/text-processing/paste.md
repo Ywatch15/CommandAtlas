@@ -2,7 +2,7 @@
 slug: paste
 name: paste
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - formatting

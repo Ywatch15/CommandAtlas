@@ -29,6 +29,7 @@ intentPhrases:
 relatedCommands:
   - get-childitem
 status: draft
+alternatives: []
 ---
 
 ## What is it?

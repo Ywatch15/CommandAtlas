@@ -3,7 +3,7 @@ slug: tac
 name: tac
 aliases:
   - reverse cat
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

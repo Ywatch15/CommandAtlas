@@ -78,7 +78,7 @@
       "description": "Core Unix commands and concepts shared across BSD, macOS, and other POSIX-compliant systems. Commands here work on any Unix-like OS, not just Linux.\n",
       "parent": null,
       "order": 9,
-      "commandCount": 1,
+      "commandCount": 17,
       "children": []
     },
     {
@@ -114,7 +114,7 @@
       "description": "Linux system call interfaces accessible from the command line and shell scripts. Understanding system calls bridges the gap between shell usage and operating system internals.\n",
       "parent": null,
       "order": 13,
-      "commandCount": 0,
+      "commandCount": 8,
       "children": []
     },
     {
@@ -141,7 +141,7 @@
       "description": "Regular expression syntax, patterns, and command-line tools for pattern matching. Covers POSIX BRE/ERE, PCRE, and practical regex usage in grep, sed, awk, and other tools.\n",
       "parent": null,
       "order": 16,
-      "commandCount": 9,
+      "commandCount": 8,
       "children": []
     },
     {
@@ -150,7 +150,7 @@
       "description": "Text manipulation and transformation commands for filtering, reformatting, sorting, and analyzing text data. The foundation of Unix pipeline-based data processing.\n",
       "parent": null,
       "order": 17,
-      "commandCount": 1,
+      "commandCount": 21,
       "children": []
     },
     {

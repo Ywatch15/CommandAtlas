@@ -2,7 +2,7 @@
 slug: join
 name: join
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

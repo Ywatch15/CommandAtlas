@@ -44,7 +44,7 @@ _(Once launched, `ed` waits for interactive commands at a blank prompt, or proce
 | `-v`, `--verbose`           | Be somewhat more verbose. If an error occurs, `ed` normally prints `?`. This flag forces it to print an actual error message.  | `ed -v file.txt`      |
 | `-r`, `--restricted`        | Runs in restricted mode. The `!` command (which executes arbitrary shell commands) is mathematically disabled for security.    | `ed -r secure.txt`    |
 
-## Interactive Commands
+### Interactive Commands
 
 _(Commands passed to `ed`'s internal prompt)_
 

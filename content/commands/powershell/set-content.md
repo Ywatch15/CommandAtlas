@@ -29,6 +29,7 @@ relatedCommands:
   - get-content
   - export-csv
 status: draft
+alternatives: []
 ---
 
 ## What is it?

@@ -5,7 +5,7 @@ aliases:
   - gawk
   - mawk
   - nawk
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - scripting

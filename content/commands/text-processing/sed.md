@@ -3,7 +3,7 @@ slug: sed
 name: sed
 aliases:
   - stream editor
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - regex

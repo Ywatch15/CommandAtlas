@@ -3,7 +3,6 @@ slug: where-object
 name: Where-Object
 aliases:
   - where
-  - '': null
 category: powershell
 tags:
   - powershell
@@ -29,6 +28,7 @@ relatedCommands:
   - select-object
   - sort-object
   - foreach-object
+alternatives: []
 status: draft
 ---
 
@@ -56,7 +56,7 @@ Where-Object [-FilterScript] <ScriptBlock>
 | --------- | --------------------------------------------------------- | -------------------------------------------------------- |
 | `-Filter` | Filter objects based on scriptblock condition expression. | `Where-Object -FilterScript { $_.Status -eq 'Running' }` |
 
-## Flags / Operators
+### Flags / Operators
 
 | Flag / Operator        | Description                                                                                                                    | Example                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |

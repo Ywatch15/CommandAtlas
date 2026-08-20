@@ -29,6 +29,7 @@ relatedCommands:
   - import-csv
   - select-object
 status: draft
+alternatives: []
 ---
 
 ## What is it?

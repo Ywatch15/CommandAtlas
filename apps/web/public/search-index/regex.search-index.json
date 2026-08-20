@@ -7,8 +7,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "1": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -18,8 +17,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "2": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -82,10 +80,7 @@
     "64": [{ "slug": "regex-alternation", "boost": 1 }],
     "95": [{ "slug": "regex-lookaround", "boost": 1 }],
     "100": [{ "slug": "regex-quantifiers", "boost": 1 }],
-    "127": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "127": [{ "slug": "regex-alternation", "boost": 1 }],
     "128": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "168": [
       { "slug": "regex-quantifiers", "boost": 1 },
@@ -119,8 +114,7 @@
       { "slug": "regex-lookaround", "boost": 5 },
       { "slug": "regex-quantifiers", "boost": 5 },
       { "slug": "regex-shorthand-classes", "boost": 5 },
-      { "slug": "regex-wildcard", "boost": 5 },
-      { "slug": "sed", "boost": 3 }
+      { "slug": "regex-wildcard", "boost": 5 }
     ],
     "alternation": [
       { "slug": "regex-alternation", "boost": 5 },
@@ -140,8 +134,7 @@
         "phrase": "regex match one or more"
       },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "boolean": [
       { "slug": "regex-alternation", "boost": 5 },
@@ -231,8 +224,7 @@
       },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "another": [
       {
@@ -323,8 +315,7 @@
         "slug": "regex-wildcard",
         "boost": 5,
         "phrase": "meaning of dot star .* in regex"
-      },
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
+      }
     ],
     "grep": [
       {
@@ -421,8 +412,7 @@
       { "slug": "regex-lookaround", "boost": 3 },
       { "slug": "regex-quantifiers", "boost": 3 },
       { "slug": "regex-shorthand-classes", "boost": 3 },
-      { "slug": "regex-wildcard", "boost": 3 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 3 }
     ],
     "matching": [
       { "slug": "regex-alternation", "boost": 3 },
@@ -432,8 +422,7 @@
       { "slug": "regex-lookaround", "boost": 3 },
       { "slug": "regex-quantifiers", "boost": 3 },
       { "slug": "regex-shorthand-classes", "boost": 3 },
-      { "slug": "regex-wildcard", "boost": 3 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 3 }
     ],
     "logic": [
       { "slug": "regex-alternation", "boost": 3 },
@@ -452,8 +441,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 2 },
       { "slug": "regex-shorthand-classes", "boost": 2 },
-      { "slug": "regex-wildcard", "boost": 2 },
-      { "slug": "sed", "boost": 5 }
+      { "slug": "regex-wildcard", "boost": 2 }
     ],
     "awk": [
       { "slug": "regex-alternation", "boost": 2 },
@@ -463,8 +451,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 2 },
       { "slug": "regex-shorthand-classes", "boost": 2 },
-      { "slug": "regex-wildcard", "boost": 2 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 2 }
     ],
     "shorthand": [
       { "slug": "regex-alternation", "boost": 2 },
@@ -490,8 +477,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "is": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -501,8 +487,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "it": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -512,8 +497,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "relies": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -527,8 +511,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "the": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -582,8 +565,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "within": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -599,8 +581,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "expression": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -610,8 +591,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "evaluates": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -686,8 +666,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "text": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -697,8 +676,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 3 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "satisfies": [{ "slug": "regex-alternation", "boost": 1 }],
     "any": [
@@ -735,8 +713,7 @@
         "slug": "regex-wildcard",
         "boost": 5,
         "phrase": "meaning of dot star .* in regex"
-      },
-      { "slug": "sed", "boost": 1 }
+      }
     ],
     "explicitly": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -755,8 +732,7 @@
     ],
     "options": [
       { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "regex-character-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-character-classes", "boost": 1 }
     ],
     "why": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -766,8 +742,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "does": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -777,8 +752,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "exist": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -788,8 +762,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "when": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -799,8 +772,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "searching": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -811,8 +783,7 @@
     ],
     "streams": [
       { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-lookaround", "boost": 1 }
     ],
     "for": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -822,8 +793,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "diverse": [{ "slug": "regex-alternation", "boost": 1 }],
     "set": [
@@ -942,8 +912,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "logically": [{ "slug": "regex-alternation", "boost": 1 }],
     "tedious": [
@@ -970,8 +939,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "single": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1035,8 +1003,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "patterna": [{ "slug": "regex-alternation", "boost": 1 }],
     "patternb": [{ "slug": "regex-alternation", "boost": 1 }],
@@ -1052,8 +1019,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "modifier": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1073,8 +1039,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "example": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1084,8 +1049,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "impact": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1101,8 +1065,7 @@
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
-      { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-quantifiers", "boost": 1 }
     ],
     "case": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1137,8 +1100,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "alternated": [{ "slug": "regex-alternation", "boost": 1 }],
     "branches": [
@@ -1177,8 +1139,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "support": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1210,8 +1171,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "g": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1221,8 +1181,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "standard": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1252,8 +1211,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "escaped": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1331,8 +1289,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "use": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1342,8 +1299,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "exact": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1397,14 +1353,12 @@
     "foo": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-lookaround", "boost": 1 }
     ],
     "bar": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-lookaround", "boost": 1 }
     ],
     "examples": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1414,8 +1368,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "bash": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1425,8 +1378,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "critical": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1472,8 +1424,7 @@
         "boost": 5,
         "phrase": "extract numbers using regex"
       },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "expressions": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1483,8 +1434,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "parse": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1510,8 +1460,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "contains": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1533,8 +1482,7 @@
         "boost": 5,
         "phrase": "meaning of \\d \\w \\s"
       },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "col": [{ "slug": "regex-alternation", "boost": 1 }],
     "o": [
@@ -1571,8 +1519,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "uses": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1665,8 +1612,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "ftp": [{ "slug": "regex-alternation", "boost": 1 }],
     "url": [
@@ -1689,8 +1635,7 @@
     "network": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-anchors", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "protocol": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1733,8 +1678,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "three": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1831,8 +1775,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "b": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1842,8 +1785,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "jpg": [{ "slug": "regex-alternation", "boost": 1 }],
     "jpeg": [{ "slug": "regex-alternation", "boost": 1 }],
@@ -1867,8 +1809,7 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "extensions": [{ "slug": "regex-alternation", "boost": 1 }],
     "regardless": [
@@ -1943,8 +1884,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "world": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1954,8 +1894,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "scenarios": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1965,8 +1904,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "parsing": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -1995,8 +1933,7 @@
     "app": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "always": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2061,8 +1998,7 @@
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 3 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "out": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2105,8 +2041,7 @@
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "arrays": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2146,8 +2081,7 @@
     "deployment": [{ "slug": "regex-alternation", "boost": 1 }],
     "pipelines": [
       { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-lookaround", "boost": 1 }
     ],
     "scanning": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2194,18 +2128,9 @@
       { "slug": "regex-shorthand-classes", "boost": 1 },
       { "slug": "regex-wildcard", "boost": 1 }
     ],
-    "ci": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
-    "cd": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
-    "build": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "ci": [{ "slug": "regex-alternation", "boost": 1 }],
+    "cd": [{ "slug": "regex-alternation", "boost": 1 }],
+    "build": [{ "slug": "regex-alternation", "boost": 1 }],
     "step": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-wildcard", "boost": 1 }
@@ -2238,10 +2163,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 }
     ],
-    "software": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "software": [{ "slug": "regex-alternation", "boost": 1 }],
     "packages": [{ "slug": "regex-alternation", "boost": 1 }],
     "built": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2265,8 +2187,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "bit": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2287,8 +2208,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "not": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2298,8 +2218,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "used": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2309,8 +2228,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "characters": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2359,8 +2277,7 @@
         "slug": "regex-shorthand-classes",
         "boost": 5,
         "phrase": "meaning of \\d \\w \\s"
-      },
-      { "slug": "sed", "boost": 1 }
+      }
     ],
     "unnecessarily": [{ "slug": "regex-alternation", "boost": 1 }],
     "verbose": [
@@ -2375,8 +2292,7 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "character": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2499,8 +2415,7 @@
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "unoptimized": [{ "slug": "regex-alternation", "boost": 1 }],
     "alternations": [
@@ -2541,8 +2456,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 3 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "bottlenecks": [{ "slug": "regex-alternation", "boost": 1 }],
     "engines": [
@@ -2599,8 +2513,7 @@
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "alternatives": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2610,8 +2523,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "aeiou": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2664,8 +2576,7 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "quantifiers": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2701,8 +2612,7 @@
         "phrase": "regex match without including in result"
       },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "y": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2737,8 +2647,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "works": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2748,8 +2657,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "internally": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2759,8 +2667,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "behavior": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2783,8 +2690,7 @@
       { "slug": "regex-groups", "boost": 5 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "deterministic": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2825,8 +2731,7 @@
       },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "perl": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2852,8 +2757,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "branch": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -2992,8 +2896,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "catastrophic": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3089,8 +2992,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "prefixes": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3105,14 +3007,12 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "structure": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "however": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3152,10 +3052,7 @@
       { "slug": "regex-shorthand-classes", "boost": 1 },
       { "slug": "regex-wildcard", "boost": 1 }
     ],
-    "place": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "place": [{ "slug": "regex-alternation", "boost": 1 }],
     "most": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
@@ -3208,8 +3105,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "redos": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3238,8 +3134,7 @@
     "structured": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "unanchored": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3264,8 +3159,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "can": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3305,8 +3199,7 @@
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "extreme": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3349,8 +3242,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "omitting": [{ "slug": "regex-alternation", "boost": 1 }],
     "grouping": [
@@ -3403,8 +3295,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "ordering": [{ "slug": "regex-alternation", "boost": 1 }],
     "shadowing": [{ "slug": "regex-alternation", "boost": 1 }],
@@ -3478,8 +3369,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "practices": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3489,8 +3379,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "universally": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3526,8 +3415,7 @@
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "value": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3551,8 +3439,7 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "allocation": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3562,8 +3449,7 @@
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "sort": [{ "slug": "regex-alternation", "boost": 1 }],
     "length": [
@@ -3585,8 +3471,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "legitimate": [{ "slug": "regex-alternation", "boost": 1 }],
     "combine": [
@@ -3648,8 +3533,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "questions": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3659,8 +3543,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "q": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3669,16 +3552,14 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "script": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "superman": [{ "slug": "regex-alternation", "boost": 1 }],
     "super": [{ "slug": "regex-alternation", "boost": 1 }],
@@ -3699,8 +3580,7 @@
       { "slug": "regex-character-classes", "boost": 3 },
       { "slug": "regex-groups", "boost": 3 },
       { "slug": "regex-quantifiers", "boost": 3 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "ignoring": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3722,8 +3602,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "containing": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3739,8 +3618,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "resolve": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3900,8 +3778,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "correct": [{ "slug": "regex-alternation", "boost": 1 }],
     "practice": [
@@ -3912,8 +3789,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "problems": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3923,8 +3799,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "problem": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3934,8 +3809,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "auth": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -3981,8 +3855,7 @@
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "enclose": [{ "slug": "regex-alternation", "boost": 1 }],
     "quotes": [
@@ -4007,8 +3880,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "write": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -4026,10 +3898,7 @@
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
-    "localhost": [
-      { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "localhost": [{ "slug": "regex-alternation", "boost": 1 }],
     "address": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-anchors", "boost": 1 },
@@ -4097,8 +3966,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "vertical": [{ "slug": "regex-alternation", "boost": 1 }],
     "www": [
@@ -4109,8 +3977,7 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "html": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -4120,18 +3987,15 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "gnu": [
       { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "manual": [
       { "slug": "regex-alternation", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "org": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -4139,8 +4003,7 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "whole": [
       {
@@ -4235,8 +4098,7 @@
         "slug": "regex-wildcard",
         "boost": 5,
         "phrase": "regex match everything between two words"
-      },
-      { "slug": "sed", "boost": 1 }
+      }
     ],
     "default": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -4427,15 +4289,13 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "replaces": [
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "these": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -4717,8 +4577,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 5, "phrase": "replace text in file" }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "destroy": [{ "slug": "regex-anchors", "boost": 1 }],
     "hidden": [{ "slug": "regex-anchors", "boost": 1 }],
@@ -4771,8 +4630,7 @@
     "based": [
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "span": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -4787,8 +4645,7 @@
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "spanning": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -4872,10 +4729,7 @@
     "functionally": [{ "slug": "regex-anchors", "boost": 1 }],
     "equivalent": [{ "slug": "regex-anchors", "boost": 1 }],
     "interact": [{ "slug": "regex-anchors", "boost": 1 }],
-    "buffer": [
-      { "slug": "regex-anchors", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "buffer": [{ "slug": "regex-anchors", "boost": 1 }],
     "encounters": [
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
@@ -4981,8 +4835,7 @@
     "fast": [
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "dramatically": [{ "slug": "regex-anchors", "boost": 1 }],
     "speeds": [{ "slug": "regex-anchors", "boost": 1 }],
@@ -5056,8 +4909,7 @@
     "shell": [
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "contexts": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -5083,8 +4935,7 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "around": [{ "slug": "regex-anchors", "boost": 1 }],
     "triggers": [{ "slug": "regex-anchors", "boost": 1 }],
@@ -5280,8 +5131,7 @@
       { "slug": "regex-anchors", "boost": 1 },
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "ini": [
       { "slug": "regex-anchors", "boost": 1 },
@@ -5560,19 +5410,13 @@
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
-    "prints": [
-      { "slug": "regex-character-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "prints": [{ "slug": "regex-character-classes", "boost": 1 }],
     "active": [
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "comments": [{ "slug": "regex-character-classes", "boost": 1 }],
-    "empty": [
-      { "slug": "regex-character-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "empty": [{ "slug": "regex-character-classes", "boost": 1 }],
     "sub": [
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
@@ -6132,18 +5976,14 @@
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "become": [
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 }
     ],
     "littering": [{ "slug": "regex-groups", "boost": 1 }],
-    "baz": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "baz": [{ "slug": "regex-groups", "boost": 1 }],
     "foobaz": [{ "slug": "regex-groups", "boost": 1 }],
     "barbaz": [{ "slug": "regex-groups", "boost": 1 }],
     "erroneously": [{ "slug": "regex-groups", "boost": 1 }],
@@ -6157,10 +5997,7 @@
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
-    "manipulation": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "manipulation": [{ "slug": "regex-groups", "boost": 1 }],
     "formatted": [
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
@@ -6171,8 +6008,7 @@
     "replacement": [
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "removes": [{ "slug": "regex-groups", "boost": 1 }],
     "comma": [
@@ -6234,10 +6070,7 @@
       { "slug": "regex-shorthand-classes", "boost": 1 },
       { "slug": "regex-wildcard", "boost": 1 }
     ],
-    "new": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "new": [{ "slug": "regex-groups", "boost": 1 }],
     "added": [{ "slug": "regex-groups", "boost": 1 }],
     "regex101": [{ "slug": "regex-groups", "boost": 1 }],
     "fluentd": [{ "slug": "regex-groups", "boost": 1 }],
@@ -6250,16 +6083,12 @@
     "splunk": [{ "slug": "regex-groups", "boost": 1 }],
     "grok": [{ "slug": "regex-groups", "boost": 1 }],
     "timestamp": [{ "slug": "regex-groups", "boost": 1 }],
-    "automatically": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "automatically": [{ "slug": "regex-groups", "boost": 1 }],
     "converts": [{ "slug": "regex-groups", "boost": 1 }],
     "json": [
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "sanitizing": [
       { "slug": "regex-groups", "boost": 1 },
@@ -6270,10 +6099,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 }
     ],
-    "comment": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "comment": [{ "slug": "regex-groups", "boost": 1 }],
     "ssh": [{ "slug": "regex-groups", "boost": 1 }],
     "sshd": [{ "slug": "regex-groups", "boost": 1 }],
     "altering": [{ "slug": "regex-groups", "boost": 1 }],
@@ -6333,10 +6159,7 @@
       { "slug": "regex-lookaround", "boost": 1 }
     ],
     "directly": [{ "slug": "regex-groups", "boost": 1 }],
-    "cleaner": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "cleaner": [{ "slug": "regex-groups", "boost": 1 }],
     "splitting": [{ "slug": "regex-groups", "boost": 1 }],
     "split": [
       { "slug": "regex-groups", "boost": 1 },
@@ -6345,8 +6168,7 @@
     "4th": [{ "slug": "regex-groups", "boost": 1 }],
     "column": [
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "native": [
       { "slug": "regex-groups", "boost": 1 },
@@ -6355,8 +6177,7 @@
     "executes": [
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "readable": [
       { "slug": "regex-groups", "boost": 1 },
@@ -6454,10 +6275,7 @@
       { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "enable": [{ "slug": "regex-groups", "boost": 1 }],
-    "ere": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "ere": [{ "slug": "regex-groups", "boost": 1 }],
     "misunderstanding": [
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 }
@@ -6481,10 +6299,7 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
-    "delete": [
-      { "slug": "regex-groups", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "delete": [{ "slug": "regex-groups", "boost": 1 }],
     "realize": [{ "slug": "regex-groups", "boost": 1 }],
     "actively": [{ "slug": "regex-groups", "boost": 1 }],
     "php": [
@@ -6641,15 +6456,13 @@
     ],
     "stream": [
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "verify": [{ "slug": "regex-lookaround", "boost": 1 }],
     "output": [
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "linear": [
       { "slug": "regex-lookaround", "boost": 1 },
@@ -6840,8 +6653,7 @@
     "chained": [{ "slug": "regex-lookaround", "boost": 1 }],
     "linux": [
       { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 }
     ],
     "pipeline": [{ "slug": "regex-lookaround", "boost": 1 }],
     "failures": [
@@ -7124,10 +6936,7 @@
     "inverts": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "colou": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "applies": [{ "slug": "regex-quantifiers", "boost": 1 }],
-    "commands": [
-      { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "commands": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "normalizing": [
       { "slug": "regex-quantifiers", "boost": 1 },
       { "slug": "regex-shorthand-classes", "boost": 1 }
@@ -7188,8 +6997,7 @@
     ],
     "jq": [
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 2 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "limits": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "doing": [{ "slug": "regex-quantifiers", "boost": 1 }],
@@ -7326,10 +7134,7 @@
     "spiking": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "usage": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "crashing": [{ "slug": "regex-quantifiers", "boost": 1 }],
-    "old": [
-      { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "old": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "misspelled": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "sucess": [{ "slug": "regex-quantifiers", "boost": 1 }],
     "succes": [{ "slug": "regex-quantifiers", "boost": 1 }],
@@ -7423,10 +7228,7 @@
       { "slug": "regex-shorthand-classes", "boost": 1 },
       { "slug": "regex-wildcard", "boost": 1 }
     ],
-    "substitution": [
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "substitution": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "varying": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "gaps": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "commas": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
@@ -7463,14 +7265,8 @@
       { "slug": "regex-shorthand-classes", "boost": 1 },
       { "slug": "regex-wildcard", "boost": 1 }
     ],
-    "macos": [
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
-    "bsd": [
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "macos": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
+    "bsd": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "understand": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "alnum": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "standards": [
@@ -7564,14 +7360,8 @@
     "unintended": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "generated": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "gracefully": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
-    "handle": [
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
-    "artifacts": [
-      { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "handle": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
+    "artifacts": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "entered": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "happen": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
     "down": [{ "slug": "regex-shorthand-classes", "boost": 1 }],
@@ -7594,8 +7384,7 @@
     ],
     "substitute": [
       { "slug": "regex-shorthand-classes", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "tool": [
       { "slug": "regex-shorthand-classes", "boost": 1 },
@@ -7681,10 +7470,7 @@
     "preserving": [{ "slug": "regex-wildcard", "boost": 1 }],
     "notorious": [{ "slug": "regex-wildcard", "boost": 1 }],
     "overreaching": [{ "slug": "regex-wildcard", "boost": 1 }],
-    "yq": [
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 2 }
-    ],
+    "yq": [{ "slug": "regex-wildcard", "boost": 1 }],
     "known": [{ "slug": "regex-wildcard", "boost": 1 }],
     "grab": [{ "slug": "regex-wildcard", "boost": 1 }],
     "shifts": [{ "slug": "regex-wildcard", "boost": 1 }],
@@ -7764,51 +7550,11 @@
     "scrub": [{ "slug": "regex-wildcard", "boost": 1 }],
     "credentials": [{ "slug": "regex-wildcard", "boost": 1 }],
     "precisely": [{ "slug": "regex-wildcard", "boost": 1 }],
-    "occurrences": [
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
-    "filename": [
-      { "slug": "regex-wildcard", "boost": 1 },
-      { "slug": "sed", "boost": 1 }
-    ],
+    "occurrences": [{ "slug": "regex-wildcard", "boost": 1 }],
+    "filename": [{ "slug": "regex-wildcard", "boost": 1 }],
     "bak": [{ "slug": "regex-wildcard", "boost": 1 }],
     "configxbak": [{ "slug": "regex-wildcard", "boost": 1 }],
-    "sec4": [{ "slug": "regex-wildcard", "boost": 1 }],
-    "editor": [
-      { "slug": "sed", "boost": 5, "phrase": "stream editor text replacement" }
-    ],
-    "parses": [{ "slug": "sed", "boost": 1 }],
-    "transforms": [{ "slug": "sed", "boost": 1 }],
-    "enables": [{ "slug": "sed", "boost": 1 }],
-    "interactive": [{ "slug": "sed", "boost": 1 }],
-    "editing": [{ "slug": "sed", "boost": 1 }],
-    "edit": [{ "slug": "sed", "boost": 1 }],
-    "suppress": [{ "slug": "sed", "boost": 1 }],
-    "automatic": [{ "slug": "sed", "boost": 1 }],
-    "printing": [{ "slug": "sed", "boost": 1 }],
-    "yaml": [{ "slug": "sed", "boost": 1 }],
-    "stdout": [{ "slug": "sed", "boost": 1 }],
-    "updating": [{ "slug": "sed", "boost": 1 }],
-    "version": [{ "slug": "sed", "boost": 1 }],
-    "release": [{ "slug": "sed", "boost": 1 }],
-    "publishing": [{ "slug": "sed", "boost": 1 }],
-    "field": [{ "slug": "sed", "boost": 1 }],
-    "sd": [{ "slug": "sed", "boost": 1 }],
-    "intuitive": [{ "slug": "sed", "boost": 1 }],
-    "reads": [{ "slug": "sed", "boost": 1 }],
-    "transformation": [{ "slug": "sed", "boost": 1 }],
-    "instructions": [{ "slug": "sed", "boost": 1 }],
-    "low": [{ "slug": "sed", "boost": 1 }],
-    "cautious": [{ "slug": "sed", "boost": 1 }],
-    "mounted": [{ "slug": "sed", "boost": 1 }],
-    "volumes": [{ "slug": "sed", "boost": 1 }],
-    "symlinked": [{ "slug": "sed", "boost": 1 }],
-    "differences": [{ "slug": "sed", "boost": 1 }],
-    "argument": [{ "slug": "sed", "boost": 1 }],
-    "test": [{ "slug": "sed", "boost": 1 }],
-    "modifying": [{ "slug": "sed", "boost": 1 }],
-    "conf": [{ "slug": "sed", "boost": 1 }]
+    "sec4": [{ "slug": "regex-wildcard", "boost": 1 }]
   },
   "trigrams": {
     "100": ["100"],
@@ -7922,9 +7668,7 @@
       "reverses",
       "resolving",
       "response",
-      "resort",
-      "release",
-      "reads"
+      "resort"
     ],
     "reg": [
       "regex",
@@ -8051,8 +7795,7 @@
       "literals",
       "entered",
       "interplay",
-      "interpret",
-      "interactive"
+      "interpret"
     ],
     "ern": [
       "alternation",
@@ -8180,10 +7923,7 @@
       "treating",
       "authorization",
       "combinations",
-      "satisfied",
-      "automatic",
-      "updating",
-      "transformation"
+      "satisfied"
     ],
     "tio": [
       "alternation",
@@ -8269,10 +8009,7 @@
       "exception",
       "authorization",
       "combinations",
-      "cautiously",
-      "transformation",
-      "instructions",
-      "cautious"
+      "cautiously"
     ],
     "ion": [
       "alternation",
@@ -8367,10 +8104,7 @@
       "sessiontoken",
       "authorization",
       "combinations",
-      "millions",
-      "version",
-      "transformation",
-      "instructions"
+      "millions"
     ],
     "on$": [
       "alternation",
@@ -8441,9 +8175,7 @@
       "normalization",
       "exception",
       "authorization",
-      "weapon",
-      "version",
-      "transformation"
+      "weapon"
     ],
     "^or": ["or", "order", "ordering", "org", "original", "orange"],
     "or$": [
@@ -8463,8 +8195,7 @@
       "favor",
       "prior",
       "extractor",
-      "connector",
-      "editor"
+      "connector"
     ],
     "^bo": [
       "boolean",
@@ -8495,8 +8226,7 @@
       "cleantext",
       "leaving",
       "leading",
-      "clearly",
-      "release"
+      "clearly"
     ],
     "ean": [
       "boolean",
@@ -8629,8 +8359,7 @@
       "general",
       "hierarchical",
       "literals",
-      "generated",
-      "interactive"
+      "generated"
     ],
     "rat": [
       "operator",
@@ -8682,8 +8411,7 @@
       "extractor",
       "connector",
       "historical",
-      "notorious",
-      "editor"
+      "notorious"
     ],
     "^ma": [
       "match",
@@ -8743,9 +8471,7 @@
       "programmatically",
       "mathematical",
       "programmatic",
-      "format",
-      "automatic",
-      "transformation"
+      "format"
     ],
     "atc": [
       "match",
@@ -8842,8 +8568,7 @@
       "standards",
       "star",
       "stopping",
-      "static",
-      "stdout"
+      "static"
     ],
     "str": [
       "string",
@@ -8887,8 +8612,7 @@
       "downstream",
       "destroys",
       "demonstrates",
-      "constrained",
-      "instructions"
+      "constrained"
     ],
     "tri": [
       "string",
@@ -8943,8 +8667,7 @@
       "requiring",
       "authoring",
       "dirtystring",
-      "neighboring",
-      "printing"
+      "neighboring"
     ],
     "ing": [
       "string",
@@ -9159,12 +8882,7 @@
       "falling",
       "bleeding",
       "neighboring",
-      "halting",
-      "editing",
-      "printing",
-      "updating",
-      "publishing",
-      "modifying"
+      "halting"
     ],
     "ng$": [
       "string",
@@ -9376,12 +9094,7 @@
       "falling",
       "bleeding",
       "neighboring",
-      "halting",
-      "editing",
-      "printing",
-      "updating",
-      "publishing",
-      "modifying"
+      "halting"
     ],
     "^an": [
       "another",
@@ -9615,8 +9328,7 @@
       "coded",
       "configstart",
       "configend",
-      "configxbak",
-      "conf"
+      "configxbak"
     ],
     "con": [
       "condition",
@@ -9669,8 +9381,7 @@
       "millisecond",
       "configstart",
       "configend",
-      "configxbak",
-      "conf"
+      "configxbak"
     ],
     "ond": [
       "condition",
@@ -9703,16 +9414,7 @@
       "unconditional",
       "commanding"
     ],
-    "dit": [
-      "condition",
-      "traditional",
-      "conditions",
-      "audit",
-      "unconditional",
-      "editor",
-      "editing",
-      "edit"
-    ],
+    "dit": ["condition", "traditional", "conditions", "audit", "unconditional"],
     "iti": [
       "condition",
       "insensitivity",
@@ -9744,9 +9446,7 @@
       "mitigate",
       "citing",
       "sanitize",
-      "unconditional",
-      "editing",
-      "intuitive"
+      "unconditional"
     ],
     "^mu": [
       "multiple",
@@ -9919,8 +9619,7 @@
       "hundreds",
       "passwords",
       "ends",
-      "keywords",
-      "reads"
+      "keywords"
     ],
     "^in": [
       "in",
@@ -9995,10 +9694,7 @@
       "interplay",
       "ingest",
       "interpret",
-      "inches",
-      "interactive",
-      "intuitive",
-      "instructions"
+      "inches"
     ],
     "in$": [
       "in",
@@ -10075,10 +9771,9 @@
       "system",
       "systems",
       "syntactically",
-      "symbols",
-      "symlinked"
+      "symbols"
     ],
-    "sym": ["symbol", "symbols", "symlinked"],
+    "sym": ["symbol", "symbols"],
     "ymb": ["symbol", "symbols"],
     "mbo": ["symbol", "symbols"],
     "bol": ["symbol", "bold", "symbols"],
@@ -10156,8 +9851,7 @@
       "findall",
       "finally",
       "fields",
-      "filename",
-      "field"
+      "filename"
     ],
     "fin": [
       "find",
@@ -10294,8 +9988,7 @@
       "pairs",
       "passwords",
       "paradigm",
-      "pause",
-      "parses"
+      "pause"
     ],
     "pat": [
       "pattern",
@@ -10400,8 +10093,7 @@
       "behind",
       "crashing",
       "anything",
-      "overreaching",
-      "publishing"
+      "overreaching"
     ],
     "^lo": [
       "logic",
@@ -10439,8 +10131,7 @@
       "lookbehinds",
       "location",
       "localized",
-      "locking",
-      "low"
+      "locking"
     ],
     "log": [
       "logic",
@@ -10472,8 +10163,7 @@
       "italic",
       "cyrillic",
       "arabic",
-      "static",
-      "automatic"
+      "static"
     ],
     "^se": [
       "sed",
@@ -10638,9 +10328,7 @@
       "satisfied",
       "coded",
       "caused",
-      "halted",
-      "mounted",
-      "symlinked"
+      "halted"
     ],
     "^aw": ["awk", "away", "aware"],
     "awk": ["awk"],
@@ -10848,8 +10536,7 @@
       "accesses",
       "sessiontoken",
       "reverses",
-      "encompasses",
-      "parses"
+      "encompasses"
     ],
     "es$": [
       "classes",
@@ -11000,11 +10687,7 @@
       "crashes",
       "inches",
       "encompasses",
-      "occurrences",
-      "parses",
-      "enables",
-      "volumes",
-      "differences"
+      "occurrences"
     ],
     "^wh": [
       "what",
@@ -11036,8 +10719,7 @@
       "limit",
       "permit",
       "audit",
-      "hit",
-      "edit"
+      "hit"
     ],
     "rel": [
       "relies",
@@ -11048,8 +10730,7 @@
       "securely",
       "entirely",
       "rarely",
-      "rely",
-      "release"
+      "rely"
     ],
     "eli": [
       "relies",
@@ -11144,9 +10825,7 @@
       "transactionid",
       "transaction",
       "activating",
-      "activate",
-      "interactive",
-      "instructions"
+      "activate"
     ],
     "^as": [
       "as",
@@ -11306,8 +10985,7 @@
       "preserving",
       "interpret",
       "imprecise",
-      "precisely",
-      "suppress"
+      "precisely"
     ],
     "res": [
       "expression",
@@ -11350,8 +11028,7 @@
       "resolving",
       "response",
       "resort",
-      "unforeseen",
-      "suppress"
+      "unforeseen"
     ],
     "ess": [
       "expression",
@@ -11384,8 +11061,7 @@
       "sucess",
       "accesses",
       "sessiontoken",
-      "guess",
-      "suppress"
+      "guess"
     ],
     "ssi": [
       "expression",
@@ -11415,8 +11091,7 @@
       "omission",
       "extension",
       "exclusion",
-      "sessiontoken",
-      "version"
+      "sessiontoken"
     ],
     "^ev": [
       "evaluates",
@@ -11555,8 +11230,7 @@
       "initiates",
       "dictates",
       "pollutes",
-      "demonstrates",
-      "test"
+      "demonstrates"
     ],
     "^di": [
       "distinct",
@@ -11578,8 +11252,7 @@
       "dirtystring",
       "disparity",
       "diametrically",
-      "dirty",
-      "differences"
+      "dirty"
     ],
     "dis": [
       "distinct",
@@ -11679,10 +11352,7 @@
       "activating",
       "consisting",
       "treating",
-      "halting",
-      "editing",
-      "printing",
-      "updating"
+      "halting"
     ],
     "inc": [
       "distinct",
@@ -11783,8 +11453,7 @@
       "encapsulating",
       "encoding",
       "encompasses",
-      "occurrences",
-      "differences"
+      "occurrences"
     ],
     "nce": [
       "sequences",
@@ -11805,8 +11474,7 @@
       "conceptual",
       "sentence",
       "concerns",
-      "occurrences",
-      "differences"
+      "occurrences"
     ],
     "ces": [
       "sequences",
@@ -11836,8 +11504,7 @@
       "ces",
       "reduces",
       "accesses",
-      "occurrences",
-      "differences"
+      "occurrences"
     ],
     "^le": [
       "left",
@@ -11888,8 +11555,7 @@
       "remains",
       "instances",
       "maintains",
-      "domains",
-      "instructions"
+      "domains"
     ],
     "nst": [
       "instructing",
@@ -11909,8 +11575,7 @@
       "constantly",
       "downstream",
       "demonstrates",
-      "constrained",
-      "instructions"
+      "constrained"
     ],
     "tru": [
       "instructing",
@@ -11928,8 +11593,7 @@
       "instruct",
       "unstructured",
       "untrusted",
-      "truncation",
-      "instructions"
+      "truncation"
     ],
     "ruc": [
       "instructing",
@@ -11945,8 +11609,7 @@
       "structural",
       "instruct",
       "unstructured",
-      "crucially",
-      "instructions"
+      "crucially"
     ],
     "uct": [
       "instructing",
@@ -11961,8 +11624,7 @@
       "structural",
       "instruct",
       "unstructured",
-      "product",
-      "instructions"
+      "product"
     ],
     "^en": [
       "engine",
@@ -11996,8 +11658,7 @@
       "environment",
       "ends",
       "encoding",
-      "encompasses",
-      "enables"
+      "encompasses"
     ],
     "eng": [
       "engine",
@@ -12125,8 +11786,7 @@
       "succes",
       "suc",
       "substitution",
-      "substitute",
-      "suppress"
+      "substitute"
     ],
     "suc": [
       "successful",
@@ -12197,7 +11857,7 @@
       "star",
       "configstart"
     ],
-    "arg": ["target", "targets", "larger", "targeted", "targeting", "argument"],
+    "arg": ["target", "targets", "larger", "targeted", "targeting"],
     "rge": [
       "target",
       "divergent",
@@ -12251,8 +11911,7 @@
       "technique",
       "telemetry",
       "terminal",
-      "teams",
-      "test"
+      "teams"
     ],
     "tex": ["text", "context", "contexts", "cleantext", "plaintext"],
     "ext": [
@@ -12308,8 +11967,7 @@
       "modifiers",
       "verifies",
       "fields",
-      "satisfied",
-      "field"
+      "satisfied"
     ],
     "any": ["any", "anywhere", "many", "anything"],
     "ny$": ["any", "many"],
@@ -12667,8 +12325,7 @@
       "interpreted",
       "generated",
       "represented",
-      "halted",
-      "mounted"
+      "halted"
     ],
     "opt": [
       "options",
@@ -12743,8 +12400,7 @@
       "combinations",
       "constrained",
       "millions",
-      "response",
-      "instructions"
+      "response"
     ],
     "ns$": [
       "options",
@@ -12787,8 +12443,7 @@
       "combinations",
       "millions",
       "spans",
-      "columns",
-      "instructions"
+      "columns"
     ],
     "why": ["why"],
     "hy$": ["why", "lengthy"],
@@ -12847,8 +12502,7 @@
       "nest",
       "robust",
       "consist",
-      "ingest",
-      "test"
+      "ingest"
     ],
     "whe": ["when", "anywhere", "where", "somewhere", "whenever", "everywhere"],
     "hen": ["when", "whenever", "then", "hyphen", "hyphens"],
@@ -12945,8 +12599,7 @@
       "break",
       "overreaches",
       "treating",
-      "overreaching",
-      "reads"
+      "overreaching"
     ],
     "eam": ["streams", "stream", "seamlessly", "teams", "downstream"],
     "ams": ["streams", "teams"],
@@ -12958,8 +12611,7 @@
       "performs",
       "conforms",
       "teams",
-      "claims",
-      "transforms"
+      "claims"
     ],
     "^fo": [
       "for",
@@ -13014,9 +12666,7 @@
       "conforms",
       "uniform",
       "format",
-      "unforeseen",
-      "transforms",
-      "transformation"
+      "unforeseen"
     ],
     "div": ["diverse", "divergent", "individual", "div"],
     "ive": [
@@ -13050,9 +12700,7 @@
       "inclusive",
       "possessive",
       "universal",
-      "extensive",
-      "interactive",
-      "intuitive"
+      "extensive"
     ],
     "ver": [
       "diverse",
@@ -13103,8 +12751,7 @@
       "overreaches",
       "overrides",
       "overreaching",
-      "reverses",
-      "version"
+      "reverses"
     ],
     "ers": [
       "diverse",
@@ -13142,8 +12789,7 @@
       "traversing",
       "compilers",
       "reverses",
-      "users",
-      "version"
+      "users"
     ],
     "rse": [
       "diverse",
@@ -13154,8 +12800,7 @@
       "traverses",
       "traverse",
       "parseable",
-      "reverses",
-      "parses"
+      "reverses"
     ],
     "se$": [
       "diverse",
@@ -13186,8 +12831,7 @@
       "bitwise",
       "pause",
       "response",
-      "imprecise",
-      "release"
+      "imprecise"
     ],
     "set": [
       "set",
@@ -13357,8 +13001,7 @@
       "previous",
       "us",
       "dangerous",
-      "notorious",
-      "cautious"
+      "notorious"
     ],
     "cod": [
       "codes",
@@ -13447,8 +13090,7 @@
       "maliciously",
       "previous",
       "notorious",
-      "cautiously",
-      "cautious"
+      "cautiously"
     ],
     "ous": [
       "various",
@@ -13462,8 +13104,7 @@
       "dangerous",
       "notorious",
       "cautiously",
-      "rigorously",
-      "cautious"
+      "rigorously"
     ],
     "^sp": [
       "spelling",
@@ -13533,8 +13174,7 @@
       "smuggling",
       "newlines",
       "singleline",
-      "falling",
-      "symlinked"
+      "falling"
     ],
     "loc": [
       "localizations",
@@ -13753,8 +13393,7 @@
       "beautifulsoup",
       "substitution",
       "utility",
-      "cautiously",
-      "cautious"
+      "cautiously"
     ],
     "sep": ["separate", "separated", "separator"],
     "epa": ["separate", "separated", "separator"],
@@ -13775,8 +13414,7 @@
       "parseable",
       "compared",
       "disparity",
-      "paradigm",
-      "parses"
+      "paradigm"
     ],
     "ara": [
       "separate",
@@ -13910,8 +13548,7 @@
       "moment",
       "adjacent",
       "permanently",
-      "credentials",
-      "argument"
+      "credentials"
     ],
     "nti": [
       "sequential",
@@ -13937,8 +13574,7 @@
       "exponential",
       "representing",
       "hunting",
-      "credentials",
-      "printing"
+      "credentials"
     ],
     "tia": [
       "sequential",
@@ -14069,9 +13705,7 @@
       "transformations",
       "transactionid",
       "transaction",
-      "spans",
-      "transforms",
-      "transformation"
+      "spans"
     ],
     "ery": ["every", "very", "everything", "everywhere", "query"],
     "ry$": [
@@ -14406,9 +14040,7 @@
       "have",
       "inclusive",
       "possessive",
-      "extensive",
-      "interactive",
-      "intuitive"
+      "extensive"
     ],
     "ica": [
       "logically",
@@ -14460,10 +14092,7 @@
       "dedicated",
       "incredibly",
       "predictable",
-      "bleeding",
-      "editor",
-      "editing",
-      "edit"
+      "bleeding"
     ],
     "dio": ["tedious"],
     "sts": ["exists", "manifests", "tests", "consists"],
@@ -14583,8 +14212,7 @@
       "dates",
       "validator",
       "metadata",
-      "datasets",
-      "updating"
+      "datasets"
     ],
     "erg": ["divergent"],
     "gen": [
@@ -14631,8 +14259,7 @@
       "represent",
       "point",
       "moment",
-      "adjacent",
-      "argument"
+      "adjacent"
     ],
     "^cr": [
       "criteria",
@@ -14726,10 +14353,7 @@
       "point",
       "interplay",
       "plaintext",
-      "interpret",
-      "interactive",
-      "printing",
-      "intuitive"
+      "interpret"
     ],
     "nto": ["into", "sessiontoken"],
     "^si": [
@@ -14861,8 +14485,7 @@
       "business",
       "sucess",
       "perlrecharclass",
-      "guess",
-      "suppress"
+      "guess"
     ],
     "llo": [
       "allowing",
@@ -14889,8 +14512,7 @@
       "slowly",
       "lower",
       "follows",
-      "follow",
-      "low"
+      "follow"
     ],
     "owi": ["allowing", "shadowing", "following"],
     "win": ["allowing", "shadowing", "following", "reviewing", "windows"],
@@ -14977,8 +14599,7 @@
       "categories",
       "cart",
       "cautiously",
-      "caused",
-      "cautious"
+      "caused"
     ],
     "isp": ["disparate", "misplacing", "disparity"],
     "spa": [
@@ -15182,20 +14803,11 @@
       "moving",
       "momentum",
       "moore",
-      "moment",
-      "mounted",
-      "modifying"
+      "moment"
     ],
-    "mod": ["modifier", "modern", "modes", "mode", "modifiers", "modifying"],
-    "odi": ["modifier", "modifiers", "hardcoding", "encoding", "modifying"],
-    "dif": [
-      "modifier",
-      "different",
-      "difference",
-      "modifiers",
-      "differences",
-      "modifying"
-    ],
+    "mod": ["modifier", "modern", "modes", "mode", "modifiers"],
+    "odi": ["modifier", "modifiers", "hardcoding", "encoding"],
+    "dif": ["modifier", "different", "difference", "modifiers"],
     "ier": [
       "modifier",
       "identifier",
@@ -15354,8 +14966,7 @@
       "extractor",
       "activating",
       "artifacts",
-      "activate",
-      "interactive"
+      "activate"
     ],
     "cas": ["case", "uppercase", "lowercase", "casing", "cases"],
     "ase": [
@@ -15369,8 +14980,7 @@
       "codebases",
       "cases",
       "base64",
-      "datasets",
-      "release"
+      "datasets"
     ],
     "nse": [
       "insensitivity",
@@ -15419,9 +15029,7 @@
       "effectively",
       "consecutive",
       "activating",
-      "activate",
-      "interactive",
-      "intuitive"
+      "activate"
     ],
     "ivi": ["insensitivity", "individual", "archiving", "giving"],
     "vit": ["insensitivity", "inevitably"],
@@ -15629,9 +15237,7 @@
       "errant",
       "transactionid",
       "transaction",
-      "guaranteed",
-      "transforms",
-      "transformation"
+      "guaranteed"
     ],
     "anc": [
       "branches",
@@ -15775,8 +15381,7 @@
       "super",
       "unsupported",
       "supported",
-      "superior",
-      "suppress"
+      "superior"
     ],
     "upp": [
       "support",
@@ -15784,8 +15389,7 @@
       "uppercase",
       "unsupported",
       "supported",
-      "upper",
-      "suppress"
+      "upper"
     ],
     "ppo": [
       "support",
@@ -16097,8 +15701,7 @@
       "sometimes",
       "timestamp",
       "times",
-      "usernames",
-      "volumes"
+      "usernames"
     ],
     "^pc": ["pcre", "pcre2pattern", "pcre2syntax", "pcresyntax", "pc"],
     "pcr": ["pcre", "pcre2pattern", "pcre2syntax", "pcresyntax"],
@@ -16258,8 +15861,7 @@
       "rules",
       "needles",
       "seamlessly",
-      "tables",
-      "enables"
+      "tables"
     ],
     "ash": [
       "bash",
@@ -16302,8 +15904,7 @@
       "mathematical",
       "programmatic",
       "elasticity",
-      "static",
-      "automatic"
+      "static"
     ],
     "^fa": [
       "fatal",
@@ -16362,15 +15963,7 @@
       "inclusive",
       "business"
     ],
-    "ars": [
-      "parse",
-      "parsing",
-      "cars",
-      "appears",
-      "parsers",
-      "parseable",
-      "parses"
-    ],
+    "ars": ["parse", "parsing", "cars", "appears", "parsers", "parseable"],
     "yst": ["system", "systems", "haystack", "dirtystring"],
     "ste": [
       "system",
@@ -16509,8 +16102,7 @@
       "architectural",
       "arabic",
       "artifacts",
-      "arbitrarily",
-      "argument"
+      "arbitrarily"
     ],
     "art": [
       "article",
@@ -16608,7 +16200,7 @@
       "diametrically"
     ],
     "bri": ["british", "bridge"],
-    "ish": ["british", "establishing", "accomplish", "publishing"],
+    "ish": ["british", "establishing", "accomplish"],
     "lou": ["colour", "colou"],
     "our": ["colour", "your", "hours", "yourself", "source", "four"],
     "ur$": ["colour", "your", "occur", "four"],
@@ -16741,8 +16333,7 @@
       "currently",
       "parenthesis",
       "rename",
-      "occurrences",
-      "differences"
+      "occurrences"
     ],
     "nth": ["parentheses", "month", "parenthesis"],
     "ese": [
@@ -16835,8 +16426,7 @@
       "property",
       "predictable",
       "preserving",
-      "precisely",
-      "printing"
+      "precisely"
     ],
     "pro": [
       "protocol",
@@ -16898,8 +16488,7 @@
       "vertical",
       "verify",
       "verifies",
-      "verifying",
-      "version"
+      "verifying"
     ],
     "beg": ["beginning", "begins", "begin", "began"],
     "egi": [
@@ -17074,8 +16663,7 @@
       "output",
       "outputs",
       "connectiontimeout",
-      "outward",
-      "stdout"
+      "outward"
     ],
     "ut$": [
       "timeout",
@@ -17085,8 +16673,7 @@
       "input",
       "output",
       "cut",
-      "connectiontimeout",
-      "stdout"
+      "connectiontimeout"
     ],
     "cou": ["count", "encounters", "account", "encountered"],
     "oun": [
@@ -17106,8 +16693,7 @@
       "bounded",
       "amounts",
       "bounds",
-      "found",
-      "mounted"
+      "found"
     ],
     "unt": [
       "count",
@@ -17118,8 +16704,7 @@
       "encountered",
       "untrusted",
       "amounts",
-      "hunting",
-      "mounted"
+      "hunting"
     ],
     "met": [
       "metrics",
@@ -17215,8 +16800,7 @@
       "confusable",
       "applicable",
       "notable",
-      "predictable",
-      "enables"
+      "predictable"
     ],
     "ble": [
       "variables",
@@ -17246,8 +16830,7 @@
       "applicable",
       "notable",
       "predictable",
-      "bleeding",
-      "enables"
+      "bleeding"
     ],
     "ref": [
       "prefix",
@@ -17363,8 +16946,7 @@
       "documentation",
       "assignments",
       "environment",
-      "moment",
-      "argument"
+      "moment"
     ],
     "^jp": ["jpg", "jpeg"],
     "jpg": ["jpg"],
@@ -17605,7 +17187,7 @@
     "eal": ["real", "health", "realize", "dealing"],
     "orl": ["world", "poorly"],
     "rld": ["world", "perldoc"],
-    "ld$": ["world", "build", "should", "would", "bold", "old", "field"],
+    "ld$": ["world", "build", "should", "would", "bold", "old"],
     "sce": ["scenarios"],
     "cen": ["scenarios", "accented", "adjacent"],
     "ena": [
@@ -17617,13 +17199,12 @@
       "enabling",
       "rename",
       "penalty",
-      "filename",
-      "enables"
+      "filename"
     ],
     "nar": ["scenarios", "dictionary", "columnar"],
     "ios": ["scenarios"],
     "os$": ["scenarios", "redos", "macos"],
-    "rsi": ["parsing", "recursive", "traversing", "version"],
+    "rsi": ["parsing", "recursive", "traversing"],
     "mix": ["mixed"],
     "ixe": ["mixed", "prefixes", "fixed"],
     "xed": ["mixed", "fixed"],
@@ -17777,9 +17358,7 @@
       "traversing",
       "demonstrates",
       "constrained",
-      "arbitrarily",
-      "transforms",
-      "transformation"
+      "arbitrarily"
     ],
     "ors": ["administrators", "operators", "anchors", "errors"],
     "rs$": [
@@ -18002,8 +17581,7 @@
       "confusable",
       "configstart",
       "configend",
-      "configxbak",
-      "conf"
+      "configxbak"
     ],
     "nfi": [
       "configuration",
@@ -18063,8 +17641,7 @@
       "comprising",
       "primary",
       "prior",
-      "inappropriate",
-      "printing"
+      "inappropriate"
     ],
     "env": ["env", "environment"],
     "nv$": ["env"],
@@ -18152,8 +17729,7 @@
       "nest",
       "restricts",
       "destroys",
-      "ingest",
-      "test"
+      "ingest"
     ],
     "map": ["mapped", "mapping", "map", "maps"],
     "xtr": [
@@ -18192,8 +17768,7 @@
       "bracketed",
       "abstractions",
       "extractor",
-      "gracefully",
-      "interactive"
+      "gracefully"
     ],
     "exc": [
       "exclusively",
@@ -18339,8 +17914,7 @@
       "establishing",
       "accomplish",
       "cleanlist",
-      "millisecond",
-      "publishing"
+      "millisecond"
     ],
     "^au": [
       "automation",
@@ -18350,8 +17924,7 @@
       "automatically",
       "authoring",
       "audit",
-      "authorization",
-      "automatic"
+      "authorization"
     ],
     "aut": [
       "automation",
@@ -18362,25 +17935,16 @@
       "beautifulsoup",
       "authoring",
       "authorization",
-      "cautiously",
-      "automatic",
-      "cautious"
+      "cautiously"
     ],
-    "uto": [
-      "automation",
-      "automata",
-      "automaton",
-      "automatically",
-      "automatic"
-    ],
+    "uto": ["automation", "automata", "automaton", "automatically"],
     "tom": [
       "automation",
       "automata",
       "custom",
       "automaton",
       "atomic",
-      "automatically",
-      "automatic"
+      "automatically"
     ],
     "oma": [
       "automation",
@@ -18388,8 +17952,7 @@
       "automaton",
       "domain",
       "automatically",
-      "domains",
-      "automatic"
+      "domains"
     ],
     "pts": ["scripts", "accepts", "attempts"],
     "^so": [
@@ -18547,7 +18110,7 @@
       "mechanism",
       "perlrecharclass"
     ],
-    "eas": ["reason", "least", "measurable", "easier", "release"],
+    "eas": ["reason", "least", "measurable", "easier"],
     "aso": ["reason"],
     "son": ["reason", "json", "comparison"],
     "unn": ["unnecessarily", "running", "unnecessary"],
@@ -18651,8 +18214,7 @@
       "lookahead",
       "ahead",
       "read",
-      "leading",
-      "reads"
+      "leading"
     ],
     "ad$": [
       "instead",
@@ -18708,7 +18270,7 @@
       "dangerous",
       "orange"
     ],
-    "vol": ["involves", "volumes"],
+    "vol": ["involves"],
     "olv": ["involves", "resolve", "solves", "solve", "resolving"],
     "lve": ["involves", "halves", "resolve", "solves", "solve"],
     "ves": [
@@ -18808,15 +18370,7 @@
     "rd9": ["word999"],
     "d99": ["word999"],
     "99$": ["word999", "599"],
-    "cau": [
-      "cause",
-      "because",
-      "causes",
-      "causing",
-      "cautiously",
-      "caused",
-      "cautious"
-    ],
+    "cau": ["cause", "because", "causes", "causing", "cautiously", "caused"],
     "aus": [
       "cause",
       "because",
@@ -18846,8 +18400,7 @@
       "encountered",
       "ere",
       "everywhere",
-      "entered",
-      "differences"
+      "entered"
     ],
     "erf": [
       "performance",
@@ -18875,9 +18428,7 @@
       "conforms",
       "uniform",
       "normalization",
-      "format",
-      "transforms",
-      "transformation"
+      "format"
     ],
     "rma": [
       "performance",
@@ -18891,8 +18442,7 @@
       "normalizing",
       "normalization",
       "format",
-      "permanently",
-      "transformation"
+      "permanently"
     ],
     "ce$": [
       "performance",
@@ -19018,9 +18568,7 @@
       "transactionid",
       "transaction",
       "traversing",
-      "treating",
-      "transforms",
-      "transformation"
+      "treating"
     ],
     "deo": ["tradeoff"],
     "eof": ["tradeoff"],
@@ -19132,15 +18680,8 @@
       "infinitely",
       "telemetry"
     ],
-    "iff": ["different", "difference", "differences"],
-    "ffe": [
-      "different",
-      "affects",
-      "buffer",
-      "difference",
-      "effectively",
-      "differences"
-    ],
+    "iff": ["different", "difference"],
+    "ffe": ["different", "affects", "buffer", "difference", "effectively"],
     "fer": [
       "different",
       "references",
@@ -19150,12 +18691,11 @@
       "backreferences",
       "backreference",
       "reference",
-      "prefer",
-      "differences"
+      "prefer"
     ],
     "uck": ["truck"],
     "how": ["how", "however", "show"],
-    "ow$": ["how", "allow", "slow", "know", "throw", "show", "follow", "low"],
+    "ow$": ["how", "allow", "slow", "know", "throw", "show", "follow"],
     "rks": ["works", "marks"],
     "nte": [
       "internally",
@@ -19187,9 +18727,7 @@
       "represented",
       "interplay",
       "plaintext",
-      "interpret",
-      "interactive",
-      "mounted"
+      "interpret"
     ],
     "beh": ["behavior", "behaves", "lookbehind", "lookbehinds", "behind"],
     "eha": ["behavior", "behaves"],
@@ -19239,8 +18777,7 @@
       "destroying",
       "verifying",
       "applying",
-      "varying",
-      "modifying"
+      "varying"
     ],
     "non": ["non", "canonical"],
     "det": ["deterministic", "determining", "determine"],
@@ -19430,14 +18967,7 @@
       "imprecise",
       "precisely"
     ],
-    "ify": [
-      "identify",
-      "specify",
-      "simplifying",
-      "verify",
-      "verifying",
-      "modifying"
-    ],
+    "ify": ["identify", "specify", "simplifying", "verify", "verifying"],
     "fy$": ["identify", "specify", "verify"],
     "ull": [
       "full",
@@ -19723,7 +19253,7 @@
     "irc": ["circuiting", "circuit"],
     "rcu": ["circuiting", "circuit"],
     "cui": ["circuiting", "circuit"],
-    "uit": ["circuiting", "circuit", "intuitive"],
+    "uit": ["circuiting", "circuit"],
     "sav": ["save", "saving", "saves", "saved"],
     "ave": [
       "save",
@@ -19794,15 +19324,7 @@
     "loi": ["exploited"],
     "oit": ["exploited"],
     "ock": ["lock", "block", "blocks", "locking"],
-    "^up": [
-      "up",
-      "uppercase",
-      "upgrades",
-      "upcoming",
-      "upon",
-      "upper",
-      "updating"
-    ],
+    "^up": ["up", "uppercase", "upgrades", "upcoming", "upon", "upper"],
     "^we": ["web", "weapon"],
     "web": ["web"],
     "eb$": ["web"],
@@ -20200,8 +19722,7 @@
       "absolutely",
       "column",
       "columnar",
-      "columns",
-      "volumes"
+      "columns"
     ],
     "lut": ["solution", "absolute", "absolutely", "pollutes"],
     "ipv": ["ipv4", "ipv6"],
@@ -20258,7 +19779,7 @@
     "ww$": ["www"],
     "htm": ["html"],
     "tml": ["html"],
-    "ml$": ["html", "xml", "yaml"],
+    "ml$": ["html", "xml"],
     "^gn": ["gnu"],
     "gnu": ["gnu"],
     "nu$": ["gnu"],
@@ -20294,9 +19815,7 @@
       "documentation",
       "numeral",
       "alphanumerics",
-      "numerals",
-      "volumes",
-      "argument"
+      "numerals"
     ],
     "hey": ["they"],
     "ey$": ["they", "grey"],
@@ -20456,7 +19975,7 @@
       "normalization",
       "minimal"
     ],
-    "^pu": ["punctuation", "pull", "pushing", "puzzle", "pure", "publishing"],
+    "^pu": ["punctuation", "pull", "pushing", "puzzle", "pure"],
     "pun": ["punctuation"],
     "eak": ["breaks", "breaking", "break"],
     "aks": ["breaks"],
@@ -20490,7 +20009,7 @@
     "gat": ["negated", "negative", "negation", "negating", "mitigate"],
     "bur": ["buried"],
     "di$": ["vindi"],
-    "^ed": ["ed", "edge", "edges", "editor", "editing", "edit"],
+    "^ed": ["ed", "edge", "edges"],
     "^io": ["ion"],
     "rej": ["rejecting", "rejects", "reject"],
     "eje": ["rejecting", "rejects", "reject"],
@@ -20566,7 +20085,7 @@
     "cku": ["backup"],
     "kup": ["backup", "lookup"],
     "eba": ["codebase", "codebases", "spacebar"],
-    "bli": ["blind", "blindly", "establishing", "enabling", "publishing"],
+    "bli": ["blind", "blindly", "establishing", "enabling"],
     "roy": ["destroy", "destroying", "destroys"],
     "oy$": ["destroy"],
     "hid": ["hidden"],
@@ -20641,7 +20160,7 @@
     "dex": ["index", "indexes"],
     "poi": ["pointer", "points", "pinpoints", "point"],
     "oin": ["pointer", "points", "pinpoints", "doing", "point"],
-    "rms": ["performs", "conforms", "transforms"],
+    "rms": ["performs", "conforms"],
     "ask": ["asks", "tasks", "bitmask"],
     "sks": ["asks", "tasks", "risks"],
     "nsw": ["answer"],
@@ -20717,14 +20236,13 @@
       "delete",
       "teleporting",
       "accelerating",
-      "telemetry",
-      "release"
+      "telemetry"
     ],
     "^kn": ["know", "known"],
     "kno": ["know", "unknown", "known"],
     "now": ["know", "unknown", "known"],
     "dam": ["fundamental", "fundamentally"],
-    "nab": ["enabled", "enable", "enabling", "enables"],
+    "nab": ["enabled", "enable", "enabling"],
     "emb": ["embedded", "remember"],
     "bed": ["embedded"],
     "edd": ["embedded"],
@@ -20779,7 +20297,7 @@
     "f0$": ["f0"],
     "oku": ["lookup"],
     "lif": ["simplifying"],
-    "fyi": ["simplifying", "verifying", "modifying"],
+    "fyi": ["simplifying", "verifying"],
     "ada": ["readability", "unreadable", "readable", "metadata"],
     "dab": ["readability", "unreadable", "readable"],
     "abi": [
@@ -20913,7 +20431,7 @@
     "aci": ["replacing", "misplacing", "placing"],
     "kah": ["lookaheads", "lookahead"],
     "ahe": ["lookaheads", "lookahead", "ahead"],
-    "ads": ["lookaheads", "payloads", "reads"],
+    "ads": ["lookaheads", "payloads"],
     "dur": ["during"],
     "ila": ["compilation", "available"],
     "^25": ["256"],
@@ -20924,7 +20442,7 @@
     "fli": ["flips"],
     "lip": ["flips"],
     "ips": ["flips", "strips", "ips"],
-    "^vo": ["vowels", "volumes"],
+    "^vo": ["vowels"],
     "vow": ["vowels"],
     "wel": ["vowels"],
     "dir": ["direct", "directly", "dirtystring", "dirty"],
@@ -21005,8 +20523,7 @@
       "shifting",
       "pushing",
       "crashing",
-      "shifts",
-      "publishing"
+      "shifts"
     ],
     "esu": ["result", "results", "resulting"],
     "sul": ["result", "encapsulating", "results", "resulting"],
@@ -21040,8 +20557,8 @@
     "abb": ["grabbing"],
     "bbi": ["grabbing", "scrubbing"],
     "hay": ["haystack"],
-    "nsf": ["transformations", "transforms", "transformation"],
-    "sfo": ["transformations", "transforms", "transformation"],
+    "nsf": ["transformations"],
+    "sfo": ["transformations"],
     "gis": ["register", "registers"],
     "^ja": ["java", "javascript"],
     "jav": ["java", "javascript"],
@@ -21133,7 +20650,7 @@
     "lls": ["calls", "tells", "alls", "falls"],
     "^4t": ["4th"],
     "4th": ["4th"],
-    "lum": ["column", "columnar", "columns", "volumes"],
+    "lum": ["column", "columnar", "columns"],
     "umn": ["column", "columnar", "columns"],
     "mn$": ["column"],
     "sis": ["parenthesis", "consists", "consist", "consisting"],
@@ -21300,7 +20817,7 @@
     "rri": ["incurring", "overriding", "carriage", "overrides"],
     "epp": ["stepping"],
     "mom": ["momentum", "moment"],
-    "ntu": ["momentum", "intuitive"],
+    "ntu": ["momentum"],
     "tum": ["momentum"],
     "um$": ["momentum", "alnum", "minimum"],
     "alc": ["calculate"],
@@ -21354,13 +20871,13 @@
     "oct": ["octet", "octets"],
     "tet": ["octet", "octets"],
     "amo": ["amounts"],
-    "mou": ["amounts", "mounted"],
+    "mou": ["amounts"],
     "ypi": ["typing"],
     "rod": ["introduce", "introduces", "product"],
     "odu": ["introduce", "introduces", "product"],
     "duc": ["introduce", "introduces", "product", "reducing", "reduces"],
     "uce": ["introduce", "introduces", "sucess", "reduces"],
-    "aml": ["seamlessly", "yaml"],
+    "aml": ["seamlessly"],
     "mle": ["seamlessly"],
     "ssl": ["seamlessly"],
     "orb": ["absorb", "absorbing"],
@@ -21384,9 +20901,9 @@
     "psu": ["encapsulating"],
     "gnm": ["assignments"],
     "nme": ["assignments", "environment"],
-    "dou": ["double", "stdout"],
+    "dou": ["double"],
     "oub": ["double"],
-    "ubl": ["double", "publishing"],
+    "ubl": ["double"],
     "pid": ["rapidly", "rapid"],
     "idl": ["rapidly"],
     "ewo": ["framework"],
@@ -21412,8 +20929,8 @@
     "iqu": ["technique"],
     "^yi": ["yielding"],
     "yie": ["yielding"],
-    "iel": ["yielding", "fields", "field"],
-    "eld": ["yielding", "fields", "field"],
+    "iel": ["yielding", "fields"],
+    "eld": ["yielding", "fields"],
     "ldi": ["yielding"],
     "opp": ["opposite", "stopping", "opposed"],
     "fee": ["feed"],
@@ -21494,12 +21011,12 @@
     "cos": ["macos"],
     "^bs": ["bsd"],
     "bsd": ["bsd"],
-    "sd$": ["bsd", "sd"],
+    "sd$": ["bsd"],
     "aln": ["alnum"],
     "lnu": ["alnum"],
     "rls": ["urls"],
     "nap": ["inappropriate"],
-    "ppr": ["inappropriate", "suppress"],
+    "ppr": ["inappropriate"],
     "opr": ["inappropriate"],
     "nix": ["unix"],
     "ncr": ["incredibly"],
@@ -21638,25 +21155,7 @@
     "gxb": ["configxbak"],
     "xba": ["configxbak"],
     "ec4": ["sec4"],
-    "c4$": ["sec4"],
-    "ito": ["editor"],
-    "^ya": ["yaml"],
-    "yam": ["yaml"],
-    "std": ["stdout"],
-    "tdo": ["stdout"],
-    "upd": ["updating"],
-    "pda": ["updating"],
-    "pub": ["publishing"],
-    "^sd": ["sd"],
-    "tui": ["intuitive"],
-    "yml": ["symlinked"],
-    "mli": ["symlinked"],
-    "ink": ["symlinked"],
-    "nke": ["symlinked"],
-    "ked": ["symlinked"],
-    "rgu": ["argument"],
-    "gum": ["argument"],
-    "nf$": ["conf"]
+    "c4$": ["sec4"]
   },
   "facets": {
     "regex-alternation": {
@@ -21750,12 +21249,6 @@
         "lazy",
         "span"
       ]
-    },
-    "sed": {
-      "category": "regex",
-      "difficulty": "intermediate",
-      "supportedOS": ["linux", "macos", "unix", "windows"],
-      "tags": ["sed"]
     }
   }
 }

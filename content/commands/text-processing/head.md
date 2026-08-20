@@ -2,7 +2,7 @@
 slug: head
 name: head
 aliases: []
-category: cloud-cli
+category: text-processing
 tags:
   - linux
   - text-processing

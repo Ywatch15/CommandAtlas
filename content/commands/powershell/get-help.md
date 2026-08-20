@@ -29,6 +29,7 @@ relatedCommands:
   - get-command
   - get-member
 status: draft
+alternatives: []
 ---
 
 ## What is it?

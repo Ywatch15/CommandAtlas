@@ -55,7 +55,7 @@ gcloud config set <property> <value> [options]
 | `--quiet`, `-q`  | Disables interactive prompts. Automatically accepts default responses for any confirmation warnings.                                   | `gcloud config set project prod-vpc-01 -q`                           |
 | `--format`       | Specifies the output format of the command execution result (e.g., `json`, `yaml`, `text`).                                            | `gcloud config set compute/zone us-east1-b --format=json`            |
 
-## Key Properties
+### Key Properties
 
 | Property                       | Description                                                                                        | Example                                          |
 | ------------------------------ | -------------------------------------------------------------------------------------------------- | ------------------------------------------------ |

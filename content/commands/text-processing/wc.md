@@ -3,7 +3,7 @@ slug: wc
 name: wc
 aliases:
   - word count
-category: cloud-cli
+category: text-processing
 tags:
   - text-processing
   - metrics
