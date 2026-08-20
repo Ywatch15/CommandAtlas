@@ -27,7 +27,7 @@
       "slug": "syscall-file-io",
       "name": "Syscall File I/O",
       "category": "system-calls",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "syscall-file-io",
         "name": "Syscall File I/O",
@@ -50,7 +50,8 @@
           "syscall-process-management",
           "syscall-memory-management",
           "strace",
-          "lsof"
+          "lsof",
+          "syscall-sockets"
         ],
         "alternatives": [],
         "status": "draft",

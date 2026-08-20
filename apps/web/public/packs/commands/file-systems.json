@@ -130,7 +130,7 @@
       "slug": "fdisk",
       "name": "fdisk",
       "category": "file-systems",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "fdisk",
         "name": "fdisk",
@@ -161,7 +161,9 @@
           "mount",
           "blkid",
           "df",
-          "fsck"
+          "fsck",
+          "iostat",
+          "dd"
         ],
         "alternatives": ["parted"],
         "status": "draft",
@@ -173,7 +175,7 @@
       "slug": "find",
       "name": "find",
       "category": "file-systems",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "find",
         "name": "find",
@@ -204,9 +206,13 @@
           "mv",
           "rm",
           "rmdir",
-          "tree"
+          "tree",
+          "for",
+          "wc",
+          "cpio",
+          "xargs"
         ],
-        "alternatives": ["locate", "tree", "ls"],
+        "alternatives": ["locate", "tree", "ls", "xargs"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -285,7 +291,7 @@
       "slug": "ls",
       "name": "ls",
       "category": "file-systems",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "ls",
         "name": "ls",
@@ -319,7 +325,9 @@
           "chmod",
           "chown",
           "getfacl",
-          "lsattr"
+          "lsattr",
+          "syscall-file-metadata",
+          "wc"
         ],
         "alternatives": ["tree", "find", "lsattr"],
         "status": "draft",
@@ -331,7 +339,7 @@
       "slug": "lsblk",
       "name": "lsblk",
       "category": "file-systems",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "lsblk",
         "name": "lsblk",
@@ -362,7 +370,8 @@
           "mount",
           "mkfs",
           "df",
-          "umount"
+          "umount",
+          "dd"
         ],
         "alternatives": ["blkid"],
         "status": "draft",
@@ -374,7 +383,7 @@
       "slug": "lsof",
       "name": "lsof",
       "category": "file-systems",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "lsof",
         "name": "lsof",
@@ -398,8 +407,15 @@
           "check what process has file locked",
           "list network connections lsof"
         ],
-        "relatedCommands": ["ps", "umount", "netstat", "ss"],
-        "alternatives": ["ss"],
+        "relatedCommands": [
+          "ps",
+          "umount",
+          "netstat",
+          "ss",
+          "fuser",
+          "syscall-file-io"
+        ],
+        "alternatives": ["ss", "fuser"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -409,7 +425,7 @@
       "slug": "mkdir",
       "name": "mkdir",
       "category": "file-systems",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "mkdir",
         "name": "mkdir",
@@ -427,7 +443,7 @@
           "setup directory tree"
         ],
         "relatedCommands": ["rmdir", "rm", "cd", "ls"],
-        "alternatives": [],
+        "alternatives": ["new-item"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -437,7 +453,7 @@
       "slug": "mkfs",
       "name": "mkfs",
       "category": "file-systems",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "mkfs",
         "name": "mkfs",
@@ -462,7 +478,7 @@
           "format nvme drive xfs",
           "setup raw block device"
         ],
-        "relatedCommands": ["lsblk", "fdisk", "parted", "mount", "blkid"],
+        "relatedCommands": ["lsblk", "fdisk", "parted", "mount", "blkid", "dd"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

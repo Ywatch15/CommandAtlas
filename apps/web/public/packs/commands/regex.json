@@ -73,7 +73,7 @@
       "slug": "regex-character-classes",
       "name": "Regex Character Classes",
       "category": "regex",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "regex-character-classes",
         "name": "Regex Character Classes",
@@ -101,7 +101,8 @@
           "sed",
           "awk",
           "regex-quantifiers",
-          "regex-groups"
+          "regex-groups",
+          "regex-anchors"
         ],
         "alternatives": [],
         "status": "draft",
@@ -191,7 +192,7 @@
       "slug": "regex-quantifiers",
       "name": "Regex Quantifiers",
       "category": "regex",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "regex-quantifiers",
         "name": "Regex Quantifiers",
@@ -219,7 +220,8 @@
           "sed",
           "awk",
           "regex-groups",
-          "regex-character-classes"
+          "regex-character-classes",
+          "regex-anchors"
         ],
         "alternatives": [],
         "status": "draft",
@@ -231,7 +233,7 @@
       "slug": "regex-shorthand-classes",
       "name": "Regex Shorthand Character Classes",
       "category": "regex",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "regex-shorthand-classes",
         "name": "Regex Shorthand Character Classes",
@@ -254,7 +256,7 @@
           "meaning of \\d \\w \\s",
           "extract numbers using regex"
         ],
-        "relatedCommands": ["grep", "sed", "awk"],
+        "relatedCommands": ["grep", "sed", "awk", "regex-alternation"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

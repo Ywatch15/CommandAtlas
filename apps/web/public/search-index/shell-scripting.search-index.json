@@ -642,7 +642,7 @@
     "if": [
       { "slug": "case", "boost": 2 },
       { "slug": "exit", "boost": 1 },
-      { "slug": "expr", "boost": 1 },
+      { "slug": "expr", "boost": 2 },
       { "slug": "for", "boost": 1 },
       { "slug": "function", "boost": 1 },
       { "slug": "getopts", "boost": 1 },
@@ -661,6 +661,16 @@
       { "slug": "case", "boost": 2 },
       { "slug": "getopts", "boost": 5 },
       { "slug": "shift", "boost": 2 }
+    ],
+    "shift": [
+      { "slug": "case", "boost": 2 },
+      { "slug": "function", "boost": 1 },
+      { "slug": "getopts", "boost": 2 },
+      { "slug": "let", "boost": 1 },
+      { "slug": "read", "boost": 1 },
+      { "slug": "shift", "boost": 5 },
+      { "slug": "test", "boost": 2 },
+      { "slug": "while", "boost": 2 }
     ],
     "what": [
       { "slug": "case", "boost": 1 },
@@ -3790,15 +3800,6 @@
       { "slug": "wait", "boost": 1 },
       { "slug": "while", "boost": 1 }
     ],
-    "shift": [
-      { "slug": "case", "boost": 1 },
-      { "slug": "function", "boost": 1 },
-      { "slug": "getopts", "boost": 2 },
-      { "slug": "let", "boost": 1 },
-      { "slug": "read", "boost": 1 },
-      { "slug": "shift", "boost": 5 },
-      { "slug": "while", "boost": 1 }
-    ],
     "path": [
       { "slug": "case", "boost": 1 },
       { "slug": "exit", "boost": 1 },
@@ -6270,6 +6271,7 @@
       { "slug": "let", "boost": 1 },
       { "slug": "read", "boost": 1 },
       { "slug": "return", "boost": 5 },
+      { "slug": "test", "boost": 2 },
       { "slug": "trap", "boost": 2 },
       { "slug": "wait", "boost": 1 }
     ],
@@ -6345,7 +6347,9 @@
     "trap": [
       { "slug": "exit", "boost": 2 },
       { "slug": "function", "boost": 1 },
-      { "slug": "trap", "boost": 5 }
+      { "slug": "return", "boost": 2 },
+      { "slug": "trap", "boost": 5 },
+      { "slug": "wait", "boost": 2 }
     ],
     "wait": [
       { "slug": "exit", "boost": 2 },
@@ -12434,6 +12438,12 @@
       { "slug": "printf", "boost": 1 },
       { "slug": "read", "boost": 1 }
     ],
+    "syscall": [
+      { "slug": "read", "boost": 2 },
+      { "slug": "wait", "boost": 1 }
+    ],
+    "io": [{ "slug": "read", "boost": 2 }],
+    "multiplexing": [{ "slug": "read", "boost": 2 }],
     "powerful": [{ "slug": "read", "boost": 1 }],
     "descriptor": [{ "slug": "read", "boost": 1 }],
     "fields": [{ "slug": "read", "boost": 1 }],
@@ -13591,7 +13601,6 @@
     "swallowing": [{ "slug": "wait", "boost": 1 }],
     "fact": [{ "slug": "wait", "boost": 1 }],
     "clearly": [{ "slug": "wait", "boost": 1 }],
-    "syscall": [{ "slug": "wait", "boost": 1 }],
     "timer": [{ "slug": "wait", "boost": 1 }],
     "conclude": [{ "slug": "wait", "boost": 1 }],
     "releases": [{ "slug": "wait", "boost": 1 }],
@@ -14381,6 +14390,7 @@
       "dumping",
       "concatenating",
       "mismatching",
+      "multiplexing",
       "acting",
       "hiding",
       "blocking",
@@ -14682,6 +14692,7 @@
       "dumping",
       "concatenating",
       "mismatching",
+      "multiplexing",
       "acting",
       "hiding",
       "blocking",
@@ -14908,6 +14919,7 @@
       "mutate",
       "multiplied",
       "much",
+      "multiplexing",
       "muscle"
     ],
     "mul": [
@@ -14916,7 +14928,8 @@
       "multiplication",
       "simulating",
       "simultaneously",
-      "multiplied"
+      "multiplied",
+      "multiplexing"
     ],
     "ult": [
       "multiple",
@@ -14931,7 +14944,8 @@
       "defaulting",
       "difficult",
       "simultaneously",
-      "multiplied"
+      "multiplied",
+      "multiplexing"
     ],
     "lti": [
       "multiple",
@@ -14941,10 +14955,17 @@
       "multiplication",
       "defaulting",
       "multiplied",
+      "multiplexing",
       "halting"
     ],
-    "tip": ["multiple", "multiplication", "multiplied"],
-    "ipl": ["multiple", "multiplication", "principle", "multiplied"],
+    "tip": ["multiple", "multiplication", "multiplied", "multiplexing"],
+    "ipl": [
+      "multiple",
+      "multiplication",
+      "principle",
+      "multiplied",
+      "multiplexing"
+    ],
     "ple": [
       "multiple",
       "complex",
@@ -14964,6 +14985,7 @@
       "implement",
       "implements",
       "apple",
+      "multiplexing",
       "decouple",
       "please",
       "implemented",
@@ -15919,9 +15941,9 @@
       "sigkill",
       "null",
       "full",
+      "syscall",
       "install",
-      "killall",
-      "syscall"
+      "killall"
     ],
     "^sc": [
       "script",
@@ -17860,6 +17882,20 @@
       "restarts",
       "agents"
     ],
+    "shi": [
+      "shift",
+      "shifts",
+      "bashism",
+      "shifting",
+      "finishing",
+      "thrashing",
+      "crashing",
+      "establishing",
+      "shifted"
+    ],
+    "hif": ["shift", "shifts", "shifting", "shifted"],
+    "ift": ["shift", "shifts", "shifting", "shifted"],
+    "ft$": ["shift", "left"],
     "^wh": [
       "what",
       "when",
@@ -21871,6 +21907,7 @@
       "existing",
       "flexibility",
       "lexicographical",
+      "multiplexing",
       "exiting",
       "existence",
       "exited"
@@ -22766,6 +22803,7 @@
       "allocates",
       "universally",
       "radically",
+      "syscall",
       "naturally",
       "swallow",
       "swallows",
@@ -22783,7 +22821,6 @@
       "called",
       "individually",
       "swallowing",
-      "syscall",
       "continually"
     ],
     "lly": [
@@ -23449,7 +23486,7 @@
       "simpler",
       "completion"
     ],
-    "lex": ["complex", "flexibility", "lexicographical"],
+    "lex": ["complex", "flexibility", "lexicographical", "multiplexing"],
     "ex$": ["complex", "regex", "index", "hex"],
     "^en": [
       "enables",
@@ -24313,10 +24350,10 @@
       "syslog",
       "symlink",
       "symbol",
+      "syscall",
       "syntactic",
       "systemd",
-      "synchronization",
-      "syscall"
+      "synchronization"
     ],
     "syn": [
       "syntax",
@@ -25301,13 +25338,13 @@
       "theoretically",
       "locale",
       "radically",
+      "syscall",
       "localhost",
       "localized",
       "hypothetical",
       "identically",
       "mechanical",
-      "called",
-      "syscall"
+      "called"
     ],
     "llo": [
       "allows",
@@ -26453,8 +26490,8 @@
       "systems",
       "filesystem",
       "syslog",
-      "systemd",
-      "syscall"
+      "syscall",
+      "systemd"
     ],
     "yst": [
       "systemctl",
@@ -28817,20 +28854,6 @@
       "existence",
       "race"
     ],
-    "shi": [
-      "shift",
-      "shifts",
-      "bashism",
-      "shifting",
-      "finishing",
-      "thrashing",
-      "crashing",
-      "establishing",
-      "shifted"
-    ],
-    "hif": ["shift", "shifts", "shifting", "shifted"],
-    "ift": ["shift", "shifts", "shifting", "shifted"],
-    "ft$": ["shift", "left"],
     "sho": [
       "short",
       "should",
@@ -32446,9 +32469,9 @@
       "scales",
       "cascading",
       "scans",
+      "syscall",
       "discard",
-      "discards",
-      "syscall"
+      "discards"
     ],
     "ape": ["escaped", "escape", "escapes"],
     "nei": ["neither"],
@@ -33122,7 +33145,7 @@
     "rwr": ["overwrite", "overwritten", "overwrites"],
     "mix": ["mixing", "mix", "mixed"],
     "ixi": ["mixing", "prefixing"],
-    "xin": ["mixing", "prefixing"],
+    "xin": ["mixing", "prefixing", "multiplexing"],
     "^il": ["illegal"],
     "gal": ["illegal"],
     "ick": ["stick", "quickly"],
@@ -33455,6 +33478,9 @@
     "^ms": ["msg"],
     "msg": ["msg"],
     "sg$": ["msg"],
+    "ysc": ["syscall"],
+    "^io": ["io", "ioctl"],
+    "io$": ["io"],
     "rfu": ["powerful"],
     "hum": ["human"],
     "uma": ["human"],
@@ -33501,7 +33527,6 @@
     "oal": ["goal"],
     "hoi": ["echoing"],
     "mio": ["termios"],
-    "^io": ["ioctl"],
     "ioc": ["ioctl"],
     "^tt": ["tty"],
     "tty": ["tty"],
@@ -33748,7 +33773,6 @@
     "^35": ["35"],
     "35$": ["35"],
     "25$": ["25"],
-    "ysc": ["syscall"],
     "ssm": ["processmanagement"],
     "mot": ["remote"],
     "reb": ["reboot"],

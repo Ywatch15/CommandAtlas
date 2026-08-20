@@ -3442,6 +3442,8 @@
     "metadata": [
       { "slug": "chattr", "boost": 1 },
       { "slug": "chgrp", "boost": 1 },
+      { "slug": "chmod", "boost": 2 },
+      { "slug": "chown", "boost": 2 },
       { "slug": "getfacl", "boost": 1 },
       { "slug": "lsattr", "boost": 1 },
       { "slug": "setfacl", "boost": 1 }
@@ -5414,7 +5416,11 @@
       { "slug": "sticky-bit", "boost": 5, "phrase": "chmod +t command" }
     ],
     "separate": [{ "slug": "chgrp", "boost": 1 }],
-    "syscall": [{ "slug": "chgrp", "boost": 1 }],
+    "syscall": [
+      { "slug": "chgrp", "boost": 1 },
+      { "slug": "chmod", "boost": 2 },
+      { "slug": "chown", "boost": 2 }
+    ],
     "just": [{ "slug": "chgrp", "boost": 1 }],
     "uid": [
       { "slug": "chgrp", "boost": 1 },

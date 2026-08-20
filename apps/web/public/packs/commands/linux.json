@@ -5,7 +5,7 @@
       "slug": "alias",
       "name": "alias",
       "category": "linux",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "alias",
         "name": "alias",
@@ -22,7 +22,7 @@
           "override default command behavior",
           "make shortcut for long command"
         ],
-        "relatedCommands": ["type"],
+        "relatedCommands": ["type", "function"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -67,7 +67,7 @@
       "slug": "date",
       "name": "date",
       "category": "linux",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "date",
         "name": "date",
@@ -84,8 +84,8 @@
           "convert timestamp to date",
           "get unix epoch time"
         ],
-        "relatedCommands": [],
-        "alternatives": [],
+        "relatedCommands": ["cal"],
+        "alternatives": ["cal"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -129,7 +129,7 @@
       "slug": "echo",
       "name": "echo",
       "category": "linux",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "echo",
         "name": "echo",
@@ -146,8 +146,8 @@
           "display environment variable",
           "append text to file"
         ],
-        "relatedCommands": [],
-        "alternatives": [],
+        "relatedCommands": ["printf", "read", "return"],
+        "alternatives": ["printf"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -191,7 +191,7 @@
       "slug": "export",
       "name": "export",
       "category": "linux",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "export",
         "name": "export",
@@ -208,7 +208,7 @@
           "pass variable to child process",
           "export bash function"
         ],
-        "relatedCommands": ["source"],
+        "relatedCommands": ["source", "function"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -222,7 +222,7 @@
       "slug": "grep",
       "name": "grep",
       "category": "linux",
-      "contentVersion": 8,
+      "contentVersion": 9,
       "frontmatter": {
         "slug": "grep",
         "name": "grep",
@@ -239,7 +239,27 @@
           "search for string in directory",
           "find all occurrences of word in codebase"
         ],
-        "relatedCommands": ["jq", "find", "locate"],
+        "relatedCommands": [
+          "jq",
+          "find",
+          "locate",
+          "regex-alternation",
+          "regex-anchors",
+          "regex-character-classes",
+          "regex-lookaround",
+          "regex-quantifiers",
+          "regex-shorthand-classes",
+          "regex-wildcard",
+          "awk",
+          "csplit",
+          "less",
+          "sed",
+          "tail",
+          "uniq",
+          "wc",
+          "ed",
+          "xargs"
+        ],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -259,7 +279,7 @@
       "slug": "history",
       "name": "history",
       "category": "linux",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "history",
         "name": "history",
@@ -276,7 +296,7 @@
           "clear bash history",
           "find old terminal commands"
         ],
-        "relatedCommands": [],
+        "relatedCommands": ["script"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -290,7 +310,7 @@
       "slug": "journalctl",
       "name": "journalctl",
       "category": "linux",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "journalctl",
         "name": "journalctl",
@@ -308,7 +328,7 @@
           "filter logs by time"
         ],
         "relatedCommands": [],
-        "alternatives": ["docker-logs"],
+        "alternatives": ["docker-logs", "tail"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -352,7 +372,7 @@
       "slug": "screen",
       "name": "screen",
       "category": "linux",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "screen",
         "name": "screen",
@@ -369,8 +389,8 @@
           "multiplex shell",
           "share terminal session"
         ],
-        "relatedCommands": [],
-        "alternatives": ["bg", "fg"],
+        "relatedCommands": ["nohup", "autossh"],
+        "alternatives": ["bg", "fg", "nohup"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -383,7 +403,7 @@
       "slug": "strace",
       "name": "strace",
       "category": "linux",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "strace",
         "name": "strace",
@@ -400,8 +420,14 @@
           "find missing shared library",
           "profile process system call time"
         ],
-        "relatedCommands": [],
-        "alternatives": [],
+        "relatedCommands": [
+          "syscall-file-io",
+          "syscall-memory-management",
+          "syscall-process-management",
+          "syscall-process-tracing",
+          "time"
+        ],
+        "alternatives": ["time"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -476,7 +502,7 @@
       "slug": "systemctl",
       "name": "systemctl",
       "category": "linux",
-      "contentVersion": 8,
+      "contentVersion": 9,
       "frontmatter": {
         "slug": "systemctl",
         "name": "systemctl",
@@ -501,9 +527,10 @@
           "nmcli",
           "ufw",
           "pacman",
-          "snap"
+          "snap",
+          "autossh"
         ],
-        "alternatives": [],
+        "alternatives": ["get-service"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -516,7 +543,7 @@
       "slug": "tmux",
       "name": "tmux",
       "category": "linux",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "tmux",
         "name": "tmux",
@@ -533,8 +560,8 @@
           "share terminal session with another user",
           "attach to background terminal session"
         ],
-        "relatedCommands": [],
-        "alternatives": ["bg", "fg"],
+        "relatedCommands": ["nohup", "autossh"],
+        "alternatives": ["bg", "fg", "nohup"],
         "status": "published",
         "contentVersion": 1,
         "lastUpdated": "2026-08-08",
@@ -547,7 +574,7 @@
       "slug": "uptime",
       "name": "uptime",
       "category": "linux",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "uptime",
         "name": "uptime",
@@ -564,7 +591,7 @@
           "see who is logged in and system load",
           "find when system was last rebooted"
         ],
-        "relatedCommands": [],
+        "relatedCommands": ["top", "cal"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,
@@ -578,7 +605,7 @@
       "slug": "watch",
       "name": "watch",
       "category": "linux",
-      "contentVersion": 4,
+      "contentVersion": 5,
       "frontmatter": {
         "slug": "watch",
         "name": "watch",
@@ -595,7 +622,7 @@
           "highlight changes in command output",
           "execute command every second"
         ],
-        "relatedCommands": [],
+        "relatedCommands": ["tail", "cal"],
         "alternatives": [],
         "status": "published",
         "contentVersion": 1,

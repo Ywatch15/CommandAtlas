@@ -39,7 +39,7 @@
       "slug": "curl",
       "name": "curl",
       "category": "networking",
-      "contentVersion": 8,
+      "contentVersion": 9,
       "frontmatter": {
         "slug": "curl",
         "name": "curl",
@@ -71,7 +71,12 @@
           "jq",
           "kubectl-api-resources"
         ],
-        "alternatives": ["wget", "kubectl-api-resources"],
+        "alternatives": [
+          "wget",
+          "kubectl-api-resources",
+          "invoke-restmethod",
+          "invoke-webrequest"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -449,7 +454,7 @@
       "slug": "nc",
       "name": "nc",
       "category": "networking",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "nc",
         "name": "nc",
@@ -473,7 +478,15 @@
           "setup simple tcp listener",
           "test udp connection nc"
         ],
-        "relatedCommands": ["nmap", "mtr", "ip", "nslookup", "ping", "ss"],
+        "relatedCommands": [
+          "nmap",
+          "mtr",
+          "ip",
+          "nslookup",
+          "ping",
+          "ss",
+          "syscall-sockets"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -484,7 +497,7 @@
       "slug": "netstat",
       "name": "netstat",
       "category": "networking",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "netstat",
         "name": "netstat",
@@ -517,7 +530,9 @@
           "iptables",
           "mtr",
           "nmcli",
-          "tcpdump"
+          "tcpdump",
+          "fuser",
+          "syscall-sockets"
         ],
         "alternatives": ["ss", "ip", "route"],
         "status": "draft",
@@ -709,7 +724,7 @@
       "slug": "ss",
       "name": "ss",
       "category": "networking",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "ss",
         "name": "ss",
@@ -733,8 +748,16 @@
           "check tcp queue limits",
           "modern netstat replacement"
         ],
-        "relatedCommands": ["netstat", "ip", "lsof", "nmap", "nc"],
-        "alternatives": ["netstat", "lsof"],
+        "relatedCommands": [
+          "netstat",
+          "ip",
+          "lsof",
+          "nmap",
+          "nc",
+          "fuser",
+          "syscall-sockets"
+        ],
+        "alternatives": ["netstat", "lsof", "fuser"],
         "status": "draft",
         "usedInWorkflows": []
       },

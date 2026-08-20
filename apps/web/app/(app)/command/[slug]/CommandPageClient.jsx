@@ -47,6 +47,10 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
     'References',
   ];
 
+  const knownKeys = new Set(['Syntax', 'Flags', ...sectionsToRender]);
+  const extraKeys = Object.keys(sections).filter((key) => !knownKeys.has(key));
+  const allSectionsToRender = [...sectionsToRender, ...extraKeys];
+
   const techArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
@@ -69,14 +73,7 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
       <div className="command-detail-layout">
         {/* Left Column: Main content */}
         <div className="main-content-column">
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              marginBottom: '16px',
-            }}
-          >
+          <div className="command-header-container">
             <CommandHeader
               name={frontmatter.name || command.name || slug}
               aliases={frontmatter.aliases || frontmatter.alias}
@@ -84,12 +81,14 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
               supportedOS={frontmatter.supportedOS}
               shell={frontmatter.shell}
             />
-            <BookmarkButton commandSlug={slug} />
+            <div className="bookmark-wrapper">
+              <BookmarkButton commandSlug={slug} />
+            </div>
           </div>
 
           {/* Syntax Section */}
           {syntaxCode && (
-            <div style={{ marginBottom: 'var(--space-section)' }}>
+            <div style={{ marginBottom: 'var(--space-section)', width: '100%', minWidth: 0 }}>
               <h2 style={{ fontSize: '18px', fontWeight: 500, color: 'var(--text-primary)' }}>
                 Syntax
               </h2>
@@ -99,7 +98,7 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
 
           {/* Flags Section */}
           {sections['Flags'] && (
-            <div style={{ marginBottom: 'var(--space-section)' }}>
+            <div style={{ marginBottom: 'var(--space-section)', width: '100%', minWidth: 0 }}>
               <h2
                 style={{
                   fontSize: '18px',
@@ -111,17 +110,21 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
                 Flags
               </h2>
               <div
+                className="markdown-body"
                 dangerouslySetInnerHTML={{ __html: parseAndSanitizeMarkdown(sections['Flags']) }}
               />
             </div>
           )}
 
           {/* Render remaining sections */}
-          {sectionsToRender.map((secName) => {
+          {allSectionsToRender.map((secName) => {
             const secContent = sections[secName];
             if (!secContent) return null;
             return (
-              <div key={secName} style={{ marginBottom: 'var(--space-section)' }}>
+              <div
+                key={secName}
+                style={{ marginBottom: 'var(--space-section)', width: '100%', minWidth: 0 }}
+              >
                 <h2
                   style={{
                     fontSize: '18px',
@@ -155,6 +158,9 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
               display: 'flex',
               flexDirection: 'column',
               gap: '20px',
+              width: '100%',
+              minWidth: 0,
+              boxSizing: 'border-box',
             }}
           >
             <RelatedCommandsRail
@@ -208,6 +214,7 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
                               fontSize: '13px',
                               color: 'var(--accent)',
                               textDecoration: 'none',
+                              wordBreak: 'break-all',
                             }}
                           >
                             {wfTitle}
@@ -228,21 +235,48 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
           gap: 32px;
           max-width: 1200px;
           margin: 0 auto;
+          width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
         }
         .main-content-column {
           flex: 1;
           min-width: 0;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .command-header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 16px;
+          margin-bottom: 16px;
+          width: 100%;
+          min-width: 0;
+        }
+        .bookmark-wrapper {
+          flex-shrink: 0;
         }
         .right-rail-column {
           width: 280px;
           flex-shrink: 0;
+          min-width: 0;
+          box-sizing: border-box;
         }
         @media (max-width: 1024px) {
           .command-detail-layout {
             flex-direction: column;
+            gap: 24px;
           }
           .right-rail-column {
             width: 100%;
+          }
+        }
+        @media (max-width: 640px) {
+          .command-header-container {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 12px;
           }
         }
       `}</style>

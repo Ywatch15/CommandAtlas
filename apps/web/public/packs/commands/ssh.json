@@ -277,7 +277,7 @@
       "slug": "ssh",
       "name": "ssh",
       "category": "ssh",
-      "contentVersion": 8,
+      "contentVersion": 9,
       "frontmatter": {
         "slug": "ssh",
         "name": "ssh",
@@ -300,8 +300,8 @@
           "execute remote command",
           "setup reverse ssh tunnel"
         ],
-        "relatedCommands": [],
-        "alternatives": [],
+        "relatedCommands": ["gcloud-compute-ssh", "kubectl-exec", "autossh"],
+        "alternatives": ["gcloud-compute-ssh", "kubectl-exec", "autossh"],
         "status": "draft",
         "usedInWorkflows": []
       },

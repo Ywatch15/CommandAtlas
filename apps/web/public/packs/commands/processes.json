@@ -5,7 +5,7 @@
       "slug": "free",
       "name": "free",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "free",
         "name": "free",
@@ -30,7 +30,12 @@
           "find out how much memory is free",
           "check linux memory cache"
         ],
-        "relatedCommands": ["top", "htop", "vmstat"],
+        "relatedCommands": [
+          "top",
+          "htop",
+          "vmstat",
+          "syscall-memory-management"
+        ],
         "alternatives": ["vmstat", "top"],
         "status": "draft",
         "usedInWorkflows": []
@@ -41,7 +46,7 @@
       "slug": "fuser",
       "name": "fuser",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "fuser",
         "name": "fuser",
@@ -65,7 +70,7 @@
           "identify open sockets fuser",
           "see who is using a directory"
         ],
-        "relatedCommands": ["lsof", "netstat", "ss", "kill", "ps"],
+        "relatedCommands": ["lsof", "netstat", "ss", "kill", "ps", "pgrep"],
         "alternatives": ["lsof", "ss"],
         "status": "draft",
         "usedInWorkflows": []
@@ -76,7 +81,7 @@
       "slug": "htop",
       "name": "htop",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "htop",
         "name": "htop",
@@ -100,8 +105,16 @@
           "better top command linux",
           "sort processes by memory"
         ],
-        "relatedCommands": ["top", "ps", "kill", "free", "pgrep"],
-        "alternatives": ["top"],
+        "relatedCommands": [
+          "top",
+          "ps",
+          "kill",
+          "free",
+          "pgrep",
+          "nice",
+          "time"
+        ],
+        "alternatives": ["top", "pstree", "renice"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -147,7 +160,7 @@
       "slug": "kill",
       "name": "kill",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "kill",
         "name": "kill",
@@ -164,7 +177,19 @@
           "terminate frozen process",
           "send POSIX signal to PID"
         ],
-        "relatedCommands": ["killall", "pkill", "top", "htop", "ps"],
+        "relatedCommands": [
+          "killall",
+          "pkill",
+          "top",
+          "htop",
+          "ps",
+          "fuser",
+          "pidof",
+          "renice",
+          "exit",
+          "trap",
+          "wait"
+        ],
         "alternatives": ["killall", "pkill"],
         "status": "draft",
         "usedInWorkflows": []
@@ -175,7 +200,7 @@
       "slug": "killall",
       "name": "killall",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "killall",
         "name": "killall",
@@ -192,7 +217,7 @@
           "terminate specific users processes",
           "send signal to group of processes"
         ],
-        "relatedCommands": ["kill", "pkill", "pgrep", "top"],
+        "relatedCommands": ["kill", "pkill", "pgrep", "top", "trap"],
         "alternatives": ["pkill"],
         "status": "draft",
         "usedInWorkflows": []
@@ -273,7 +298,7 @@
       "slug": "pgrep",
       "name": "pgrep",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "pgrep",
         "name": "pgrep",
@@ -297,7 +322,15 @@
           "list all PIDs for user",
           "find exact process ID without ps aux"
         ],
-        "relatedCommands": ["pkill", "killall", "ps", "top", "fuser"],
+        "relatedCommands": [
+          "pkill",
+          "killall",
+          "ps",
+          "top",
+          "fuser",
+          "htop",
+          "pstree"
+        ],
         "alternatives": ["ps", "pidof"],
         "status": "draft",
         "usedInWorkflows": []
@@ -308,7 +341,7 @@
       "slug": "pidof",
       "name": "pidof",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "pidof",
         "name": "pidof",
@@ -331,7 +364,7 @@
           "script to find daemon PID",
           "locate process ID"
         ],
-        "relatedCommands": ["pgrep", "ps", "kill", "pkill"],
+        "relatedCommands": ["pgrep", "ps", "kill", "pkill", "pstree"],
         "alternatives": ["pgrep"],
         "status": "draft",
         "usedInWorkflows": []
@@ -342,7 +375,7 @@
       "slug": "pkill",
       "name": "pkill",
       "category": "processes",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "pkill",
         "name": "pkill",
@@ -365,7 +398,7 @@
           "force kill application",
           "stop daemon by name"
         ],
-        "relatedCommands": ["kill", "pgrep", "killall", "top"],
+        "relatedCommands": ["kill", "pgrep", "killall", "top", "pidof"],
         "alternatives": ["killall", "kill"],
         "status": "draft",
         "usedInWorkflows": []
@@ -376,7 +409,7 @@
       "slug": "ps",
       "name": "ps",
       "category": "processes",
-      "contentVersion": 9,
+      "contentVersion": 10,
       "frontmatter": {
         "slug": "ps",
         "name": "ps",
@@ -399,8 +432,21 @@
           "find process by user",
           "show all processes linux"
         ],
-        "relatedCommands": ["top", "pgrep", "kill", "pstree", "pidof"],
-        "alternatives": ["top", "htop"],
+        "relatedCommands": [
+          "top",
+          "pgrep",
+          "kill",
+          "pstree",
+          "pidof",
+          "jobs",
+          "lsof",
+          "fuser",
+          "nice",
+          "renice",
+          "syscall-process-management",
+          "time"
+        ],
+        "alternatives": ["top", "htop", "jobs", "get-process"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -513,7 +559,7 @@
       "slug": "top",
       "name": "top",
       "category": "processes",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "top",
         "name": "top",
@@ -536,8 +582,24 @@
           "monitor server load",
           "kill processes interactively"
         ],
-        "relatedCommands": ["ps", "htop", "kill", "renice", "uptime"],
-        "alternatives": ["htop"],
+        "relatedCommands": [
+          "ps",
+          "htop",
+          "kill",
+          "renice",
+          "uptime",
+          "free",
+          "iostat",
+          "killall",
+          "nice",
+          "pgrep",
+          "pkill",
+          "pstree",
+          "sar",
+          "vmstat",
+          "time"
+        ],
+        "alternatives": ["htop", "free"],
         "status": "draft",
         "usedInWorkflows": []
       },

@@ -5,7 +5,7 @@
       "slug": "bg",
       "name": "bg",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "bg",
         "name": "bg",
@@ -21,7 +21,7 @@
           "continue suspended task",
           "send process to background"
         ],
-        "relatedCommands": ["fg", "jobs"],
+        "relatedCommands": ["fg", "jobs", "nohup", "wait"],
         "alternatives": ["screen", "tmux"],
         "status": "draft",
         "usedInWorkflows": []
@@ -165,7 +165,7 @@
       "slug": "fg",
       "name": "fg",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "fg",
         "name": "fg",
@@ -181,7 +181,7 @@
           "return to suspended process",
           "interact with background job"
         ],
-        "relatedCommands": ["bg", "jobs"],
+        "relatedCommands": ["bg", "jobs", "nohup", "wait"],
         "alternatives": ["screen", "tmux"],
         "status": "draft",
         "usedInWorkflows": []
@@ -192,7 +192,7 @@
       "slug": "jobs",
       "name": "jobs",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "jobs",
         "name": "jobs",
@@ -208,7 +208,7 @@
           "check active shell tasks",
           "view stopped jobs"
         ],
-        "relatedCommands": ["bg", "fg", "ps"],
+        "relatedCommands": ["bg", "fg", "ps", "nohup", "wait"],
         "alternatives": ["ps"],
         "status": "draft",
         "usedInWorkflows": []
@@ -310,7 +310,7 @@
       "slug": "source",
       "name": "source",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "source",
         "name": "source",
@@ -327,7 +327,7 @@
           "execute file without subshell",
           "import shell functions"
         ],
-        "relatedCommands": ["export", "eval"],
+        "relatedCommands": ["export", "eval", "function"],
         "alternatives": ["eval"],
         "status": "draft",
         "usedInWorkflows": []
@@ -338,7 +338,7 @@
       "slug": "type",
       "name": "type",
       "category": "bash",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "type",
         "name": "type",
@@ -362,7 +362,7 @@
           "determine command type"
         ],
         "relatedCommands": ["which", "alias"],
-        "alternatives": ["which"],
+        "alternatives": ["which", "get-content"],
         "status": "draft",
         "usedInWorkflows": []
       },

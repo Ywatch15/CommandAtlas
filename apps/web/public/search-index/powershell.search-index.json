@@ -244,6 +244,7 @@
     "content": [
       { "slug": "add-content", "boost": 5 },
       { "slug": "copy-item", "boost": 1 },
+      { "slug": "export-csv", "boost": 2 },
       { "slug": "foreach-object", "boost": 1 },
       { "slug": "get-command", "boost": 1 },
       { "slug": "get-content", "boost": 5 },
@@ -865,6 +866,8 @@
     ],
     "set": [
       { "slug": "add-content", "boost": 2 },
+      { "slug": "export-csv", "boost": 2 },
+      { "slug": "get-childitem", "boost": 2 },
       { "slug": "get-command", "boost": 1 },
       { "slug": "get-content", "boost": 2 },
       { "slug": "get-process", "boost": 1 },
@@ -895,7 +898,7 @@
       { "slug": "invoke-restmethod", "boost": 1 },
       { "slug": "invoke-webrequest", "boost": 1 },
       { "slug": "new-item", "boost": 2 },
-      { "slug": "remove-item", "boost": 1 },
+      { "slug": "remove-item", "boost": 2 },
       {
         "slug": "select-object",
         "boost": 5,
@@ -906,7 +909,7 @@
       { "slug": "sort-object", "boost": 1 },
       { "slug": "start-process", "boost": 2 },
       { "slug": "test-path", "boost": 2 },
-      { "slug": "where-object", "boost": 1 }
+      { "slug": "where-object", "boost": 2 }
     ],
     "what": [
       { "slug": "add-content", "boost": 1 },
@@ -1254,7 +1257,7 @@
         "phrase": "execute script block on each item"
       },
       { "slug": "get-childitem", "boost": 2 },
-      { "slug": "get-content", "boost": 1 },
+      { "slug": "get-content", "boost": 2 },
       { "slug": "get-help", "boost": 1 },
       { "slug": "get-item", "boost": 5 },
       { "slug": "get-member", "boost": 1 },
@@ -2251,11 +2254,11 @@
       { "slug": "add-content", "boost": 1 },
       { "slug": "copy-item", "boost": 1 },
       { "slug": "export-csv", "boost": 1 },
-      { "slug": "get-childitem", "boost": 1 },
+      { "slug": "get-childitem", "boost": 2 },
       { "slug": "get-command", "boost": 1 },
       { "slug": "get-content", "boost": 1 },
       { "slug": "get-help", "boost": 1 },
-      { "slug": "get-item", "boost": 1 },
+      { "slug": "get-item", "boost": 2 },
       { "slug": "get-process", "boost": 1 },
       { "slug": "get-service", "boost": 1 },
       { "slug": "import-csv", "boost": 1 },
@@ -3753,6 +3756,7 @@
       { "slug": "copy-item", "boost": 2 },
       { "slug": "export-csv", "boost": 1 },
       { "slug": "foreach-object", "boost": 1 },
+      { "slug": "get-childitem", "boost": 2 },
       { "slug": "get-content", "boost": 1 },
       { "slug": "get-item", "boost": 1 },
       { "slug": "import-csv", "boost": 1 },
@@ -4025,13 +4029,13 @@
       { "slug": "add-content", "boost": 1 },
       { "slug": "copy-item", "boost": 1 },
       { "slug": "export-csv", "boost": 5 },
-      { "slug": "foreach-object", "boost": 1 },
+      { "slug": "foreach-object", "boost": 2 },
       { "slug": "get-childitem", "boost": 1 },
       { "slug": "get-content", "boost": 1 },
       { "slug": "get-service", "boost": 1 },
       { "slug": "import-csv", "boost": 5 },
       { "slug": "invoke-webrequest", "boost": 1 },
-      { "slug": "select-object", "boost": 1 },
+      { "slug": "select-object", "boost": 2 },
       { "slug": "set-content", "boost": 2 },
       { "slug": "test-path", "boost": 1 }
     ],
@@ -5793,7 +5797,7 @@
       { "slug": "get-service", "boost": 1 },
       { "slug": "import-csv", "boost": 2 },
       { "slug": "invoke-webrequest", "boost": 1 },
-      { "slug": "select-object", "boost": 1 },
+      { "slug": "select-object", "boost": 2 },
       { "slug": "set-content", "boost": 2 },
       { "slug": "start-process", "boost": 1 }
     ],
@@ -6898,7 +6902,7 @@
       { "slug": "get-help", "boost": 1 },
       { "slug": "get-member", "boost": 1 },
       { "slug": "get-process", "boost": 5 },
-      { "slug": "get-service", "boost": 1 },
+      { "slug": "get-service", "boost": 2 },
       { "slug": "import-csv", "boost": 1 },
       { "slug": "invoke-restmethod", "boost": 1 },
       { "slug": "new-item", "boost": 1 },
@@ -9215,13 +9219,13 @@
       { "slug": "get-help", "boost": 1 },
       { "slug": "get-item", "boost": 2 },
       { "slug": "new-item", "boost": 2 },
-      { "slug": "remove-item", "boost": 1 },
-      { "slug": "select-object", "boost": 1 },
+      { "slug": "remove-item", "boost": 2 },
+      { "slug": "select-object", "boost": 2 },
       { "slug": "set-content", "boost": 1 },
       { "slug": "set-location", "boost": 2 },
       { "slug": "sort-object", "boost": 1 },
       { "slug": "test-path", "boost": 2 },
-      { "slug": "where-object", "boost": 1 }
+      { "slug": "where-object", "boost": 2 }
     ],
     "versatile": [
       { "slug": "copy-item", "boost": 1 },
@@ -9247,6 +9251,7 @@
     ],
     "location": [
       { "slug": "copy-item", "boost": 1 },
+      { "slug": "get-childitem", "boost": 2 },
       { "slug": "get-item", "boost": 1 },
       { "slug": "new-item", "boost": 1 },
       { "slug": "remove-item", "boost": 1 },
@@ -9646,8 +9651,10 @@
     "test": [
       { "slug": "copy-item", "boost": 1 },
       { "slug": "foreach-object", "boost": 1 },
+      { "slug": "get-childitem", "boost": 2 },
       { "slug": "get-command", "boost": 1 },
       { "slug": "get-help", "boost": 1 },
+      { "slug": "get-item", "boost": 2 },
       { "slug": "invoke-restmethod", "boost": 1 },
       { "slug": "invoke-webrequest", "boost": 1 },
       { "slug": "new-item", "boost": 1 },
@@ -11809,7 +11816,9 @@
     ],
     "import": [
       { "slug": "export-csv", "boost": 2 },
-      { "slug": "import-csv", "boost": 5 }
+      { "slug": "foreach-object", "boost": 2 },
+      { "slug": "import-csv", "boost": 5 },
+      { "slug": "select-object", "boost": 2 }
     ],
     "select": [
       { "slug": "export-csv", "boost": 2 },
@@ -16115,6 +16124,13 @@
       { "slug": "get-help", "boost": 5 },
       { "slug": "get-member", "boost": 2 }
     ],
+    "member": [
+      { "slug": "get-command", "boost": 2 },
+      { "slug": "get-help", "boost": 2 },
+      { "slug": "get-item", "boost": 1 },
+      { "slug": "get-member", "boost": 5 },
+      { "slug": "select-object", "boost": 2 }
+    ],
     "computer": [
       { "slug": "get-command", "boost": 1 },
       { "slug": "get-process", "boost": 1 },
@@ -17445,11 +17461,6 @@
       { "slug": "get-process", "boost": 1 },
       { "slug": "invoke-restmethod", "boost": 1 },
       { "slug": "invoke-webrequest", "boost": 1 }
-    ],
-    "member": [
-      { "slug": "get-help", "boost": 2 },
-      { "slug": "get-item", "boost": 1 },
-      { "slug": "get-member", "boost": 5 }
     ],
     "topics": [{ "slug": "get-help", "boost": 1 }],
     "cim": [
@@ -33982,6 +33993,7 @@
       "psiscontainer",
       "clutter",
       "router",
+      "member",
       "computer",
       "netadapter",
       "docker",
@@ -33996,7 +34008,6 @@
       "filesystemprovider",
       "identifier",
       "earlier",
-      "member",
       "whether",
       "clearer",
       "pager",
@@ -44749,8 +44760,8 @@
     "mem": [
       "memory",
       "membername",
-      "outofmemoryexception",
       "member",
+      "outofmemoryexception",
       "remember",
       "members",
       "membertype",

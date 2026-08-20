@@ -5,7 +5,7 @@
       "slug": "awk",
       "name": "awk",
       "category": "text-processing",
-      "contentVersion": 9,
+      "contentVersion": 10,
       "frontmatter": {
         "slug": "awk",
         "name": "awk",
@@ -28,8 +28,52 @@
           "awk print column delimiter",
           "process csv file command line"
         ],
-        "relatedCommands": ["sed", "grep", "cut", "sort"],
-        "alternatives": ["cut"],
+        "relatedCommands": [
+          "sed",
+          "grep",
+          "cut",
+          "sort",
+          "jq",
+          "regex-alternation",
+          "regex-anchors",
+          "regex-character-classes",
+          "regex-groups",
+          "regex-quantifiers",
+          "regex-shorthand-classes",
+          "regex-wildcard",
+          "expr",
+          "let",
+          "printf",
+          "read",
+          "csplit",
+          "head",
+          "join",
+          "nl",
+          "paste",
+          "tac",
+          "tr",
+          "unexpand",
+          "uniq",
+          "wc",
+          "bc",
+          "vi",
+          "xargs"
+        ],
+        "alternatives": [
+          "cut",
+          "read",
+          "csplit",
+          "expand",
+          "head",
+          "join",
+          "nl",
+          "paste",
+          "tac",
+          "unexpand",
+          "uniq",
+          "wc",
+          "bc"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -39,7 +83,7 @@
       "slug": "cat",
       "name": "cat",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "cat",
         "name": "cat",
@@ -56,8 +100,20 @@
           "view hidden characters in file",
           "create new file with cat eof"
         ],
-        "relatedCommands": ["less", "more", "tail", "head", "tac"],
-        "alternatives": ["less"],
+        "relatedCommands": [
+          "less",
+          "more",
+          "tail",
+          "head",
+          "tac",
+          "nl",
+          "paste",
+          "split",
+          "dd",
+          "tee",
+          "vi"
+        ],
+        "alternatives": ["less", "get-content", "nl", "dd", "tee"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -102,7 +158,7 @@
       "slug": "cut",
       "name": "cut",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "cut",
         "name": "cut",
@@ -125,7 +181,7 @@
           "parse csv in shell script",
           "remove fields from text"
         ],
-        "relatedCommands": ["awk", "sed", "tr", "paste"],
+        "relatedCommands": ["awk", "sed", "tr", "paste", "join", "sort"],
         "alternatives": ["awk"],
         "status": "draft",
         "usedInWorkflows": []
@@ -170,7 +226,7 @@
       "slug": "fmt",
       "name": "fmt",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "fmt",
         "name": "fmt",
@@ -193,7 +249,7 @@
           "clean up text file formatting",
           "reformat text bash"
         ],
-        "relatedCommands": ["sed", "tr"],
+        "relatedCommands": ["sed", "tr", "expand", "unexpand"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -204,7 +260,7 @@
       "slug": "head",
       "name": "head",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "head",
         "name": "head",
@@ -227,7 +283,7 @@
           "show file header",
           "limit pipeline output bash"
         ],
-        "relatedCommands": ["tail", "cat", "less", "sed", "awk"],
+        "relatedCommands": ["tail", "cat", "less", "sed", "awk", "more"],
         "alternatives": ["sed", "awk"],
         "status": "draft",
         "usedInWorkflows": []
@@ -272,7 +328,7 @@
       "slug": "less",
       "name": "less",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "less",
         "name": "less",
@@ -289,7 +345,7 @@
           "search text while viewing file",
           "tail file interactively"
         ],
-        "relatedCommands": ["more", "cat", "tail", "grep"],
+        "relatedCommands": ["more", "cat", "tail", "grep", "head", "vi"],
         "alternatives": ["more"],
         "status": "draft",
         "usedInWorkflows": []
@@ -390,7 +446,7 @@
       "slug": "sed",
       "name": "sed",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "sed",
         "name": "sed",
@@ -413,8 +469,42 @@
           "modify file in place bash",
           "extract substring shell script"
         ],
-        "relatedCommands": ["awk", "grep", "tr"],
-        "alternatives": ["awk"],
+        "relatedCommands": [
+          "awk",
+          "grep",
+          "tr",
+          "jq",
+          "yq",
+          "regex-alternation",
+          "regex-anchors",
+          "regex-character-classes",
+          "regex-groups",
+          "regex-quantifiers",
+          "regex-shorthand-classes",
+          "regex-wildcard",
+          "csplit",
+          "cut",
+          "expand",
+          "fmt",
+          "head",
+          "nl",
+          "tac",
+          "unexpand",
+          "bc",
+          "ed",
+          "patch",
+          "vi"
+        ],
+        "alternatives": [
+          "awk",
+          "yq",
+          "expand",
+          "head",
+          "tac",
+          "unexpand",
+          "ed",
+          "vi"
+        ],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -424,7 +514,7 @@
       "slug": "sort",
       "name": "sort",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "sort",
         "name": "sort",
@@ -447,7 +537,7 @@
           "remove duplicate lines bash",
           "sort huge files external memory"
         ],
-        "relatedCommands": ["uniq", "awk", "cut", "wc"],
+        "relatedCommands": ["uniq", "awk", "cut", "wc", "join"],
         "alternatives": ["awk"],
         "status": "draft",
         "usedInWorkflows": []
@@ -520,7 +610,7 @@
       "slug": "tail",
       "name": "tail",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "tail",
         "name": "tail",
@@ -544,7 +634,16 @@
           "watch file for changes bash",
           "extract tail of file"
         ],
-        "relatedCommands": ["head", "less", "cat", "grep", "watch"],
+        "relatedCommands": [
+          "head",
+          "less",
+          "cat",
+          "grep",
+          "watch",
+          "more",
+          "tac",
+          "tee"
+        ],
         "alternatives": ["journalctl"],
         "status": "draft",
         "usedInWorkflows": [
@@ -561,7 +660,7 @@
       "slug": "tr",
       "name": "tr",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "tr",
         "name": "tr",
@@ -584,8 +683,8 @@
           "squeeze multiple spaces into one",
           "delete special characters from text"
         ],
-        "relatedCommands": ["sed", "awk", "cut"],
-        "alternatives": ["sed"],
+        "relatedCommands": ["sed", "awk", "cut", "expand", "fmt", "unexpand"],
+        "alternatives": ["sed", "expand"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -663,7 +762,7 @@
       "slug": "wc",
       "name": "wc",
       "category": "text-processing",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "wc",
         "name": "wc",
@@ -680,7 +779,15 @@
           "how many lines returned by command",
           "wc command usage"
         ],
-        "relatedCommands": ["grep", "ls", "find", "awk"],
+        "relatedCommands": [
+          "grep",
+          "ls",
+          "find",
+          "awk",
+          "sort",
+          "split",
+          "uniq"
+        ],
         "alternatives": ["awk"],
         "status": "draft",
         "usedInWorkflows": []

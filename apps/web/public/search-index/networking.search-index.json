@@ -17657,7 +17657,12 @@
       { "slug": "nmcli", "boost": 1 },
       { "slug": "route", "boost": 1 }
     ],
-    "syscall": [{ "slug": "hostname", "boost": 1 }],
+    "syscall": [
+      { "slug": "hostname", "boost": 1 },
+      { "slug": "nc", "boost": 2 },
+      { "slug": "netstat", "boost": 2 },
+      { "slug": "ss", "boost": 2 }
+    ],
     "upon": [
       { "slug": "hostname", "boost": 1 },
       { "slug": "nmcli", "boost": 1 }
@@ -21334,6 +21339,10 @@
       { "slug": "ping", "boost": 3 }
     ],
     "lsof": [
+      { "slug": "netstat", "boost": 2 },
+      { "slug": "ss", "boost": 2 }
+    ],
+    "fuser": [
       { "slug": "netstat", "boost": 2 },
       { "slug": "ss", "boost": 2 }
     ],
@@ -29600,6 +29609,7 @@
       "howtouse",
       "statuses",
       "refused",
+      "fuser",
       "eaddrinuse",
       "usernames",
       "user6",
@@ -31984,6 +31994,7 @@
       "steeper",
       "forever",
       "marker",
+      "fuser",
       "balancer",
       "mapper",
       "slower",
@@ -33031,6 +33042,7 @@
       "serialize",
       "observe",
       "serialized",
+      "fuser",
       "serialization",
       "assert",
       "microservices",
@@ -51027,7 +51039,8 @@
       "fundamental",
       "functioning",
       "fulfill",
-      "functionality"
+      "functionality",
+      "fuser"
     ],
     "nsw": ["answer", "answered", "answers"],
     "swe": ["answer", "answered", "sweeps", "sweep", "answers", "sweeping"],
@@ -51658,7 +51671,7 @@
     ],
     "won": ["wondering", "won"],
     "nfu": ["confusing", "painfully"],
-    "fus": ["confusing", "refused", "obfuscate"],
+    "fus": ["confusing", "refused", "fuser", "obfuscate"],
     "ffl": ["offline", "offloading", "offload", "offloads", "siocsifflags"],
     "fli": ["offline", "inflicted", "conflicts", "flipping", "conflicting"],
     "cki": [

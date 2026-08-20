@@ -244,19 +244,20 @@ export default function TopNav() {
         .nav-right {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 25px;
           flex-shrink: 0;
         }
 
         .desktop-nav-content {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 25px;
         }
 
         .desktop-links {
           display: flex;
-          gap: 4px;
+          align-items: center;
+          gap: 22px;
         }
 
         .nav-link {
@@ -271,18 +272,31 @@ export default function TopNav() {
             color 0.15s ease;
         }
 
-        .nav-link.active {
-          color: var(--text-primary);
-          background-color: var(--bg-elevated);
+        :global(.nav-link) {
+          color: var(--text-muted) !important;
+          text-decoration: none !important;
         }
 
-        .nav-link.inactive {
-          color: var(--text-muted);
+        :global(.nav-link:hover) {
+          background-color: var(--bg-elevated) !important;
+          color: var(--text-primary) !important;
+          text-decoration: none !important;
         }
 
-        .nav-link.inactive:hover {
-          background-color: var(--bg-elevated);
-          color: var(--text-primary);
+        :global(.nav-link.active) {
+          color: var(--text-primary) !important;
+          background-color: var(--bg-elevated) !important;
+          text-decoration: none !important;
+          font-weight: 500;
+        }
+
+        :global(.logo-link) {
+          color: var(--text-primary) !important;
+          text-decoration: none !important;
+        }
+
+        :global(.logo-link:hover) {
+          text-decoration: none !important;
         }
 
         .mobile-search-btn {
@@ -361,8 +375,8 @@ export default function TopNav() {
           padding: 12px 20px;
           font-size: 14px;
           font-weight: 500;
-          color: var(--text-muted);
-          text-decoration: none;
+          color: var(--text-muted) !important;
+          text-decoration: none !important;
           display: flex;
           align-items: center;
           min-height: 44px;
@@ -373,14 +387,16 @@ export default function TopNav() {
         }
 
         :global(.drawer-link.active) {
-          color: var(--text-primary);
-          background-color: var(--bg-elevated);
-          border-left-color: var(--accent);
+          color: var(--text-primary) !important;
+          background-color: var(--bg-elevated) !important;
+          border-left-color: var(--accent) !important;
+          text-decoration: none !important;
         }
 
         :global(.drawer-link:hover) {
-          background-color: var(--bg-elevated);
-          color: var(--text-primary);
+          background-color: var(--bg-elevated) !important;
+          color: var(--text-primary) !important;
+          text-decoration: none !important;
         }
 
         /* Responsive Breakpoints */

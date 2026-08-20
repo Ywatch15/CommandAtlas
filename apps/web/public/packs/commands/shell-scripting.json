@@ -5,7 +5,7 @@
       "slug": "case",
       "name": "case",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "case",
         "name": "case",
@@ -29,7 +29,7 @@
           "conditional pattern matching bash",
           "handle multiple conditions in shell"
         ],
-        "relatedCommands": ["if", "getopts"],
+        "relatedCommands": ["if", "getopts", "shift"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -75,7 +75,7 @@
       "slug": "expr",
       "name": "expr",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "expr",
         "name": "expr",
@@ -92,7 +92,7 @@
           "add numbers in shell script",
           "posIX integer math"
         ],
-        "relatedCommands": ["let", "awk", "test"],
+        "relatedCommands": ["let", "awk", "test", "if"],
         "alternatives": ["let"],
         "status": "draft",
         "usedInWorkflows": []
@@ -306,7 +306,7 @@
       "slug": "read",
       "name": "read",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "read",
         "name": "read",
@@ -323,7 +323,13 @@
           "split string by delimiter bash",
           "assign output to variables shell"
         ],
-        "relatedCommands": ["echo", "printf", "while", "awk"],
+        "relatedCommands": [
+          "echo",
+          "printf",
+          "while",
+          "awk",
+          "syscall-io-multiplexing"
+        ],
         "alternatives": ["awk"],
         "status": "draft",
         "usedInWorkflows": []
@@ -334,7 +340,7 @@
       "slug": "return",
       "name": "return",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "return",
         "name": "return",
@@ -351,7 +357,7 @@
           "stop executing function",
           "return vs exit bash"
         ],
-        "relatedCommands": ["exit", "echo", "test"],
+        "relatedCommands": ["exit", "echo", "test", "trap"],
         "alternatives": ["exit"],
         "status": "draft",
         "usedInWorkflows": []
@@ -390,7 +396,7 @@
       "slug": "test",
       "name": "test",
       "category": "shell-scripting",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "test",
         "name": "test",
@@ -414,7 +420,7 @@
           "check if variable is empty",
           "evaluate math expression bash"
         ],
-        "relatedCommands": ["if", "while", "expr"],
+        "relatedCommands": ["if", "while", "expr", "return", "shift"],
         "alternatives": ["expr"],
         "status": "draft",
         "usedInWorkflows": []
@@ -425,7 +431,7 @@
       "slug": "trap",
       "name": "trap",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "trap",
         "name": "trap",
@@ -449,7 +455,7 @@
           "handle bash errors automatically",
           "trap sigint sigterm"
         ],
-        "relatedCommands": ["kill", "killall", "wait", "return"],
+        "relatedCommands": ["kill", "killall", "wait", "return", "exit"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -460,7 +466,7 @@
       "slug": "wait",
       "name": "wait",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "wait",
         "name": "wait",
@@ -484,7 +490,7 @@
           "capture exit code of background job",
           "pause script execution"
         ],
-        "relatedCommands": ["jobs", "bg", "fg", "kill"],
+        "relatedCommands": ["jobs", "bg", "fg", "kill", "exit", "trap"],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []
@@ -495,7 +501,7 @@
       "slug": "while",
       "name": "while",
       "category": "shell-scripting",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "while",
         "name": "while",
@@ -512,7 +518,7 @@
           "infinite loop shell script",
           "wait for command to succeed bash"
         ],
-        "relatedCommands": ["for", "read", "test"],
+        "relatedCommands": ["for", "read", "test", "shift"],
         "alternatives": ["for"],
         "status": "draft",
         "usedInWorkflows": []

@@ -10657,6 +10657,7 @@
     ],
     "cpio": [
       { "slug": "cpio", "boost": 5 },
+      { "slug": "gzip", "boost": 2 },
       { "slug": "tar", "boost": 2 }
     ],
     "copy": [
@@ -13778,7 +13779,7 @@
     "diffutils": [{ "slug": "diff", "boost": 1 }],
     "ed": [
       { "slug": "ed", "boost": 5 },
-      { "slug": "vi", "boost": 1 }
+      { "slug": "vi", "boost": 2 }
     ],
     "editor": [
       { "slug": "ed", "boost": 5 },

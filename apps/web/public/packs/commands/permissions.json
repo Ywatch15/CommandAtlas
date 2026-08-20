@@ -68,7 +68,7 @@
       "slug": "chmod",
       "name": "chmod",
       "category": "permissions",
-      "contentVersion": 6,
+      "contentVersion": 7,
       "frontmatter": {
         "slug": "chmod",
         "name": "chmod",
@@ -96,7 +96,8 @@
           "sticky-bit",
           "chattr",
           "umask",
-          "visudo"
+          "visudo",
+          "syscall-file-metadata"
         ],
         "alternatives": ["setfacl", "chattr", "umask"],
         "status": "draft",
@@ -108,7 +109,7 @@
       "slug": "chown",
       "name": "chown",
       "category": "permissions",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "chown",
         "name": "chown",
@@ -132,7 +133,8 @@
           "chattr",
           "setfacl",
           "umask",
-          "visudo"
+          "visudo",
+          "syscall-file-metadata"
         ],
         "alternatives": ["chgrp"],
         "status": "draft",

@@ -67,7 +67,7 @@
       "slug": "export-csv",
       "name": "Export-Csv",
       "category": "powershell",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "export-csv",
         "name": "Export-Csv",
@@ -91,7 +91,7 @@
           "export data without type information",
           "append data to csv file powershell"
         ],
-        "relatedCommands": ["import-csv", "select-object"],
+        "relatedCommands": ["import-csv", "select-object", "set-content"],
         "status": "draft",
         "alternatives": [],
         "usedInWorkflows": []
@@ -102,7 +102,7 @@
       "slug": "foreach-object",
       "name": "ForEach-Object",
       "category": "powershell",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "foreach-object",
         "name": "ForEach-Object",
@@ -119,7 +119,7 @@
           "iterate over collection ps",
           "execute script block on each item"
         ],
-        "relatedCommands": ["where-object", "select-object"],
+        "relatedCommands": ["where-object", "select-object", "import-csv"],
         "status": "draft",
         "alternatives": [],
         "usedInWorkflows": []
@@ -130,7 +130,7 @@
       "slug": "get-childitem",
       "name": "Get-ChildItem",
       "category": "powershell",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "get-childitem",
         "name": "Get-ChildItem",
@@ -158,10 +158,14 @@
           "copy-item",
           "remove-item",
           "select-object",
-          "where-object"
+          "where-object",
+          "get-item",
+          "new-item",
+          "set-location",
+          "test-path"
         ],
         "status": "draft",
-        "alternatives": [],
+        "alternatives": ["get-item"],
         "usedInWorkflows": []
       },
       "body": "## What is it?\n\n`Get-ChildItem` is a foundational PowerShell cmdlet used to retrieve the items and child items in one or more specified locations. While it is the direct equivalent to Linux `ls` or Windows `dir`, it is fundamentally provider-agnostic, meaning it can traverse not only the physical filesystem but also the Windows Registry (`HKLM:\\`), Certificate Stores (`Cert:\\`), and Environment Variables (`Env:\\`), outputting rich .NET objects rather than flat text strings.\n\n## Why does it exist?\n\nLegacy command-line interfaces required entirely disparate tools to inspect different hierarchical storage systems (e.g., `dir` for files, `reg query` for the registry). Furthermore, text-based output required brittle regex parsing (like `awk` or `grep`) to extract file sizes or dates. `Get-ChildItem` exists to unify navigation across all system hierarchies via the PowerShell Provider model, returning highly structured objects (`FileInfo`, `RegistryKey`) that inherently expose their properties (LastWriteTime, Length, Extension) directly to the pipeline for robust, error-free programmatic manipulation.\n\n## Syntax\n\n```powershell\nGet-ChildItem [[-Path] <string[]>] [[-Filter] <string>] [options]\nGet-ChildItem -LiteralPath <string[]> [[-Filter] <string>] [options]\n```\n\n## Flags\n\n| Flag           | Description                                                                                                   | Example                                     |\n| -------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |\n| `-Path`        | Specifies the path to one or more locations. Supports standard wildcard pattern matching (`*`, `?`).          | `Get-ChildItem -Path C:\\Logs\\*`             |\n| `-LiteralPath` | Specifies an exact path, strictly bypassing wildcard evaluation (crucial for paths containing `[ ]`).         | `Get-ChildItem -LiteralPath '.\\Data[1]'`    |\n| `-Filter`      | Highly optimized, provider-specific filtering (e.g., `*.txt`). Executes significantly faster than `-Include`. | `Get-ChildItem -Path C:\\ -Filter *.log`     |\n| `-Include`     | Retrieves only items matching the specified string/wildcard array. Requires trailing `\\*` on path.            | `Get-ChildItem C:\\*\\* -Include *.jpg,*.png` |\n| `-Exclude`     | Omits specific items or file extensions matching the wildcard array from the final retrieval list.            | `Get-ChildItem -Path .\\ -Exclude *.tmp`     |\n| `-Recurse`     | Gets the items in the specified locations and in all child containers (deep traversal).                       | `Get-ChildItem -Path .\\src -Recurse`        |\n| `-Depth`       | Restricts the `-Recurse` operation to a specific hierarchical depth limit (e.g., `2` levels deep).            | `Get-ChildItem -Path .\\ -Recurse -Depth 2`  |\n| `-Force`       | Bypasses standard visibility filters, revealing Hidden files, System files, and inaccessible registry keys.   | `Get-ChildItem -Path C:\\ -Force`            |\n| `-Directory`   | Limits the output strictly to directory/container objects, filtering out all file items natively.             | `Get-ChildItem -Path .\\ -Directory`         |\n| `-File`        | Limits the output strictly to file objects, filtering out all directory/container objects natively.           | `Get-ChildItem -Path .\\ -File`              |\n| `-Hidden`      | Retrieves only items that explicitly possess the Hidden attribute.                                            | `Get-ChildItem -Path .\\ -Hidden`            |\n\n## Examples\n\n```powershell\nGet-ChildItem -Path C:\\Temp -Filter *.csv\n```\n\n> This queries the filesystem for all files terminating with the `.csv` extension within the `C:\\Temp` directory. By utilizing the `-Filter` parameter, the query is pushed down to the underlying NTFS driver, executing vastly faster than standard wildcard matching.\n\n```powershell\nGet-ChildItem -Path .\\Project -Recurse -File -Exclude *.bak,*.tmp\n```\n\n> This executes a deep, recursive scan of a project folder, intentionally limiting the retrieval strictly to file objects (`-File`) while filtering out any useless backup or temporary files through the exclusion array.\n\n```powershell\nGet-ChildItem -Path HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\n```\n\n> Demonstrating its provider-agnostic architecture, this command treats the Windows Registry exactly like a filesystem. It traverses into the `Run` hive and outputs a list of all `RegistryKey` objects nested inside it.\n\n```powershell\nGet-ChildItem -Path Cert:\\LocalMachine\\My | Where-Object { $_.NotAfter -lt (Get-Date).AddDays(30) }\n```\n\n> This leverages the Certificate provider to retrieve all installed SSL/TLS certificates on the local machine system store. Because it outputs rich objects, the pipeline natively intercepts the `.NotAfter` expiration property to instantly identify certificates expiring within the next 30 days.\n\n```powershell\nGet-ChildItem -Path \\\\NAS01\\Archive\\* -Include *.pdf -Recurse -Depth 3 -Force\n```\n\n> This maps a complex network share. It forces the inclusion of hidden or protected system files (`-Force`), explicitly targets only `.pdf` documents (`-Include`), and restricts the aggressive recursive crawl to halt exactly three folder levels deep (`-Depth 3`).\n\n## Real-World Scenarios\n\n**Identifying Massive Storage Bloat**\n\n```powershell\nGet-ChildItem -Path C:\\Data -Recurse -File | Sort-Object Length -Descending | Select-Object Name, @{Name=\"MB\";Expression={[math]::Round($_.Length / 1MB, 2)}} -First 10\n```\n\n> Infrastructure engineers tracking down out-of-control disk space alerts use `Get-ChildItem` to generate thousands of file objects, streaming them to a sorting mechanism to instantly identify and extract the absolute top 10 largest files consuming storage capacity.\n\n**Automated Codebase Refactoring Audits**\n\n```powershell\nGet-ChildItem -Path ./src -Recurse -Filter *.cs | Select-String -Pattern \"TODO: Deprecated\"\n```\n\n> Software developers pipeline `Get-ChildItem` directly into string manipulation tools. The cmdlet swiftly identifies every single C# source file in a nested repository, passing the absolute paths down the pipeline so `Select-String` can audit the text inside them for deprecated technical debt markers.\n\n## When should it NOT be used?\n\n- **Scanning multi-terabyte network shares containing millions of files:** **Reason:** `Get-ChildItem` instantiates a heavy, complex .NET `FileInfo` object for every single file it encounters. Running it recursively over millions of files will trigger catastrophic memory exhaustion and massive execution latency. **Use instead:** Low-level .NET calls like `[System.IO.Directory]::EnumerateFiles()` or highly optimized binaries like `robocopy /L`.\n- **Searching file contents on Linux endpoints:** **Reason:** While `Get-ChildItem` piped to `Select-String` works, native Linux tools are vastly more optimized for plaintext C-routines. **Use instead:** `grep -r` or `rg` (Ripgrep).\n\n## Alternatives\n\n- **`[System.IO.Directory]::EnumerateFiles()`:** Underlying .NET API. **Tradeoff:** This raw .NET method returns purely string paths rather than rich `FileInfo` objects. Because it doesn't instantiate heavy objects, it executes orders of magnitude faster and uses a fraction of the memory, making it the definitive choice for massive filesystem crawls.\n- **`find` (Linux/macOS native):** The POSIX standard. **Tradeoff:** `find` evaluates attributes and executes commands directly in highly optimized C-code rather than generating and piping objects, resulting in drastically faster execution speeds, but requiring brittle regex text-parsing to capture outputs.\n\n## How it works internally\n\n`Get-ChildItem` acts as a routing engine. When executed, it checks the path prefix (e.g., `C:\\`, `HKLM:\\`, `Env:\\`) to identify which underlying **PowerShell Provider** manages that specific namespace.\n\nIt then issues a unified command down to the provider's specific API implementation. For the `FileSystem` provider, the cmdlet interfaces with the Win32 API (or POSIX equivalents on Linux) to execute directory enumerations.\n\nCrucially, as the filesystem driver discovers files, PowerShell wraps the raw structural data inside highly extensible .NET Objects (such as `System.IO.FileInfo` for files, or `System.IO.DirectoryInfo` for folders). These objects carry extended types and dynamically computed properties (like the `Length` attribute translating to bytes). This instantiation process occurs iteratively. By pushing objects into the pipeline immediately as they are constructed, `Get-ChildItem` facilitates asynchronous downstream processing (like `ForEach-Object`) without waiting for the entire disk scan to conclude.\n\n## Performance Notes\n\n- **Filter vs. Include Penalty:** The `-Filter` parameter is pushed down to the underlying OS API (e.g., the NTFS driver). The `-Include` parameter is evaluated purely in PowerShell memory _after_ every file is retrieved. Consequently, `Get-ChildItem -Filter *.txt` is phenomenally faster than `Get-ChildItem -Include *.txt`.\n- **The Object Overload:** Recursively scanning `C:\\Windows` produces hundreds of thousands of complex objects. This consumes significant RAM. If only paths are required, use `(Get-ChildItem -Recurse).FullName` minimally, or default to the `[System.IO.Directory]` classes.\n\n## Security Notes\n\n- **Access Denied Exceptions:** `Get-ChildItem` respects strict Access Control Lists (ACLs). If the executing user lacks Read traversal permissions on a directory, the cmdlet will throw an `UnauthorizedAccessException` and halt recursion for that specific tree.\n- **Visibility Bypasses:** Malicious actors frequently hide payloads by applying the Windows `Hidden` and `System` attributes to directories. `Get-ChildItem` strictly honors these attributes by default, blinding administrators to the files unless the explicit `-Force` parameter is provided.\n\n## Common Mistakes\n\n- **Trailing wildcards with `-Include`:** Running `Get-ChildItem -Path C:\\Logs -Include *.txt`. **Why it's wrong:** The `-Include` flag only evaluates the final element of the path. If the path targets a directory `C:\\Logs`, it checks if the directory name matches `*.txt`. It fails. You must append a wildcard to dive into the directory: `Get-ChildItem -Path C:\\Logs\\* -Include *.txt`.\n- **Assuming it searches file text:** **Why it's wrong:** `Get-ChildItem` strictly interacts with namespace metadata (filenames, sizes, timestamps). It never touches the internal byte payloads of files. You must pipe its output to `Select-String` to evaluate file contents.\n- **Using arrays for `-Filter`:** **Why it's wrong:** The `-Filter` parameter connects to legacy OS APIs, which only support a single string argument. Attempting to run `-Filter *.txt,*.log` will fail or throw errors. You must use `-Include` (with the performance penalty) to evaluate arrays of extensions.\n\n## Best Practices\n\n- When executing basic administrative hygiene scripts, aggressively utilize the dynamic switch parameters (`-File`, `-Directory`, `-Hidden`) introduced in modern PowerShell versions to offload filtering efficiency, bypassing bulky `Where-Object { $_.PSIsContainer }` legacy logic entirely.\n- In scripts evaluating external inputs, universally favor `-LiteralPath` over `-Path`. Users frequently create files containing square brackets (e.g., `backup[1].zip`); `-Path` attempts to evaluate the brackets as a regex wildcard string, causing catastrophic \"File Not Found\" pipeline failures.\n\n## Interview Questions\n\n- _Query:_ What is the profound architectural difference in execution performance between using the `-Filter` parameter and the `-Include` parameter in `Get-ChildItem`?\n  - _A:_ The `-Filter` parameter leverages the underlying provider's native API (e.g., the Windows NTFS driver). The OS filters the files instantly at the kernel level, returning only matching items to PowerShell. The `-Include` parameter forces the OS to return _every single file_ in the directory to PowerShell. PowerShell instantiates an object for every file, loads it into RAM, and then evaluates the regex string against it locally. Thus, `-Filter` is orders of magnitude faster.\n- _Query:_ A developer attempts to run `Get-ChildItem` on the root of the `C:\\` drive to find a specific configuration file, but the command outputs nothing and stops immediately. However, they know the file exists. What parameter is required to expose the missing file?\n  - _A:_ The file or its parent directories are likely restricted by filesystem visibility bits (such as the `Hidden` or `System` attributes). `Get-ChildItem` safely respects these constraints by default to prevent clutter. The developer must append the `-Force` flag to instruct the cmdlet to bypass standard visibility masking and reveal all underlying inodes.\n- _Query:_ How does `Get-ChildItem` technically manage to execute successfully when the `-Path` points to `HKLM:\\Software` rather than a standard filesystem path like `C:\\`?\n  - _A:_ `Get-ChildItem` is not a traditional filesystem executable like Linux `ls`; it is a provider-agnostic router. PowerShell utilizes a \"Provider\" model that abstracts various data stores (Registry, Certificates, Environment Variables) into virtual, navigable drives. When the path `HKLM:\\` is requested, the cmdlet routes the retrieval request explicitly to the PowerShell Registry Provider, which maps registry keys into custom .NET objects masquerading as standard directory structures.\n\n## Practice Problems\n\n- _Problem:_ Retrieve a list of exclusively file objects (no directories) in the current folder that possess the `.log` extension, executing the search as fast as mathematically possible at the OS level.\n  - _Hint:_ Combine the dynamic file-only switch with the native OS parameter optimized for speed over the internal PowerShell array matchers.\n  - _Solution:_ `Get-ChildItem -File -Filter *.log` (This offloads the pattern matching to the filesystem and strictly restricts object instantiation to raw files).\n- _Problem:_ Perform a recursive search spanning the entire `C:\\App\\` directory tree to locate and output any files specifically possessing the `Hidden` attribute.\n  - _Hint:_ Combine the recursive flag, the visibility override flag, and the specialized metadata filter flag.\n  - _Solution:_ `Get-ChildItem -Path C:\\App\\ -Recurse -Force -Hidden` (The `-Force` allows access to the protected files, and `-Hidden` isolates the output strictly to those masked items).\n\n## References\n\n- [Microsoft Docs - Get-ChildItem](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem)\n- [PowerShell Provider Architecture](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_providers)\n  === END FILE ===\n"
@@ -170,7 +174,7 @@
       "slug": "get-command",
       "name": "Get-Command",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-command",
         "name": "Get-Command",
@@ -193,7 +197,7 @@
           "find which module a command belongs to",
           "search for commands by verb or noun"
         ],
-        "relatedCommands": ["get-help"],
+        "relatedCommands": ["get-help", "get-member"],
         "alternatives": ["get-help"],
         "status": "draft",
         "usedInWorkflows": []
@@ -204,7 +208,7 @@
       "slug": "get-content",
       "name": "Get-Content",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-content",
         "name": "Get-Content",
@@ -227,8 +231,8 @@
           "read raw string from file",
           "read registry key content"
         ],
-        "relatedCommands": ["set-content", "add-content"],
-        "alternatives": ["cat", "type"],
+        "relatedCommands": ["set-content", "add-content", "get-item"],
+        "alternatives": ["cat", "type", "import-csv"],
         "status": "draft",
         "usedInWorkflows": []
       },
@@ -272,7 +276,7 @@
       "slug": "get-item",
       "name": "Get-Item",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-item",
         "name": "Get-Item",
@@ -295,7 +299,7 @@
           "check if file exists powershell",
           "retrieve powershell provider item"
         ],
-        "relatedCommands": ["get-childitem", "get-content"],
+        "relatedCommands": ["get-childitem", "get-content", "test-path"],
         "alternatives": ["get-childitem"],
         "status": "draft",
         "usedInWorkflows": []
@@ -375,7 +379,7 @@
       "slug": "get-service",
       "name": "Get-Service",
       "category": "powershell",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "get-service",
         "name": "Get-Service",
@@ -401,7 +405,7 @@
         ],
         "alternatives": ["systemctl"],
         "status": "draft",
-        "relatedCommands": [],
+        "relatedCommands": ["get-process"],
         "usedInWorkflows": []
       },
       "body": "## What is it?\n\n`Get-Service` is a PowerShell cmdlet used to retrieve the execution status and configuration metadata of background services (daemons) on a local or remote computer. It interacts directly with the Service Control Manager (SCM) to output `.NET` `ServiceController` objects, providing administrators with programmatic visibility into whether critical infrastructure components—like SQL Server, IIS, or Docker—are `Running`, `Stopped`, or `Paused`, and what dependency relationships govern their lifecycle.\n\n## Why does it exist?\n\nOperating systems rely on background services to manage networking, hardware, and continuous applications independently of user logins. Historically, Windows administrators managed these via the graphical `services.msc` MMC snap-in or the archaic `sc.exe` command-line tool, which required complex string parsing. `Get-Service` exists to bring service management into the modern object pipeline. By returning structured objects, it allows engineers to seamlessly script bulk operations (like finding all `Stopped` services matching `*SQL*` and piping them into `Start-Service`), drastically accelerating automated server remediation and monitoring workflows.\n\n## Syntax\n\n```powershell\nGet-Service [[-Name] <String[]>] [options]\nGet-Service -DisplayName <String[]> [options]\n```\n\n## Flags\n\n| Flag                 | Description                                                                                                                               | Example                                                  |\n| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |\n| `-Name`              | (Positional) Searches for the service using its underlying system registry name. Supports wildcard matching.                              | `Get-Service -Name wuauserv`                             |\n| `-DisplayName`       | Searches for the service using the human-readable string displayed in the GUI. Highly useful when the internal name is obscure.           | `Get-Service -DisplayName \"Windows Update\"`              |\n| `-DependentServices` | Returns a list of services that fundamentally rely on the target service. If you stop the target, these services will also crash or stop. | `Get-Service -Name LanmanWorkstation -DependentServices` |\n| `-RequiredServices`  | Returns a list of prerequisite services that the target service absolutely requires to be running before it can boot itself.              | `Get-Service -Name Docker -RequiredServices`             |\n| `-Include`           | An array of string patterns that a service name must match to be included in the results.                                                 | `Get-Service -Name * -Include *net*`                     |\n| `-Exclude`           | An array of string patterns that explicitly drops matching services from the returned results.                                            | `Get-Service -Name * -Exclude *svchost*`                 |\n| `-ComputerName`      | Executes the query against a remote Windows machine. (Deprecated in PS7+ via DCOM; rely on `Invoke-Command` via WinRM).                   | `Get-Service -ComputerName db-prod-01`                   |\n\n## Examples\n\n```bash\nGet-Service\n```\n\n> The universal service audit. Retrieves the entire dictionary of services registered with the OS. It outputs a three-column table displaying the current execution `Status` (Running/Stopped), the internal system `Name` (e.g., `BITS`), and the human-readable `DisplayName` (e.g., `Background Intelligent Transfer Service`).\n\n```powershell\nGet-Service -Name *SQL* | Where-Object Status -eq 'Stopped'\n```\n\n> Targeted health monitoring. Uses wildcards to fetch all services related to Microsoft SQL Server. The pipeline seamlessly filters the resulting objects, outputting only the database engines or agents that have crashed or been intentionally halted, instantly highlighting service outages.\n\n```powershell\nGet-Service -DisplayName \"World Wide Web Publishing Service\" | Restart-Service -Force\n```\n\n> Name resolution and orchestration. The administrator doesn't know that the internal name for IIS is `W3SVC`. By querying the Display Name, `Get-Service` resolves the correct `ServiceController` object and pipes it directly to the reboot command, orchestrating a complex recovery effortlessly.\n\n```powershell\n(Get-Service -Name LanmanServer).DependentServices | Stop-Service\n```\n\n> Dependency mapping teardown. The Server service handles SMB file sharing. An administrator needs to patch it, but stopping it will cause chained failures in dependent services (like the Computer Browser). This advanced pipeline fetches all dependent child services and systematically shuts them down first, preparing the parent service for safe maintenance.\n\n## Real-World Scenarios\n\n**Automated Remediation (Self-Healing Scripts)**\n\n```powershell\n$service = Get-Service -Name \"Spooler\"\nif ($service.Status -ne 'Running') {\n    Start-Service -InputObject $service\n    Send-MailMessage -To \"alerts@corp.com\" -Subject \"Spooler Auto-Recovered\"\n}\n```\n\n> Deployed as a scheduled task, this script polls a critical application service. By evaluating the `.Status` property of the returned object, the script implements deterministic self-healing logic. If the service is dead, it actively revives it via `Start-Service` and alerts the operations team, maintaining strict SLA compliance.\n\n**Server State Baselining**\n\n```powershell\nGet-Service | Where-Object Status -eq 'Running' | Select-Object Name | Export-Csv running_services_baseline.csv\n```\n\n> Before applying massive Windows Updates or third-party application patches, system administrators execute this pipeline to capture a definitive list of every active daemon. If the server reboots and applications fail, they can programmatically compare the live services against this CSV baseline to instantly discover which specific daemon failed to auto-start.\n\n## When should it NOT be used?\n\n- **Altering Startup Types:** **Do not use `Get-Service` to configure a service to start on boot.** Prior to PowerShell 6, the objects returned by `Get-Service` lacked the methods to alter the `StartupType` (Automatic/Manual/Disabled). You must use `Set-Service -Name <name> -StartupType Automatic` or drop down to WMI (`Get-CimInstance Win32_Service`).\n- **Cross-Platform Service Management (Linux):** While PowerShell 7 is cross-platform, `Get-Service` on Linux historically relies on polling generic process tables and lacks deep integration with `systemd`. For robust daemon management on Linux, strictly use native `systemctl` commands over PowerShell wrappers.\n\n## Alternatives\n\n- **`sc.exe` (Service Control):** **Best for low-level configuration.** The legacy Windows binary capable of deleting services entirely (`sc delete`), altering deep recovery behaviors (restarting after 1st failure), and modifying service account execution credentials, which standard PowerShell cmdlets struggle with natively.\n- **`Get-CimInstance Win32_Service`:** **Best for deep auditing.** The WMI class `Win32_Service` provides significantly more metadata than `Get-Service`, including the exact absolute file path to the executable (`PathName`), the specific user account the service runs under (`StartName`), and the exact textual error code if the service failed to start.\n- **`systemctl`:** **Best for Linux systems.** The definitive, undisputed standard for managing daemon lifecycles and viewing journaled daemon logs on modern Linux distributions.\n\n## How it works internally\n\n`Get-Service` acts as a direct interface to the Windows Service Control Manager (SCM).\n\nWhen executed, the cmdlet relies on the `.NET` `System.ServiceProcess.ServiceController` class. It issues an API request via RPC (Remote Procedure Call) to the `services.exe` process running on the host OS.\n\nThe SCM maintains a registry-backed database (located at `HKLM\\SYSTEM\\CurrentControlSet\\Services`) of all installed drivers and user-space daemons. It queries this database and returns an array of handles to the requested services. The .NET framework wraps these handles into `ServiceController` objects.\n\nBecause these objects are linked to the live SCM, querying the `.Status` property does not return a cached string; it triggers an instantaneous interrogation of the kernel's service state. If the service is currently transitioning (e.g., executing its shutdown hook), the status will reflect `StopPending` rather than `Stopped`. Pipelining these objects to `Start-Service` or `Stop-Service` simply passes the active handle back to the SCM, instructing it to emit the `SERVICE_CONTROL_CONTINUE` or `SERVICE_CONTROL_STOP` control codes to the target executable.\n\n## Performance Notes\n\n- **RPC Overhead:** Querying all services via `Get-Service` is relatively fast, but pipelining the results to a `Where-Object` block forces PowerShell to serialize and evaluate hundreds of heavy .NET objects. When scripting, `Get-Service -Name *SQL*` is mathematically faster than `Get-Service | Where-Object Name -match 'SQL'` because it pushes the string filtering down to the highly optimized C++ SCM layer rather than the PowerShell execution engine.\n\n## Security Notes\n\n- **Privilege Constraints:** Standard unprivileged users can execute `Get-Service` and view the status of almost all system services. However, they lack the DACL (Discretionary Access Control List) permissions to manipulate them. Piping the results to `Stop-Service` will throw widespread \"Access Denied\" exceptions unless the PowerShell terminal is launched via \"Run as Administrator\".\n- **Invisible Services:** Some specialized security software (like EDRs or Rootkits) use kernel-level filtering to hide their service registrations from the standard Windows APIs. `Get-Service` will be blind to these deeply cloaked daemons.\n\n## Common Mistakes\n\n- **Using the wrong identifier**\n  - _Mistake:_ Attempting to script `Get-Service -Name \"Windows Update\"`.\n  - _Why:_ The command fails with an object not found error. `Windows Update` is the human-readable Display Name. The underlying system registry name is `wuauserv`. The default `-Name` parameter expects the strict internal name. You must explicitly use the `-DisplayName` flag if you want to use the readable text string.\n- **Misinterpreting `Stopped` vs `Disabled`**\n  - _Mistake:_ Checking if a service is `Stopped`, assuming it is broken, and issuing a `Start-Service` command which fails with an access error.\n  - _Why:_ A service's `Status` only indicates current execution. If a service's `StartupType` is explicitly set to `Disabled`, the OS physically prohibits execution. You must ensure the service is `Manual` or `Automatic` before attempting to boot it.\n\n## Best Practices\n\n- **Audit Service Accounts via WMI:** If you need to verify that a service is running securely under a Group Managed Service Account (gMSA) rather than `LocalSystem`, abandon `Get-Service`. Switch to `Get-CimInstance Win32_Service | Select-Object Name, StartName` to extract the execution identity context.\n- **Utilize Dependent Service Teardowns:** When patching a core infrastructure component, never force-kill it blindly. Always use `Get-Service <name> -DependentServices | Stop-Service` to allow the upstream dependencies to cleanly flush memory buffers to disk before tearing down the foundation they rely on.\n\n## Interview Questions\n\n**Q: You want to restart the `w3svc` (IIS Web Server) service, but the command fails because another service currently relies on it. What exact parameter can you pass to `Get-Service` to identify exactly which secondary service is holding the lock?**\n**A:** You must use the `-DependentServices` parameter. Running `Get-Service -Name w3svc -DependentServices` will query the Service Control Manager and output an array of all secondary services that mathematically depend on IIS being active. You must stop those dependent services first before attempting to restart IIS.\n\n**Q: In a PowerShell script, you run `Get-Service sshd` and it successfully returns an object showing the service is `Stopped`. You pipe it immediately to `Start-Service`, but it throws an error stating \"Service cannot be started. A Start control has been sent to a service that is disabled.\" How would you fix the script?**\n**A:** The `Get-Service` object reports execution state, but does not dictate startup policy. The service is administratively locked by the OS. The script must first reconfigure the service's startup type before booting it. The fix is to insert the `Set-Service` cmdlet into the pipeline: `Get-Service sshd | Set-Service -StartupType Manual | Start-Service`.\n\n## Practice Problems\n\n**Problem:** You are auditing a Windows server. You need to find the internal system name for the service that handles the \"Windows Firewall\". Write the command to query the system using the human-readable name, returning the object so you can extract its short name.\n**Hint:** Use the parameter that bypasses the internal registry name and searches by the UI name.\n**Solution:**\n\n```powershell\nGet-Service -DisplayName \"Windows Defender Firewall\"\n```\n\n**Problem:** Your automation script needs to ensure the Docker daemon is actively running. Write a single pipeline command that fetches the service with the internal name `docker`. If the status is equal to `Stopped`, start the service immediately.\n**Hint:** Fetch the service, pass it to a `Where-Object` block filtering by the Status property, and pipe any matches into the start cmdlet.\n**Solution:**\n\n```powershell\nGet-Service -Name docker | Where-Object Status -eq 'Stopped' | Start-Service\n```\n\n## References\n\n- [Get-Service (Microsoft Learn)](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-service)\n- [System.ServiceProcess Namespace (.NET API)](https://learn.microsoft.com/en-us/dotnet/api/system.serviceprocess)\n"
@@ -542,7 +546,7 @@
       "slug": "remove-item",
       "name": "Remove-Item",
       "category": "powershell",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "remove-item",
         "name": "Remove-Item",
@@ -559,7 +563,7 @@
           "delete registry key powershell",
           "remove files by extension"
         ],
-        "relatedCommands": ["new-item", "copy-item"],
+        "relatedCommands": ["new-item", "copy-item", "get-childitem"],
         "status": "draft",
         "alternatives": [],
         "usedInWorkflows": []
@@ -570,7 +574,7 @@
       "slug": "select-object",
       "name": "Select-Object",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "select-object",
         "name": "Select-Object",
@@ -593,7 +597,15 @@
           "get first or last item in powershell",
           "rename object property powershell"
         ],
-        "relatedCommands": ["where-object", "foreach-object", "sort-object"],
+        "relatedCommands": [
+          "where-object",
+          "foreach-object",
+          "sort-object",
+          "export-csv",
+          "get-childitem",
+          "get-member",
+          "import-csv"
+        ],
         "alternatives": ["foreach-object"],
         "status": "draft",
         "usedInWorkflows": []
@@ -774,7 +786,7 @@
       "slug": "where-object",
       "name": "Where-Object",
       "category": "powershell",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "where-object",
         "name": "Where-Object",
@@ -797,7 +809,12 @@
           "filter processes by name",
           "search pipeline objects"
         ],
-        "relatedCommands": ["select-object", "sort-object", "foreach-object"],
+        "relatedCommands": [
+          "select-object",
+          "sort-object",
+          "foreach-object",
+          "get-childitem"
+        ],
         "alternatives": [],
         "status": "draft",
         "usedInWorkflows": []

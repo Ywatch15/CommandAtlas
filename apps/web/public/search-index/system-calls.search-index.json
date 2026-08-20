@@ -2670,7 +2670,7 @@
     "netlink": [{ "slug": "syscall-device-control", "boost": 1 }],
     "sockets": [
       { "slug": "syscall-device-control", "boost": 1 },
-      { "slug": "syscall-file-io", "boost": 1 },
+      { "slug": "syscall-file-io", "boost": 2 },
       {
         "slug": "syscall-io-multiplexing",
         "boost": 5,

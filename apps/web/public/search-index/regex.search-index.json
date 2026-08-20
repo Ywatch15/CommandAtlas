@@ -120,7 +120,8 @@
       { "slug": "regex-alternation", "boost": 5 },
       { "slug": "regex-character-classes", "boost": 1 },
       { "slug": "regex-groups", "boost": 1 },
-      { "slug": "regex-quantifiers", "boost": 1 }
+      { "slug": "regex-quantifiers", "boost": 1 },
+      { "slug": "regex-shorthand-classes", "boost": 2 }
     ],
     "or": [
       { "slug": "regex-alternation", "boost": 5 },
@@ -3948,8 +3949,9 @@
     "anchors": [
       { "slug": "regex-alternation", "boost": 1 },
       { "slug": "regex-anchors", "boost": 5 },
-      { "slug": "regex-character-classes", "boost": 1 },
+      { "slug": "regex-character-classes", "boost": 2 },
       { "slug": "regex-lookaround", "boost": 1 },
+      { "slug": "regex-quantifiers", "boost": 2 },
       { "slug": "regex-wildcard", "boost": 1 }
     ],
     "dots": [

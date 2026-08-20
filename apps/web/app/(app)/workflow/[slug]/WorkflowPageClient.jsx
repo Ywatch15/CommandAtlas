@@ -92,6 +92,7 @@ export default function WorkflowPageClient({ slug, staticWorkflow, staticAllCate
 
         {bodyHtml && (
           <div
+            className="markdown-body"
             style={{
               backgroundColor: 'var(--bg-surface)',
               border: '1px solid var(--border-subtle)',

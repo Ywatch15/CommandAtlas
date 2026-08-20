@@ -207,7 +207,7 @@
       "slug": "gzip",
       "name": "gzip",
       "category": "unix",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "gzip",
         "name": "gzip",
@@ -224,7 +224,7 @@
           "view gz log file without extracting",
           "extract tar.gz archive"
         ],
-        "relatedCommands": ["tar", "bzip2", "xz"],
+        "relatedCommands": ["tar", "bzip2", "xz", "cpio"],
         "alternatives": ["bzip2", "xz"],
         "status": "draft",
         "usedInWorkflows": []
@@ -403,7 +403,7 @@
       "slug": "vi",
       "name": "vi",
       "category": "unix",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "vi",
         "name": "vi",
@@ -420,7 +420,7 @@
           "open file at line number vi",
           "execute search and replace opening file"
         ],
-        "relatedCommands": ["sed", "awk", "cat", "less"],
+        "relatedCommands": ["sed", "awk", "cat", "less", "ed"],
         "alternatives": ["sed"],
         "status": "draft",
         "usedInWorkflows": []

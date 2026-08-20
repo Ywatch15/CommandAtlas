@@ -241,7 +241,10 @@
       { "slug": "sshd", "boost": 1 }
     ],
     "50000": [{ "slug": "scp", "boost": 1 }],
-    "autossh": [{ "slug": "autossh", "boost": 5 }],
+    "autossh": [
+      { "slug": "autossh", "boost": 5 },
+      { "slug": "ssh", "boost": 2 }
+    ],
     "keep": [
       { "slug": "autossh", "boost": 5, "phrase": "keep ssh tunnel alive" },
       {
@@ -3530,7 +3533,10 @@
       { "slug": "autossh", "boost": 1 },
       { "slug": "sshd", "boost": 1 }
     ],
-    "exec": [{ "slug": "autossh", "boost": 1 }],
+    "exec": [
+      { "slug": "autossh", "boost": 1 },
+      { "slug": "ssh", "boost": 2 }
+    ],
     "launch": [
       { "slug": "autossh", "boost": 1 },
       { "slug": "ssh-agent", "boost": 1 },
@@ -10011,6 +10017,9 @@
     "processing": [{ "slug": "ssh-keyscan", "boost": 1 }],
     "rip": [{ "slug": "ssh-keyscan", "boost": 1 }],
     "ee": [{ "slug": "ssh-keyscan", "boost": 1 }],
+    "gcloud": [{ "slug": "ssh", "boost": 2 }],
+    "compute": [{ "slug": "ssh", "boost": 2 }],
+    "kubectl": [{ "slug": "ssh", "boost": 2 }],
     "insecure": [
       { "slug": "ssh", "boost": 1 },
       { "slug": "sshd", "boost": 1 }
@@ -11264,6 +11273,7 @@
       "console",
       "construct",
       "coffee",
+      "compute",
       "confidentiality",
       "configuring",
       "compressed",
@@ -11434,6 +11444,7 @@
       "injecting",
       "redirection",
       "redirecting",
+      "kubectl",
       "selects",
       "disconnection",
       "disconnect",
@@ -14259,9 +14270,10 @@
       "perfectly",
       "strictly",
       "exactly",
-      "correctly"
+      "correctly",
+      "kubectl"
     ],
-    "tl$": ["systemctl", "journalctl"],
+    "tl$": ["systemctl", "journalctl", "kubectl"],
     "^tm": ["tmux", "tmp"],
     "tmu": ["tmux"],
     "mux": ["tmux"],
@@ -14785,6 +14797,7 @@
       "completes",
       "completing",
       "comfortably",
+      "compute",
       "compressed",
       "combined",
       "component",
@@ -18773,6 +18786,7 @@
       "brute",
       "computed",
       "distribute",
+      "compute",
       "routed"
     ],
     "ter": [
@@ -19382,10 +19396,10 @@
       "clientaliveinterval",
       "clientalivecountmax"
     ],
-    "clo": ["cloud", "closes", "close", "clone", "cloudflare"],
-    "lou": ["cloud", "loudly", "cloudflare"],
-    "oud": ["cloud", "loudly", "cloudflare"],
-    "ud$": ["cloud"],
+    "clo": ["cloud", "closes", "close", "clone", "gcloud", "cloudflare"],
+    "lou": ["cloud", "loudly", "gcloud", "cloudflare"],
+    "oud": ["cloud", "loudly", "gcloud", "cloudflare"],
+    "ud$": ["cloud", "gcloud"],
     "wil": ["will", "wildly", "twilio"],
     "ill": [
       "will",
@@ -19801,6 +19815,7 @@
       "inappropriate",
       "distribute",
       "obfuscate",
+      "compute",
       "intricate",
       "negotiate",
       "allocate",
@@ -20202,6 +20217,7 @@
       "company",
       "completes",
       "completing",
+      "compute",
       "compressed",
       "prompted",
       "component",
@@ -26905,6 +26921,7 @@
       "computing",
       "computed",
       "computationally",
+      "compute",
       "outputting"
     ],
     "cap": [
@@ -27120,7 +27137,7 @@
     "^ye": ["yes", "year"],
     "yes": ["yes"],
     "irm": ["confirmation", "confirm"],
-    "bec": ["because"],
+    "bec": ["because", "kubectl"],
     "eca": ["because", "deprecation", "deprecated"],
     "cau": ["because", "causing", "caused", "cause", "causes"],
     "aus": ["because", "causing", "caused", "cause", "causes", "exhaustion"],
@@ -27687,7 +27704,14 @@
     "oco": ["protocol", "protocols"],
     "col": ["protocol", "colleague", "protocols"],
     "ol$": ["protocol", "control", "tool"],
-    "mpu": ["computer", "jumpuser", "computing", "computed", "computationally"],
+    "mpu": [
+      "computer",
+      "jumpuser",
+      "computing",
+      "computed",
+      "computationally",
+      "compute"
+    ],
     "bot": [
       "both",
       "bottleneck",
@@ -28370,7 +28394,7 @@
     "ecr": ["decrypt", "decrypted", "decrypts", "decrypting", "decryption"],
     "^ae": ["aes", "aes256"],
     "aes": ["aes", "aes256"],
-    "^gc": ["gcm", "gcp"],
+    "^gc": ["gcm", "gcp", "gcloud"],
     "gcm": ["gcm"],
     "cm$": ["gcm"],
     "too": ["tools", "too", "tool"],
@@ -29706,6 +29730,10 @@
     "gy$": ["topology", "methodology"],
     "uab": ["valuable"],
     "^ee": ["ee"],
+    "gcl": ["gcloud"],
+    "^ku": ["kubectl"],
+    "kub": ["kubectl"],
+    "ube": ["kubectl"],
     "eln": ["telnet", "telnetd"],
     "^rl": ["rlogin"],
     "rlo": ["rlogin"],

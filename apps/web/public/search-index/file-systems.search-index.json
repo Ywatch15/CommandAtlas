@@ -8598,7 +8598,7 @@
     "constructing": [{ "slug": "cp", "boost": 1 }],
     "xargs": [
       { "slug": "cp", "boost": 1 },
-      { "slug": "find", "boost": 1 },
+      { "slug": "find", "boost": 2 },
       { "slug": "locate", "boost": 1 },
       { "slug": "lsof", "boost": 1 },
       { "slug": "mv", "boost": 1 },
@@ -8974,7 +8974,9 @@
     "well": [{ "slug": "cp", "boost": 1 }],
     "dd": [
       { "slug": "cp", "boost": 1 },
-      { "slug": "lsblk", "boost": 1 },
+      { "slug": "fdisk", "boost": 2 },
+      { "slug": "lsblk", "boost": 2 },
+      { "slug": "mkfs", "boost": 2 },
       { "slug": "tune2fs", "boost": 1 }
     ],
     "partclone": [{ "slug": "cp", "boost": 1 }],
@@ -9437,7 +9439,11 @@
       { "slug": "tune2fs", "boost": 1 },
       { "slug": "umount", "boost": 1 }
     ],
-    "syscall": [{ "slug": "cp", "boost": 1 }],
+    "syscall": [
+      { "slug": "cp", "boost": 1 },
+      { "slug": "ls", "boost": 2 },
+      { "slug": "lsof", "boost": 2 }
+    ],
     "seamlessly": [
       { "slug": "cp", "boost": 1 },
       { "slug": "fsck", "boost": 1 },
@@ -12801,6 +12807,7 @@
       { "slug": "fdisk", "boost": 5, "phrase": "manage partition table" },
       { "slug": "mkfs", "boost": 1 }
     ],
+    "iostat": [{ "slug": "fdisk", "boost": 2 }],
     "dialog": [{ "slug": "fdisk", "boost": 1 }],
     "driven": [{ "slug": "fdisk", "boost": 1 }],
     "manipulate": [
@@ -13840,6 +13847,11 @@
       { "slug": "rmdir", "boost": 5 },
       { "slug": "tree", "boost": 2 }
     ],
+    "wc": [
+      { "slug": "find", "boost": 2 },
+      { "slug": "ls", "boost": 2 }
+    ],
+    "cpio": [{ "slug": "find", "boost": 2 }],
     "compliant": [{ "slug": "find", "boost": 1 }],
     "hierarchies": [
       { "slug": "find", "boost": 1 },
@@ -16570,6 +16582,11 @@
     "ps": [{ "slug": "lsof", "boost": 2 }],
     "netstat": [{ "slug": "lsof", "boost": 2 }],
     "ss": [{ "slug": "lsof", "boost": 2 }],
+    "fuser": [
+      { "slug": "lsof", "boost": 2 },
+      { "slug": "umount", "boost": 1 }
+    ],
+    "io": [{ "slug": "lsof", "boost": 2 }],
     "treat": [{ "slug": "lsof", "boost": 1 }],
     "sockets": [{ "slug": "lsof", "boost": 1 }],
     "profound": [{ "slug": "lsof", "boost": 1 }],
@@ -16733,10 +16750,6 @@
     "netlink": [{ "slug": "lsof", "boost": 1 }],
     "orders": [{ "slug": "lsof", "boost": 1 }],
     "magnitude": [{ "slug": "lsof", "boost": 1 }],
-    "fuser": [
-      { "slug": "lsof", "boost": 1 },
-      { "slug": "umount", "boost": 1 }
-    ],
     "simpler": [
       { "slug": "lsof", "boost": 1 },
       { "slug": "parted", "boost": 1 },
@@ -22328,6 +22341,7 @@
       "bloat",
       "lstat",
       "fstatat",
+      "iostat",
       "vfat",
       "hat",
       "netstat",
@@ -23484,8 +23498,8 @@
       "unused",
       "statuses",
       "superuser",
-      "username",
       "fuser",
+      "username",
       "focused",
       "fuse",
       "confuse",
@@ -25845,8 +25859,8 @@
       "differ",
       "identifier",
       "superuser",
-      "deployer",
       "fuser",
+      "deployer",
       "simpler",
       "builder",
       "super",
@@ -29768,6 +29782,7 @@
       "lstat",
       "fstatat",
       "standalone",
+      "iostat",
       "standardized",
       "start",
       "starting",
@@ -35346,7 +35361,7 @@
       "notorious",
       "periodic"
     ],
-    "ios": ["scenarios", "bios"],
+    "ios": ["scenarios", "iostat", "bios"],
     "os$": [
       "scenarios",
       "zeros",
@@ -37126,6 +37141,7 @@
       "mutated",
       "lstat",
       "fstatat",
+      "iostat",
       "limitation",
       "representation",
       "implementations",
@@ -38845,9 +38861,9 @@
       "serializes",
       "serial",
       "superuser",
+      "fuser",
       "username",
       "service",
-      "fuser",
       "reserves",
       "reservation",
       "services",
@@ -39980,7 +39996,7 @@
     "git": ["github", "git", "gitignore"],
     "thu": ["github", "thumb"],
     "hub": ["github"],
-    "^cp": ["cp", "cpu", "cpus"],
+    "^cp": ["cp", "cpu", "cpio", "cpus"],
     "cp$": ["cp", "tcp", "itcp", "stcp", "gcp"],
     "cop": [
       "copy",
@@ -40664,6 +40680,7 @@
       "costs",
       "almost",
       "cost",
+      "iostat",
       "diagnostic",
       "lost",
       "host",
@@ -42723,6 +42740,7 @@
     "ril": ["drill", "primarily", "necessarily"],
     "ldr": ["children"],
     "iev": ["achieve", "retrieves", "achieving", "retrieve"],
+    "^io": ["iostat", "ioctl", "io"],
     "nct": [
       "distinct",
       "distinctions",
@@ -42890,7 +42908,6 @@
     "inn": ["beginning", "spinning"],
     "^64": ["64"],
     "64$": ["64"],
-    "^io": ["ioctl"],
     "ioc": ["ioctl"],
     "oct": ["ioctl", "octal"],
     "tl$": ["ioctl", "smartctl", "systemctl", "udisksctl"],
@@ -42975,6 +42992,11 @@
     "chl": ["archlinux"],
     "rmd": ["rmdir"],
     "mdi": ["rmdir"],
+    "^wc": ["wc"],
+    "wc$": ["wc"],
+    "cpi": ["cpio"],
+    "pio": ["cpio"],
+    "io$": ["cpio", "scenario", "io", "ratio"],
     "ian": ["compliant", "debian", "variant", "compliance"],
     "xpr": ["expressions", "expression", "expressive"],
     "teg": [
@@ -43256,7 +43278,6 @@
     "oro": ["thorough"],
     "psh": ["snapshots", "snapshot"],
     "hod": ["method"],
-    "io$": ["scenario", "ratio"],
     "sms": ["mechanisms"],
     "ntu": ["eventually", "ubuntu"],
     "mad": ["made"],

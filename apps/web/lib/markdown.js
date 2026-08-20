@@ -29,6 +29,8 @@ const ALLOWED_TAGS = [
   'br',
   'strong',
   'em',
+  'b',
+  'i',
   'code',
   'pre',
   'ul',
@@ -42,9 +44,29 @@ const ALLOWED_TAGS = [
   'tr',
   'th',
   'td',
+  'hr',
+  'span',
+  'div',
+  'del',
+  's',
+  'sub',
+  'sup',
 ];
 
-const ALLOWED_ATTR = ['href', 'target', 'rel', 'class'];
+const ALLOWED_ATTR = [
+  'href',
+  'target',
+  'rel',
+  'class',
+  'id',
+  'style',
+  'type',
+  'checked',
+  'disabled',
+  'src',
+  'alt',
+  'title',
+];
 
 /**
  * Parses markdown to sanitized HTML.
@@ -70,11 +92,12 @@ export function parseAndSanitizeMarkdown(markdown) {
  */
 export function parseBodySections(body) {
   if (!body) return {};
+  const normalizedBody = body.replace(/\r\n/g, '\n');
   const sections = {};
   const regex = /^##\s+(.+)$/gm;
   let match;
   const indices = [];
-  while ((match = regex.exec(body)) !== null) {
+  while ((match = regex.exec(normalizedBody)) !== null) {
     indices.push({
       title: match[1].trim(),
       index: match.index,
@@ -84,8 +107,8 @@ export function parseBodySections(body) {
 
   for (let i = 0; i < indices.length; i++) {
     const start = indices[i].index + indices[i].headerLength;
-    const end = i < indices.length - 1 ? indices[i + 1].index : body.length;
-    const content = body.substring(start, end).trim();
+    const end = i < indices.length - 1 ? indices[i + 1].index : normalizedBody.length;
+    const content = normalizedBody.substring(start, end).trim();
     sections[indices[i].title] = content;
   }
   return sections;
