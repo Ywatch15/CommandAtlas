@@ -28,7 +28,8 @@ intentPhrases:
 alternatives:
   - systemctl
 status: draft
-relatedCommands: []
+relatedCommands:
+  - get-process
 ---
 
 ## What is it?

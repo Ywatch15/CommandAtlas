@@ -3,18 +3,35 @@ slug: expr
 name: expr
 aliases: []
 category: shell-scripting
-tags: [shell, calculation, strings, math, legacy, POSIX]
+tags:
+  - shell
+  - calculation
+  - strings
+  - math
+  - legacy
+  - POSIX
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'evaluate math expression shell'
-  - 'calculate string length bash'
-  - 'extract substring unix'
-  - 'add numbers in shell script'
-  - 'posIX integer math'
-relatedCommands: [let, awk, test]
-alternatives: [let]
+  - evaluate math expression shell
+  - calculate string length bash
+  - extract substring unix
+  - add numbers in shell script
+  - posIX integer math
+relatedCommands:
+  - let
+  - awk
+  - test
+  - if
+alternatives:
+  - let
 status: draft
 ---
 

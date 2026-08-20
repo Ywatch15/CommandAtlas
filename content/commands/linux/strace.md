@@ -23,8 +23,14 @@ intentPhrases:
   - see what files a process opens
   - find missing shared library
   - profile process system call time
-relatedCommands: []
-alternatives: []
+relatedCommands:
+  - syscall-file-io
+  - syscall-memory-management
+  - syscall-process-management
+  - syscall-process-tracing
+  - time
+alternatives:
+  - time
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

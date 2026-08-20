@@ -3,18 +3,36 @@ slug: read
 name: read
 aliases: []
 category: shell-scripting
-tags: [bash, shell, input, variables, parsing, scripting]
+tags:
+  - bash
+  - shell
+  - input
+  - variables
+  - parsing
+  - scripting
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'read user input in bash'
-  - 'parse file line by line bash'
-  - 'prompt user for password safely'
-  - 'split string by delimiter bash'
-  - 'assign output to variables shell'
-relatedCommands: [echo, printf, while, awk]
-alternatives: [awk]
+  - read user input in bash
+  - parse file line by line bash
+  - prompt user for password safely
+  - split string by delimiter bash
+  - assign output to variables shell
+relatedCommands:
+  - echo
+  - printf
+  - while
+  - awk
+  - syscall-io-multiplexing
+alternatives:
+  - awk
 status: draft
 ---
 

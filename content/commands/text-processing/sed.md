@@ -29,8 +29,36 @@ relatedCommands:
   - awk
   - grep
   - tr
+  - jq
+  - yq
+  - regex-alternation
+  - regex-anchors
+  - regex-character-classes
+  - regex-groups
+  - regex-quantifiers
+  - regex-shorthand-classes
+  - regex-wildcard
+  - csplit
+  - cut
+  - expand
+  - fmt
+  - head
+  - nl
+  - tac
+  - unexpand
+  - bc
+  - ed
+  - patch
+  - vi
 alternatives:
   - awk
+  - yq
+  - expand
+  - head
+  - tac
+  - unexpand
+  - ed
+  - vi
 status: draft
 ---
 

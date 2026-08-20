@@ -23,8 +23,13 @@ intentPhrases:
   - manage multiple terminal sessions
   - share terminal session with another user
   - attach to background terminal session
-relatedCommands: []
-alternatives: [bg, fg]
+relatedCommands:
+  - nohup
+  - autossh
+alternatives:
+  - bg
+  - fg
+  - nohup
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

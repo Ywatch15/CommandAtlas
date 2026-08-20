@@ -39,7 +39,7 @@
       "slug": "copy-item",
       "name": "Copy-Item",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "copy-item",
         "name": "Copy-Item",
@@ -67,7 +67,7 @@
       "slug": "export-csv",
       "name": "Export-Csv",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "export-csv",
         "name": "Export-Csv",
@@ -102,7 +102,7 @@
       "slug": "foreach-object",
       "name": "ForEach-Object",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "foreach-object",
         "name": "ForEach-Object",
@@ -130,7 +130,7 @@
       "slug": "get-childitem",
       "name": "Get-ChildItem",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-childitem",
         "name": "Get-ChildItem",
@@ -238,7 +238,7 @@
       "slug": "get-help",
       "name": "Get-Help",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-help",
         "name": "Get-Help",
@@ -306,7 +306,7 @@
       "slug": "get-member",
       "name": "Get-Member",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-member",
         "name": "Get-Member",
@@ -375,7 +375,7 @@
       "slug": "get-service",
       "name": "Get-Service",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "get-service",
         "name": "Get-Service",
@@ -542,7 +542,7 @@
       "slug": "remove-item",
       "name": "Remove-Item",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "remove-item",
         "name": "Remove-Item",
@@ -604,7 +604,7 @@
       "slug": "set-content",
       "name": "Set-Content",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "set-content",
         "name": "Set-Content",
@@ -638,7 +638,7 @@
       "slug": "set-location",
       "name": "Set-Location",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "set-location",
         "name": "Set-Location",
@@ -672,7 +672,7 @@
       "slug": "sort-object",
       "name": "Sort-Object",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "sort-object",
         "name": "Sort-Object",
@@ -706,7 +706,7 @@
       "slug": "start-process",
       "name": "Start-Process",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "start-process",
         "name": "Start-Process",
@@ -740,7 +740,7 @@
       "slug": "test-path",
       "name": "Test-Path",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "test-path",
         "name": "Test-Path",
@@ -774,7 +774,7 @@
       "slug": "where-object",
       "name": "Where-Object",
       "category": "powershell",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "where-object",
         "name": "Where-Object",

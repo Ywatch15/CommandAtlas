@@ -1,19 +1,41 @@
 ---
 slug: nc
 name: nc
-aliases: [netcat]
+aliases:
+  - netcat
 category: networking
-tags: [linux, networking, sockets, port-scanning, proxy, security]
+tags:
+  - linux
+  - networking
+  - sockets
+  - port-scanning
+  - proxy
+  - security
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'check if port is open netcat'
-  - 'read and write over network sockets'
-  - 'transfer file via nc'
-  - 'setup simple tcp listener'
-  - 'test udp connection nc'
-relatedCommands: [nmap, mtr, ip, nslookup, ping, ss]
+  - check if port is open netcat
+  - read and write over network sockets
+  - transfer file via nc
+  - setup simple tcp listener
+  - test udp connection nc
+relatedCommands:
+  - nmap
+  - mtr
+  - ip
+  - nslookup
+  - ping
+  - ss
+  - syscall-sockets
 alternatives: []
 status: draft
 ---

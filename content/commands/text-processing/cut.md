@@ -29,6 +29,8 @@ relatedCommands:
   - sed
   - tr
   - paste
+  - join
+  - sort
 alternatives:
   - awk
 status: draft

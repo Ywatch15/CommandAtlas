@@ -3,17 +3,34 @@ slug: trap
 name: trap
 aliases: []
 category: shell-scripting
-tags: [bash, shell, signals, cleanup, control-flow, robustness]
+tags:
+  - bash
+  - shell
+  - signals
+  - cleanup
+  - control-flow
+  - robustness
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'catch exit signal bash'
-  - 'clean up temp files on script exit'
-  - 'intercept ctrl+c in shell script'
-  - 'handle bash errors automatically'
-  - 'trap sigint sigterm'
-relatedCommands: [kill, killall, wait, return]
+  - catch exit signal bash
+  - clean up temp files on script exit
+  - intercept ctrl+c in shell script
+  - handle bash errors automatically
+  - trap sigint sigterm
+relatedCommands:
+  - kill
+  - killall
+  - wait
+  - return
+  - exit
 alternatives: []
 status: draft
 ---

@@ -3,18 +3,44 @@ slug: netstat
 name: netstat
 aliases: []
 category: networking
-tags: [linux, networking, routing, sockets, diagnostics, legacy]
+tags:
+  - linux
+  - networking
+  - routing
+  - sockets
+  - diagnostics
+  - legacy
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list active network connections'
-  - 'show listening ports linux'
-  - 'find process using port netstat'
-  - 'display kernel routing table'
-  - 'check network interface statistics'
-relatedCommands: [ss, lsof, ip, ifconfig, route, iptables, mtr, nmcli, tcpdump]
-alternatives: [ss, ip, route]
+  - list active network connections
+  - show listening ports linux
+  - find process using port netstat
+  - display kernel routing table
+  - check network interface statistics
+relatedCommands:
+  - ss
+  - lsof
+  - ip
+  - ifconfig
+  - route
+  - iptables
+  - mtr
+  - nmcli
+  - tcpdump
+  - fuser
+  - syscall-sockets
+alternatives:
+  - ss
+  - ip
+  - route
 status: draft
 ---
 

@@ -30,8 +30,19 @@ relatedCommands:
   - kill
   - renice
   - uptime
+  - free
+  - iostat
+  - killall
+  - nice
+  - pgrep
+  - pkill
+  - pstree
+  - sar
+  - vmstat
+  - time
 alternatives:
   - htop
+  - free
 status: draft
 ---
 

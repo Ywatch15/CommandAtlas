@@ -23,7 +23,9 @@ intentPhrases:
   - refresh terminal command
   - highlight changes in command output
   - execute command every second
-relatedCommands: []
+relatedCommands:
+  - tail
+  - cal
 alternatives: []
 status: published
 contentVersion: 1

@@ -3,17 +3,35 @@ slug: wait
 name: wait
 aliases: []
 category: shell-scripting
-tags: [bash, shell, background-jobs, synchronization, concurrency, parallel]
+tags:
+  - bash
+  - shell
+  - background-jobs
+  - synchronization
+  - concurrency
+  - parallel
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'wait for background processes to finish bash'
-  - 'wait for specific PID to exit'
-  - 'run parallel jobs bash'
-  - 'capture exit code of background job'
-  - 'pause script execution'
-relatedCommands: [jobs, bg, fg, kill]
+  - wait for background processes to finish bash
+  - wait for specific PID to exit
+  - run parallel jobs bash
+  - capture exit code of background job
+  - pause script execution
+relatedCommands:
+  - jobs
+  - bg
+  - fg
+  - kill
+  - exit
+  - trap
 alternatives: []
 status: draft
 ---

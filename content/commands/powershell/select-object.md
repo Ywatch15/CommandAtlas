@@ -28,6 +28,10 @@ relatedCommands:
   - where-object
   - foreach-object
   - sort-object
+  - export-csv
+  - get-childitem
+  - get-member
+  - import-csv
 alternatives:
   - foreach-object
 status: draft

@@ -23,7 +23,26 @@ intentPhrases:
   - filter lines matching pattern
   - search for string in directory
   - find all occurrences of word in codebase
-relatedCommands: [jq, find, locate]
+relatedCommands:
+  - jq
+  - find
+  - locate
+  - regex-alternation
+  - regex-anchors
+  - regex-character-classes
+  - regex-lookaround
+  - regex-quantifiers
+  - regex-shorthand-classes
+  - regex-wildcard
+  - awk
+  - csplit
+  - less
+  - sed
+  - tail
+  - uniq
+  - wc
+  - ed
+  - xargs
 alternatives: []
 status: published
 contentVersion: 1

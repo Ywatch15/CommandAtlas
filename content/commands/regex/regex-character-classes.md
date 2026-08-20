@@ -34,6 +34,7 @@ relatedCommands:
   - awk
   - regex-quantifiers
   - regex-groups
+  - regex-anchors
 alternatives: []
 status: draft
 ---

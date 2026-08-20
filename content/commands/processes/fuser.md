@@ -30,6 +30,7 @@ relatedCommands:
   - ss
   - kill
   - ps
+  - pgrep
 alternatives:
   - lsof
   - ss

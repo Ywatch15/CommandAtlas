@@ -30,6 +30,7 @@ relatedCommands:
   - less
   - sed
   - awk
+  - more
 alternatives:
   - sed
   - awk

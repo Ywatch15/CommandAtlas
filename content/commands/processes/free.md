@@ -28,6 +28,7 @@ relatedCommands:
   - top
   - htop
   - vmstat
+  - syscall-memory-management
 alternatives:
   - vmstat
   - top

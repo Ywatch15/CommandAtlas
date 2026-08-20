@@ -23,8 +23,10 @@ intentPhrases:
   - set system clock
   - convert timestamp to date
   - get unix epoch time
-relatedCommands: []
-alternatives: []
+relatedCommands:
+  - cal
+alternatives:
+  - cal
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

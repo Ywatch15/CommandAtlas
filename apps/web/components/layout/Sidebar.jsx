@@ -2,19 +2,7 @@ import Link from 'next/link';
 
 export default function Sidebar({ items = [] }) {
   return (
-    <aside
-      style={{
-        width: '240px',
-        backgroundColor: 'var(--bg-surface)',
-        height: 'calc(100vh - 56px)',
-        position: 'sticky',
-        top: '56px',
-        overflowY: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '16px 0',
-      }}
-    >
+    <aside className="sidebar-aside">
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         {items.map((item) => (
           <Link
@@ -39,9 +27,26 @@ export default function Sidebar({ items = [] }) {
         ))}
       </div>
       <style jsx>{`
+        .sidebar-aside {
+          width: 240px;
+          background-color: var(--bg-surface);
+          height: calc(100vh - 56px);
+          position: sticky;
+          top: 56px;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          padding: 16px 0;
+          flex-shrink: 0;
+        }
         .sidebar-item-hover:hover {
           color: var(--text-primary) !important;
           background-color: var(--bg-base) !important;
+        }
+        @media (max-width: 768px) {
+          .sidebar-aside {
+            display: none;
+          }
         }
       `}</style>
     </aside>

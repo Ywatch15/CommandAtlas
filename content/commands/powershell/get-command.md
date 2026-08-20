@@ -26,6 +26,7 @@ intentPhrases:
   - search for commands by verb or noun
 relatedCommands:
   - get-help
+  - get-member
 alternatives:
   - get-help
 status: draft

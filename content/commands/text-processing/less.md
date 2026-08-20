@@ -29,6 +29,8 @@ relatedCommands:
   - cat
   - tail
   - grep
+  - head
+  - vi
 alternatives:
   - more
 status: draft

@@ -3,18 +3,34 @@ slug: while
 name: while
 aliases: []
 category: shell-scripting
-tags: [bash, shell, loops, control-flow, execution]
+tags:
+  - bash
+  - shell
+  - loops
+  - control-flow
+  - execution
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'loop continuously bash'
-  - 'read file line by line linux'
-  - 'bash while loop condition'
-  - 'infinite loop shell script'
-  - 'wait for command to succeed bash'
-relatedCommands: [for, read, test]
-alternatives: [for]
+  - loop continuously bash
+  - read file line by line linux
+  - bash while loop condition
+  - infinite loop shell script
+  - wait for command to succeed bash
+relatedCommands:
+  - for
+  - read
+  - test
+  - shift
+alternatives:
+  - for
 status: draft
 ---
 

@@ -130,7 +130,7 @@
       "slug": "fdisk",
       "name": "fdisk",
       "category": "file-systems",
-      "contentVersion": 3,
+      "contentVersion": 4,
       "frontmatter": {
         "slug": "fdisk",
         "name": "fdisk",

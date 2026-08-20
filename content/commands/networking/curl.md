@@ -1,20 +1,46 @@
 ---
 slug: curl
 name: curl
-aliases: [cURL]
+aliases:
+  - cURL
 category: networking
-tags: [http, api, networking, data-transfer, rest, debugging]
+tags:
+  - http
+  - api
+  - networking
+  - data-transfer
+  - rest
+  - debugging
 difficulty: intermediate
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'make an http request'
-  - 'download a file from url'
-  - 'test rest api endpoint'
-  - 'send post request with json'
-  - 'view http response headers'
-relatedCommands: [wget, ping, dig, brew, jq, kubectl-api-resources]
-alternatives: [wget, kubectl-api-resources]
+  - make an http request
+  - download a file from url
+  - test rest api endpoint
+  - send post request with json
+  - view http response headers
+relatedCommands:
+  - wget
+  - ping
+  - dig
+  - brew
+  - jq
+  - kubectl-api-resources
+alternatives:
+  - wget
+  - kubectl-api-resources
+  - invoke-restmethod
+  - invoke-webrequest
 status: draft
 ---
 

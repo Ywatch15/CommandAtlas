@@ -1,20 +1,38 @@
 ---
 slug: gzip
 name: gzip
-aliases: [gunzip, zcat]
+aliases:
+  - gunzip
+  - zcat
 category: unix
-tags: [linux, compression, archive, files]
+tags:
+  - linux
+  - compression
+  - archive
+  - files
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'compress file with gzip'
-  - 'decompress gz file linux'
-  - 'gzip directory linux'
-  - 'view gz log file without extracting'
-  - 'extract tar.gz archive'
-relatedCommands: [tar, bzip2, xz]
-alternatives: [bzip2, xz]
+  - compress file with gzip
+  - decompress gz file linux
+  - gzip directory linux
+  - view gz log file without extracting
+  - extract tar.gz archive
+relatedCommands:
+  - tar
+  - bzip2
+  - xz
+  - cpio
+alternatives:
+  - bzip2
+  - xz
 status: draft
 ---
 

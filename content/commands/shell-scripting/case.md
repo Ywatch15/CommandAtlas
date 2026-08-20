@@ -1,19 +1,35 @@
 ---
 slug: case
 name: case
-aliases: [switch]
+aliases:
+  - switch
 category: shell-scripting
-tags: [shell, built-in, bash, scripting, control-flow, logic]
+tags:
+  - shell
+  - built-in
+  - bash
+  - scripting
+  - control-flow
+  - logic
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'match string against multiple patterns'
-  - 'bash switch statement'
-  - 'shell script menu selection'
-  - 'conditional pattern matching bash'
-  - 'handle multiple conditions in shell'
-relatedCommands: [if, getopts]
+  - match string against multiple patterns
+  - bash switch statement
+  - shell script menu selection
+  - conditional pattern matching bash
+  - handle multiple conditions in shell
+relatedCommands:
+  - if
+  - getopts
+  - shift
 alternatives: []
 status: draft
 ---

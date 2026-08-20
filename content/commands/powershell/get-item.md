@@ -27,6 +27,7 @@ intentPhrases:
 relatedCommands:
   - get-childitem
   - get-content
+  - test-path
 alternatives:
   - get-childitem
 status: draft

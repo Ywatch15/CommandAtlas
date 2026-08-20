@@ -1,6 +1,6 @@
 {
   "version": 9,
-  "generatedAt": "2026-08-19T18:48:08.300Z",
+  "generatedAt": "2026-08-20T08:17:30.539Z",
   "packs": [
     {
       "packId": "bash",
@@ -13,7 +13,7 @@
       "packId": "cloud-cli",
       "version": 6,
       "size": 497229,
-      "checksum": "b52e8f249fe4776266863a4d09b942039d1bd03e81eff04a088b8aff1da8902b",
+      "checksum": "4f7b7c264c2c22e7c25a98996027a096e5e1c1a96654f51a467788f7f65bb726",
       "url": "/packs/commands/cloud-cli.json"
     },
     {
@@ -41,7 +41,7 @@
       "packId": "file-systems",
       "version": 6,
       "size": 295850,
-      "checksum": "421014e5fa7edc91560196bb15bf68d3c229a686b2ade236ad3f76e6a29782c1",
+      "checksum": "6643bb6cf2380233f6a519bf6e82648ca2774658f68b1c3440738a3f28fe12e9",
       "url": "/packs/commands/file-systems.json"
     },
     {
@@ -97,14 +97,14 @@
       "packId": "powershell",
       "version": 6,
       "size": 363726,
-      "checksum": "c973f6eb738c05f21615a1371a63283749ba8ae0cdb23a6b40994449aaa655f5",
+      "checksum": "9ad4e0e792c18a68c523a1e30cc7e92ffa832d475abff9da4e8e759ca66a8e91",
       "url": "/packs/commands/powershell.json"
     },
     {
       "packId": "processes",
       "version": 9,
       "size": 238068,
-      "checksum": "3820ac23bf3607e3e7d77aec23c4c7bfc00f7fb23cc65ec9a4a2ad3c1cb99b8e",
+      "checksum": "bb3feec08b31358a004fde4d142fb29c4b9b3e933de770c4a1f47386090c58fa",
       "url": "/packs/commands/processes.json"
     },
     {
@@ -137,16 +137,16 @@
     },
     {
       "packId": "text-processing",
-      "version": 8,
+      "version": 9,
       "size": 306572,
-      "checksum": "2ef37aee266d50b1c3a5f4ba5c4e1808ddd67408c777c04862a0eec012e6731c",
+      "checksum": "5c18781245a252375df61c8e81857184a24da5e36b473b7a5a581d90396261ad",
       "url": "/packs/commands/text-processing.json"
     },
     {
       "packId": "unix",
-      "version": 1,
+      "version": 2,
       "size": 264976,
-      "checksum": "746aaef0fe792c3eaea23499b37cd789f6e144c156527960651fb8b55f53b474",
+      "checksum": "cc4894924fc4670302ed81537b980e252c16f1aa7b98d797b9199748cccd3bdc",
       "url": "/packs/commands/unix.json"
     }
   ]

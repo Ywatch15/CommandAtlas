@@ -30,6 +30,9 @@ relatedCommands:
   - ls
   - find
   - awk
+  - sort
+  - split
+  - uniq
 alternatives:
   - awk
 status: draft

@@ -31,8 +31,18 @@ relatedCommands:
   - tail
   - head
   - tac
+  - nl
+  - paste
+  - split
+  - dd
+  - tee
+  - vi
 alternatives:
   - less
+  - get-content
+  - nl
+  - dd
+  - tee
 status: draft
 ---
 

@@ -1,20 +1,41 @@
 ---
 slug: ssh
 name: ssh
-aliases: ['secure shell']
+aliases:
+  - secure shell
 category: ssh
-tags: [networking, security, remote-access, tunneling, sysadmin]
+tags:
+  - networking
+  - security
+  - remote-access
+  - tunneling
+  - sysadmin
 difficulty: beginner
-supportedOS: [linux, macos, unix, windows]
-supportedShells: [bash, zsh, powershell, cmd, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+  - windows
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - cmd
+  - sh
 intentPhrases:
-  - 'login to remote server'
-  - 'secure shell connect'
-  - 'ssh port forwarding'
-  - 'execute remote command'
-  - 'setup reverse ssh tunnel'
-relatedCommands: []
-alternatives: []
+  - login to remote server
+  - secure shell connect
+  - ssh port forwarding
+  - execute remote command
+  - setup reverse ssh tunnel
+relatedCommands:
+  - gcloud-compute-ssh
+  - kubectl-exec
+  - autossh
+alternatives:
+  - gcloud-compute-ssh
+  - kubectl-exec
+  - autossh
 status: draft
 ---
 

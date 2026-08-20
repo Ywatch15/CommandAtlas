@@ -25,8 +25,18 @@ intentPhrases:
   - manage partition table
   - change partition type
   - list physical drives
-relatedCommands: [parted, mkfs, lsblk, mount, blkid, df, fsck]
-alternatives: [parted]
+relatedCommands:
+  - parted
+  - mkfs
+  - lsblk
+  - mount
+  - blkid
+  - df
+  - fsck
+  - iostat
+  - dd
+alternatives:
+  - parted
 status: draft
 ---
 

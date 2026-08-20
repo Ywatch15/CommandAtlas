@@ -32,8 +32,45 @@ relatedCommands:
   - grep
   - cut
   - sort
+  - jq
+  - regex-alternation
+  - regex-anchors
+  - regex-character-classes
+  - regex-groups
+  - regex-quantifiers
+  - regex-shorthand-classes
+  - regex-wildcard
+  - expr
+  - let
+  - printf
+  - read
+  - csplit
+  - head
+  - join
+  - nl
+  - paste
+  - tac
+  - tr
+  - unexpand
+  - uniq
+  - wc
+  - bc
+  - vi
+  - xargs
 alternatives:
   - cut
+  - read
+  - csplit
+  - expand
+  - head
+  - join
+  - nl
+  - paste
+  - tac
+  - unexpand
+  - uniq
+  - wc
+  - bc
 status: draft
 ---
 

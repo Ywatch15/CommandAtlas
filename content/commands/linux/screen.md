@@ -23,8 +23,13 @@ intentPhrases:
   - keep terminal alive after disconnect
   - multiplex shell
   - share terminal session
-relatedCommands: []
-alternatives: [bg, fg]
+relatedCommands:
+  - nohup
+  - autossh
+alternatives:
+  - bg
+  - fg
+  - nohup
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

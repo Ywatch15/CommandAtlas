@@ -5,7 +5,7 @@
       "slug": "awk",
       "name": "awk",
       "category": "text-processing",
-      "contentVersion": 8,
+      "contentVersion": 9,
       "frontmatter": {
         "slug": "awk",
         "name": "awk",
@@ -39,7 +39,7 @@
       "slug": "cat",
       "name": "cat",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "cat",
         "name": "cat",
@@ -67,7 +67,7 @@
       "slug": "csplit",
       "name": "csplit",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "csplit",
         "name": "csplit",
@@ -102,7 +102,7 @@
       "slug": "cut",
       "name": "cut",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "cut",
         "name": "cut",
@@ -136,7 +136,7 @@
       "slug": "expand",
       "name": "expand",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "expand",
         "name": "expand",
@@ -170,7 +170,7 @@
       "slug": "fmt",
       "name": "fmt",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "fmt",
         "name": "fmt",
@@ -204,7 +204,7 @@
       "slug": "head",
       "name": "head",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "head",
         "name": "head",
@@ -238,7 +238,7 @@
       "slug": "join",
       "name": "join",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "join",
         "name": "join",
@@ -272,7 +272,7 @@
       "slug": "less",
       "name": "less",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "less",
         "name": "less",
@@ -300,7 +300,7 @@
       "slug": "more",
       "name": "more",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "more",
         "name": "more",
@@ -328,7 +328,7 @@
       "slug": "nl",
       "name": "nl",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "nl",
         "name": "nl",
@@ -356,7 +356,7 @@
       "slug": "paste",
       "name": "paste",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "paste",
         "name": "paste",
@@ -390,7 +390,7 @@
       "slug": "sed",
       "name": "sed",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "sed",
         "name": "sed",
@@ -424,7 +424,7 @@
       "slug": "sort",
       "name": "sort",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "sort",
         "name": "sort",
@@ -458,7 +458,7 @@
       "slug": "split",
       "name": "split",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "split",
         "name": "split",
@@ -492,7 +492,7 @@
       "slug": "tac",
       "name": "tac",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "tac",
         "name": "tac",
@@ -520,7 +520,7 @@
       "slug": "tail",
       "name": "tail",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "tail",
         "name": "tail",
@@ -561,7 +561,7 @@
       "slug": "tr",
       "name": "tr",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "tr",
         "name": "tr",
@@ -595,7 +595,7 @@
       "slug": "unexpand",
       "name": "unexpand",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "unexpand",
         "name": "unexpand",
@@ -629,7 +629,7 @@
       "slug": "uniq",
       "name": "uniq",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "uniq",
         "name": "uniq",
@@ -663,7 +663,7 @@
       "slug": "wc",
       "name": "wc",
       "category": "text-processing",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "frontmatter": {
         "slug": "wc",
         "name": "wc",

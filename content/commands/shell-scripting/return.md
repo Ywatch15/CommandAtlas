@@ -3,18 +3,34 @@ slug: return
 name: return
 aliases: []
 category: shell-scripting
-tags: [bash, shell, functions, control-flow, exit-status]
+tags:
+  - bash
+  - shell
+  - functions
+  - control-flow
+  - exit-status
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'exit bash function'
-  - 'return value from shell function'
-  - 'bash function status code'
-  - 'stop executing function'
-  - 'return vs exit bash'
-relatedCommands: [exit, echo, test]
-alternatives: [exit]
+  - exit bash function
+  - return value from shell function
+  - bash function status code
+  - stop executing function
+  - return vs exit bash
+relatedCommands:
+  - exit
+  - echo
+  - test
+  - trap
+alternatives:
+  - exit
 status: draft
 ---
 

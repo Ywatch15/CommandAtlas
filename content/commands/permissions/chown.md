@@ -1,20 +1,43 @@
 ---
 slug: chown
 name: chown
-aliases: [change owner]
+aliases:
+  - change owner
 category: permissions
-tags: [linux, permissions, security, ownership, filesystem]
+tags:
+  - linux
+  - permissions
+  - security
+  - ownership
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'change file owner linux'
-  - 'update user and group of file'
-  - 'recursively change directory ownership'
-  - 'transfer file ownership'
-  - 'fix docker volume permissions'
-relatedCommands: [chgrp, chmod, ls, chattr, setfacl, umask, visudo]
-alternatives: [chgrp]
+  - change file owner linux
+  - update user and group of file
+  - recursively change directory ownership
+  - transfer file ownership
+  - fix docker volume permissions
+relatedCommands:
+  - chgrp
+  - chmod
+  - ls
+  - chattr
+  - setfacl
+  - umask
+  - visudo
+  - syscall-file-metadata
+alternatives:
+  - chgrp
 status: draft
 ---
 

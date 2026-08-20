@@ -23,7 +23,8 @@ intentPhrases:
   - repeat last command
   - clear bash history
   - find old terminal commands
-relatedCommands: []
+relatedCommands:
+  - script
 alternatives: []
 status: published
 contentVersion: 1

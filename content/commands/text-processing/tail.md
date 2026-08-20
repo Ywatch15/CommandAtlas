@@ -31,6 +31,9 @@ relatedCommands:
   - cat
   - grep
   - watch
+  - more
+  - tac
+  - tee
 alternatives:
   - journalctl
 status: draft

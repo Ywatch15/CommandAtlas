@@ -15,17 +15,21 @@ export default function AppShell({ children, sidebarItems = null }) {
       <TopNav />
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         {sidebarItems && <Sidebar items={sidebarItems} />}
-        <main
-          style={{
-            flex: 1,
-            padding: 'var(--space-page)',
-            overflowY: 'auto',
-            minWidth: 0,
-          }}
-        >
-          {children}
-        </main>
+        <main className="app-shell-main">{children}</main>
       </div>
+      <style jsx>{`
+        .app-shell-main {
+          flex: 1;
+          padding: var(--space-page);
+          overflow-y: auto;
+          min-width: 0;
+        }
+        @media (max-width: 768px) {
+          .app-shell-main {
+            padding: var(--space-page-mobile);
+          }
+        }
+      `}</style>
     </div>
   );
 }

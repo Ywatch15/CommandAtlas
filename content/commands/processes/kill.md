@@ -31,6 +31,12 @@ relatedCommands:
   - top
   - htop
   - ps
+  - fuser
+  - pidof
+  - renice
+  - exit
+  - trap
+  - wait
 alternatives:
   - killall
   - pkill

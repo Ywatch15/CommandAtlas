@@ -27,8 +27,23 @@ intentPhrases:
   - view file permissions and ownership
   - sort files by size or date
   - list files with human readable sizes
-relatedCommands: [cd, pwd, tree, find, du, mkdir, chmod, chown, getfacl, lsattr]
-alternatives: [tree, find, lsattr]
+relatedCommands:
+  - cd
+  - pwd
+  - tree
+  - find
+  - du
+  - mkdir
+  - chmod
+  - chown
+  - getfacl
+  - lsattr
+  - syscall-file-metadata
+  - wc
+alternatives:
+  - tree
+  - find
+  - lsattr
 status: draft
 ---
 

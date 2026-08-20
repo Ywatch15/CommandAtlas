@@ -29,9 +29,11 @@ intentPhrases:
 relatedCommands:
   - set-content
   - add-content
+  - get-item
 alternatives:
   - cat
   - type
+  - import-csv
 status: draft
 ---
 

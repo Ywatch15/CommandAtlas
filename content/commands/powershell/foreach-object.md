@@ -28,6 +28,7 @@ intentPhrases:
 relatedCommands:
   - where-object
   - select-object
+  - import-csv
 status: draft
 alternatives: []
 ---

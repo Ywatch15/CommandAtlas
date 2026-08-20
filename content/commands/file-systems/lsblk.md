@@ -23,8 +23,17 @@ intentPhrases:
   - find where drive is mounted
   - get disk UUID and filesystem type
   - view storage topology
-relatedCommands: [fdisk, parted, blkid, mount, mkfs, df, umount]
-alternatives: [blkid]
+relatedCommands:
+  - fdisk
+  - parted
+  - blkid
+  - mount
+  - mkfs
+  - df
+  - umount
+  - dd
+alternatives:
+  - blkid
 status: draft
 ---
 

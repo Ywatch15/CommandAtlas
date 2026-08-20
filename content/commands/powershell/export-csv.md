@@ -28,6 +28,7 @@ intentPhrases:
 relatedCommands:
   - import-csv
   - select-object
+  - set-content
 status: draft
 alternatives: []
 ---

@@ -32,8 +32,13 @@ relatedCommands:
   - remove-item
   - select-object
   - where-object
+  - get-item
+  - new-item
+  - set-location
+  - test-path
 status: draft
-alternatives: []
+alternatives:
+  - get-item
 ---
 
 ## What is it?

@@ -1,20 +1,40 @@
 ---
 slug: test
 name: test
-aliases: ['[', '[[ ]]']
+aliases:
+  - '['
+  - '[[ ]]'
 category: shell-scripting
-tags: [bash, shell, conditions, logic, file-system, evaluation]
+tags:
+  - bash
+  - shell
+  - conditions
+  - logic
+  - file-system
+  - evaluation
 difficulty: beginner
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'check if file exists bash'
-  - 'compare strings shell script'
-  - 'bash if statement conditions'
-  - 'check if variable is empty'
-  - 'evaluate math expression bash'
-relatedCommands: [if, while, expr]
-alternatives: [expr]
+  - check if file exists bash
+  - compare strings shell script
+  - bash if statement conditions
+  - check if variable is empty
+  - evaluate math expression bash
+relatedCommands:
+  - if
+  - while
+  - expr
+  - return
+  - shift
+alternatives:
+  - expr
 status: draft
 ---
 

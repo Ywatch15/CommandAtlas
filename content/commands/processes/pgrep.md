@@ -32,6 +32,8 @@ relatedCommands:
   - ps
   - top
   - fuser
+  - htop
+  - pstree
 alternatives:
   - ps
   - pidof

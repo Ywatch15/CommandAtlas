@@ -24,8 +24,24 @@ intentPhrases:
   - locate large files
   - execute command on found files
   - search files by extension
-relatedCommands: [locate, grep, du, ls, mv, rm, rmdir, tree]
-alternatives: [locate, tree, ls]
+relatedCommands:
+  - locate
+  - grep
+  - du
+  - ls
+  - mv
+  - rm
+  - rmdir
+  - tree
+  - for
+  - wc
+  - cpio
+  - xargs
+alternatives:
+  - locate
+  - tree
+  - ls
+  - xargs
 status: draft
 ---
 

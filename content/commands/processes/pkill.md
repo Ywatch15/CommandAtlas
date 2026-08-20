@@ -29,6 +29,7 @@ relatedCommands:
   - pgrep
   - killall
   - top
+  - pidof
 alternatives:
   - killall
   - kill

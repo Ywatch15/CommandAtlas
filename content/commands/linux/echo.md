@@ -23,8 +23,12 @@ intentPhrases:
   - output string in bash
   - display environment variable
   - append text to file
-relatedCommands: []
-alternatives: []
+relatedCommands:
+  - printf
+  - read
+  - return
+alternatives:
+  - printf
 status: published
 contentVersion: 1
 lastUpdated: 2026-08-08

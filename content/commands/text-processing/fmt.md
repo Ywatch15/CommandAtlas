@@ -27,6 +27,8 @@ intentPhrases:
 relatedCommands:
   - sed
   - tr
+  - expand
+  - unexpand
 alternatives: []
 status: draft
 ---

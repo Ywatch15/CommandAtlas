@@ -1,20 +1,38 @@
 ---
 slug: vi
 name: vi
-aliases: [vim, ex editor]
+aliases:
+  - vim
+  - ex editor
 category: unix
-tags: [linux, editor, text-editing, terminal]
+tags:
+  - linux
+  - editor
+  - text-editing
+  - terminal
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'edit file in terminal vi'
-  - 'exit vi editor save'
-  - 'search and replace text in vi'
-  - 'open file at line number vi'
-  - 'execute search and replace opening file'
-relatedCommands: [sed, awk, cat, less]
-alternatives: [sed]
+  - edit file in terminal vi
+  - exit vi editor save
+  - search and replace text in vi
+  - open file at line number vi
+  - execute search and replace opening file
+relatedCommands:
+  - sed
+  - awk
+  - cat
+  - less
+  - ed
+alternatives:
+  - sed
 status: draft
 ---
 

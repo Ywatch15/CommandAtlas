@@ -26,8 +26,16 @@ intentPhrases:
   - find deleted files taking up space
   - check what process has file locked
   - list network connections lsof
-relatedCommands: [ps, umount, netstat, ss]
-alternatives: [ss]
+relatedCommands:
+  - ps
+  - umount
+  - netstat
+  - ss
+  - fuser
+  - syscall-file-io
+alternatives:
+  - ss
+  - fuser
 status: draft
 ---
 

@@ -31,8 +31,12 @@ relatedCommands:
   - kill
   - free
   - pgrep
+  - nice
+  - time
 alternatives:
   - top
+  - pstree
+  - renice
 status: draft
 ---
 

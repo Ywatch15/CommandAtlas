@@ -1,15 +1,38 @@
 ---
 slug: syscall-file-io
 name: Syscall File I/O
-aliases: ['file descriptors', 'open', 'read', 'write', 'close']
+aliases:
+  - file descriptors
+  - open
+  - read
+  - write
+  - close
 category: system-calls
-tags: [linux, syscall, c, file-system, kernel, posix, io]
+tags:
+  - linux
+  - syscall
+  - c
+  - file-system
+  - kernel
+  - posix
+  - io
 difficulty: intermediate
-supportedOS: [linux, macos, unix]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+  - macos
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'read from a file descriptor in C'
-relatedCommands: ['syscall-process-management', 'syscall-memory-management', 'strace', 'lsof']
+  - read from a file descriptor in C
+relatedCommands:
+  - syscall-process-management
+  - syscall-memory-management
+  - strace
+  - lsof
+  - syscall-sockets
 alternatives: []
 status: draft
 ---

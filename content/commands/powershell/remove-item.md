@@ -31,6 +31,7 @@ intentPhrases:
 relatedCommands:
   - new-item
   - copy-item
+  - get-childitem
 status: draft
 alternatives: []
 ---

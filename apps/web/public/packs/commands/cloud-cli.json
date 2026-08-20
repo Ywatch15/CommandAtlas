@@ -873,7 +873,7 @@
       "slug": "gcloud-config-set",
       "name": "gcloud config set",
       "category": "cloud-cli",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "gcloud-config-set",
         "name": "gcloud config set",

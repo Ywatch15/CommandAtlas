@@ -1,21 +1,49 @@
 ---
 slug: chmod
 name: chmod
-aliases: [change mode]
+aliases:
+  - change mode
 category: permissions
-tags: [linux, permissions, security, mode, filesystem]
+tags:
+  - linux
+  - permissions
+  - security
+  - mode
+  - filesystem
 difficulty: beginner
-supportedOS: [linux, macos, windows, unix]
-supportedShells: [bash, zsh, powershell, sh]
+supportedOS:
+  - linux
+  - macos
+  - windows
+  - unix
+supportedShells:
+  - bash
+  - zsh
+  - powershell
+  - sh
 intentPhrases:
-  - 'change file permissions'
-  - 'make file executable linux'
-  - 'set 755 permissions'
-  - 'restrict access to file'
-  - 'add execute permission to script'
+  - change file permissions
+  - make file executable linux
+  - set 755 permissions
+  - restrict access to file
+  - add execute permission to script
 relatedCommands:
-  [chown, chgrp, ls, getfacl, setfacl, setuid, setgid, sticky-bit, chattr, umask, visudo]
-alternatives: [setfacl, chattr, umask]
+  - chown
+  - chgrp
+  - ls
+  - getfacl
+  - setfacl
+  - setuid
+  - setgid
+  - sticky-bit
+  - chattr
+  - umask
+  - visudo
+  - syscall-file-metadata
+alternatives:
+  - setfacl
+  - chattr
+  - umask
 status: draft
 ---
 

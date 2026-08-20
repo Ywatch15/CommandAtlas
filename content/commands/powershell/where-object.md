@@ -28,6 +28,7 @@ relatedCommands:
   - select-object
   - sort-object
   - foreach-object
+  - get-childitem
 alternatives: []
 status: draft
 ---

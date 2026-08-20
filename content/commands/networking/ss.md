@@ -1,20 +1,41 @@
 ---
 slug: ss
 name: ss
-aliases: [socket statistics]
+aliases:
+  - socket statistics
 category: networking
-tags: [linux, networking, sockets, diagnostic, iproute2, netlink]
+tags:
+  - linux
+  - networking
+  - sockets
+  - diagnostic
+  - iproute2
+  - netlink
 difficulty: intermediate
-supportedOS: [linux]
-supportedShells: [bash, zsh, sh]
+supportedOS:
+  - linux
+supportedShells:
+  - bash
+  - zsh
+  - sh
 intentPhrases:
-  - 'list active sockets linux'
-  - 'find process using port ss'
-  - 'show established network connections'
-  - 'check tcp queue limits'
-  - 'modern netstat replacement'
-relatedCommands: [netstat, ip, lsof, nmap, nc]
-alternatives: [netstat, lsof]
+  - list active sockets linux
+  - find process using port ss
+  - show established network connections
+  - check tcp queue limits
+  - modern netstat replacement
+relatedCommands:
+  - netstat
+  - ip
+  - lsof
+  - nmap
+  - nc
+  - fuser
+  - syscall-sockets
+alternatives:
+  - netstat
+  - lsof
+  - fuser
 status: draft
 ---
 

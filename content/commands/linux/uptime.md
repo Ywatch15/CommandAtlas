@@ -23,7 +23,9 @@ intentPhrases:
   - check server uptime
   - see who is logged in and system load
   - find when system was last rebooted
-relatedCommands: []
+relatedCommands:
+  - top
+  - cal
 alternatives: []
 status: published
 contentVersion: 1

@@ -23,8 +23,12 @@ intentPhrases:
   - where is command executable
   - what kind of command is this
   - determine command type
-relatedCommands: [which, alias]
-alternatives: [which]
+relatedCommands:
+  - which
+  - alias
+alternatives:
+  - which
+  - get-content
 status: draft
 ---
 

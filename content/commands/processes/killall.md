@@ -28,6 +28,7 @@ relatedCommands:
   - pkill
   - pgrep
   - top
+  - trap
 alternatives:
   - pkill
 status: draft

@@ -32,6 +32,7 @@ relatedCommands:
   - grep
   - sed
   - awk
+  - regex-alternation
 alternatives: []
 status: draft
 ---

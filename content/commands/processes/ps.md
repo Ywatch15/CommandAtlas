@@ -31,9 +31,18 @@ relatedCommands:
   - kill
   - pstree
   - pidof
+  - jobs
+  - lsof
+  - fuser
+  - nice
+  - renice
+  - syscall-process-management
+  - time
 alternatives:
   - top
   - htop
+  - jobs
+  - get-process
 status: draft
 ---
 

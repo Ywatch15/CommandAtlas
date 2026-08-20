@@ -29,8 +29,12 @@ relatedCommands:
   - sed
   - awk
   - cut
+  - expand
+  - fmt
+  - unexpand
 alternatives:
   - sed
+  - expand
 status: draft
 ---
 

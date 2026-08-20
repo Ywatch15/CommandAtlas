@@ -28,6 +28,7 @@ relatedCommands:
   - ps
   - kill
   - pkill
+  - pstree
 alternatives:
   - pgrep
 status: draft

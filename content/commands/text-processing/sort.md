@@ -29,6 +29,7 @@ relatedCommands:
   - awk
   - cut
   - wc
+  - join
 alternatives:
   - awk
 status: draft
