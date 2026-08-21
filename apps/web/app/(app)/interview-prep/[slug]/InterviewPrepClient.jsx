@@ -5,6 +5,26 @@ import Link from 'next/link';
 import { db } from '@/lib/db/index.js';
 import { parseBodySections, parseAndSanitizeMarkdown } from '@/lib/markdown.js';
 
+function formatInterviewQA(html) {
+  if (!html) return '';
+  let formatted = html
+    .replace(
+      /<p>\s*<strong>Q:?<\/strong>\s*/gi,
+      '<div class="iq-q-row"><span class="iq-q-badge">Q</span><div class="iq-q-content">'
+    )
+    .replace(
+      /<\/p>\s*<p>\s*<strong>A:?<\/strong>\s*/gi,
+      '</div></div><div class="iq-a-row"><span class="iq-a-badge">A</span><div class="iq-a-content">'
+    );
+
+  if (formatted.includes('class="iq-q-row"') && !formatted.includes('class="iq-a-row"')) {
+    formatted += '</div></div>';
+  } else if (formatted.includes('class="iq-a-row"')) {
+    formatted += '</div></div>';
+  }
+  return formatted;
+}
+
 export default function InterviewPrepClient({
   currentSlug,
   staticAllCommands,
@@ -255,7 +275,7 @@ export default function InterviewPrepClient({
                         <div className="accordion-body">
                           <div
                             className="markdown-body"
-                            dangerouslySetInnerHTML={{ __html: questionHtml }}
+                            dangerouslySetInnerHTML={{ __html: formatInterviewQA(questionHtml) }}
                           />
                         </div>
                       )}
@@ -420,6 +440,72 @@ export default function InterviewPrepClient({
           padding: 16px 20px 20px 20px;
           border-top: 1px solid var(--border-subtle);
           background-color: var(--bg-base);
+        }
+
+        :global(.iq-q-row) {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          margin-bottom: 14px;
+        }
+
+        :global(.iq-q-badge) {
+          font-size: 11px;
+          font-weight: 700;
+          color: var(--accent);
+          background-color: var(--bg-surface);
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
+          padding: 2px 6px;
+          line-height: 1.2;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        :global(.iq-q-content) {
+          font-size: 15px;
+          font-weight: 600;
+          color: var(--text-primary);
+          line-height: 1.5;
+          flex: 1;
+        }
+
+        :global(.iq-a-row) {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          border-left: 2px solid var(--border-subtle);
+          padding-left: 12px;
+          margin-left: 4px;
+          margin-top: 8px;
+        }
+
+        :global(.iq-a-badge) {
+          font-size: 11px;
+          font-weight: 700;
+          color: var(--text-muted);
+          background-color: var(--bg-surface);
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
+          padding: 2px 6px;
+          line-height: 1.2;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        :global(.iq-a-content) {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--text-primary);
+          line-height: 1.6;
+          flex: 1;
+        }
+
+        :global(.iq-a-content p) {
+          margin: 0 0 8px 0;
+        }
+        :global(.iq-a-content p:last-child) {
+          margin: 0;
         }
 
         @media (max-width: 640px) {
