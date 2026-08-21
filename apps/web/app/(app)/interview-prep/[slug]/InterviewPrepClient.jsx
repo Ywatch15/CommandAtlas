@@ -17,6 +17,7 @@ export default function InterviewPrepClient({
   const [allCommands, setAllCommands] = useState(staticAllCommands);
   const [allCategories, setAllCategories] = useState(staticAllCategories);
   const [openItems, setOpenItems] = useState(new Set());
+  const [sortBy, setSortBy] = useState('topic');
 
   useEffect(() => {
     async function loadLocal() {
@@ -30,7 +31,24 @@ export default function InterviewPrepClient({
       }
     }
     loadLocal();
+
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const sortParam = params.get('sort');
+      if (sortParam && ['topic', 'difficulty', 'name'].includes(sortParam)) {
+        setSortBy(sortParam);
+      }
+    }
   }, []);
+
+  const handleSortChange = (newSort) => {
+    setSortBy(newSort);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('sort', newSort);
+      window.history.replaceState(null, '', url.toString());
+    }
+  };
 
   const sidebarItems = allCategories.map((cat) => ({
     label: cat.frontmatter?.name || cat.name || cat.slug,
@@ -60,6 +78,21 @@ export default function InterviewPrepClient({
     }
   }
 
+  // Sort items within each category according to current sort selection
+  const DIFFICULTY_RANK = { beginner: 1, intermediate: 2, advanced: 3 };
+  for (const key of Object.keys(grouped)) {
+    grouped[key].sort((a, b) => {
+      if (sortBy === 'difficulty') {
+        const diffA = DIFFICULTY_RANK[a.cmd.frontmatter?.difficulty || 'intermediate'] || 2;
+        const diffB = DIFFICULTY_RANK[b.cmd.frontmatter?.difficulty || 'intermediate'] || 2;
+        if (diffA !== diffB) return diffA - diffB;
+      }
+      const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+      const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+      return nameA.localeCompare(nameB);
+    });
+  }
+
   // Automatically open first 3 questions in each group on initial render
   useEffect(() => {
     const initialOpen = new Set();
@@ -79,6 +112,18 @@ export default function InterviewPrepClient({
       }
       return next;
     });
+  };
+
+  const expandAllGlobal = () => {
+    const allSlugs = new Set();
+    Object.values(grouped).forEach((items) => {
+      items.forEach(({ cmd }) => allSlugs.add(cmd.slug));
+    });
+    setOpenItems(allSlugs);
+  };
+
+  const collapseAllGlobal = () => {
+    setOpenItems(new Set());
   };
 
   const expandAllInTopic = (items) => {
@@ -147,6 +192,35 @@ export default function InterviewPrepClient({
                 </Link>
               );
             })}
+          </div>
+        </div>
+
+        {/* Global Actions Row: Sort Control + Expand/Collapse */}
+        <div className="interview-actions-bar">
+          <div className="sort-control">
+            <label htmlFor="sort-select" className="sort-label">
+              Sort by:
+            </label>
+            <select
+              id="sort-select"
+              value={sortBy}
+              onChange={(e) => handleSortChange(e.target.value)}
+              className="sort-select"
+            >
+              <option value="topic">Topic</option>
+              <option value="difficulty">Difficulty</option>
+              <option value="name">Name (A–Z)</option>
+            </select>
+          </div>
+
+          <div className="global-expand-controls">
+            <button type="button" className="action-link-btn" onClick={expandAllGlobal}>
+              Expand All
+            </button>
+            <span style={{ color: 'var(--border-subtle)' }}>|</span>
+            <button type="button" className="action-link-btn" onClick={collapseAllGlobal}>
+              Collapse All
+            </button>
           </div>
         </div>
 
@@ -501,10 +575,69 @@ export default function InterviewPrepClient({
           margin: 0;
         }
 
+        .interview-actions-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+
+        .sort-control {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .sort-label {
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--text-muted);
+        }
+
+        .sort-select {
+          background-color: var(--bg-surface);
+          color: var(--text-primary);
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
+          padding: 5px 28px 5px 10px;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          outline: none;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 8px center;
+          transition: border-color 0.15s ease;
+        }
+
+        .sort-select:hover {
+          border-color: var(--text-muted);
+        }
+
+        .sort-select:focus-visible {
+          border-color: var(--accent);
+          outline: 2px solid var(--accent);
+          outline-offset: -1px;
+        }
+
+        .global-expand-controls {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
         @media (max-width: 640px) {
           .topic-bar {
             flex-direction: column;
             align-items: flex-start;
+          }
+
+          .interview-actions-bar {
+            flex-direction: row;
+            justify-content: space-between;
           }
 
           .accordion-header {
