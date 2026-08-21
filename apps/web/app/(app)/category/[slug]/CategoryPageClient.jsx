@@ -2,6 +2,7 @@
 import AppShell from '@/components/layout/AppShell.jsx';
 import CommandCard from '@/components/command/CommandCard.jsx';
 import { useIndexedDBCategory } from '@/lib/db/hooks.js';
+import { extractCommandSummary } from '@/lib/markdown.js';
 
 const CLOUD_PROVIDERS = [
   { id: 'aws', label: 'AWS' },
@@ -45,7 +46,7 @@ export default function CategoryPageClient({
       key={cmd.slug}
       slug={cmd.slug}
       name={cmd.frontmatter?.name || cmd.name || cmd.slug}
-      summary={cmd.frontmatter?.summary || cmd.body?.split('\n')[0] || ''}
+      summary={extractCommandSummary(cmd)}
       difficulty={cmd.frontmatter?.difficulty}
       supportedOS={cmd.frontmatter?.supportedOS}
       category={categoryName}

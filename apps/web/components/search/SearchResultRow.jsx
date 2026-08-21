@@ -1,11 +1,13 @@
 'use client';
 import Link from 'next/link';
 import BadgeGroup from '../command/BadgeGroup.jsx';
+import { extractCommandSummary } from '@/lib/markdown.js';
 
 export default function SearchResultRow({ command, onClick }) {
   if (!command) return null;
 
-  const { slug, name, summary, category, difficulty, supportedOS } = command;
+  const { slug, name, category, difficulty, supportedOS } = command;
+  const summaryText = extractCommandSummary(command);
 
   return (
     <div
@@ -40,7 +42,7 @@ export default function SearchResultRow({ command, onClick }) {
         )}
       </div>
 
-      {summary && (
+      {summaryText && (
         <p
           style={{
             fontSize: '13px',
@@ -49,7 +51,7 @@ export default function SearchResultRow({ command, onClick }) {
             margin: 0,
           }}
         >
-          {summary}
+          {summaryText}
         </p>
       )}
 

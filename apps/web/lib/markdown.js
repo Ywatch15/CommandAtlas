@@ -115,6 +115,39 @@ export function parseBodySections(body) {
 }
 
 /**
+ * Safely extracts a clean plain-text summary from a command object.
+ * Sourced from (a) frontmatter.summary, or (b) the first paragraph of 'What is it?'.
+ * Never returns section headings like '## What is it?' or raw Markdown formatting.
+ * @param {object} cmd
+ * @returns {string}
+ */
+export function extractCommandSummary(cmd) {
+  if (!cmd) return '';
+  if (cmd.frontmatter?.summary) return cmd.frontmatter.summary;
+
+  const sections = parseBodySections(cmd.body || '');
+  const whatIsIt = sections['What is it?'] || cmd.body || '';
+
+  const paragraphs = whatIsIt
+    .replace(/\r\n/g, '\n')
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter((p) => p && !p.startsWith('#') && !p.startsWith('```'));
+
+  if (paragraphs.length > 0) {
+    return paragraphs[0]
+      .replace(/#+\s*/g, '')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/\n/g, ' ')
+      .trim();
+  }
+  return '';
+}
+
+/**
  * Extracts raw code from the first fenced code block in markdown.
  * @param {string} markdown
  * @returns {string}

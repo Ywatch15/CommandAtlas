@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { getLocalNotes, saveNote } from '@/lib/db/user-data.js';
 import { db } from '@/lib/db/index.js';
 
+import EmptyState from '@/components/common/EmptyState.jsx';
+
 export default function NotesPageClient({ staticAllCategories }) {
   const [notes, setNotes] = useState([]);
   const [commands, setCommands] = useState([]);
@@ -64,19 +66,12 @@ export default function NotesPageClient({ staticAllCategories }) {
         {loading ? (
           <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Loading notes...</p>
         ) : notes.length === 0 ? (
-          <div
-            style={{
-              padding: '32px',
-              textAlign: 'center',
-              backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: '4px',
-              color: 'var(--text-muted)',
-              fontSize: '14px',
-            }}
-          >
-            No notes saved yet. Add a note on any command detail page to store annotations here.
-          </div>
+          <EmptyState
+            title="No Saved Notes"
+            message="Add notes on any command reference page to store personal annotations and cheat sheets locally."
+            actionLabel="Browse Commands"
+            href="/"
+          />
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {notes.map((note) => {

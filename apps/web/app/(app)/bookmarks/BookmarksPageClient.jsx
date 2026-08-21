@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { getLocalBookmarks, toggleBookmark } from '@/lib/db/user-data.js';
 import { db } from '@/lib/db/index.js';
 
+import EmptyState from '@/components/common/EmptyState.jsx';
+
 export default function BookmarksPageClient({ staticAllCategories }) {
   const [bookmarks, setBookmarks] = useState([]);
   const [commands, setCommands] = useState([]);
@@ -64,20 +66,12 @@ export default function BookmarksPageClient({ staticAllCategories }) {
         {loading ? (
           <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Loading bookmarks...</p>
         ) : bookmarks.length === 0 ? (
-          <div
-            style={{
-              padding: '32px',
-              textAlign: 'center',
-              backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: '4px',
-              color: 'var(--text-muted)',
-              fontSize: '14px',
-            }}
-          >
-            No bookmarked commands yet. Click &quot;Bookmark&quot; on any command page to save it
-            here.
-          </div>
+          <EmptyState
+            title="No Bookmarked Commands"
+            message="Click 'Bookmark' on any command reference page to save it here for quick offline access."
+            actionLabel="Explore Categories"
+            href="/"
+          />
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {bookmarks.map((bm) => {

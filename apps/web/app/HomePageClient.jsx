@@ -3,6 +3,7 @@ import { useState } from 'react';
 import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { downloadAndInstallPack } from '@/lib/db/packs.js';
+import BadgeGroup from '@/components/command/BadgeGroup.jsx';
 
 export default function HomePageClient({ staticAllCategories }) {
   const [status, setStatus] = useState('idle');
@@ -48,7 +49,7 @@ export default function HomePageClient({ staticAllCategories }) {
             offline.
           </p>
 
-          {/* Pack Installation Section - Integrated with Hero */}
+          {/* Pack Installation Section */}
           <div className="pack-manager-card">
             <div className="pack-manager-header">
               <h2 className="pack-manager-title">Content Pack Manager</h2>
@@ -82,7 +83,10 @@ export default function HomePageClient({ staticAllCategories }) {
           <div className="category-grid">
             {staticAllCategories.map((cat) => (
               <Link key={cat.slug} href={`/category/${cat.slug}`} className="category-card">
-                <h3 className="card-title">{cat.frontmatter?.name || cat.name || cat.slug}</h3>
+                <div className="card-top-row">
+                  <h3 className="card-title">{cat.frontmatter?.name || cat.name || cat.slug}</h3>
+                  <BadgeGroup tags={[cat.slug]} />
+                </div>
                 <p className="card-desc">{cat.frontmatter?.description || cat.description || ''}</p>
               </Link>
             ))}
@@ -92,47 +96,47 @@ export default function HomePageClient({ staticAllCategories }) {
 
       <style jsx>{`
         .home-container {
-          max-width: 1120px;
+          max-width: 1040px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 40px;
-          padding: 16px 0 32px 0;
+          gap: 36px;
+          padding: 8px 0 32px 0;
         }
 
         .home-hero {
           text-align: center;
-          max-width: 720px;
+          max-width: 680px;
           margin: 0 auto;
           width: 100%;
         }
 
         .hero-title {
-          font-size: 32px;
+          font-size: 28px;
           font-weight: 600;
           color: var(--text-primary);
-          margin-bottom: 10px;
-          letter-spacing: -0.025em;
+          margin-bottom: 8px;
+          letter-spacing: -0.02em;
         }
 
         .hero-subheading {
-          font-size: 15px;
+          font-size: 14px;
           color: var(--text-muted);
           line-height: 1.6;
-          max-width: 600px;
-          margin: 0 auto 24px auto;
+          max-width: 560px;
+          margin: 0 auto 20px auto;
         }
 
         .pack-manager-card {
           background-color: var(--bg-surface);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
-          padding: 20px 24px;
+          padding: 18px 22px;
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 12px;
           align-items: center;
-          max-width: 600px;
+          max-width: 560px;
           margin: 0 auto;
         }
 
@@ -144,7 +148,7 @@ export default function HomePageClient({ staticAllCategories }) {
         }
 
         .pack-manager-title {
-          font-size: 16px;
+          font-size: 15px;
           font-weight: 600;
           color: var(--text-primary);
         }
@@ -153,8 +157,8 @@ export default function HomePageClient({ staticAllCategories }) {
           font-size: 13px;
           color: var(--text-muted);
           text-align: center;
-          line-height: 1.5;
-          max-width: 500px;
+          line-height: 1.45;
+          max-width: 480px;
         }
 
         .install-pack-btn {
@@ -162,7 +166,7 @@ export default function HomePageClient({ staticAllCategories }) {
           color: ${status === 'installing' ? 'var(--text-muted)' : '#000'};
           border: none;
           border-radius: 4px;
-          padding: 8px 18px;
+          padding: 8px 16px;
           font-size: 13px;
           font-weight: 600;
           cursor: ${status === 'installing' ? 'not-allowed' : 'pointer'};
@@ -185,27 +189,28 @@ export default function HomePageClient({ staticAllCategories }) {
         }
 
         .section-title {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 600;
           color: var(--text-primary);
-          margin-bottom: 16px;
+          margin-bottom: 14px;
           letter-spacing: -0.01em;
         }
 
         .category-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 16px;
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 14px;
         }
 
         :global(.category-card) {
           background-color: var(--bg-surface);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
-          padding: 18px 20px;
+          padding: 16px 18px;
           text-decoration: none;
           display: flex;
           flex-direction: column;
+          gap: 10px;
           height: 100%;
           transition: border-color 0.15s ease;
         }
@@ -214,39 +219,47 @@ export default function HomePageClient({ staticAllCategories }) {
           border-color: #4a525d !important;
         }
 
+        :global(.card-top-row) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
         .card-title {
           font-size: 15px;
           font-weight: 600;
           color: var(--accent);
-          margin-bottom: 6px;
+          margin: 0;
         }
 
         .card-desc {
           font-size: 13px;
           color: var(--text-muted);
-          line-height: 1.5;
+          line-height: 1.45;
           margin: 0;
           flex: 1;
         }
 
         @media (max-width: 768px) {
           .home-container {
-            gap: 28px;
-            padding: 8px 0 24px 0;
+            gap: 24px;
+            padding: 4px 0 20px 0;
           }
           .hero-title {
-            font-size: 26px;
+            font-size: 24px;
           }
           .hero-subheading {
-            font-size: 14px;
-            margin-bottom: 20px;
+            font-size: 13px;
+            margin-bottom: 16px;
           }
           .pack-manager-card {
-            padding: 16px;
+            padding: 14px;
           }
           .category-grid {
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
           }
         }
       `}</style>

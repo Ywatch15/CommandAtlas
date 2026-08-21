@@ -1,32 +1,7 @@
 import { getAllCategories } from '@/lib/content.js';
 import LearnPathClient from './LearnPathClient.jsx';
 import { notFound } from 'next/navigation';
-
-const STATIC_PATHS = {
-  'linux-fundamentals': {
-    slug: 'linux-fundamentals',
-    title: 'Linux Fundamentals for DevOps',
-    description:
-      'Master essential Linux terminal navigation, file permissions, and process management.',
-    steps: [
-      {
-        title: 'File System Navigation',
-        description: 'Learn cd, ls, pwd, and directory hierarchy.',
-        commandSlug: 'ls',
-      },
-      {
-        title: 'Text Searching with Grep',
-        description: 'Master pattern matching across server logs.',
-        commandSlug: 'grep',
-      },
-      {
-        title: 'File Permissions & Ownership',
-        description: 'Understand chmod, chown, and octal security masks.',
-        commandSlug: 'chmod',
-      },
-    ],
-  },
-};
+import { STATIC_PATHS } from '@/lib/learningPathsData.js';
 
 export async function generateStaticParams() {
   return Object.keys(STATIC_PATHS).map((slug) => ({

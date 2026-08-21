@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { db } from '@/lib/db/index.js';
-import { parseBodySections, extractCodeBlock } from '@/lib/markdown.js';
+import { parseBodySections, extractCodeBlock, parseAndSanitizeMarkdown } from '@/lib/markdown.js';
 
 export default function ComparePageClient({ staticAllCommands, staticAllCategories }) {
   const [allCommands, setAllCommands] = useState(staticAllCommands);
@@ -141,9 +141,22 @@ function CompareTable({ cmdA, cmdB }) {
     },
     { label: 'Syntax', a: syntaxA || '—', b: syntaxB || '—', mono: true },
     {
+      label: 'What is it?',
+      a: sectionsA['What is it?'] || '—',
+      b: sectionsB['What is it?'] || '—',
+      isMarkdown: true,
+    },
+    {
+      label: 'Why does it exist?',
+      a: sectionsA['Why does it exist?'] || '—',
+      b: sectionsB['Why does it exist?'] || '—',
+      isMarkdown: true,
+    },
+    {
       label: 'When NOT to use',
       a: sectionsA['When should it NOT be used?'] || '—',
       b: sectionsB['When should it NOT be used?'] || '—',
+      isMarkdown: true,
     },
   ];
 
@@ -165,75 +178,217 @@ function CompareTable({ cmdA, cmdB }) {
   };
 
   return (
-    <div style={{ overflowX: 'auto' }}>
-      <table
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          backgroundColor: 'var(--bg-surface)',
-          borderRadius: '4px',
-          border: '1px solid var(--border-subtle)',
-        }}
-      >
-        <thead>
-          <tr>
-            <th style={{ ...labelStyle, borderBottom: '2px solid var(--border-subtle)' }}></th>
-            <th
-              style={{
-                ...cellStyle,
-                fontWeight: 500,
-                borderBottom: '2px solid var(--border-subtle)',
-              }}
-            >
-              <Link
-                href={`/command/${cmdA.slug}`}
-                style={{ color: 'var(--accent)', textDecoration: 'none' }}
-              >
-                {cmdA.frontmatter?.name || cmdA.slug}
-              </Link>
-            </th>
-            <th
-              style={{
-                ...cellStyle,
-                fontWeight: 500,
-                borderBottom: '2px solid var(--border-subtle)',
-              }}
-            >
-              <Link
-                href={`/command/${cmdB.slug}`}
-                style={{ color: 'var(--accent)', textDecoration: 'none' }}
-              >
-                {cmdB.frontmatter?.name || cmdB.slug}
-              </Link>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row.label}>
-              <td style={labelStyle}>{row.label}</td>
-              <td
+    <>
+      {/* Desktop Side-by-side Table (> 640px) */}
+      <div className="cmp-table-desktop">
+        <table
+          style={{
+            width: '100%',
+            borderCollapse: 'collapse',
+            backgroundColor: 'var(--bg-surface)',
+            borderRadius: '4px',
+            border: '1px solid var(--border-subtle)',
+          }}
+        >
+          <thead>
+            <tr>
+              <th style={{ ...labelStyle, borderBottom: '2px solid var(--border-subtle)' }}></th>
+              <th
                 style={{
                   ...cellStyle,
-                  fontFamily: row.mono ? 'var(--font-mono, monospace)' : 'inherit',
-                  fontSize: row.mono ? '13px' : '14px',
+                  fontWeight: 500,
+                  borderBottom: '2px solid var(--border-subtle)',
                 }}
               >
-                {row.a}
-              </td>
-              <td
+                <Link
+                  href={`/command/${cmdA.slug}`}
+                  style={{ color: 'var(--accent)', textDecoration: 'none' }}
+                >
+                  {cmdA.frontmatter?.name || cmdA.slug}
+                </Link>
+              </th>
+              <th
                 style={{
                   ...cellStyle,
-                  fontFamily: row.mono ? 'var(--font-mono, monospace)' : 'inherit',
-                  fontSize: row.mono ? '13px' : '14px',
+                  fontWeight: 500,
+                  borderBottom: '2px solid var(--border-subtle)',
                 }}
               >
-                {row.b}
-              </td>
+                <Link
+                  href={`/command/${cmdB.slug}`}
+                  style={{ color: 'var(--accent)', textDecoration: 'none' }}
+                >
+                  {cmdB.frontmatter?.name || cmdB.slug}
+                </Link>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.label}>
+                <td style={labelStyle}>{row.label}</td>
+                <td
+                  style={{
+                    ...cellStyle,
+                    fontFamily: row.mono ? 'var(--font-mono, monospace)' : 'inherit',
+                    fontSize: row.mono ? '13px' : '14px',
+                  }}
+                >
+                  {row.isMarkdown && row.a !== '—' ? (
+                    <div
+                      className="cmp-md"
+                      dangerouslySetInnerHTML={{
+                        __html: parseAndSanitizeMarkdown(row.a),
+                      }}
+                    />
+                  ) : (
+                    row.a
+                  )}
+                </td>
+                <td
+                  style={{
+                    ...cellStyle,
+                    fontFamily: row.mono ? 'var(--font-mono, monospace)' : 'inherit',
+                    fontSize: row.mono ? '13px' : '14px',
+                  }}
+                >
+                  {row.isMarkdown && row.b !== '—' ? (
+                    <div
+                      className="cmp-md"
+                      dangerouslySetInnerHTML={{
+                        __html: parseAndSanitizeMarkdown(row.b),
+                      }}
+                    />
+                  ) : (
+                    row.b
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile Stacked Cards (<= 640px) */}
+      <div className="cmp-cards-mobile">
+        {rows.map((row) => (
+          <div key={row.label} className="cmp-mobile-card">
+            <h3 className="cmp-mobile-label">{row.label}</h3>
+            <div className="cmp-mobile-col">
+              <span className="cmp-mobile-cmd-name">{cmdA.frontmatter?.name || cmdA.slug}</span>
+              {row.isMarkdown && row.a !== '—' ? (
+                <div
+                  className="cmp-md"
+                  dangerouslySetInnerHTML={{
+                    __html: parseAndSanitizeMarkdown(row.a),
+                  }}
+                />
+              ) : (
+                <div className={row.mono ? 'cmp-mono' : ''}>{row.a}</div>
+              )}
+            </div>
+            <div className="cmp-mobile-col">
+              <span className="cmp-mobile-cmd-name">{cmdB.frontmatter?.name || cmdB.slug}</span>
+              {row.isMarkdown && row.b !== '—' ? (
+                <div
+                  className="cmp-md"
+                  dangerouslySetInnerHTML={{
+                    __html: parseAndSanitizeMarkdown(row.b),
+                  }}
+                />
+              ) : (
+                <div className={row.mono ? 'cmp-mono' : ''}>{row.b}</div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <style jsx global>{`
+        .cmp-table-desktop {
+          display: block;
+        }
+        .cmp-cards-mobile {
+          display: none;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .cmp-mobile-card {
+          background-color: var(--bg-surface);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .cmp-mobile-label {
+          font-size: 13px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--text-muted);
+          margin: 0 0 4px 0;
+          border-bottom: 1px solid var(--border-subtle);
+          padding-bottom: 8px;
+        }
+
+        .cmp-mobile-col {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .cmp-mobile-cmd-name {
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--accent);
+          font-family: var(--font-mono, monospace);
+        }
+
+        .cmp-mono {
+          font-family: var(--font-mono, monospace);
+          font-size: 13px;
+        }
+
+        .cmp-md p {
+          margin: 0 0 8px 0;
+        }
+        .cmp-md p:last-child {
+          margin: 0;
+        }
+        .cmp-md ul,
+        .cmp-md ol {
+          margin: 4px 0 8px 16px;
+          padding: 0;
+        }
+        .cmp-md li {
+          margin-bottom: 4px;
+        }
+        .cmp-md code {
+          font-family: var(--font-mono, monospace);
+          background-color: var(--bg-base);
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-size: 13px;
+        }
+        .cmp-md strong,
+        .cmp-md b {
+          color: var(--text-primary);
+          font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+          .cmp-table-desktop {
+            display: none;
+          }
+          .cmp-cards-mobile {
+            display: flex;
+          }
+        }
+      `}</style>
+    </>
   );
 }
