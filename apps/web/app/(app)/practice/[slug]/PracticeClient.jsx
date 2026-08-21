@@ -13,6 +13,8 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
+  const [sortBy, setSortBy] = useState('topic');
+  const [selectedDifficulties, setSelectedDifficulties] = useState(new Set());
 
   useEffect(() => {
     let active = true;
@@ -35,10 +37,42 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
       }
     }
     loadLocalData();
+
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const sortParam = params.get('sort');
+      if (
+        sortParam &&
+        ['topic', 'name-asc', 'name-desc', 'diff-asc', 'diff-desc'].includes(sortParam)
+      ) {
+        setSortBy(sortParam);
+      }
+    }
     return () => {
       active = false;
     };
   }, []);
+
+  const handleSortChange = (newSort) => {
+    setSortBy(newSort);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('sort', newSort);
+      window.history.replaceState(null, '', url.toString());
+    }
+  };
+
+  const toggleDifficultyFilter = (diff) => {
+    setSelectedDifficulties((prev) => {
+      const next = new Set(prev);
+      if (next.has(diff)) {
+        next.delete(diff);
+      } else {
+        next.add(diff);
+      }
+      return next;
+    });
+  };
 
   const sidebarItems = allCategories.map((cat) => ({
     label: cat.frontmatter?.name || cat.name || cat.slug,
@@ -52,8 +86,15 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           (c) => (c.frontmatter?.category || c.category || '').split('/')[0] === currentSlug
         );
 
-  const practiceItems = [];
+  const DIFFICULTY_RANK = { beginner: 1, intermediate: 2, advanced: 3 };
+
+  const rawPracticeItems = [];
   for (const cmd of filteredCommands) {
+    const diff = (cmd.frontmatter?.difficulty || 'intermediate').toLowerCase();
+    if (selectedDifficulties.size > 0 && !selectedDifficulties.has(diff)) {
+      continue;
+    }
+
     const sections = parseBodySections(cmd.body || '');
     const pp = sections['Practice Problems'];
     if (pp && pp.trim() && !pp.includes('Not applicable')) {
@@ -76,9 +117,10 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         hint = hintParts[1] || '';
       }
 
-      practiceItems.push({
+      rawPracticeItems.push({
         cmd,
         topic,
+        diff,
         scenarioHtml: parseAndSanitizeMarkdown(scenario),
         hintHtml: hint ? parseAndSanitizeMarkdown(hint) : '',
         solutionHtml: solution ? parseAndSanitizeMarkdown(solution) : '',
@@ -86,12 +128,47 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
     }
   }
 
-  // Reset selected problem index when currentSlug changes
+  // Sort practice items
+  const practiceItems = [...rawPracticeItems].sort((a, b) => {
+    if (sortBy === 'name-asc') {
+      const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+      const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+      return nameA.localeCompare(nameB);
+    }
+    if (sortBy === 'name-desc') {
+      const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+      const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+      return nameB.localeCompare(nameA);
+    }
+    if (sortBy === 'diff-asc') {
+      const diffA = DIFFICULTY_RANK[a.diff] || 2;
+      const diffB = DIFFICULTY_RANK[b.diff] || 2;
+      if (diffA !== diffB) return diffA - diffB;
+      const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+      const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+      return nameA.localeCompare(nameB);
+    }
+    if (sortBy === 'diff-desc') {
+      const diffA = DIFFICULTY_RANK[a.diff] || 2;
+      const diffB = DIFFICULTY_RANK[b.diff] || 2;
+      if (diffA !== diffB) return diffB - diffA;
+      const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+      const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+      return nameA.localeCompare(nameB);
+    }
+    // Topic sort: sort by topic then name
+    if (a.topic !== b.topic) return a.topic.localeCompare(b.topic);
+    const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+    const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+
+  // Reset selected problem index when currentSlug, sortBy, or difficulty filters change
   useEffect(() => {
     setSelectedIndex(0);
     setShowHint(false);
     setShowSolution(false);
-  }, [currentSlug]);
+  }, [currentSlug, sortBy, selectedDifficulties.size]);
 
   const activeItem = practiceItems[selectedIndex] || null;
 
@@ -174,6 +251,48 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
                 </Link>
               );
             })}
+          </div>
+        </div>
+
+        {/* Global Filter/Sort Bar */}
+        <div className="practice-actions-bar">
+          <div className="filter-sort-controls">
+            <div className="sort-control">
+              <label htmlFor="sort-select" className="sort-label">
+                Sort by:
+              </label>
+              <select
+                id="sort-select"
+                value={sortBy}
+                onChange={(e) => handleSortChange(e.target.value)}
+                className="sort-select"
+              >
+                <option value="topic">Topic (Grouped)</option>
+                <option value="name-asc">Name (A–Z)</option>
+                <option value="name-desc">Name (Z–A)</option>
+                <option value="diff-asc">Difficulty (Beginner → Advanced)</option>
+                <option value="diff-desc">Difficulty (Advanced → Beginner)</option>
+              </select>
+            </div>
+
+            <div className="diff-filter-group">
+              <span className="sort-label">Difficulty:</span>
+              <div className="difficulty-chips">
+                {['beginner', 'intermediate', 'advanced'].map((diff) => {
+                  const isActive = selectedDifficulties.has(diff);
+                  return (
+                    <button
+                      key={diff}
+                      type="button"
+                      className={`diff-chip ${isActive ? 'active' : ''}`}
+                      onClick={() => toggleDifficultyFilter(diff)}
+                    >
+                      {diff.charAt(0).toUpperCase() + diff.slice(1)}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -716,10 +835,117 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           color: var(--text-muted);
         }
 
+        .practice-actions-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+
+        .filter-sort-controls {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .sort-control {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .sort-label {
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--text-muted);
+        }
+
+        .sort-select {
+          background-color: var(--bg-surface);
+          color: var(--text-primary);
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
+          padding: 5px 28px 5px 10px;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          outline: none;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 8px center;
+          transition: border-color 0.15s ease;
+        }
+
+        .sort-select:hover {
+          border-color: var(--text-muted);
+        }
+
+        .sort-select:focus-visible {
+          border-color: var(--accent);
+          outline: 2px solid var(--accent);
+          outline-offset: -1px;
+        }
+
+        .diff-filter-group {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .difficulty-chips {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .diff-chip {
+          background-color: var(--bg-surface);
+          color: var(--text-muted);
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
+          padding: 4px 10px;
+          font-size: 12px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+
+        .diff-chip:hover {
+          color: var(--text-primary);
+          border-color: var(--text-muted);
+        }
+
+        .diff-chip.active {
+          background-color: var(--bg-elevated);
+          color: var(--accent);
+          border-color: var(--accent);
+          font-weight: 600;
+        }
+
+        .diff-chip:focus-visible {
+          outline: 2px solid var(--accent);
+          outline-offset: -1px;
+        }
+
         @media (max-width: 768px) {
           .practice-header {
             flex-direction: column;
             align-items: flex-start;
+          }
+
+          .practice-actions-bar {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+
+          .filter-sort-controls {
+            gap: 12px;
+            width: 100%;
           }
 
           .practice-workspace {
