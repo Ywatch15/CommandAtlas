@@ -163,21 +163,21 @@ Crucially, as the filesystem driver discovers files, PowerShell wraps the raw st
 
 ## Interview Questions
 
-- _Query:_ What is the profound architectural difference in execution performance between using the `-Filter` parameter and the `-Include` parameter in `Get-ChildItem`?
-  - _A:_ The `-Filter` parameter leverages the underlying provider's native API (e.g., the Windows NTFS driver). The OS filters the files instantly at the kernel level, returning only matching items to PowerShell. The `-Include` parameter forces the OS to return _every single file_ in the directory to PowerShell. PowerShell instantiates an object for every file, loads it into RAM, and then evaluates the regex string against it locally. Thus, `-Filter` is orders of magnitude faster.
-- _Query:_ A developer attempts to run `Get-ChildItem` on the root of the `C:\` drive to find a specific configuration file, but the command outputs nothing and stops immediately. However, they know the file exists. What parameter is required to expose the missing file?
-  - _A:_ The file or its parent directories are likely restricted by filesystem visibility bits (such as the `Hidden` or `System` attributes). `Get-ChildItem` safely respects these constraints by default to prevent clutter. The developer must append the `-Force` flag to instruct the cmdlet to bypass standard visibility masking and reveal all underlying inodes.
-- _Query:_ How does `Get-ChildItem` technically manage to execute successfully when the `-Path` points to `HKLM:\Software` rather than a standard filesystem path like `C:\`?
-  - _A:_ `Get-ChildItem` is not a traditional filesystem executable like Linux `ls`; it is a provider-agnostic router. PowerShell utilizes a "Provider" model that abstracts various data stores (Registry, Certificates, Environment Variables) into virtual, navigable drives. When the path `HKLM:\` is requested, the cmdlet routes the retrieval request explicitly to the PowerShell Registry Provider, which maps registry keys into custom .NET objects masquerading as standard directory structures.
+**Q:** What is the profound architectural difference in execution performance between using the `-Filter` parameter and the `-Include` parameter in `Get-ChildItem`?
+**A:** The `-Filter` parameter leverages the underlying provider's native API (e.g., the Windows NTFS driver). The OS filters the files instantly at the kernel level, returning only matching items to PowerShell. The `-Include` parameter forces the OS to return _every single file_ in the directory to PowerShell. PowerShell instantiates an object for every file, loads it into RAM, and then evaluates the regex string against it locally. Thus, `-Filter` is orders of magnitude faster.
+**Q:** A developer attempts to run `Get-ChildItem` on the root of the `C:\` drive to find a specific configuration file, but the command outputs nothing and stops immediately. However, they know the file exists. What parameter is required to expose the missing file?
+**A:** The file or its parent directories are likely restricted by filesystem visibility bits (such as the `Hidden` or `System` attributes). `Get-ChildItem` safely respects these constraints by default to prevent clutter. The developer must append the `-Force` flag to instruct the cmdlet to bypass standard visibility masking and reveal all underlying inodes.
+**Q:** How does `Get-ChildItem` technically manage to execute successfully when the `-Path` points to `HKLM:\Software` rather than a standard filesystem path like `C:\`?
+**A:** `Get-ChildItem` is not a traditional filesystem executable like Linux `ls`; it is a provider-agnostic router. PowerShell utilizes a "Provider" model that abstracts various data stores (Registry, Certificates, Environment Variables) into virtual, navigable drives. When the path `HKLM:\` is requested, the cmdlet routes the retrieval request explicitly to the PowerShell Registry Provider, which maps registry keys into custom .NET objects masquerading as standard directory structures.
 
 ## Practice Problems
 
-- _Problem:_ Retrieve a list of exclusively file objects (no directories) in the current folder that possess the `.log` extension, executing the search as fast as mathematically possible at the OS level.
-  - _Hint:_ Combine the dynamic file-only switch with the native OS parameter optimized for speed over the internal PowerShell array matchers.
-  - _Solution:_ `Get-ChildItem -File -Filter *.log` (This offloads the pattern matching to the filesystem and strictly restricts object instantiation to raw files).
-- _Problem:_ Perform a recursive search spanning the entire `C:\App\` directory tree to locate and output any files specifically possessing the `Hidden` attribute.
-  - _Hint:_ Combine the recursive flag, the visibility override flag, and the specialized metadata filter flag.
-  - _Solution:_ `Get-ChildItem -Path C:\App\ -Recurse -Force -Hidden` (The `-Force` allows access to the protected files, and `-Hidden` isolates the output strictly to those masked items).
+**Problem:** Retrieve a list of exclusively file objects (no directories) in the current folder that possess the `.log` extension, executing the search as fast as mathematically possible at the OS level.
+**Hint:** Combine the dynamic file-only switch with the native OS parameter optimized for speed over the internal PowerShell array matchers.
+**Solution:** `Get-ChildItem -File -Filter *.log` (This offloads the pattern matching to the filesystem and strictly restricts object instantiation to raw files).
+**Problem:** Perform a recursive search spanning the entire `C:\App\` directory tree to locate and output any files specifically possessing the `Hidden` attribute.
+**Hint:** Combine the recursive flag, the visibility override flag, and the specialized metadata filter flag.
+**Solution:** `Get-ChildItem -Path C:\App\ -Recurse -Force -Hidden` (The `-Force` allows access to the protected files, and `-Hidden` isolates the output strictly to those masked items).
 
 ## References
 

@@ -158,21 +158,21 @@ It intentionally hides intermediate image layers (unless `-a` is provided) to ke
 
 ## Interview Questions
 
-- _Query:_ What exactly is a "dangling" image in Docker, and why does it appear as `<none>:<none>` in the `docker images` output?
-  - _A:_ A dangling image is an image that is no longer referenced by any repository name or tag, nor is it serving as a parent layer for any tagged image. This typically occurs when you rebuild an image with the same tag (e.g., `my-app:latest`); the new build claims the `latest` tag, and the old image becomes untagged, dangling in the cache.
-- _Query:_ If `docker images` lists five different application images that each report a size of 1GB, does that guarantee Docker is consuming 5GB of physical disk space?
-  - _A:_ No. Docker uses a Union Filesystem. If those five applications share the exact same 900MB base image layer (e.g., `ubuntu`), that 900MB layer is only stored on disk once. The total physical disk consumption will be far less than the aggregate mathematical sum of the individual image sizes.
-- _Query:_ What is the security advantage of inspecting images using the `--digests` flag?
-  - _A:_ Image tags (like `latest` or `v1.0`) are mutable aliases that can be pointed to different image contents at any time. The `--digests` flag displays the immutable SHA-256 hash of the image manifest. Referencing this digest guarantees you are operating on a cryptographically verifiable, exact version of the image.
+**Q:** What exactly is a "dangling" image in Docker, and why does it appear as `<none>:<none>` in the `docker images` output?
+**A:** A dangling image is an image that is no longer referenced by any repository name or tag, nor is it serving as a parent layer for any tagged image. This typically occurs when you rebuild an image with the same tag (e.g., `my-app:latest`); the new build claims the `latest` tag, and the old image becomes untagged, dangling in the cache.
+**Q:** If `docker images` lists five different application images that each report a size of 1GB, does that guarantee Docker is consuming 5GB of physical disk space?
+**A:** No. Docker uses a Union Filesystem. If those five applications share the exact same 900MB base image layer (e.g., `ubuntu`), that 900MB layer is only stored on disk once. The total physical disk consumption will be far less than the aggregate mathematical sum of the individual image sizes.
+**Q:** What is the security advantage of inspecting images using the `--digests` flag?
+**A:** Image tags (like `latest` or `v1.0`) are mutable aliases that can be pointed to different image contents at any time. The `--digests` flag displays the immutable SHA-256 hash of the image manifest. Referencing this digest guarantees you are operating on a cryptographically verifiable, exact version of the image.
 
 ## Practice Problems
 
-- _Problem:_ List all available tags for the `nginx` repository stored locally on your host machine.
-  - _Hint:_ Pass the specific repository name as a positional argument.
-  - _Solution:_ `docker images nginx` (This scopes the list query strictly to images matching the nginx repository).
-- _Problem:_ Output only the raw Image IDs of every dangling (untagged) image on the system, which could be piped into a deletion command.
-  - _Hint:_ Combine the quiet flag with a filter explicitly targeting dangling status.
-  - _Solution:_ `docker images -q -f "dangling=true"` (The `-f` flag filters the daemon response, and `-q` strips away the table formatting to return raw IDs).
+**Problem:** List all available tags for the `nginx` repository stored locally on your host machine.
+**Hint:** Pass the specific repository name as a positional argument.
+**Solution:** `docker images nginx` (This scopes the list query strictly to images matching the nginx repository).
+**Problem:** Output only the raw Image IDs of every dangling (untagged) image on the system, which could be piped into a deletion command.
+**Hint:** Combine the quiet flag with a filter explicitly targeting dangling status.
+**Solution:** `docker images -q -f "dangling=true"` (The `-f` flag filters the daemon response, and `-q` strips away the table formatting to return raw IDs).
 
 ## References
 

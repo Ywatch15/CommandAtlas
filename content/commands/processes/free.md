@@ -158,21 +158,21 @@ The `available` column estimates how much memory can be given to a new applicati
 
 ## Interview Questions
 
-- _Query:_ A developer complains that their Linux server is critically low on memory because the `free` column in the `free -h` output only shows 200MB remaining out of 32GB. How do you explain the architecture to them, and what column should they be looking at?
-  - _A:_ Linux follows the philosophy that "unused RAM is wasted RAM." It intentionally consumes all free memory to cache filesystem reads and writes (the `buff/cache` column) to maximize disk performance. If an application suddenly needs RAM, the kernel instantly discards the cache and hands the memory to the application. The developer must look at the `available` column, which represents the true amount of memory ready to be deployed without swapping.
-- _Query:_ What is the functional difference between the `buffers` and `cache` memory classifications when utilizing the `free -hw` (wide) command?
-  - _A:_ `buffers` represent memory allocated to cache kernel-level block device metadata, such as inode tables and raw disk block locations. `cache` (the Page Cache) represents memory containing the actual payload data of files recently read from or written to the storage drive.
-- _Query:_ Why does utilizing Swap space heavily degrade application performance, and how does `free` indicate that a system is actively relying on it?
-  - _A:_ Swap space uses physical storage drives (SSDs/HDDs) as virtual memory when physical RAM is exhausted. Because disk I/O is orders of magnitude slower than RAM, the CPU wastes massive cycles waiting for data to be paged in and out. In `free`, if the `Swap used` column is greater than 0 and growing, it indicates the kernel is out of physical RAM and is actively writing memory pages to the slow disk.
+**Q:** A developer complains that their Linux server is critically low on memory because the `free` column in the `free -h` output only shows 200MB remaining out of 32GB. How do you explain the architecture to them, and what column should they be looking at?
+**A:** Linux follows the philosophy that "unused RAM is wasted RAM." It intentionally consumes all free memory to cache filesystem reads and writes (the `buff/cache` column) to maximize disk performance. If an application suddenly needs RAM, the kernel instantly discards the cache and hands the memory to the application. The developer must look at the `available` column, which represents the true amount of memory ready to be deployed without swapping.
+**Q:** What is the functional difference between the `buffers` and `cache` memory classifications when utilizing the `free -hw` (wide) command?
+**A:** `buffers` represent memory allocated to cache kernel-level block device metadata, such as inode tables and raw disk block locations. `cache` (the Page Cache) represents memory containing the actual payload data of files recently read from or written to the storage drive.
+**Q:** Why does utilizing Swap space heavily degrade application performance, and how does `free` indicate that a system is actively relying on it?
+**A:** Swap space uses physical storage drives (SSDs/HDDs) as virtual memory when physical RAM is exhausted. Because disk I/O is orders of magnitude slower than RAM, the CPU wastes massive cycles waiting for data to be paged in and out. In `free`, if the `Swap used` column is greater than 0 and growing, it indicates the kernel is out of physical RAM and is actively writing memory pages to the slow disk.
 
 ## Practice Problems
 
-- _Problem:_ Generate a single memory report where all output is formatted rigidly in Megabytes to prevent unit-shifting, and ensure a final row calculates the absolute total of RAM and Swap combined.
-  - _Hint:_ Combine the megabyte formatting flag with the total summation flag.
-  - _Solution:_ `free -m -t` (This produces a clean, integer-only table with a unified bottom-line footprint).
-- _Problem:_ Create a continuous monitoring feed that outputs human-readable memory statistics, refreshing automatically every 3 seconds, but halting execution completely after exactly 5 iterations.
-  - _Hint:_ Combine the human-readable flag, the seconds interval flag, and the loop count limit flag.
-  - _Solution:_ `free -h -s 3 -c 5` (This runs a controlled, self-terminating performance trace).
+**Problem:** Generate a single memory report where all output is formatted rigidly in Megabytes to prevent unit-shifting, and ensure a final row calculates the absolute total of RAM and Swap combined.
+**Hint:** Combine the megabyte formatting flag with the total summation flag.
+**Solution:** `free -m -t` (This produces a clean, integer-only table with a unified bottom-line footprint).
+**Problem:** Create a continuous monitoring feed that outputs human-readable memory statistics, refreshing automatically every 3 seconds, but halting execution completely after exactly 5 iterations.
+**Hint:** Combine the human-readable flag, the seconds interval flag, and the loop count limit flag.
+**Solution:** `free -h -s 3 -c 5` (This runs a controlled, self-terminating performance trace).
 
 ## References
 

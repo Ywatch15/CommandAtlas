@@ -160,21 +160,21 @@ If `-Force` is applied, the provider executes secondary logic before deletion. F
 
 ## Interview Questions
 
-- _Query:_ An automation script executes `Remove-Item -Path C:\Project\ -Recurse` in a CI/CD pipeline, but the pipeline hangs indefinitely waiting for input. What caused the hang, and how do you resolve it?
-  - _A:_ The target directory contains files marked with the `Hidden` or `Read-Only` file attributes. When `Remove-Item` encounters these protected files, it halts the automated deletion and generates an interactive prompt in the terminal requiring a human to type "Yes" to confirm the overwrite. Because CI/CD is headless, the prompt hangs forever. To fix it, append the `-Force` flag to bypass the attribute protections silently.
-- _Query:_ Explain the functional difference between executing `Remove-Item -Path C:\Logs\*.log` and `Remove-Item -Path C:\Logs -Filter *.log`.
-  - _A:_ The wildcard `-Path` matches the string entirely within the PowerShell memory space. It is slow and broad. The `-Filter` parameter pushes the evaluation string down to the underlying OS API (the NTFS filesystem driver). The filesystem driver performs the filtering natively and returns only the matching items to PowerShell, resulting in drastically faster execution speeds on massive directories.
-- _Query:_ Why does running `Remove-Item -Path C:\data.txt -Force` fail with an `UnauthorizedAccessException` when the executing administrator clearly has the Force flag enabled?
-  - _A:_ The `-Force` flag is a convenience utility; it only overrides basic file attributes (like Read-Only or System metadata). It has absolutely no power over the operating system's core security model. If the NTFS Access Control List (ACL) explicitly denies the administrator `Modify/Write` permissions, or if another active process is holding an exclusive file lock on `data.txt`, the OS kernel rejects the deletion attempt.
+**Q:** An automation script executes `Remove-Item -Path C:\Project\ -Recurse` in a CI/CD pipeline, but the pipeline hangs indefinitely waiting for input. What caused the hang, and how do you resolve it?
+**A:** The target directory contains files marked with the `Hidden` or `Read-Only` file attributes. When `Remove-Item` encounters these protected files, it halts the automated deletion and generates an interactive prompt in the terminal requiring a human to type "Yes" to confirm the overwrite. Because CI/CD is headless, the prompt hangs forever. To fix it, append the `-Force` flag to bypass the attribute protections silently.
+**Q:** Explain the functional difference between executing `Remove-Item -Path C:\Logs\*.log` and `Remove-Item -Path C:\Logs -Filter *.log`.
+**A:** The wildcard `-Path` matches the string entirely within the PowerShell memory space. It is slow and broad. The `-Filter` parameter pushes the evaluation string down to the underlying OS API (the NTFS filesystem driver). The filesystem driver performs the filtering natively and returns only the matching items to PowerShell, resulting in drastically faster execution speeds on massive directories.
+**Q:** Why does running `Remove-Item -Path C:\data.txt -Force` fail with an `UnauthorizedAccessException` when the executing administrator clearly has the Force flag enabled?
+**A:** The `-Force` flag is a convenience utility; it only overrides basic file attributes (like Read-Only or System metadata). It has absolutely no power over the operating system's core security model. If the NTFS Access Control List (ACL) explicitly denies the administrator `Modify/Write` permissions, or if another active process is holding an exclusive file lock on `data.txt`, the OS kernel rejects the deletion attempt.
 
 ## Practice Problems
 
-- _Problem:_ Delete the directory `C:\App\Temp` and absolutely all of its nested contents. Ensure the command suppresses any non-terminating errors (like "path not found") and forcefully bypasses read-only file protections.
-  - _Hint:_ Combine the recursive flag, force override, and error action specification.
-  - _Solution:_ `Remove-Item -Path C:\App\Temp -Recurse -Force -ErrorAction SilentlyContinue` (This executes a violent, idempotent wipe suitable for unmonitored scripts).
-- _Problem:_ Perform a simulated dry-run to identify every `.tmp` file located anywhere within the `C:\Workspace` directory tree that _would_ be deleted, without actually deleting anything.
-  - _Hint:_ Traverse the tree, filter for the specific extension, pipe to the deletion command, and utilize the simulation flag.
-  - _Solution:_ `Get-ChildItem -Path C:\Workspace -Filter *.tmp -Recurse | Remove-Item -WhatIf` (The pipeline feeds the objects securely into the destruction engine, which intercepts and prints the targets).
+**Problem:** Delete the directory `C:\App\Temp` and absolutely all of its nested contents. Ensure the command suppresses any non-terminating errors (like "path not found") and forcefully bypasses read-only file protections.
+**Hint:** Combine the recursive flag, force override, and error action specification.
+**Solution:** `Remove-Item -Path C:\App\Temp -Recurse -Force -ErrorAction SilentlyContinue` (This executes a violent, idempotent wipe suitable for unmonitored scripts).
+**Problem:** Perform a simulated dry-run to identify every `.tmp` file located anywhere within the `C:\Workspace` directory tree that _would_ be deleted, without actually deleting anything.
+**Hint:** Traverse the tree, filter for the specific extension, pipe to the deletion command, and utilize the simulation flag.
+**Solution:** `Get-ChildItem -Path C:\Workspace -Filter *.tmp -Recurse | Remove-Item -WhatIf` (The pipeline feeds the objects securely into the destruction engine, which intercepts and prints the targets).
 
 ## References
 

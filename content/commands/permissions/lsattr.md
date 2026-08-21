@@ -148,21 +148,21 @@ The underlying filesystem driver (such as the ext4 kernel module) intercepts thi
 
 ## Interview Questions
 
-- _Query:_ An operations engineer attempts to execute `rm -rf /etc/custom_config.conf` as the `root` user, but the kernel rejects the operation with "Operation not permitted". What command should they immediately execute, and what exact character are they looking for in the output?
-  - _A:_ They should immediately execute `lsattr /etc/custom_config.conf`. They are looking for the letter `i` in the resulting attribute bitmask string (e.g., `----i---------e----`). This indicates the file has the hardware-level `immutable` attribute applied, which supersedes root user permissions and mathematically blocks the `unlink()` deletion system call.
-- _Query:_ What is the functional and architectural difference between the information exposed by `ls -l` versus `lsattr`?
-  - _A:_ `ls -l` interacts with the standard POSIX matrix; it reveals the Read, Write, and Execute authorization bits tied to Users, Groups, and Others. `lsattr` utilizes the `ioctl` system call to expose extended, hardware-level filesystem attributes embedded inside the inode—such as immutability (`i`) and append-only (`a`) modes—which dictate raw file mutability regardless of human user identity.
-- _Query:_ Why does almost every file on a modern Ubuntu or Red Hat system default to displaying the `e` character when `lsattr` is executed?
-  - _A:_ The `e` character indicates that the file utilizes "extents". Extents are a high-performance block mapping architecture introduced in the ext4 filesystem, replacing legacy ext3 indirect block mapping. It simply describes how the physical data payload is geometrically mapped across the disk platter, it does not indicate any special security or access control modifications.
+**Q:** An operations engineer attempts to execute `rm -rf /etc/custom_config.conf` as the `root` user, but the kernel rejects the operation with "Operation not permitted". What command should they immediately execute, and what exact character are they looking for in the output?
+**A:** They should immediately execute `lsattr /etc/custom_config.conf`. They are looking for the letter `i` in the resulting attribute bitmask string (e.g., `----i---------e----`). This indicates the file has the hardware-level `immutable` attribute applied, which supersedes root user permissions and mathematically blocks the `unlink()` deletion system call.
+**Q:** What is the functional and architectural difference between the information exposed by `ls -l` versus `lsattr`?
+**A:** `ls -l` interacts with the standard POSIX matrix; it reveals the Read, Write, and Execute authorization bits tied to Users, Groups, and Others. `lsattr` utilizes the `ioctl` system call to expose extended, hardware-level filesystem attributes embedded inside the inode—such as immutability (`i`) and append-only (`a`) modes—which dictate raw file mutability regardless of human user identity.
+**Q:** Why does almost every file on a modern Ubuntu or Red Hat system default to displaying the `e` character when `lsattr` is executed?
+**A:** The `e` character indicates that the file utilizes "extents". Extents are a high-performance block mapping architecture introduced in the ext4 filesystem, replacing legacy ext3 indirect block mapping. It simply describes how the physical data payload is geometrically mapped across the disk platter, it does not indicate any special security or access control modifications.
 
 ## Practice Problems
 
-- _Problem:_ Generate a deeply detailed, recursive attribute map of the `/etc/` directory, translating all the cryptic attribute letters into human-readable words for a compliance report.
-  - _Hint:_ Combine the recursive flag with the long-format translation flag.
-  - _Solution:_ `lsattr -R -l /etc/` (This descends the entire configuration tree, outputting clear, actionable text like `Immutable` or `Append_Only`).
-- _Problem:_ Verify if the directory `/mnt/secure_archive/` is protected by immutability, ensuring the command outputs the attributes of the directory itself and does not dive into the massive repository of files inside it.
-  - _Hint:_ Use the directory isolation flag to prevent internal traversal.
-  - _Solution:_ `lsattr -d /mnt/secure_archive/` (The `-d` flag restricts the `ioctl` query exclusively to the parent directory's inode).
+**Problem:** Generate a deeply detailed, recursive attribute map of the `/etc/` directory, translating all the cryptic attribute letters into human-readable words for a compliance report.
+**Hint:** Combine the recursive flag with the long-format translation flag.
+**Solution:** `lsattr -R -l /etc/` (This descends the entire configuration tree, outputting clear, actionable text like `Immutable` or `Append_Only`).
+**Problem:** Verify if the directory `/mnt/secure_archive/` is protected by immutability, ensuring the command outputs the attributes of the directory itself and does not dive into the massive repository of files inside it.
+**Hint:** Use the directory isolation flag to prevent internal traversal.
+**Solution:** `lsattr -d /mnt/secure_archive/` (The `-d` flag restricts the `ioctl` query exclusively to the parent directory's inode).
 
 ## References
 

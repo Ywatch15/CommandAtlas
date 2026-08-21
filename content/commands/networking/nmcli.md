@@ -150,21 +150,21 @@ NetworkManager heavily abstracts the concept of networking into two distinct obj
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental architectural difference between a "Device" and a "Connection" within NetworkManager's object model?
-  - _A:_ A "Device" represents the actual physical or virtual hardware interface provided by the kernel (e.g., `eth0`, `wlan0`). A "Connection" is the logical configuration profile (containing IP addresses, DNS settings, and security credentials). A Device can only have one active Connection at a time, but multiple Connections can be defined and swapped onto a Device depending on the environment (e.g., different Wi-Fi profiles).
-- _Query:_ If a systems administrator manually executes `ip route add default via 192.168.1.1` on a server managed by NetworkManager, why might the route spontaneously disappear an hour later?
-  - _A:_ The `ip` command alters the kernel's routing table dynamically but does not update NetworkManager's configuration profiles. When NetworkManager performs periodic maintenance—such as renewing a DHCP lease, handling a carrier flap, or syncing state—it forcefully reconciles the kernel routing table to match its internal persistent profiles, wiping out the manual, unmanaged route.
-- _Query:_ How does `nmcli` communicate with the underlying NetworkManager daemon to apply configurations?
-  - _A:_ `nmcli` is a client application that does not directly modify network configurations or files. Instead, it serializes user arguments into D-Bus (Desktop Bus) IPC messages and transmits them over the local system bus to the `NetworkManager` daemon, which then executes the kernel and filesystem modifications.
+**Q:** What is the fundamental architectural difference between a "Device" and a "Connection" within NetworkManager's object model?
+**A:** A "Device" represents the actual physical or virtual hardware interface provided by the kernel (e.g., `eth0`, `wlan0`). A "Connection" is the logical configuration profile (containing IP addresses, DNS settings, and security credentials). A Device can only have one active Connection at a time, but multiple Connections can be defined and swapped onto a Device depending on the environment (e.g., different Wi-Fi profiles).
+**Q:** If a systems administrator manually executes `ip route add default via 192.168.1.1` on a server managed by NetworkManager, why might the route spontaneously disappear an hour later?
+**A:** The `ip` command alters the kernel's routing table dynamically but does not update NetworkManager's configuration profiles. When NetworkManager performs periodic maintenance—such as renewing a DHCP lease, handling a carrier flap, or syncing state—it forcefully reconciles the kernel routing table to match its internal persistent profiles, wiping out the manual, unmanaged route.
+**Q:** How does `nmcli` communicate with the underlying NetworkManager daemon to apply configurations?
+**A:** `nmcli` is a client application that does not directly modify network configurations or files. Instead, it serializes user arguments into D-Bus (Desktop Bus) IPC messages and transmits them over the local system bus to the `NetworkManager` daemon, which then executes the kernel and filesystem modifications.
 
 ## Practice Problems
 
-- _Problem:_ Output a perfectly clean, colon-separated list displaying only the UUID, Name, and Device mapping of all configured NetworkManager connections, suitable for piping into `awk`.
-  - _Hint:_ Combine the terse formatting flag, explicit field selection, and the connection show object.
-  - _Solution:_ `nmcli -t -f UUID,NAME,DEVICE c show` (This generates machine-readable output stripping headers and visual spacing).
-- _Problem:_ Modify an existing connection profile named `prod-eth0`, configuring it to assign the static IP address `10.50.0.100/24` and setting the gateway to `10.50.0.1`.
-  - _Hint:_ Use the connection modify subcommand along with IPv4 parameters.
-  - _Solution:_ `nmcli c modify prod-eth0 ipv4.addresses 10.50.0.100/24 ipv4.gateway 10.50.0.1 ipv4.method manual` (This permanently updates the profile to use static, manual configurations).
+**Problem:** Output a perfectly clean, colon-separated list displaying only the UUID, Name, and Device mapping of all configured NetworkManager connections, suitable for piping into `awk`.
+**Hint:** Combine the terse formatting flag, explicit field selection, and the connection show object.
+**Solution:** `nmcli -t -f UUID,NAME,DEVICE c show` (This generates machine-readable output stripping headers and visual spacing).
+**Problem:** Modify an existing connection profile named `prod-eth0`, configuring it to assign the static IP address `10.50.0.100/24` and setting the gateway to `10.50.0.1`.
+**Hint:** Use the connection modify subcommand along with IPv4 parameters.
+**Solution:** `nmcli c modify prod-eth0 ipv4.addresses 10.50.0.100/24 ipv4.gateway 10.50.0.1 ipv4.method manual` (This permanently updates the profile to use static, manual configurations).
 
 ## References
 

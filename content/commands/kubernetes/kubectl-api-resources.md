@@ -161,21 +161,21 @@ The API server aggregates data from the core control plane and any registered Ex
 
 ## Interview Questions
 
-- **Q:** What is the technical difference between a cluster-scoped resource and a namespace-scoped resource, and how do you find out which is which?
-  - **A:** A namespace-scoped resource (like Pods or Secrets) is logically partitioned inside a specific Namespace boundary; it requires a namespace context to be accessed. A cluster-scoped resource (like Nodes or PersistentVolumes) exists globally and cannot belong to a Namespace. You use `kubectl api-resources` and inspect the `NAMESPACED` column (true/false) to verify the scoping topology.
-- **Q:** How does `kubectl` know how to translate a shortname like `po` into a `Pod` query against the API server?
-  - **A:** When `kubectl` initializes, it downloads the API discovery document (`APIResourceList`) from the `/apis` endpoint. This document contains a mapping array for each resource that explicitly lists its accepted `SHORTNAMES`. `kubectl` caches this list and translates `po` to `pods` locally before executing the HTTP request.
-- **Q:** If a cluster has a broken extension API server (e.g., a crashed metrics-server), what happens when you execute `kubectl api-resources`?
-  - **A:** The core API server attempts to aggregate discovery data from all registered APIService endpoints. If an extension server is unreachable, the core API times out for that specific path. `kubectl` will output the resources it successfully discovered, but append a warning to standard error indicating that discovery failed for the specific broken API group.
+**Q:** What is the technical difference between a cluster-scoped resource and a namespace-scoped resource, and how do you find out which is which?
+**A:** A namespace-scoped resource (like Pods or Secrets) is logically partitioned inside a specific Namespace boundary; it requires a namespace context to be accessed. A cluster-scoped resource (like Nodes or PersistentVolumes) exists globally and cannot belong to a Namespace. You use `kubectl api-resources` and inspect the `NAMESPACED` column (true/false) to verify the scoping topology.
+**Q:** How does `kubectl` know how to translate a shortname like `po` into a `Pod` query against the API server?
+**A:** When `kubectl` initializes, it downloads the API discovery document (`APIResourceList`) from the `/apis` endpoint. This document contains a mapping array for each resource that explicitly lists its accepted `SHORTNAMES`. `kubectl` caches this list and translates `po` to `pods` locally before executing the HTTP request.
+**Q:** If a cluster has a broken extension API server (e.g., a crashed metrics-server), what happens when you execute `kubectl api-resources`?
+**A:** The core API server attempts to aggregate discovery data from all registered APIService endpoints. If an extension server is unreachable, the core API times out for that specific path. `kubectl` will output the resources it successfully discovered, but append a warning to standard error indicating that discovery failed for the specific broken API group.
 
 ## Practice Problems
 
-- _Problem:_ Generate a clean list of fully qualified resource names (e.g., `pods`, `services`) for all resources that are explicitly cluster-scoped (not belonging to a namespace), ensuring no column headers pollute the output.
-  - _Hint:_ Combine the namespaced boolean flag, the specific name output format, and the no-headers flag.
-  - _Solution:_ `kubectl api-resources --namespaced=false -o name --no-headers`
-- _Problem:_ Search the cluster to identify any API resources that belong to the `cert-manager.io` API group.
-  - _Hint:_ Use the explicit API group filtering flag.
-  - _Solution:_ `kubectl api-resources --api-group=cert-manager.io`
+**Problem:** Generate a clean list of fully qualified resource names (e.g., `pods`, `services`) for all resources that are explicitly cluster-scoped (not belonging to a namespace), ensuring no column headers pollute the output.
+**Hint:** Combine the namespaced boolean flag, the specific name output format, and the no-headers flag.
+**Solution:** `kubectl api-resources --namespaced=false -o name --no-headers`
+**Problem:** Search the cluster to identify any API resources that belong to the `cert-manager.io` API group.
+**Hint:** Use the explicit API group filtering flag.
+**Solution:** `kubectl api-resources --api-group=cert-manager.io`
 
 ## References
 

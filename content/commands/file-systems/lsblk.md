@@ -167,21 +167,21 @@ Because it relies on these cached kernel mappings, `lsblk` is exceptionally fast
 
 ## Interview Questions
 
-- **Q:** Why might a newly created filesystem partition show up in `fdisk -l` but fail to appear when you immediately run `lsblk`?
-  - **A:** `fdisk -l` reads the raw MBR or GPT partition table directly off the physical disk. `lsblk` reads the active state from the kernel's virtual `sysfs` filesystem. If the kernel has not been informed of the partition table changes (via a system call like `partprobe`), `lsblk` will display outdated topology data.
-- **Q:** What is the critical advantage of using `lsblk` output to gather data for `/etc/fstab` compared to using `/dev/sdX` paths?
-  - **A:** `/dev/sdX` device node letters are dynamically assigned by the kernel at boot and can change depending on device initialization speed or new hardware. `lsblk -f` provides the filesystem UUID, which is a static, immutable identifier baked into the filesystem superblock, ensuring permanent, deterministic mounting regardless of physical port changes.
-- **Q:** How does `lsblk -d` alter the default reporting structure of the command?
-  - **A:** The `-d` (nodeps) flag instructs `lsblk` to ignore dependencies. It strips away all nested partitions, LVMs, and loop devices from the output tree, displaying only the top-level parent block devices (the raw physical or virtual disks themselves).
+**Q:** Why might a newly created filesystem partition show up in `fdisk -l` but fail to appear when you immediately run `lsblk`?
+**A:** `fdisk -l` reads the raw MBR or GPT partition table directly off the physical disk. `lsblk` reads the active state from the kernel's virtual `sysfs` filesystem. If the kernel has not been informed of the partition table changes (via a system call like `partprobe`), `lsblk` will display outdated topology data.
+**Q:** What is the critical advantage of using `lsblk` output to gather data for `/etc/fstab` compared to using `/dev/sdX` paths?
+**A:** `/dev/sdX` device node letters are dynamically assigned by the kernel at boot and can change depending on device initialization speed or new hardware. `lsblk -f` provides the filesystem UUID, which is a static, immutable identifier baked into the filesystem superblock, ensuring permanent, deterministic mounting regardless of physical port changes.
+**Q:** How does `lsblk -d` alter the default reporting structure of the command?
+**A:** The `-d` (nodeps) flag instructs `lsblk` to ignore dependencies. It strips away all nested partitions, LVMs, and loop devices from the output tree, displaying only the top-level parent block devices (the raw physical or virtual disks themselves).
 
 ## Practice Problems
 
-- **Problem:** Display a hierarchical list of block devices including their UUIDs and filesystem types, ensuring you have the necessary privileges to see all metadata.
-  - _Hint:_ Combine the filesystem flag with superuser privileges.
-  - _Solution:_ `sudo lsblk -f` (This fetches and displays complete `udev` metadata including FSTYPE and UUIDs).
-- **Problem:** Output the topology of the system's storage strictly as a JSON document containing only the NAME, SIZE, and MOUNTPOINT columns.
-  - _Hint:_ Combine the JSON flag and the specific output column formatting flag.
-  - _Solution:_ `lsblk -J -o NAME,SIZE,MOUNTPOINT` (This serializes the specific requested columns into a programmable JSON array).
+**Problem:** Display a hierarchical list of block devices including their UUIDs and filesystem types, ensuring you have the necessary privileges to see all metadata.
+**Hint:** Combine the filesystem flag with superuser privileges.
+**Solution:** `sudo lsblk -f` (This fetches and displays complete `udev` metadata including FSTYPE and UUIDs).
+**Problem:** Output the topology of the system's storage strictly as a JSON document containing only the NAME, SIZE, and MOUNTPOINT columns.
+**Hint:** Combine the JSON flag and the specific output column formatting flag.
+**Solution:** `lsblk -J -o NAME,SIZE,MOUNTPOINT` (This serializes the specific requested columns into a programmable JSON array).
 
 ## References
 

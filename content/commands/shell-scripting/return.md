@@ -164,21 +164,21 @@ It evaluates the argument `n`. If `n` is omitted, the engine queries the `$?` re
 
 ## Interview Questions
 
-- _Query:_ A bash developer writes a function to extract an API key, using `return $API_KEY_STRING` at the end. Why does this immediately crash the script, and what is the proper architectural method to retrieve a string from a bash function?
-  - _A:_ The `return` keyword in Bash is strictly designed to pass 8-bit integer status codes (0-255) back to the caller, acting as a boolean success/failure indicator. It mathematically cannot return strings or complex objects. To return a string, the developer must use `echo "$API_KEY_STRING"` inside the function, and the caller must intercept standard output using command substitution: `KEY=$(extract_api_key)`.
-- _Query:_ What is the critical distinction in blast radius between executing `exit 1` versus `return 1` inside an error-handling block within a bash function?
-  - _A:_ Executing `exit 1` sends an immediate termination signal to the entire Bash process. The function stops, the parent script stops, and the terminal session/pipeline drops completely. Executing `return 1` is localized; it aborts only the specific function currently executing, assigning `1` to the `$?` variable, and hands control right back to the parent script to continue running.
-- _Query:_ Why is it mathematically dangerous to assign an error code using `return 256` inside a shell function?
-  - _A:_ Shell return codes are constrained to 8-bit unsigned integers. If you pass an integer greater than 255, Bash applies modulo 256 arithmetic. Therefore, `return 256` wraps around and evaluates exactly as `0`. Because `0` implies success in POSIX environments, this creates a catastrophic false-positive logic bug where a fatal error is interpreted as a success by the caller.
+**Q:** A bash developer writes a function to extract an API key, using `return $API_KEY_STRING` at the end. Why does this immediately crash the script, and what is the proper architectural method to retrieve a string from a bash function?
+**A:** The `return` keyword in Bash is strictly designed to pass 8-bit integer status codes (0-255) back to the caller, acting as a boolean success/failure indicator. It mathematically cannot return strings or complex objects. To return a string, the developer must use `echo "$API_KEY_STRING"` inside the function, and the caller must intercept standard output using command substitution: `KEY=$(extract_api_key)`.
+**Q:** What is the critical distinction in blast radius between executing `exit 1` versus `return 1` inside an error-handling block within a bash function?
+**A:** Executing `exit 1` sends an immediate termination signal to the entire Bash process. The function stops, the parent script stops, and the terminal session/pipeline drops completely. Executing `return 1` is localized; it aborts only the specific function currently executing, assigning `1` to the `$?` variable, and hands control right back to the parent script to continue running.
+**Q:** Why is it mathematically dangerous to assign an error code using `return 256` inside a shell function?
+**A:** Shell return codes are constrained to 8-bit unsigned integers. If you pass an integer greater than 255, Bash applies modulo 256 arithmetic. Therefore, `return 256` wraps around and evaluates exactly as `0`. Because `0` implies success in POSIX environments, this creates a catastrophic false-positive logic bug where a fatal error is interpreted as a success by the caller.
 
 ## Practice Problems
 
-- _Problem:_ Write a single-line function named `check_file` that accepts a filename as its first argument. If the file physically exists on disk, the function should return a success code. If it does not exist, it should return an error code of `3`.
-  - _Hint:_ Combine the test operator (`[ -f ]`) with the logical OR operator (`||`) to trigger the explicit return.
-  - _Solution:_ `check_file() { [ -f "$1" ] || return 3; return 0; }` (If the test fails, it executes the right side of the OR operator, returning 3. If it succeeds, it proceeds to return 0).
-- _Problem:_ Call a hypothetical function named `run_migration`. Immediately following the call, write an `if` statement evaluating the exact integer value returned by the function. If the value is equal to `5`, echo a specific warning message.
-  - _Hint:_ You must query the automatic shell status variable immediately after the function execution.
-  - _Solution:_ `run_migration; if [ $? -eq 5 ]; then echo "Warning: Partial failure"; fi` (The `$?` variable captures the exact integer passed by the `return` statement in the function).
+**Problem:** Write a single-line function named `check_file` that accepts a filename as its first argument. If the file physically exists on disk, the function should return a success code. If it does not exist, it should return an error code of `3`.
+**Hint:** Combine the test operator (`[ -f ]`) with the logical OR operator (`||`) to trigger the explicit return.
+**Solution:** `check_file() { [ -f "$1" ] || return 3; return 0; }` (If the test fails, it executes the right side of the OR operator, returning 3. If it succeeds, it proceeds to return 0).
+**Problem:** Call a hypothetical function named `run_migration`. Immediately following the call, write an `if` statement evaluating the exact integer value returned by the function. If the value is equal to `5`, echo a specific warning message.
+**Hint:** You must query the automatic shell status variable immediately after the function execution.
+**Solution:** `run_migration; if [ $? -eq 5 ]; then echo "Warning: Partial failure"; fi` (The `$?` variable captures the exact integer passed by the `return` statement in the function).
 
 ## References
 

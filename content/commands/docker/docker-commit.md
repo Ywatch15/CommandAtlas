@@ -151,21 +151,21 @@ The daemon constructs a new Image Manifest JSON document. This manifest links th
 
 ## Interview Questions
 
-- _Query:_ Why is creating production Docker images via `docker commit` widely considered a severe DevOps anti-pattern?
-  - _A:_ `docker commit` produces "black box" images. Because changes are made interactively, there is no declarative, version-controlled blueprint (Dockerfile) documenting what was installed. This destroys reproducibility, makes security auditing nearly impossible, and prevents automated CI/CD builds.
-- _Query:_ What happens to the data stored inside a Docker Volume when you run `docker commit` on that container?
-  - _A:_ The data is entirely ignored. Docker Volumes mount directly into the container from the host filesystem, bypassing the container's Union Filesystem (the writable top layer). `docker commit` only captures changes made to that specific writable layer.
-- _Query:_ Why does the Docker daemon temporarily pause a container by default when executing a `docker commit` operation?
-  - _A:_ The daemon pauses the container (freezing its processes) to prevent active writes to the filesystem during the snapshot generation. This ensures data consistency and prevents corrupted files or half-written database logs from being packaged into the new image layer.
+**Q:** Why is creating production Docker images via `docker commit` widely considered a severe DevOps anti-pattern?
+**A:** `docker commit` produces "black box" images. Because changes are made interactively, there is no declarative, version-controlled blueprint (Dockerfile) documenting what was installed. This destroys reproducibility, makes security auditing nearly impossible, and prevents automated CI/CD builds.
+**Q:** What happens to the data stored inside a Docker Volume when you run `docker commit` on that container?
+**A:** The data is entirely ignored. Docker Volumes mount directly into the container from the host filesystem, bypassing the container's Union Filesystem (the writable top layer). `docker commit` only captures changes made to that specific writable layer.
+**Q:** Why does the Docker daemon temporarily pause a container by default when executing a `docker commit` operation?
+**A:** The daemon pauses the container (freezing its processes) to prevent active writes to the filesystem during the snapshot generation. This ensures data consistency and prevents corrupted files or half-written database logs from being packaged into the new image layer.
 
 ## Practice Problems
 
-- _Problem:_ You have been modifying a running container named `dev-sandbox`. Create a new image from it named `sandbox-snapshot:v2`, and include an author tag noting "Admin User".
-  - _Hint:_ Combine the commit command, the author flag, the target container, and the desired repository/tag name.
-  - _Solution:_ `docker commit -a "Admin User" dev-sandbox sandbox-snapshot:v2` (This snapshots the container and attaches the specified author metadata).
-- _Problem:_ Commit a running container named `web-test` into an image named `custom-nginx:latest`, but inject a new Dockerfile instruction that sets the environment variable `APP_ENV=production` in the resulting image.
-  - _Hint:_ Use the change flag (`-c`) to apply the Dockerfile ENV instruction during the commit.
-  - _Solution:_ `docker commit -c "ENV APP_ENV=production" web-test custom-nginx:latest` (This captures the filesystem and alters the image's runtime metadata configuration).
+**Problem:** You have been modifying a running container named `dev-sandbox`. Create a new image from it named `sandbox-snapshot:v2`, and include an author tag noting "Admin User".
+**Hint:** Combine the commit command, the author flag, the target container, and the desired repository/tag name.
+**Solution:** `docker commit -a "Admin User" dev-sandbox sandbox-snapshot:v2` (This snapshots the container and attaches the specified author metadata).
+**Problem:** Commit a running container named `web-test` into an image named `custom-nginx:latest`, but inject a new Dockerfile instruction that sets the environment variable `APP_ENV=production` in the resulting image.
+**Hint:** Use the change flag (`-c`) to apply the Dockerfile ENV instruction during the commit.
+**Solution:** `docker commit -c "ENV APP_ENV=production" web-test custom-nginx:latest` (This captures the filesystem and alters the image's runtime metadata configuration).
 
 ## References
 

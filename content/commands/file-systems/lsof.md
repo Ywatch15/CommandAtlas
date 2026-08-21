@@ -169,21 +169,21 @@ For network connections, it cross-references the file descriptors with networkin
 
 ## Interview Questions
 
-- **Q:** A junior engineer deletes a massive log file to free up space, but the disk is still 100% full. How do you use `lsof` to identify the problem?
-  - **A:** In Linux, deleting a file removes the hard link, but the OS does not free the disk blocks if an active process still holds an open file descriptor pointing to that inode. I would run `sudo lsof +L1` to list all deleted files still held open in memory, identify the PID (e.g., a logging daemon), and restart that process to release the file descriptor and free the disk space.
-- **Q:** Why is the combination of `-n` and `-P` flags critical when running `lsof -i` on a production server?
-  - **A:** `-n` disables reverse DNS lookups for IP addresses, and `-P` disables translating port numbers into service names. Without these flags, `lsof` issues synchronous network requests to resolve every single active socket connection. On a busy server, this can cause the command to hang for minutes and heavily impact network resolvers.
-- **Q:** By default, does `lsof -u root -i :80` show files that are either owned by root OR using port 80, or both simultaneously? How do you change this behavior?
-  - **A:** By default, `lsof` applies a logical OR to selection criteria, meaning it will list all files owned by root PLUS all processes using port 80. To find processes that meet _both_ conditions simultaneously, you must pass the `-a` (AND) flag: `lsof -a -u root -i :80`.
+**Q:** A junior engineer deletes a massive log file to free up space, but the disk is still 100% full. How do you use `lsof` to identify the problem?
+**A:** In Linux, deleting a file removes the hard link, but the OS does not free the disk blocks if an active process still holds an open file descriptor pointing to that inode. I would run `sudo lsof +L1` to list all deleted files still held open in memory, identify the PID (e.g., a logging daemon), and restart that process to release the file descriptor and free the disk space.
+**Q:** Why is the combination of `-n` and `-P` flags critical when running `lsof -i` on a production server?
+**A:** `-n` disables reverse DNS lookups for IP addresses, and `-P` disables translating port numbers into service names. Without these flags, `lsof` issues synchronous network requests to resolve every single active socket connection. On a busy server, this can cause the command to hang for minutes and heavily impact network resolvers.
+**Q:** By default, does `lsof -u root -i :80` show files that are either owned by root OR using port 80, or both simultaneously? How do you change this behavior?
+**A:** By default, `lsof` applies a logical OR to selection criteria, meaning it will list all files owned by root PLUS all processes using port 80. To find processes that meet _both_ conditions simultaneously, you must pass the `-a` (AND) flag: `lsof -a -u root -i :80`.
 
 ## Practice Problems
 
-- **Problem:** Find the exact Process ID (PID) of the application currently bound to local TCP port 5432, without hanging on DNS lookups, and output only the PID.
-  - _Hint:_ Combine the network interface flag, disable DNS/ports, and use the terse output flag.
-  - _Solution:_ `lsof -t -nP -i :5432` (This outputs the raw PID immediately, disabling all resolution protocols).
-- **Problem:** Recursively list all open files inside the `/var/www/html` directory to find out what process is actively locking web assets.
-  - _Hint:_ Use the specific directory recursion flag.
-  - _Solution:_ `lsof +D /var/www/html` (The `+D` flag descends into the specified directory tree, matching any open files within it against active processes).
+**Problem:** Find the exact Process ID (PID) of the application currently bound to local TCP port 5432, without hanging on DNS lookups, and output only the PID.
+**Hint:** Combine the network interface flag, disable DNS/ports, and use the terse output flag.
+**Solution:** `lsof -t -nP -i :5432` (This outputs the raw PID immediately, disabling all resolution protocols).
+**Problem:** Recursively list all open files inside the `/var/www/html` directory to find out what process is actively locking web assets.
+**Hint:** Use the specific directory recursion flag.
+**Solution:** `lsof +D /var/www/html` (The `+D` flag descends into the specified directory tree, matching any open files within it against active processes).
 
 ## References
 

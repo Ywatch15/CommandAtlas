@@ -163,21 +163,21 @@ For a lookbehind `(?<=pattern)`, the engine temporarily steps the cursor backwar
 
 ## Interview Questions
 
-- _Query:_ What is the mathematical and programmatic definition of a "zero-width assertion" in the context of regex lookarounds?
-  - _A:_ A zero-width assertion means that the regex engine evaluates a specific condition (e.g., verifying a word exists), but it does not "consume" any characters during the evaluation. The internal cursor position remains unchanged. Therefore, the assertion adds exactly zero width to the final matched string output.
-- _Query:_ A developer attempts to extract log IDs using `sed -E 's/(?<=ID: )\d+//g'`. The command fails with an invalid syntax error. What architectural boundary did they violate?
-  - _A:_ The developer attempted to use a Lookbehind assertion (`?<=`) inside `sed`. Standard and Extended POSIX Regular Expressions (which `sed`, `awk`, and basic `grep` utilize) fundamentally do not support lookaround syntax. Lookarounds strictly require a Perl-Compatible Regular Expression (PCRE) engine. The developer must switch to `perl -pe` or `grep -P`.
-- _Query:_ Explain why the regex `^(?=.*[A-Z])(?=.*\d)` is capable of acting as an "AND" operator (ensuring a string contains both a capital letter AND a number), overriding the inherently sequential nature of regex evaluation.
-  - _A:_ The regex engine anchors at the start of the string (`^`). The first positive lookahead `(?=.*[A-Z])` scans forward, finds a capital letter, evaluates to True, and crucially, resets the cursor back to the start (`^`). The second lookahead `(?=.*\d)` then executes from that exact same starting position, scanning the entire string independently for a number. Because both zero-width assertions must evaluate to True without advancing the permanent cursor, it effectively creates a parallel Boolean AND evaluation.
+**Q:** What is the mathematical and programmatic definition of a "zero-width assertion" in the context of regex lookarounds?
+**A:** A zero-width assertion means that the regex engine evaluates a specific condition (e.g., verifying a word exists), but it does not "consume" any characters during the evaluation. The internal cursor position remains unchanged. Therefore, the assertion adds exactly zero width to the final matched string output.
+**Q:** A developer attempts to extract log IDs using `sed -E 's/(?<=ID: )\d+//g'`. The command fails with an invalid syntax error. What architectural boundary did they violate?
+**A:** The developer attempted to use a Lookbehind assertion (`?<=`) inside `sed`. Standard and Extended POSIX Regular Expressions (which `sed`, `awk`, and basic `grep` utilize) fundamentally do not support lookaround syntax. Lookarounds strictly require a Perl-Compatible Regular Expression (PCRE) engine. The developer must switch to `perl -pe` or `grep -P`.
+**Q:** Explain why the regex `^(?=.*[A-Z])(?=.*\d)` is capable of acting as an "AND" operator (ensuring a string contains both a capital letter AND a number), overriding the inherently sequential nature of regex evaluation.
+**A:** The regex engine anchors at the start of the string (`^`). The first positive lookahead `(?=.*[A-Z])` scans forward, finds a capital letter, evaluates to True, and crucially, resets the cursor back to the start (`^`). The second lookahead `(?=.*\d)` then executes from that exact same starting position, scanning the entire string independently for a number. Because both zero-width assertions must evaluate to True without advancing the permanent cursor, it effectively creates a parallel Boolean AND evaluation.
 
 ## Practice Problems
 
-- _Problem:_ Extract strictly the raw integer values from the string `Memory: 1024MB | Disk: 500GB`. Use PCRE `grep -P -o` and ensure the output does _not_ include the preceding labels or trailing units. You must use a Lookbehind and a Lookahead.
-  - _Hint:_ Combine a positive lookbehind looking for a space and a positive lookahead looking for an uppercase character boundary.
-  - _Solution:_ `grep -P -o '(?<=\s)\d+(?=[A-Z])'` (This mathematically pinpoints the digits without consuming the surrounding context, extracting exactly `1024` and `500`).
-- _Problem:_ Write a regex pattern using a negative lookahead that matches the exact string `Windows` anywhere in a sentence, but rejects the match if it is immediately followed by the string ` 95`.
-  - _Hint:_ Match the literal target string, followed immediately by the negative lookahead syntax checking for the exclusion string.
-  - _Solution:_ `Windows(?! 95)`
+**Problem:** Extract strictly the raw integer values from the string `Memory: 1024MB | Disk: 500GB`. Use PCRE `grep -P -o` and ensure the output does _not_ include the preceding labels or trailing units. You must use a Lookbehind and a Lookahead.
+**Hint:** Combine a positive lookbehind looking for a space and a positive lookahead looking for an uppercase character boundary.
+**Solution:** `grep -P -o '(?<=\s)\d+(?=[A-Z])'` (This mathematically pinpoints the digits without consuming the surrounding context, extracting exactly `1024` and `500`).
+**Problem:** Write a regex pattern using a negative lookahead that matches the exact string `Windows` anywhere in a sentence, but rejects the match if it is immediately followed by the string ` 95`.
+**Hint:** Match the literal target string, followed immediately by the negative lookahead syntax checking for the exclusion string.
+**Solution:** `Windows(?! 95)`
 
 ## References
 

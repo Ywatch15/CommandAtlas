@@ -165,21 +165,21 @@ The provider locks the file exclusively for the duration of the write operation,
 
 ## Interview Questions
 
-- **Q:** What is the technical difference between piping an object array to `Out-File -Append` versus `Add-Content`?
-  - **A:** `Out-File` sends the objects through PowerShell's formatting subsystem, capturing the exact terminal representation (tables, lists, spacing, and truncation) and writing that visual layout to the file. `Add-Content` completely bypasses the formatting subsystem, invoking the raw `.ToString()` method on the objects, which writes flat underlying string data.
-- **Q:** A developer complains that their script takes 45 minutes to write 100,000 lines to a log file using a `foreach` loop that calls `Add-Content` on every iteration. Why is this happening, and how do you fix it?
-  - **A:** Every invocation of `Add-Content` executes a full disk I/O cycle: it asks the OS to open a file handle, seeks to the end of the file, writes the data, and securely closes the handle. Doing this 100,000 times destroys disk performance. To fix it, they should aggregate the lines into a single array and call `Add-Content -Value $array` once, or utilize `[System.IO.StreamWriter]` to keep the file handle open for the duration of the loop.
-- **Q:** Why does `Add-Content` fail when targeting a filename containing square brackets, like `report[01].txt`, and how do you circumvent this behavior?
-  - **A:** The `-Path` parameter natively processes wildcard expansion (globbing). It interprets `[01]` as a character range, seeking a file named `report0.txt` or `report1.txt`. To bypass the wildcard engine and treat the string explicitly, you must use the `-LiteralPath` parameter instead.
+**Q:** What is the technical difference between piping an object array to `Out-File -Append` versus `Add-Content`?
+**A:** `Out-File` sends the objects through PowerShell's formatting subsystem, capturing the exact terminal representation (tables, lists, spacing, and truncation) and writing that visual layout to the file. `Add-Content` completely bypasses the formatting subsystem, invoking the raw `.ToString()` method on the objects, which writes flat underlying string data.
+**Q:** A developer complains that their script takes 45 minutes to write 100,000 lines to a log file using a `foreach` loop that calls `Add-Content` on every iteration. Why is this happening, and how do you fix it?
+**A:** Every invocation of `Add-Content` executes a full disk I/O cycle: it asks the OS to open a file handle, seeks to the end of the file, writes the data, and securely closes the handle. Doing this 100,000 times destroys disk performance. To fix it, they should aggregate the lines into a single array and call `Add-Content -Value $array` once, or utilize `[System.IO.StreamWriter]` to keep the file handle open for the duration of the loop.
+**Q:** Why does `Add-Content` fail when targeting a filename containing square brackets, like `report[01].txt`, and how do you circumvent this behavior?
+**A:** The `-Path` parameter natively processes wildcard expansion (globbing). It interprets `[01]` as a character range, seeking a file named `report0.txt` or `report1.txt`. To bypass the wildcard engine and treat the string explicitly, you must use the `-LiteralPath` parameter instead.
 
 ## Practice Problems
 
-- _Problem:_ Append the exact string `CONFIG_VER=v2.5` to a file located at `C:\app\settings.conf` without appending a trailing newline character.
-  - _Hint:_ Combine the path, the value, and the specific flag that suppresses carriage returns.
-  - _Solution:_ `Add-Content -Path C:\app\settings.conf -Value "CONFIG_VER=v2.5" -NoNewline` (This modifies the file, leaving the cursor adjacent to the final character).
-- _Problem:_ Append the contents of the variable `$LogData` to an existing file named `audit[archive].log`, forcing the action even if the file is marked read-only, while strictly enforcing UTF-8 encoding.
-  - _Hint:_ You must bypass wildcard evaluation, force the write, and specify the encoding.
-  - _Solution:_ `Add-Content -LiteralPath "audit[archive].log" -Value $LogData -Force -Encoding UTF8` (The literal path prevents bracket evaluation, while `-Force` overrides the read-only attribute).
+**Problem:** Append the exact string `CONFIG_VER=v2.5` to a file located at `C:\app\settings.conf` without appending a trailing newline character.
+**Hint:** Combine the path, the value, and the specific flag that suppresses carriage returns.
+**Solution:** `Add-Content -Path C:\app\settings.conf -Value "CONFIG_VER=v2.5" -NoNewline` (This modifies the file, leaving the cursor adjacent to the final character).
+**Problem:** Append the contents of the variable `$LogData` to an existing file named `audit[archive].log`, forcing the action even if the file is marked read-only, while strictly enforcing UTF-8 encoding.
+**Hint:** You must bypass wildcard evaluation, force the write, and specify the encoding.
+**Solution:** `Add-Content -LiteralPath "audit[archive].log" -Value $LogData -Force -Encoding UTF8` (The literal path prevents bracket evaluation, while `-Force` overrides the read-only attribute).
 
 ## References
 

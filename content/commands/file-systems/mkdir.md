@@ -164,21 +164,21 @@ The kernel automatically populates this new directory inode with two default ent
 
 ## Interview Questions
 
-- _Query:_ In automated deployment scripts, why is the `-p` flag considered mandatory when running `mkdir`?
-  - _A:_ The `-p` (parents) flag provides idempotency. It suppresses the "File exists" error if the directory is already present, allowing the script to safely continue. Furthermore, it automatically traverses the path and creates any missing parent directories, preventing fatal "No such file or directory" crashes.
-- _Query:_ If you execute `mkdir new_folder` without specifying a `-m` mode, what mechanism determines the final read/write permissions of that folder?
-  - _A:_ The final permissions are determined by subtracting the executing user's active `umask` from the default directory creation mode (`0777`). For example, if the user's umask is `022`, the resulting directory will be assigned permissions of `0755` (read/write/execute for owner, read/execute for group and others).
-- _Query:_ What are the first two entries the Linux kernel automatically writes into the directory structure the exact moment `mkdir` successfully executes?
-  - _A:_ The kernel automatically creates the `.` (dot) and `..` (dot-dot) entries. The `.` entry is a hard link pointing to the new directory's own inode, and the `..` entry is a hard link pointing back to the parent directory's inode, maintaining the hierarchical filesystem tree integrity.
+**Q:** In automated deployment scripts, why is the `-p` flag considered mandatory when running `mkdir`?
+**A:** The `-p` (parents) flag provides idempotency. It suppresses the "File exists" error if the directory is already present, allowing the script to safely continue. Furthermore, it automatically traverses the path and creates any missing parent directories, preventing fatal "No such file or directory" crashes.
+**Q:** If you execute `mkdir new_folder` without specifying a `-m` mode, what mechanism determines the final read/write permissions of that folder?
+**A:** The final permissions are determined by subtracting the executing user's active `umask` from the default directory creation mode (`0777`). For example, if the user's umask is `022`, the resulting directory will be assigned permissions of `0755` (read/write/execute for owner, read/execute for group and others).
+**Q:** What are the first two entries the Linux kernel automatically writes into the directory structure the exact moment `mkdir` successfully executes?
+**A:** The kernel automatically creates the `.` (dot) and `..` (dot-dot) entries. The `.` entry is a hard link pointing to the new directory's own inode, and the `..` entry is a hard link pointing back to the parent directory's inode, maintaining the hierarchical filesystem tree integrity.
 
 ## Practice Problems
 
-- _Problem:_ Create a deeply nested directory path `/opt/app/logs/2026/08/` silently, ensuring no errors are thrown if the folders already exist.
-  - _Hint:_ Use the idempotent flag that handles parent directory creation.
-  - _Solution:_ `mkdir -p /opt/app/logs/2026/08/` (The `-p` flag traverses and builds the entire tree safely).
-- _Problem:_ Create a directory named `private_data` in the current location, but restrict its permissions immediately upon creation so that only the owner has read, write, and execute access.
-  - _Hint:_ Combine the directory creation command with the specific mode override flag using octal permissions.
-  - _Solution:_ `mkdir -m 700 private_data` (This bypasses the system umask and locks the directory permissions strictly to the owner).
+**Problem:** Create a deeply nested directory path `/opt/app/logs/2026/08/` silently, ensuring no errors are thrown if the folders already exist.
+**Hint:** Use the idempotent flag that handles parent directory creation.
+**Solution:** `mkdir -p /opt/app/logs/2026/08/` (The `-p` flag traverses and builds the entire tree safely).
+**Problem:** Create a directory named `private_data` in the current location, but restrict its permissions immediately upon creation so that only the owner has read, write, and execute access.
+**Hint:** Combine the directory creation command with the specific mode override flag using octal permissions.
+**Solution:** `mkdir -m 700 private_data` (This bypasses the system umask and locks the directory permissions strictly to the owner).
 
 ## References
 

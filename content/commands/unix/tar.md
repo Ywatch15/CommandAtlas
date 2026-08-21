@@ -145,21 +145,21 @@ Because `tar` knows nothing about compression, passing `-z` (gzip) or `-J` (xz) 
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental architectural reason why a developer cannot easily extract the very last file from a 10GB `.tar.gz` archive without waiting several minutes, whereas extracting a file from a 10GB `.zip` file is nearly instantaneous?
-  - _A:_ A `.zip` file is structurally a random-access archive. It contains a "Central Directory" at the absolute end of the file containing exact byte offsets for every compressed payload. The utility jumps straight to the offset and extracts the file. A `.tar.gz` is a single, continuous, sequentially compressed stream. It lacks an index. To find the last file, the utility must uncompress and sequentially scan every single 512-byte `tar` header sequentially through the entire 10GB payload until it locates the target filename.
-- _Query:_ A developer runs `tar -cvf backup.tar /etc/nginx`. A warning appears stating: `tar: Removing leading '/' from member names`. Why does `tar` execute this behavior by default, and what security exploit does it prevent?
-  - _A:_ By default, GNU `tar` strips absolute paths (leading slashes) to make the archive relative. If `tar` preserved the absolute `/etc/nginx` path, and a user downloaded the archive and extracted it, `tar` would violently overwrite the user's actual host system `/etc/nginx` configurations. Stripping the slash ensures the archive extracts safely into the user's current working directory (e.g., `./etc/nginx`), neutralizing accidental overwrites or malicious "Tar Slip" directory traversal attacks.
-- _Query:_ Explain the mechanical execution pipeline when an administrator types `tar -czvf code.tar.gz ./src`. How does `tar` interact with `gzip`?
-  - _A:_ The `tar` utility itself possesses no mathematical compression algorithms. When the `-z` flag is supplied, `tar` executes a `fork()` system call to spawn the external `gzip` binary. `tar` builds the 512-byte POSIX headers and payload blocks in memory, and writes them directly into an inter-process pipe connected to the `gzip` child process. `gzip` executes the LZ77 deflation math on the stream and writes the final compressed byte payload to the target file.
+**Q:** What is the fundamental architectural reason why a developer cannot easily extract the very last file from a 10GB `.tar.gz` archive without waiting several minutes, whereas extracting a file from a 10GB `.zip` file is nearly instantaneous?
+**A:** A `.zip` file is structurally a random-access archive. It contains a "Central Directory" at the absolute end of the file containing exact byte offsets for every compressed payload. The utility jumps straight to the offset and extracts the file. A `.tar.gz` is a single, continuous, sequentially compressed stream. It lacks an index. To find the last file, the utility must uncompress and sequentially scan every single 512-byte `tar` header sequentially through the entire 10GB payload until it locates the target filename.
+**Q:** A developer runs `tar -cvf backup.tar /etc/nginx`. A warning appears stating: `tar: Removing leading '/' from member names`. Why does `tar` execute this behavior by default, and what security exploit does it prevent?
+**A:** By default, GNU `tar` strips absolute paths (leading slashes) to make the archive relative. If `tar` preserved the absolute `/etc/nginx` path, and a user downloaded the archive and extracted it, `tar` would violently overwrite the user's actual host system `/etc/nginx` configurations. Stripping the slash ensures the archive extracts safely into the user's current working directory (e.g., `./etc/nginx`), neutralizing accidental overwrites or malicious "Tar Slip" directory traversal attacks.
+**Q:** Explain the mechanical execution pipeline when an administrator types `tar -czvf code.tar.gz ./src`. How does `tar` interact with `gzip`?
+**A:** The `tar` utility itself possesses no mathematical compression algorithms. When the `-z` flag is supplied, `tar` executes a `fork()` system call to spawn the external `gzip` binary. `tar` builds the 512-byte POSIX headers and payload blocks in memory, and writes them directly into an inter-process pipe connected to the `gzip` child process. `gzip` executes the LZ77 deflation math on the stream and writes the final compressed byte payload to the target file.
 
 ## Practice Problems
 
-- _Problem:_ Create a highly compressed archive using LZMA2 (`xz`) algorithms of the `/opt/app` directory. Ensure the target file is named `app_release.tar.xz`, display the files as they are processed, and explicitly exclude any directories named `.git`.
-  - _Hint:_ Combine the create, xz, verbose, and file flags in the correct order, and utilize the long-form exclusion parameter.
-  - _Solution:_ `tar -cJvf app_release.tar.xz --exclude=".git" /opt/app` (This builds a pristine, repository-free release payload).
-- _Problem:_ Extract the contents of `database_backup.tar.gz` entirely, but force the extraction to drop the files into the `/mnt/recovery/` directory instead of your current location. Maintain the exact user ownership and permissions originally stored in the archive.
-  - _Hint:_ Chain the extraction, gzip, file, and preserve flags, and append the specific change-directory switch.
-  - _Solution:_ `sudo tar -xzvpf database_backup.tar.gz -C /mnt/recovery/` (The `sudo` and `-p` combination guarantees perfect metadata preservation across the target volume).
+**Problem:** Create a highly compressed archive using LZMA2 (`xz`) algorithms of the `/opt/app` directory. Ensure the target file is named `app_release.tar.xz`, display the files as they are processed, and explicitly exclude any directories named `.git`.
+**Hint:** Combine the create, xz, verbose, and file flags in the correct order, and utilize the long-form exclusion parameter.
+**Solution:** `tar -cJvf app_release.tar.xz --exclude=".git" /opt/app` (This builds a pristine, repository-free release payload).
+**Problem:** Extract the contents of `database_backup.tar.gz` entirely, but force the extraction to drop the files into the `/mnt/recovery/` directory instead of your current location. Maintain the exact user ownership and permissions originally stored in the archive.
+**Hint:** Chain the extraction, gzip, file, and preserve flags, and append the specific change-directory switch.
+**Solution:** `sudo tar -xzvpf database_backup.tar.gz -C /mnt/recovery/` (The `sudo` and `-p` combination guarantees perfect metadata preservation across the target volume).
 
 ## References
 

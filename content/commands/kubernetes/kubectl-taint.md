@@ -164,21 +164,21 @@ Once saved in `etcd`, two independent control plane components react:
 
 ## Interview Questions
 
-- _Query:_ Detail the operational differences between the three valid Taint Effects: `NoSchedule`, `PreferNoSchedule`, and `NoExecute`.
-  - _A:_ `NoSchedule` is a hard constraint: the scheduler will absolutely not place new non-tolerating pods on the node, but existing pods are ignored. `PreferNoSchedule` is a "soft" constraint: the scheduler avoids placing new pods there if possible, but will ignore the taint if the rest of the cluster is full. `NoExecute` is an aggressive hard constraint: it blocks new pods _and_ immediately terminates any currently running pods on the node that lack a matching toleration.
-- _Query:_ If a developer needs their high-memory Pod to run _only_ on nodes marked for memory-intensive workloads, is a Taint sufficient to achieve this? Why or why not?
-  - _A:_ No, a taint is not sufficient. A Taint (with a corresponding Toleration on the Pod) only ensures that _other_ pods cannot schedule onto those memory nodes. It does not force the high-memory pod to go there; the scheduler could still place the high-memory pod on a standard untainted node. To force the pod to the high-memory node, you must implement `NodeAffinity` or a `NodeSelector` in addition to the Taint/Toleration pair.
-- _Query:_ How do you completely remove a specific taint from a node using the `kubectl taint` command?
-  - _A:_ You append a minus sign (`-`) directly to the end of the taint definition. For example, to remove a specific effect: `kubectl taint node <name> key=value:NoSchedule-`. To remove all taints matching a specific key regardless of value/effect, use: `kubectl taint node <name> key-`.
+**Q:** Detail the operational differences between the three valid Taint Effects: `NoSchedule`, `PreferNoSchedule`, and `NoExecute`.
+**A:** `NoSchedule` is a hard constraint: the scheduler will absolutely not place new non-tolerating pods on the node, but existing pods are ignored. `PreferNoSchedule` is a "soft" constraint: the scheduler avoids placing new pods there if possible, but will ignore the taint if the rest of the cluster is full. `NoExecute` is an aggressive hard constraint: it blocks new pods _and_ immediately terminates any currently running pods on the node that lack a matching toleration.
+**Q:** If a developer needs their high-memory Pod to run _only_ on nodes marked for memory-intensive workloads, is a Taint sufficient to achieve this? Why or why not?
+**A:** No, a taint is not sufficient. A Taint (with a corresponding Toleration on the Pod) only ensures that _other_ pods cannot schedule onto those memory nodes. It does not force the high-memory pod to go there; the scheduler could still place the high-memory pod on a standard untainted node. To force the pod to the high-memory node, you must implement `NodeAffinity` or a `NodeSelector` in addition to the Taint/Toleration pair.
+**Q:** How do you completely remove a specific taint from a node using the `kubectl taint` command?
+**A:** You append a minus sign (`-`) directly to the end of the taint definition. For example, to remove a specific effect: `kubectl taint node <name> key=value:NoSchedule-`. To remove all taints matching a specific key regardless of value/effect, use: `kubectl taint node <name> key-`.
 
 ## Practice Problems
 
-- _Problem:_ Apply a taint to a node named `ai-processor-1` with the key `hardware`, the value `tpu`, and an effect that strictly prevents new pods from scheduling unless they have a toleration.
-  - _Hint:_ Combine the node name, key-value pair, and the hard constraint scheduling effect.
-  - _Solution:_ `kubectl taint node ai-processor-1 hardware=tpu:NoSchedule` (This enforces a strict repellent boundary against unauthorized pods).
-- _Problem:_ Remove all taints possessing the key `decommission` from all nodes in the cluster simultaneously, ensuring nodes return to the standard scheduling pool.
-  - _Hint:_ Use the `--all` flag and the key-only removal syntax utilizing the minus sign suffix.
-  - _Solution:_ `kubectl taint nodes --all decommission-` (This safely strips any variant of the `decommission` taint from the entire fleet).
+**Problem:** Apply a taint to a node named `ai-processor-1` with the key `hardware`, the value `tpu`, and an effect that strictly prevents new pods from scheduling unless they have a toleration.
+**Hint:** Combine the node name, key-value pair, and the hard constraint scheduling effect.
+**Solution:** `kubectl taint node ai-processor-1 hardware=tpu:NoSchedule` (This enforces a strict repellent boundary against unauthorized pods).
+**Problem:** Remove all taints possessing the key `decommission` from all nodes in the cluster simultaneously, ensuring nodes return to the standard scheduling pool.
+**Hint:** Use the `--all` flag and the key-only removal syntax utilizing the minus sign suffix.
+**Solution:** `kubectl taint nodes --all decommission-` (This safely strips any variant of the `decommission` taint from the entire fleet).
 
 ## References
 

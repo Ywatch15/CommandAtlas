@@ -160,21 +160,21 @@ For copying _into_ a container, the CLI creates a tar archive of the local files
 
 ## Interview Questions
 
-- **Q:** How does `docker cp` manage to copy files out of a container that has crashed and is currently in a stopped state?
-  - **A:** `docker cp` does not rely on any internal container processes (like an SSH daemon or bash shell). It communicates with the Docker daemon, which reads or writes directly to the container's overlay filesystem layer on the host disk. Therefore, the container's execution state (running or stopped) is entirely irrelevant.
-- **Q:** Explain the role of tar archiving in the underlying execution of a `docker cp` command.
-  - **A:** The Docker API endpoint for copying files does not transfer raw binary files. Instead, the sender (either the CLI or the daemon) packages the requested files into an uncompressed tar archive stream, transmits it over the Docker socket, and the receiver extracts the tarball into the destination path, preserving directory structures.
-- **Q:** If a file inside a container is owned by a user named `appuser` (UID 5000), what happens to the file ownership when you use `docker cp` to bring it to your local host machine?
-  - **A:** The extracted file on the local host will be owned by the numeric UID `5000`. If no user exists with UID 5000 on the host system, `ls -l` will simply display the numeric ID `5000` as the owner.
+**Q:** How does `docker cp` manage to copy files out of a container that has crashed and is currently in a stopped state?
+**A:** `docker cp` does not rely on any internal container processes (like an SSH daemon or bash shell). It communicates with the Docker daemon, which reads or writes directly to the container's overlay filesystem layer on the host disk. Therefore, the container's execution state (running or stopped) is entirely irrelevant.
+**Q:** Explain the role of tar archiving in the underlying execution of a `docker cp` command.
+**A:** The Docker API endpoint for copying files does not transfer raw binary files. Instead, the sender (either the CLI or the daemon) packages the requested files into an uncompressed tar archive stream, transmits it over the Docker socket, and the receiver extracts the tarball into the destination path, preserving directory structures.
+**Q:** If a file inside a container is owned by a user named `appuser` (UID 5000), what happens to the file ownership when you use `docker cp` to bring it to your local host machine?
+**A:** The extracted file on the local host will be owned by the numeric UID `5000`. If no user exists with UID 5000 on the host system, `ls -l` will simply display the numeric ID `5000` as the owner.
 
 ## Practice Problems
 
-- _Problem:_ Copy an entire directory `/app/data/` from a stopped container named `postgres-archive` to your current local directory, ensuring all original UID/GID permissions are preserved.
-  - _Hint:_ Combine the archive flag with the appropriate container-to-host path syntax.
-  - _Solution:_ `docker cp -a postgres-archive:/app/data/ .` (The `-a` flag preserves the ownership and permissions during the transfer).
-- _Problem:_ Inject a local script named `patch.sh` into the `/usr/local/bin/` directory of an actively running container named `worker-node`.
-  - _Hint:_ Place the local source file first, followed by the container destination.
-  - _Solution:_ `docker cp ./patch.sh worker-node:/usr/local/bin/patch.sh` (This pushes the local file securely into the container's writable filesystem layer).
+**Problem:** Copy an entire directory `/app/data/` from a stopped container named `postgres-archive` to your current local directory, ensuring all original UID/GID permissions are preserved.
+**Hint:** Combine the archive flag with the appropriate container-to-host path syntax.
+**Solution:** `docker cp -a postgres-archive:/app/data/ .` (The `-a` flag preserves the ownership and permissions during the transfer).
+**Problem:** Inject a local script named `patch.sh` into the `/usr/local/bin/` directory of an actively running container named `worker-node`.
+**Hint:** Place the local source file first, followed by the container destination.
+**Solution:** `docker cp ./patch.sh worker-node:/usr/local/bin/patch.sh` (This pushes the local file securely into the container's writable filesystem layer).
 
 ## References
 

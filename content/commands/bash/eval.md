@@ -157,21 +157,21 @@ Once those arguments are concatenated into a single raw command string, `eval` f
 
 ## Interview Questions
 
-- **Q:** What is the fundamental difference in parsing behavior between executing a standard shell command and running that same command through `eval`?
-  - **A:** Standard shell execution parses and expands a command line once before executing it. `eval` forces the shell to perform a _second pass_ of parsing and expansion: it evaluates arguments passed to it, concatenates them into a string, and feeds that string back into the shell parser to be re-evaluated for word splitting, expansions, and command execution.
-- **Q:** Why is `eval` considered a major security risk when handling external user input or configuration files?
-  - **A:** Because `eval` executes any valid shell syntax present in its evaluated string, passing unvalidated external input into `eval` allows attackers to inject malicious shell commands (such as command separators `;` or subshells), resulting in arbitrary remote code execution (RCE).
-- **Q:** How can modern Bash scripts achieve indirect variable referencing without resorting to dangerous `eval` statements?
-  - **A:** Modern Bash supports native indirect parameter expansion using the syntax `${!variable_name}`, which safely resolves the value of a variable whose name is stored in another variable without triggering secondary parsing passes or security risks.
+**Q:** What is the fundamental difference in parsing behavior between executing a standard shell command and running that same command through `eval`?
+**A:** Standard shell execution parses and expands a command line once before executing it. `eval` forces the shell to perform a _second pass_ of parsing and expansion: it evaluates arguments passed to it, concatenates them into a string, and feeds that string back into the shell parser to be re-evaluated for word splitting, expansions, and command execution.
+**Q:** Why is `eval` considered a major security risk when handling external user input or configuration files?
+**A:** Because `eval` executes any valid shell syntax present in its evaluated string, passing unvalidated external input into `eval` allows attackers to inject malicious shell commands (such as command separators `;` or subshells), resulting in arbitrary remote code execution (RCE).
+**Q:** How can modern Bash scripts achieve indirect variable referencing without resorting to dangerous `eval` statements?
+**A:** Modern Bash supports native indirect parameter expansion using the syntax `${!variable_name}`, which safely resolves the value of a variable whose name is stored in another variable without triggering secondary parsing passes or security risks.
 
 ## Practice Problems
 
-- _Problem:_ Use `eval` to perform indirect variable assignment where a variable named `target` holds the string `my_config`, and you want to assign the value `active` to `my_config`.
-  - _Hint:_ Construct a concatenated assignment string where the variable name is dynamically expanded during evaluation.
-  - _Solution:_ `target="my_config"; eval "$target='active'"; echo "$my_config"` (The `eval` command concatenates and evaluates the string as `my_config='active'`, dynamically creating and setting the variable).
-- _Problem:_ Safely evaluate a string variable `command_str="uname -r"` using `eval` to print the system kernel release.
-  - _Hint:_ Pass the command string variable as the argument to `eval`.
-  - _Solution:_ `command_str="uname -r"; eval "$command_str"` (The `eval` built-in parses and executes the command string stored in the variable).
+**Problem:** Use `eval` to perform indirect variable assignment where a variable named `target` holds the string `my_config`, and you want to assign the value `active` to `my_config`.
+**Hint:** Construct a concatenated assignment string where the variable name is dynamically expanded during evaluation.
+**Solution:** `target="my_config"; eval "$target='active'"; echo "$my_config"` (The `eval` command concatenates and evaluates the string as `my_config='active'`, dynamically creating and setting the variable).
+**Problem:** Safely evaluate a string variable `command_str="uname -r"` using `eval` to print the system kernel release.
+**Hint:** Pass the command string variable as the argument to `eval`.
+**Solution:** `command_str="uname -r"; eval "$command_str"` (The `eval` built-in parses and executes the command string stored in the variable).
 
 ## References
 

@@ -141,21 +141,21 @@ When you run `docker images`, both the old and new tags will be displayed on sep
 
 ## Interview Questions
 
-- _Query:_ Does creating a new tag for an existing 5GB Docker image consume an additional 5GB of storage on your host machine? Why or why not?
-  - _A:_ No. `docker tag` simply creates a lightweight metadata alias (a pointer) in the Docker daemon's database that references the exact same underlying Image ID. It consumes no additional disk space for filesystem layers.
-- _Query:_ Why is it necessary to run `docker tag` before pushing a locally built image to an AWS Elastic Container Registry (ECR)?
-  - _A:_ The `docker push` command uses the image's repository name to determine the network routing destination. A locally built image named `my-app` defaults to targeting Docker Hub. You must use `docker tag` to prepend the target ECR domain (e.g., `12345.dkr.ecr.aws.com/my-app`) so the push command routes the payload to the correct remote server.
-- _Query:_ If you have an image tagged as `api:v1` and `api:latest` sharing the same Image ID, what happens if you run `docker rmi api:latest`?
-  - _A:_ The Docker daemon will "untag" the `api:latest` reference, removing that specific alias from its database. However, the physical image layers remain untouched on disk because the `api:v1` tag still references that exact same Image ID.
+**Q:** Does creating a new tag for an existing 5GB Docker image consume an additional 5GB of storage on your host machine? Why or why not?
+**A:** No. `docker tag` simply creates a lightweight metadata alias (a pointer) in the Docker daemon's database that references the exact same underlying Image ID. It consumes no additional disk space for filesystem layers.
+**Q:** Why is it necessary to run `docker tag` before pushing a locally built image to an AWS Elastic Container Registry (ECR)?
+**A:** The `docker push` command uses the image's repository name to determine the network routing destination. A locally built image named `my-app` defaults to targeting Docker Hub. You must use `docker tag` to prepend the target ECR domain (e.g., `12345.dkr.ecr.aws.com/my-app`) so the push command routes the payload to the correct remote server.
+**Q:** If you have an image tagged as `api:v1` and `api:latest` sharing the same Image ID, what happens if you run `docker rmi api:latest`?
+**A:** The Docker daemon will "untag" the `api:latest` reference, removing that specific alias from its database. However, the physical image layers remain untouched on disk because the `api:v1` tag still references that exact same Image ID.
 
 ## Practice Problems
 
-- _Problem:_ You have an existing image locally tagged as `backend-api:dev`. Create a new alias for this exact image configured to push to a Google Container Registry at `gcr.io/my-project/backend-api:v1.2.0`.
-  - _Hint:_ Use the source image followed by the fully qualified target image URL and tag.
-  - _Solution:_ `docker tag backend-api:dev gcr.io/my-project/backend-api:v1.2.0` (This creates the required naming structure for authentication and pushing to GCP).
-- _Problem:_ Assign the generic tag `stable` to a specific image ID `5a3b9d1e`. The repository name should be `payment-service`.
-  - _Hint:_ Pass the raw hexadecimal ID as the source argument.
-  - _Solution:_ `docker tag 5a3b9d1e payment-service:stable` (This links the human-readable repository and tag to the underlying anonymous Image ID).
+**Problem:** You have an existing image locally tagged as `backend-api:dev`. Create a new alias for this exact image configured to push to a Google Container Registry at `gcr.io/my-project/backend-api:v1.2.0`.
+**Hint:** Use the source image followed by the fully qualified target image URL and tag.
+**Solution:** `docker tag backend-api:dev gcr.io/my-project/backend-api:v1.2.0` (This creates the required naming structure for authentication and pushing to GCP).
+**Problem:** Assign the generic tag `stable` to a specific image ID `5a3b9d1e`. The repository name should be `payment-service`.
+**Hint:** Pass the raw hexadecimal ID as the source argument.
+**Solution:** `docker tag 5a3b9d1e payment-service:stable` (This links the human-readable repository and tag to the underlying anonymous Image ID).
 
 ## References
 

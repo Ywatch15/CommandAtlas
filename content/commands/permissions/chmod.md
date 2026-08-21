@@ -182,21 +182,21 @@ When you execute `chmod 755 file`, the utility converts the arguments into an in
 
 ## Interview Questions
 
-- _Query:_ What does the capital `X` accomplish in a command like `chmod -R u=rwX /project`, and why is it superior to using the lowercase `x`?
-  - _A:_ The lowercase `x` blindly applies the execute permission to every single file and directory it encounters, resulting in text files and images becoming executable binaries. The capital `X` is a conditional flag: it applies the execute bit to directories (allowing traversal) but only applies it to files if they _already_ possess an execute bit for some other user. It secures directories without corrupting plain files.
-- _Query:_ What is the functional security purpose of the "Sticky Bit" (`chmod +t`), and on what specific system directory is it almost always applied by default?
-  - _A:_ The Sticky Bit is used on globally writable directories to protect files from lateral interference. When applied, it instructs the kernel that only the specific creator/owner of a file (or the root user) is permitted to delete or rename that file. It is famously applied to the `/tmp` directory (`chmod 1777 /tmp`) so all users can write temporary data without allowing malicious users to delete other people's temp files.
-- _Query:_ A user issues `chmod 000 secret.txt`. Can the `root` user still read the contents of this file? Why?
-  - _A:_ Yes. The `root` user (UID 0) operates entirely above the standard POSIX permission matrix. The Linux kernel's Virtual File System (VFS) bypasses standard `st_mode` read/write permission checks when it detects the executor possesses root capabilities, granting absolute access regardless of the `000` mode.
+**Q:** What does the capital `X` accomplish in a command like `chmod -R u=rwX /project`, and why is it superior to using the lowercase `x`?
+**A:** The lowercase `x` blindly applies the execute permission to every single file and directory it encounters, resulting in text files and images becoming executable binaries. The capital `X` is a conditional flag: it applies the execute bit to directories (allowing traversal) but only applies it to files if they _already_ possess an execute bit for some other user. It secures directories without corrupting plain files.
+**Q:** What is the functional security purpose of the "Sticky Bit" (`chmod +t`), and on what specific system directory is it almost always applied by default?
+**A:** The Sticky Bit is used on globally writable directories to protect files from lateral interference. When applied, it instructs the kernel that only the specific creator/owner of a file (or the root user) is permitted to delete or rename that file. It is famously applied to the `/tmp` directory (`chmod 1777 /tmp`) so all users can write temporary data without allowing malicious users to delete other people's temp files.
+**Q:** A user issues `chmod 000 secret.txt`. Can the `root` user still read the contents of this file? Why?
+**A:** Yes. The `root` user (UID 0) operates entirely above the standard POSIX permission matrix. The Linux kernel's Virtual File System (VFS) bypasses standard `st_mode` read/write permission checks when it detects the executor possesses root capabilities, granting absolute access regardless of the `000` mode.
 
 ## Practice Problems
 
-- _Problem:_ Remove all read, write, and execute permissions from the `Others` (global) category for a file named `config.yaml`, while ensuring the Owner retains Read and Write access.
-  - _Hint:_ Use symbolic notation to subtract all permissions from the 'o' category, and set the 'u' category explicitly.
-  - _Solution:_ `chmod o-rwx,u=rw config.yaml` (This securely locks the file down, stripping public access without utilizing complex octal math).
-- _Problem:_ Recursively adjust permissions for a directory named `/data/shared` so that the Owner has full access (`7`), the Group has read and execute access (`5`), and Others have absolutely no access (`0`).
-  - _Hint:_ Combine the recursive flag with the appropriate three-digit octal permission mask.
-  - _Solution:_ `chmod -R 750 /data/shared` (The `-R` cascades the exact octal mask down through all nested items).
+**Problem:** Remove all read, write, and execute permissions from the `Others` (global) category for a file named `config.yaml`, while ensuring the Owner retains Read and Write access.
+**Hint:** Use symbolic notation to subtract all permissions from the 'o' category, and set the 'u' category explicitly.
+**Solution:** `chmod o-rwx,u=rw config.yaml` (This securely locks the file down, stripping public access without utilizing complex octal math).
+**Problem:** Recursively adjust permissions for a directory named `/data/shared` so that the Owner has full access (`7`), the Group has read and execute access (`5`), and Others have absolutely no access (`0`).
+**Hint:** Combine the recursive flag with the appropriate three-digit octal permission mask.
+**Solution:** `chmod -R 750 /data/shared` (The `-R` cascades the exact octal mask down through all nested items).
 
 ## References
 

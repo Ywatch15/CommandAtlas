@@ -172,21 +172,21 @@ The double bracket `[[` is fundamentally different. It is a deeply integrated **
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental, architectural difference between using a single bracket `[` and a double bracket `[[` when writing an `if` statement in Bash?
-  - _A:_ The single bracket `[` is a standard command (an alias for `test`). Because it is a command, Bash aggressively performs word-splitting and variable expansion on the arguments before the command runs, meaning unquoted variables containing spaces will crash the script with a syntax error. The double bracket `[[` is a native Bash keyword. It suspends word splitting entirely, creating a safe sandbox that handles empty or spaced variables securely without quotes, while introducing advanced features like regex evaluation (`=~`).
-- _Query:_ A developer writes `if [ $USERS > 50 ]; then`. The script executes without an error, but a mysterious blank file named `50` suddenly appears in the directory, and the logic behaves incorrectly. What caused this?
-  - _A:_ Inside single brackets, the `>` symbol is not interpreted as "Greater Than"; it is intercepted by the Bash shell as the standard output redirection operator. The shell evaluates `[ $USERS ]`, which returns True, and then redirects the output of that invisible operation to a new file named `50`. The developer must use the specific integer evaluation operator `[ $USERS -gt 50 ]` to perform math.
-- _Query:_ In a double bracket `[[` evaluation, what does the `=~` operator do, and what is the critical rule regarding quotation marks on the right side of the operator?
-  - _A:_ The `=~` operator instructs the shell to execute a Perl-Compatible Regular Expression (PCRE) match. The string on the left is evaluated against the regex pattern on the right. Crucially, the right-hand regex pattern must _not_ be enclosed in quotes. If it is quoted, Bash strips its regex powers and treats it as a strict literal string comparison.
+**Q:** What is the fundamental, architectural difference between using a single bracket `[` and a double bracket `[[` when writing an `if` statement in Bash?
+**A:** The single bracket `[` is a standard command (an alias for `test`). Because it is a command, Bash aggressively performs word-splitting and variable expansion on the arguments before the command runs, meaning unquoted variables containing spaces will crash the script with a syntax error. The double bracket `[[` is a native Bash keyword. It suspends word splitting entirely, creating a safe sandbox that handles empty or spaced variables securely without quotes, while introducing advanced features like regex evaluation (`=~`).
+**Q:** A developer writes `if [ $USERS > 50 ]; then`. The script executes without an error, but a mysterious blank file named `50` suddenly appears in the directory, and the logic behaves incorrectly. What caused this?
+**A:** Inside single brackets, the `>` symbol is not interpreted as "Greater Than"; it is intercepted by the Bash shell as the standard output redirection operator. The shell evaluates `[ $USERS ]`, which returns True, and then redirects the output of that invisible operation to a new file named `50`. The developer must use the specific integer evaluation operator `[ $USERS -gt 50 ]` to perform math.
+**Q:** In a double bracket `[[` evaluation, what does the `=~` operator do, and what is the critical rule regarding quotation marks on the right side of the operator?
+**A:** The `=~` operator instructs the shell to execute a Perl-Compatible Regular Expression (PCRE) match. The string on the left is evaluated against the regex pattern on the right. Crucially, the right-hand regex pattern must _not_ be enclosed in quotes. If it is quoted, Bash strips its regex powers and treats it as a strict literal string comparison.
 
 ## Practice Problems
 
-- _Problem:_ Write a modern, secure conditional evaluation that checks if a directory named `/opt/data` physically exists, and if a variable named `BACKUP_READY` contains the exact string `true`. Ensure both conditions must be met.
-  - _Hint:_ Utilize the modern double-bracket syntax to chain the file directory flag with a standard string equality check.
-  - _Solution:_ `[[ -d "/opt/data" && "$BACKUP_READY" == "true" ]]` (This securely evaluates the hardware state and the memory state simultaneously without word-splitting risks).
-- _Problem:_ Evaluate the variable `APP_VERSION` to confirm if it begins with the number `2`, followed by a dot, and ends with any number of digits (e.g., `2.15`).
-  - _Hint:_ Use the double-bracket syntax paired with the regular expression matching operator, ensuring the right side remains unquoted.
-  - _Solution:_ `[[ "$APP_VERSION" =~ ^2.[0-9]+$ ]]` (This natively executes the regex evaluation in microseconds inside the shell memory).
+**Problem:** Write a modern, secure conditional evaluation that checks if a directory named `/opt/data` physically exists, and if a variable named `BACKUP_READY` contains the exact string `true`. Ensure both conditions must be met.
+**Hint:** Utilize the modern double-bracket syntax to chain the file directory flag with a standard string equality check.
+**Solution:** `[[ -d "/opt/data" && "$BACKUP_READY" == "true" ]]` (This securely evaluates the hardware state and the memory state simultaneously without word-splitting risks).
+**Problem:** Evaluate the variable `APP_VERSION` to confirm if it begins with the number `2`, followed by a dot, and ends with any number of digits (e.g., `2.15`).
+**Hint:** Use the double-bracket syntax paired with the regular expression matching operator, ensuring the right side remains unquoted.
+**Solution:** `[[ "$APP_VERSION" =~ ^2.[0-9]+$ ]]` (This natively executes the regex evaluation in microseconds inside the shell memory).
 
 ## References
 

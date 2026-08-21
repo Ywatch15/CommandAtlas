@@ -126,19 +126,19 @@ During access evaluation, the Linux Virtual File System (VFS) kernel layer first
 
 ## Interview Questions
 
-- _Query:_ What is the difference between an active ACL and a default ACL in Linux?
-  - _A:_ Active ACLs control access to an existing file or directory immediately. Default ACLs apply only to directories and define the initial ACL permissions automatically inherited by newly created files and subdirectories inside that directory.
-- _Query:_ How do you identify if a file has an Access Control List applied?
-  - _A:_ Running `ls -l` reveals a `+` sign at the end of the 9-character POSIX permission string (e.g., `-rw-r--r--+`). To view the detailed rules, use `getfacl <filename>`.
+**Q:** What is the difference between an active ACL and a default ACL in Linux?
+**A:** Active ACLs control access to an existing file or directory immediately. Default ACLs apply only to directories and define the initial ACL permissions automatically inherited by newly created files and subdirectories inside that directory.
+**Q:** How do you identify if a file has an Access Control List applied?
+**A:** Running `ls -l` reveals a `+` sign at the end of the 9-character POSIX permission string (e.g., `-rw-r--r--+`). To view the detailed rules, use `getfacl <filename>`.
 
 ## Practice Problems
 
-- _Problem:_ Grant user `sec_analyst` read-only access to `/var/log/syslog` without altering file ownership.
-  - _Hint:_ Use the modify flag with user specifier.
-  - _Solution:_ `sudo setfacl -m u:sec_analyst:r /var/log/syslog` (Grants explicit read access).
-- _Problem:_ Remove all extended ACLs from `/tmp/scratch.txt`.
-  - _Hint:_ Use the remove-all flag.
-  - _Solution:_ `setfacl -b /tmp/scratch.txt` (Clears extended ACL entries).
+**Problem:** Grant user `sec_analyst` read-only access to `/var/log/syslog` without altering file ownership.
+**Hint:** Use the modify flag with user specifier.
+**Solution:** `sudo setfacl -m u:sec_analyst:r /var/log/syslog` (Grants explicit read access).
+**Problem:** Remove all extended ACLs from `/tmp/scratch.txt`.
+**Hint:** Use the remove-all flag.
+**Solution:** `setfacl -b /tmp/scratch.txt` (Clears extended ACL entries).
 
 ## References
 

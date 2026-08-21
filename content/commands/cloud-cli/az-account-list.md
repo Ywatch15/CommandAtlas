@@ -162,21 +162,21 @@ The ARM backend validates the token, evaluates Microsoft Entra ID RBAC permissio
 
 ## Interview Questions
 
-- **Q:** What is the fundamental difference in execution mechanism between running `az account list` with versus without the `--refresh` flag?
-  **A:** Without `--refresh`, `az account list` reads subscription records exclusively from the local JSON profile cache (`azureProfile.json`), completing as an instantaneous local I/O operation. With `--refresh`, the CLI bypasses the cache and issues a live REST query over the network to the Azure Resource Manager (ARM) endpoint to fetch up-to-date subscription metadata.
-- **Q:** Why does `az account list --all` require cross-tenant evaluation, and how does it differ from a standard account listing?
-  **A:** A standard account listing retrieves subscriptions tied strictly to the default tenant established during login. The `--all` flag instructs the Azure CLI to query across all accessible Microsoft Entra tenant boundaries where your identity holds security principal associations, aggregating a unified multi-tenant portfolio.
-- **Q:** How does the Azure CLI resolve and format the output of `az account list` when JMESPath queries are supplied?
-  **A:** After retrieving the raw JSON array of subscription objects from local cache or ARM, the Azure CLI passes the payload through an internal JMESPath evaluation engine. This engine filters, reshapes, and projects the data according to the user's query expression before rendering the final output stream to the terminal.
+**Q:** What is the fundamental difference in execution mechanism between running `az account list` with versus without the `--refresh` flag?
+**A:** Without `--refresh`, `az account list` reads subscription records exclusively from the local JSON profile cache (`azureProfile.json`), completing as an instantaneous local I/O operation. With `--refresh`, the CLI bypasses the cache and issues a live REST query over the network to the Azure Resource Manager (ARM) endpoint to fetch up-to-date subscription metadata.
+**Q:** Why does `az account list --all` require cross-tenant evaluation, and how does it differ from a standard account listing?
+**A:** A standard account listing retrieves subscriptions tied strictly to the default tenant established during login. The `--all` flag instructs the Azure CLI to query across all accessible Microsoft Entra tenant boundaries where your identity holds security principal associations, aggregating a unified multi-tenant portfolio.
+**Q:** How does the Azure CLI resolve and format the output of `az account list` when JMESPath queries are supplied?
+**A:** After retrieving the raw JSON array of subscription objects from local cache or ARM, the Azure CLI passes the payload through an internal JMESPath evaluation engine. This engine filters, reshapes, and projects the data according to the user's query expression before rendering the final output stream to the terminal.
 
 ## Practice Problems
 
-- **Problem:** Retrieve a clean, bracket-free list of all subscription IDs accessible under your current Azure session, formatted as raw tab-separated values.
-  - **Hint:** Combine JMESPath query projection for the ID property with TSV output formatting.
-  - **Solution:** `az account list --query "[].id" --output tsv` (This extracts every subscription GUID from the array and strips JSON brackets, outputting raw TSV strings).
-- **Problem:** Force a live synchronization with Azure Resource Manager to update your local subscription cache, and display the results in an ASCII table.
-  - **Hint:** Combine the refresh flag with table output formatting.
-  - **Solution:** `az account list --refresh --output table` (This queries ARM live for the latest subscription inventory and renders it into a human-readable table).
+**Problem:** Retrieve a clean, bracket-free list of all subscription IDs accessible under your current Azure session, formatted as raw tab-separated values.
+**Hint:** Combine JMESPath query projection for the ID property with TSV output formatting.
+**Solution:** `az account list --query "[].id" --output tsv` (This extracts every subscription GUID from the array and strips JSON brackets, outputting raw TSV strings).
+**Problem:** Force a live synchronization with Azure Resource Manager to update your local subscription cache, and display the results in an ASCII table.
+**Hint:** Combine the refresh flag with table output formatting.
+**Solution:** `az account list --refresh --output table` (This queries ARM live for the latest subscription inventory and renders it into a human-readable table).
 
 ## References
 

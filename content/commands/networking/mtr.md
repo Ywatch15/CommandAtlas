@@ -140,21 +140,21 @@ Unlike `traceroute` which stops there, `mtr` continuously repeats this entire cy
 
 ## Interview Questions
 
-- _Query:_ In an `mtr` report, you observe 30% packet loss at Hop 5. However, Hop 6, Hop 7, and the final destination all show exactly 0% packet loss. Is there a network bottleneck at Hop 5?
-  - _A:_ No. This is a classic example of ICMP rate limiting. Router 5 is dropping the ICMP packets explicitly destined _for its own control plane_ to save CPU resources, but its data plane is successfully forwarding the transit packets along the path. If there were a real network bottleneck, the 30% packet loss would propagate to every subsequent hop and the final destination.
-- _Query:_ What specific IP header field does `mtr` manipulate to map the intermediate routers between your host and the destination?
-  - _A:_ `mtr` manipulates the **Time To Live (TTL)** field in the IP header. By sending packets with incrementally increasing TTLs (1, then 2, then 3), the packets expire sequentially at each intermediate router. The routers discard the packets and return "ICMP Time Exceeded" messages, exposing their IP addresses to the `mtr` application.
-- _Query:_ Why does running `mtr` fundamentally require root privileges (or the `CAP_NET_RAW` capability) on a Linux system, whereas a simple HTTP request via `curl` does not?
-  - _A:_ A simple `curl` request asks the kernel's network stack to handle packet creation. `mtr` must manually craft custom IP headers (specifically altering the TTL field) and generate arbitrary ICMP/TCP/UDP packets. This requires opening a raw network socket, a highly privileged operation restricted to root to prevent unprivileged users from forging packets and launching spoofing attacks.
+**Q:** In an `mtr` report, you observe 30% packet loss at Hop 5. However, Hop 6, Hop 7, and the final destination all show exactly 0% packet loss. Is there a network bottleneck at Hop 5?
+**A:** No. This is a classic example of ICMP rate limiting. Router 5 is dropping the ICMP packets explicitly destined _for its own control plane_ to save CPU resources, but its data plane is successfully forwarding the transit packets along the path. If there were a real network bottleneck, the 30% packet loss would propagate to every subsequent hop and the final destination.
+**Q:** What specific IP header field does `mtr` manipulate to map the intermediate routers between your host and the destination?
+**A:** `mtr` manipulates the **Time To Live (TTL)** field in the IP header. By sending packets with incrementally increasing TTLs (1, then 2, then 3), the packets expire sequentially at each intermediate router. The routers discard the packets and return "ICMP Time Exceeded" messages, exposing their IP addresses to the `mtr` application.
+**Q:** Why does running `mtr` fundamentally require root privileges (or the `CAP_NET_RAW` capability) on a Linux system, whereas a simple HTTP request via `curl` does not?
+**A:** A simple `curl` request asks the kernel's network stack to handle packet creation. `mtr` must manually craft custom IP headers (specifically altering the TTL field) and generate arbitrary ICMP/TCP/UDP packets. This requires opening a raw network socket, a highly privileged operation restricted to root to prevent unprivileged users from forging packets and launching spoofing attacks.
 
 ## Practice Problems
 
-- _Problem:_ Generate a static, 20-packet diagnostic report targeting `cloudflare.com`, preventing IP addresses from resolving to hostnames, and ensuring wide columns.
-  - _Hint:_ Combine report mode, cycle limit, wide formatting, and the no-DNS resolution flag.
-  - _Solution:_ `mtr -r -w -c 20 -n cloudflare.com` (This generates a clean, programmatic text table without hanging on DNS lookups).
-- _Problem:_ Diagnose a routing path to a strict corporate server (`10.0.5.50`) that drops all ping (ICMP) traffic by tracing the route using TCP packets aimed specifically at port 22 (SSH).
-  - _Hint:_ Switch the protocol mode to TCP and specify the target destination port.
-  - _Solution:_ `mtr -T -P 22 10.0.5.50` (This constructs TCP SYN packets instead of ICMP echoes, bypassing basic ping filters to map the path to the SSH daemon).
+**Problem:** Generate a static, 20-packet diagnostic report targeting `cloudflare.com`, preventing IP addresses from resolving to hostnames, and ensuring wide columns.
+**Hint:** Combine report mode, cycle limit, wide formatting, and the no-DNS resolution flag.
+**Solution:** `mtr -r -w -c 20 -n cloudflare.com` (This generates a clean, programmatic text table without hanging on DNS lookups).
+**Problem:** Diagnose a routing path to a strict corporate server (`10.0.5.50`) that drops all ping (ICMP) traffic by tracing the route using TCP packets aimed specifically at port 22 (SSH).
+**Hint:** Switch the protocol mode to TCP and specify the target destination port.
+**Solution:** `mtr -T -P 22 10.0.5.50` (This constructs TCP SYN packets instead of ICMP echoes, bypassing basic ping filters to map the path to the SSH daemon).
 
 ## References
 

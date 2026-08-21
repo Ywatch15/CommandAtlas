@@ -174,21 +174,21 @@ For each instruction (e.g., `RUN apt-get install`), BuildKit spins up an ephemer
 
 ## Interview Questions
 
-- **Q:** How does Docker determine whether it can use a cached layer during a build, and how does the `COPY` instruction affect this?
-  - **A:** Docker calculates a cache key based on the parent layer's hash and the instruction string. For `COPY` and `ADD` instructions, it also calculates a checksum of the actual file contents being copied. If a single byte in a copied file changes, the cache is invalidated for that instruction and _all_ subsequent instructions in the Dockerfile.
-- **Q:** What is a multi-stage build, and what specific problem does it solve?
-  - **A:** A multi-stage build uses multiple `FROM` statements within a single Dockerfile. It allows developers to use a heavy, tool-laden base image (like a full Go or Node SDK) to compile the application, and then selectively copy only the resulting binary into a minimalist production image. This drastically reduces the final image size and security attack surface by discarding compilers and source code.
-- **Q:** Why is running `docker build` in the root of your hard drive a terrible idea, even if the Dockerfile is simple?
-  - **A:** Before evaluating the Dockerfile, the Docker CLI recursively archives the entire "build context" (the directory where the command is run) and sends it to the Docker daemon. Running it in a massive directory without a `.dockerignore` will cause the CLI to attempt to upload gigabytes or terabytes of unrelated data to the daemon, exhausting RAM and freezing the system.
+**Q:** How does Docker determine whether it can use a cached layer during a build, and how does the `COPY` instruction affect this?
+**A:** Docker calculates a cache key based on the parent layer's hash and the instruction string. For `COPY` and `ADD` instructions, it also calculates a checksum of the actual file contents being copied. If a single byte in a copied file changes, the cache is invalidated for that instruction and _all_ subsequent instructions in the Dockerfile.
+**Q:** What is a multi-stage build, and what specific problem does it solve?
+**A:** A multi-stage build uses multiple `FROM` statements within a single Dockerfile. It allows developers to use a heavy, tool-laden base image (like a full Go or Node SDK) to compile the application, and then selectively copy only the resulting binary into a minimalist production image. This drastically reduces the final image size and security attack surface by discarding compilers and source code.
+**Q:** Why is running `docker build` in the root of your hard drive a terrible idea, even if the Dockerfile is simple?
+**A:** Before evaluating the Dockerfile, the Docker CLI recursively archives the entire "build context" (the directory where the command is run) and sends it to the Docker daemon. Running it in a massive directory without a `.dockerignore` will cause the CLI to attempt to upload gigabytes or terabytes of unrelated data to the daemon, exhausting RAM and freezing the system.
 
 ## Practice Problems
 
-- _Problem:_ Build a Docker image tagged as `api-server:v2` using a custom Dockerfile named `build.Dockerfile` located in the `deploy/` directory, while using the current directory as the build context.
-  - _Hint:_ Combine the tag flag, the file override flag, and specify the current directory context.
-  - _Solution:_ `docker build -t api-server:v2 -f deploy/build.Dockerfile .` (This reads the alternate file but still packages the current working directory to send to the daemon).
-- _Problem:_ Execute a build for an image tagged `cache-test:1.0`, ensuring that Docker completely ignores any previously cached layers and pulls the newest version of the upstream base image.
-  - _Hint:_ Combine the no-cache flag and the pull flag.
-  - _Solution:_ `docker build --no-cache --pull -t cache-test:1.0 .` (This forces a strictly clean slate build, downloading fresh base layers and recompiling every step).
+**Problem:** Build a Docker image tagged as `api-server:v2` using a custom Dockerfile named `build.Dockerfile` located in the `deploy/` directory, while using the current directory as the build context.
+**Hint:** Combine the tag flag, the file override flag, and specify the current directory context.
+**Solution:** `docker build -t api-server:v2 -f deploy/build.Dockerfile .` (This reads the alternate file but still packages the current working directory to send to the daemon).
+**Problem:** Execute a build for an image tagged `cache-test:1.0`, ensuring that Docker completely ignores any previously cached layers and pulls the newest version of the upstream base image.
+**Hint:** Combine the no-cache flag and the pull flag.
+**Solution:** `docker build --no-cache --pull -t cache-test:1.0 .` (This forces a strictly clean slate build, downloading fresh base layers and recompiling every step).
 
 ## References
 

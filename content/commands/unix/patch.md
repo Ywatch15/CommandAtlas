@@ -144,21 +144,21 @@ If it finds an exact match at line 20, it applies the offset and injects the cod
 
 ## Interview Questions
 
-- _Query:_ What is the mathematical concept of "Fuzz" in the context of the `patch` command, and how does it prevent minor code variations from breaking a patch application?
-  - _A:_ "Fuzz" refers to the surrounding lines of unchanged text (context) bundled in a diff hunk. If a target file has been modified, the exact line numbers in the patch will be wrong. `patch` searches for the context lines to find the correct insertion point. If the context doesn't match perfectly, the engine applies a "fuzz factor": it ignores the outermost lines of context and tries matching the inner lines. This allows the patch to succeed even if minor changes were made near the target code.
-- _Query:_ A developer generated a patch using `git diff > fix.patch`. You transfer this patch to an isolated server without Git, place it in the application's root directory, and run `patch < fix.patch`. It fails, complaining that it cannot find the file `a/app.py`. Why did it fail, and what flag fixes it?
-  - _A:_ `git diff` automatically prepends phantom directory labels (`a/` for the old file, `b/` for the new file) to all paths in its output. The `patch` utility interprets these literally and looks for a directory named `a`. To resolve this, you must pass the `-p1` flag (`patch -p1 < fix.patch`), which instructs the parser to strip exactly one leading directory slash from every file path before attempting the operation.
-- _Query:_ What is the functional danger of executing the `patch` command inside a CI/CD pipeline without passing the `--forward` or `-f` flags?
-  - _A:_ If the CI/CD pipeline attempts to apply a patch that has already been applied, `patch` detects the reversed state and halts execution, throwing an interactive terminal prompt asking the user if they want to assume the `-R` (Reverse) flag. Because the pipeline is headless, it will hang indefinitely waiting for keyboard input. The `-f` (force) or `--forward` flags suppress these interactive prompts and force the command to fail cleanly.
+**Q:** What is the mathematical concept of "Fuzz" in the context of the `patch` command, and how does it prevent minor code variations from breaking a patch application?
+**A:** "Fuzz" refers to the surrounding lines of unchanged text (context) bundled in a diff hunk. If a target file has been modified, the exact line numbers in the patch will be wrong. `patch` searches for the context lines to find the correct insertion point. If the context doesn't match perfectly, the engine applies a "fuzz factor": it ignores the outermost lines of context and tries matching the inner lines. This allows the patch to succeed even if minor changes were made near the target code.
+**Q:** A developer generated a patch using `git diff > fix.patch`. You transfer this patch to an isolated server without Git, place it in the application's root directory, and run `patch < fix.patch`. It fails, complaining that it cannot find the file `a/app.py`. Why did it fail, and what flag fixes it?
+**A:** `git diff` automatically prepends phantom directory labels (`a/` for the old file, `b/` for the new file) to all paths in its output. The `patch` utility interprets these literally and looks for a directory named `a`. To resolve this, you must pass the `-p1` flag (`patch -p1 < fix.patch`), which instructs the parser to strip exactly one leading directory slash from every file path before attempting the operation.
+**Q:** What is the functional danger of executing the `patch` command inside a CI/CD pipeline without passing the `--forward` or `-f` flags?
+**A:** If the CI/CD pipeline attempts to apply a patch that has already been applied, `patch` detects the reversed state and halts execution, throwing an interactive terminal prompt asking the user if they want to assume the `-R` (Reverse) flag. Because the pipeline is headless, it will hang indefinitely waiting for keyboard input. The `-f` (force) or `--forward` flags suppress these interactive prompts and force the command to fail cleanly.
 
 ## Practice Problems
 
-- _Problem:_ Apply a patch file named `security.patch` to the current directory. Strip the first two directory levels from the patch paths, create a backup of every file modified, and forcefully suppress all interactive prompts.
-  - _Hint:_ Combine the path-strip integer, the backup flag, and the force execution flag.
-  - _Solution:_ `patch -p2 -b -f < security.patch` (This safely applies deep patches in automated environments while preserving rollback files).
-- _Problem:_ Evaluate whether `update.diff` will cleanly apply to the codebase, stripping one directory level, but explicitly command the engine _not_ to modify any physical files on the disk during the evaluation.
-  - _Hint:_ Utilize the simulation flag paired with the standard git-compatible path strip.
-  - _Solution:_ `patch --dry-run -p1 < update.diff` (This safely calculates offsets and rejected hunks in memory).
+**Problem:** Apply a patch file named `security.patch` to the current directory. Strip the first two directory levels from the patch paths, create a backup of every file modified, and forcefully suppress all interactive prompts.
+**Hint:** Combine the path-strip integer, the backup flag, and the force execution flag.
+**Solution:** `patch -p2 -b -f < security.patch` (This safely applies deep patches in automated environments while preserving rollback files).
+**Problem:** Evaluate whether `update.diff` will cleanly apply to the codebase, stripping one directory level, but explicitly command the engine _not_ to modify any physical files on the disk during the evaluation.
+**Hint:** Utilize the simulation flag paired with the standard git-compatible path strip.
+**Solution:** `patch --dry-run -p1 < update.diff` (This safely calculates offsets and rejected hunks in memory).
 
 ## References
 

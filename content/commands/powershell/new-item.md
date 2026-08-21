@@ -155,21 +155,21 @@ If the `-Force` flag is present, the provider's logic alters significantly. For 
 
 ## Interview Questions
 
-- _Query:_ A developer runs `New-Item -Path C:\Logs\App.log -ItemType File`. The `Logs` directory does not currently exist, so the command throws a "DirectoryNotFoundException". How do you alter the command to fix this?
-  - _A:_ You must append the `-Force` flag. In the FileSystem provider, supplying `-Force` fundamentally alters the behavior of directory resolution, causing the provider to automatically traverse the path and scaffold any missing parent directories (`C:\Logs`) before finally instantiating the requested file.
-- _Query:_ What is the functional and destructive difference between executing `New-Item -Path config.ini` versus `New-Item -Path config.ini -Force` on a file that already exists and contains data?
-  - _A:_ Without `-Force`, the cmdlet detects that the file already exists and immediately throws a terminating "Item Already Exists" `IOException`, leaving the file contents entirely safe and unmodified. When `-Force` is applied, the cmdlet bypasses the collision check, violently overwrites the file, truncates its existing data to 0 bytes, and creates a blank file, destroying the original contents.
-- _Query:_ Explain why `New-Item` is capable of creating a Windows Registry key just as easily as it creates a text file.
-  - _A:_ `New-Item` relies on PowerShell's Provider architecture. It acts as an abstraction layer (a router) that evaluates the requested path. When it detects `HKLM:\`, it routes the `NewItem()` execution instructions directly to the PowerShell Registry Provider API rather than the FileSystem API, mapping a unified syntax across disparate data stores.
+**Q:** A developer runs `New-Item -Path C:\Logs\App.log -ItemType File`. The `Logs` directory does not currently exist, so the command throws a "DirectoryNotFoundException". How do you alter the command to fix this?
+**A:** You must append the `-Force` flag. In the FileSystem provider, supplying `-Force` fundamentally alters the behavior of directory resolution, causing the provider to automatically traverse the path and scaffold any missing parent directories (`C:\Logs`) before finally instantiating the requested file.
+**Q:** What is the functional and destructive difference between executing `New-Item -Path config.ini` versus `New-Item -Path config.ini -Force` on a file that already exists and contains data?
+**A:** Without `-Force`, the cmdlet detects that the file already exists and immediately throws a terminating "Item Already Exists" `IOException`, leaving the file contents entirely safe and unmodified. When `-Force` is applied, the cmdlet bypasses the collision check, violently overwrites the file, truncates its existing data to 0 bytes, and creates a blank file, destroying the original contents.
+**Q:** Explain why `New-Item` is capable of creating a Windows Registry key just as easily as it creates a text file.
+**A:** `New-Item` relies on PowerShell's Provider architecture. It acts as an abstraction layer (a router) that evaluates the requested path. When it detects `HKLM:\`, it routes the `NewItem()` execution instructions directly to the PowerShell Registry Provider API rather than the FileSystem API, mapping a unified syntax across disparate data stores.
 
 ## Practice Problems
 
-- _Problem:_ Safely create an empty file named `audit.log` located inside `C:\Temp\Reports\`, instructing PowerShell to automatically generate any missing parent folders without prompting for confirmation.
-  - _Hint:_ Combine the path, the specific item type, and the execution override flag.
-  - _Solution:_ `New-Item -Path C:\Temp\Reports\audit.log -ItemType File -Force` (This creates the nested directories and drops the empty file seamlessly).
-- _Problem:_ Create a new directory named `ProjectX` in the current working directory, but run it in a simulation mode that only outputs text describing what would happen, without actually altering the filesystem.
-  - _Hint:_ Declare the item type and append the simulation flag.
-  - _Solution:_ `New-Item -Path .\ProjectX -ItemType Directory -WhatIf` (This intercepts the system call and prints a "What if: Performing the operation..." safety message).
+**Problem:** Safely create an empty file named `audit.log` located inside `C:\Temp\Reports\`, instructing PowerShell to automatically generate any missing parent folders without prompting for confirmation.
+**Hint:** Combine the path, the specific item type, and the execution override flag.
+**Solution:** `New-Item -Path C:\Temp\Reports\audit.log -ItemType File -Force` (This creates the nested directories and drops the empty file seamlessly).
+**Problem:** Create a new directory named `ProjectX` in the current working directory, but run it in a simulation mode that only outputs text describing what would happen, without actually altering the filesystem.
+**Hint:** Declare the item type and append the simulation flag.
+**Solution:** `New-Item -Path .\ProjectX -ItemType Directory -WhatIf` (This intercepts the system call and prints a "What if: Performing the operation..." safety message).
 
 ## References
 

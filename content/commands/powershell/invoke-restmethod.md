@@ -161,21 +161,21 @@ Once the payload is received, the cmdlet intercepts the HTTP `Content-Type` head
 
 ## Interview Questions
 
-- _Query:_ A script sends a POST request to an API using `Invoke-RestMethod`. The `-Body` parameter is assigned a custom PowerShell object. The remote API returns a "400 Bad Request: Invalid JSON" error. What is the fundamental issue and how is it corrected?
-  - _A:_ `Invoke-RestMethod` automatically deserializes _incoming_ JSON responses, but it does _not_ automatically serialize _outgoing_ objects in the `-Body` parameter into JSON strings. It attempts to stringify the object natively, passing useless type names. You must explicitly pipe the object to `ConvertTo-Json` before passing it to the `-Body` parameter.
-- _Query:_ What is the primary architectural difference between `Invoke-RestMethod` and `Invoke-WebRequest`, and when must you choose the latter?
-  - _A:_ `Invoke-WebRequest` captures and returns the complete HTTP response envelope, including the raw content string, status codes, and HTTP headers. `Invoke-RestMethod` intercepts the payload, hides the headers/status codes, automatically parses JSON or XML into native PowerShell objects, and returns only those objects. You must choose `Invoke-WebRequest` if you need to read specific response headers (like pagination links) or download raw binary files.
-- _Query:_ In older versions of PowerShell (5.1), you attempt to query a modern API but receive a "The request was aborted: Could not create SSL/TLS secure channel" error. What is causing this, and what command resolves it?
-  - _A:_ Older .NET Framework versions default to negotiating legacy, insecure SSL/TLS protocols (like TLS 1.0), which modern APIs actively reject. You must force the session to negotiate modern cryptography by executing `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` before calling the cmdlet.
+**Q:** A script sends a POST request to an API using `Invoke-RestMethod`. The `-Body` parameter is assigned a custom PowerShell object. The remote API returns a "400 Bad Request: Invalid JSON" error. What is the fundamental issue and how is it corrected?
+**A:** `Invoke-RestMethod` automatically deserializes _incoming_ JSON responses, but it does _not_ automatically serialize _outgoing_ objects in the `-Body` parameter into JSON strings. It attempts to stringify the object natively, passing useless type names. You must explicitly pipe the object to `ConvertTo-Json` before passing it to the `-Body` parameter.
+**Q:** What is the primary architectural difference between `Invoke-RestMethod` and `Invoke-WebRequest`, and when must you choose the latter?
+**A:** `Invoke-WebRequest` captures and returns the complete HTTP response envelope, including the raw content string, status codes, and HTTP headers. `Invoke-RestMethod` intercepts the payload, hides the headers/status codes, automatically parses JSON or XML into native PowerShell objects, and returns only those objects. You must choose `Invoke-WebRequest` if you need to read specific response headers (like pagination links) or download raw binary files.
+**Q:** In older versions of PowerShell (5.1), you attempt to query a modern API but receive a "The request was aborted: Could not create SSL/TLS secure channel" error. What is causing this, and what command resolves it?
+**A:** Older .NET Framework versions default to negotiating legacy, insecure SSL/TLS protocols (like TLS 1.0), which modern APIs actively reject. You must force the session to negotiate modern cryptography by executing `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` before calling the cmdlet.
 
 ## Practice Problems
 
-- _Problem:_ Retrieve a JSON payload from `https://jsonplaceholder.typicode.com/posts/1` and extract just the text value of the `title` property.
-  - _Hint:_ The cmdlet automatically converts JSON to a PSCustomObject, so you can access properties using dot notation or `Select-Object`.
-  - _Solution:_ `(Invoke-RestMethod -Uri "https://jsonplaceholder.typicode.com/posts/1").title` (This instantly deserializes the payload and pulls the specific nested string).
-- _Problem:_ Send an HTTP POST request to `https://api.internal/create`, passing the JSON payload `{"status":"active"}`. Ensure the request bypasses SSL certificate validation errors.
-  - _Hint:_ You must supply the explicit method, convert the hashtable to JSON, set the content type, and apply the certificate bypass flag.
-  - _Solution:_ `Invoke-RestMethod -Uri "https://api.internal/create" -Method Post -Body (@{status="active"} | ConvertTo-Json) -ContentType "application/json" -SkipCertificateCheck` (This executes an insecure backend request passing the correctly serialized payload).
+**Problem:** Retrieve a JSON payload from `https://jsonplaceholder.typicode.com/posts/1` and extract just the text value of the `title` property.
+**Hint:** The cmdlet automatically converts JSON to a PSCustomObject, so you can access properties using dot notation or `Select-Object`.
+**Solution:** `(Invoke-RestMethod -Uri "https://jsonplaceholder.typicode.com/posts/1").title` (This instantly deserializes the payload and pulls the specific nested string).
+**Problem:** Send an HTTP POST request to `https://api.internal/create`, passing the JSON payload `{"status":"active"}`. Ensure the request bypasses SSL certificate validation errors.
+**Hint:** You must supply the explicit method, convert the hashtable to JSON, set the content type, and apply the certificate bypass flag.
+**Solution:** `Invoke-RestMethod -Uri "https://api.internal/create" -Method Post -Body (@{status="active"} | ConvertTo-Json) -ContentType "application/json" -SkipCertificateCheck` (This executes an insecure backend request passing the correctly serialized payload).
 
 ## References
 

@@ -169,21 +169,21 @@ When the child process finishes its work, it terminates and sends a `SIGCHLD` si
 
 ## Interview Questions
 
-- _Query:_ A developer writes a script that spawns 10 background tasks using `&` and places a `sleep 30` command at the end to ensure they finish before the script exits. What are the two massive architectural flaws in this logic, and how does `wait` solve them?
-  - _A:_ First, it creates a race condition: if the tasks take 35 seconds, the script exits prematurely, killing the background jobs and corrupting the data. Second, it wastes time: if the tasks finish in 5 seconds, the script pointlessly hangs for another 25 seconds. The `wait` command solves both by dynamically blocking execution based entirely on kernel process events, guaranteeing execution resumes at the exact millisecond the final background job completes, regardless of how long it takes.
-- _Query:_ You spawn three background jobs. Job A succeeds, Job B fails with exit code 1, and Job C succeeds. If you run `wait` with absolutely no arguments at the end of the script, what exit status (`$?`) does the `wait` command yield to the parent script?
-  - _A:_ When invoked with no arguments, `wait` returns the exit status of the _last background job to terminate_. If Job C was the last one to finish, `wait` will return `0` (success), completely swallowing and hiding the fact that Job B failed. To guarantee error detection, the script must track the PIDs and invoke `wait <PID>` individually.
-- _Query:_ Why will the command `wait 1` fundamentally fail if executed by a standard user in a bash script, even though Process ID 1 (systemd/init) is clearly running on the machine?
-  - _A:_ The shell built-in `wait` command interfaces with the kernel `waitpid()` syscall, which is architecturally constrained to only monitor the exit status of direct _child_ processes. Because PID 1 was not spawned by the current bash shell, it is considered a foreign process, and bash will instantly throw a `not a child of this shell` error.
+**Q:** A developer writes a script that spawns 10 background tasks using `&` and places a `sleep 30` command at the end to ensure they finish before the script exits. What are the two massive architectural flaws in this logic, and how does `wait` solve them?
+**A:** First, it creates a race condition: if the tasks take 35 seconds, the script exits prematurely, killing the background jobs and corrupting the data. Second, it wastes time: if the tasks finish in 5 seconds, the script pointlessly hangs for another 25 seconds. The `wait` command solves both by dynamically blocking execution based entirely on kernel process events, guaranteeing execution resumes at the exact millisecond the final background job completes, regardless of how long it takes.
+**Q:** You spawn three background jobs. Job A succeeds, Job B fails with exit code 1, and Job C succeeds. If you run `wait` with absolutely no arguments at the end of the script, what exit status (`$?`) does the `wait` command yield to the parent script?
+**A:** When invoked with no arguments, `wait` returns the exit status of the _last background job to terminate_. If Job C was the last one to finish, `wait` will return `0` (success), completely swallowing and hiding the fact that Job B failed. To guarantee error detection, the script must track the PIDs and invoke `wait <PID>` individually.
+**Q:** Why will the command `wait 1` fundamentally fail if executed by a standard user in a bash script, even though Process ID 1 (systemd/init) is clearly running on the machine?
+**A:** The shell built-in `wait` command interfaces with the kernel `waitpid()` syscall, which is architecturally constrained to only monitor the exit status of direct _child_ processes. Because PID 1 was not spawned by the current bash shell, it is considered a foreign process, and bash will instantly throw a `not a child of this shell` error.
 
 ## Practice Problems
 
-- _Problem:_ Spawn two background commands: `sleep 3` and `sleep 10`. Instruct the script to pause, but allow it to continue executing the exact moment the very first command (`sleep 3`) finishes, without waiting for the 10-second timer to conclude.
-  - _Hint:_ Utilize the specific flag that drops the barrier on the first termination event.
-  - _Solution:_ `sleep 3 & sleep 10 & wait -n` (The `-n` flag releases the block the instant any child process terminates).
-- _Problem:_ Launch an update command `apt-get upgrade -y` in the background. Capture its Process ID into a variable named `UPDATE_PID`, force the script to wait specifically for that process to finish, and extract its exact integer exit code.
-  - _Hint:_ Rely on the automatic `$!` variable to catch the PID, apply it as an argument to the barrier command, and echo the `$?` variable.
-  - _Solution:_ `apt-get upgrade -y & UPDATE_PID=$!; wait $UPDATE_PID; echo "Exit code: $?"` (This isolates the background execution and cleanly captures its termination state).
+**Problem:** Spawn two background commands: `sleep 3` and `sleep 10`. Instruct the script to pause, but allow it to continue executing the exact moment the very first command (`sleep 3`) finishes, without waiting for the 10-second timer to conclude.
+**Hint:** Utilize the specific flag that drops the barrier on the first termination event.
+**Solution:** `sleep 3 & sleep 10 & wait -n` (The `-n` flag releases the block the instant any child process terminates).
+**Problem:** Launch an update command `apt-get upgrade -y` in the background. Capture its Process ID into a variable named `UPDATE_PID`, force the script to wait specifically for that process to finish, and extract its exact integer exit code.
+**Hint:** Rely on the automatic `$!` variable to catch the PID, apply it as an argument to the barrier command, and echo the `$?` variable.
+**Solution:** `apt-get upgrade -y & UPDATE_PID=$!; wait $UPDATE_PID; echo "Exit code: $?"` (This isolates the background execution and cleanly captures its termination state).
 
 ## References
 

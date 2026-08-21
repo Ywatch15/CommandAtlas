@@ -149,21 +149,21 @@ If any other valid filesystem entry (files, symlinks, hidden dotfiles) is detect
 
 ## Interview Questions
 
-- _Query:_ What specific internal condition must the Linux kernel verify before it permits the `rmdir()` system call to succeed?
-  - _A:_ The kernel must verify that the directory's data blocks contain absolutely no file or directory entries other than the standard `.` (current directory) and `..` (parent directory) hard links. If any other inode reference exists, it throws an `ENOTEMPTY` error.
-- _Query:_ If a script executes `rmdir -p a/b/c`, and directory `b` contains a hidden file named `.config`, what will happen during execution?
-  - _A:_ `rmdir` will successfully delete directory `c` (assuming it is entirely empty). It will then step up to directory `b` and attempt to delete it. Because `b` contains `.config`, the kernel throws `ENOTEMPTY`. The `rmdir` command stops execution immediately, leaving `a` and `b` intact.
-- _Query:_ Why is using `rmdir` inherently safer than using `rm -r` in automated deployment pipelines?
-  - _A:_ `rm -r` blindly traverses and destroys all data within a specified path. If a variable fails to expand (e.g., `rm -r $TARGET/`), it could default to destroying the root tree. `rmdir` inherently refuses to delete directories containing data, acting as a strict safety constraint against catastrophic automated data loss.
+**Q:** What specific internal condition must the Linux kernel verify before it permits the `rmdir()` system call to succeed?
+**A:** The kernel must verify that the directory's data blocks contain absolutely no file or directory entries other than the standard `.` (current directory) and `..` (parent directory) hard links. If any other inode reference exists, it throws an `ENOTEMPTY` error.
+**Q:** If a script executes `rmdir -p a/b/c`, and directory `b` contains a hidden file named `.config`, what will happen during execution?
+**A:** `rmdir` will successfully delete directory `c` (assuming it is entirely empty). It will then step up to directory `b` and attempt to delete it. Because `b` contains `.config`, the kernel throws `ENOTEMPTY`. The `rmdir` command stops execution immediately, leaving `a` and `b` intact.
+**Q:** Why is using `rmdir` inherently safer than using `rm -r` in automated deployment pipelines?
+**A:** `rm -r` blindly traverses and destroys all data within a specified path. If a variable fails to expand (e.g., `rm -r $TARGET/`), it could default to destroying the root tree. `rmdir` inherently refuses to delete directories containing data, acting as a strict safety constraint against catastrophic automated data loss.
 
 ## Practice Problems
 
-- _Problem:_ Remove an empty directory named `old_backups`, but configure the command so that it exits completely silently and successfully even if `old_backups` turns out to contain files.
-  - _Hint:_ Use the strict removal utility combined with the flag that suppresses non-empty failure states.
-  - _Solution:_ `rmdir --ignore-fail-on-non-empty old_backups` (This attempts a safe delete but swallows the error if the safety check fails).
-- _Problem:_ Remove a nested empty folder path `projects/archived/2022/`, and ensure that if `archived` and `projects` become empty as a result, they are also automatically removed in a single command.
-  - _Hint:_ Utilize the parent-traversal flag.
-  - _Solution:_ `rmdir -p projects/archived/2022/` (This executes sequential deletion up the directory tree until it hits a non-empty folder).
+**Problem:** Remove an empty directory named `old_backups`, but configure the command so that it exits completely silently and successfully even if `old_backups` turns out to contain files.
+**Hint:** Use the strict removal utility combined with the flag that suppresses non-empty failure states.
+**Solution:** `rmdir --ignore-fail-on-non-empty old_backups` (This attempts a safe delete but swallows the error if the safety check fails).
+**Problem:** Remove a nested empty folder path `projects/archived/2022/`, and ensure that if `archived` and `projects` become empty as a result, they are also automatically removed in a single command.
+**Hint:** Utilize the parent-traversal flag.
+**Solution:** `rmdir -p projects/archived/2022/` (This executes sequential deletion up the directory tree until it hits a non-empty folder).
 
 ## References
 

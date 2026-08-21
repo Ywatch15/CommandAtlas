@@ -168,21 +168,21 @@ It compares the inode and device ID of the target file/port against the symbolic
 
 ## Interview Questions
 
-- _Query:_ An operations engineer runs `fuser -m /mnt/data` to find out who is locking a network share, but the command returns no output. However, `umount /mnt/data` still fails with "target is busy". What is the most likely reason `fuser` failed to see the locking process?
-  - _A:_ The engineer likely ran `fuser` as a standard, unprivileged user. The `/proc/[PID]/fd/` directories are protected by strict kernel access controls. If the process locking the mount point is owned by `root` or another user, a standard user cannot see its file descriptors. The command must be run with `sudo fuser -m /mnt/data` to gain absolute visibility.
-- _Query:_ What do the single-letter access codes (like `c`, `e`, `f`) mean when `fuser` returns a list of PIDs?
-  - _A:_ The codes designate exactly _how_ the process is interacting with the file. `c` means the file is the process's current working directory. `e` means the file is the actual executable binary being run. `f` indicates standard open file descriptor (read/write access), and `m` indicates the file is a mapped library or shared object.
-- _Query:_ How does `fuser` interact with the kernel to determine which process is listening on a specific TCP port?
-  - _A:_ `fuser` reads the `/proc/net/tcp` (or `tcp6`) virtual file to find the hex-encoded local port and extracts its associated socket inode number. It then iterates through every running process directory in `/proc/[PID]/fd/`, examining the symbolic links of open file descriptors to find a direct match against that specific socket inode.
+**Q:** An operations engineer runs `fuser -m /mnt/data` to find out who is locking a network share, but the command returns no output. However, `umount /mnt/data` still fails with "target is busy". What is the most likely reason `fuser` failed to see the locking process?
+**A:** The engineer likely ran `fuser` as a standard, unprivileged user. The `/proc/[PID]/fd/` directories are protected by strict kernel access controls. If the process locking the mount point is owned by `root` or another user, a standard user cannot see its file descriptors. The command must be run with `sudo fuser -m /mnt/data` to gain absolute visibility.
+**Q:** What do the single-letter access codes (like `c`, `e`, `f`) mean when `fuser` returns a list of PIDs?
+**A:** The codes designate exactly _how_ the process is interacting with the file. `c` means the file is the process's current working directory. `e` means the file is the actual executable binary being run. `f` indicates standard open file descriptor (read/write access), and `m` indicates the file is a mapped library or shared object.
+**Q:** How does `fuser` interact with the kernel to determine which process is listening on a specific TCP port?
+**A:** `fuser` reads the `/proc/net/tcp` (or `tcp6`) virtual file to find the hex-encoded local port and extracts its associated socket inode number. It then iterates through every running process directory in `/proc/[PID]/fd/`, examining the symbolic links of open file descriptors to find a direct match against that specific socket inode.
 
 ## Practice Problems
 
-- _Problem:_ Find out exactly which process and user is currently bound to and listening on TCP port 3306, outputting the results in a detailed, readable table.
-  - _Hint:_ Target the tcp namespace, specify the port, and use the verbose output flag.
-  - _Solution:_ `sudo fuser -v -n tcp 3306` (This provides the comprehensive PID, USER, and COMMAND mapping).
-- _Problem:_ Safely terminate all processes locking the `/opt/app/` directory by sending them a graceful `SIGTERM` signal, ensuring the system prompts you for confirmation before each kill.
-  - _Hint:_ Combine the kill flag, the specific signal override, the interactive flag, and the mount/directory flag.
-  - _Solution:_ `sudo fuser -k -15 -i -m /opt/app/` (This executes a controlled, operator-verified teardown of directory locks).
+**Problem:** Find out exactly which process and user is currently bound to and listening on TCP port 3306, outputting the results in a detailed, readable table.
+**Hint:** Target the tcp namespace, specify the port, and use the verbose output flag.
+**Solution:** `sudo fuser -v -n tcp 3306` (This provides the comprehensive PID, USER, and COMMAND mapping).
+**Problem:** Safely terminate all processes locking the `/opt/app/` directory by sending them a graceful `SIGTERM` signal, ensuring the system prompts you for confirmation before each kill.
+**Hint:** Combine the kill flag, the specific signal override, the interactive flag, and the mount/directory flag.
+**Solution:** `sudo fuser -k -15 -i -m /opt/app/` (This executes a controlled, operator-verified teardown of directory locks).
 
 ## References
 

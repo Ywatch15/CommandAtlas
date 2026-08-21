@@ -164,21 +164,21 @@ Upon receiving the HTTP `PATCH` request, the Kubernetes API Server validates the
 
 ## Interview Questions
 
-- **Q:** What happens architecturally in a Kubernetes cluster when you remove the `app=nginx` label from a Pod that is currently actively serving traffic behind a Service configured to select `app=nginx`?
-  - **A:** The moment the label is stripped, an event is emitted by the API server. The Endpoints controller (or EndpointSlice controller) receives this event, detects that the Pod no longer matches the Service's selector, and immediately removes the Pod's IP address from the Endpoint object. `kube-proxy` then updates the node routing rules (iptables/IPVS), and the Pod stops receiving live network traffic without being killed.
-- **Q:** Why does `kubectl label` require the `--overwrite` flag when modifying an existing key?
-  - **A:** It serves as a safety mechanism to prevent unintended collision and configuration drift. Because labels drive critical routing and scheduling logic, silently modifying a key could break routing paths. `--overwrite` forces the operator to explicitly acknowledge the destructive update.
-- **Q:** You want to attach a 500-line JSON configuration string to a Deployment object for a custom operator to read. Should you use `kubectl label`? Why or why not?
-  - **A:** No. You should use `kubectl annotate`. Labels enforce strict length limits (maximum 63 characters for values) and character constraints (RFC 1123), making them structurally incapable of holding large JSON blobs. Labels are for querying; annotations are for arbitrary metadata payloads.
+**Q:** What happens architecturally in a Kubernetes cluster when you remove the `app=nginx` label from a Pod that is currently actively serving traffic behind a Service configured to select `app=nginx`?
+**A:** The moment the label is stripped, an event is emitted by the API server. The Endpoints controller (or EndpointSlice controller) receives this event, detects that the Pod no longer matches the Service's selector, and immediately removes the Pod's IP address from the Endpoint object. `kube-proxy` then updates the node routing rules (iptables/IPVS), and the Pod stops receiving live network traffic without being killed.
+**Q:** Why does `kubectl label` require the `--overwrite` flag when modifying an existing key?
+**A:** It serves as a safety mechanism to prevent unintended collision and configuration drift. Because labels drive critical routing and scheduling logic, silently modifying a key could break routing paths. `--overwrite` forces the operator to explicitly acknowledge the destructive update.
+**Q:** You want to attach a 500-line JSON configuration string to a Deployment object for a custom operator to read. Should you use `kubectl label`? Why or why not?
+**A:** No. You should use `kubectl annotate`. Labels enforce strict length limits (maximum 63 characters for values) and character constraints (RFC 1123), making them structurally incapable of holding large JSON blobs. Labels are for querying; annotations are for arbitrary metadata payloads.
 
 ## Practice Problems
 
-- _Problem:_ Assign a scheduling label `accelerator=nvidia-t4` to a node named `ai-worker-01`, forcing the update even if an `accelerator` label already exists.
-  - _Hint:_ Combine the node target with the label key-value pair and the explicit overwrite flag.
-  - _Solution:_ `kubectl label node ai-worker-01 accelerator=nvidia-t4 --overwrite`
-- _Problem:_ Remove the `beta-feature` label entirely from all Deployments currently running in the `staging` namespace.
-  - _Hint:_ Use the `--all` flag, target the namespace, and append the minus sign to the label key.
-  - _Solution:_ `kubectl label deployments --all beta-feature- -n staging`
+**Problem:** Assign a scheduling label `accelerator=nvidia-t4` to a node named `ai-worker-01`, forcing the update even if an `accelerator` label already exists.
+**Hint:** Combine the node target with the label key-value pair and the explicit overwrite flag.
+**Solution:** `kubectl label node ai-worker-01 accelerator=nvidia-t4 --overwrite`
+**Problem:** Remove the `beta-feature` label entirely from all Deployments currently running in the `staging` namespace.
+**Hint:** Use the `--all` flag, target the namespace, and append the minus sign to the label key.
+**Solution:** `kubectl label deployments --all beta-feature- -n staging`
 
 ## References
 

@@ -139,21 +139,21 @@ If a single symbol cannot be resolved (because a dependency is missing), the ker
 
 ## Interview Questions
 
-- **Q:** You compile a custom kernel module and attempt to load it using `insmod my_driver.ko`, but it fails with the error "Unknown symbol in module". What is the architectural cause of this error?
-  - **A:** The `insmod` command is a low-level injection tool that lacks dependency resolution. The error indicates your module contains code that calls functions or references variables (symbols) residing in a different kernel module that is currently not loaded into memory. To resolve this, you must either `insmod` the required dependencies first, or properly integrate the module into `/lib/modules/` and use `modprobe`.
-- **Q:** Why is the `insmod` command frequently blocked on modern enterprise Linux servers, even when executed by the root user?
-  - **A:** Modern enterprise servers frequently enforce UEFI Secure Boot and Kernel Lockdown constraints. Under these conditions, the kernel's `finit_module` system call refuses to load arbitrary code. It cryptographically verifies the signature of the `.ko` file against trusted keys. If the module is unsigned or self-signed with an untrusted key, `insmod` is blocked to prevent rootkit injections.
-- **Q:** Can you pass dynamic runtime configurations to a module using `insmod`? If so, how?
-  - **A:** Yes. Any arguments appended to the `insmod` command line following the file path are passed directly to the kernel module as parameter strings. For example, `insmod driver.ko mode=1` allows the module's C code to evaluate the `mode` variable dynamically during initialization.
+**Q:** You compile a custom kernel module and attempt to load it using `insmod my_driver.ko`, but it fails with the error "Unknown symbol in module". What is the architectural cause of this error?
+**A:** The `insmod` command is a low-level injection tool that lacks dependency resolution. The error indicates your module contains code that calls functions or references variables (symbols) residing in a different kernel module that is currently not loaded into memory. To resolve this, you must either `insmod` the required dependencies first, or properly integrate the module into `/lib/modules/` and use `modprobe`.
+**Q:** Why is the `insmod` command frequently blocked on modern enterprise Linux servers, even when executed by the root user?
+**A:** Modern enterprise servers frequently enforce UEFI Secure Boot and Kernel Lockdown constraints. Under these conditions, the kernel's `finit_module` system call refuses to load arbitrary code. It cryptographically verifies the signature of the `.ko` file against trusted keys. If the module is unsigned or self-signed with an untrusted key, `insmod` is blocked to prevent rootkit injections.
+**Q:** Can you pass dynamic runtime configurations to a module using `insmod`? If so, how?
+**A:** Yes. Any arguments appended to the `insmod` command line following the file path are passed directly to the kernel module as parameter strings. For example, `insmod driver.ko mode=1` allows the module's C code to evaluate the `mode` variable dynamically during initialization.
 
 ## Practice Problems
 
-- _Problem:_ Manually insert a compiled kernel module located at `/tmp/test_module.ko` directly into the running kernel.
-  - _Hint:_ Invoke the low-level injection command supplying the absolute file path.
-  - _Solution:_ `insmod /tmp/test_module.ko` (This bypasses configuration indexes and forces the ELF object into kernel memory).
-- _Problem:_ Insert the kernel module `./sensor_driver.ko`, passing a parameter setting `polling_rate` to `500` explicitly to the driver initialization function.
-  - _Hint:_ Append the key=value pair directly after the filename argument.
-  - _Solution:_ `insmod ./sensor_driver.ko polling_rate=500` (The kernel intercepts the appended argument and injects it into the module's declared parameter variables).
+**Problem:** Manually insert a compiled kernel module located at `/tmp/test_module.ko` directly into the running kernel.
+**Hint:** Invoke the low-level injection command supplying the absolute file path.
+**Solution:** `insmod /tmp/test_module.ko` (This bypasses configuration indexes and forces the ELF object into kernel memory).
+**Problem:** Insert the kernel module `./sensor_driver.ko`, passing a parameter setting `polling_rate` to `500` explicitly to the driver initialization function.
+**Hint:** Append the key=value pair directly after the filename argument.
+**Solution:** `insmod ./sensor_driver.ko polling_rate=500` (The kernel intercepts the appended argument and injects it into the module's declared parameter variables).
 
 ## References
 

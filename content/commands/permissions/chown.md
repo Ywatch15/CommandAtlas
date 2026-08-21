@@ -172,21 +172,21 @@ Crucially, as a hardcoded security precaution against privilege escalation, the 
 
 ## Interview Questions
 
-- _Query:_ Why can the `root` user successfully execute `chown bob:bob secret.txt`, but user `bob` receives an "Operation not permitted" error if he attempts to execute `chown alice:alice secret.txt` to give his own file away?
-  - _A:_ The Linux kernel enforces a strict security restriction on the `chown()` system call. Unprivileged users are explicitly blocked from "giving away" user ownership of their files to other users. This prevents malicious actors from bypassing user storage disk quotas, or planting malicious SetUID binaries and assigning them to high-privileged administrative users.
-- _Query:_ A deployment script runs `chown -R appuser:appgroup /opt/app/`. The directory contains a symbolic link pointing to a critical system file in `/etc/`. What happens to the ownership of the file in `/etc/`?
-  - _A:_ By default, `chown` recursively traversing a directory does _not_ follow symbolic links (due to the default `-P` behavior), meaning it will attempt to change the ownership of the symlink _file_ itself, leaving the critical target file in `/etc/` safely untouched. (However, if `chown` is run directly on the symlink without `-R`, it _will_ dereference it and alter the target file unless `-h` is passed).
-- _Query:_ What automatic security action does the Linux kernel take the exact moment a file's ownership is altered via `chown`?
-  - _A:_ As a hardcoded defense mechanism against privilege escalation, the kernel automatically strips and clears the SetUID (`4000`) and SetGID (`2000`) execution bits from the file's inode `st_mode` mask upon any successful ownership change.
+**Q:** Why can the `root` user successfully execute `chown bob:bob secret.txt`, but user `bob` receives an "Operation not permitted" error if he attempts to execute `chown alice:alice secret.txt` to give his own file away?
+**A:** The Linux kernel enforces a strict security restriction on the `chown()` system call. Unprivileged users are explicitly blocked from "giving away" user ownership of their files to other users. This prevents malicious actors from bypassing user storage disk quotas, or planting malicious SetUID binaries and assigning them to high-privileged administrative users.
+**Q:** A deployment script runs `chown -R appuser:appgroup /opt/app/`. The directory contains a symbolic link pointing to a critical system file in `/etc/`. What happens to the ownership of the file in `/etc/`?
+**A:** By default, `chown` recursively traversing a directory does _not_ follow symbolic links (due to the default `-P` behavior), meaning it will attempt to change the ownership of the symlink _file_ itself, leaving the critical target file in `/etc/` safely untouched. (However, if `chown` is run directly on the symlink without `-R`, it _will_ dereference it and alter the target file unless `-h` is passed).
+**Q:** What automatic security action does the Linux kernel take the exact moment a file's ownership is altered via `chown`?
+**A:** As a hardcoded defense mechanism against privilege escalation, the kernel automatically strips and clears the SetUID (`4000`) and SetGID (`2000`) execution bits from the file's inode `st_mode` mask upon any successful ownership change.
 
 ## Practice Problems
 
-- _Problem:_ Change the user ownership of all files and folders inside `/var/lib/postgresql/` to `postgres`, and set their group ownership to `db_admins`, recursively modifying the entire tree.
-  - _Hint:_ Combine the recursive flag, the user and group identifiers separated by a colon, and the target path.
-  - _Solution:_ `chown -R postgres:db_admins /var/lib/postgresql/` (This correctly reassigns the application state to the service daemon and administrative group).
-- _Problem:_ Alter the group ownership of `script.sh` to `devops` without modifying the current user ownership, and print a diagnostic message only if a change successfully occurs.
-  - _Hint:_ Leave the user field empty before the colon to behave like chgrp, and use the changes logging flag.
-  - _Solution:_ `chown -c :devops script.sh` (This safely updates group boundaries and minimizes script output noise).
+**Problem:** Change the user ownership of all files and folders inside `/var/lib/postgresql/` to `postgres`, and set their group ownership to `db_admins`, recursively modifying the entire tree.
+**Hint:** Combine the recursive flag, the user and group identifiers separated by a colon, and the target path.
+**Solution:** `chown -R postgres:db_admins /var/lib/postgresql/` (This correctly reassigns the application state to the service daemon and administrative group).
+**Problem:** Alter the group ownership of `script.sh` to `devops` without modifying the current user ownership, and print a diagnostic message only if a change successfully occurs.
+**Hint:** Leave the user field empty before the colon to behave like chgrp, and use the changes logging flag.
+**Solution:** `chown -c :devops script.sh` (This safely updates group boundaries and minimizes script output noise).
 
 ## References
 

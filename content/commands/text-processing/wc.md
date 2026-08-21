@@ -173,21 +173,21 @@ Crucially, modern GNU `wc -c` (byte count) includes a profound kernel optimizati
 
 ## Interview Questions
 
-- _Query:_ A developer runs `printf "Line 1\nLine 2" | wc -l`. The terminal outputs `1`, even though there are clearly two lines of text. Explain the architectural definition of `-l` that causes this discrepancy.
-  - _A:_ The `-l` flag in `wc` does not technically count "lines of text." It strictly counts the number of newline characters (`\n`) present in the byte stream. Because the `printf` statement explicitly omits the final trailing newline after `Line 2`, there is mathematically only one `\n` character in the entire string. Thus, `wc` accurately returns `1`.
-- _Query:_ In a shell script, what is the functional difference between defining a variable using `COUNT=$(wc -l mylog.txt)` versus `COUNT=$(wc -l < mylog.txt)`, and why is the latter considered a required best practice?
-  - _A:_ The first syntax passes the filename as a standard argument. `wc` will output both the count and the filename (e.g., `500 mylog.txt`). The `$COUNT` variable now contains a string. If the script attempts to use `$COUNT` in a math evaluation (`[ $COUNT -gt 100 ]`), Bash will crash. The second syntax uses shell redirection `<` to stream the file contents via standard input. `wc` receives the data anonymously, outputting strictly the integer `500`, guaranteeing mathematical safety in the script.
-- _Query:_ A system contains a 50-Gigabyte text file. Why does executing `wc -c file.txt` return the result almost instantly, whereas executing `wc -m file.txt` freezes the terminal for several minutes?
-  - _A:_ `wc -c` (byte count) is heavily optimized by the kernel. When executed against a physical file, `wc` bypasses reading the data entirely and invokes an `fstat()` system call, reading the file's exact physical byte size from the hard drive's inode metadata instantly ($O(1)$ time). `wc -m` (character count) must account for multi-byte Unicode (UTF-8) characters. It cannot rely on metadata. It must physically open the 50GB file, read every single byte into memory, and mathematically decode the UTF-8 sequences to calculate the true logical character count, resulting in massive disk I/O and CPU overhead ($O(n)$ time).
+**Q:** A developer runs `printf "Line 1\nLine 2" | wc -l`. The terminal outputs `1`, even though there are clearly two lines of text. Explain the architectural definition of `-l` that causes this discrepancy.
+**A:** The `-l` flag in `wc` does not technically count "lines of text." It strictly counts the number of newline characters (`\n`) present in the byte stream. Because the `printf` statement explicitly omits the final trailing newline after `Line 2`, there is mathematically only one `\n` character in the entire string. Thus, `wc` accurately returns `1`.
+**Q:** In a shell script, what is the functional difference between defining a variable using `COUNT=$(wc -l mylog.txt)` versus `COUNT=$(wc -l < mylog.txt)`, and why is the latter considered a required best practice?
+**A:** The first syntax passes the filename as a standard argument. `wc` will output both the count and the filename (e.g., `500 mylog.txt`). The `$COUNT` variable now contains a string. If the script attempts to use `$COUNT` in a math evaluation (`[ $COUNT -gt 100 ]`), Bash will crash. The second syntax uses shell redirection `<` to stream the file contents via standard input. `wc` receives the data anonymously, outputting strictly the integer `500`, guaranteeing mathematical safety in the script.
+**Q:** A system contains a 50-Gigabyte text file. Why does executing `wc -c file.txt` return the result almost instantly, whereas executing `wc -m file.txt` freezes the terminal for several minutes?
+**A:** `wc -c` (byte count) is heavily optimized by the kernel. When executed against a physical file, `wc` bypasses reading the data entirely and invokes an `fstat()` system call, reading the file's exact physical byte size from the hard drive's inode metadata instantly ($O(1)$ time). `wc -m` (character count) must account for multi-byte Unicode (UTF-8) characters. It cannot rely on metadata. It must physically open the 50GB file, read every single byte into memory, and mathematically decode the UTF-8 sequences to calculate the true logical character count, resulting in massive disk I/O and CPU overhead ($O(n)$ time).
 
 ## Practice Problems
 
-- _Problem:_ Count exactly how many files and directories exist in the absolute root (`/`) directory, returning only a pure integer.
-  - _Hint:_ List the contents of the directory formatting them one per line, and pipe the output to the line-counting utility.
-  - _Solution:_ `ls -1 / | wc -l` (This pipes the isolated directory listing and suppresses output to a single integer).
-- _Problem:_ Output the absolute physical byte size of a file named `database.sqlite` into a variable named `DB_SIZE`, ensuring the filename itself is completely omitted from the variable's value.
-  - _Hint:_ Utilize the specific byte-counting flag and enforce anonymous standard input redirection to strip the filename.
-  - _Solution:_ `DB_SIZE=$(wc -c < database.sqlite)` (The `<` operator hides the file origin from the `wc` binary).
+**Problem:** Count exactly how many files and directories exist in the absolute root (`/`) directory, returning only a pure integer.
+**Hint:** List the contents of the directory formatting them one per line, and pipe the output to the line-counting utility.
+**Solution:** `ls -1 / | wc -l` (This pipes the isolated directory listing and suppresses output to a single integer).
+**Problem:** Output the absolute physical byte size of a file named `database.sqlite` into a variable named `DB_SIZE`, ensuring the filename itself is completely omitted from the variable's value.
+**Hint:** Utilize the specific byte-counting flag and enforce anonymous standard input redirection to strip the filename.
+**Solution:** `DB_SIZE=$(wc -c < database.sqlite)` (The `<` operator hides the file origin from the `wc` binary).
 
 ## References
 

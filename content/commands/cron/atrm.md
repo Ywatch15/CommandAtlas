@@ -157,23 +157,23 @@ Once authorization is confirmed, `atrm` issues a standard Unix `unlink()` system
 
 ## Interview Questions
 
-- _Query:_ What happens if you run `atrm` on a job ID that has already started executing via the `atd` daemon?
-  - _A:_ `atrm` fails to stop the task because it only unlinks _pending_ future jobs from the spool queue. Once `atd` forks and initiates execution, the task becomes an active system process, requiring standard process termination tools like `kill`.
-- _Query:_ How does `atrm` verify that a user has authorization to delete a specific queued job?
-  - _A:_ `atrm` inspects the ownership permissions of the job's corresponding file in the system spool directory. Standard users can only unlink files matching their own UID, while root can delete any job.
-- _Query:_ What is the function of the `-a` flag when passed to `atrm`?
-  - _A:_ The `-a` flag instructs `atrm` to automatically remove all pending jobs owned by the currently executing user from the queue in a single batch operation.
+**Q:** What happens if you run `atrm` on a job ID that has already started executing via the `atd` daemon?
+**A:** `atrm` fails to stop the task because it only unlinks _pending_ future jobs from the spool queue. Once `atd` forks and initiates execution, the task becomes an active system process, requiring standard process termination tools like `kill`.
+**Q:** How does `atrm` verify that a user has authorization to delete a specific queued job?
+**A:** `atrm` inspects the ownership permissions of the job's corresponding file in the system spool directory. Standard users can only unlink files matching their own UID, while root can delete any job.
+**Q:** What is the function of the `-a` flag when passed to `atrm`?
+**A:** The `-a` flag instructs `atrm` to automatically remove all pending jobs owned by the currently executing user from the queue in a single batch operation.
 
 ## Practice Problems
 
-- _Problem:_ Delete a pending deferred job with ID number `18` from the `at` queue.
-  - _Hint:_ Pass the numeric job ID directly to the deletion utility.
-  - _Solution:_ `atrm 18` (This unlinks and destroys the spool file corresponding to job ID 18).
-- _Problem:_ Remove job number `25` while running in verbose mode to print explicit confirmation of the deletion.
-  - _Hint:_ Combine the verbose flag with the job ID argument.
-  - _Solution:_ `atrm -v 25` (The `-v` flag forces the command to report successful job removal to standard output).
+**Problem:** Delete a pending deferred job with ID number `18` from the `at` queue.
+**Hint:** Pass the numeric job ID directly to the deletion utility.
+**Solution:** `atrm 18` (This unlinks and destroys the spool file corresponding to job ID 18).
+**Problem:** Remove job number `25` while running in verbose mode to print explicit confirmation of the deletion.
+**Hint:** Combine the verbose flag with the job ID argument.
+**Solution:** `atrm -v 25` (The `-v` flag forces the command to report successful job removal to standard output).
 
 ## References
 
-- - [Man Page for atrm (Linux)](https://man7.org/linux/man-pages/man1/atrm.1.html)
-- - [GNU/Linux At Utilities Documentation](https://www.gnu.org/software/inetutils/)
+- [Man Page for atrm (Linux)](https://man7.org/linux/man-pages/man1/atrm.1.html)
+- [GNU/Linux At Utilities Documentation](https://www.gnu.org/software/inetutils/)

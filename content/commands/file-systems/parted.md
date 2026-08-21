@@ -158,21 +158,21 @@ Crucially, after writing these raw bits to the disk hardware, `parted` issues a 
 
 ## Interview Questions
 
-- _Query:_ What is the primary architectural advantage of utilizing the GPT (GUID Partition Table) format over the traditional MBR (Master Boot Record) format?
-  - _A:_ MBR utilizes 32-bit sector pointers, creating an absolute hardware limit of 2 Terabytes of addressable space per disk, and only supports 4 primary partitions. GPT uses 64-bit LBA addressing, supporting disk sizes in the Zettabytes, allows for 128 primary partitions, and writes a redundant backup partition header to the very end of the disk for corruption recovery.
-- _Query:_ Why is it critical to include the `-a optimal` flag when writing an automated shell script utilizing `parted` to provision Solid State Drives (SSDs)?
-  - _A:_ Physical SSDs utilize page sizes of 4KB or larger. If a partition boundary is not aligned to these physical hardware blocks, every filesystem write straddles two physical flash pages, severely degrading write speed and degrading the drive's lifespan via Write Amplification. `-a optimal` ensures mathematically perfect 1MiB offset alignments matching modern storage physics.
-- _Query:_ A developer complains that an automation script utilizing `fdisk` hangs indefinitely when executed inside a CI pipeline. Why does this happen, and why is `parted` the solution?
-  - _A:_ `fdisk` is inherently designed as an interactive CLI application; it pauses execution to prompt users for geometric inputs and confirmation before writing. In a headless CI pipeline, there is no user to press 'enter', so the script hangs. `parted` explicitly supports a `-s` (script) batch mode, allowing complete partition manipulation in a single, non-interactive execution string.
+**Q:** What is the primary architectural advantage of utilizing the GPT (GUID Partition Table) format over the traditional MBR (Master Boot Record) format?
+**A:** MBR utilizes 32-bit sector pointers, creating an absolute hardware limit of 2 Terabytes of addressable space per disk, and only supports 4 primary partitions. GPT uses 64-bit LBA addressing, supporting disk sizes in the Zettabytes, allows for 128 primary partitions, and writes a redundant backup partition header to the very end of the disk for corruption recovery.
+**Q:** Why is it critical to include the `-a optimal` flag when writing an automated shell script utilizing `parted` to provision Solid State Drives (SSDs)?
+**A:** Physical SSDs utilize page sizes of 4KB or larger. If a partition boundary is not aligned to these physical hardware blocks, every filesystem write straddles two physical flash pages, severely degrading write speed and degrading the drive's lifespan via Write Amplification. `-a optimal` ensures mathematically perfect 1MiB offset alignments matching modern storage physics.
+**Q:** A developer complains that an automation script utilizing `fdisk` hangs indefinitely when executed inside a CI pipeline. Why does this happen, and why is `parted` the solution?
+**A:** `fdisk` is inherently designed as an interactive CLI application; it pauses execution to prompt users for geometric inputs and confirmation before writing. In a headless CI pipeline, there is no user to press 'enter', so the script hangs. `parted` explicitly supports a `-s` (script) batch mode, allowing complete partition manipulation in a single, non-interactive execution string.
 
 ## Practice Problems
 
-- _Problem:_ Execute an automated, non-interactive command to rewrite the partition table of an attached blank disk (`/dev/sdc`) to the modern GPT standard.
-  - _Hint:_ Combine the silent script mode flag with the label creation command.
-  - _Solution:_ `parted -s /dev/sdc mklabel gpt` (The `-s` flag bypasses all interactive confirmation prompts while initializing the GPT header).
-- _Problem:_ Create a single primary partition that spans the absolute entire capacity of `/dev/sdc`, ensuring the kernel calculates optimal sector alignment for the underlying SSD hardware.
-  - _Hint:_ Invoke script mode, alignment mode, the partition creation command, and use percentage indicators for boundaries.
-  - _Solution:_ `parted -s -a optimal /dev/sdc mkpart primary ext4 0% 100%` (This instantly provisions the partition spanning the full disk geometry flawlessly aligned to physical sectors).
+**Problem:** Execute an automated, non-interactive command to rewrite the partition table of an attached blank disk (`/dev/sdc`) to the modern GPT standard.
+**Hint:** Combine the silent script mode flag with the label creation command.
+**Solution:** `parted -s /dev/sdc mklabel gpt` (The `-s` flag bypasses all interactive confirmation prompts while initializing the GPT header).
+**Problem:** Create a single primary partition that spans the absolute entire capacity of `/dev/sdc`, ensuring the kernel calculates optimal sector alignment for the underlying SSD hardware.
+**Hint:** Invoke script mode, alignment mode, the partition creation command, and use percentage indicators for boundaries.
+**Solution:** `parted -s -a optimal /dev/sdc mkpart primary ext4 0% 100%` (This instantly provisions the partition spanning the full disk geometry flawlessly aligned to physical sectors).
 
 ## References
 

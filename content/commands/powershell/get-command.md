@@ -154,21 +154,21 @@ Finally, to locate `Application` types (native OS binaries), the engine maps and
 
 ## Interview Questions
 
-- _Query:_ Describe the strict precedence hierarchy PowerShell utilizes when evaluating a command string, and explain how `Get-Command` can expose conflicts within this hierarchy.
-  - _A:_ PowerShell evaluates commands in the following absolute order: **Aliases**, then **Functions**, then **Cmdlets**, and finally native **Applications** (OS executables in the PATH). If an administrator creates a function named `ping`, running the string `ping` executes the function, completely ignoring the native Windows `ping.exe`. This is called command shadowing. Executing `Get-Command ping -All` exposes this conflict by printing a hierarchical list of every entity competing for that namespace string.
-- _Query:_ Why does running `Get-Command -Module AzureRM` sometimes cause a brief delay or freeze in the terminal, even if you haven't explicitly imported the module?
-  - _A:_ This occurs due to the `PSModuleAutoLoading` mechanism. If the requested module resides in the directories specified by `$env:PSModulePath` but isn't actively loaded in RAM, `Get-Command` automatically performs a disk read. It parses the module's manifest (`.psd1`) to dynamically evaluate and compile the list of exported commands, caching the definitions so they are ready for immediate execution, resulting in an initialization delay.
-- _Query:_ You have a complex array of objects containing a mix of strings, integers, and custom `ActiveDirectory` types. You want to pass this array through the pipeline, but you don't know what cmdlets are capable of accepting the custom type natively. How do you find out?
-  - _A:_ You leverage the introspection engine by executing `Get-Command -ParameterType <Custom.Type.Name>`. `Get-Command` will iterate through the structural metadata of every installed cmdlet on the system and return a list restricted strictly to commands that expose a parameter explicitly typed to bind and process that specific object.
+**Q:** Describe the strict precedence hierarchy PowerShell utilizes when evaluating a command string, and explain how `Get-Command` can expose conflicts within this hierarchy.
+**A:** PowerShell evaluates commands in the following absolute order: **Aliases**, then **Functions**, then **Cmdlets**, and finally native **Applications** (OS executables in the PATH). If an administrator creates a function named `ping`, running the string `ping` executes the function, completely ignoring the native Windows `ping.exe`. This is called command shadowing. Executing `Get-Command ping -All` exposes this conflict by printing a hierarchical list of every entity competing for that namespace string.
+**Q:** Why does running `Get-Command -Module AzureRM` sometimes cause a brief delay or freeze in the terminal, even if you haven't explicitly imported the module?
+**A:** This occurs due to the `PSModuleAutoLoading` mechanism. If the requested module resides in the directories specified by `$env:PSModulePath` but isn't actively loaded in RAM, `Get-Command` automatically performs a disk read. It parses the module's manifest (`.psd1`) to dynamically evaluate and compile the list of exported commands, caching the definitions so they are ready for immediate execution, resulting in an initialization delay.
+**Q:** You have a complex array of objects containing a mix of strings, integers, and custom `ActiveDirectory` types. You want to pass this array through the pipeline, but you don't know what cmdlets are capable of accepting the custom type natively. How do you find out?
+**A:** You leverage the introspection engine by executing `Get-Command -ParameterType <Custom.Type.Name>`. `Get-Command` will iterate through the structural metadata of every installed cmdlet on the system and return a list restricted strictly to commands that expose a parameter explicitly typed to bind and process that specific object.
 
 ## Practice Problems
 
-- _Problem:_ Interrogate the local PowerShell session to discover every available command that accepts a generic network URL (System.Uri) as an explicit parameter type.
-  - _Hint:_ Utilize the deep structural introspection flag targeting the precise .NET object classification.
-  - _Solution:_ `Get-Command -ParameterType System.Uri` (This bypasses text parsing and queries the raw execution schema of installed tools).
-- _Problem:_ Retrieve the formal, syntactic execution signature of the `Invoke-RestMethod` cmdlet, displaying only the exact string layout of its parameters without any other tabular metadata.
-  - _Hint:_ Query the specific command and extract the property designed for displaying operational schema.
-  - _Solution:_ `Get-Command Invoke-RestMethod -Syntax` (This outputs the clean, functional representation of all accepted parameter sets directly to the terminal).
+**Problem:** Interrogate the local PowerShell session to discover every available command that accepts a generic network URL (System.Uri) as an explicit parameter type.
+**Hint:** Utilize the deep structural introspection flag targeting the precise .NET object classification.
+**Solution:** `Get-Command -ParameterType System.Uri` (This bypasses text parsing and queries the raw execution schema of installed tools).
+**Problem:** Retrieve the formal, syntactic execution signature of the `Invoke-RestMethod` cmdlet, displaying only the exact string layout of its parameters without any other tabular metadata.
+**Hint:** Query the specific command and extract the property designed for displaying operational schema.
+**Solution:** `Get-Command Invoke-RestMethod -Syntax` (This outputs the clean, functional representation of all accepted parameter sets directly to the terminal).
 
 ## References
 

@@ -119,19 +119,19 @@ When a user attempts to unlink (delete) or rename a file using system calls like
 
 ## Interview Questions
 
-- _Query:_ What security problem does the Sticky Bit solve on `/tmp`?
-  - _A:_ Without the Sticky Bit, any user with write access to `/tmp` could delete or rename any other user's files. The Sticky Bit ensures that only the file owner, directory owner, or root can delete files inside `/tmp`.
-- _Query:_ What is the difference between `t` and `T` in `ls -l` output?
-  - _A:_ Lowercase `t` means the Sticky Bit is set AND the others execute bit (`x`) is set. Uppercase `T` means the Sticky Bit is set BUT the others execute bit is NOT set.
+**Q:** What security problem does the Sticky Bit solve on `/tmp`?
+**A:** Without the Sticky Bit, any user with write access to `/tmp` could delete or rename any other user's files. The Sticky Bit ensures that only the file owner, directory owner, or root can delete files inside `/tmp`.
+**Q:** What is the difference between `t` and `T` in `ls -l` output?
+**A:** Lowercase `t` means the Sticky Bit is set AND the others execute bit (`x`) is set. Uppercase `T` means the Sticky Bit is set BUT the others execute bit is NOT set.
 
 ## Practice Problems
 
-- _Problem:_ Enable the Sticky Bit on `/srv/drop`.
-  - _Hint:_ Use chmod +t.
-  - _Solution:_ `chmod +t /srv/drop` (Adds sticky bit).
-- _Problem:_ Set permissions `1777` on `/var/shared_tmp`.
-  - _Hint:_ Use octal mode 1777 with chmod.
-  - _Solution:_ `chmod 1777 /var/shared_tmp` (Applies sticky bit with universal read/write/execute).
+**Problem:** Enable the Sticky Bit on `/srv/drop`.
+**Hint:** Use chmod +t.
+**Solution:** `chmod +t /srv/drop` (Adds sticky bit).
+**Problem:** Set permissions `1777` on `/var/shared_tmp`.
+**Hint:** Use octal mode 1777 with chmod.
+**Solution:** `chmod 1777 /var/shared_tmp` (Applies sticky bit with universal read/write/execute).
 
 ## References
 

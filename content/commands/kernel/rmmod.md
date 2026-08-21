@@ -144,21 +144,21 @@ If the reference count is `0`, the kernel invokes the module's registered `modul
 
 ## Interview Questions
 
-- _Query:_ What specific internal kernel metric dictates whether a standard `rmmod` command succeeds or fails with an `EBUSY` ("Module is in use") error?
-  - _A:_ The kernel tracks a "Reference Count" for every loaded module. This integer increments when a hardware device binds to the driver, a process opens a file descriptor associated with it, or another module depends on it. `rmmod` will strictly fail with `EBUSY` if this reference count is anything greater than `0`.
-- _Query:_ Why is the `--force` (`-f`) flag of `rmmod` widely considered a "last resort" that can easily trigger a kernel panic?
-  - _A:_ The `-f` flag bypasses the reference count safety mechanism. If the kernel forcefully unmaps the module's executable code from RAM while another driver or application holds active memory pointers expecting that code to exist, the next execution attempt hits an invalid memory address, causing a fatal CPU page fault and an immediate kernel panic.
-- _Query:_ If a developer loads a module into the kernel using `insmod /tmp/experimental.ko`, should they use `rmmod /tmp/experimental.ko` to remove it?
-  - _A:_ No. `insmod` accepts an absolute filesystem path because it reads an ELF object off the disk. `rmmod` interacts with the kernel's active memory state and requires the _logical module name_ (e.g., `rmmod experimental`), completely discarding the `.ko` extension and path.
+**Q:** What specific internal kernel metric dictates whether a standard `rmmod` command succeeds or fails with an `EBUSY` ("Module is in use") error?
+**A:** The kernel tracks a "Reference Count" for every loaded module. This integer increments when a hardware device binds to the driver, a process opens a file descriptor associated with it, or another module depends on it. `rmmod` will strictly fail with `EBUSY` if this reference count is anything greater than `0`.
+**Q:** Why is the `--force` (`-f`) flag of `rmmod` widely considered a "last resort" that can easily trigger a kernel panic?
+**A:** The `-f` flag bypasses the reference count safety mechanism. If the kernel forcefully unmaps the module's executable code from RAM while another driver or application holds active memory pointers expecting that code to exist, the next execution attempt hits an invalid memory address, causing a fatal CPU page fault and an immediate kernel panic.
+**Q:** If a developer loads a module into the kernel using `insmod /tmp/experimental.ko`, should they use `rmmod /tmp/experimental.ko` to remove it?
+**A:** No. `insmod` accepts an absolute filesystem path because it reads an ELF object off the disk. `rmmod` interacts with the kernel's active memory state and requires the _logical module name_ (e.g., `rmmod experimental`), completely discarding the `.ko` extension and path.
 
 ## Practice Problems
 
-- _Problem:_ Remove the `pcspkr` (PC Speaker) module from the active kernel to disable annoying system beep noises.
-  - _Hint:_ Target the logical name of the module with the low-level removal command.
-  - _Solution:_ `rmmod pcspkr` (The kernel verifies the reference count is zero and executes the module's teardown function).
-- _Problem:_ Attempt to remove the `kvm` module, but instruct the command to block and wait patiently for any running virtual machines to shut down and release their locks on the driver.
-  - _Hint:_ Combine the module removal command with the wait flag.
-  - _Solution:_ `rmmod -w kvm` (This defers execution safely in the background, pausing until the internal kernel reference count drops to zero).
+**Problem:** Remove the `pcspkr` (PC Speaker) module from the active kernel to disable annoying system beep noises.
+**Hint:** Target the logical name of the module with the low-level removal command.
+**Solution:** `rmmod pcspkr` (The kernel verifies the reference count is zero and executes the module's teardown function).
+**Problem:** Attempt to remove the `kvm` module, but instruct the command to block and wait patiently for any running virtual machines to shut down and release their locks on the driver.
+**Hint:** Combine the module removal command with the wait flag.
+**Solution:** `rmmod -w kvm` (This defers execution safely in the background, pausing until the internal kernel reference count drops to zero).
 
 ## References
 

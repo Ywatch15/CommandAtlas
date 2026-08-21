@@ -164,21 +164,21 @@ The Kubelet interacts with the underlying Container Runtime Interface (CRI) (suc
 
 ## Interview Questions
 
-- **Q:** You have a Pod named `api-server` that contains both the main application container and an Envoy sidecar proxy. How do you tail the logs for just the main application?
-  - **A:** Because the pod has multiple containers, `kubectl logs` will fail without explicit direction. You must use the `-c` flag to specify the target. The command would be `kubectl logs -f api-server -c <main_app_container_name>`.
-- **Q:** A pod is stuck in a `CrashLoopBackOff` state. When you run `kubectl logs`, you only see a single line saying "Starting up...", but no errors. How do you find out why it actually crashed?
-  - **A:** The standard `logs` command only shows the output of the _currently_ executing container instance, which is stuck in its initialization phase before crashing. To see the stack trace that caused the failure, you must append the `-p` (previous) flag: `kubectl logs -p <pod_name>`, which retrieves the logs of the terminated container instance.
-- **Q:** Walk through the architectural path a log line takes from the moment an application writes it to `stdout` until it appears on your terminal via `kubectl logs`.
-  - **A:** The application writes to `stdout`. The Container Runtime (e.g., containerd) captures this stream and writes it to a physical JSON-formatted log file on the worker node's disk. When `kubectl logs` is executed, the request goes to the API server, which proxies the request to the Kubelet on that specific node. The Kubelet reads the log file from disk and streams it back through the API server to the developer's terminal.
+**Q:** You have a Pod named `api-server` that contains both the main application container and an Envoy sidecar proxy. How do you tail the logs for just the main application?
+**A:** Because the pod has multiple containers, `kubectl logs` will fail without explicit direction. You must use the `-c` flag to specify the target. The command would be `kubectl logs -f api-server -c <main_app_container_name>`.
+**Q:** A pod is stuck in a `CrashLoopBackOff` state. When you run `kubectl logs`, you only see a single line saying "Starting up...", but no errors. How do you find out why it actually crashed?
+**A:** The standard `logs` command only shows the output of the _currently_ executing container instance, which is stuck in its initialization phase before crashing. To see the stack trace that caused the failure, you must append the `-p` (previous) flag: `kubectl logs -p <pod_name>`, which retrieves the logs of the terminated container instance.
+**Q:** Walk through the architectural path a log line takes from the moment an application writes it to `stdout` until it appears on your terminal via `kubectl logs`.
+**A:** The application writes to `stdout`. The Container Runtime (e.g., containerd) captures this stream and writes it to a physical JSON-formatted log file on the worker node's disk. When `kubectl logs` is executed, the request goes to the API server, which proxies the request to the Kubelet on that specific node. The Kubelet reads the log file from disk and streams it back through the API server to the developer's terminal.
 
 ## Practice Problems
 
-- _Problem:_ Retrieve the logs for a pod named `auth-worker-99`, but restrict the output to only the logs generated within the last 30 minutes, and append precise network timestamps to the lines.
-  - _Hint:_ Combine the relative time flag with the timestamp enablement flag.
-  - _Solution:_ `kubectl logs auth-worker-99 --since=30m --timestamps` (This filters the proxy stream temporally and enriches the output format).
-- _Problem:_ Continuously stream the aggregated logs from all containers across all pods in the `production` namespace that bear the label `tier=database`.
-  - _Hint:_ Combine the follow flag, label selector, all-containers flag, and target namespace.
-  - _Solution:_ `kubectl logs -f -l tier=database --all-containers -n production` (This leverages the API server to multiplex multiple node streams into a unified console tail).
+**Problem:** Retrieve the logs for a pod named `auth-worker-99`, but restrict the output to only the logs generated within the last 30 minutes, and append precise network timestamps to the lines.
+**Hint:** Combine the relative time flag with the timestamp enablement flag.
+**Solution:** `kubectl logs auth-worker-99 --since=30m --timestamps` (This filters the proxy stream temporally and enriches the output format).
+**Problem:** Continuously stream the aggregated logs from all containers across all pods in the `production` namespace that bear the label `tier=database`.
+**Hint:** Combine the follow flag, label selector, all-containers flag, and target namespace.
+**Solution:** `kubectl logs -f -l tier=database --all-containers -n production` (This leverages the API server to multiplex multiple node streams into a unified console tail).
 
 ## References
 

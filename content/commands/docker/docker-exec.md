@@ -162,21 +162,21 @@ At the kernel level, the low-level runtime (`runc`) utilizes the `setns()` Linux
 
 ## Interview Questions
 
-- _Query:_ What is the critical architectural difference between using `docker exec` and `docker attach` on a running container?
-  - _A:_ `docker attach` binds your local terminal's standard input and output directly to the container's existing primary process (PID 1). Sending a kill signal (Ctrl+C) will terminate the container. `docker exec` safely spawns a brand new, secondary process inside the container's namespaces without interfering with the primary application lifecycle.
-- _Query:_ Why will `docker exec my-container /bin/bash` immediately exit without giving you an interactive prompt if you omit the `-i` and `-t` flags?
-  - _A:_ The `bash` binary requires standard input to be open (`-i`) to receive keystrokes and a pseudo-TTY (`-t`) allocated to render prompt formatting and line control. Without them, `bash` detects a non-interactive environment, executes no commands, and instantly terminates.
-- _Query:_ If a container's primary process crashes and the container enters an "exited" state, can you use `docker exec` to investigate the filesystem to see what went wrong?
-  - _A:_ No. `docker exec` relies on attaching to active Linux kernel namespaces (PID, Mount, etc.). When a container stops, those namespaces are destroyed by the kernel. You must either inspect the dead container using `docker logs`, or commit it to a new image and `docker run` an exploratory shell over the frozen filesystem state.
+**Q:** What is the critical architectural difference between using `docker exec` and `docker attach` on a running container?
+**A:** `docker attach` binds your local terminal's standard input and output directly to the container's existing primary process (PID 1). Sending a kill signal (Ctrl+C) will terminate the container. `docker exec` safely spawns a brand new, secondary process inside the container's namespaces without interfering with the primary application lifecycle.
+**Q:** Why will `docker exec my-container /bin/bash` immediately exit without giving you an interactive prompt if you omit the `-i` and `-t` flags?
+**A:** The `bash` binary requires standard input to be open (`-i`) to receive keystrokes and a pseudo-TTY (`-t`) allocated to render prompt formatting and line control. Without them, `bash` detects a non-interactive environment, executes no commands, and instantly terminates.
+**Q:** If a container's primary process crashes and the container enters an "exited" state, can you use `docker exec` to investigate the filesystem to see what went wrong?
+**A:** No. `docker exec` relies on attaching to active Linux kernel namespaces (PID, Mount, etc.). When a container stops, those namespaces are destroyed by the kernel. You must either inspect the dead container using `docker logs`, or commit it to a new image and `docker run` an exploratory shell over the frozen filesystem state.
 
 ## Practice Problems
 
-- _Problem:_ Launch an interactive `sh` shell inside an already running container named `background-api`, ensuring your terminal handles prompt output correctly.
-  - _Hint:_ Combine the execution command with interactive and TTY allocation flags.
-  - _Solution:_ `docker exec -it background-api sh` (This creates a new shell process inside the namespaces and wires it to your local terminal).
-- _Problem:_ Execute a command to create an empty file at `/tmp/health-check` inside a running container named `worker-node`. Run this command silently in the background without tying up your current terminal window.
-  - _Hint:_ Use the execution command paired with the detach flag.
-  - _Solution:_ `docker exec -d worker-node touch /tmp/health-check` (The `-d` flag spawns the secondary process asynchronously, returning control to your host immediately).
+**Problem:** Launch an interactive `sh` shell inside an already running container named `background-api`, ensuring your terminal handles prompt output correctly.
+**Hint:** Combine the execution command with interactive and TTY allocation flags.
+**Solution:** `docker exec -it background-api sh` (This creates a new shell process inside the namespaces and wires it to your local terminal).
+**Problem:** Execute a command to create an empty file at `/tmp/health-check` inside a running container named `worker-node`. Run this command silently in the background without tying up your current terminal window.
+**Hint:** Use the execution command paired with the detach flag.
+**Solution:** `docker exec -d worker-node touch /tmp/health-check` (The `-d` flag spawns the secondary process asynchronously, returning control to your host immediately).
 
 ## References
 

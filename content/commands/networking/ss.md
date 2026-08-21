@@ -172,21 +172,21 @@ The kernel's `sock_diag` module receives this, performs the filtering directly i
 
 ## Interview Questions
 
-- _Query:_ What is the underlying architectural mechanism that makes `ss` orders of magnitude faster than `netstat` on a server handling 100,000 concurrent connections?
-  - _A:_ `netstat` relies on sequentially reading and string-parsing massive, dynamically generated plaintext files in `/proc/net/`, which induces enormous CPU parsing overhead and locks kernel tables. `ss` bypasses the `/proc` filesystem entirely. It uses binary `Netlink` sockets (the `sock_diag` module) to query the kernel, applying filters directly in kernel-space and retrieving tight, packed binary structs instantly.
-- _Query:_ A web server is unresponsive. You run `ss -t` and observe 15,000 connections stuck in the `SYN-RECV` state. What kind of attack is the server currently experiencing?
-  - _A:_ The server is experiencing a TCP SYN Flood (a Denial of Service attack). Attackers are sending massive waves of initial TCP SYN packets. The server allocates a socket, replies with a SYN-ACK, and enters `SYN-RECV` waiting for the final ACK, which the attacker intentionally never sends, eventually exhausting the server's socket connection queue.
-- _Query:_ Why must you use the `sudo` command when executing `ss -tulpn` to determine which application is listening on a specific port?
-  - _A:_ The `-p` flag requires `ss` to map the socket's inode number to a specific Process ID. It achieves this by reading the file descriptors in `/proc/<pid>/fd/`. The Linux kernel enforces strict access controls on the `/proc` filesystem; standard users cannot inspect the file descriptors of processes owned by `root` (like Nginx or SSH). Without `sudo`, the Process/PID column will be rendered blank.
+**Q:** What is the underlying architectural mechanism that makes `ss` orders of magnitude faster than `netstat` on a server handling 100,000 concurrent connections?
+**A:** `netstat` relies on sequentially reading and string-parsing massive, dynamically generated plaintext files in `/proc/net/`, which induces enormous CPU parsing overhead and locks kernel tables. `ss` bypasses the `/proc` filesystem entirely. It uses binary `Netlink` sockets (the `sock_diag` module) to query the kernel, applying filters directly in kernel-space and retrieving tight, packed binary structs instantly.
+**Q:** A web server is unresponsive. You run `ss -t` and observe 15,000 connections stuck in the `SYN-RECV` state. What kind of attack is the server currently experiencing?
+**A:** The server is experiencing a TCP SYN Flood (a Denial of Service attack). Attackers are sending massive waves of initial TCP SYN packets. The server allocates a socket, replies with a SYN-ACK, and enters `SYN-RECV` waiting for the final ACK, which the attacker intentionally never sends, eventually exhausting the server's socket connection queue.
+**Q:** Why must you use the `sudo` command when executing `ss -tulpn` to determine which application is listening on a specific port?
+**A:** The `-p` flag requires `ss` to map the socket's inode number to a specific Process ID. It achieves this by reading the file descriptors in `/proc/<pid>/fd/`. The Linux kernel enforces strict access controls on the `/proc` filesystem; standard users cannot inspect the file descriptors of processes owned by `root` (like Nginx or SSH). Without `sudo`, the Process/PID column will be rendered blank.
 
 ## Practice Problems
 
-- _Problem:_ Generate a clean, numerical list of every TCP port actively listening for connections on the host, including the name and PID of the program bound to it.
-  - _Hint:_ Combine the flags for TCP, Listening, Numeric, and Program output with root privileges.
-  - _Solution:_ `sudo ss -tlnp` (This is the definitive port audit command, mirroring the classic `netstat` workflow but via high-speed Netlink).
-- _Problem:_ Query the kernel for all established TCP connections actively communicating with the remote port `443` (HTTPS), utilizing native kernel filtering rather than `grep`.
-  - _Hint:_ Combine the tcp and numeric flags, and append the unquoted state and dport filter string syntax.
-  - _Solution:_ `ss -tn state established dport = :443` (This filters the data directly inside the kernel, returning only actively connected HTTPS outbound streams).
+**Problem:** Generate a clean, numerical list of every TCP port actively listening for connections on the host, including the name and PID of the program bound to it.
+**Hint:** Combine the flags for TCP, Listening, Numeric, and Program output with root privileges.
+**Solution:** `sudo ss -tlnp` (This is the definitive port audit command, mirroring the classic `netstat` workflow but via high-speed Netlink).
+**Problem:** Query the kernel for all established TCP connections actively communicating with the remote port `443` (HTTPS), utilizing native kernel filtering rather than `grep`.
+**Hint:** Combine the tcp and numeric flags, and append the unquoted state and dport filter string syntax.
+**Solution:** `ss -tn state established dport = :443` (This filters the data directly inside the kernel, returning only actively connected HTTPS outbound streams).
 
 ## References
 

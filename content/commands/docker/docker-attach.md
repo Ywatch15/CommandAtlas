@@ -143,21 +143,21 @@ Because `sig-proxy` is true by default, the Docker CLI intercepts any OS signals
 
 ## Interview Questions
 
-- _Query:_ What is the functional difference between `docker logs -f` and `docker attach`?
-  - _A:_ `docker logs -f` streams both historical and live output from the container without connecting your terminal's standard input or forwarding system signals. `docker attach` connects your terminal directly to the live primary process (PID 1), passing STDIN and proxying signals (like `Ctrl+C`), which can inadvertently shut down the container.
-- _Query:_ If you are attached to an interactive Docker container, how do you disconnect your terminal session and return to the host without killing the container?
-  - _A:_ You must use the Docker detach escape sequence: `Ctrl+P` followed by `Ctrl+Q`. This signals the Docker CLI to safely drop the multiplexed socket connection while leaving the container process running in the background.
-- _Query:_ Why does pressing `Ctrl+C` while attached to a container typically cause the entire container to exit?
-  - _A:_ By default, `docker attach` enables signal proxying (`--sig-proxy=true`). Pressing `Ctrl+C` generates a `SIGINT` signal, which the Docker CLI intercepts and forwards to the container's primary process (PID 1). When PID 1 terminates, the container runtime automatically stops the entire container.
+**Q:** What is the functional difference between `docker logs -f` and `docker attach`?
+**A:** `docker logs -f` streams both historical and live output from the container without connecting your terminal's standard input or forwarding system signals. `docker attach` connects your terminal directly to the live primary process (PID 1), passing STDIN and proxying signals (like `Ctrl+C`), which can inadvertently shut down the container.
+**Q:** If you are attached to an interactive Docker container, how do you disconnect your terminal session and return to the host without killing the container?
+**A:** You must use the Docker detach escape sequence: `Ctrl+P` followed by `Ctrl+Q`. This signals the Docker CLI to safely drop the multiplexed socket connection while leaving the container process running in the background.
+**Q:** Why does pressing `Ctrl+C` while attached to a container typically cause the entire container to exit?
+**A:** By default, `docker attach` enables signal proxying (`--sig-proxy=true`). Pressing `Ctrl+C` generates a `SIGINT` signal, which the Docker CLI intercepts and forwards to the container's primary process (PID 1). When PID 1 terminates, the container runtime automatically stops the entire container.
 
 ## Practice Problems
 
-- _Problem:_ Attach to a background container named `log-generator`, ensuring that you only view the output and cannot accidentally pass keystrokes or kill signals to the container.
-  - _Hint:_ Combine the attach command with both the no-stdin flag and the disable signal proxy flag.
-  - _Solution:_ `docker attach --no-stdin --sig-proxy=false log-generator` (This creates a perfectly safe, read-only live viewing session).
-- _Problem:_ Connect your terminal to an interactive container named `dev-shell`, overriding the detach key sequence so you can disconnect using `Ctrl-X` pressed twice.
-  - _Hint:_ Use the attach command paired with the detach-keys override flag.
-  - _Solution:_ `docker attach --detach-keys="ctrl-x,ctrl-x" dev-shell` (This binds to the container but alters the hardcoded escape sequence for clean disconnection).
+**Problem:** Attach to a background container named `log-generator`, ensuring that you only view the output and cannot accidentally pass keystrokes or kill signals to the container.
+**Hint:** Combine the attach command with both the no-stdin flag and the disable signal proxy flag.
+**Solution:** `docker attach --no-stdin --sig-proxy=false log-generator` (This creates a perfectly safe, read-only live viewing session).
+**Problem:** Connect your terminal to an interactive container named `dev-shell`, overriding the detach key sequence so you can disconnect using `Ctrl-X` pressed twice.
+**Hint:** Use the attach command paired with the detach-keys override flag.
+**Solution:** `docker attach --detach-keys="ctrl-x,ctrl-x" dev-shell` (This binds to the container but alters the hardcoded escape sequence for clean disconnection).
 
 ## References
 

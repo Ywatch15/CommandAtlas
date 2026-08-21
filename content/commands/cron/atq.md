@@ -157,23 +157,23 @@ When invoked, the utility iterates through the files in the spool directory, ins
 
 ## Interview Questions
 
-- _Query:_ What is the primary operational difference between the output of `atq` versus checking `crontab -l`?
-  - _A:_ `atq` lists pending one-off deferred jobs queued via the `at` command, whereas `crontab -l` lists recurring, repeating periodic tasks scheduled via the cron daemon.
-- _Query:_ Why can a standard, unprivileged user running `atq` see their own scheduled jobs but not those of other system users?
-  - _A:_ System spool directories enforcing `at` jobs are protected by strict Unix filesystem permissions and daemon checks, ensuring that non-root users can only read files matching their specific User ID (UID).
-- _Query:_ What information elements does `atq` display for each pending job in its standard output table?
-  - _A:_ Standard output displays the unique job identification number, the scheduled execution date and time, the processing queue letter assignment, and the owner username.
+**Q:** What is the primary operational difference between the output of `atq` versus checking `crontab -l`?
+**A:** `atq` lists pending one-off deferred jobs queued via the `at` command, whereas `crontab -l` lists recurring, repeating periodic tasks scheduled via the cron daemon.
+**Q:** Why can a standard, unprivileged user running `atq` see their own scheduled jobs but not those of other system users?
+**A:** System spool directories enforcing `at` jobs are protected by strict Unix filesystem permissions and daemon checks, ensuring that non-root users can only read files matching their specific User ID (UID).
+**Q:** What information elements does `atq` display for each pending job in its standard output table?
+**A:** Standard output displays the unique job identification number, the scheduled execution date and time, the processing queue letter assignment, and the owner username.
 
 ## Practice Problems
 
-- _Problem:_ List all pending `at` jobs currently scheduled across the entire system with superuser privileges.
-  - _Hint:_ Prefix the queue listing utility with sudo.
-  - _Solution:_ `sudo atq` (Invoking with sudo elevates permissions to display all pending jobs regardless of user ownership).
-- _Problem:_ Filter the output of `atq` to display only jobs assigned to the specific queue `b`.
-  - _Hint:_ Use the queue specification flag combined with atq.
-  - _Solution:_ `atq -q b` (The `-q` flag restricts the listing strictly to the designated processing queue letter).
+**Problem:** List all pending `at` jobs currently scheduled across the entire system with superuser privileges.
+**Hint:** Prefix the queue listing utility with sudo.
+**Solution:** `sudo atq` (Invoking with sudo elevates permissions to display all pending jobs regardless of user ownership).
+**Problem:** Filter the output of `atq` to display only jobs assigned to the specific queue `b`.
+**Hint:** Use the queue specification flag combined with atq.
+**Solution:** `atq -q b` (The `-q` flag restricts the listing strictly to the designated processing queue letter).
 
 ## References
 
-- - [Man Page for atq (Linux)](https://man7.org/linux/man-pages/man1/atq.1.html)
-- - [GNU/Linux At Utilities Documentation](https://www.gnu.org/software/inetutils/)
+- [Man Page for atq (Linux)](https://man7.org/linux/man-pages/man1/atq.1.html)
+- [GNU/Linux At Utilities Documentation](https://www.gnu.org/software/inetutils/)

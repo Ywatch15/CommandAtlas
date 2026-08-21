@@ -164,21 +164,21 @@ When Unicode mode is active, the engine maps the shorthand classes to official U
 
 ## Interview Questions
 
-- **Q:** You write a Python script using the regex `re.search(r'^\d+$', input_string)` to ensure a user entered a standard numeric ID. However, a user submits Arabic numerals (e.g., `١٢٣`), and the regex returns a successful match. Why did this happen, and how do you lock it down?
-  - **A:** By default, Python 3's regex engine is fully Unicode-aware. The `\d` shorthand maps to the Unicode "Decimal Digit" property, which includes foreign numeric glyphs. To force the engine to accept only standard 0-9 digits, you must either compile the regex using the `re.ASCII` flag (`(?a)`), or explicitly replace the shorthand with the literal bracket expression `[0-9]`.
-- **Q:** What exact characters are matched by the `\w` (word character) shorthand class in a standard ASCII environment?
-  - **A:** The `\w` class matches all lowercase letters (`a-z`), all uppercase letters (`A-Z`), all standard digits (`0-9`), and the underscore character (`_`). It specifically does not match hyphens or periods.
-- **Q:** You attempt to search an Apache log file on a minimal Linux server using `sed -n '/\d{3}/p' access.log`, but it returns no results, despite containing 404 errors. What is the architectural flaw in this command?
-  - **A:** The standard `sed` utility utilizes POSIX Basic Regular Expressions (BRE) by default, and even with its Extended mode (`-E`), standard POSIX regex engines do not recognize Perl-compatible shorthand classes like `\d`. `sed` evaluates `\d` as the literal letter "d". You must substitute `\d` with the POSIX bracket expression `[[:digit:]]`, or switch to a PCRE-capable tool like `grep -P`.
+**Q:** You write a Python script using the regex `re.search(r'^\d+$', input_string)` to ensure a user entered a standard numeric ID. However, a user submits Arabic numerals (e.g., `١٢٣`), and the regex returns a successful match. Why did this happen, and how do you lock it down?
+**A:** By default, Python 3's regex engine is fully Unicode-aware. The `\d` shorthand maps to the Unicode "Decimal Digit" property, which includes foreign numeric glyphs. To force the engine to accept only standard 0-9 digits, you must either compile the regex using the `re.ASCII` flag (`(?a)`), or explicitly replace the shorthand with the literal bracket expression `[0-9]`.
+**Q:** What exact characters are matched by the `\w` (word character) shorthand class in a standard ASCII environment?
+**A:** The `\w` class matches all lowercase letters (`a-z`), all uppercase letters (`A-Z`), all standard digits (`0-9`), and the underscore character (`_`). It specifically does not match hyphens or periods.
+**Q:** You attempt to search an Apache log file on a minimal Linux server using `sed -n '/\d{3}/p' access.log`, but it returns no results, despite containing 404 errors. What is the architectural flaw in this command?
+**A:** The standard `sed` utility utilizes POSIX Basic Regular Expressions (BRE) by default, and even with its Extended mode (`-E`), standard POSIX regex engines do not recognize Perl-compatible shorthand classes like `\d`. `sed` evaluates `\d` as the literal letter "d". You must substitute `\d` with the POSIX bracket expression `[[:digit:]]`, or switch to a PCRE-capable tool like `grep -P`.
 
 ## Practice Problems
 
-- _Problem:_ Using `grep` with the PCRE engine flag, extract all distinct MAC addresses from a file named `network.log` based on the standard hex format (e.g., `A1:B2:C3:D4:E5:F6`), utilizing shorthand classes where applicable to represent alphanumerics.
-  - _Hint:_ MAC addresses consist of six pairs of word characters separated by colons. Combine word characters with exact quantifiers.
-  - _Solution:_ `grep -P -o '(\w{2}:){5}\w{2}' network.log` (This effectively uses `\w` to capture both the hex numbers and letters).
-- _Problem:_ Write a regex pattern that perfectly matches a string consisting of exactly one non-whitespace character, followed immediately by one or more whitespace characters, followed by exactly one digit.
-  - _Hint:_ Combine the negated whitespace class, the standard whitespace class with a plus quantifier, and the standard digit class.
-  - _Solution:_ `\S\s+\d`
+**Problem:** Using `grep` with the PCRE engine flag, extract all distinct MAC addresses from a file named `network.log` based on the standard hex format (e.g., `A1:B2:C3:D4:E5:F6`), utilizing shorthand classes where applicable to represent alphanumerics.
+**Hint:** MAC addresses consist of six pairs of word characters separated by colons. Combine word characters with exact quantifiers.
+**Solution:** `grep -P -o '(\w{2}:){5}\w{2}' network.log` (This effectively uses `\w` to capture both the hex numbers and letters).
+**Problem:** Write a regex pattern that perfectly matches a string consisting of exactly one non-whitespace character, followed immediately by one or more whitespace characters, followed by exactly one digit.
+**Hint:** Combine the negated whitespace class, the standard whitespace class with a plus quantifier, and the standard digit class.
+**Solution:** `\S\s+\d`
 
 ## References
 

@@ -165,21 +165,21 @@ This architecture allows `ip` to be highly performant, completely async, and inh
 
 ## Interview Questions
 
-- _Query:_ What is the underlying architectural difference between how `ifconfig` gathers data versus how the `ip` command retrieves network information?
-  - _A:_ `ifconfig` relies on legacy `ioctl()` system calls and parses text files in `/proc/net/`. The `ip` command communicates synchronously and asynchronously with the kernel using modern `rtnetlink` (Netlink) sockets, allowing it to send and receive structured binary payloads, significantly enhancing performance and feature support.
-- _Query:_ You have multiple IP addresses assigned to `eth0`. How do you completely remove all IP assignments from that specific interface in a single command without rebooting?
-  - _A:_ You use the address flush command: `ip addr flush dev eth0`. This instantly strips all IPv4 and IPv6 addresses attached to the device without bringing the administrative link state down.
-- _Query:_ How do you use the `ip` command to determine the exact path a packet will take to reach an external destination, e.g., `8.8.8.8`?
-  - _A:_ By utilizing the `ip route get 8.8.8.8` command. This forces the kernel to evaluate its active routing tables, policy routing rules, and metrics, outputting the exact interface, gateway, and source IP address it will utilize to send the packet.
+**Q:** What is the underlying architectural difference between how `ifconfig` gathers data versus how the `ip` command retrieves network information?
+**A:** `ifconfig` relies on legacy `ioctl()` system calls and parses text files in `/proc/net/`. The `ip` command communicates synchronously and asynchronously with the kernel using modern `rtnetlink` (Netlink) sockets, allowing it to send and receive structured binary payloads, significantly enhancing performance and feature support.
+**Q:** You have multiple IP addresses assigned to `eth0`. How do you completely remove all IP assignments from that specific interface in a single command without rebooting?
+**A:** You use the address flush command: `ip addr flush dev eth0`. This instantly strips all IPv4 and IPv6 addresses attached to the device without bringing the administrative link state down.
+**Q:** How do you use the `ip` command to determine the exact path a packet will take to reach an external destination, e.g., `8.8.8.8`?
+**A:** By utilizing the `ip route get 8.8.8.8` command. This forces the kernel to evaluate its active routing tables, policy routing rules, and metrics, outputting the exact interface, gateway, and source IP address it will utilize to send the packet.
 
 ## Practice Problems
 
-- _Problem:_ Bring the `eth1` network interface administratively up, and assign it the IP address `10.10.10.50` with a standard `/24` subnet mask.
-  - _Hint:_ This requires two distinct `ip` commands: one modifying the link, and one modifying the addr.
-  - _Solution:_ `ip link set dev eth1 up && ip addr add 10.10.10.50/24 dev eth1`
-- _Problem:_ Query the routing table and format the output entirely in JSON to facilitate script parsing.
-  - _Hint:_ Combine the route object query with the JSON formatting flag.
-  - _Solution:_ `ip -j route show` (This retrieves the entire routing tree and serializes it into programmable JSON).
+**Problem:** Bring the `eth1` network interface administratively up, and assign it the IP address `10.10.10.50` with a standard `/24` subnet mask.
+**Hint:** This requires two distinct `ip` commands: one modifying the link, and one modifying the addr.
+**Solution:** `ip link set dev eth1 up && ip addr add 10.10.10.50/24 dev eth1`
+**Problem:** Query the routing table and format the output entirely in JSON to facilitate script parsing.
+**Hint:** Combine the route object query with the JSON formatting flag.
+**Solution:** `ip -j route show` (This retrieves the entire routing tree and serializes it into programmable JSON).
 
 ## References
 

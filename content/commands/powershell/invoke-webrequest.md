@@ -165,21 +165,21 @@ When `-OutFile` is specified, the cmdlet bypasses the in-memory string buffer co
 
 ## Interview Questions
 
-- _Query:_ A script runs `Invoke-WebRequest -Uri "https://missing.com"`. You want to check if the status code is 404, but the script immediately terminates with a red error message. How must you restructure the code to capture and read the 404 status code?
-  - _A:_ `Invoke-WebRequest` translates any HTTP response code of 400 or greater into a terminating .NET exception, preventing the standard output object from being generated. To capture the status code, you must wrap the command in a `try/catch` block, and within the `catch` block, inspect the exception properties: `$_.Exception.Response.StatusCode`.
-- _Query:_ What is the severe performance issue associated with downloading large files using `Invoke-WebRequest` in Windows PowerShell 5.1, and what single line of code resolves it?
-  - _A:_ Windows PowerShell 5.1 renders a graphical progress bar (`Write-Progress`) to track download percentages. The overhead of updating this UI bar on every network packet violently bottlenecks the transfer speed. The issue is resolved by suppressing the UI before executing the download: `$ProgressPreference = 'SilentlyContinue'`.
-- _Query:_ Explain the functional difference between storing cookies manually via the `-Headers` parameter versus using the `-SessionVariable` and `-WebSession` parameters.
-  - _A:_ While you can manually parse `Set-Cookie` strings and inject them into subsequent `-Headers` hashtables, it is complex and error-prone. `-SessionVariable` automatically parses all cookies received from a server into a cohesive `WebRequestSession` object. Supplying that object to `-WebSession` in subsequent requests automatically manages cookie injection, domain scoping, and expiration identically to how a standard web browser maintains state.
+**Q:** A script runs `Invoke-WebRequest -Uri "https://missing.com"`. You want to check if the status code is 404, but the script immediately terminates with a red error message. How must you restructure the code to capture and read the 404 status code?
+**A:** `Invoke-WebRequest` translates any HTTP response code of 400 or greater into a terminating .NET exception, preventing the standard output object from being generated. To capture the status code, you must wrap the command in a `try/catch` block, and within the `catch` block, inspect the exception properties: `$_.Exception.Response.StatusCode`.
+**Q:** What is the severe performance issue associated with downloading large files using `Invoke-WebRequest` in Windows PowerShell 5.1, and what single line of code resolves it?
+**A:** Windows PowerShell 5.1 renders a graphical progress bar (`Write-Progress`) to track download percentages. The overhead of updating this UI bar on every network packet violently bottlenecks the transfer speed. The issue is resolved by suppressing the UI before executing the download: `$ProgressPreference = 'SilentlyContinue'`.
+**Q:** Explain the functional difference between storing cookies manually via the `-Headers` parameter versus using the `-SessionVariable` and `-WebSession` parameters.
+**A:** While you can manually parse `Set-Cookie` strings and inject them into subsequent `-Headers` hashtables, it is complex and error-prone. `-SessionVariable` automatically parses all cookies received from a server into a cohesive `WebRequestSession` object. Supplying that object to `-WebSession` in subsequent requests automatically manages cookie injection, domain scoping, and expiration identically to how a standard web browser maintains state.
 
 ## Practice Problems
 
-- _Problem:_ Download the file located at `https://example.com/installer.msi` directly to the `C:\Downloads\` folder, ensuring the command does not load the file into memory or attempt to parse the HTML DOM.
-  - _Hint:_ Combine the URL, the direct-to-disk flag, and the legacy parsing bypass flag.
-  - _Solution:_ `Invoke-WebRequest -Uri "https://example.com/installer.msi" -OutFile "C:\Downloads\installer.msi" -UseBasicParsing` (This executes a clean, memory-efficient binary stream download).
-- _Problem:_ Interrogate `https://google.com` to view exactly what HTTP headers the server responds with, fetching the absolute minimum amount of data required to see those headers.
-  - _Hint:_ Use the HTTP method that requests headers without the payload body, and extract the headers property.
-  - _Solution:_ `(Invoke-WebRequest -Uri "https://google.com" -Method Head).Headers` (The `HEAD` method blocks the body download, making the header inspection instantaneous).
+**Problem:** Download the file located at `https://example.com/installer.msi` directly to the `C:\Downloads\` folder, ensuring the command does not load the file into memory or attempt to parse the HTML DOM.
+**Hint:** Combine the URL, the direct-to-disk flag, and the legacy parsing bypass flag.
+**Solution:** `Invoke-WebRequest -Uri "https://example.com/installer.msi" -OutFile "C:\Downloads\installer.msi" -UseBasicParsing` (This executes a clean, memory-efficient binary stream download).
+**Problem:** Interrogate `https://google.com` to view exactly what HTTP headers the server responds with, fetching the absolute minimum amount of data required to see those headers.
+**Hint:** Use the HTTP method that requests headers without the payload body, and extract the headers property.
+**Solution:** `(Invoke-WebRequest -Uri "https://google.com" -Method Head).Headers` (The `HEAD` method blocks the body download, making the header inspection instantaneous).
 
 ## References
 

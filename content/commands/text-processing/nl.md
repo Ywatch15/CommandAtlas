@@ -166,21 +166,21 @@ If no delimiters are present in the file, `nl` treats the entire file as a singl
 
 ## Interview Questions
 
-- _Query:_ If you run `nl script.sh`, you notice that blank lines in the script are printed, but they do not receive a line number, and the counter skips them. How do you force `nl` to number every single line, identical to the behavior of `cat -n`?
-  - _A:_ By default, `nl` sets the Body numbering style to `t` (text only), which strictly ignores empty lines. To mimic `cat -n`, you must override the Body numbering style by executing `nl -b a script.sh`. The `a` (all) flag forces the engine to apply an incremented number to every line regardless of content.
-- _Query:_ Explain the concept of "logical pages" in the `nl` utility. How does the command identify the different sections of a logical page within a plain text file?
-  - _A:_ `nl` breaks documents into three logical sections: Header, Body, and Footer, allowing different numbering rules (e.g., number the body, but not the footer). It identifies these sections by reading lines containing exact, hardcoded delimiter strings. A line containing exactly `\:\:\:` shifts the state to the Header, `\:\:` shifts to the Body, and `\:` shifts to the Footer. The counter resets to its initial value upon encountering any of these state transitions unless overridden.
-- _Query:_ You want to number a log file, but you _only_ want to apply line numbers to lines that begin with the word "Warning". How can `nl` achieve this natively without relying on external tools like `awk`?
-  - _A:_ The `nl` command supports native regular expression targeting for its numbering styles. You use the `-b` (body) flag combined with the `p` (pattern) modifier, immediately followed by the regex. The command is `nl -b p"^Warning" file.log`. It will print the entire file, but the line counter will only increment and print on the lines matching the regex.
+**Q:** If you run `nl script.sh`, you notice that blank lines in the script are printed, but they do not receive a line number, and the counter skips them. How do you force `nl` to number every single line, identical to the behavior of `cat -n`?
+**A:** By default, `nl` sets the Body numbering style to `t` (text only), which strictly ignores empty lines. To mimic `cat -n`, you must override the Body numbering style by executing `nl -b a script.sh`. The `a` (all) flag forces the engine to apply an incremented number to every line regardless of content.
+**Q:** Explain the concept of "logical pages" in the `nl` utility. How does the command identify the different sections of a logical page within a plain text file?
+**A:** `nl` breaks documents into three logical sections: Header, Body, and Footer, allowing different numbering rules (e.g., number the body, but not the footer). It identifies these sections by reading lines containing exact, hardcoded delimiter strings. A line containing exactly `\:\:\:` shifts the state to the Header, `\:\:` shifts to the Body, and `\:` shifts to the Footer. The counter resets to its initial value upon encountering any of these state transitions unless overridden.
+**Q:** You want to number a log file, but you _only_ want to apply line numbers to lines that begin with the word "Warning". How can `nl` achieve this natively without relying on external tools like `awk`?
+**A:** The `nl` command supports native regular expression targeting for its numbering styles. You use the `-b` (body) flag combined with the `p` (pattern) modifier, immediately followed by the regex. The command is `nl -b p"^Warning" file.log`. It will print the entire file, but the line counter will only increment and print on the lines matching the regex.
 
 ## Practice Problems
 
-- _Problem:_ Output the contents of `inventory.txt`, applying line numbers to every line (including blank lines). Ensure the numbers are right-justified, padded with zeros to a width of 5 characters, and separated from the text by a pipe character `|`.
-  - _Hint:_ You need to override the default body style, configure the number format to right-zero, set the width integer, and explicitly define the separator string.
-  - _Solution:_ `nl -b a -n rz -w 5 -s "|" inventory.txt` (This produces highly structured, database-ready output).
-- _Problem:_ Number the lines of `data.csv`, but force the numbering sequence to start at exactly 500, and mathematically increment by 5 for every subsequent line.
-  - _Hint:_ Utilize the specific flags that manipulate the starting integer value and the sequence increment value.
-  - _Solution:_ `nl -v 500 -i 5 data.csv` (This establishes custom sequence mathematics directly within the format engine).
+**Problem:** Output the contents of `inventory.txt`, applying line numbers to every line (including blank lines). Ensure the numbers are right-justified, padded with zeros to a width of 5 characters, and separated from the text by a pipe character `|`.
+**Hint:** You need to override the default body style, configure the number format to right-zero, set the width integer, and explicitly define the separator string.
+**Solution:** `nl -b a -n rz -w 5 -s "|" inventory.txt` (This produces highly structured, database-ready output).
+**Problem:** Number the lines of `data.csv`, but force the numbering sequence to start at exactly 500, and mathematically increment by 5 for every subsequent line.
+**Hint:** Utilize the specific flags that manipulate the starting integer value and the sequence increment value.
+**Solution:** `nl -v 500 -i 5 data.csv` (This establishes custom sequence mathematics directly within the format engine).
 
 ## References
 

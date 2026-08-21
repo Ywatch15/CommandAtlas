@@ -165,23 +165,23 @@ Once compiled, App Engine provisions a new application version entity within the
 
 ## Interview Questions
 
-- **Q:** What is the operational distinction between using `--promote` and `--no-promote` during a `gcloud app deploy` execution?
-  - **A:** `--promote` deploys the new application version and immediately updates App Engine routing tables to direct 100% of incoming production web traffic to it. `--no-promote` deploys the version into an isolated container instance with its own unique URL, allowing engineers to test and verify the build without affecting live production users.
-- **Q:** How does App Engine handle source code packaging and staging when `gcloud app deploy` is invoked from your local terminal?
-  - **A:** The Google Cloud CLI scans the local project directory, filters files using `.gcloudignore`, compresses the source tree into a tarball archive, uploads it to a Cloud Storage staging bucket, and triggers remote buildpacks via the App Engine Admin API to compile the runtime environment.
-- **Q:** Why is storing sensitive credentials in plain text inside `app.yaml` environment variables considered a security anti-pattern?
-  - **A:** `app.yaml` files are typically checked into version control systems and stored in plain text, meaning any collaborator or auditor with repository access can view plaintext production secrets. Secrets should instead be injected securely at runtime using Google Cloud Secret Manager.
+**Q:** What is the operational distinction between using `--promote` and `--no-promote` during a `gcloud app deploy` execution?
+**A:** `--promote` deploys the new application version and immediately updates App Engine routing tables to direct 100% of incoming production web traffic to it. `--no-promote` deploys the version into an isolated container instance with its own unique URL, allowing engineers to test and verify the build without affecting live production users.
+**Q:** How does App Engine handle source code packaging and staging when `gcloud app deploy` is invoked from your local terminal?
+**A:** The Google Cloud CLI scans the local project directory, filters files using `.gcloudignore`, compresses the source tree into a tarball archive, uploads it to a Cloud Storage staging bucket, and triggers remote buildpacks via the App Engine Admin API to compile the runtime environment.
+**Q:** Why is storing sensitive credentials in plain text inside `app.yaml` environment variables considered a security anti-pattern?
+**A:** `app.yaml` files are typically checked into version control systems and stored in plain text, meaning any collaborator or auditor with repository access can view plaintext production secrets. Secrets should instead be injected securely at runtime using Google Cloud Secret Manager.
 
 ## Practice Problems
 
-- _Problem:_ Deploy a local App Engine application using the `app.yaml` manifest, assigning it a custom version string `v2-release` without promoting it to receive live traffic.
-  - _Hint:_ Combine the manifest file argument with the version flag and the no-promote flag.
-  - _Solution:_ `gcloud app deploy app.yaml --version=v2-release --no-promote` (This stages and deploys the app as a test version without altering live production traffic routing).
-- _Problem:_ Deploy an App Engine service while immediately promoting it to handle 100% of traffic and automatically terminating the previous billing version.
-  - _Hint:_ Combine the promote flag with the stop-previous-version flag.
-  - _Solution:_ `gcloud app deploy --promote --stop-previous-version` (This pushes the update, shifts traffic, and stops the old version to save compute costs).
+**Problem:** Deploy a local App Engine application using the `app.yaml` manifest, assigning it a custom version string `v2-release` without promoting it to receive live traffic.
+**Hint:** Combine the manifest file argument with the version flag and the no-promote flag.
+**Solution:** `gcloud app deploy app.yaml --version=v2-release --no-promote` (This stages and deploys the app as a test version without altering live production traffic routing).
+**Problem:** Deploy an App Engine service while immediately promoting it to handle 100% of traffic and automatically terminating the previous billing version.
+**Hint:** Combine the promote flag with the stop-previous-version flag.
+**Solution:** `gcloud app deploy --promote --stop-previous-version` (This pushes the update, shifts traffic, and stops the old version to save compute costs).
 
 ## References
 
-- - [Google Cloud CLI Documentation - gcloud app deploy](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
-- - [Google App Engine Documentation - Deploying an App](https://cloud.google.com/appengine/docs/standard/deploying-a-web-app)
+- [Google Cloud CLI Documentation - gcloud app deploy](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
+- [Google App Engine Documentation - Deploying an App](https://cloud.google.com/appengine/docs/standard/deploying-a-web-app)

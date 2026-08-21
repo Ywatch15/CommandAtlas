@@ -158,21 +158,21 @@ It maps the parsed string values to `NoteProperty` members dynamically named aft
 
 ## Interview Questions
 
-- _Query:_ You import a CSV containing a column named 'Salary' and run a sort: `Import-Csv data.csv | Sort-Object Salary -Descending`. The values `90000`, `120000`, and `85000` sort incorrectly, placing `90000` at the top. Why?
-  - _A:_ `Import-Csv` lacks schema knowledge and natively imports all properties as `System.String` types. The `Sort-Object` cmdlet performs an alphabetical string sort, where the character "9" evaluates as higher than "1", placing "90000" above "120000". To fix this, you must cast the property to an integer during the sort: `Sort-Object { [int]$_.Salary } -Descending`.
-- _Query:_ How does `Import-Csv` behave if the source file contains a data row with more column values than there are headers defined in the first row?
-  - _A:_ The cmdlet will throw a terminating error or silently truncate data depending on the PowerShell version. Generally, it expects a strict rectangular dataset. To resolve malformed files with missing headers, you must use the `-Header` parameter to manually specify an array of header names covering the maximum width of the data.
-- _Query:_ A CSV file contains a column value that itself has a comma in it, such as `Smith, John`. How must the CSV be formatted so `Import-Csv` does not mistakenly split this into two separate columns?
-  - _A:_ The value must be text-qualified (encapsulated) in double quotes: `"Smith, John"`. The internal CSV parsing engine recognizes that commas residing inside matching double quotes are literal string characters, not structural delimiters.
+**Q:** You import a CSV containing a column named 'Salary' and run a sort: `Import-Csv data.csv | Sort-Object Salary -Descending`. The values `90000`, `120000`, and `85000` sort incorrectly, placing `90000` at the top. Why?
+**A:** `Import-Csv` lacks schema knowledge and natively imports all properties as `System.String` types. The `Sort-Object` cmdlet performs an alphabetical string sort, where the character "9" evaluates as higher than "1", placing "90000" above "120000". To fix this, you must cast the property to an integer during the sort: `Sort-Object { [int]$_.Salary } -Descending`.
+**Q:** How does `Import-Csv` behave if the source file contains a data row with more column values than there are headers defined in the first row?
+**A:** The cmdlet will throw a terminating error or silently truncate data depending on the PowerShell version. Generally, it expects a strict rectangular dataset. To resolve malformed files with missing headers, you must use the `-Header` parameter to manually specify an array of header names covering the maximum width of the data.
+**Q:** A CSV file contains a column value that itself has a comma in it, such as `Smith, John`. How must the CSV be formatted so `Import-Csv` does not mistakenly split this into two separate columns?
+**A:** The value must be text-qualified (encapsulated) in double quotes: `"Smith, John"`. The internal CSV parsing engine recognizes that commas residing inside matching double quotes are literal string characters, not structural delimiters.
 
 ## Practice Problems
 
-- _Problem:_ Import a file located at `inventory.csv`. Filter the results so that only objects where the `Quantity` column is mathematically less than 50 are returned.
-  - _Hint:_ Import the file, pipe it, and ensure you cast the property to an integer before evaluating the conditional.
-  - _Solution:_ `Import-Csv inventory.csv | Where-Object { [int]$_.Quantity -lt 50 }` (This correctly evaluates the numerical value rather than the string).
-- _Problem:_ Read a poorly formatted text file named `data.log` that uses the pipe character (`|`) as a delimiter and entirely lacks a header row. Assign the headers `Timestamp`, `Severity`, and `Message` to the imported objects.
-  - _Hint:_ Combine the delimiter override flag with the manual header array injection.
-  - _Solution:_ `Import-Csv data.log -Delimiter "|" -Header "Timestamp", "Severity", "Message"` (This forces the parser to split correctly and assigns custom properties without swallowing the first row).
+**Problem:** Import a file located at `inventory.csv`. Filter the results so that only objects where the `Quantity` column is mathematically less than 50 are returned.
+**Hint:** Import the file, pipe it, and ensure you cast the property to an integer before evaluating the conditional.
+**Solution:** `Import-Csv inventory.csv | Where-Object { [int]$_.Quantity -lt 50 }` (This correctly evaluates the numerical value rather than the string).
+**Problem:** Read a poorly formatted text file named `data.log` that uses the pipe character (`|`) as a delimiter and entirely lacks a header row. Assign the headers `Timestamp`, `Severity`, and `Message` to the imported objects.
+**Hint:** Combine the delimiter override flag with the manual header array injection.
+**Solution:** `Import-Csv data.log -Delimiter "|" -Header "Timestamp", "Severity", "Message"` (This forces the parser to split correctly and assigns custom properties without swallowing the first row).
 
 ## References
 

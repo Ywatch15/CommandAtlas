@@ -151,21 +151,21 @@ If a script executes `shift n` where `n` is mathematically greater than the tota
 
 ## Interview Questions
 
-- _Query:_ You have written a deployment script that accepts an infinite list of server IP addresses as arguments. Explain why iterating through them using `while [ "$#" -gt 0 ]; do deploy "$1"; shift; done` is structurally superior to trying to access them via hardcoded `$1`, `$2`, `$3` variables.
-  - _A:_ Hardcoding variables is physically limited; a developer cannot write out `$1` through `$999`. The `while/shift` pattern creates a dynamic consumption loop. It continuously processes the very first argument (`$1`), executes the payload, and then uses `shift` to destroy it, shuffling the entire infinite array down one position. The loop continues evaluating `$1` until `$#` (the total argument count) drops to zero, perfectly handling an arbitrary, limitless number of inputs.
-- _Query:_ During a command-line parsing loop, a developer parses the `--password` flag and executes `shift 2`. Why does this specific flag require shifting by 2, whereas a flag like `--verbose` only requires `shift 1`?
-  - _A:_ The `--password` flag expects a corresponding value immediately following it (e.g., `--password Secret123`). These are parsed by the shell as two distinct, separate arguments in the array (`$1` and `$2`). To move the array cursor to the next valid flag, the script must consume _both_ the flag and its value, necessitating `shift 2`. A boolean flag like `--verbose` stands alone, requiring only `shift 1` to consume it.
-- _Query:_ What happens to the `$@` and `$*` variables when the `shift` command is executed successfully?
-  - _A:_ The `$@` and `$*` variables are dynamic arrays representing all currently available positional parameters. When `shift` executes, the leading argument is permanently dropped, and the entire contents of the `$@` and `$*` arrays are updated mathematically to reflect the new, truncated state of the remaining parameters.
+**Q:** You have written a deployment script that accepts an infinite list of server IP addresses as arguments. Explain why iterating through them using `while [ "$#" -gt 0 ]; do deploy "$1"; shift; done` is structurally superior to trying to access them via hardcoded `$1`, `$2`, `$3` variables.
+**A:** Hardcoding variables is physically limited; a developer cannot write out `$1` through `$999`. The `while/shift` pattern creates a dynamic consumption loop. It continuously processes the very first argument (`$1`), executes the payload, and then uses `shift` to destroy it, shuffling the entire infinite array down one position. The loop continues evaluating `$1` until `$#` (the total argument count) drops to zero, perfectly handling an arbitrary, limitless number of inputs.
+**Q:** During a command-line parsing loop, a developer parses the `--password` flag and executes `shift 2`. Why does this specific flag require shifting by 2, whereas a flag like `--verbose` only requires `shift 1`?
+**A:** The `--password` flag expects a corresponding value immediately following it (e.g., `--password Secret123`). These are parsed by the shell as two distinct, separate arguments in the array (`$1` and `$2`). To move the array cursor to the next valid flag, the script must consume _both_ the flag and its value, necessitating `shift 2`. A boolean flag like `--verbose` stands alone, requiring only `shift 1` to consume it.
+**Q:** What happens to the `$@` and `$*` variables when the `shift` command is executed successfully?
+**A:** The `$@` and `$*` variables are dynamic arrays representing all currently available positional parameters. When `shift` executes, the leading argument is permanently dropped, and the entire contents of the `$@` and `$*` arrays are updated mathematically to reflect the new, truncated state of the remaining parameters.
 
 ## Practice Problems
 
-- _Problem:_ Write a `while` loop that continuously prints the value of `$1` to the terminal and then shifts the parameters, halting only when the total count of remaining arguments reaches zero.
-  - _Hint:_ Combine the argument count variable (`$#`), a while loop, the echo command, and the shift operator.
-  - _Solution:_ `while [ $# -gt 0 ]; do echo "$1"; shift; done` (This safely iterates and exhausts the array sequence).
-- _Problem:_ Write a `case` statement snippet evaluating `$1`. If `$1` equals `--target`, assign the value of `$2` to the variable `TARGET_IP`, and shift the positional parameters by 2 to consume both the flag and the value.
-  - _Hint:_ Use bash case syntax, variable assignment, and supply the numeric integer to the shift command.
-  - _Solution:_ `case $1 in --target) TARGET_IP="$2"; shift 2 ;; esac` (This is the foundational logic gate for robust argument parsing).
+**Problem:** Write a `while` loop that continuously prints the value of `$1` to the terminal and then shifts the parameters, halting only when the total count of remaining arguments reaches zero.
+**Hint:** Combine the argument count variable (`$#`), a while loop, the echo command, and the shift operator.
+**Solution:** `while [ $# -gt 0 ]; do echo "$1"; shift; done` (This safely iterates and exhausts the array sequence).
+**Problem:** Write a `case` statement snippet evaluating `$1`. If `$1` equals `--target`, assign the value of `$2` to the variable `TARGET_IP`, and shift the positional parameters by 2 to consume both the flag and the value.
+**Hint:** Use bash case syntax, variable assignment, and supply the numeric integer to the shift command.
+**Solution:** `case $1 in --target) TARGET_IP="$2"; shift 2 ;; esac` (This is the foundational logic gate for robust argument parsing).
 
 ## References
 

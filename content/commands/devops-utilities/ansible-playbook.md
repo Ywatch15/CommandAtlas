@@ -160,21 +160,21 @@ If a task reports that a system change occurred (`changed: true`), Ansible trigg
 
 ## Interview Questions
 
-- **Q:** What is idempotency in the context of `ansible-playbook`, and why is it a foundational design principle?
-  - **A:** Idempotency means that an operation can be applied multiple times resulting in the exact same system state without causing unintended side effects. If a system is already correctly configured, running an idempotent playbook task reports `ok` (`changed: false`) rather than modifying the system again, ensuring predictable and repeatable deployments.
-- **Q:** How does Ansible handle handlers, and when are they triggered during playbook execution?
-  - **A:** Handlers are tasks that are identical to regular tasks except they only execute when explicitly notified by another task that reports a state change (`changed: true`). Handlers are batched and executed at the very end of each play, ensuring services (like Nginx) are restarted only once even if multiple configuration files were modified.
-- **Q:** What is the performance benefit of enabling SSH pipelining in `ansible.cfg` when running playbooks?
-  - **A:** SSH pipelining reduces the number of SSH operations required to execute a remote module by transferring the Python script directly to the remote shell's stdin instead of creating a temporary script file on disk and opening a separate SSH channel to execute it.
+**Q:** What is idempotency in the context of `ansible-playbook`, and why is it a foundational design principle?
+**A:** Idempotency means that an operation can be applied multiple times resulting in the exact same system state without causing unintended side effects. If a system is already correctly configured, running an idempotent playbook task reports `ok` (`changed: false`) rather than modifying the system again, ensuring predictable and repeatable deployments.
+**Q:** How does Ansible handle handlers, and when are they triggered during playbook execution?
+**A:** Handlers are tasks that are identical to regular tasks except they only execute when explicitly notified by another task that reports a state change (`changed: true`). Handlers are batched and executed at the very end of each play, ensuring services (like Nginx) are restarted only once even if multiple configuration files were modified.
+**Q:** What is the performance benefit of enabling SSH pipelining in `ansible.cfg` when running playbooks?
+**A:** SSH pipelining reduces the number of SSH operations required to execute a remote module by transferring the Python script directly to the remote shell's stdin instead of creating a temporary script file on disk and opening a separate SSH channel to execute it.
 
 ## Practice Problems
 
-- _Problem:_ Execute a playbook named `site.yml` against a custom inventory file `production.ini` with privilege escalation enabled.
-  - _Hint:_ Combine the playbook file argument with the inventory flag and the become flag.
-  - _Solution:_ `ansible-playbook site.yml -i production.ini -b` (This runs the playbook against the specified inventory as root via sudo).
-- _Problem:_ Perform a dry-run check of a deployment playbook named `deploy.yml` while viewing detailed file configuration diffs.
-  - _Hint:_ Combine the playbook argument with both the check mode flag and the diff flag.
-  - _Solution:_ `ansible-playbook deploy.yml --check --diff` (The `--check` flag simulates execution without changing systems, and `--diff` displays exact line changes).
+**Problem:** Execute a playbook named `site.yml` against a custom inventory file `production.ini` with privilege escalation enabled.
+**Hint:** Combine the playbook file argument with the inventory flag and the become flag.
+**Solution:** `ansible-playbook site.yml -i production.ini -b` (This runs the playbook against the specified inventory as root via sudo).
+**Problem:** Perform a dry-run check of a deployment playbook named `deploy.yml` while viewing detailed file configuration diffs.
+**Hint:** Combine the playbook argument with both the check mode flag and the diff flag.
+**Solution:** `ansible-playbook deploy.yml --check --diff` (The `--check` flag simulates execution without changing systems, and `--diff` displays exact line changes).
 
 ## References
 

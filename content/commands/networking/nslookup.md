@@ -147,21 +147,21 @@ It transmits this binary payload via UDP over port 53 to the target resolver. If
 
 ## Interview Questions
 
-- _Query:_ A developer states they can successfully `ping mydatabase.internal`, but when they execute `nslookup mydatabase.internal`, the command fails to find the domain. What structural difference between these two tools explains this anomaly?
-  - _A:_ `ping` utilizes the operating system's standard name resolution library (governed by `/etc/nsswitch.conf`), which generally checks the local `/etc/hosts` file or local mDNS broadcasts before querying external DNS. `nslookup` deliberately bypasses the OS resolution library and local host files entirely; it constructs raw packets and queries only the explicit nameservers listed in `/etc/resolv.conf`. The developer likely has the database hardcoded in their `/etc/hosts` file.
-- _Query:_ What does the phrase "Non-authoritative answer" specifically mean in the output of an `nslookup` command?
-  - _A:_ It means the recursive DNS server that responded to your query (such as your ISP's resolver or 8.8.8.8) provided the answer from its local memory cache. It is not the authoritative nameserver that physically hosts the master zone file for that specific domain.
-- _Query:_ You execute `nslookup` and receive the error `Truncated, retrying in TCP mode`. What network constraint caused this behavior?
-  - _A:_ Traditional DNS operates over UDP, which has a strict historical packet size limit of 512 bytes. If the domain has massive TXT records or hundreds of A records, the response exceeds this limit. The DNS server sets the TC (Truncation) flag in the UDP response. `nslookup` detects this flag and automatically establishes a TCP handshake on port 53 to retrieve the full, un-truncated payload securely.
+**Q:** A developer states they can successfully `ping mydatabase.internal`, but when they execute `nslookup mydatabase.internal`, the command fails to find the domain. What structural difference between these two tools explains this anomaly?
+**A:** `ping` utilizes the operating system's standard name resolution library (governed by `/etc/nsswitch.conf`), which generally checks the local `/etc/hosts` file or local mDNS broadcasts before querying external DNS. `nslookup` deliberately bypasses the OS resolution library and local host files entirely; it constructs raw packets and queries only the explicit nameservers listed in `/etc/resolv.conf`. The developer likely has the database hardcoded in their `/etc/hosts` file.
+**Q:** What does the phrase "Non-authoritative answer" specifically mean in the output of an `nslookup` command?
+**A:** It means the recursive DNS server that responded to your query (such as your ISP's resolver or 8.8.8.8) provided the answer from its local memory cache. It is not the authoritative nameserver that physically hosts the master zone file for that specific domain.
+**Q:** You execute `nslookup` and receive the error `Truncated, retrying in TCP mode`. What network constraint caused this behavior?
+**A:** Traditional DNS operates over UDP, which has a strict historical packet size limit of 512 bytes. If the domain has massive TXT records or hundreds of A records, the response exceeds this limit. The DNS server sets the TC (Truncation) flag in the UDP response. `nslookup` detects this flag and automatically establishes a TCP handshake on port 53 to retrieve the full, un-truncated payload securely.
 
 ## Practice Problems
 
-- _Problem:_ Query the exact text (TXT) records associated with `github.com` using Cloudflare's public DNS resolver (`1.1.1.1`).
-  - _Hint:_ Combine the record type flag with the domain name and target resolver argument.
-  - _Solution:_ `nslookup -type=txt github.com 1.1.1.1` (This bypasses local cache and checks anti-spam/verification tokens on the domain).
-- _Problem:_ Execute a reverse DNS lookup to find the domain name associated with the IP address `8.8.4.4`.
-  - _Hint:_ The utility natively recognizes IP addresses and automatically converts them to reverse queries.
-  - _Solution:_ `nslookup 8.8.4.4` (The tool automatically constructs the `in-addr.arpa` query to retrieve the PTR record).
+**Problem:** Query the exact text (TXT) records associated with `github.com` using Cloudflare's public DNS resolver (`1.1.1.1`).
+**Hint:** Combine the record type flag with the domain name and target resolver argument.
+**Solution:** `nslookup -type=txt github.com 1.1.1.1` (This bypasses local cache and checks anti-spam/verification tokens on the domain).
+**Problem:** Execute a reverse DNS lookup to find the domain name associated with the IP address `8.8.4.4`.
+**Hint:** The utility natively recognizes IP addresses and automatically converts them to reverse queries.
+**Solution:** `nslookup 8.8.4.4` (The tool automatically constructs the `in-addr.arpa` query to retrieve the PTR record).
 
 ## References
 

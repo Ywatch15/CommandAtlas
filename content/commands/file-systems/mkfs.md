@@ -168,21 +168,21 @@ By default on modern Linux, large formatting operations utilize "lazy initializa
 
 ## Interview Questions
 
-- _Query:_ What is the architectural relationship between the generic `mkfs` command and binaries like `mkfs.ext4` or `mkfs.xfs`?
-  - _A:_ The generic `mkfs` command is merely a frontend wrapper or multiplexer. When executed with a `-t` flag (e.g., `-t ext4`), it parses the arguments and delegates the actual formatting execution to the specific backend binary located at `/sbin/mkfs.ext4`.
-- _Query:_ A junior engineer runs `mkfs.ext4 /dev/sdb1` on a 20TB volume and it finishes in 3 seconds. Why did it format so quickly, and what is the kernel doing in the background?
-  - _A:_ Modern Linux filesystems like ext4 utilize "lazy initialization". Instead of blocking the terminal while zeroing out terabytes of inode tables across the disk, `mkfs` writes only the absolute necessary superblocks and journal metadata. It returns control to the user immediately, while a background kernel thread (like `ext4lazyinit`) quietly zeroes out the remaining inode tables after the volume is mounted.
-- _Query:_ Why is it considered dangerous to run `mkfs.ext4 /dev/sdb` instead of `mkfs.ext4 /dev/sdb1`?
-  - _A:_ `/dev/sdb` addresses the raw physical disk, while `/dev/sdb1` addresses a specific partition boundary defined by a partition table. Formatting `/dev/sdb` directly wipes out any existing MBR/GPT partition tables and places the filesystem over the entire raw disk. While Linux supports this, it frequently breaks standard infrastructure automation tools, BIOS/UEFI scanners, and OS portability assumptions that expect a partition table to exist.
+**Q:** What is the architectural relationship between the generic `mkfs` command and binaries like `mkfs.ext4` or `mkfs.xfs`?
+**A:** The generic `mkfs` command is merely a frontend wrapper or multiplexer. When executed with a `-t` flag (e.g., `-t ext4`), it parses the arguments and delegates the actual formatting execution to the specific backend binary located at `/sbin/mkfs.ext4`.
+**Q:** A junior engineer runs `mkfs.ext4 /dev/sdb1` on a 20TB volume and it finishes in 3 seconds. Why did it format so quickly, and what is the kernel doing in the background?
+**A:** Modern Linux filesystems like ext4 utilize "lazy initialization". Instead of blocking the terminal while zeroing out terabytes of inode tables across the disk, `mkfs` writes only the absolute necessary superblocks and journal metadata. It returns control to the user immediately, while a background kernel thread (like `ext4lazyinit`) quietly zeroes out the remaining inode tables after the volume is mounted.
+**Q:** Why is it considered dangerous to run `mkfs.ext4 /dev/sdb` instead of `mkfs.ext4 /dev/sdb1`?
+**A:** `/dev/sdb` addresses the raw physical disk, while `/dev/sdb1` addresses a specific partition boundary defined by a partition table. Formatting `/dev/sdb` directly wipes out any existing MBR/GPT partition tables and places the filesystem over the entire raw disk. While Linux supports this, it frequently breaks standard infrastructure automation tools, BIOS/UEFI scanners, and OS portability assumptions that expect a partition table to exist.
 
 ## Practice Problems
 
-- _Problem:_ Format the first partition of the `sdc` drive using the XFS filesystem, and permanently assign it the volume label `DATA_ARCHIVE`.
-  - _Hint:_ Invoke the xfs-specific builder directly and utilize the label flag.
-  - _Solution:_ `mkfs.xfs -L "DATA_ARCHIVE" /dev/sdc1` (This securely formats the specific partition and tags the superblock with metadata).
-- _Problem:_ Format a newly created logical volume mapped at `/dev/vg_core/lv_app` with the ext4 filesystem, ensuring zero disk space is reserved for the root user.
-  - _Hint:_ Call the ext4 builder and use the reserved-blocks percentage flag set to zero.
-  - _Solution:_ `mkfs.ext4 -m 0 /dev/vg_core/lv_app` (This provisions the volume while maximizing capacity for the application user).
+**Problem:** Format the first partition of the `sdc` drive using the XFS filesystem, and permanently assign it the volume label `DATA_ARCHIVE`.
+**Hint:** Invoke the xfs-specific builder directly and utilize the label flag.
+**Solution:** `mkfs.xfs -L "DATA_ARCHIVE" /dev/sdc1` (This securely formats the specific partition and tags the superblock with metadata).
+**Problem:** Format a newly created logical volume mapped at `/dev/vg_core/lv_app` with the ext4 filesystem, ensuring zero disk space is reserved for the root user.
+**Hint:** Call the ext4 builder and use the reserved-blocks percentage flag set to zero.
+**Solution:** `mkfs.ext4 -m 0 /dev/vg_core/lv_app` (This provisions the volume while maximizing capacity for the application user).
 
 ## References
 

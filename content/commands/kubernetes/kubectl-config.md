@@ -163,21 +163,21 @@ When you execute `kubectl config use-context <name>`, the CLI loads the YAML fil
 
 ## Interview Questions
 
-- _Query:_ Describe the three core data structures stored inside a standard `kubeconfig` file and explain how they interact when `kubectl` makes an API request.
-  - _A:_ The file contains `clusters` (defining API server URLs and TLS verification details), `users` (defining client certificates, tokens, or exec plugins for identity), and `contexts` (defining a triplet mapping of one user to one cluster and one default namespace). When `kubectl` runs, it checks the `current-context` string, looks up the corresponding `context` mapping, and applies the designated `user` authentication to the designated `cluster` routing endpoint.
-- _Query:_ Why does running `kubectl config view` typically print `REDACTED` in place of authentication tokens and certificates, and how do you bypass this for troubleshooting?
-  - _A:_ By default, `kubectl` protects sensitive cryptographic key material and bearer tokens from accidentally being exposed on the terminal or leaked in copy-pasted debugging logs. To view the actual, unmasked raw base64 data, you must explicitly append the `--raw` flag to the command.
-- _Query:_ What is the mechanism `kubectl` uses to resolve multiple configuration files if you declare the environment variable `KUBECONFIG=~/.kube/config:/tmp/dev.yaml`?
-  - _A:_ `kubectl` reads the colon-separated array and loads both YAML files into memory. It merges the arrays of clusters, users, and contexts based on their string names. If there is a naming collision (e.g., both files contain a context named `dev`), the file appearing _first_ in the list (`~/.kube/config`) takes absolute precedence and overwrites the trailing conflicting keys.
+**Q:** Describe the three core data structures stored inside a standard `kubeconfig` file and explain how they interact when `kubectl` makes an API request.
+**A:** The file contains `clusters` (defining API server URLs and TLS verification details), `users` (defining client certificates, tokens, or exec plugins for identity), and `contexts` (defining a triplet mapping of one user to one cluster and one default namespace). When `kubectl` runs, it checks the `current-context` string, looks up the corresponding `context` mapping, and applies the designated `user` authentication to the designated `cluster` routing endpoint.
+**Q:** Why does running `kubectl config view` typically print `REDACTED` in place of authentication tokens and certificates, and how do you bypass this for troubleshooting?
+**A:** By default, `kubectl` protects sensitive cryptographic key material and bearer tokens from accidentally being exposed on the terminal or leaked in copy-pasted debugging logs. To view the actual, unmasked raw base64 data, you must explicitly append the `--raw` flag to the command.
+**Q:** What is the mechanism `kubectl` uses to resolve multiple configuration files if you declare the environment variable `KUBECONFIG=~/.kube/config:/tmp/dev.yaml`?
+**A:** `kubectl` reads the colon-separated array and loads both YAML files into memory. It merges the arrays of clusters, users, and contexts based on their string names. If there is a naming collision (e.g., both files contain a context named `dev`), the file appearing _first_ in the list (`~/.kube/config`) takes absolute precedence and overwrites the trailing conflicting keys.
 
 ## Practice Problems
 
-- _Problem:_ Change the default namespace of your currently active cluster context to `monitoring`, so all future `kubectl` commands apply there without needing the `-n` flag.
-  - _Hint:_ Modify the context settings targeting the current environment.
-  - _Solution:_ `kubectl config set-context --current --namespace=monitoring` (This alters the namespace parameter of the active context in the local configuration file).
-- _Problem:_ Generate a completely unredacted output of the current configuration, restricted strictly to the cluster and user data relevant to the active context.
-  - _Hint:_ Use the view subcommand paired with the minimization and raw data flags.
-  - _Solution:_ `kubectl config view --minify --raw` (The `--minify` flag strips out unrelated clusters, and `--raw` reveals the actual cryptographic certificates and tokens).
+**Problem:** Change the default namespace of your currently active cluster context to `monitoring`, so all future `kubectl` commands apply there without needing the `-n` flag.
+**Hint:** Modify the context settings targeting the current environment.
+**Solution:** `kubectl config set-context --current --namespace=monitoring` (This alters the namespace parameter of the active context in the local configuration file).
+**Problem:** Generate a completely unredacted output of the current configuration, restricted strictly to the cluster and user data relevant to the active context.
+**Hint:** Use the view subcommand paired with the minimization and raw data flags.
+**Solution:** `kubectl config view --minify --raw` (The `--minify` flag strips out unrelated clusters, and `--raw` reveals the actual cryptographic certificates and tokens).
 
 ## References
 

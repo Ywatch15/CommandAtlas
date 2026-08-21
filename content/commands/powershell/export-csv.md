@@ -153,21 +153,21 @@ The engine then assesses the resulting string. Historically, it wrapped every si
 
 ## Interview Questions
 
-- _Query:_ You pipe an array of custom objects to `Export-Csv`. You notice that a specific column, which contains an array of IP addresses, is exporting identically on every row as `System.String[]`. Why is this happening, and how do you resolve it?
-  - _A:_ CSV files are strictly flat and two-dimensional; they cannot represent nested arrays. When `Export-Csv` encounters a nested array, it calls the `.ToString()` method on it, which evaluates to its base type (`System.String[]`). To resolve this, you must intercept the pipeline before the export and flatten the array using a calculated property: `Select-Object @{Name='IPs';Expression={$_.IPAddresses -join ';'}}`.
-- _Query:_ In older versions of PowerShell (5.1), why is it considered a mandatory best practice to universally append the `-NoTypeInformation` flag to every `Export-Csv` command?
-  - _A:_ By default, PS 5.1 injects a hidden header row at the very top of the CSV file containing the .NET type of the serialized objects (e.g., `#TYPE System.Diagnostics.Process`). This immediately corrupts automated ingestion parsers and Excel spreadsheet headers, which expect the very first line to be the pure column names. The flag suppresses this unwanted metadata.
-- _Query:_ An automation script attempts to merge logs by running `Get-Data | Export-Csv -Path log.csv -Append`. The script fails, throwing a schema mismatch error. What causes this?
-  - _A:_ The `-Append` flag compares the property names of the incoming objects against the established header row of the existing CSV file. If the incoming objects possess different properties, missing properties, or properties in a wildly different order, `Export-Csv` protects the integrity of the tabular data by refusing to append mismatched columns.
+**Q:** You pipe an array of custom objects to `Export-Csv`. You notice that a specific column, which contains an array of IP addresses, is exporting identically on every row as `System.String[]`. Why is this happening, and how do you resolve it?
+**A:** CSV files are strictly flat and two-dimensional; they cannot represent nested arrays. When `Export-Csv` encounters a nested array, it calls the `.ToString()` method on it, which evaluates to its base type (`System.String[]`). To resolve this, you must intercept the pipeline before the export and flatten the array using a calculated property: `Select-Object @{Name='IPs';Expression={$_.IPAddresses -join ';'}}`.
+**Q:** In older versions of PowerShell (5.1), why is it considered a mandatory best practice to universally append the `-NoTypeInformation` flag to every `Export-Csv` command?
+**A:** By default, PS 5.1 injects a hidden header row at the very top of the CSV file containing the .NET type of the serialized objects (e.g., `#TYPE System.Diagnostics.Process`). This immediately corrupts automated ingestion parsers and Excel spreadsheet headers, which expect the very first line to be the pure column names. The flag suppresses this unwanted metadata.
+**Q:** An automation script attempts to merge logs by running `Get-Data | Export-Csv -Path log.csv -Append`. The script fails, throwing a schema mismatch error. What causes this?
+**A:** The `-Append` flag compares the property names of the incoming objects against the established header row of the existing CSV file. If the incoming objects possess different properties, missing properties, or properties in a wildly different order, `Export-Csv` protects the integrity of the tabular data by refusing to append mismatched columns.
 
 ## Practice Problems
 
-- _Problem:_ Retrieve a list of all currently running services, isolate specifically their `Name` and `Status` properties, and export this data to `services.csv` while ensuring the resulting file lacks the intrusive `#TYPE` header row.
-  - _Hint:_ Chain the service retrieval, property selection, and export commands, appending the specific metadata suppression flag.
-  - _Solution:_ `Get-Service | Select-Object Name, Status | Export-Csv -Path services.csv -NoTypeInformation` (This flattens the object stream safely and cleanly).
-- _Problem:_ Export an array of custom data stored in the variable `$Audits` to a file named `audit_log.csv`. Instruct the cmdlet to separate the columns using a semicolon `;` instead of a standard comma, and force the operation even if a read-only file exists at the target path.
-  - _Hint:_ Combine the export command passing the variable explicitly, the delimiter override flag, and the force execution override.
-  - _Solution:_ `$Audits | Export-Csv -Path audit_log.csv -Delimiter ";" -Force -NoTypeInformation` (The custom delimiter is critical for internationalized environments where standard commas might disrupt parsers).
+**Problem:** Retrieve a list of all currently running services, isolate specifically their `Name` and `Status` properties, and export this data to `services.csv` while ensuring the resulting file lacks the intrusive `#TYPE` header row.
+**Hint:** Chain the service retrieval, property selection, and export commands, appending the specific metadata suppression flag.
+**Solution:** `Get-Service | Select-Object Name, Status | Export-Csv -Path services.csv -NoTypeInformation` (This flattens the object stream safely and cleanly).
+**Problem:** Export an array of custom data stored in the variable `$Audits` to a file named `audit_log.csv`. Instruct the cmdlet to separate the columns using a semicolon `;` instead of a standard comma, and force the operation even if a read-only file exists at the target path.
+**Hint:** Combine the export command passing the variable explicitly, the delimiter override flag, and the force execution override.
+**Solution:** `$Audits | Export-Csv -Path audit_log.csv -Delimiter ";" -Force -NoTypeInformation` (The custom delimiter is critical for internationalized environments where standard commas might disrupt parsers).
 
 ## References
 

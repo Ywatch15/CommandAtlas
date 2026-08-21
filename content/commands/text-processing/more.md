@@ -153,21 +153,21 @@ Crucially, when reading from a pipe (`cat | more`), the command does not allocat
 
 ## Interview Questions
 
-- _Query:_ What is the absolute, fundamental architectural limitation of the `more` command when evaluating data originating from a pipeline (e.g., `dmesg | more`), and how does `less` overcome this?
-  - _A:_ The `more` command consumes standard input streams linearly and pushes them to standard output without caching the data in memory. Because UNIX pipes are non-rewindable FIFO streams, once `more` prints a page, that data is permanently lost. Therefore, `more` cannot scroll backward. `less` overcomes this by intercepting the pipeline data and caching it in a massive RAM buffer (or spilling it to a temporary file on disk if it gets too large), allowing the user to navigate backward through the cached payload.
-- _Query:_ A junior administrator is granted `sudo more /var/log/secure` access via the `sudoers` file to audit authentication failures. How can this administrator exploit this specific command to gain full root access to the server?
-  - _A:_ The `more` utility includes a built-in interactive command execution feature. While viewing the file as root, the administrator can simply type `!/bin/bash` and hit Enter. `more` will execute the shell command using its current elevated privileges, instantly dropping the user into a completely unrestricted, interactive root shell, bypassing the intended `sudoers` limitation entirely.
-- _Query:_ Explain the functional output difference between executing `more -p file.txt` and `more -c file.txt`.
-  - _A:_ Both flags prevent `more` from scrolling the terminal window upwards, which is useful on slow or legacy serial connections. `more -p` (page) clears the entire terminal screen completely, and then draws the next page of text from top to bottom. `more -c` (clear) does not clear the screen first; it paints the new text line-by-line from top to bottom, erasing the old text on the remainder of each specific line as it draws.
+**Q:** What is the absolute, fundamental architectural limitation of the `more` command when evaluating data originating from a pipeline (e.g., `dmesg | more`), and how does `less` overcome this?
+**A:** The `more` command consumes standard input streams linearly and pushes them to standard output without caching the data in memory. Because UNIX pipes are non-rewindable FIFO streams, once `more` prints a page, that data is permanently lost. Therefore, `more` cannot scroll backward. `less` overcomes this by intercepting the pipeline data and caching it in a massive RAM buffer (or spilling it to a temporary file on disk if it gets too large), allowing the user to navigate backward through the cached payload.
+**Q:** A junior administrator is granted `sudo more /var/log/secure` access via the `sudoers` file to audit authentication failures. How can this administrator exploit this specific command to gain full root access to the server?
+**A:** The `more` utility includes a built-in interactive command execution feature. While viewing the file as root, the administrator can simply type `!/bin/bash` and hit Enter. `more` will execute the shell command using its current elevated privileges, instantly dropping the user into a completely unrestricted, interactive root shell, bypassing the intended `sudoers` limitation entirely.
+**Q:** Explain the functional output difference between executing `more -p file.txt` and `more -c file.txt`.
+**A:** Both flags prevent `more` from scrolling the terminal window upwards, which is useful on slow or legacy serial connections. `more -p` (page) clears the entire terminal screen completely, and then draws the next page of text from top to bottom. `more -c` (clear) does not clear the screen first; it paints the new text line-by-line from top to bottom, erasing the old text on the remainder of each specific line as it draws.
 
 ## Practice Problems
 
-- _Problem:_ Use `more` to open a file named `database.sql`, skipping the first 250 lines, and squeeze any sequence of blank lines into a single blank line to maximize screen space.
-  - _Hint:_ Combine the squeeze flag with the numerical starting line offset flag.
-  - _Solution:_ `more -s +250 database.sql` (This condenses the view and jumps directly to the relevant data block).
-- _Problem:_ Open `app.log` using `more`, but instruct the pager to clear the screen entirely before drawing each new page, and include a helpful navigation prompt at the bottom of the screen instead of relying on terminal bells.
-  - _Hint:_ Chain the page-clear flag with the explicit prompt flag.
-  - _Solution:_ `more -p -d app.log` (This creates a cleaner, more user-friendly reading experience on legacy terminals).
+**Problem:** Use `more` to open a file named `database.sql`, skipping the first 250 lines, and squeeze any sequence of blank lines into a single blank line to maximize screen space.
+**Hint:** Combine the squeeze flag with the numerical starting line offset flag.
+**Solution:** `more -s +250 database.sql` (This condenses the view and jumps directly to the relevant data block).
+**Problem:** Open `app.log` using `more`, but instruct the pager to clear the screen entirely before drawing each new page, and include a helpful navigation prompt at the bottom of the screen instead of relying on terminal bells.
+**Hint:** Chain the page-clear flag with the explicit prompt flag.
+**Solution:** `more -p -d app.log` (This creates a cleaner, more user-friendly reading experience on legacy terminals).
 
 ## References
 

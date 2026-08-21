@@ -173,21 +173,21 @@ Because `pgrep` maintains internal awareness of its own execution PID during thi
 
 ## Interview Questions
 
-- _Query:_ A developer writes a bash script containing `PIDS=$(ps aux | grep node | awk '{print $2}')`. What is the notorious bug inherent in this legacy pipeline pattern, and how does substituting `pgrep node` natively resolve it?
-  - _A:_ The legacy pattern is vulnerable to the "grep matches itself" bug. The `grep node` process spawns in the process table simultaneously with the `ps` command. The pipeline intercepts its own execution string, returning an invalid PID that breaks downstream scripts. `pgrep node` natively resolves this because the binary possesses internal state awareness; it calculates its own PID during initialization and explicitly filters itself out of the internal `/proc` traversal loop, returning only pure target PIDs.
-- _Query:_ You run `pgrep python` and receive 10 PIDs. However, you are only interested in finding the exact PID of the python process that was started most recently by the operating system. What single flag accomplishes this?
-  - _A:_ The `-n` (newest) flag. It instructs `pgrep` to evaluate the creation timestamps/PID sequencing and returns strictly the single process matching the pattern that has been alive for the shortest duration.
-- _Query:_ What is the structural difference between `pgrep my_app` and `pgrep -f my_app` regarding how they read kernel data to execute the regex match?
-  - _A:_ Without `-f`, `pgrep` reads the `/proc/[PID]/stat` or `comm` files, which only contain the name of the executable binary hard-truncated by the kernel to 15 characters. When `-f` (full) is applied, `pgrep` opens the `/proc/[PID]/cmdline` file instead. This file contains the complete, un-truncated execution string, including the binary path and all command-line arguments passed during execution, allowing for vastly deeper regex targeting.
+**Q:** A developer writes a bash script containing `PIDS=$(ps aux | grep node | awk '{print $2}')`. What is the notorious bug inherent in this legacy pipeline pattern, and how does substituting `pgrep node` natively resolve it?
+**A:** The legacy pattern is vulnerable to the "grep matches itself" bug. The `grep node` process spawns in the process table simultaneously with the `ps` command. The pipeline intercepts its own execution string, returning an invalid PID that breaks downstream scripts. `pgrep node` natively resolves this because the binary possesses internal state awareness; it calculates its own PID during initialization and explicitly filters itself out of the internal `/proc` traversal loop, returning only pure target PIDs.
+**Q:** You run `pgrep python` and receive 10 PIDs. However, you are only interested in finding the exact PID of the python process that was started most recently by the operating system. What single flag accomplishes this?
+**A:** The `-n` (newest) flag. It instructs `pgrep` to evaluate the creation timestamps/PID sequencing and returns strictly the single process matching the pattern that has been alive for the shortest duration.
+**Q:** What is the structural difference between `pgrep my_app` and `pgrep -f my_app` regarding how they read kernel data to execute the regex match?
+**A:** Without `-f`, `pgrep` reads the `/proc/[PID]/stat` or `comm` files, which only contain the name of the executable binary hard-truncated by the kernel to 15 characters. When `-f` (full) is applied, `pgrep` opens the `/proc/[PID]/cmdline` file instead. This file contains the complete, un-truncated execution string, including the binary path and all command-line arguments passed during execution, allowing for vastly deeper regex targeting.
 
 ## Practice Problems
 
-- _Problem:_ Find and display the PIDs of all processes where the full command-line execution string contains the word `redis`, and ensure the output prints the full execution string next to the PID for visual verification.
-  - _Hint:_ Combine the full command-line match flag with the full listing output flag.
-  - _Solution:_ `pgrep -f -a redis` (This interrogates the `cmdline` files and displays a comprehensive, `ps`-like audit of the matched targets).
-- _Problem:_ Write a command that mathematically counts exactly how many processes are currently running that are owned by the effective user `www-data`, outputting only the final integer.
-  - _Hint:_ Chain the user isolation flag with the numeric counting flag, targeting all binaries.
-  - _Solution:_ `pgrep -u www-data -c .` (The `.` acts as a wildcard regex matching any binary, while `-c` squashes the output into a single cumulative integer).
+**Problem:** Find and display the PIDs of all processes where the full command-line execution string contains the word `redis`, and ensure the output prints the full execution string next to the PID for visual verification.
+**Hint:** Combine the full command-line match flag with the full listing output flag.
+**Solution:** `pgrep -f -a redis` (This interrogates the `cmdline` files and displays a comprehensive, `ps`-like audit of the matched targets).
+**Problem:** Write a command that mathematically counts exactly how many processes are currently running that are owned by the effective user `www-data`, outputting only the final integer.
+**Hint:** Chain the user isolation flag with the numeric counting flag, targeting all binaries.
+**Solution:** `pgrep -u www-data -c .` (The `.` acts as a wildcard regex matching any binary, while `-c` squashes the output into a single cumulative integer).
 
 ## References
 

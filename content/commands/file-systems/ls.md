@@ -174,21 +174,21 @@ If flags like `-l`, `-s`, or `-t` are passed, `ls` must execute an additional `s
 
 ## Interview Questions
 
-- **Q:** Why is parsing the output of `ls` in a bash script considered a dangerous anti-pattern?
-  - **A:** Filenames in Unix can legally contain any character except `/` and the null byte (`\0`), including spaces, tabs, and newlines. Parsing `ls` output with tools like `awk` or bash `for` loops causes word-splitting, breaking the script and potentially executing unintended commands on malformed filenames. You should use `find -print0` or standard shell globbing.
-- **Q:** What is the specific purpose of the `-d` flag, and what mistake does it prevent?
-  - **A:** The `-d` (directory) flag forces `ls` to list the metadata of the directory itself rather than its contents. Without it, running `ls -l /tmp` dumps the contents of `/tmp`, preventing you from inspecting the permission bits and ownership of the `/tmp` folder itself.
-- **Q:** How does running `ls` differ from `ls -l` in terms of system calls and performance on very large directories?
-  - **A:** Standard `ls` only requires `opendir()` and `readdir()` system calls to fetch the filenames. `ls -l` requires a separate `stat()` system call for _every single file_ to retrieve extended metadata (sizes, permissions, timestamps), which creates severe disk I/O bottlenecks and latency on directories with thousands of files.
+**Q:** Why is parsing the output of `ls` in a bash script considered a dangerous anti-pattern?
+**A:** Filenames in Unix can legally contain any character except `/` and the null byte (`\0`), including spaces, tabs, and newlines. Parsing `ls` output with tools like `awk` or bash `for` loops causes word-splitting, breaking the script and potentially executing unintended commands on malformed filenames. You should use `find -print0` or standard shell globbing.
+**Q:** What is the specific purpose of the `-d` flag, and what mistake does it prevent?
+**A:** The `-d` (directory) flag forces `ls` to list the metadata of the directory itself rather than its contents. Without it, running `ls -l /tmp` dumps the contents of `/tmp`, preventing you from inspecting the permission bits and ownership of the `/tmp` folder itself.
+**Q:** How does running `ls` differ from `ls -l` in terms of system calls and performance on very large directories?
+**A:** Standard `ls` only requires `opendir()` and `readdir()` system calls to fetch the filenames. `ls -l` requires a separate `stat()` system call for _every single file_ to retrieve extended metadata (sizes, permissions, timestamps), which creates severe disk I/O bottlenecks and latency on directories with thousands of files.
 
 ## Practice Problems
 
-- **Problem:** List all files in the current directory, including hidden files, sorted by file size from largest to smallest, using human-readable byte formats.
-  - **Hint:** Combine the long format, all files, size sort, and human-readable flags.
-  - **Solution:** `ls -laSh` (This combines `-l` for long format, `-a` for all, `-S` for size sorting, and `-h` for readable formats).
-- **Problem:** Inspect the permissions and inode number of the `/var/log` directory itself, without listing the files inside of it.
-  - **Hint:** Use the directory and inode flags alongside the long format.
-  - **Solution:** `ls -ldi /var/log` (The `-d` prevents traversing into the directory, while `-i` prints the inode index number).
+**Problem:** List all files in the current directory, including hidden files, sorted by file size from largest to smallest, using human-readable byte formats.
+**Hint:** Combine the long format, all files, size sort, and human-readable flags.
+**Solution:** `ls -laSh` (This combines `-l` for long format, `-a` for all, `-S` for size sorting, and `-h` for readable formats).
+**Problem:** Inspect the permissions and inode number of the `/var/log` directory itself, without listing the files inside of it.
+**Hint:** Use the directory and inode flags alongside the long format.
+**Solution:** `ls -ldi /var/log` (The `-d` prevents traversing into the directory, while `-i` prints the inode index number).
 
 ## References
 

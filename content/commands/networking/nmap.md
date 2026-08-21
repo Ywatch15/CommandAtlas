@@ -147,21 +147,21 @@ For **OS Fingerprinting (`-O`)**, Nmap sends a battery of highly specific, sligh
 
 ## Interview Questions
 
-- _Query:_ Describe the exact TCP packet exchange that occurs during an Nmap stealth SYN scan (`-sS`) against an open port, and explain why it requires root privileges.
-  - _A:_ Nmap constructs and sends a raw TCP SYN packet. The target responds with a SYN/ACK packet, indicating the port is open. Nmap intercepts this and immediately replies with an RST (Reset) packet to tear down the connection. Because it does not complete the 3-way handshake (missing the final ACK), the remote application usually doesn't log the interaction. This requires root privileges because standard OS socket APIs don't allow applications to craft raw IP headers or inject RST packets mid-handshake; it requires low-level raw socket access.
-- _Query:_ You scan a target with `nmap 192.168.1.100` and Nmap reports "Host seems down", but you can successfully reach the web server on that IP via your browser. Why did Nmap fail, and what flag fixes it?
-  - _A:_ By default, Nmap executes a host discovery phase (usually an ICMP Ping or TCP ACK to port 80) to verify a host is alive before wasting time port scanning it. If a firewall blocks ICMP, Nmap assumes the host is dead and aborts. Passing the `-Pn` (Treat all hosts as online) flag instructs Nmap to bypass the ping discovery phase and aggressively scan the specified ports regardless.
-- _Query:_ How does Nmap deduce the operating system of a remote target (using the `-O` flag) without having any administrative access to it?
-  - _A:_ Nmap relies on TCP/IP stack fingerprinting. Different OS vendors (Microsoft, Linux kernel teams, BSD) implement the RFC specifications for networking slightly differently. Nmap sends an array of edge-case and malformed packets to the target and analyzes the responses—checking variations in initial TTL values, TCP window sizes, fragmentation handling, and option ordering. It matches this unique behavioral signature against an internal database to identify the OS and kernel version.
+**Q:** Describe the exact TCP packet exchange that occurs during an Nmap stealth SYN scan (`-sS`) against an open port, and explain why it requires root privileges.
+**A:** Nmap constructs and sends a raw TCP SYN packet. The target responds with a SYN/ACK packet, indicating the port is open. Nmap intercepts this and immediately replies with an RST (Reset) packet to tear down the connection. Because it does not complete the 3-way handshake (missing the final ACK), the remote application usually doesn't log the interaction. This requires root privileges because standard OS socket APIs don't allow applications to craft raw IP headers or inject RST packets mid-handshake; it requires low-level raw socket access.
+**Q:** You scan a target with `nmap 192.168.1.100` and Nmap reports "Host seems down", but you can successfully reach the web server on that IP via your browser. Why did Nmap fail, and what flag fixes it?
+**A:** By default, Nmap executes a host discovery phase (usually an ICMP Ping or TCP ACK to port 80) to verify a host is alive before wasting time port scanning it. If a firewall blocks ICMP, Nmap assumes the host is dead and aborts. Passing the `-Pn` (Treat all hosts as online) flag instructs Nmap to bypass the ping discovery phase and aggressively scan the specified ports regardless.
+**Q:** How does Nmap deduce the operating system of a remote target (using the `-O` flag) without having any administrative access to it?
+**A:** Nmap relies on TCP/IP stack fingerprinting. Different OS vendors (Microsoft, Linux kernel teams, BSD) implement the RFC specifications for networking slightly differently. Nmap sends an array of edge-case and malformed packets to the target and analyzes the responses—checking variations in initial TTL values, TCP window sizes, fragmentation handling, and option ordering. It matches this unique behavioral signature against an internal database to identify the OS and kernel version.
 
 ## Practice Problems
 
-- _Problem:_ Execute a scan against the subnet `10.10.5.0/24` to discover which IP addresses are actively online, without performing any port scanning, and save the output to a grepable file named `live_hosts.txt`.
-  - _Hint:_ Combine the Ping scan flag with the Grepable output format flag.
-  - _Solution:_ `nmap -sn 10.10.5.0/24 -oG live_hosts.txt` (This sweeps the subnet using ARP/ICMP efficiently and saves a clean, parseable text record).
-- _Problem:_ Perform an aggressive scan against a specific host `192.168.50.25`, forcing Nmap to treat the host as online, scanning all 65,535 TCP ports, and attempting to determine the exact service versions running on any discovered open ports.
-  - _Hint:_ Combine the "no ping" flag, the all-ports designation, and the service version detection flag.
-  - _Solution:_ `nmap -Pn -p- -sV 192.168.50.25` (This bypasses discovery, exhaustively maps every possible port, and heavily interrogates them for version banners).
+**Problem:** Execute a scan against the subnet `10.10.5.0/24` to discover which IP addresses are actively online, without performing any port scanning, and save the output to a grepable file named `live_hosts.txt`.
+**Hint:** Combine the Ping scan flag with the Grepable output format flag.
+**Solution:** `nmap -sn 10.10.5.0/24 -oG live_hosts.txt` (This sweeps the subnet using ARP/ICMP efficiently and saves a clean, parseable text record).
+**Problem:** Perform an aggressive scan against a specific host `192.168.50.25`, forcing Nmap to treat the host as online, scanning all 65,535 TCP ports, and attempting to determine the exact service versions running on any discovered open ports.
+**Hint:** Combine the "no ping" flag, the all-ports designation, and the service version detection flag.
+**Solution:** `nmap -Pn -p- -sV 192.168.50.25` (This bypasses discovery, exhaustively maps every possible port, and heavily interrogates them for version banners).
 
 ## References
 

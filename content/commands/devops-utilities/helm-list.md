@@ -163,21 +163,21 @@ Helm fetches these secrets, decompresses their payloads, and parses the JSON rel
 
 ## Interview Questions
 
-- _Query:_ Where does `helm list` retrieve its data from within a Kubernetes cluster?
-  - _A:_ `helm list` queries the Kubernetes API server for `Secret` (or `ConfigMap`) objects labeled as `owner=helm`. These secrets store compressed, base64-encoded release history data which Helm parses, filters, and formats into the release listing table.
-- _Query:_ Why might an application deployed via `kubectl apply` fail to appear in the output of `helm list`?
-  - _A:_ `helm list` only tracks applications and resources deployed and managed through Helm charts (`helm install`). Resources manually applied via `kubectl` bypass Helm's release tracking mechanism and secret database entirely.
-- _Query:_ What is the functional difference between running `helm list` versus `helm list --all`?
-  - _A:_ Standard `helm list` filters and displays only successfully deployed releases (`DEPLOYED`), whereas `helm list --all` expands the output to include all release lifecycle states, including failed (`FAILED`), superseded (`SUPERSEDED`), and uninstalled (`UNINSTALLED`) revisions.
+**Q:** Where does `helm list` retrieve its data from within a Kubernetes cluster?
+**A:** `helm list` queries the Kubernetes API server for `Secret` (or `ConfigMap`) objects labeled as `owner=helm`. These secrets store compressed, base64-encoded release history data which Helm parses, filters, and formats into the release listing table.
+**Q:** Why might an application deployed via `kubectl apply` fail to appear in the output of `helm list`?
+**A:** `helm list` only tracks applications and resources deployed and managed through Helm charts (`helm install`). Resources manually applied via `kubectl` bypass Helm's release tracking mechanism and secret database entirely.
+**Q:** What is the functional difference between running `helm list` versus `helm list --all`?
+**A:** Standard `helm list` filters and displays only successfully deployed releases (`DEPLOYED`), whereas `helm list --all` expands the output to include all release lifecycle states, including failed (`FAILED`), superseded (`SUPERSEDED`), and uninstalled (`UNINSTALLED`) revisions.
 
 ## Practice Problems
 
-- _Problem:_ List all successfully deployed Helm releases across every single namespace in the Kubernetes cluster.
-  - _Hint:_ Combine the listing command with the all-namespaces flag.
-  - _Solution:_ `helm list --all-namespaces` (The `-A` or `--all-namespaces` flag queries all namespaces simultaneously for Helm-managed secrets).
-- _Problem:_ Query all releases in the `production` namespace and format the resulting output in structured JSON.
-  - _Hint:_ Combine the namespace flag with the output json flag.
-  - _Solution:_ `helm list --namespace production --output json` (This targets the production namespace and serializes release metadata into clean JSON format).
+**Problem:** List all successfully deployed Helm releases across every single namespace in the Kubernetes cluster.
+**Hint:** Combine the listing command with the all-namespaces flag.
+**Solution:** `helm list --all-namespaces` (The `-A` or `--all-namespaces` flag queries all namespaces simultaneously for Helm-managed secrets).
+**Problem:** Query all releases in the `production` namespace and format the resulting output in structured JSON.
+**Hint:** Combine the namespace flag with the output json flag.
+**Solution:** `helm list --namespace production --output json` (This targets the production namespace and serializes release metadata into clean JSON format).
 
 ## References
 

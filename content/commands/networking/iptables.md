@@ -158,21 +158,21 @@ As a packet traverses the network stack, Netfilter matches it sequentially again
 
 ## Interview Questions
 
-- **Q:** Describe the architectural difference between the `filter` table and the `nat` table in iptables.
-  - **A:** The `filter` table is the default table used strictly for security decisions: deciding whether to `ACCEPT`, `DROP`, or `REJECT` a packet traversing the network stack. The `nat` table is used exclusively for altering packet headers (Network Address Translation). It rewrites source or destination IPs and ports (SNAT/DNAT/MASQUERADE) to facilitate routing, but does not perform security filtering.
-- **Q:** Why does replacing 5,000 individual `iptables -A INPUT -s <IP> -j DROP` rules with a single `ipset` rule drastically improve network throughput?
-  - **A:** Standard `iptables` chains evaluate packets linearly. Every incoming packet must be checked sequentially against all 5,000 rules, causing massive CPU overhead. `ipset` stores the 5,000 IPs in a highly optimized kernel hash table. A single iptables rule queries this hash table, validating the packet's source IP in O(1) constant time, eliminating the evaluation bottleneck.
-- **Q:** You run `iptables -F` to flush all rules, expecting everything to be permitted, but suddenly all network connectivity to the server stops. What happened?
-  - **A:** Flushing the rules deletes all custom rules, but it does _not_ reset the chain's default Policy. If the administrator had previously run `iptables -P INPUT DROP`, flushing the explicit `ACCEPT` rules leaves only the default `DROP` policy active, instantly blocking all inbound traffic. You must run `iptables -P INPUT ACCEPT` before flushing.
+**Q:** Describe the architectural difference between the `filter` table and the `nat` table in iptables.
+**A:** The `filter` table is the default table used strictly for security decisions: deciding whether to `ACCEPT`, `DROP`, or `REJECT` a packet traversing the network stack. The `nat` table is used exclusively for altering packet headers (Network Address Translation). It rewrites source or destination IPs and ports (SNAT/DNAT/MASQUERADE) to facilitate routing, but does not perform security filtering.
+**Q:** Why does replacing 5,000 individual `iptables -A INPUT -s <IP> -j DROP` rules with a single `ipset` rule drastically improve network throughput?
+**A:** Standard `iptables` chains evaluate packets linearly. Every incoming packet must be checked sequentially against all 5,000 rules, causing massive CPU overhead. `ipset` stores the 5,000 IPs in a highly optimized kernel hash table. A single iptables rule queries this hash table, validating the packet's source IP in O(1) constant time, eliminating the evaluation bottleneck.
+**Q:** You run `iptables -F` to flush all rules, expecting everything to be permitted, but suddenly all network connectivity to the server stops. What happened?
+**A:** Flushing the rules deletes all custom rules, but it does _not_ reset the chain's default Policy. If the administrator had previously run `iptables -P INPUT DROP`, flushing the explicit `ACCEPT` rules leaves only the default `DROP` policy active, instantly blocking all inbound traffic. You must run `iptables -P INPUT ACCEPT` before flushing.
 
 ## Practice Problems
 
-- _Problem:_ Append a rule to the firewall that drops all incoming ICMP (ping) requests to the server to prevent basic network discovery, while leaving all other traffic untouched.
-  - _Hint:_ Target the input chain, specify the protocol, and set the jump target to drop.
-  - _Solution:_ `iptables -A INPUT -p icmp -j DROP` (This intercepts ICMP echo requests and silently discards the packets).
-- _Problem:_ Delete a previously added rule from the INPUT chain that allowed port 8080, assuming you don't want to type out the entire rule specification again.
-  - _Hint:_ List the rules with line numbers, then use the delete command specifying the chain and line index.
-  - _Solution:_ `iptables -L INPUT --line-numbers` followed by `iptables -D INPUT <line_number>` (This precisely unlinks and removes the specific rule based on its array index).
+**Problem:** Append a rule to the firewall that drops all incoming ICMP (ping) requests to the server to prevent basic network discovery, while leaving all other traffic untouched.
+**Hint:** Target the input chain, specify the protocol, and set the jump target to drop.
+**Solution:** `iptables -A INPUT -p icmp -j DROP` (This intercepts ICMP echo requests and silently discards the packets).
+**Problem:** Delete a previously added rule from the INPUT chain that allowed port 8080, assuming you don't want to type out the entire rule specification again.
+**Hint:** List the rules with line numbers, then use the delete command specifying the chain and line index.
+**Solution:** `iptables -L INPUT --line-numbers` followed by `iptables -D INPUT <line_number>` (This precisely unlinks and removes the specific rule based on its array index).
 
 ## References
 

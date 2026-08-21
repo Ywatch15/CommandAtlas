@@ -138,21 +138,21 @@ When adding or deleting a route (`route add ...`), the command bypasses `/proc`.
 
 ## Interview Questions
 
-- _Query:_ A developer runs the `route` command on a production server. The terminal hangs indefinitely, printing nothing, yet the server is clearly online and functioning. What is the cause of the hang, and how do you fix the command?
-  - _A:_ By default, the `route` command attempts to perform reverse-DNS resolution on every IP address in the gateway column to display human-readable hostnames. If the server's configured DNS resolvers are unreachable or misconfigured, the command blocks synchronously waiting for DNS timeouts. You fix it by running `route -n`, which instructs the command to output raw numerical IP addresses instantly.
-- _Query:_ Why did the Linux kernel networking community deprecate the `route` and `ifconfig` commands in favor of the `ip` (iproute2) suite?
-  - _A:_ The older `net-tools` suite relied heavily on the legacy `ioctl` system call interface, which became architecturally incapable of supporting advanced modern Linux networking features—such as policy-based routing, multiple routing tables, CIDR notation, and network namespaces. The `iproute2` suite was built around high-speed, binary Netlink sockets, providing total programmatic control over the modern networking stack.
-- _Query:_ If you type `route add default gw 192.168.1.1 dev eth0` and successfully route traffic, what happens to this configuration when the server reboots?
-  - _A:_ The configuration completely vanishes. The `route` command only manipulates the live, volatile RAM state of the kernel's routing table. To make the route persistent across reboots, the configuration must be written to disk using persistent network daemons like NetworkManager, Netplan, or `systemd-networkd`.
+**Q:** A developer runs the `route` command on a production server. The terminal hangs indefinitely, printing nothing, yet the server is clearly online and functioning. What is the cause of the hang, and how do you fix the command?
+**A:** By default, the `route` command attempts to perform reverse-DNS resolution on every IP address in the gateway column to display human-readable hostnames. If the server's configured DNS resolvers are unreachable or misconfigured, the command blocks synchronously waiting for DNS timeouts. You fix it by running `route -n`, which instructs the command to output raw numerical IP addresses instantly.
+**Q:** Why did the Linux kernel networking community deprecate the `route` and `ifconfig` commands in favor of the `ip` (iproute2) suite?
+**A:** The older `net-tools` suite relied heavily on the legacy `ioctl` system call interface, which became architecturally incapable of supporting advanced modern Linux networking features—such as policy-based routing, multiple routing tables, CIDR notation, and network namespaces. The `iproute2` suite was built around high-speed, binary Netlink sockets, providing total programmatic control over the modern networking stack.
+**Q:** If you type `route add default gw 192.168.1.1 dev eth0` and successfully route traffic, what happens to this configuration when the server reboots?
+**A:** The configuration completely vanishes. The `route` command only manipulates the live, volatile RAM state of the kernel's routing table. To make the route persistent across reboots, the configuration must be written to disk using persistent network daemons like NetworkManager, Netplan, or `systemd-networkd`.
 
 ## Practice Problems
 
-- _Problem:_ Output the current kernel IP routing table instantly without hanging on hostname resolution.
-  - _Hint:_ Use the display command combined with the numeric flag.
-  - _Solution:_ `route -n` (This dumps the table securely and quickly by bypassing DNS resolution).
-- _Problem:_ Instruct the kernel to route all traffic destined for the `10.50.0.0` network (with a subnet mask of `255.255.255.0`) to a gateway router located at `192.168.1.254`.
-  - _Hint:_ Use the add command, explicitly declare the network target, type out the full netmask, and define the gateway.
-  - _Solution:_ `route add -net 10.50.0.0 netmask 255.255.255.0 gw 192.168.1.254` (This injects the static path into the kernel FIB).
+**Problem:** Output the current kernel IP routing table instantly without hanging on hostname resolution.
+**Hint:** Use the display command combined with the numeric flag.
+**Solution:** `route -n` (This dumps the table securely and quickly by bypassing DNS resolution).
+**Problem:** Instruct the kernel to route all traffic destined for the `10.50.0.0` network (with a subnet mask of `255.255.255.0`) to a gateway router located at `192.168.1.254`.
+**Hint:** Use the add command, explicitly declare the network target, type out the full netmask, and define the gateway.
+**Solution:** `route add -net 10.50.0.0 netmask 255.255.255.0 gw 192.168.1.254` (This injects the static path into the kernel FIB).
 
 ## References
 

@@ -195,19 +195,19 @@ When `write()` is called with this integer, the kernel locates the `file descrip
 
 ## Interview Questions
 
-- **Q:** What is the technical difference between a "short write" and a standard error when checking the return value of the `write()` system call?
-  - **A:** If `write()` encounters a fatal error (like a closed network socket or a full hard drive), it returns exactly `-1` and sets the `errno` variable. A "short write" occurs when `write()` returns a positive integer that is simply _less_ than the number of bytes you requested it to write. This is not an error; it simply means the kernel's internal buffer filled up, and the developer must adjust their memory pointer and call `write()` again to push the remaining payload.
-- **Q:** Why do highly secure C applications mandate appending the `O_CLOEXEC` flag when invoking the `open()` system call?
-  - **A:** By default, open file descriptors remain active and accessible across an `execve()` system call. If an application opens a sensitive configuration file and later spawns a child process (like shelling out to `bash` or a plugin), that child inherits the open file descriptor and can read or write to the sensitive file. `O_CLOEXEC` (Close-on-Exec) instructs the kernel to automatically and securely close the file descriptor the moment a new binary is executed, plugging the data leak.
-- **Q:** When using `open()` with the `O_CREAT` flag to generate a new file, the developer specifies the mode argument as `0666` (read/write for everyone). However, when checking the disk, the file is created with permissions `0644`. Why did the kernel alter the requested permissions?
-  - **A:** The requested mode (`0666`) is not absolute; it is subjected to a bitwise mathematical subtraction against the executing process's `umask` (user file-creation mode mask). If the OS umask is set to `0022` (restricting group and other write permissions), the kernel calculates `0666 & ~0022`, resulting in the final file receiving the safer `0644` permission set.
+**Q:** What is the technical difference between a "short write" and a standard error when checking the return value of the `write()` system call?
+**A:** If `write()` encounters a fatal error (like a closed network socket or a full hard drive), it returns exactly `-1` and sets the `errno` variable. A "short write" occurs when `write()` returns a positive integer that is simply _less_ than the number of bytes you requested it to write. This is not an error; it simply means the kernel's internal buffer filled up, and the developer must adjust their memory pointer and call `write()` again to push the remaining payload.
+**Q:** Why do highly secure C applications mandate appending the `O_CLOEXEC` flag when invoking the `open()` system call?
+**A:** By default, open file descriptors remain active and accessible across an `execve()` system call. If an application opens a sensitive configuration file and later spawns a child process (like shelling out to `bash` or a plugin), that child inherits the open file descriptor and can read or write to the sensitive file. `O_CLOEXEC` (Close-on-Exec) instructs the kernel to automatically and securely close the file descriptor the moment a new binary is executed, plugging the data leak.
+**Q:** When using `open()` with the `O_CREAT` flag to generate a new file, the developer specifies the mode argument as `0666` (read/write for everyone). However, when checking the disk, the file is created with permissions `0644`. Why did the kernel alter the requested permissions?
+**A:** The requested mode (`0666`) is not absolute; it is subjected to a bitwise mathematical subtraction against the executing process's `umask` (user file-creation mode mask). If the OS umask is set to `0022` (restricting group and other write permissions), the kernel calculates `0666 & ~0022`, resulting in the final file receiving the safer `0644` permission set.
 
 ## Practice Problems
 
-- _Problem:_ Write a robust C loop to write exactly `total_length` bytes from a `buffer` into an open file descriptor `fd`, ensuring it perfectly handles both short writes and `EINTR` kernel interruptions.
-  - _Hint:_ You must track how many bytes have been successfully written so far, adjusting both the buffer pointer and the remaining size in the `write()` call.
-  - _Solution:_
-    ```c
+**Problem:** Write a robust C loop to write exactly `total_length` bytes from a `buffer` into an open file descriptor `fd`, ensuring it perfectly handles both short writes and `EINTR` kernel interruptions.
+**Hint:** You must track how many bytes have been successfully written so far, adjusting both the buffer pointer and the remaining size in the `write()` call.
+**Solution:**
+`c
     size_t written = 0;
     while (written < total_length) {
         ssize_t res = write(fd, buffer + written, total_length - written);
@@ -217,10 +217,10 @@ When `write()` is called with this integer, the kernel locates the `file descrip
         }
         written += res;
     }
-    ```
-- _Problem:_ Open a file named `database.lock` safely. The command must create the file with read/write owner permissions (`0600`), but it must absolutely fail and return an error if the lock file already exists on the disk.
-  - _Hint:_ Combine the creation flag with the exclusive flag to prevent silent overwriting.
-  - _Solution:_ `int fd = open("database.lock", O_WRONLY | O_CREAT | O_EXCL, 0600);` (The `O_EXCL` flag makes the creation strictly atomic, ensuring exclusive access).
+    `
+**Problem:** Open a file named `database.lock` safely. The command must create the file with read/write owner permissions (`0600`), but it must absolutely fail and return an error if the lock file already exists on the disk.
+**Hint:** Combine the creation flag with the exclusive flag to prevent silent overwriting.
+**Solution:** `int fd = open("database.lock", O_WRONLY | O_CREAT | O_EXCL, 0600);` (The `O_EXCL` flag makes the creation strictly atomic, ensuring exclusive access).
 
 ## References
 

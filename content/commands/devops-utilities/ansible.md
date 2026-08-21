@@ -159,21 +159,21 @@ The remote host executes the Python script locally, performing the requested sys
 
 ## Interview Questions
 
-- **Q:** How does Ansible achieve remote node management without requiring persistent agent software installed on target servers?
-  - **A:** Ansible utilizes an agentless architecture. When executing a command, it dynamically bundles module code into a temporary Python script, transmits it over a standard SSH connection to the remote host, executes it locally, captures the returned JSON payload, and cleans up the temporary files automatically.
-- **Q:** What is the technical limitation of using ad-hoc `ansible` commands compared to executing structured `ansible-playbook` files?
-  - **A:** Ad-hoc commands are restricted to single-module execution contexts. They lack support for multi-task sequencing, handler notification triggers, complex variable registration, conditional logic blocks, and idempotency guarantees provided by structured YAML playbooks.
-- **Q:** How does the `--forks` flag influence the execution mechanics of an ad-hoc Ansible command across a large inventory?
-  - **A:** The `--forks` flag sets the maximum number of parallel parallel worker processes Ansible spawns simultaneously. Higher fork counts accelerate execution across large fleets by multiplexing SSH connections concurrently, subject to local system socket and CPU constraints.
+**Q:** How does Ansible achieve remote node management without requiring persistent agent software installed on target servers?
+**A:** Ansible utilizes an agentless architecture. When executing a command, it dynamically bundles module code into a temporary Python script, transmits it over a standard SSH connection to the remote host, executes it locally, captures the returned JSON payload, and cleans up the temporary files automatically.
+**Q:** What is the technical limitation of using ad-hoc `ansible` commands compared to executing structured `ansible-playbook` files?
+**A:** Ad-hoc commands are restricted to single-module execution contexts. They lack support for multi-task sequencing, handler notification triggers, complex variable registration, conditional logic blocks, and idempotency guarantees provided by structured YAML playbooks.
+**Q:** How does the `--forks` flag influence the execution mechanics of an ad-hoc Ansible command across a large inventory?
+**A:** The `--forks` flag sets the maximum number of parallel parallel worker processes Ansible spawns simultaneously. Higher fork counts accelerate execution across large fleets by multiplexing SSH connections concurrently, subject to local system socket and CPU constraints.
 
 ## Practice Problems
 
-- _Problem:_ Test SSH connectivity and Python interpreter readiness across all servers defined in an inventory file named `production.ini` using the ad-hoc ping module.
-  - _Hint:_ Target all hosts, specify the inventory flag, and invoke the ping module.
-  - _Solution:_ `ansible all -i production.ini -m ping` (This opens parallel SSH connections to every host in `production.ini` and runs the connectivity check).
-- _Problem:_ Execute a shell command `uptime` across all servers in the `webservers` group with sudo privilege escalation enabled.
-  - _Hint:_ Combine the group target, shell module, arguments, and become flags.
-  - _Solution:_ `ansible webservers -b -m shell -a "uptime"` (The `-b` flag escalates privileges to root, and `-m shell -a "uptime"` executes the system command).
+**Problem:** Test SSH connectivity and Python interpreter readiness across all servers defined in an inventory file named `production.ini` using the ad-hoc ping module.
+**Hint:** Target all hosts, specify the inventory flag, and invoke the ping module.
+**Solution:** `ansible all -i production.ini -m ping` (This opens parallel SSH connections to every host in `production.ini` and runs the connectivity check).
+**Problem:** Execute a shell command `uptime` across all servers in the `webservers` group with sudo privilege escalation enabled.
+**Hint:** Combine the group target, shell module, arguments, and become flags.
+**Solution:** `ansible webservers -b -m shell -a "uptime"` (The `-b` flag escalates privileges to root, and `-m shell -a "uptime"` executes the system command).
 
 ## References
 

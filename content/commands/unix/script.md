@@ -145,21 +145,21 @@ Because the child shell genuinely believes it is connected to a physical interac
 
 ## Interview Questions
 
-- _Query:_ You are writing an automation wrapper using `script -c "./install.sh" output.log` to capture colored logs from a vendor installer. The script fails, but your wrapper script proceeds as if it succeeded, causing downstream errors. What flag is missing, and why does this happen architecturally?
-  - _A:_ The `-e` (or `--return`) flag is missing. Architecturally, the `script` utility forks a child process to run the installer. When the child process dies, `script` gracefully closes the PTY and exits cleanly. Because `script` itself succeeded in its task of recording, it returns a `0` (Success) exit code to the parent shell, swallowing the installer's non-zero failure code. The `-e` flag forces `script` to capture and explicitly forward the child's exit code.
-- _Query:_ What is the fundamental difference in mechanism and capability between running `my_app > output.log` and `script -c "my_app" output.log`?
-  - _A:_ Output redirection (`>`) bridges the application's standard output directly to a file descriptor. If `my_app` detects its output is not a TTY (a physical terminal), it will automatically disable ANSI colors, interactive progress bars, and pagination. `script` allocates a Pseudo-Terminal (PTY) from the kernel. `my_app` probes the environment, confirms it is talking to a "real" terminal, and outputs full colors and interactive UI elements, which `script` then perfectly captures to the file.
-- _Query:_ Why does opening a `typescript` log file with a standard text editor (like `vim` or VS Code) often result in unreadable, garbled text filled with `^M` and `[31m` characters?
-  - _A:_ `script` is not a plaintext logger; it is a raw byte stream recorder. It records the exact bytes transmitted between the shell and the terminal emulator. This includes carriage returns (`^M`), terminal bell rings, backspaces, and complex ANSI escape sequences used to draw colors or move the cursor (`[31m`). A text editor attempts to render these raw rendering instructions as literal ASCII text, resulting in visual garbage.
+**Q:** You are writing an automation wrapper using `script -c "./install.sh" output.log` to capture colored logs from a vendor installer. The script fails, but your wrapper script proceeds as if it succeeded, causing downstream errors. What flag is missing, and why does this happen architecturally?
+**A:** The `-e` (or `--return`) flag is missing. Architecturally, the `script` utility forks a child process to run the installer. When the child process dies, `script` gracefully closes the PTY and exits cleanly. Because `script` itself succeeded in its task of recording, it returns a `0` (Success) exit code to the parent shell, swallowing the installer's non-zero failure code. The `-e` flag forces `script` to capture and explicitly forward the child's exit code.
+**Q:** What is the fundamental difference in mechanism and capability between running `my_app > output.log` and `script -c "my_app" output.log`?
+**A:** Output redirection (`>`) bridges the application's standard output directly to a file descriptor. If `my_app` detects its output is not a TTY (a physical terminal), it will automatically disable ANSI colors, interactive progress bars, and pagination. `script` allocates a Pseudo-Terminal (PTY) from the kernel. `my_app` probes the environment, confirms it is talking to a "real" terminal, and outputs full colors and interactive UI elements, which `script` then perfectly captures to the file.
+**Q:** Why does opening a `typescript` log file with a standard text editor (like `vim` or VS Code) often result in unreadable, garbled text filled with `^M` and `[31m` characters?
+**A:** `script` is not a plaintext logger; it is a raw byte stream recorder. It records the exact bytes transmitted between the shell and the terminal emulator. This includes carriage returns (`^M`), terminal bell rings, backspaces, and complex ANSI escape sequences used to draw colors or move the cursor (`[31m`). A text editor attempts to render these raw rendering instructions as literal ASCII text, resulting in visual garbage.
 
 ## Practice Problems
 
-- _Problem:_ Launch an interactive recording session that saves its output to a file named `db_maintenance.log`. Ensure the utility flushes the data to the disk instantly after every keystroke, and suppress the "Script started" terminal banner.
-  - _Hint:_ Combine the flush flag with the quiet flag, and specify the target file.
-  - _Solution:_ `script -f -q db_maintenance.log` (This creates an invisible, crash-proof forensic ledger).
-- _Problem:_ Execute a specific python script `processor.py` inside a pseudo-terminal to capture its colored output into `python_out.log`. Critically, ensure that if the python script fails, the `script` command returns that exact failure exit code to the bash shell.
-  - _Hint:_ Utilize the command wrapper flag paired with the exit-code forwarding flag.
-  - _Solution:_ `script -e -c "python3 processor.py" python_out.log` (This executes the binary, captures the rich TTY output, and securely bubbles up the runtime status).
+**Problem:** Launch an interactive recording session that saves its output to a file named `db_maintenance.log`. Ensure the utility flushes the data to the disk instantly after every keystroke, and suppress the "Script started" terminal banner.
+**Hint:** Combine the flush flag with the quiet flag, and specify the target file.
+**Solution:** `script -f -q db_maintenance.log` (This creates an invisible, crash-proof forensic ledger).
+**Problem:** Execute a specific python script `processor.py` inside a pseudo-terminal to capture its colored output into `python_out.log`. Critically, ensure that if the python script fails, the `script` command returns that exact failure exit code to the bash shell.
+**Hint:** Utilize the command wrapper flag paired with the exit-code forwarding flag.
+**Solution:** `script -e -c "python3 processor.py" python_out.log` (This executes the binary, captures the rich TTY output, and securely bubbles up the runtime status).
 
 ## References
 

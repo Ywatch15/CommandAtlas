@@ -145,21 +145,21 @@ The API server persists this state change to `etcd`. Simultaneously, the `kube-s
 
 ## Interview Questions
 
-- **Q:** What is the technical difference in Kubernetes cluster behavior when you execute `kubectl cordon` versus `kubectl drain` on a node?
-  - **A:** `kubectl cordon` alters the node's specification to mark it as unschedulable, which prevents the Kubernetes scheduler from assigning _new_ pods to that node, while leaving all currently running pods entirely unaffected. `kubectl drain` is a superset operation: it implicitly calls `cordon` first, and then aggressively evicts and terminates every pod currently running on the node so the hardware can be taken offline.
-- **Q:** If a node is cordoned via `kubectl cordon`, what specific field in the node's API resource manifest does Kubernetes modify to enforce this behavior?
-  - **A:** The command modifies the Node object by sending a patch to the API server that sets the `.spec.unschedulable` boolean field to `true`.
-- **Q:** Can a Pod ever be scheduled onto a node that has been explicitly cordoned? If so, how?
-  - **A:** Yes. Pods that are part of a `DaemonSet` bypass the standard scheduling predicates by default and will continue to be provisioned onto cordoned nodes unless explicit toleration restrictions are configured. Additionally, operators can forcibly schedule a pod by hardcoding the `nodeName` field directly in the Pod's YAML spec, which entirely bypasses the `kube-scheduler` logic.
+**Q:** What is the technical difference in Kubernetes cluster behavior when you execute `kubectl cordon` versus `kubectl drain` on a node?
+**A:** `kubectl cordon` alters the node's specification to mark it as unschedulable, which prevents the Kubernetes scheduler from assigning _new_ pods to that node, while leaving all currently running pods entirely unaffected. `kubectl drain` is a superset operation: it implicitly calls `cordon` first, and then aggressively evicts and terminates every pod currently running on the node so the hardware can be taken offline.
+**Q:** If a node is cordoned via `kubectl cordon`, what specific field in the node's API resource manifest does Kubernetes modify to enforce this behavior?
+**A:** The command modifies the Node object by sending a patch to the API server that sets the `.spec.unschedulable` boolean field to `true`.
+**Q:** Can a Pod ever be scheduled onto a node that has been explicitly cordoned? If so, how?
+**A:** Yes. Pods that are part of a `DaemonSet` bypass the standard scheduling predicates by default and will continue to be provisioned onto cordoned nodes unless explicit toleration restrictions are configured. Additionally, operators can forcibly schedule a pod by hardcoding the `nodeName` field directly in the Pod's YAML spec, which entirely bypasses the `kube-scheduler` logic.
 
 ## Practice Problems
 
-- _Problem:_ Quarantine a specific Kubernetes worker node named `db-node-03` so that no future database replica pods can be scheduled onto it, while allowing existing active queries to finish processing.
-  - _Hint:_ Use the dedicated node quarantine command targeting the node name.
-  - _Solution:_ `kubectl cordon db-node-03` (This marks the node unschedulable via the API server, protecting it from new assignments while preserving current workloads).
-- _Problem:_ Perform a bulk quarantine operation, isolating every node in the cluster possessing the label `hardware=gpu-legacy`.
-  - _Hint:_ Combine the quarantine command with the label selector flag.
-  - _Solution:_ `kubectl cordon -l hardware=gpu-legacy` (This issues a patch request across the entire fleet, safely halting new workloads on deprecated GPU instances).
+**Problem:** Quarantine a specific Kubernetes worker node named `db-node-03` so that no future database replica pods can be scheduled onto it, while allowing existing active queries to finish processing.
+**Hint:** Use the dedicated node quarantine command targeting the node name.
+**Solution:** `kubectl cordon db-node-03` (This marks the node unschedulable via the API server, protecting it from new assignments while preserving current workloads).
+**Problem:** Perform a bulk quarantine operation, isolating every node in the cluster possessing the label `hardware=gpu-legacy`.
+**Hint:** Combine the quarantine command with the label selector flag.
+**Solution:** `kubectl cordon -l hardware=gpu-legacy` (This issues a patch request across the entire fleet, safely halting new workloads on deprecated GPU instances).
 
 ## References
 

@@ -156,21 +156,21 @@ The manifest contains a list of cryptographic SHA-256 digests, each representing
 
 ## Interview Questions
 
-- _Query:_ Describe the process of how `docker pull` utilizes the local layer cache to optimize download bandwidth.
-  - _A:_ When `docker pull` retrieves an image manifest, it inspects the list of required filesystem layer digests (SHA-256 hashes). The Docker daemon compares these hashes against the layers already stored in its local graph database. It only initiates network downloads for the specific layers that are missing, intelligently reusing cached layers shared across different images.
-- _Query:_ What is the danger of relying on the `:latest` tag when executing `docker pull` in automated pipelines?
-  - _A:_ The `:latest` tag is a mutable, rolling pointer. Pulling it provides no determinism. The publisher can update the `:latest` tag to point to a major version upgrade, a different base OS, or a compromised build, silently breaking the application or introducing vulnerabilities in your pipeline without any warning.
-- _Query:_ What occurs if you append `@sha256:...` instead of `:tag` to the repository name in a pull command?
-  - _A:_ Appending a SHA-256 hash targets an immutable content digest rather than a mutable tag. This guarantees that the exact byte-for-byte state of the image manifest will be fetched, completely eliminating the risk of registry tag tampering or unexpected upstream updates.
+**Q:** Describe the process of how `docker pull` utilizes the local layer cache to optimize download bandwidth.
+**A:** When `docker pull` retrieves an image manifest, it inspects the list of required filesystem layer digests (SHA-256 hashes). The Docker daemon compares these hashes against the layers already stored in its local graph database. It only initiates network downloads for the specific layers that are missing, intelligently reusing cached layers shared across different images.
+**Q:** What is the danger of relying on the `:latest` tag when executing `docker pull` in automated pipelines?
+**A:** The `:latest` tag is a mutable, rolling pointer. Pulling it provides no determinism. The publisher can update the `:latest` tag to point to a major version upgrade, a different base OS, or a compromised build, silently breaking the application or introducing vulnerabilities in your pipeline without any warning.
+**Q:** What occurs if you append `@sha256:...` instead of `:tag` to the repository name in a pull command?
+**A:** Appending a SHA-256 hash targets an immutable content digest rather than a mutable tag. This guarantees that the exact byte-for-byte state of the image manifest will be fetched, completely eliminating the risk of registry tag tampering or unexpected upstream updates.
 
 ## Practice Problems
 
-- _Problem:_ Download the specific version `1.25.1` of the `nginx` image from Docker Hub while suppressing all verbose progress output.
-  - _Hint:_ Combine the quiet flag with an explicit semantic version tag.
-  - _Solution:_ `docker pull -q nginx:1.25.1` (This fetches the explicit version silently, outputting only the final manifest digest).
-- _Problem:_ Download the `mysql` image specifically compiled for the ARM64 architecture, regardless of the host machine's physical hardware.
-  - _Hint:_ Use the explicit platform flag overriding the OS and architecture.
-  - _Solution:_ `docker pull --platform linux/arm64 mysql` (This forces the daemon to request and pull the ARM64 manifest layer list from the registry).
+**Problem:** Download the specific version `1.25.1` of the `nginx` image from Docker Hub while suppressing all verbose progress output.
+**Hint:** Combine the quiet flag with an explicit semantic version tag.
+**Solution:** `docker pull -q nginx:1.25.1` (This fetches the explicit version silently, outputting only the final manifest digest).
+**Problem:** Download the `mysql` image specifically compiled for the ARM64 architecture, regardless of the host machine's physical hardware.
+**Hint:** Use the explicit platform flag overriding the OS and architecture.
+**Solution:** `docker pull --platform linux/arm64 mysql` (This forces the daemon to request and pull the ARM64 manifest layer list from the registry).
 
 ## References
 

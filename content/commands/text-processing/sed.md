@@ -191,21 +191,21 @@ The **Hold Space** acts as secondary storage. Advanced commands (`h`, `H`, `g`, 
 
 ## Interview Questions
 
-- _Query:_ A developer attempts to extract all text between `<start>` and `<end>` tags using `sed -n '/<start>/,/<end>/p' file.txt`. However, this prints the boundary tags themselves. How do you instruct `sed` to print only the inner payload, dynamically stripping the boundary tags?
-  - _A:_ The comma operator creates a range address, applying the print (`p`) command to every line between the two matches. To strip the boundaries, you must chain commands using curly braces `{}`. You instruct `sed` to delete (`d`) the lines if they explicitly contain the boundary markers: `sed -n '/<start>/,/<end>/{ /<start>/d; /<end>/d; p }' file.txt`.
-- _Query:_ What is the fundamental, architectural difference between how `sed` evaluates regular expressions compared to a modern language like Python or Perl?
-  - _A:_ `sed` inherently uses POSIX Basic Regular Expressions (BRE), or Extended Regular Expressions (ERE) with the `-E` flag. Critically, standard POSIX regex does not support Non-Greedy (Lazy) quantifiers like `.*?`, nor does it support Zero-Width Assertions (Lookaheads/Lookbehinds). If a developer attempts to use `.*?` in `sed`, it will fail syntactically or evaluate greedily to the end of the line, forcing the developer to use negated character classes (`[^<]*`) instead.
-- _Query:_ Explain the internal mechanism of the `-i` (in-place edit) flag in GNU `sed`. Does it physically overwrite the bytes on the hard drive sector-by-sector?
-  - _A:_ No. `sed -i` is a destructive abstraction. When executed, `sed` physically creates a brand new temporary file in the directory. It streams the data from the original file, processes the substitutions, and writes the output into the new temporary file. Once complete, it invokes the `rename()` system call to atomically swap the temporary file over the original file, effectively overwriting it while preserving the original inode structure if possible.
+**Q:** A developer attempts to extract all text between `<start>` and `<end>` tags using `sed -n '/<start>/,/<end>/p' file.txt`. However, this prints the boundary tags themselves. How do you instruct `sed` to print only the inner payload, dynamically stripping the boundary tags?
+**A:** The comma operator creates a range address, applying the print (`p`) command to every line between the two matches. To strip the boundaries, you must chain commands using curly braces `{}`. You instruct `sed` to delete (`d`) the lines if they explicitly contain the boundary markers: `sed -n '/<start>/,/<end>/{ /<start>/d; /<end>/d; p }' file.txt`.
+**Q:** What is the fundamental, architectural difference between how `sed` evaluates regular expressions compared to a modern language like Python or Perl?
+**A:** `sed` inherently uses POSIX Basic Regular Expressions (BRE), or Extended Regular Expressions (ERE) with the `-E` flag. Critically, standard POSIX regex does not support Non-Greedy (Lazy) quantifiers like `.*?`, nor does it support Zero-Width Assertions (Lookaheads/Lookbehinds). If a developer attempts to use `.*?` in `sed`, it will fail syntactically or evaluate greedily to the end of the line, forcing the developer to use negated character classes (`[^<]*`) instead.
+**Q:** Explain the internal mechanism of the `-i` (in-place edit) flag in GNU `sed`. Does it physically overwrite the bytes on the hard drive sector-by-sector?
+**A:** No. `sed -i` is a destructive abstraction. When executed, `sed` physically creates a brand new temporary file in the directory. It streams the data from the original file, processes the substitutions, and writes the output into the new temporary file. Once complete, it invokes the `rename()` system call to atomically swap the temporary file over the original file, effectively overwriting it while preserving the original inode structure if possible.
 
 ## Practice Problems
 
-- _Problem:_ Execute an in-place substitution on `config.yaml`, searching for the exact string `password: secret`, and replacing it with `password: REDACTED`. Ensure the command creates a backup of the original file named `config.yaml.bak`.
-  - _Hint:_ Combine the in-place editing flag with a specific suffix string, and execute a standard substitution.
-  - _Solution:_ `sed -i.bak 's/password: secret/password: REDACTED/g' config.yaml` (The suffix attached directly to `-i` handles the backup snapshot natively).
-- _Problem:_ Extract the specific block of text from `logs.txt` starting exactly at line 500 and ending exactly at line 1000. Suppress all other output, and print only those 500 lines to the terminal.
-  - _Hint:_ Combine the silent flag with numerical line addressing and the explicit print command.
-  - _Solution:_ `sed -n '500,1000p' logs.txt` (This utilizes the range address operator to isolate the execution scope perfectly).
+**Problem:** Execute an in-place substitution on `config.yaml`, searching for the exact string `password: secret`, and replacing it with `password: REDACTED`. Ensure the command creates a backup of the original file named `config.yaml.bak`.
+**Hint:** Combine the in-place editing flag with a specific suffix string, and execute a standard substitution.
+**Solution:** `sed -i.bak 's/password: secret/password: REDACTED/g' config.yaml` (The suffix attached directly to `-i` handles the backup snapshot natively).
+**Problem:** Extract the specific block of text from `logs.txt` starting exactly at line 500 and ending exactly at line 1000. Suppress all other output, and print only those 500 lines to the terminal.
+**Hint:** Combine the silent flag with numerical line addressing and the explicit print command.
+**Solution:** `sed -n '500,1000p' logs.txt` (This utilizes the range address operator to isolate the execution scope perfectly).
 
 ## References
 

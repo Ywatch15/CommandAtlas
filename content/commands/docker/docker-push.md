@@ -161,21 +161,21 @@ If the registry replies that it already possesses a layer matching that hash (e.
 
 ## Interview Questions
 
-- **Q:** How does Docker minimize the bandwidth required when executing a `docker push` for an updated version of a large application?
-  - **A:** Before transferring any physical data, the Docker daemon queries the remote registry API using the SHA-256 digest of each individual layer in the image. If the registry confirms it already has a layer matching that hash (like an unchanged base OS layer), Docker skips uploading that layer entirely, transferring only the newly modified filesystem delta blobs.
-- **Q:** You want to push an image to a private corporate registry hosted at `registry.internal.com`, but running `docker push my-app` tries to send it to Docker Hub. How do you fix this?
-  - **A:** Docker determines the destination registry by parsing the image tag string. To push to a custom registry, you must retag the local image so its name includes the fully qualified domain name of the target registry. (e.g., `docker tag my-app registry.internal.com/my-app:v1`, followed by `docker push registry.internal.com/my-app:v1`).
-- **Q:** What is the specific purpose of the Image Manifest uploaded at the very end of the `docker push` process?
-  - **A:** The Image Manifest is a JSON document that acts as the blueprint for the container. After all physical layer blobs are uploaded, the manifest is pushed to tie everything together. It links the human-readable tag (e.g., `latest`) to the ordered list of layer cryptographic hashes, architecture specifications, and execution configuration needed by clients to pull and run the image.
+**Q:** How does Docker minimize the bandwidth required when executing a `docker push` for an updated version of a large application?
+**A:** Before transferring any physical data, the Docker daemon queries the remote registry API using the SHA-256 digest of each individual layer in the image. If the registry confirms it already has a layer matching that hash (like an unchanged base OS layer), Docker skips uploading that layer entirely, transferring only the newly modified filesystem delta blobs.
+**Q:** You want to push an image to a private corporate registry hosted at `registry.internal.com`, but running `docker push my-app` tries to send it to Docker Hub. How do you fix this?
+**A:** Docker determines the destination registry by parsing the image tag string. To push to a custom registry, you must retag the local image so its name includes the fully qualified domain name of the target registry. (e.g., `docker tag my-app registry.internal.com/my-app:v1`, followed by `docker push registry.internal.com/my-app:v1`).
+**Q:** What is the specific purpose of the Image Manifest uploaded at the very end of the `docker push` process?
+**A:** The Image Manifest is a JSON document that acts as the blueprint for the container. After all physical layer blobs are uploaded, the manifest is pushed to tie everything together. It links the human-readable tag (e.g., `latest`) to the ordered list of layer cryptographic hashes, architecture specifications, and execution configuration needed by clients to pull and run the image.
 
 ## Practice Problems
 
-- _Problem:_ Upload all locally associated tags for the repository `nexus.corp.net/backend-api` to the remote registry.
-  - _Hint:_ Combine the push command with the specific flag designed to push all tags for a given repository.
-  - _Solution:_ `docker push -a nexus.corp.net/backend-api` (This uploads `v1`, `v2`, `latest`, etc., simultaneously).
-- _Problem:_ Ensure that a push for `my-registry.io/secure-app:latest` bypasses standard cryptographic signature signing, even if content trust is globally active on the host.
-  - _Hint:_ Utilize the explicit flag designed to override and disable content trust signing mechanisms.
-  - _Solution:_ `docker push --disable-content-trust my-registry.io/secure-app:latest` (This instructs the daemon to upload the payload without invoking the Notary signer).
+**Problem:** Upload all locally associated tags for the repository `nexus.corp.net/backend-api` to the remote registry.
+**Hint:** Combine the push command with the specific flag designed to push all tags for a given repository.
+**Solution:** `docker push -a nexus.corp.net/backend-api` (This uploads `v1`, `v2`, `latest`, etc., simultaneously).
+**Problem:** Ensure that a push for `my-registry.io/secure-app:latest` bypasses standard cryptographic signature signing, even if content trust is globally active on the host.
+**Hint:** Utilize the explicit flag designed to override and disable content trust signing mechanisms.
+**Solution:** `docker push --disable-content-trust my-registry.io/secure-app:latest` (This instructs the daemon to upload the payload without invoking the Notary signer).
 
 ## References
 

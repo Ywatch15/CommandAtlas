@@ -148,21 +148,21 @@ The filesystem driver intercepts this request and modifies a hidden 32-bit integ
 
 ## Interview Questions
 
-- **Q:** You are logged in as the `root` user. You attempt to delete a file using `rm -rf /var/www/index.html`, but you receive an "Operation not permitted" error. The filesystem is mounted read-write. What is the cause, and how do you delete the file?
-  - **A:** The file has been locked at the filesystem inode level using the immutable attribute. Standard POSIX permissions and root privileges cannot override this hardware-level flag. To delete the file, you must first remove the attribute by executing `chattr -i /var/www/index.html`, after which the `rm` command will succeed.
-- **Q:** What is the technical distinction between applying `chattr +i` (immutable) versus `chattr +a` (append-only) to a log file?
-  - **A:** The `+i` (immutable) flag freezes the file completely; no process can write to it, delete it, or rename it, making it useless for active logging. The `+a` (append-only) flag prevents deletion, renaming, or overwriting of existing data, but explicitly allows processes to open the file in append mode (`>>`) to write new data to the end of the file.
-- **Q:** Why does `chattr` work on ext4 filesystems but fail completely when attempted on a `/tmp` directory (tmpfs) or a Windows-formatted USB drive (FAT32)?
-  - **A:** `chattr` modifies advanced extended attributes stored directly inside specific Linux filesystem inodes. `tmpfs` is a virtual RAM filesystem, and FAT32 is a legacy Windows filesystem; neither possesses the architectural inode structures or drivers required to understand or store Linux-specific `ioctl` extended attribute bitmasks.
+**Q:** You are logged in as the `root` user. You attempt to delete a file using `rm -rf /var/www/index.html`, but you receive an "Operation not permitted" error. The filesystem is mounted read-write. What is the cause, and how do you delete the file?
+**A:** The file has been locked at the filesystem inode level using the immutable attribute. Standard POSIX permissions and root privileges cannot override this hardware-level flag. To delete the file, you must first remove the attribute by executing `chattr -i /var/www/index.html`, after which the `rm` command will succeed.
+**Q:** What is the technical distinction between applying `chattr +i` (immutable) versus `chattr +a` (append-only) to a log file?
+**A:** The `+i` (immutable) flag freezes the file completely; no process can write to it, delete it, or rename it, making it useless for active logging. The `+a` (append-only) flag prevents deletion, renaming, or overwriting of existing data, but explicitly allows processes to open the file in append mode (`>>`) to write new data to the end of the file.
+**Q:** Why does `chattr` work on ext4 filesystems but fail completely when attempted on a `/tmp` directory (tmpfs) or a Windows-formatted USB drive (FAT32)?
+**A:** `chattr` modifies advanced extended attributes stored directly inside specific Linux filesystem inodes. `tmpfs` is a virtual RAM filesystem, and FAT32 is a legacy Windows filesystem; neither possesses the architectural inode structures or drivers required to understand or store Linux-specific `ioctl` extended attribute bitmasks.
 
 ## Practice Problems
 
-- _Problem:_ An attacker might try to alter the `/etc/shadow` file. Apply an attribute to this file that guarantees no user, including root, can modify, rename, or delete it under any circumstances.
-  - _Hint:_ Use the flag that establishes absolute file immutability.
-  - _Solution:_ `sudo chattr +i /etc/shadow` (This locks the inode entirely).
-- _Problem:_ Secure the `/var/log/auth.log` file so that the logging daemon can continue to add new lines to it, but past logs can never be altered or deleted.
-  - _Hint:_ Use the flag that restricts write access strictly to append operations.
-  - _Solution:_ `sudo chattr +a /var/log/auth.log` (This allows EOF writing but prevents destructive operations).
+**Problem:** An attacker might try to alter the `/etc/shadow` file. Apply an attribute to this file that guarantees no user, including root, can modify, rename, or delete it under any circumstances.
+**Hint:** Use the flag that establishes absolute file immutability.
+**Solution:** `sudo chattr +i /etc/shadow` (This locks the inode entirely).
+**Problem:** Secure the `/var/log/auth.log` file so that the logging daemon can continue to add new lines to it, but past logs can never be altered or deleted.
+**Hint:** Use the flag that restricts write access strictly to append operations.
+**Solution:** `sudo chattr +a /var/log/auth.log` (This allows EOF writing but prevents destructive operations).
 
 ## References
 

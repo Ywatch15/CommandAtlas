@@ -151,21 +151,21 @@ The kernel populates `/proc/modules` by iterating over a linked list of `struct 
 
 ## Interview Questions
 
-- **Q:** Does `lsmod` display every driver currently operating your Linux system? Why or why not?
-  - **A:** No. `lsmod` only displays Loadable Kernel Modules (LKMs) that are dynamically inserted into the kernel at runtime. Drivers that are compiled statically into the monolithic kernel core (such as primary SATA controllers or core networking stacks) do not appear in `lsmod` output.
-- **Q:** What is the technical mechanism `lsmod` uses to retrieve its information?
-  - **A:** `lsmod` is essentially a formatting wrapper. It reads the raw, space-delimited data directly from the kernel's `/proc/modules` virtual file, aligns the columns for readability, and prints the result to standard output.
-- **Q:** What does the `Used by` column signify in the output of `lsmod`, and why is it important for system stability?
-  - **A:** The `Used by` column shows the reference count and lists other loaded modules that depend on that specific module. If a module's reference count is greater than 0, the kernel will physically block you from removing it (via `rmmod`) to prevent crashing the dependent drivers and causing kernel panics.
+**Q:** Does `lsmod` display every driver currently operating your Linux system? Why or why not?
+**A:** No. `lsmod` only displays Loadable Kernel Modules (LKMs) that are dynamically inserted into the kernel at runtime. Drivers that are compiled statically into the monolithic kernel core (such as primary SATA controllers or core networking stacks) do not appear in `lsmod` output.
+**Q:** What is the technical mechanism `lsmod` uses to retrieve its information?
+**A:** `lsmod` is essentially a formatting wrapper. It reads the raw, space-delimited data directly from the kernel's `/proc/modules` virtual file, aligns the columns for readability, and prints the result to standard output.
+**Q:** What does the `Used by` column signify in the output of `lsmod`, and why is it important for system stability?
+**A:** The `Used by` column shows the reference count and lists other loaded modules that depend on that specific module. If a module's reference count is greater than 0, the kernel will physically block you from removing it (via `rmmod`) to prevent crashing the dependent drivers and causing kernel panics.
 
 ## Practice Problems
 
-- _Problem:_ Check if the `overlay` filesystem module is actively loaded into the kernel.
-  - _Hint:_ Pipe the output of the module listing command into a text filter.
-  - _Solution:_ `lsmod | grep overlay` (This filters the active kernel module list to isolate the target string).
-- _Problem:_ Display the top 5 largest loadable kernel modules currently consuming memory, sorted by size.
-  - _Hint:_ Pipe the output into `sort`, targeting the second column numerically in reverse, then use `head`.
-  - _Solution:_ `lsmod | sort -k 2 -n -r | head -n 6` (This sorts the output by the Size column and truncates the list, retaining the header row).
+**Problem:** Check if the `overlay` filesystem module is actively loaded into the kernel.
+**Hint:** Pipe the output of the module listing command into a text filter.
+**Solution:** `lsmod | grep overlay` (This filters the active kernel module list to isolate the target string).
+**Problem:** Display the top 5 largest loadable kernel modules currently consuming memory, sorted by size.
+**Hint:** Pipe the output into `sort`, targeting the second column numerically in reverse, then use `head`.
+**Solution:** `lsmod | sort -k 2 -n -r | head -n 6` (This sorts the output by the Size column and truncates the list, retaining the header row).
 
 ## References
 

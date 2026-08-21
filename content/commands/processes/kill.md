@@ -170,21 +170,21 @@ Crucially, `SIGKILL` (-9) and `SIGSTOP` (-19) are uncatchable. The kernel _never
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental architectural difference between sending `SIGTERM` (-15) versus `SIGKILL` (-9) to a running database process?
-  - _A:_ `SIGTERM` is an asynchronous request sent to the application. The database intercepts it, flushes its memory buffers to disk, safely closes client network connections, and shuts itself down cleanly to prevent data corruption. `SIGKILL` bypasses the application entirely. The Linux kernel intercepts it and instantly shreds the application's memory allocation. The database has zero time to react, virtually guaranteeing unwritten transactions are lost and database corruption recovery will trigger on reboot.
-- _Query:_ A developer complains that they ran `kill -9 5542` on a frozen process, but the process is still listed in `ps aux` with a `Z` status. Why did the kill command fail?
-  - _A:_ The `Z` status stands for Zombie (or `<defunct>`). The process is actually successfully dead and its memory is freed. However, its exit code remains trapped in the kernel's process table because its parent process failed to execute the `wait()` system call to read the exit code. Because the process is already dead, `kill -9` does nothing. You must kill the _parent_ process to reap the zombie.
-- _Query:_ In modern containerized infrastructure (Docker/Kubernetes), what signal does the orchestration engine send by default when scaling down a pod, and why does poorly written application code cause this to take exactly 30 seconds?
-  - _A:_ Kubernetes/Docker defaults to sending `SIGTERM` (15). If the application code lacks a signal handler to intercept `SIGTERM` and initiate a graceful shutdown, it blindly ignores the signal and continues running. The orchestration engine waits for a predefined grace period (default 30 seconds in K8s, 10 in Docker). When the timer expires, the orchestrator gives up and violently issues a `SIGKILL` (9), which is why the shutdown always takes exactly that full timeout window.
+**Q:** What is the fundamental architectural difference between sending `SIGTERM` (-15) versus `SIGKILL` (-9) to a running database process?
+**A:** `SIGTERM` is an asynchronous request sent to the application. The database intercepts it, flushes its memory buffers to disk, safely closes client network connections, and shuts itself down cleanly to prevent data corruption. `SIGKILL` bypasses the application entirely. The Linux kernel intercepts it and instantly shreds the application's memory allocation. The database has zero time to react, virtually guaranteeing unwritten transactions are lost and database corruption recovery will trigger on reboot.
+**Q:** A developer complains that they ran `kill -9 5542` on a frozen process, but the process is still listed in `ps aux` with a `Z` status. Why did the kill command fail?
+**A:** The `Z` status stands for Zombie (or `<defunct>`). The process is actually successfully dead and its memory is freed. However, its exit code remains trapped in the kernel's process table because its parent process failed to execute the `wait()` system call to read the exit code. Because the process is already dead, `kill -9` does nothing. You must kill the _parent_ process to reap the zombie.
+**Q:** In modern containerized infrastructure (Docker/Kubernetes), what signal does the orchestration engine send by default when scaling down a pod, and why does poorly written application code cause this to take exactly 30 seconds?
+**A:** Kubernetes/Docker defaults to sending `SIGTERM` (15). If the application code lacks a signal handler to intercept `SIGTERM` and initiate a graceful shutdown, it blindly ignores the signal and continues running. The orchestration engine waits for a predefined grace period (default 30 seconds in K8s, 10 in Docker). When the timer expires, the orchestrator gives up and violently issues a `SIGKILL` (9), which is why the shutdown always takes exactly that full timeout window.
 
 ## Practice Problems
 
-- _Problem:_ Safely request a misbehaving process with PID `8402` to terminate gracefully, allowing it to save its current state.
-  - _Hint:_ Use the default termination signal without resorting to the absolute kill signal.
-  - _Solution:_ `kill -15 8402` (or simply `kill 8402`, as `SIGTERM` is the implicit default).
-- _Problem:_ Instruct a background configuration daemon running on PID `1150` to hot-reload its configuration files from disk without terminating its active process tree.
-  - _Hint:_ Use the specific signal historically associated with terminal hangups, now repurposed for reloading daemons.
-  - _Solution:_ `kill -HUP 1150` (or `kill -1 1150`. The daemon intercepts SIGHUP and re-evaluates its config files).
+**Problem:** Safely request a misbehaving process with PID `8402` to terminate gracefully, allowing it to save its current state.
+**Hint:** Use the default termination signal without resorting to the absolute kill signal.
+**Solution:** `kill -15 8402` (or simply `kill 8402`, as `SIGTERM` is the implicit default).
+**Problem:** Instruct a background configuration daemon running on PID `1150` to hot-reload its configuration files from disk without terminating its active process tree.
+**Hint:** Use the specific signal historically associated with terminal hangups, now repurposed for reloading daemons.
+**Solution:** `kill -HUP 1150` (or `kill -1 1150`. The daemon intercepts SIGHUP and re-evaluates its config files).
 
 ## References
 

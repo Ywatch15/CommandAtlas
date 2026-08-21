@@ -153,21 +153,21 @@ Once the raw mathematical key material is computed, `ssh-keygen` serializes the 
 
 ## Interview Questions
 
-- _Query:_ A developer accidentally deletes their `id_ed25519.pub` file but still has the encrypted `id_ed25519` private key file. They request a new keypair. Is a new keypair necessary, or can the public key be recovered? How?
-  - _A:_ A new keypair is entirely unnecessary. In asymmetric cryptography, the public key can always be mathematically derived directly from the private key material. The developer simply needs to run `ssh-keygen -y -f ~/.ssh/id_ed25519`. The utility will decrypt the private key (prompting for the passphrase if required) and output the perfectly reconstructed public key string to standard output, which can be safely redirected to a new `.pub` file.
-- _Query:_ When examining a colleague's terminal, you see them execute `ssh-keygen -R 10.50.0.5`. What exact operational problem are they resolving, and what does this command do to the local filesystem?
-  - _A:_ The colleague is resolving a "Remote Host Identification Has Changed" SSH error. This occurs when a server is rebuilt or replaced, causing the remote host's cryptographic fingerprint to mismatch the one cached on the local machine. The `-R` flag commands `ssh-keygen` to securely scan the `~/.ssh/known_hosts` file (including hashed entries) and surgically remove all lines associated with the IP `10.50.0.5`, allowing the user to cleanly accept the new host key on their next connection.
-- _Query:_ What is the cryptographic advantage of creating an SSH key using the Ed25519 algorithm over the traditional RSA algorithm?
-  - _A:_ Ed25519 utilizes Edwards-curve Digital Signature Algorithm. Cryptographically, it is vastly superior to RSA because it is fundamentally immune to timing side-channel attacks, offers higher security margins with vastly smaller key sizes (256-bit Ed25519 is roughly equivalent to 3000-bit RSA), and mathematical signature generation and verification execute exponentially faster than RSA's prime factorization math.
+**Q:** A developer accidentally deletes their `id_ed25519.pub` file but still has the encrypted `id_ed25519` private key file. They request a new keypair. Is a new keypair necessary, or can the public key be recovered? How?
+**A:** A new keypair is entirely unnecessary. In asymmetric cryptography, the public key can always be mathematically derived directly from the private key material. The developer simply needs to run `ssh-keygen -y -f ~/.ssh/id_ed25519`. The utility will decrypt the private key (prompting for the passphrase if required) and output the perfectly reconstructed public key string to standard output, which can be safely redirected to a new `.pub` file.
+**Q:** When examining a colleague's terminal, you see them execute `ssh-keygen -R 10.50.0.5`. What exact operational problem are they resolving, and what does this command do to the local filesystem?
+**A:** The colleague is resolving a "Remote Host Identification Has Changed" SSH error. This occurs when a server is rebuilt or replaced, causing the remote host's cryptographic fingerprint to mismatch the one cached on the local machine. The `-R` flag commands `ssh-keygen` to securely scan the `~/.ssh/known_hosts` file (including hashed entries) and surgically remove all lines associated with the IP `10.50.0.5`, allowing the user to cleanly accept the new host key on their next connection.
+**Q:** What is the cryptographic advantage of creating an SSH key using the Ed25519 algorithm over the traditional RSA algorithm?
+**A:** Ed25519 utilizes Edwards-curve Digital Signature Algorithm. Cryptographically, it is vastly superior to RSA because it is fundamentally immune to timing side-channel attacks, offers higher security margins with vastly smaller key sizes (256-bit Ed25519 is roughly equivalent to 3000-bit RSA), and mathematical signature generation and verification execute exponentially faster than RSA's prime factorization math.
 
 ## Practice Problems
 
-- _Problem:_ Generate a new Ed25519 key pair, explicitly saving it to the path `./temp_deploy_key`, adding the comment "ci-runner", and ensuring the key possesses absolutely no passphrase for automated execution.
-  - _Hint:_ Combine the type flag, file output flag, comment flag, and supply an empty string to the passphrase argument.
-  - _Solution:_ `ssh-keygen -t ed25519 -f ./temp_deploy_key -C "ci-runner" -N ""` (This generates a highly secure, non-interactive authentication credential perfectly primed for CI/CD pipelines).
-- _Problem:_ An external vendor provides you with an `authorized_keys` file containing hundreds of public keys. Print a diagnostic list showing the bit-length, cryptographic algorithm, and fingerprint of every single key in that file to ensure none are using deprecated algorithms like DSA.
-  - _Hint:_ Utilize the fingerprint list flag and point it directly at the target file.
-  - _Solution:_ `ssh-keygen -l -f authorized_keys` (This iterates through the file, interpreting the base64 data and rendering human-readable cryptographic telemetry for each entry).
+**Problem:** Generate a new Ed25519 key pair, explicitly saving it to the path `./temp_deploy_key`, adding the comment "ci-runner", and ensuring the key possesses absolutely no passphrase for automated execution.
+**Hint:** Combine the type flag, file output flag, comment flag, and supply an empty string to the passphrase argument.
+**Solution:** `ssh-keygen -t ed25519 -f ./temp_deploy_key -C "ci-runner" -N ""` (This generates a highly secure, non-interactive authentication credential perfectly primed for CI/CD pipelines).
+**Problem:** An external vendor provides you with an `authorized_keys` file containing hundreds of public keys. Print a diagnostic list showing the bit-length, cryptographic algorithm, and fingerprint of every single key in that file to ensure none are using deprecated algorithms like DSA.
+**Hint:** Utilize the fingerprint list flag and point it directly at the target file.
+**Solution:** `ssh-keygen -l -f authorized_keys` (This iterates through the file, interpreting the base64 data and rendering human-readable cryptographic telemetry for each entry).
 
 ## References
 

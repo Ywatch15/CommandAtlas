@@ -165,21 +165,21 @@ When invoked with arguments (`set arg1 arg2`), it clears the current positional 
 
 ## Interview Questions
 
-- **Q:** What is the precise function of `set -o pipefail` in Bash, and why is it commonly paired with `set -e`?
-  - **A:** By default, a pipeline (`cmd1 | cmd2`) evaluates its exit status based solely on the rightmost command (`cmd2`), meaning if `cmd1` fails but `cmd2` succeeds, the pipeline returns `0` and `set -e` ignores the failure. `set -o pipefail` forces the pipeline to return the exit status of the _last_ command that failed, ensuring that errors in early pipeline stages are correctly caught when combined with `set -e`.
-- **Q:** How does `set` handle positional parameters when invoked with arguments versus zero arguments?
-  - **A:** When invoked with argument tokens (e.g., `set a b c`), `set` resets and replaces the shell's positional parameter list (`$1`, `$2`, `$3`), updating `$#`. When invoked with zero arguments, `set` bypasses parameter setting entirely and prints a comprehensive dump of all currently defined shell variables and functions.
-- **Q:** Why can enabling `set -e` in an interactive shell session lead to unexpected terminal termination?
-  - **A:** In an interactive shell, `set -e` causes the shell process to exit immediately if any entered command returns a non-zero status code. Because common utilities like `grep` return non-zero when a search string is absent, typing such a command causes the shell to evaluate it as a fatal script failure and close the terminal window.
+**Q:** What is the precise function of `set -o pipefail` in Bash, and why is it commonly paired with `set -e`?
+**A:** By default, a pipeline (`cmd1 | cmd2`) evaluates its exit status based solely on the rightmost command (`cmd2`), meaning if `cmd1` fails but `cmd2` succeeds, the pipeline returns `0` and `set -e` ignores the failure. `set -o pipefail` forces the pipeline to return the exit status of the _last_ command that failed, ensuring that errors in early pipeline stages are correctly caught when combined with `set -e`.
+**Q:** How does `set` handle positional parameters when invoked with arguments versus zero arguments?
+**A:** When invoked with argument tokens (e.g., `set a b c`), `set` resets and replaces the shell's positional parameter list (`$1`, `$2`, `$3`), updating `$#`. When invoked with zero arguments, `set` bypasses parameter setting entirely and prints a comprehensive dump of all currently defined shell variables and functions.
+**Q:** Why can enabling `set -e` in an interactive shell session lead to unexpected terminal termination?
+**A:** In an interactive shell, `set -e` causes the shell process to exit immediately if any entered command returns a non-zero status code. Because common utilities like `grep` return non-zero when a search string is absent, typing such a command causes the shell to evaluate it as a fatal script failure and close the terminal window.
 
 ## Practice Problems
 
-- _Problem:_ Write the standard three-flag hardening initialization line for a production bash script that catches unset variables, exits on command errors, and preserves pipeline failure statuses.
-  - _Hint:_ Combine errexit, nounset, and pipefail flags into a single set invocation.
-  - _Solution:_ `set -euo pipefail` (This enforces strict error handling, uninitialized variable checks, and pipeline failure propagation).
-- _Problem:_ Reset the shell's positional parameters so that `$1` becomes `alpha`, `$2` becomes `beta`, and `$3` becomes `gamma`.
-  - _Hint:_ Use the double-hyphen parameter separator followed by the token strings.
-  - _Solution:_ `set -- alpha beta gamma` (This clears existing positional arguments and assigns the new token values to `$1`, `$2`, and `$3`).
+**Problem:** Write the standard three-flag hardening initialization line for a production bash script that catches unset variables, exits on command errors, and preserves pipeline failure statuses.
+**Hint:** Combine errexit, nounset, and pipefail flags into a single set invocation.
+**Solution:** `set -euo pipefail` (This enforces strict error handling, uninitialized variable checks, and pipeline failure propagation).
+**Problem:** Reset the shell's positional parameters so that `$1` becomes `alpha`, `$2` becomes `beta`, and `$3` becomes `gamma`.
+**Hint:** Use the double-hyphen parameter separator followed by the token strings.
+**Solution:** `set -- alpha beta gamma` (This clears existing positional arguments and assigns the new token values to `$1`, `$2`, and `$3`).
 
 ## References
 

@@ -153,21 +153,21 @@ If the files are unequal in length, `paste` does not crash. If `fileA` runs out 
 
 ## Interview Questions
 
-- _Query:_ You have a text file (`servers.txt`) containing 100 hostnames, listed one per line. What is the most efficient, native command to transpose this file so that all 100 hostnames are printed on a single horizontal line, separated by commas?
-  - _A:_ You use the `paste` command with the Serial (`-s`) flag to transpose the vertical column into a horizontal row, combined with the delimiter (`-d`) flag to enforce the comma. The command is `paste -s -d "," servers.txt`.
-- _Query:_ What is the fundamental, architectural danger of using `paste` to merge a file containing Employee IDs with a file containing Employee Salaries, compared to using the `join` command?
-  - _A:_ `paste` performs completely blind, line-by-line mechanical stitching. It assumes Line 5 in File A perfectly correlates with Line 5 in File B. If a single line is missing, added, or sorted incorrectly in one file, all subsequent rows are misaligned, causing catastrophic data corruption. The `join` command evaluates the text against a shared primary key (e.g., the Employee ID), guaranteeing that data is only merged if the relational logic matches perfectly.
-- _Query:_ A developer executes `cat data.txt | paste - - -`. What is the functional behavior of utilizing the dash (`-`) multiple times as arguments to the `paste` command?
-  - _A:_ The dash (`-`) is a standard POSIX convention instructing a utility to read from standard input. In `paste`, multiple dashes act as a multiplexer. The command consumes one line from standard input for the first dash, a second line for the second dash, and a third line for the third dash. It merges these three distinct sequential lines into a single horizontal row separated by tabs. This effectively formats a single vertical column into a 3-column grid.
+**Q:** You have a text file (`servers.txt`) containing 100 hostnames, listed one per line. What is the most efficient, native command to transpose this file so that all 100 hostnames are printed on a single horizontal line, separated by commas?
+**A:** You use the `paste` command with the Serial (`-s`) flag to transpose the vertical column into a horizontal row, combined with the delimiter (`-d`) flag to enforce the comma. The command is `paste -s -d "," servers.txt`.
+**Q:** What is the fundamental, architectural danger of using `paste` to merge a file containing Employee IDs with a file containing Employee Salaries, compared to using the `join` command?
+**A:** `paste` performs completely blind, line-by-line mechanical stitching. It assumes Line 5 in File A perfectly correlates with Line 5 in File B. If a single line is missing, added, or sorted incorrectly in one file, all subsequent rows are misaligned, causing catastrophic data corruption. The `join` command evaluates the text against a shared primary key (e.g., the Employee ID), guaranteeing that data is only merged if the relational logic matches perfectly.
+**Q:** A developer executes `cat data.txt | paste - - -`. What is the functional behavior of utilizing the dash (`-`) multiple times as arguments to the `paste` command?
+**A:** The dash (`-`) is a standard POSIX convention instructing a utility to read from standard input. In `paste`, multiple dashes act as a multiplexer. The command consumes one line from standard input for the first dash, a second line for the second dash, and a third line for the third dash. It merges these three distinct sequential lines into a single horizontal row separated by tabs. This effectively formats a single vertical column into a 3-column grid.
 
 ## Practice Problems
 
-- _Problem:_ Merge two files, `keys.txt` and `values.txt`, into a single horizontal row, ensuring the fields are separated exactly by an equals sign `=`.
-  - _Hint:_ Define the specific delimiter string and pass both filenames to the base command.
-  - _Solution:_ `paste -d "=" keys.txt values.txt` (This constructs a basic associative mapping array output).
-- _Problem:_ Execute the `date` command and the `whoami` command simultaneously using Bash process substitution, and merge their respective outputs onto a single line separated by a hyphen `-`.
-  - _Hint:_ Use `<(command)` syntax to route the dynamic outputs as file descriptors directly into the merge utility, specifying the custom delimiter.
-  - _Solution:_ `paste -d "-" <(date) <(whoami)` (This leverages transient file descriptors to stitch command outputs natively without creating intermediate temp files).
+**Problem:** Merge two files, `keys.txt` and `values.txt`, into a single horizontal row, ensuring the fields are separated exactly by an equals sign `=`.
+**Hint:** Define the specific delimiter string and pass both filenames to the base command.
+**Solution:** `paste -d "=" keys.txt values.txt` (This constructs a basic associative mapping array output).
+**Problem:** Execute the `date` command and the `whoami` command simultaneously using Bash process substitution, and merge their respective outputs onto a single line separated by a hyphen `-`.
+**Hint:** Use `<(command)` syntax to route the dynamic outputs as file descriptors directly into the merge utility, specifying the custom delimiter.
+**Solution:** `paste -d "-" <(date) <(whoami)` (This leverages transient file descriptors to stitch command outputs natively without creating intermediate temp files).
 
 ## References
 

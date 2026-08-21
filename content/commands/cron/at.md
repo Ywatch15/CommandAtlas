@@ -161,21 +161,21 @@ When a job's scheduled time arrives, `atd` verifies user permissions via PAM, fo
 
 ## Interview Questions
 
-- **Q:** How does the `atd` daemon manage execution timing and persistence for jobs scheduled via the `at` command?
-  - **A:** The `at` command writes job scripts and environment snapshots into a local spool directory (`/var/spool/cron/atjobs/`) where filenames encode execution timestamps. The `atd` daemon polls this directory, matches timestamps against the system clock, forks and drops privileges to the target user, executes the script, and deletes the spool file upon completion.
-- **Q:** What is the fundamental difference in purpose between `cron` and `at`?
-  - **A:** `cron` is engineered for recurring, periodic tasks that repeat on regular schedules (e.g., every Monday at midnight), whereas `at` is designed specifically for one-off, deferred task execution at a single specific future time or date.
-- **Q:** How does the system restrict unauthorized users from abusing the `at` job scheduling queue?
-  - **A:** System access is governed by configuration files located at `/etc/at.allow` and `/etc/at.deny`. If `at.allow` exists, only users listed within it can use `at`; if it does not exist, `at.deny` is checked to block specified users.
+**Q:** How does the `atd` daemon manage execution timing and persistence for jobs scheduled via the `at` command?
+**A:** The `at` command writes job scripts and environment snapshots into a local spool directory (`/var/spool/cron/atjobs/`) where filenames encode execution timestamps. The `atd` daemon polls this directory, matches timestamps against the system clock, forks and drops privileges to the target user, executes the script, and deletes the spool file upon completion.
+**Q:** What is the fundamental difference in purpose between `cron` and `at`?
+**A:** `cron` is engineered for recurring, periodic tasks that repeat on regular schedules (e.g., every Monday at midnight), whereas `at` is designed specifically for one-off, deferred task execution at a single specific future time or date.
+**Q:** How does the system restrict unauthorized users from abusing the `at` job scheduling queue?
+**A:** System access is governed by configuration files located at `/etc/at.allow` and `/etc/at.deny`. If `at.allow` exists, only users listed within it can use `at`; if it does not exist, `at.deny` is checked to block specified users.
 
 ## Practice Problems
 
-- **Problem:** Schedule a backup script located at `/opt/backup.sh` to run automatically at midnight tonight using the `at` utility.
-  - _Hint:_ Use the file input flag combined with the human-readable time specifier.
-  - _Solution:_ `at -f /opt/backup.sh midnight` (This queues the external backup script to execute at the stroke of 12:00 AM).
-- **Problem:** Submit a command `echo "Maintenance complete"` to run in 30 minutes, ensuring that no email notification is sent to the user upon completion.
-  - _Hint:_ Combine the pipe input mechanism with the suppress-email flag.
-  - _Solution:_ `echo "Maintenance complete" | at -M now + 30 minutes` (The `-M` flag suppresses standard mail generation regardless of output).
+**Problem:** Schedule a backup script located at `/opt/backup.sh` to run automatically at midnight tonight using the `at` utility.
+**Hint:** Use the file input flag combined with the human-readable time specifier.
+**Solution:** `at -f /opt/backup.sh midnight` (This queues the external backup script to execute at the stroke of 12:00 AM).
+**Problem:** Submit a command `echo "Maintenance complete"` to run in 30 minutes, ensuring that no email notification is sent to the user upon completion.
+**Hint:** Combine the pipe input mechanism with the suppress-email flag.
+**Solution:** `echo "Maintenance complete" | at -M now + 30 minutes` (The `-M` flag suppresses standard mail generation regardless of output).
 
 ## References
 

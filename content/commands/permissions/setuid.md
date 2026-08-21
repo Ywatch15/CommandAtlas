@@ -119,19 +119,19 @@ When a standard executable runs, `EUID` equals `RUID`. When an executable with t
 
 ## Interview Questions
 
-- _Query:_ Why does the Linux kernel ignore the SetUID bit on interpreted shell scripts?
-  - _A:_ Interpreted scripts are vulnerable to TOCTOU (Time-of-Check to Time-of-Use) race conditions between when the kernel opens the script interpreter and when the script file is read, allowing attackers to swap the script content before execution.
-- _Query:_ What is the difference between EUID and RUID in Linux processes?
-  - _A:_ RUID (Real UID) identifies the user who launched the process. EUID (Effective UID) determines the actual permissions used by the kernel during permission checks. SetUID changes EUID while preserving RUID.
+**Q:** Why does the Linux kernel ignore the SetUID bit on interpreted shell scripts?
+**A:** Interpreted scripts are vulnerable to TOCTOU (Time-of-Check to Time-of-Use) race conditions between when the kernel opens the script interpreter and when the script file is read, allowing attackers to swap the script content before execution.
+**Q:** What is the difference between EUID and RUID in Linux processes?
+**A:** RUID (Real UID) identifies the user who launched the process. EUID (Effective UID) determines the actual permissions used by the kernel during permission checks. SetUID changes EUID while preserving RUID.
 
 ## Practice Problems
 
-- _Problem:_ Find all SetUID root binaries on a system.
-  - _Hint:_ Use find with perm and user options.
-  - _Solution:_ `find / -user root -perm -4000 -type f` (Lists all SetUID root binaries).
-- _Problem:_ Remove SetUID from `/usr/local/bin/legacy_tool`.
-  - _Hint:_ Use chmod u-s.
-  - _Solution:_ `chmod u-s /usr/local/bin/legacy_tool` (Clears SetUID bit).
+**Problem:** Find all SetUID root binaries on a system.
+**Hint:** Use find with perm and user options.
+**Solution:** `find / -user root -perm -4000 -type f` (Lists all SetUID root binaries).
+**Problem:** Remove SetUID from `/usr/local/bin/legacy_tool`.
+**Hint:** Use chmod u-s.
+**Solution:** `chmod u-s /usr/local/bin/legacy_tool` (Clears SetUID bit).
 
 ## References
 

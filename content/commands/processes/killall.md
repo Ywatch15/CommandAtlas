@@ -163,21 +163,21 @@ Historically, the Linux kernel truncated process names in the `comm` file to exa
 
 ## Interview Questions
 
-- _Query:_ You are hired to manage a legacy Solaris UNIX mainframe, and a process is stuck. You remember using `killall httpd` on Linux. What catastrophic outcome occurs if you run `killall` on this Solaris machine?
-  - _A:_ On classic UNIX System V environments (like Solaris or IBM AIX), the `killall` command does not take a process name as an argument. It literally means "kill all processes." Executing it will send termination signals to every single active process on the machine, instantly crashing the operating system and forcing a hard reboot. This is a critical cross-platform translation danger.
-- _Query:_ A developer runs `killall node` but complains that their Node.js process keeps instantly reappearing with a new PID a second later. What system component is interfering with the termination, and how should it be stopped?
-  - _A:_ The process is actively managed by a process supervisor or an initialization daemon (like `systemd`, `pm2`, or `Docker`). The supervisor detects that its child process died unexpectedly (due to the `killall` signal) and fulfills its configuration by instantly respawning a new instance to maintain uptime. To permanently stop the process, the developer must use the supervisor's native command (e.g., `systemctl stop my-node-app`) rather than attacking the binary directly via the kernel.
-- _Query:_ What is the functional purpose of utilizing the `-w` (wait) flag with `killall` in an automated deployment script?
-  - _A:_ Sending a `SIGTERM` signal is an asynchronous request; the `killall` command returns to the bash prompt instantly before the application actually finishes its graceful shutdown sequence. If the deployment script immediately launches the new version, port conflicts will occur. The `-w` flag forces `killall` to block synchronously, polling the kernel process table until every targeted PID has successfully vanished from RAM, ensuring a clean slate before proceeding.
+**Q:** You are hired to manage a legacy Solaris UNIX mainframe, and a process is stuck. You remember using `killall httpd` on Linux. What catastrophic outcome occurs if you run `killall` on this Solaris machine?
+**A:** On classic UNIX System V environments (like Solaris or IBM AIX), the `killall` command does not take a process name as an argument. It literally means "kill all processes." Executing it will send termination signals to every single active process on the machine, instantly crashing the operating system and forcing a hard reboot. This is a critical cross-platform translation danger.
+**Q:** A developer runs `killall node` but complains that their Node.js process keeps instantly reappearing with a new PID a second later. What system component is interfering with the termination, and how should it be stopped?
+**A:** The process is actively managed by a process supervisor or an initialization daemon (like `systemd`, `pm2`, or `Docker`). The supervisor detects that its child process died unexpectedly (due to the `killall` signal) and fulfills its configuration by instantly respawning a new instance to maintain uptime. To permanently stop the process, the developer must use the supervisor's native command (e.g., `systemctl stop my-node-app`) rather than attacking the binary directly via the kernel.
+**Q:** What is the functional purpose of utilizing the `-w` (wait) flag with `killall` in an automated deployment script?
+**A:** Sending a `SIGTERM` signal is an asynchronous request; the `killall` command returns to the bash prompt instantly before the application actually finishes its graceful shutdown sequence. If the deployment script immediately launches the new version, port conflicts will occur. The `-w` flag forces `killall` to block synchronously, polling the kernel process table until every targeted PID has successfully vanished from RAM, ensuring a clean slate before proceeding.
 
 ## Practice Problems
 
-- _Problem:_ Terminate all running instances of the `python3` binary, but restrict the blast radius exclusively to processes owned by the user `data_analyst`.
-  - _Hint:_ Combine the base command with the target user isolation flag.
-  - _Solution:_ `killall -u data_analyst python3` (This precisely sweeps the process table, skipping root-owned or other user-owned python tasks).
-- _Problem:_ Forcefully and aggressively destroy a frozen application named `cache_worker`, waiting until the kernel confirms all instances are dead, and ignore case-sensitivity in the name.
-  - _Hint:_ Chain the case-insensitive flag, the wait block flag, the specific signal for absolute termination, and the target string.
-  - _Solution:_ `killall -I -w -9 cache_worker` (This sends SIGKILL ignoring case, and blocks execution until memory is verified clear).
+**Problem:** Terminate all running instances of the `python3` binary, but restrict the blast radius exclusively to processes owned by the user `data_analyst`.
+**Hint:** Combine the base command with the target user isolation flag.
+**Solution:** `killall -u data_analyst python3` (This precisely sweeps the process table, skipping root-owned or other user-owned python tasks).
+**Problem:** Forcefully and aggressively destroy a frozen application named `cache_worker`, waiting until the kernel confirms all instances are dead, and ignore case-sensitivity in the name.
+**Hint:** Chain the case-insensitive flag, the wait block flag, the specific signal for absolute termination, and the target string.
+**Solution:** `killall -I -w -9 cache_worker` (This sends SIGKILL ignoring case, and blocks execution until memory is verified clear).
 
 ## References
 

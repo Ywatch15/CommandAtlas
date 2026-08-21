@@ -162,23 +162,23 @@ Under the hood, the transfer engine evaluates file sizes and determines whether 
 
 ## Interview Questions
 
-- **Q:** How does `gcloud storage cp` achieve high-throughput data transfer for massive files compared to traditional single-stream copy utilities?
-  - **A:** `gcloud storage cp` utilizes parallel composite uploads and multi-threaded concurrency. Instead of streaming a massive file through a single TCP connection, it slices the file into discrete chunks, uploads them concurrently across multiple parallel worker threads, and instructs GCS to compose the chunks into a final object, maximizing bandwidth utilization.
-- **Q:** What is the operational distinction between `gcloud storage cp` and `gcloud storage rsync` regarding directory synchronization?
-  - **A:** `gcloud storage cp` is an additive copy command that transfers specified source files or directories to a destination, leaving unmanaged or previously existing files untouched. `gcloud storage rsync` evaluates source and destination states, copying new or modified files while optionally mirroring deletions so that the destination precisely matches the source tree.
-- **Q:** Why is cryptographic hash verification (such as CRC32C) critical during `gcloud storage cp` execution?
-  - **A:** During transit across public or enterprise networks, data packets can occasionally experience bit rot, corruption, or network packet loss. Cryptographic hashes calculated locally and verified against GCS object metadata ensure absolute data integrity, confirming that the uploaded or downloaded file is an exact byte-for-byte match.
+**Q:** How does `gcloud storage cp` achieve high-throughput data transfer for massive files compared to traditional single-stream copy utilities?
+**A:** `gcloud storage cp` utilizes parallel composite uploads and multi-threaded concurrency. Instead of streaming a massive file through a single TCP connection, it slices the file into discrete chunks, uploads them concurrently across multiple parallel worker threads, and instructs GCS to compose the chunks into a final object, maximizing bandwidth utilization.
+**Q:** What is the operational distinction between `gcloud storage cp` and `gcloud storage rsync` regarding directory synchronization?
+**A:** `gcloud storage cp` is an additive copy command that transfers specified source files or directories to a destination, leaving unmanaged or previously existing files untouched. `gcloud storage rsync` evaluates source and destination states, copying new or modified files while optionally mirroring deletions so that the destination precisely matches the source tree.
+**Q:** Why is cryptographic hash verification (such as CRC32C) critical during `gcloud storage cp` execution?
+**A:** During transit across public or enterprise networks, data packets can occasionally experience bit rot, corruption, or network packet loss. Cryptographic hashes calculated locally and verified against GCS object metadata ensure absolute data integrity, confirming that the uploaded or downloaded file is an exact byte-for-byte match.
 
 ## Practice Problems
 
-- _Problem:_ Recursively copy a local directory `./build_output/` to a GCS bucket destination `gs://releases-bucket/v2/`.
-  - _Hint:_ Combine the recursive flag with the local source path and cloud destination URI.
-  - _Solution:_ `gcloud storage cp -r ./build_output/ gs://releases-bucket/v2/` (The `-r` flag ensures all nested files and subfolders within the build directory are copied recursively to the cloud target).
-- _Problem:_ Upload a local database backup file `production.sql` to `gs://backup-bucket/` while assigning it to the `COLDLINE` storage class.
-  - _Hint:_ Combine the local file path, cloud destination, and storage class flag.
-  - _Solution:_ `gcloud storage cp ./production.sql gs://backup-bucket/ --storage-class=COLDLINE` (This uploads the file and applies the specified cost-optimized storage tier).
+**Problem:** Recursively copy a local directory `./build_output/` to a GCS bucket destination `gs://releases-bucket/v2/`.
+**Hint:** Combine the recursive flag with the local source path and cloud destination URI.
+**Solution:** `gcloud storage cp -r ./build_output/ gs://releases-bucket/v2/` (The `-r` flag ensures all nested files and subfolders within the build directory are copied recursively to the cloud target).
+**Problem:** Upload a local database backup file `production.sql` to `gs://backup-bucket/` while assigning it to the `COLDLINE` storage class.
+**Hint:** Combine the local file path, cloud destination, and storage class flag.
+**Solution:** `gcloud storage cp ./production.sql gs://backup-bucket/ --storage-class=COLDLINE` (This uploads the file and applies the specified cost-optimized storage tier).
 
 ## References
 
-- - [Google Cloud CLI Documentation - gcloud storage cp](https://cloud.google.com/sdk/gcloud/reference/storage/cp)
-- - [Google Cloud Storage Documentation - Copying Objects](https://cloud.google.com/storage/docs/uploading-and-downloading)
+- [Google Cloud CLI Documentation - gcloud storage cp](https://cloud.google.com/sdk/gcloud/reference/storage/cp)
+- [Google Cloud Storage Documentation - Copying Objects](https://cloud.google.com/storage/docs/uploading-and-downloading)

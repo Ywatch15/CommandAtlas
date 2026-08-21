@@ -162,21 +162,21 @@ Once the recursive depth limit (`-L`) is reached or the bottom of the filesystem
 
 ## Interview Questions
 
-- _Query:_ A developer runs `tree` on a massively bloated application directory, but the command takes 5 minutes to complete and fills the screen with 100,000 irrelevant library files. How do you instruct `tree` to display a clean overview of just the top-level architecture?
-  - _A:_ You should use the depth limitation flag combined with directory isolation. Running `tree -d -L 2` instructs the utility to ignore all files, trace only directories, and halt recursion exactly two levels deep, returning an instant, highly readable structural overview.
-- _Query:_ What is the structural problem with piping the output of the standard `tree` command into another utility like `grep` or `xargs` to manipulate files?
-  - _A:_ The standard output of `tree` embeds line-drawing characters (like `├──`) and hierarchical indentation spacing into the text stream. Piping this directly to `xargs` or file processors breaks syntax parsing because the paths are malformed and polluted with ASCII art. For pure path parsing, `find` is the correct tool.
-- _Query:_ If you require a programmatic snapshot of a filesystem's structure to feed into a Python automation script, what flag makes `tree` uniquely suited for this task?
-  - _A:_ The `-J` flag. It instructs `tree` to serialize the entire hierarchical structure—including directories, file names, and requested metadata—into a strict, deeply nested JSON array document that Python can parse instantaneously without utilizing complex regex logic.
+**Q:** A developer runs `tree` on a massively bloated application directory, but the command takes 5 minutes to complete and fills the screen with 100,000 irrelevant library files. How do you instruct `tree` to display a clean overview of just the top-level architecture?
+**A:** You should use the depth limitation flag combined with directory isolation. Running `tree -d -L 2` instructs the utility to ignore all files, trace only directories, and halt recursion exactly two levels deep, returning an instant, highly readable structural overview.
+**Q:** What is the structural problem with piping the output of the standard `tree` command into another utility like `grep` or `xargs` to manipulate files?
+**A:** The standard output of `tree` embeds line-drawing characters (like `├──`) and hierarchical indentation spacing into the text stream. Piping this directly to `xargs` or file processors breaks syntax parsing because the paths are malformed and polluted with ASCII art. For pure path parsing, `find` is the correct tool.
+**Q:** If you require a programmatic snapshot of a filesystem's structure to feed into a Python automation script, what flag makes `tree` uniquely suited for this task?
+**A:** The `-J` flag. It instructs `tree` to serialize the entire hierarchical structure—including directories, file names, and requested metadata—into a strict, deeply nested JSON array document that Python can parse instantaneously without utilizing complex regex logic.
 
 ## Practice Problems
 
-- _Problem:_ Generate a visual directory tree of the `/var/log` folder, mapping only the directories themselves, and restrict the expansion to a maximum depth of 1 level.
-  - _Hint:_ Combine the target path with the directory-only flag and the depth limit flag.
-  - _Solution:_ `tree -d -L 1 /var/log` (This cleanly maps the top-level log folders without descending into nested subfolders or printing individual log files).
-- _Problem:_ Map the current project directory including all hidden files, but explicitly ignore the massive `.git` and `build` folders, displaying human-readable file sizes alongside the files.
-  - _Hint:_ Use the all-files flag, the human-readable size flag, and the ignore pattern flag using a pipe separator.
-  - _Solution:_ `tree -a -h -I ".git|build"` (This renders a detailed map while safely pruning the noisiest architectural segments).
+**Problem:** Generate a visual directory tree of the `/var/log` folder, mapping only the directories themselves, and restrict the expansion to a maximum depth of 1 level.
+**Hint:** Combine the target path with the directory-only flag and the depth limit flag.
+**Solution:** `tree -d -L 1 /var/log` (This cleanly maps the top-level log folders without descending into nested subfolders or printing individual log files).
+**Problem:** Map the current project directory including all hidden files, but explicitly ignore the massive `.git` and `build` folders, displaying human-readable file sizes alongside the files.
+**Hint:** Use the all-files flag, the human-readable size flag, and the ignore pattern flag using a pipe separator.
+**Solution:** `tree -a -h -I ".git|build"` (This renders a detailed map while safely pruning the noisiest architectural segments).
 
 ## References
 

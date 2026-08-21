@@ -165,21 +165,21 @@ Upon success, Helm creates a _new_ revision secret in the cluster, incrementing 
 
 ## Interview Questions
 
-- **Q:** How does Helm track release history, and what happens to cluster secrets when `helm upgrade` is executed successfully?
-  - **A:** Helm tracks release history by storing compressed release data inside Kubernetes Secrets. When `helm update` succeeds, Helm creates a brand-new secret representing the incremented revision (e.g., revision 2), preserving previous revision secrets so administrators can roll back safely if needed.
-- **Q:** What is the technical difference between `--reset-values` and `--reuse-values` during an upgrade?
-  - **A:** `--reset-values` clears all previous custom configuration overrides, resetting the release configuration strictly to the chart's default `values.yaml` plus any new explicit inputs. `--reuse-values` preserves the exact configuration values from the previous release revision and merges any new overrides provided in the current command.
-- **Q:** Why does modifying a Helm-managed resource directly via `kubectl edit` often lead to configuration overwrites during the next upgrade?
-  - **A:** Helm performs upgrades based on its stored three-way merge records and rendered chart templates. Manual out-of-band `kubectl` edits bypass Helm's state database, meaning the next `helm upgrade` will evaluate the chart templates against stored revision state and overwrite the manual cluster changes.
+**Q:** How does Helm track release history, and what happens to cluster secrets when `helm upgrade` is executed successfully?
+**A:** Helm tracks release history by storing compressed release data inside Kubernetes Secrets. When `helm update` succeeds, Helm creates a brand-new secret representing the incremented revision (e.g., revision 2), preserving previous revision secrets so administrators can roll back safely if needed.
+**Q:** What is the technical difference between `--reset-values` and `--reuse-values` during an upgrade?
+**A:** `--reset-values` clears all previous custom configuration overrides, resetting the release configuration strictly to the chart's default `values.yaml` plus any new explicit inputs. `--reuse-values` preserves the exact configuration values from the previous release revision and merges any new overrides provided in the current command.
+**Q:** Why does modifying a Helm-managed resource directly via `kubectl edit` often lead to configuration overwrites during the next upgrade?
+**A:** Helm performs upgrades based on its stored three-way merge records and rendered chart templates. Manual out-of-band `kubectl` edits bypass Helm's state database, meaning the next `helm upgrade` will evaluate the chart templates against stored revision state and overwrite the manual cluster changes.
 
 ## Practice Problems
 
-- _Problem:_ Upgrade an existing release named `backend-api` using a local chart `./chart`, reusing all previous configuration values while updating only the image tag to `v3.0.0` using an inline flag.
-  - _Hint:_ Combine the upgrade command, release name, chart path, reuse-values flag, and set flag.
-  - _Solution:_ `helm upgrade backend-api ./chart --reuse-values --set image.tag=v3.0.0` (This applies the upgrade while preserving past overrides and updating the image tag).
-- _Problem:_ Execute an atomic upgrade for a release named `payment-svc` using chart `./chart`, ensuring it waits for readiness and automatically rolls back if it fails.
-  - _Hint:_ Combine the upgrade command with the atomic and wait flags.
-  - _Solution:_ `helm upgrade payment-svc ./chart --atomic --wait` (This performs a protected rolling update that reverts automatically if health checks timeout).
+**Problem:** Upgrade an existing release named `backend-api` using a local chart `./chart`, reusing all previous configuration values while updating only the image tag to `v3.0.0` using an inline flag.
+**Hint:** Combine the upgrade command, release name, chart path, reuse-values flag, and set flag.
+**Solution:** `helm upgrade backend-api ./chart --reuse-values --set image.tag=v3.0.0` (This applies the upgrade while preserving past overrides and updating the image tag).
+**Problem:** Execute an atomic upgrade for a release named `payment-svc` using chart `./chart`, ensuring it waits for readiness and automatically rolls back if it fails.
+**Hint:** Combine the upgrade command with the atomic and wait flags.
+**Solution:** `helm upgrade payment-svc ./chart --atomic --wait` (This performs a protected rolling update that reverts automatically if health checks timeout).
 
 ## References
 

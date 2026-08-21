@@ -164,21 +164,21 @@ Simultaneously, Helm serializes the complete release state—including the gener
 
 ## Interview Questions
 
-- **Q:** What is the technical function of the Kubernetes Secret created during a `helm install` execution?
-  - **A:** Helm stores the complete lifecycle history and state of a release inside a Kubernetes Secret (or ConfigMap) named `sh.helm.release.v1.<release>.v1`. This secret holds the compressed, base64-encoded manifest, chart metadata, and configuration values, acting as Helm's local database for tracking upgrades, rollbacks, and uninstallations.
-- **Q:** How does Helm process configuration precedence when merging values during `helm install`?
-  - **A:** Helm merges values using a strict precedence hierarchy: default values defined in the chart's `values.yaml` are overwritten by values specified in files passed via `--values` (evaluated in left-to-right order), which are ultimately overridden by individual inline `--set` flag declarations.
-- **Q:** What happens if an installation fails halfway through when the `--atomic` flag is enabled?
-  - **A:** The `--atomic` flag instructs Helm to monitor the deployment. If any resource fails to initialize or times out, Helm automatically triggers a clean purge and rollback, deleting all Kubernetes objects created during that installation attempt and returning the cluster to its prior state.
+**Q:** What is the technical function of the Kubernetes Secret created during a `helm install` execution?
+**A:** Helm stores the complete lifecycle history and state of a release inside a Kubernetes Secret (or ConfigMap) named `sh.helm.release.v1.<release>.v1`. This secret holds the compressed, base64-encoded manifest, chart metadata, and configuration values, acting as Helm's local database for tracking upgrades, rollbacks, and uninstallations.
+**Q:** How does Helm process configuration precedence when merging values during `helm install`?
+**A:** Helm merges values using a strict precedence hierarchy: default values defined in the chart's `values.yaml` are overwritten by values specified in files passed via `--values` (evaluated in left-to-right order), which are ultimately overridden by individual inline `--set` flag declarations.
+**Q:** What happens if an installation fails halfway through when the `--atomic` flag is enabled?
+**A:** The `--atomic` flag instructs Helm to monitor the deployment. If any resource fails to initialize or times out, Helm automatically triggers a clean purge and rollback, deleting all Kubernetes objects created during that installation attempt and returning the cluster to its prior state.
 
 ## Practice Problems
 
-- **Problem:** Install a local chart located at `./my-chart` under the release name `frontend-app` in the `production` namespace, creating the namespace automatically and waiting for all pods to become ready.
-  - _Hint:_ Combine the release name, chart path, namespace flag, create-namespace flag, and wait flag.
-  - _Solution:_ `helm install frontend-app ./my-chart --namespace production --create-namespace --wait` (This provisions the namespace, deploys the chart, and blocks execution until readiness).
-- **Problem:** Perform a dry-run installation of a remote chart `bitnami/postgresql` while overriding the database user name to `admin` using an inline configuration flag.
-  - _Hint:_ Combine the dry-run flag with the set configuration flag.
-  - _Solution:_ `helm install my-db bitnami/postgresql --set auth.username=admin --dry-run` (This simulates template rendering locally without contacting the cluster API server).
+**Problem:** Install a local chart located at `./my-chart` under the release name `frontend-app` in the `production` namespace, creating the namespace automatically and waiting for all pods to become ready.
+**Hint:** Combine the release name, chart path, namespace flag, create-namespace flag, and wait flag.
+**Solution:** `helm install frontend-app ./my-chart --namespace production --create-namespace --wait` (This provisions the namespace, deploys the chart, and blocks execution until readiness).
+**Problem:** Perform a dry-run installation of a remote chart `bitnami/postgresql` while overriding the database user name to `admin` using an inline configuration flag.
+**Hint:** Combine the dry-run flag with the set configuration flag.
+**Solution:** `helm install my-db bitnami/postgresql --set auth.username=admin --dry-run` (This simulates template rendering locally without contacting the cluster API server).
 
 ## References
 

@@ -142,21 +142,21 @@ Crucially, Docker then must store these credentials for future use. If a **Crede
 
 ## Interview Questions
 
-- _Query:_ If you run `docker login` without a credential helper on a standard Linux machine, how and where does Docker store your credentials?
-  - _A:_ Docker stores the credentials in a JSON file located at `~/.docker/config.json`. The username and password are concatenated and encoded in Base64 (stored under the `auth` key). This is highly insecure as Base64 is not encryption and is trivially decoded.
-- _Query:_ Why is `--password-stdin` heavily enforced in CI/CD environments instead of using the `-p` flag?
-  - _A:_ The `-p` flag passes the password as a command-line argument, meaning it is exposed in plaintext to the operating system's process table (visible via `ps` or `top`) and logged in terminal history. `--password-stdin` streams the password securely via standard input, keeping it entirely out of process arguments and shell logs.
-- _Query:_ If you authenticate to an AWS ECR registry using an IAM-generated token via `docker login`, why might a deployment fail if executed 14 hours later?
-  - _A:_ AWS ECR authentication tokens generated via `aws ecr get-login-password` are temporary and expire after 12 hours. The stored token in Docker's configuration file becomes invalid, requiring a fresh token generation and a new `docker login` execution.
+**Q:** If you run `docker login` without a credential helper on a standard Linux machine, how and where does Docker store your credentials?
+**A:** Docker stores the credentials in a JSON file located at `~/.docker/config.json`. The username and password are concatenated and encoded in Base64 (stored under the `auth` key). This is highly insecure as Base64 is not encryption and is trivially decoded.
+**Q:** Why is `--password-stdin` heavily enforced in CI/CD environments instead of using the `-p` flag?
+**A:** The `-p` flag passes the password as a command-line argument, meaning it is exposed in plaintext to the operating system's process table (visible via `ps` or `top`) and logged in terminal history. `--password-stdin` streams the password securely via standard input, keeping it entirely out of process arguments and shell logs.
+**Q:** If you authenticate to an AWS ECR registry using an IAM-generated token via `docker login`, why might a deployment fail if executed 14 hours later?
+**A:** AWS ECR authentication tokens generated via `aws ecr get-login-password` are temporary and expire after 12 hours. The stored token in Docker's configuration file becomes invalid, requiring a fresh token generation and a new `docker login` execution.
 
 ## Practice Problems
 
-- _Problem:_ Authenticate against the GitHub Container Registry (`ghcr.io`) using the username `dev-bot` while securely passing a token stored in the environment variable `$GH_TOKEN`.
-  - _Hint:_ Use `echo` to pipe the variable into the command and utilize the stdin password flag.
-  - _Solution:_ `echo $GH_TOKEN | docker login ghcr.io -u dev-bot --password-stdin` (This securely authenticates against a non-default registry without exposing the token in process tables).
-- _Problem:_ Connect interactively to a private corporate registry hosted at `harbor.internal.net`.
-  - _Hint:_ Invoke the login command with the target server URL without explicit credential flags.
-  - _Solution:_ `docker login harbor.internal.net` (This will interactively prompt your terminal for the required username and password to authenticate against the Harbor instance).
+**Problem:** Authenticate against the GitHub Container Registry (`ghcr.io`) using the username `dev-bot` while securely passing a token stored in the environment variable `$GH_TOKEN`.
+**Hint:** Use `echo` to pipe the variable into the command and utilize the stdin password flag.
+**Solution:** `echo $GH_TOKEN | docker login ghcr.io -u dev-bot --password-stdin` (This securely authenticates against a non-default registry without exposing the token in process tables).
+**Problem:** Connect interactively to a private corporate registry hosted at `harbor.internal.net`.
+**Hint:** Invoke the login command with the target server URL without explicit credential flags.
+**Solution:** `docker login harbor.internal.net` (This will interactively prompt your terminal for the required username and password to authenticate against the Harbor instance).
 
 ## References
 

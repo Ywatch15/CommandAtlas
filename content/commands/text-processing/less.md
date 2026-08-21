@@ -161,21 +161,21 @@ To manage the screen, `less` uses the `termios` C library. It disables terminal 
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental architectural difference in how `less` handles reading a 50GB physical file from disk versus reading 50GB of data piped into it from standard input (`command | less`)?
-  - _A:_ When reading a physical file, `less` maps byte offsets. It only reads the specific chunks required for the current screen, utilizing `lseek()` to randomly access parts of the file on disk, requiring virtually zero RAM. When reading from a pipe, the data stream is ephemeral and non-rewindable. To allow backward scrolling, `less` is forced to cache the entire incoming stream. It buffers it in RAM first, and once it exceeds limits, dynamically spills the cache into a temporary file on the hard drive to prevent Out-Of-Memory (OOM) crashes.
-- _Query:_ A junior admin pipes colored output into `less` and complains that the screen is filled with `ESC[01;31m` characters instead of actual colors. What command-line flag fixes this, and why is it not the default behavior?
-  - _A:_ The `-R` (or `--RAW-CONTROL-CHARS`) flag fixes this. It instructs `less` to pass ANSI color escape sequences directly to the terminal emulator rather than trying to display them as literal text characters. It is not the default because blindly passing raw control characters from untrusted files can theoretically hijack terminal emulators or alter terminal keymaps maliciously.
-- _Query:_ In a highly locked-down compliance server, a user is restricted to running only `cat`, `grep`, and `less`. How could an attacker theoretically use `less` to spawn an unauthorized, interactive `/bin/bash` shell?
-  - _A:_ The `less` utility contains an internal command mapped to the `v` key, which automatically invokes the system's default text editor (usually `vi` or `vim`) to edit the currently viewed file. Once `vim` is open, the attacker simply types `:!/bin/bash` to drop into a full, unrestricted interactive shell. This must be mitigated by setting `LESSSECURE=1` in the environment.
+**Q:** What is the fundamental architectural difference in how `less` handles reading a 50GB physical file from disk versus reading 50GB of data piped into it from standard input (`command | less`)?
+**A:** When reading a physical file, `less` maps byte offsets. It only reads the specific chunks required for the current screen, utilizing `lseek()` to randomly access parts of the file on disk, requiring virtually zero RAM. When reading from a pipe, the data stream is ephemeral and non-rewindable. To allow backward scrolling, `less` is forced to cache the entire incoming stream. It buffers it in RAM first, and once it exceeds limits, dynamically spills the cache into a temporary file on the hard drive to prevent Out-Of-Memory (OOM) crashes.
+**Q:** A junior admin pipes colored output into `less` and complains that the screen is filled with `ESC[01;31m` characters instead of actual colors. What command-line flag fixes this, and why is it not the default behavior?
+**A:** The `-R` (or `--RAW-CONTROL-CHARS`) flag fixes this. It instructs `less` to pass ANSI color escape sequences directly to the terminal emulator rather than trying to display them as literal text characters. It is not the default because blindly passing raw control characters from untrusted files can theoretically hijack terminal emulators or alter terminal keymaps maliciously.
+**Q:** In a highly locked-down compliance server, a user is restricted to running only `cat`, `grep`, and `less`. How could an attacker theoretically use `less` to spawn an unauthorized, interactive `/bin/bash` shell?
+**A:** The `less` utility contains an internal command mapped to the `v` key, which automatically invokes the system's default text editor (usually `vi` or `vim`) to edit the currently viewed file. Once `vim` is open, the attacker simply types `:!/bin/bash` to drop into a full, unrestricted interactive shell. This must be mitigated by setting `LESSSECURE=1` in the environment.
 
 ## Practice Problems
 
-- _Problem:_ View the file `syslog`, ensuring that line numbers are visible on the left margin, long lines are truncated rather than wrapped, and the application quits automatically without interaction if the file is under 40 lines long.
-  - _Hint:_ Combine the line number flag, the horizontal scroll/chop flag, and the quit-if-one-screen flag.
-  - _Solution:_ `less -N -S -F syslog` (This creates an extremely clean, efficient viewing environment).
-- _Problem:_ Launch `less` to monitor the actively growing file `access.log` (acting identically to `tail -f`), but command the viewer to ignore case sensitivity for any searches you perform after pausing the stream.
-  - _Hint:_ Use the continuous monitoring flag syntax combined with the case-insensitivity flag.
-  - _Solution:_ `less +F -i access.log` (The `+F` drops you into monitoring mode, while `-i` ensures any `/` searches executed later will ignore casing).
+**Problem:** View the file `syslog`, ensuring that line numbers are visible on the left margin, long lines are truncated rather than wrapped, and the application quits automatically without interaction if the file is under 40 lines long.
+**Hint:** Combine the line number flag, the horizontal scroll/chop flag, and the quit-if-one-screen flag.
+**Solution:** `less -N -S -F syslog` (This creates an extremely clean, efficient viewing environment).
+**Problem:** Launch `less` to monitor the actively growing file `access.log` (acting identically to `tail -f`), but command the viewer to ignore case sensitivity for any searches you perform after pausing the stream.
+**Hint:** Use the continuous monitoring flag syntax combined with the case-insensitivity flag.
+**Solution:** `less +F -i access.log` (The `+F` drops you into monitoring mode, while `-i` ensures any `/` searches executed later will ignore casing).
 
 ## References
 

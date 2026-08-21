@@ -156,21 +156,21 @@ When combined with the lazy quantifier (`.*?`), the engine reverses this paradig
 
 ## Interview Questions
 
-- _Query:_ What is the mathematical execution difference between a greedy wildcard match (`.*`) and a lazy wildcard match (`.*?`) when searching a string for data enclosed in quotes?
-  - _A:_ A greedy match evaluates from the outside in. It instantly consumes the entire string to the end of the line, and then backtracks backward until it finds the absolute _last_ quotation mark in the text, capturing everything between the first and last quote (often capturing multiple distinct values simultaneously). A lazy match evaluates from the inside out. It inches forward character by character, halting the match at the absolute _first_ quotation mark it hits, securely extracting the single minimum required value.
-- _Query:_ A developer writes a regex to parse a server configuration block: `ConfigStart(.*)ConfigEnd`. However, the regex engine returns no match, even though both keywords clearly exist in the text file separated by several lines of data. What architectural limit of the wildcard caused this?
-  - _A:_ By default, the regex dot (`.`) wildcard matches any character _except_ a newline character (`\n`). Because the target data spans across multiple lines, the `.*` span hit the first line break and halted, failing the match sequence. To resolve this, the developer must either activate "DotAll/Singleline" mode (usually via the `(?s)` flag) or substitute the wildcard with a class that explicitly encompasses line breaks, such as `[\s\S]*`.
-- _Query:_ A DevOps engineer uses the command `sed 's/password=.*? /password=REDACTED /g'` to scrub credentials from a file, but the terminal throws an invalid syntax error. Why did this fail, and how do you achieve the goal using that specific tool?
-  - _A:_ The `sed` utility relies on standard POSIX regular expressions, which do not support the Perl-compatible lazy quantifier (`*?`). Because `sed` only understands greedy wildcards, it fails to parse the modifier. To achieve the exact same lazy behavior natively in `sed`, the engineer must abandon the wildcard and use a negated character class: `sed 's/password=[^ ]* /password=REDACTED /g'`, which instructs the engine to capture anything that is not a space.
+**Q:** What is the mathematical execution difference between a greedy wildcard match (`.*`) and a lazy wildcard match (`.*?`) when searching a string for data enclosed in quotes?
+**A:** A greedy match evaluates from the outside in. It instantly consumes the entire string to the end of the line, and then backtracks backward until it finds the absolute _last_ quotation mark in the text, capturing everything between the first and last quote (often capturing multiple distinct values simultaneously). A lazy match evaluates from the inside out. It inches forward character by character, halting the match at the absolute _first_ quotation mark it hits, securely extracting the single minimum required value.
+**Q:** A developer writes a regex to parse a server configuration block: `ConfigStart(.*)ConfigEnd`. However, the regex engine returns no match, even though both keywords clearly exist in the text file separated by several lines of data. What architectural limit of the wildcard caused this?
+**A:** By default, the regex dot (`.`) wildcard matches any character _except_ a newline character (`\n`). Because the target data spans across multiple lines, the `.*` span hit the first line break and halted, failing the match sequence. To resolve this, the developer must either activate "DotAll/Singleline" mode (usually via the `(?s)` flag) or substitute the wildcard with a class that explicitly encompasses line breaks, such as `[\s\S]*`.
+**Q:** A DevOps engineer uses the command `sed 's/password=.*? /password=REDACTED /g'` to scrub credentials from a file, but the terminal throws an invalid syntax error. Why did this fail, and how do you achieve the goal using that specific tool?
+**A:** The `sed` utility relies on standard POSIX regular expressions, which do not support the Perl-compatible lazy quantifier (`*?`). Because `sed` only understands greedy wildcards, it fails to parse the modifier. To achieve the exact same lazy behavior natively in `sed`, the engineer must abandon the wildcard and use a negated character class: `sed 's/password=[^ ]* /password=REDACTED /g'`, which instructs the engine to capture anything that is not a space.
 
 ## Practice Problems
 
-- _Problem:_ You have a log line: `<user>admin</user> <user>guest</user>`. Write a PCRE regex pattern using a wildcard that explicitly isolates and matches only the first user block (`<user>admin</user>`), ensuring it does not greedily consume the second block.
-  - _Hint:_ Utilize the exact tag boundaries and explicitly force the wildcard span to be non-greedy (lazy).
-  - _Solution:_ `<user>.*?</user>` (The `.*?` halts the capture precisely at the first closing tag).
-- _Problem:_ Find all occurrences of the literal filename `config.bak` inside a text stream. Ensure that the regex engine explicitly evaluates the period as punctuation, and not as a single-character wildcard.
-  - _Hint:_ Apply the standard regex escape character to the specific meta-symbol.
-  - _Solution:_ `config\.bak` (Escaping the dot securely strips its wildcard properties, preventing false matches like `configxbak`).
+**Problem:** You have a log line: `<user>admin</user> <user>guest</user>`. Write a PCRE regex pattern using a wildcard that explicitly isolates and matches only the first user block (`<user>admin</user>`), ensuring it does not greedily consume the second block.
+**Hint:** Utilize the exact tag boundaries and explicitly force the wildcard span to be non-greedy (lazy).
+**Solution:** `<user>.*?</user>` (The `.*?` halts the capture precisely at the first closing tag).
+**Problem:** Find all occurrences of the literal filename `config.bak` inside a text stream. Ensure that the regex engine explicitly evaluates the period as punctuation, and not as a single-character wildcard.
+**Hint:** Apply the standard regex escape character to the specific meta-symbol.
+**Solution:** `config\.bak` (Escaping the dot securely strips its wildcard properties, preventing false matches like `configxbak`).
 
 ## References
 

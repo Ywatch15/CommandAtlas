@@ -166,21 +166,21 @@ The VFS then takes the `dentry` of the root of the new filesystem and logically 
 
 ## Interview Questions
 
-- _Query:_ A junior admin modifies `/etc/fstab` to add a new NFS mount. What single command should they run to apply the changes and verify the syntax without rebooting the server?
-  - _A:_ They should execute `sudo mount -a`. This command instructs the mount utility to parse `/etc/fstab` and attempt to attach all filesystems defined within it. If there is a syntax error or network failure, it will report it immediately, preventing a fatal boot-loop.
-- _Query:_ What is the architectural purpose of a "bind mount" (`mount --bind`), and how does it differ from a standard filesystem mount or a symbolic link?
-  - _A:_ A bind mount creates an alternate VFS path to an existing directory tree. Unlike a symbolic link (which is just a text pointer that applications can resolve or ignore), a bind mount intercepts path resolution at the kernel VFS layer. Applications chrooted into a directory cannot escape or bypass a bind mount, making it the secure method for injecting directories into locked-down daemon jails.
-- _Query:_ Why do security hardening baselines mandate adding the `noexec` option when mounting shared temporary directories like `/tmp`?
-  - _A:_ Directories like `/tmp` are globally writable. If a malicious actor uploads an executable payload or shell script to the server, they will drop it in `/tmp`. The `noexec` mount option instructs the kernel to strictly deny execute permissions to any binary residing on that mount point, neutralizing the payload execution vector.
+**Q:** A junior admin modifies `/etc/fstab` to add a new NFS mount. What single command should they run to apply the changes and verify the syntax without rebooting the server?
+**A:** They should execute `sudo mount -a`. This command instructs the mount utility to parse `/etc/fstab` and attempt to attach all filesystems defined within it. If there is a syntax error or network failure, it will report it immediately, preventing a fatal boot-loop.
+**Q:** What is the architectural purpose of a "bind mount" (`mount --bind`), and how does it differ from a standard filesystem mount or a symbolic link?
+**A:** A bind mount creates an alternate VFS path to an existing directory tree. Unlike a symbolic link (which is just a text pointer that applications can resolve or ignore), a bind mount intercepts path resolution at the kernel VFS layer. Applications chrooted into a directory cannot escape or bypass a bind mount, making it the secure method for injecting directories into locked-down daemon jails.
+**Q:** Why do security hardening baselines mandate adding the `noexec` option when mounting shared temporary directories like `/tmp`?
+**A:** Directories like `/tmp` are globally writable. If a malicious actor uploads an executable payload or shell script to the server, they will drop it in `/tmp`. The `noexec` mount option instructs the kernel to strictly deny execute permissions to any binary residing on that mount point, neutralizing the payload execution vector.
 
 ## Practice Problems
 
-- _Problem:_ Without requiring a reboot or interrupting active processes, transition the root filesystem (`/`) from a read-only state back to a writable state so you can edit a configuration file.
-  - _Hint:_ Use the dynamic mount option override syntax targeted at the root directory.
-  - _Solution:_ `mount -o remount,rw /` (This issues a live kernel instruction to drop the read-only lock and enable write operations immediately).
-- _Problem:_ Using the `/etc/fstab` file you just updated, instruct the kernel to mount all configured and pending partitions to verify your configuration.
-  - _Hint:_ Use the specific flag designed to evaluate and process the fstab file.
-  - _Solution:_ `mount -a` (This parses configuration files and safely attaches all defined but unmounted volumes).
+**Problem:** Without requiring a reboot or interrupting active processes, transition the root filesystem (`/`) from a read-only state back to a writable state so you can edit a configuration file.
+**Hint:** Use the dynamic mount option override syntax targeted at the root directory.
+**Solution:** `mount -o remount,rw /` (This issues a live kernel instruction to drop the read-only lock and enable write operations immediately).
+**Problem:** Using the `/etc/fstab` file you just updated, instruct the kernel to mount all configured and pending partitions to verify your configuration.
+**Hint:** Use the specific flag designed to evaluate and process the fstab file.
+**Solution:** `mount -a` (This parses configuration files and safely attaches all defined but unmounted volumes).
 
 ## References
 

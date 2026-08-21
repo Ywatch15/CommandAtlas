@@ -163,21 +163,21 @@ Once the request is authenticated, the connection is upgraded using the **SPDY**
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental difference in network routing between exposing an application via `kubectl port-forward` versus `kubectl proxy`?
-  - _A:_ `kubectl port-forward` operates at the raw TCP layer, multiplexing raw packet streams directly to a specific port on a specific Pod. It supports any protocol (HTTP, PostgreSQL, Redis). `kubectl proxy` operates at the HTTP/HTTPS layer, exposing the Kubernetes API Server's REST endpoints locally, allowing you to proxy HTTP requests through the API to services, but it fundamentally breaks non-HTTP TCP connections.
-- _Query:_ If you run `kubectl port-forward svc/my-app 8080:80` and the backing Deployment scales up to 5 pods, which pod receives your traffic? Does it load balance?
-  - _A:_ It does not load balance. When you target a Service, `kubectl` immediately queries the API server to resolve the Service's selectors, picks _one_ single, specific Pod from the ready list, and establishes a direct SPDY/WebSocket tunnel to that specific Pod. All traffic flows strictly to that single instance for the duration of the command.
-- _Query:_ Why does running a massive database dump transfer over `kubectl port-forward` often result in broken pipes, timeouts, or extremely slow speeds?
-  - _A:_ The `port-forward` command is not a direct network route. Every packet is encrypted, multiplexed over SPDY/WebSockets, routed through the cluster's core Control Plane API Server, and then proxied through the Kubelet. This introduces immense CPU and memory overhead on the Control Plane, often triggering API timeouts or throttling limits designed to protect cluster stability, breaking the massive transfer.
+**Q:** What is the fundamental difference in network routing between exposing an application via `kubectl port-forward` versus `kubectl proxy`?
+**A:** `kubectl port-forward` operates at the raw TCP layer, multiplexing raw packet streams directly to a specific port on a specific Pod. It supports any protocol (HTTP, PostgreSQL, Redis). `kubectl proxy` operates at the HTTP/HTTPS layer, exposing the Kubernetes API Server's REST endpoints locally, allowing you to proxy HTTP requests through the API to services, but it fundamentally breaks non-HTTP TCP connections.
+**Q:** If you run `kubectl port-forward svc/my-app 8080:80` and the backing Deployment scales up to 5 pods, which pod receives your traffic? Does it load balance?
+**A:** It does not load balance. When you target a Service, `kubectl` immediately queries the API server to resolve the Service's selectors, picks _one_ single, specific Pod from the ready list, and establishes a direct SPDY/WebSocket tunnel to that specific Pod. All traffic flows strictly to that single instance for the duration of the command.
+**Q:** Why does running a massive database dump transfer over `kubectl port-forward` often result in broken pipes, timeouts, or extremely slow speeds?
+**A:** The `port-forward` command is not a direct network route. Every packet is encrypted, multiplexed over SPDY/WebSockets, routed through the cluster's core Control Plane API Server, and then proxied through the Kubelet. This introduces immense CPU and memory overhead on the Control Plane, often triggering API timeouts or throttling limits designed to protect cluster stability, breaking the massive transfer.
 
 ## Practice Problems
 
-- _Problem:_ Map your local machine's TCP port `3306` to port `3306` on a specific pod named `mysql-primary` residing in the `database` namespace.
-  - _Hint:_ Use the basic tunneling syntax specifying the target resource, port mapping, and namespace.
-  - _Solution:_ `kubectl port-forward pod/mysql-primary 3306:3306 -n database` (This binds your localhost 3306 directly to the database pod).
-- _Problem:_ Create a tunnel to a service named `internal-dashboard` on port `80`, let `kubectl` automatically assign a random available port on your local machine, and ensure devices on your local Wi-Fi network can connect to your machine to access it.
-  - _Hint:_ Omit the local port in the mapping and override the bind address.
-  - _Solution:_ `kubectl port-forward svc/internal-dashboard :80 --address 0.0.0.0` (This binds a random port globally to all your machine's network interfaces).
+**Problem:** Map your local machine's TCP port `3306` to port `3306` on a specific pod named `mysql-primary` residing in the `database` namespace.
+**Hint:** Use the basic tunneling syntax specifying the target resource, port mapping, and namespace.
+**Solution:** `kubectl port-forward pod/mysql-primary 3306:3306 -n database` (This binds your localhost 3306 directly to the database pod).
+**Problem:** Create a tunnel to a service named `internal-dashboard` on port `80`, let `kubectl` automatically assign a random available port on your local machine, and ensure devices on your local Wi-Fi network can connect to your machine to access it.
+**Hint:** Omit the local port in the mapping and override the bind address.
+**Solution:** `kubectl port-forward svc/internal-dashboard :80 --address 0.0.0.0` (This binds a random port globally to all your machine's network interfaces).
 
 ## References
 

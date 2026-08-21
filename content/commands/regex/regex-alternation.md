@@ -163,21 +163,21 @@ Regardless of the engine, alternation possesses the lowest precedence of all reg
 
 ## Interview Questions
 
-- **Q:** In a Python script evaluating the text `superman`, the regex `super|superman` is applied. What string does the regex engine return as the match, and why?
-  - **A:** The engine returns `super`. Python utilizes a traditional NFA regex engine, which evaluates alternations strictly left-to-right. It tests `super`, finds a valid match, accepts it, and stops processing immediately, completely ignoring the longer `superman` branch.
-- **Q:** Why does `grep 'error|warn' log.txt` fail to find lines containing the word "error", and how do you resolve it?
-  - **A:** Standard `grep` defaults to Basic Regular Expressions (BRE), where the pipe symbol is treated as a literal character. The command is literally looking for the exact string "error|warn". To resolve this, you must either escape the pipe (`error\|warn`) or invoke Extended Regular Expressions using `grep -E` (or `egrep`).
-- **Q:** You want to find files containing the extension `.jpg`, `.png`, or `.gif`. Is `.[jpg|png|gif]` a valid regular expression to achieve this? Why or why not?
-  - **A:** No, it is completely invalid. The square brackets denote a Character Class, which evaluates individual characters, not multi-character sequences. Inside a character class, the pipe `|` loses its special alternation meaning and becomes a literal pipe character. That regex would match any single character followed by one of the letters `j,p,g,n,i,f` or a literal `|`. The correct syntax uses parentheses: `\.(jpg|png|gif)`.
+**Q:** In a Python script evaluating the text `superman`, the regex `super|superman` is applied. What string does the regex engine return as the match, and why?
+**A:** The engine returns `super`. Python utilizes a traditional NFA regex engine, which evaluates alternations strictly left-to-right. It tests `super`, finds a valid match, accepts it, and stops processing immediately, completely ignoring the longer `superman` branch.
+**Q:** Why does `grep 'error|warn' log.txt` fail to find lines containing the word "error", and how do you resolve it?
+**A:** Standard `grep` defaults to Basic Regular Expressions (BRE), where the pipe symbol is treated as a literal character. The command is literally looking for the exact string "error|warn". To resolve this, you must either escape the pipe (`error\|warn`) or invoke Extended Regular Expressions using `grep -E` (or `egrep`).
+**Q:** You want to find files containing the extension `.jpg`, `.png`, or `.gif`. Is `.[jpg|png|gif]` a valid regular expression to achieve this? Why or why not?
+**A:** No, it is completely invalid. The square brackets denote a Character Class, which evaluates individual characters, not multi-character sequences. Inside a character class, the pipe `|` loses its special alternation meaning and becomes a literal pipe character. That regex would match any single character followed by one of the letters `j,p,g,n,i,f` or a literal `|`. The correct syntax uses parentheses: `\.(jpg|png|gif)`.
 
 ## Practice Problems
 
-- _Problem:_ Use `grep -E` to find all lines in `/var/log/auth.log` that contain either the string `Failed password` or the string `Invalid user`.
-  - _Hint:_ Utilize the extended regex flag, enclose the two target strings inside quotes, and separate them with the boolean OR operator.
-  - _Solution:_ `grep -E 'Failed password|Invalid user' /var/log/auth.log`
-- _Problem:_ Write a regex pattern that matches either an IPv4 localhost address (`127.0.0.1`) or the IPv6 localhost address (`::1`). Ensure the alternation is properly grouped so it doesn't accidentally bind to surrounding text anchors.
-  - _Hint:_ Enclose the two options inside parentheses, escape the literal dots in the IPv4 address, and use the pipe separator.
-  - _Solution:_ `(127\.0\.0\.1|::1)`
+**Problem:** Use `grep -E` to find all lines in `/var/log/auth.log` that contain either the string `Failed password` or the string `Invalid user`.
+**Hint:** Utilize the extended regex flag, enclose the two target strings inside quotes, and separate them with the boolean OR operator.
+**Solution:** `grep -E 'Failed password|Invalid user' /var/log/auth.log`
+**Problem:** Write a regex pattern that matches either an IPv4 localhost address (`127.0.0.1`) or the IPv6 localhost address (`::1`). Ensure the alternation is properly grouped so it doesn't accidentally bind to surrounding text anchors.
+**Hint:** Enclose the two options inside parentheses, escape the literal dots in the IPv4 address, and use the pipe separator.
+**Solution:** `(127\.0\.0\.1|::1)`
 
 ## References
 

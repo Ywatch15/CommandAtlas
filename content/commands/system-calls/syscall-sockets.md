@@ -166,27 +166,27 @@ When `send()` is invoked, the application copies bytes into the kernel's transmi
 
 ## Interview Questions
 
-- _Query:_ What is the mathematical and architectural difference between the execution of a TCP socket (`SOCK_STREAM`) and a UDP socket (`SOCK_DGRAM`) when transmitting a 5000-byte payload?
-  - _A:_ TCP (`SOCK_STREAM`) provides a reliable, ordered byte stream. The kernel will transparently chop the 5000 bytes into multiple segments (respecting the MTU), transmit them, track sequence numbers, and automatically retransmit any lost segments. The receiving application reads a continuous stream without boundary markers. UDP (`SOCK_DGRAM`) provides unreliable, connectionless messaging. The kernel treats the 5000 bytes as a single, discrete message boundary. If the payload is larger than the network path permits, it fragments blindly. If a fragment drops, the entire 5000-byte message is silently discarded, and the receiving application receives absolutely nothing; there is no retransmission.
-- _Query:_ Why does a TCP server implementation structurally require the execution of two separate file descriptors (one from `socket()` and one from `accept()`), whereas a UDP server only requires one?
-  - _A:_ TCP is connection-oriented. The first file descriptor (from `socket()`) acts as a passive, immutable listener bound to a specific port, waiting for connection requests. When a request arrives, `accept()` spawns a brand new, distinct file descriptor explicitly tied to that specific client's TCP session. This allows the server to maintain the original listening socket independently. UDP is connectionless; it maintains no session state. A single UDP socket blindly receives datagrams from thousands of different IP addresses simultaneously on the same exact file descriptor.
-- _Query:_ A developer attempts to bind a custom web server application to port 80. The `bind()` system call fails with `EACCES` (Permission denied). The server is running as a standard user account. What kernel security mechanism caused this, and how can it be bypassed safely without running the application as root?
-  - _A:_ The Linux kernel explicitly protects "Privileged Ports" (ports numbered 0 through 1023) from being bound by unprivileged users, preventing malicious actors from hijacking critical system services like HTTP or SSH. To bypass this safely, the administrator can apply the `CAP_NET_BIND_SERVICE` Linux capability directly to the application binary using `setcap`, allowing the unprivileged process to bind the port without granting it total root system control.
+**Q:** What is the mathematical and architectural difference between the execution of a TCP socket (`SOCK_STREAM`) and a UDP socket (`SOCK_DGRAM`) when transmitting a 5000-byte payload?
+**A:** TCP (`SOCK_STREAM`) provides a reliable, ordered byte stream. The kernel will transparently chop the 5000 bytes into multiple segments (respecting the MTU), transmit them, track sequence numbers, and automatically retransmit any lost segments. The receiving application reads a continuous stream without boundary markers. UDP (`SOCK_DGRAM`) provides unreliable, connectionless messaging. The kernel treats the 5000 bytes as a single, discrete message boundary. If the payload is larger than the network path permits, it fragments blindly. If a fragment drops, the entire 5000-byte message is silently discarded, and the receiving application receives absolutely nothing; there is no retransmission.
+**Q:** Why does a TCP server implementation structurally require the execution of two separate file descriptors (one from `socket()` and one from `accept()`), whereas a UDP server only requires one?
+**A:** TCP is connection-oriented. The first file descriptor (from `socket()`) acts as a passive, immutable listener bound to a specific port, waiting for connection requests. When a request arrives, `accept()` spawns a brand new, distinct file descriptor explicitly tied to that specific client's TCP session. This allows the server to maintain the original listening socket independently. UDP is connectionless; it maintains no session state. A single UDP socket blindly receives datagrams from thousands of different IP addresses simultaneously on the same exact file descriptor.
+**Q:** A developer attempts to bind a custom web server application to port 80. The `bind()` system call fails with `EACCES` (Permission denied). The server is running as a standard user account. What kernel security mechanism caused this, and how can it be bypassed safely without running the application as root?
+**A:** The Linux kernel explicitly protects "Privileged Ports" (ports numbered 0 through 1023) from being bound by unprivileged users, preventing malicious actors from hijacking critical system services like HTTP or SSH. To bypass this safely, the administrator can apply the `CAP_NET_BIND_SERVICE` Linux capability directly to the application binary using `setcap`, allowing the unprivileged process to bind the port without granting it total root system control.
 
 ## Practice Problems
 
-- _Problem:_ Write the C code required to properly configure an IPv4 `sockaddr_in` struct to bind to the IP address `127.0.0.1` on port `9090`, ensuring all endianness conversion functions are applied correctly to prevent hardware architecture mismatches.
-  - _Hint:_ Define the family, use `htons` for the port, and `inet_pton` for the string-to-binary IP conversion.
-  - _Solution:_
-    ```c
+**Problem:** Write the C code required to properly configure an IPv4 `sockaddr_in` struct to bind to the IP address `127.0.0.1` on port `9090`, ensuring all endianness conversion functions are applied correctly to prevent hardware architecture mismatches.
+**Hint:** Define the family, use `htons` for the port, and `inet_pton` for the string-to-binary IP conversion.
+**Solution:**
+`c
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(9090);
     inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
-    ```
-- _Problem:_ Assume a non-blocking TCP socket file descriptor `client_fd`. Write a single line of C code to attempt to receive up to 1024 bytes into `buffer`, but explicitly instruct the kernel via a specific flag that it should simply copy the data into the buffer _without_ physically removing it from the kernel's receive queue.
-  - _Hint:_ Utilize the specific message flag designed for inspecting incoming streams without consuming them.
-  - _Solution:_ `ssize_t bytes = recv(client_fd, buffer, 1024, MSG_PEEK);` (The `MSG_PEEK` flag leaves the data in the TCP window, meaning the next standard `recv()` call will read the exact same data again).
+    `
+**Problem:** Assume a non-blocking TCP socket file descriptor `client_fd`. Write a single line of C code to attempt to receive up to 1024 bytes into `buffer`, but explicitly instruct the kernel via a specific flag that it should simply copy the data into the buffer _without_ physically removing it from the kernel's receive queue.
+**Hint:** Utilize the specific message flag designed for inspecting incoming streams without consuming them.
+**Solution:** `ssize_t bytes = recv(client_fd, buffer, 1024, MSG_PEEK);` (The `MSG_PEEK` flag leaves the data in the TCP window, meaning the next standard `recv()` call will read the exact same data again).
 
 ## References
 

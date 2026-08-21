@@ -154,21 +154,21 @@ Crucially, unlike `kubectl apply`, `kubectl create` does _not_ embed the `kubect
 
 ## Interview Questions
 
-- **Q:** What is the specific error that occurs if you run `kubectl create -f app.yaml` on a cluster where that application has already been deployed? How does this differ from `kubectl apply`?
-  - **A:** The API server will return an `AlreadyExists` (HTTP 409 Conflict) error, and the command will fail completely. This is because `create` utilizes a strict `POST` request intended only for instantiation. `kubectl apply` utilizes a `PATCH` request; if the resource exists, it intelligently calculates the differences and updates the live object dynamically without failing.
-- **Q:** Explain the powerful architectural workflow known as the "YAML generator pattern" using `kubectl create`.
-  - **A:** Writing flawless Kubernetes YAML by hand is tedious. The YAML generator pattern utilizes imperative subcommands combined with client-side interception. By executing a command like `kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml`, the CLI constructs the perfect resource structure in memory and dumps it to a file without ever contacting the cluster, providing instant, error-free boilerplate code for GitOps repositories.
-- **Q:** Why is it functionally incorrect to manually Base64 encode a password string before providing it to the `kubectl create secret generic --from-literal` command?
-  - **A:** The Kubernetes API requires secrets to be stored in Base64 format. However, the `kubectl create secret` imperative CLI generator is programmed to execute this encoding automatically on behalf of the user. If a user inputs a string that is already Base64 encoded, the CLI will encode it a second time (double-encoding), resulting in the pod mounting a corrupted, invalid credential.
+**Q:** What is the specific error that occurs if you run `kubectl create -f app.yaml` on a cluster where that application has already been deployed? How does this differ from `kubectl apply`?
+**A:** The API server will return an `AlreadyExists` (HTTP 409 Conflict) error, and the command will fail completely. This is because `create` utilizes a strict `POST` request intended only for instantiation. `kubectl apply` utilizes a `PATCH` request; if the resource exists, it intelligently calculates the differences and updates the live object dynamically without failing.
+**Q:** Explain the powerful architectural workflow known as the "YAML generator pattern" using `kubectl create`.
+**A:** Writing flawless Kubernetes YAML by hand is tedious. The YAML generator pattern utilizes imperative subcommands combined with client-side interception. By executing a command like `kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml`, the CLI constructs the perfect resource structure in memory and dumps it to a file without ever contacting the cluster, providing instant, error-free boilerplate code for GitOps repositories.
+**Q:** Why is it functionally incorrect to manually Base64 encode a password string before providing it to the `kubectl create secret generic --from-literal` command?
+**A:** The Kubernetes API requires secrets to be stored in Base64 format. However, the `kubectl create secret` imperative CLI generator is programmed to execute this encoding automatically on behalf of the user. If a user inputs a string that is already Base64 encoded, the CLI will encode it a second time (double-encoding), resulting in the pod mounting a corrupted, invalid credential.
 
 ## Practice Problems
 
-- _Problem:_ Generate a syntactically perfect YAML file named `backend-svc.yaml` for a ClusterIP service named `backend` exposing TCP port 8080, but ensure the service is NOT actually created on the cluster.
-  - _Hint:_ Utilize the imperative service generator alongside the client dry-run interception strategy.
-  - _Solution:_ `kubectl create service clusterip backend --tcp=8080:8080 --dry-run=client -o yaml > backend-svc.yaml` (This leverages the CLI to write boilerplate YAML instantly).
-- _Problem:_ Create a new ConfigMap named `app-settings` in the `production` namespace containing a single literal key-value pair `environment=production`, and ensure it generates the annotation necessary for future `kubectl apply` updates.
-  - _Hint:_ Combine the literal generator flag, namespace restriction, and the configuration preservation flag.
-  - _Solution:_ `kubectl create configmap app-settings --from-literal=environment=production -n production --save-config` (This instantiates the resource while future-proofing it for declarative synchronization).
+**Problem:** Generate a syntactically perfect YAML file named `backend-svc.yaml` for a ClusterIP service named `backend` exposing TCP port 8080, but ensure the service is NOT actually created on the cluster.
+**Hint:** Utilize the imperative service generator alongside the client dry-run interception strategy.
+**Solution:** `kubectl create service clusterip backend --tcp=8080:8080 --dry-run=client -o yaml > backend-svc.yaml` (This leverages the CLI to write boilerplate YAML instantly).
+**Problem:** Create a new ConfigMap named `app-settings` in the `production` namespace containing a single literal key-value pair `environment=production`, and ensure it generates the annotation necessary for future `kubectl apply` updates.
+**Hint:** Combine the literal generator flag, namespace restriction, and the configuration preservation flag.
+**Solution:** `kubectl create configmap app-settings --from-literal=environment=production -n production --save-config` (This instantiates the resource while future-proofing it for declarative synchronization).
 
 ## References
 

@@ -161,21 +161,21 @@ If `-ToSession` or `-FromSession` are invoked, PowerShell serializes the file da
 
 ## Interview Questions
 
-- _Query:_ A junior admin executes `Copy-Item -Path C:\Project\* -Destination D:\Backup -Include *.js -Recurse`, but complains it takes 20 minutes to scan the drive. How do you optimize this exact command?
-  - _A:_ The `-Include` parameter requires PowerShell to retrieve every single file in the directory tree into memory and evaluate it against the regex string internally. You should switch to the `-Filter *.js` parameter. The `-Filter` parameter pushes the query down to the underlying OS filesystem API (e.g., NTFS), which evaluates and returns only the matching files natively, resulting in near-instantaneous execution.
-- _Query:_ What happens to the file permissions (Access Control Lists) when a file is duplicated using `Copy-Item`?
-  - _A:_ `Copy-Item` creates a brand new file object at the destination. Therefore, it completely abandons the specific permissions assigned to the source file. The newly created file dynamically inherits the permissions defined by the destination parent folder. If absolute permission retention is required, external utilities like `robocopy /COPYALL` must be used.
-- _Query:_ Explain the specific architectural advantage of utilizing the `-ToSession` parameter over simply mapping a network drive (SMB/CIFS) when copying files to a remote server.
-  - _A:_ The `-ToSession` parameter tunnels the file payload entirely through the PowerShell Remoting (WinRM) protocol over port 5985/5986. This completely bypasses the need to open traditional file-sharing ports (SMB 445), manage complex network share permissions, or deal with firewall drops, providing a highly secure, encrypted file transfer mechanism natively baked into standard administrative access boundaries.
+**Q:** A junior admin executes `Copy-Item -Path C:\Project\* -Destination D:\Backup -Include *.js -Recurse`, but complains it takes 20 minutes to scan the drive. How do you optimize this exact command?
+**A:** The `-Include` parameter requires PowerShell to retrieve every single file in the directory tree into memory and evaluate it against the regex string internally. You should switch to the `-Filter *.js` parameter. The `-Filter` parameter pushes the query down to the underlying OS filesystem API (e.g., NTFS), which evaluates and returns only the matching files natively, resulting in near-instantaneous execution.
+**Q:** What happens to the file permissions (Access Control Lists) when a file is duplicated using `Copy-Item`?
+**A:** `Copy-Item` creates a brand new file object at the destination. Therefore, it completely abandons the specific permissions assigned to the source file. The newly created file dynamically inherits the permissions defined by the destination parent folder. If absolute permission retention is required, external utilities like `robocopy /COPYALL` must be used.
+**Q:** Explain the specific architectural advantage of utilizing the `-ToSession` parameter over simply mapping a network drive (SMB/CIFS) when copying files to a remote server.
+**A:** The `-ToSession` parameter tunnels the file payload entirely through the PowerShell Remoting (WinRM) protocol over port 5985/5986. This completely bypasses the need to open traditional file-sharing ports (SMB 445), manage complex network share permissions, or deal with firewall drops, providing a highly secure, encrypted file transfer mechanism natively baked into standard administrative access boundaries.
 
 ## Practice Problems
 
-- _Problem:_ Copy a specific registry key hierarchy located at `HKCU:\Software\MyApp\Settings` and all of its nested keys to a new backup location at `HKCU:\Software\MyApp\Settings_Backup`.
-  - _Hint:_ Target the registry provider path and utilize the deep copy flag.
-  - _Solution:_ `Copy-Item -Path HKCU:\Software\MyApp\Settings -Destination HKCU:\Software\MyApp\Settings_Backup -Recurse` (This leverages the provider-agnostic nature of the cmdlet to clone registry hives instantly).
-- _Problem:_ Recursively copy an entire web application folder `C:\App\Src\` to `D:\App\Flat\`, but purposefully destroy all internal directory structures so that every single file ends up directly in the root of the `Flat` directory.
-  - _Hint:_ Chain the recursive flag with the boolean parameter that manages structural preservation.
-  - _Solution:_ `Copy-Item -Path C:\App\Src\* -Destination D:\App\Flat\ -Recurse -Container:$false` (Setting `-Container:$false` explicitly commands the engine to drop directory items and only copy raw file items).
+**Problem:** Copy a specific registry key hierarchy located at `HKCU:\Software\MyApp\Settings` and all of its nested keys to a new backup location at `HKCU:\Software\MyApp\Settings_Backup`.
+**Hint:** Target the registry provider path and utilize the deep copy flag.
+**Solution:** `Copy-Item -Path HKCU:\Software\MyApp\Settings -Destination HKCU:\Software\MyApp\Settings_Backup -Recurse` (This leverages the provider-agnostic nature of the cmdlet to clone registry hives instantly).
+**Problem:** Recursively copy an entire web application folder `C:\App\Src\` to `D:\App\Flat\`, but purposefully destroy all internal directory structures so that every single file ends up directly in the root of the `Flat` directory.
+**Hint:** Chain the recursive flag with the boolean parameter that manages structural preservation.
+**Solution:** `Copy-Item -Path C:\App\Src\* -Destination D:\App\Flat\ -Recurse -Container:$false` (Setting `-Container:$false` explicitly commands the engine to drop directory items and only copy raw file items).
 
 ## References
 

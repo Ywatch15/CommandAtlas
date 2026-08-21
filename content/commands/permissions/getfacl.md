@@ -150,21 +150,21 @@ The `getfacl` utility decodes this binary structure. It translates the internal 
 
 ## Interview Questions
 
-- _Query:_ An administrator runs `ls -l` on a file and sees `-rwxrwx---+`. They run `chmod g-w` to strip write permissions from the group, but users are still modifying the file. What architectural nuance of Linux permissions is causing this, and how does `getfacl` expose the solution?
-  - _A:_ The `+` symbol at the end of the `ls -l` output indicates the presence of an Access Control List (ACL). When an ACL is active, the "group" portion of the `chmod` string no longer represents the literal POSIX group; it represents the ACL Mask (the maximum allowable limit). Changing the group via `chmod` merely alters the mask, while the explicit extended user/group rules hidden inside the ACL continue granting write access. Running `getfacl` exposes the full matrix, revealing exactly which extended user/group rule is still permitting the unauthorized writes.
-- _Query:_ What is the functional difference between querying the standard access ACL versus querying the Default ACL (`getfacl -d`) on a directory?
-  - _A:_ The standard access ACL defines who can read, write, or traverse that specific directory. The Default ACL is an inheritance template. It does not dictate access to the directory itself; instead, it enforces that any new file or subfolder created _inside_ that directory automatically receives a predefined set of ACL rules upon creation.
-- _Query:_ Why is it critical to append the `-p` (absolute names) flag when generating a comprehensive ACL backup text file using `getfacl -R /var/data > backup.txt`?
-  - _A:_ By default, for safety reasons, `getfacl` strips the leading forward slash (`/`) from file paths in its output. If an administrator attempts to use this backup text file to restore permissions later via `setfacl --restore`, the command will attempt to apply the rules using relative paths based on the administrator's current working directory, corrupting permissions globally. The `-p` flag preserves the absolute `/var/data` paths, guaranteeing perfectly targeted restoration.
+**Q:** An administrator runs `ls -l` on a file and sees `-rwxrwx---+`. They run `chmod g-w` to strip write permissions from the group, but users are still modifying the file. What architectural nuance of Linux permissions is causing this, and how does `getfacl` expose the solution?
+**A:** The `+` symbol at the end of the `ls -l` output indicates the presence of an Access Control List (ACL). When an ACL is active, the "group" portion of the `chmod` string no longer represents the literal POSIX group; it represents the ACL Mask (the maximum allowable limit). Changing the group via `chmod` merely alters the mask, while the explicit extended user/group rules hidden inside the ACL continue granting write access. Running `getfacl` exposes the full matrix, revealing exactly which extended user/group rule is still permitting the unauthorized writes.
+**Q:** What is the functional difference between querying the standard access ACL versus querying the Default ACL (`getfacl -d`) on a directory?
+**A:** The standard access ACL defines who can read, write, or traverse that specific directory. The Default ACL is an inheritance template. It does not dictate access to the directory itself; instead, it enforces that any new file or subfolder created _inside_ that directory automatically receives a predefined set of ACL rules upon creation.
+**Q:** Why is it critical to append the `-p` (absolute names) flag when generating a comprehensive ACL backup text file using `getfacl -R /var/data > backup.txt`?
+**A:** By default, for safety reasons, `getfacl` strips the leading forward slash (`/`) from file paths in its output. If an administrator attempts to use this backup text file to restore permissions later via `setfacl --restore`, the command will attempt to apply the rules using relative paths based on the administrator's current working directory, corrupting permissions globally. The `-p` flag preserves the absolute `/var/data` paths, guaranteeing perfectly targeted restoration.
 
 ## Practice Problems
 
-- _Problem:_ Retrieve the full Access Control List for the file `database_credentials.yml`, omitting the human-readable header metadata (file, owner, group) to return purely the operational rules.
-  - _Hint:_ Combine the base command with the flag that suppresses the three-line header.
-  - _Solution:_ `getfacl -c database_credentials.yml` (This isolates the raw rules, making visual parsing and regex integration cleaner).
-- _Problem:_ Generate a recursive backup of all ACLs within the absolute path `/opt/app/secure_storage/`, ensuring that absolute paths are preserved and symbolic links are NOT followed, saving the payload to `acl_backup.txt`.
-  - _Hint:_ Chain the recursive flag, physical resolution flag, and the absolute names flag, redirecting to a file.
-  - _Solution:_ `getfacl -R -P -p /opt/app/secure_storage/ > acl_backup.txt` (This constructs a mathematically perfect, restorable snapshot of the directory's granular security posture).
+**Problem:** Retrieve the full Access Control List for the file `database_credentials.yml`, omitting the human-readable header metadata (file, owner, group) to return purely the operational rules.
+**Hint:** Combine the base command with the flag that suppresses the three-line header.
+**Solution:** `getfacl -c database_credentials.yml` (This isolates the raw rules, making visual parsing and regex integration cleaner).
+**Problem:** Generate a recursive backup of all ACLs within the absolute path `/opt/app/secure_storage/`, ensuring that absolute paths are preserved and symbolic links are NOT followed, saving the payload to `acl_backup.txt`.
+**Hint:** Chain the recursive flag, physical resolution flag, and the absolute names flag, redirecting to a file.
+**Solution:** `getfacl -R -P -p /opt/app/secure_storage/ > acl_backup.txt` (This constructs a mathematically perfect, restorable snapshot of the directory's granular security posture).
 
 ## References
 

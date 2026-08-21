@@ -160,21 +160,21 @@ If the path is clear, the kernel executes a `sync()` algorithm, flushing all mod
 
 ## Interview Questions
 
-- _Query:_ You try to `umount /mnt/backup`, but Linux returns a "target is busy" error. Explain why this happens and specify the exact commands you would use to identify and resolve the block without rebooting the server.
-  - _A:_ The kernel prevents unmounting because an active process is utilizing the filesystem—either holding an open file descriptor or using it as a current working directory. To fix it, I would use `lsof +D /mnt/backup` or `fuser -mu /mnt/backup` to reveal the specific PIDs and usernames locking the directory. I would then gracefully shut down those applications, step out of the directory if my own shell is in it, and re-execute `umount`.
-- _Query:_ What is the functional difference in the Linux kernel between executing a forced unmount (`-f`) versus a lazy unmount (`-l`)?
-  - _A:_ A forced unmount (`-f`) aggressively severs pending network RPC calls and terminates active read/write streams, intended specifically to unstick hung distributed filesystems like NFS. A lazy unmount (`-l`) instantly hides the mount point from the human-visible directory tree so users and new processes cannot access it, but allows the kernel to quietly maintain the mapping in the background until all current programs finish using their open files, at which point the kernel safely shuts it down.
-- _Query:_ Why does `umount` occasionally appear to "hang" for a long time on a physical USB hard drive before successfully returning to the prompt?
-  - _A:_ The Linux kernel heavily caches disk writes in RAM (dirty pages) to speed up application performance. When you execute `umount`, the command initiates a synchronous flush, forcing the kernel to physically write all that gigabyte-scale cached data onto the slow USB flash memory. The command "hangs" waiting for the hardware controller to acknowledge that all physical writing is safely completed.
+**Q:** You try to `umount /mnt/backup`, but Linux returns a "target is busy" error. Explain why this happens and specify the exact commands you would use to identify and resolve the block without rebooting the server.
+**A:** The kernel prevents unmounting because an active process is utilizing the filesystem—either holding an open file descriptor or using it as a current working directory. To fix it, I would use `lsof +D /mnt/backup` or `fuser -mu /mnt/backup` to reveal the specific PIDs and usernames locking the directory. I would then gracefully shut down those applications, step out of the directory if my own shell is in it, and re-execute `umount`.
+**Q:** What is the functional difference in the Linux kernel between executing a forced unmount (`-f`) versus a lazy unmount (`-l`)?
+**A:** A forced unmount (`-f`) aggressively severs pending network RPC calls and terminates active read/write streams, intended specifically to unstick hung distributed filesystems like NFS. A lazy unmount (`-l`) instantly hides the mount point from the human-visible directory tree so users and new processes cannot access it, but allows the kernel to quietly maintain the mapping in the background until all current programs finish using their open files, at which point the kernel safely shuts it down.
+**Q:** Why does `umount` occasionally appear to "hang" for a long time on a physical USB hard drive before successfully returning to the prompt?
+**A:** The Linux kernel heavily caches disk writes in RAM (dirty pages) to speed up application performance. When you execute `umount`, the command initiates a synchronous flush, forcing the kernel to physically write all that gigabyte-scale cached data onto the slow USB flash memory. The command "hangs" waiting for the hardware controller to acknowledge that all physical writing is safely completed.
 
 ## Practice Problems
 
-- _Problem:_ Unmount an unresponsive network share located at `/mnt/corp_data` instantly by hiding it from the filesystem tree and allowing the kernel to clean up the broken connections in the background.
-  - _Hint:_ Utilize the lazy detachment flag to bypass the hanging timeout.
-  - _Solution:_ `umount -l /mnt/corp_data` (This instantly restores terminal usability by detaching the VFS path and pushing the unmount process to the background).
-- _Problem:_ Unmount the `/var/chroot_env` directory, completely ensuring that any deeply nested virtual mounts (like `proc` or `sys`) bound inside of it are unmounted simultaneously.
-  - _Hint:_ Apply the recursive unmount flag to traverse the directory hierarchy.
-  - _Solution:_ `umount -R /var/chroot_env` (This forces the kernel to walk the tree bottom-up, unmounting child dependencies before tearing down the parent mount).
+**Problem:** Unmount an unresponsive network share located at `/mnt/corp_data` instantly by hiding it from the filesystem tree and allowing the kernel to clean up the broken connections in the background.
+**Hint:** Utilize the lazy detachment flag to bypass the hanging timeout.
+**Solution:** `umount -l /mnt/corp_data` (This instantly restores terminal usability by detaching the VFS path and pushing the unmount process to the background).
+**Problem:** Unmount the `/var/chroot_env` directory, completely ensuring that any deeply nested virtual mounts (like `proc` or `sys`) bound inside of it are unmounted simultaneously.
+**Hint:** Apply the recursive unmount flag to traverse the directory hierarchy.
+**Solution:** `umount -R /var/chroot_env` (This forces the kernel to walk the tree bottom-up, unmounting child dependencies before tearing down the parent mount).
 
 ## References
 

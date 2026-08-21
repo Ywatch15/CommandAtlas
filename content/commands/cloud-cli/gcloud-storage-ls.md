@@ -163,23 +163,23 @@ Because GCS is fundamentally a flat object store that simulates directories usin
 
 ## Interview Questions
 
-- **Q:** What is the fundamental architectural difference between `gcloud storage ls` and the legacy `gsutil ls` command?
-  - **A:** `gcloud storage ls` is part of the modern Google Cloud CLI rewrite and communicates natively with the high-performance GCS JSON API, delivering significantly faster response times. The legacy `gsutil ls` relied on older Python runtimes and slower XML API endpoints, and is gradually being deprecated in favor of the unified `gcloud storage` component.
-- **Q:** How does Google Cloud Storage simulate folder structures when you execute `gcloud storage ls gs://bucket/folder/`, given that GCS is a flat object storage architecture?
-  - **A:** GCS does not have a true hierarchical directory structure; it uses a flat namespace of object key strings. When you run `gcloud storage ls` with a prefix delimiter, GCS uses prefix matching and delimiter grouping in its JSON API requests to aggregate object keys sharing the same string path, emulating folder behavior for the user.
-- **Q:** Why is using `gcloud storage ls` discouraged for heavy programmatic data analytics in enterprise data lakes compared to native query engines?
-  - **A:** `gcloud storage ls` is designed strictly for operational inspection and object listing, processing responses sequentially via REST APIs. It lacks indexing, distributed parallel scanning, and SQL aggregation capabilities required to analyze petabyte-scale datasets efficiently, whereas engines like BigQuery or Dataproc scan GCS data natively at scale.
+**Q:** What is the fundamental architectural difference between `gcloud storage ls` and the legacy `gsutil ls` command?
+**A:** `gcloud storage ls` is part of the modern Google Cloud CLI rewrite and communicates natively with the high-performance GCS JSON API, delivering significantly faster response times. The legacy `gsutil ls` relied on older Python runtimes and slower XML API endpoints, and is gradually being deprecated in favor of the unified `gcloud storage` component.
+**Q:** How does Google Cloud Storage simulate folder structures when you execute `gcloud storage ls gs://bucket/folder/`, given that GCS is a flat object storage architecture?
+**A:** GCS does not have a true hierarchical directory structure; it uses a flat namespace of object key strings. When you run `gcloud storage ls` with a prefix delimiter, GCS uses prefix matching and delimiter grouping in its JSON API requests to aggregate object keys sharing the same string path, emulating folder behavior for the user.
+**Q:** Why is using `gcloud storage ls` discouraged for heavy programmatic data analytics in enterprise data lakes compared to native query engines?
+**A:** `gcloud storage ls` is designed strictly for operational inspection and object listing, processing responses sequentially via REST APIs. It lacks indexing, distributed parallel scanning, and SQL aggregation capabilities required to analyze petabyte-scale datasets efficiently, whereas engines like BigQuery or Dataproc scan GCS data natively at scale.
 
 ## Practice Problems
 
-- _Problem:_ List all Google Cloud Storage buckets currently owned by your active GCP project in structured JSON format.
-  - _Hint:_ Invoke the command without arguments while specifying the JSON formatting flag.
-  - _Solution:_ `gcloud storage ls --format=json` (This queries the project's root GCS endpoint and outputs all accessible buckets as a clean JSON array).
-- _Problem:_ Recursively list all objects inside `gs://company-backup-bucket/2026/` while displaying detailed object metadata and human-readable file sizes.
-  - _Hint:_ Combine the recursive flag with the long-format flag and the readable-sizes flag.
-  - _Solution:_ `gcloud storage ls -lh -r gs://company-backup-bucket/2026/` (This scans all nested objects under the specified prefix, outputting detailed attributes with human-readable file sizes).
+**Problem:** List all Google Cloud Storage buckets currently owned by your active GCP project in structured JSON format.
+**Hint:** Invoke the command without arguments while specifying the JSON formatting flag.
+**Solution:** `gcloud storage ls --format=json` (This queries the project's root GCS endpoint and outputs all accessible buckets as a clean JSON array).
+**Problem:** Recursively list all objects inside `gs://company-backup-bucket/2026/` while displaying detailed object metadata and human-readable file sizes.
+**Hint:** Combine the recursive flag with the long-format flag and the readable-sizes flag.
+**Solution:** `gcloud storage ls -lh -r gs://company-backup-bucket/2026/` (This scans all nested objects under the specified prefix, outputting detailed attributes with human-readable file sizes).
 
 ## References
 
-- - [Google Cloud CLI Documentation - gcloud storage ls](https://cloud.google.com/sdk/gcloud/reference/storage/ls)
-- - [Google Cloud Storage Documentation - Listing Objects](https://cloud.google.com/storage/docs/listing-objects)
+- [Google Cloud CLI Documentation - gcloud storage ls](https://cloud.google.com/sdk/gcloud/reference/storage/ls)
+- [Google Cloud Storage Documentation - Listing Objects](https://cloud.google.com/storage/docs/listing-objects)

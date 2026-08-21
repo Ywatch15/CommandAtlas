@@ -137,21 +137,21 @@ Simultaneously, `nohup` evaluates the application's file descriptors. A backgrou
 
 ## Interview Questions
 
-- _Query:_ A developer runs `nohup ./backup.sh` but their terminal instantly freezes, preventing them from typing any new commands. Furthermore, when they close the terminal window, they discover the backup script died anyway. What critical shell operator did they forget to append to the command?
-  - _A:_ They forgot to append the background ampersand operator (`&`). `nohup` only masks the SIGHUP signal; it does not background the process. Without `&`, the script runs in the foreground, hijacking standard input. Furthermore, if they close the window improperly or hit `Ctrl+C`, the terminal sends `SIGINT` (Signal 2) or `SIGTERM` (Signal 15), which `nohup` does _not_ protect against, killing the script.
-- _Query:_ What is the default mechanism `nohup` employs to handle standard output (`stdout`) and standard error (`stderr`) if the user does not explicitly redirect them using bash operators?
-  - _A:_ If `nohup` detects that standard output is tied to an active terminal, it automatically intercepts and redirects the stream into a file named `nohup.out` located in the current working directory (or `$HOME/nohup.out` if the current directory is read-only). It also merges standard error into this exact same file stream, ensuring no diagnostic output is lost when the terminal is severed.
-- _Query:_ If a process is launched via `nohup` and successfully executing in the background, will it automatically resume execution if the underlying Linux server is physically rebooted?
-  - _A:_ No. `nohup` is merely a signal mask applied to a volatile RAM process. It provides absolutely no persistence across system reboots. For reboot survivability, the application must be registered as a system service utilizing an init daemon like `systemd`.
+**Q:** A developer runs `nohup ./backup.sh` but their terminal instantly freezes, preventing them from typing any new commands. Furthermore, when they close the terminal window, they discover the backup script died anyway. What critical shell operator did they forget to append to the command?
+**A:** They forgot to append the background ampersand operator (`&`). `nohup` only masks the SIGHUP signal; it does not background the process. Without `&`, the script runs in the foreground, hijacking standard input. Furthermore, if they close the window improperly or hit `Ctrl+C`, the terminal sends `SIGINT` (Signal 2) or `SIGTERM` (Signal 15), which `nohup` does _not_ protect against, killing the script.
+**Q:** What is the default mechanism `nohup` employs to handle standard output (`stdout`) and standard error (`stderr`) if the user does not explicitly redirect them using bash operators?
+**A:** If `nohup` detects that standard output is tied to an active terminal, it automatically intercepts and redirects the stream into a file named `nohup.out` located in the current working directory (or `$HOME/nohup.out` if the current directory is read-only). It also merges standard error into this exact same file stream, ensuring no diagnostic output is lost when the terminal is severed.
+**Q:** If a process is launched via `nohup` and successfully executing in the background, will it automatically resume execution if the underlying Linux server is physically rebooted?
+**A:** No. `nohup` is merely a signal mask applied to a volatile RAM process. It provides absolutely no persistence across system reboots. For reboot survivability, the application must be registered as a system service utilizing an init daemon like `systemd`.
 
 ## Practice Problems
 
-- _Problem:_ Execute a Python script named `data_cruncher.py` immune to terminal hangups, push it to the background, and completely discard all standard output and standard error so it generates no log files on the disk.
-  - _Hint:_ Combine the execution wrapper, redirection operators targeting the Linux black hole device, stream merging, and the background operator.
-  - _Solution:_ `nohup python3 data_cruncher.py > /dev/null 2>&1 &` (This ensures silent, untraceable background execution).
-- _Problem:_ You launched `./massive_query.sh` normally in your terminal, but realize it will take 5 hours and you need to leave the office and close your laptop. You cannot cancel and restart it. How do you retroactively apply `nohup`-like behavior to save the job?
-  - _Hint:_ You must suspend the job, push it to the background, and sever its ties to the terminal session using native bash job control commands.
-  - _Solution:_ Press `Ctrl+Z` (suspends the job), type `bg` (resumes execution in the background), and type `disown -h %1` (instructs the bash shell to remove the job from its SIGHUP broadcast list, achieving the exact same result as `nohup`).
+**Problem:** Execute a Python script named `data_cruncher.py` immune to terminal hangups, push it to the background, and completely discard all standard output and standard error so it generates no log files on the disk.
+**Hint:** Combine the execution wrapper, redirection operators targeting the Linux black hole device, stream merging, and the background operator.
+**Solution:** `nohup python3 data_cruncher.py > /dev/null 2>&1 &` (This ensures silent, untraceable background execution).
+**Problem:** You launched `./massive_query.sh` normally in your terminal, but realize it will take 5 hours and you need to leave the office and close your laptop. You cannot cancel and restart it. How do you retroactively apply `nohup`-like behavior to save the job?
+**Hint:** You must suspend the job, push it to the background, and sever its ties to the terminal session using native bash job control commands.
+**Solution:** Press `Ctrl+Z` (suspends the job), type `bg` (resumes execution in the background), and type `disown -h %1` (instructs the bash shell to remove the job from its SIGHUP broadcast list, achieving the exact same result as `nohup`).
 
 ## References
 

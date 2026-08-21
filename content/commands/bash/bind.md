@@ -159,23 +159,23 @@ When the user types characters into the interactive terminal, GNU Readline inter
 
 ## Interview Questions
 
-- _Query:_ What is the underlying library responsible for powering the keybindings and text-editing features managed by `bind` in Bash?
-  - _A:_ GNU Readline is the underlying library linked into Bash that handles interactive command-line editing, history navigation, and keymap tables, which `bind` interfaces with directly.
-- _Query:_ What is the functional purpose of the `-x` flag in `bind`, and how does it differ from standard keybindings?
-  - _A:_ Standard keybindings map a key sequence to an internal Readline editor function (like moving the cursor or deleting a word). The `-x` flag allows a key sequence to be bound directly to execute an arbitrary shell command string when pressed, running it as an asynchronous command in the terminal.
-- _Query:_ How do you ensure that customized Readline keybindings persist permanently across all future terminal sessions rather than only affecting the current window?
-  - _A:_ Persistent keybindings must be written into the user's global Readline configuration file, located at `~/.inputrc`, which the shell loads automatically upon every startup.
+**Q:** What is the underlying library responsible for powering the keybindings and text-editing features managed by `bind` in Bash?
+**A:** GNU Readline is the underlying library linked into Bash that handles interactive command-line editing, history navigation, and keymap tables, which `bind` interfaces with directly.
+**Q:** What is the functional purpose of the `-x` flag in `bind`, and how does it differ from standard keybindings?
+**A:** Standard keybindings map a key sequence to an internal Readline editor function (like moving the cursor or deleting a word). The `-x` flag allows a key sequence to be bound directly to execute an arbitrary shell command string when pressed, running it as an asynchronous command in the terminal.
+**Q:** How do you ensure that customized Readline keybindings persist permanently across all future terminal sessions rather than only affecting the current window?
+**A:** Persistent keybindings must be written into the user's global Readline configuration file, located at `~/.inputrc`, which the shell loads automatically upon every startup.
 
 ## Practice Problems
 
-- _Problem:_ Display all currently configured Readline variable names and their active values in a reusable output format.
-  - _Hint:_ Use the specific flag designed to list Readline variables.
-  - _Solution:_ `bind -v` (The `-v` flag outputs all Readline variable settings in reusable configuration format).
-- _Problem:_ Bind the `Ctrl+U` key sequence to clear the current terminal screen using a Readline function or command binding.
-  - _Hint:_ Use the `-x` flag combined with the clear command mapped to the control-U key sequence string.
-  - _Solution:_ `bind -x '"\C-u": clear'` (This binds Ctrl+U to execute the `clear` command instantly when pressed in the terminal).
+**Problem:** Display all currently configured Readline variable names and their active values in a reusable output format.
+**Hint:** Use the specific flag designed to list Readline variables.
+**Solution:** `bind -v` (The `-v` flag outputs all Readline variable settings in reusable configuration format).
+**Problem:** Bind the `Ctrl+U` key sequence to clear the current terminal screen using a Readline function or command binding.
+**Hint:** Use the `-x` flag combined with the clear command mapped to the control-U key sequence string.
+**Solution:** `bind -x '"\C-u": clear'` (This binds Ctrl+U to execute the `clear` command instantly when pressed in the terminal).
 
 ## References
 
-- - [GNU Bash Reference Manual - The Bind Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Bind-Builtin)
-- - [GNU Readline Documentation - Readline Init File Syntax](https://tiswww.case.edu/php/chet/readline/readline.html)
+- [GNU Bash Reference Manual - The Bind Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Bind-Builtin)
+- [GNU Readline Documentation - Readline Init File Syntax](https://tiswww.case.edu/php/chet/readline/readline.html)

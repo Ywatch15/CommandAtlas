@@ -117,19 +117,19 @@ When the editor closes, `visudo` parses the temporary file through its internal 
 
 ## Interview Questions
 
-- _Query:_ Why should administrators always use `visudo` instead of `nano` or `vim` to edit `/etc/sudoers`?
-  - _A:_ `visudo` locks the sudoers file against concurrent edits and performs strict YACC/Bison syntax validation before saving. If a syntax error is introduced, `visudo` prevents saving, avoiding system lockouts.
-- _Query:_ How do you specify a default text editor for `visudo`?
-  - _A:_ Set the `EDITOR` or `VISUAL` environment variable (e.g., `export EDITOR=nano; sudo -E visudo`) or configure `Defaults editor=...` in sudoers.
+**Q:** Why should administrators always use `visudo` instead of `nano` or `vim` to edit `/etc/sudoers`?
+**A:** `visudo` locks the sudoers file against concurrent edits and performs strict YACC/Bison syntax validation before saving. If a syntax error is introduced, `visudo` prevents saving, avoiding system lockouts.
+**Q:** How do you specify a default text editor for `visudo`?
+**A:** Set the `EDITOR` or `VISUAL` environment variable (e.g., `export EDITOR=nano; sudo -E visudo`) or configure `Defaults editor=...` in sudoers.
 
 ## Practice Problems
 
-- _Problem:_ Validate the syntax of `/etc/sudoers` without opening an editor.
-  - _Hint:_ Use visudo with the check flag.
-  - _Solution:_ `sudo visudo -c` (Validates syntax and reports status).
-- _Problem:_ Edit a new sudoers drop-in file named `/etc/sudoers.d/sysadmins`.
-  - _Hint:_ Use the -f flag with visudo.
-  - _Solution:_ `sudo visudo -f /etc/sudoers.d/sysadmins` (Safely edits drop-in configuration).
+**Problem:** Validate the syntax of `/etc/sudoers` without opening an editor.
+**Hint:** Use visudo with the check flag.
+**Solution:** `sudo visudo -c` (Validates syntax and reports status).
+**Problem:** Edit a new sudoers drop-in file named `/etc/sudoers.d/sysadmins`.
+**Hint:** Use the -f flag with visudo.
+**Solution:** `sudo visudo -f /etc/sudoers.d/sysadmins` (Safely edits drop-in configuration).
 
 ## References
 

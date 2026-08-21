@@ -174,21 +174,21 @@ When you execute an action in the UI, such as killing a process (`F9`), `htop` c
 
 ## Interview Questions
 
-- _Query:_ In the graphical CPU bars at the top of the `htop` interface, you notice a massive spike in the **Red** color band on all cores, while the **Green** band is nearly empty. What does this signify about the system's current bottleneck?
-  - _A:_ Green represents user-space execution (the actual application code). Red represents kernel-space execution (sys time). A massive red spike indicates the CPU is spending all its time processing kernel-level system calls or hardware interrupts. This is typically a severe bottleneck, often caused by massive disk I/O thrashing, network stack saturation, or a driver malfunctioning, rather than application logic.
-- _Query:_ Why would a Systems Administrator choose to launch `htop` using the `--readonly` flag on a shared bastion host?
-  - _A:_ The standard `htop` interface allows users to highlight processes and use the `F7/F8` keys to change execution priority (`renice`) or the `F9` key to send fatal POSIX signals (`kill`). Providing `--readonly` locks the interface into a pure observation mode. It allows unprivileged users or junior admins to visually inspect system health, but completely disables the internal system calls that alter kernel state, preventing accidental or malicious service termination.
-- _Query:_ A developer complains that their multi-threaded application is running slowly, but in `htop`, the application only appears as a single row. How do you alter the `htop` interface to diagnose the individual threads?
-  - _A:_ By default, `htop` aggregates all sub-threads into the primary parent process row to keep the interface clean. By pressing `Shift+H` (or checking the setting in `F2`), `htop` disables this aggregation and explodes the view, displaying every single user-space thread as an independent row with its own distinct CPU utilization percentage.
+**Q:** In the graphical CPU bars at the top of the `htop` interface, you notice a massive spike in the **Red** color band on all cores, while the **Green** band is nearly empty. What does this signify about the system's current bottleneck?
+**A:** Green represents user-space execution (the actual application code). Red represents kernel-space execution (sys time). A massive red spike indicates the CPU is spending all its time processing kernel-level system calls or hardware interrupts. This is typically a severe bottleneck, often caused by massive disk I/O thrashing, network stack saturation, or a driver malfunctioning, rather than application logic.
+**Q:** Why would a Systems Administrator choose to launch `htop` using the `--readonly` flag on a shared bastion host?
+**A:** The standard `htop` interface allows users to highlight processes and use the `F7/F8` keys to change execution priority (`renice`) or the `F9` key to send fatal POSIX signals (`kill`). Providing `--readonly` locks the interface into a pure observation mode. It allows unprivileged users or junior admins to visually inspect system health, but completely disables the internal system calls that alter kernel state, preventing accidental or malicious service termination.
+**Q:** A developer complains that their multi-threaded application is running slowly, but in `htop`, the application only appears as a single row. How do you alter the `htop` interface to diagnose the individual threads?
+**A:** By default, `htop` aggregates all sub-threads into the primary parent process row to keep the interface clean. By pressing `Shift+H` (or checking the setting in `F2`), `htop` disables this aggregation and explodes the view, displaying every single user-space thread as an independent row with its own distinct CPU utilization percentage.
 
 ## Practice Problems
 
-- _Problem:_ Launch `htop` specifically filtered to observe only the processes owned by the `nginx` user, and ensure the interface starts with the hierarchical Tree view already enabled.
-  - _Hint:_ Combine the user-filtering flag with the tree-view initialization flag.
-  - _Solution:_ `htop -u nginx -t` (This isolates the view to the web server daemons, linking the master and worker processes visually).
-- _Problem:_ Start the `htop` monitor with a heavily reduced polling frequency, refreshing only once every 5 seconds, and ensure the interface disables all color rendering.
-  - _Hint:_ Utilize the delay flag (remembering it relies on tenths of a second) and the monochrome flag.
-  - _Solution:_ `htop -d 50 -C` (This reduces CPU polling overhead drastically and formats the output safely for highly constrained or broken terminal emulators).
+**Problem:** Launch `htop` specifically filtered to observe only the processes owned by the `nginx` user, and ensure the interface starts with the hierarchical Tree view already enabled.
+**Hint:** Combine the user-filtering flag with the tree-view initialization flag.
+**Solution:** `htop -u nginx -t` (This isolates the view to the web server daemons, linking the master and worker processes visually).
+**Problem:** Start the `htop` monitor with a heavily reduced polling frequency, refreshing only once every 5 seconds, and ensure the interface disables all color rendering.
+**Hint:** Utilize the delay flag (remembering it relies on tenths of a second) and the monochrome flag.
+**Solution:** `htop -d 50 -C` (This reduces CPU polling overhead drastically and formats the output safely for highly constrained or broken terminal emulators).
 
 ## References
 

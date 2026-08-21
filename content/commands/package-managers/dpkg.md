@@ -148,21 +148,21 @@ If dependencies are satisfied, `dpkg` executes the `preinst` (pre-installation) 
 
 ## Interview Questions
 
-- _Query:_ A developer downloads a `.deb` file from a vendor and runs `dpkg -i vendor-app.deb`. The command fails, stating that `libssl1.1` and `libcurl4` are missing. Why didn't `dpkg` just download them automatically, and how do you resolve the error?
-  - _A:_ `dpkg` is the foundational, low-level execution engine for Debian packages. It is strictly an offline tool; it has no networking capabilities, no knowledge of remote repositories, and no dependency resolution algorithms. To resolve the error, you immediately execute `apt-get install -f` (fix-broken). The higher-level `apt` tool detects the broken state left by `dpkg`, reaches out to the internet, downloads the missing libraries, and finishes the installation.
-- _Query:_ What is the functional and architectural distinction between invoking `dpkg -r` (remove) versus `dpkg -P` (purge) on an installed package?
-  - _A:_ `dpkg -r` uninstalls the software binaries but intentionally leaves the application's configuration files (typically residing in `/etc/`) entirely intact on the filesystem, assuming you might want to preserve your settings if you reinstall later. `dpkg -P` acts aggressively; it deletes the binaries and recursively deletes every configuration file and directory associated with the package, wiping its footprint completely from the system.
-- _Query:_ How can you use `dpkg` to perform a reverse-lookup to verify if an arbitrary configuration file on the filesystem (e.g., `/etc/resolv.conf`) was installed by a tracked package, or if it was manually created by a user?
-  - _A:_ You execute `dpkg -S /etc/resolv.conf`. The utility searches its local manifest ledger located in `/var/lib/dpkg/info/`. If the file was deployed by a package, `dpkg` will output the name of the owning package (e.g., `systemd`). If it was manually created by a user or script, the command returns "no path found."
+**Q:** A developer downloads a `.deb` file from a vendor and runs `dpkg -i vendor-app.deb`. The command fails, stating that `libssl1.1` and `libcurl4` are missing. Why didn't `dpkg` just download them automatically, and how do you resolve the error?
+**A:** `dpkg` is the foundational, low-level execution engine for Debian packages. It is strictly an offline tool; it has no networking capabilities, no knowledge of remote repositories, and no dependency resolution algorithms. To resolve the error, you immediately execute `apt-get install -f` (fix-broken). The higher-level `apt` tool detects the broken state left by `dpkg`, reaches out to the internet, downloads the missing libraries, and finishes the installation.
+**Q:** What is the functional and architectural distinction between invoking `dpkg -r` (remove) versus `dpkg -P` (purge) on an installed package?
+**A:** `dpkg -r` uninstalls the software binaries but intentionally leaves the application's configuration files (typically residing in `/etc/`) entirely intact on the filesystem, assuming you might want to preserve your settings if you reinstall later. `dpkg -P` acts aggressively; it deletes the binaries and recursively deletes every configuration file and directory associated with the package, wiping its footprint completely from the system.
+**Q:** How can you use `dpkg` to perform a reverse-lookup to verify if an arbitrary configuration file on the filesystem (e.g., `/etc/resolv.conf`) was installed by a tracked package, or if it was manually created by a user?
+**A:** You execute `dpkg -S /etc/resolv.conf`. The utility searches its local manifest ledger located in `/var/lib/dpkg/info/`. If the file was deployed by a package, `dpkg` will output the name of the owning package (e.g., `systemd`). If it was manually created by a user or script, the command returns "no path found."
 
 ## Practice Problems
 
-- _Problem:_ Install an offline package named `enterprise_agent.deb` directly from the current directory, and violently force the installation to proceed even if the package architecture does not perfectly match the host OS architecture.
-  - _Hint:_ Combine the installation flag with the absolute force override flag.
-  - _Solution:_ `dpkg -i --force-all enterprise_agent.deb` (The force-all flag ignores safety constraints and architecture checks, forcing the kernel to unpack the binary regardless of risk).
-- _Problem:_ Extract an exhaustive list of every single absolute filesystem path that was written to disk when the `curl` package was installed.
-  - _Hint:_ Use the specific forward-lookup mapping flag targeted at the package's logical name.
-  - _Solution:_ `dpkg -L curl` (This reads the internal info files and prints every binary, library, and man-page directory deployed by the package).
+**Problem:** Install an offline package named `enterprise_agent.deb` directly from the current directory, and violently force the installation to proceed even if the package architecture does not perfectly match the host OS architecture.
+**Hint:** Combine the installation flag with the absolute force override flag.
+**Solution:** `dpkg -i --force-all enterprise_agent.deb` (The force-all flag ignores safety constraints and architecture checks, forcing the kernel to unpack the binary regardless of risk).
+**Problem:** Extract an exhaustive list of every single absolute filesystem path that was written to disk when the `curl` package was installed.
+**Hint:** Use the specific forward-lookup mapping flag targeted at the package's logical name.
+**Solution:** `dpkg -L curl` (This reads the internal info files and prints every binary, library, and man-page directory deployed by the package).
 
 ## References
 

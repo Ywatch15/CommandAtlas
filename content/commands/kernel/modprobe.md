@@ -159,21 +159,21 @@ Next, it queries `modules.dep.bin` to resolve the full absolute filesystem path 
 
 ## Interview Questions
 
-- _Query:_ What is the functional difference between `insmod` and `modprobe` when injecting a driver into the Linux kernel?
-  - _A:_ `insmod` is a low-level tool that takes an exact filesystem path to a `.ko` file and forcefully injects it into the kernel without resolving or loading any dependencies. `modprobe` is an intelligent wrapper; it takes a logical module name, consults the `modules.dep` index, and automatically loads all prerequisite modules sequentially before loading the target module.
-- _Query:_ A systems administrator wants to completely ban a vulnerable kernel module (e.g., `usb-storage`) from ever loading into the system. How does `modprobe` facilitate this?
-  - _A:_ The administrator creates a `.conf` file in `/etc/modprobe.d/` containing the directive `blacklist usb-storage`. When `modprobe` attempts to load a module (either manually or via hardware auto-discovery), it parses these configuration files first and strictly aborts the operation if the module is listed on a blacklist.
-- _Query:_ You compile a custom kernel module and place it in the correct `/lib/modules/$(uname -r)/` directory, but running `modprobe custom_mod` returns a "not found" error. What did you forget to do?
-  - _A:_ You forgot to update the kernel's module index map. `modprobe` relies entirely on binary map files (like `modules.dep.bin`). You must execute `depmod -a` to scan the directory and rebuild those index files so `modprobe` knows the module exists.
+**Q:** What is the functional difference between `insmod` and `modprobe` when injecting a driver into the Linux kernel?
+**A:** `insmod` is a low-level tool that takes an exact filesystem path to a `.ko` file and forcefully injects it into the kernel without resolving or loading any dependencies. `modprobe` is an intelligent wrapper; it takes a logical module name, consults the `modules.dep` index, and automatically loads all prerequisite modules sequentially before loading the target module.
+**Q:** A systems administrator wants to completely ban a vulnerable kernel module (e.g., `usb-storage`) from ever loading into the system. How does `modprobe` facilitate this?
+**A:** The administrator creates a `.conf` file in `/etc/modprobe.d/` containing the directive `blacklist usb-storage`. When `modprobe` attempts to load a module (either manually or via hardware auto-discovery), it parses these configuration files first and strictly aborts the operation if the module is listed on a blacklist.
+**Q:** You compile a custom kernel module and place it in the correct `/lib/modules/$(uname -r)/` directory, but running `modprobe custom_mod` returns a "not found" error. What did you forget to do?
+**A:** You forgot to update the kernel's module index map. `modprobe` relies entirely on binary map files (like `modules.dep.bin`). You must execute `depmod -a` to scan the directory and rebuild those index files so `modprobe` knows the module exists.
 
 ## Practice Problems
 
-- _Problem:_ Safely remove the active `floppy` kernel module from the running system, ensuring that any unused dependencies strictly associated with it are also cleanly removed.
-  - _Hint:_ Use the removal flag provided by the intelligent module manager.
-  - _Solution:_ `modprobe -r floppy` (The `-r` flag safely unloads the target and gracefully unloads trailing dependencies if their reference counts drop to zero).
-- _Problem:_ Perform a dry-run test to see the exact sequence of kernel modules that would be loaded if you requested the `nfs` module, without actually altering the active kernel state.
-  - _Hint:_ Combine the dry-run simulation flag with the verbose output flag.
-  - _Solution:_ `modprobe -n -v nfs` (This parses the dependency tree and simulates the loading sequence securely).
+**Problem:** Safely remove the active `floppy` kernel module from the running system, ensuring that any unused dependencies strictly associated with it are also cleanly removed.
+**Hint:** Use the removal flag provided by the intelligent module manager.
+**Solution:** `modprobe -r floppy` (The `-r` flag safely unloads the target and gracefully unloads trailing dependencies if their reference counts drop to zero).
+**Problem:** Perform a dry-run test to see the exact sequence of kernel modules that would be loaded if you requested the `nfs` module, without actually altering the active kernel state.
+**Hint:** Combine the dry-run simulation flag with the verbose output flag.
+**Solution:** `modprobe -n -v nfs` (This parses the dependency tree and simulates the loading sequence securely).
 
 ## References
 

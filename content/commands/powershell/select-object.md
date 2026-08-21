@@ -157,21 +157,21 @@ The `-First <n>` parameter implements a critical performance optimization called
 
 ## Interview Questions
 
-- _Query:_ A developer pipes `Get-ADUser` output to a script that expects a raw array of usernames (strings). They use `Select-Object -Property SamAccountName`, but the script crashes complaining about object conversion errors. What is the fundamental difference between `-Property` and `-ExpandProperty`?
-  - _A:_ `-Property` creates a new, complex `PSCustomObject` that possesses the specified property as a column. The output is still an object wrapping the data. `-ExpandProperty` is destructive; it rips the requested value out of the object wrapper entirely and returns the raw underlying .NET primitive type (in this case, an array of pure Strings), perfectly formatted for scripts expecting raw strings.
-- _Query:_ What is the specific performance advantage of executing `Get-EventLog -LogName System | Select-Object -First 10` instead of retrieving the logs and truncating them using an array index like `$logs[0..9]`?
-  - _A:_ `Select-Object -First 10` implements a pipeline-terminating optimization. Once it receives the 10th item, it sends a halt signal up the pipeline. `Get-EventLog` immediately stops querying the Windows event database, saving massive disk I/O and RAM. An array index approach forces the system to query, retrieve, and load tens of thousands of event logs into memory before isolating the top 10.
-- _Query:_ You want to generate a report, but the `Size` property returned by a command is in raw Bytes. How can you use `Select-Object` to convert this property into Megabytes and rename the column to "Size(MB)" in a single line?
-  - _A:_ You construct a Calculated Property hashtable within the Select-Object command. The syntax is: `Select-Object Name, @{Name='Size(MB)'; Expression={[math]::Round($_.Size / 1MB, 2)}}`. This isolates the exact columns you need while transforming and renaming the payload dynamically.
+**Q:** A developer pipes `Get-ADUser` output to a script that expects a raw array of usernames (strings). They use `Select-Object -Property SamAccountName`, but the script crashes complaining about object conversion errors. What is the fundamental difference between `-Property` and `-ExpandProperty`?
+**A:** `-Property` creates a new, complex `PSCustomObject` that possesses the specified property as a column. The output is still an object wrapping the data. `-ExpandProperty` is destructive; it rips the requested value out of the object wrapper entirely and returns the raw underlying .NET primitive type (in this case, an array of pure Strings), perfectly formatted for scripts expecting raw strings.
+**Q:** What is the specific performance advantage of executing `Get-EventLog -LogName System | Select-Object -First 10` instead of retrieving the logs and truncating them using an array index like `$logs[0..9]`?
+**A:** `Select-Object -First 10` implements a pipeline-terminating optimization. Once it receives the 10th item, it sends a halt signal up the pipeline. `Get-EventLog` immediately stops querying the Windows event database, saving massive disk I/O and RAM. An array index approach forces the system to query, retrieve, and load tens of thousands of event logs into memory before isolating the top 10.
+**Q:** You want to generate a report, but the `Size` property returned by a command is in raw Bytes. How can you use `Select-Object` to convert this property into Megabytes and rename the column to "Size(MB)" in a single line?
+**A:** You construct a Calculated Property hashtable within the Select-Object command. The syntax is: `Select-Object Name, @{Name='Size(MB)'; Expression={[math]::Round($_.Size / 1MB, 2)}}`. This isolates the exact columns you need while transforming and renaming the payload dynamically.
 
 ## Practice Problems
 
-- _Problem:_ Query all running processes on the system, but restrict the output exclusively to an array of raw integer Process IDs (PIDs) by stripping away all object wrappers.
-  - _Hint:_ Target the specific property and use the flag that unwraps the object into its raw primitive type.
-  - _Solution:_ `Get-Process | Select-Object -ExpandProperty Id` (This rips the ID integer out of the Process object wrapper).
-- _Problem:_ Retrieve the entire contents of a file named `servers.txt`, skip the first two lines (which contain irrelevant headers), and extract only the first 5 unique server names that appear after the skip.
-  - _Hint:_ Pipe the file contents, use the skip flag, then pipe again combining the isolation flags for distinct counts and limits.
-  - _Solution:_ `Get-Content servers.txt | Select-Object -Skip 2 | Select-Object -Unique -First 5` (The pipeline handles structural filtering, deduplication, and pipeline termination seamlessly).
+**Problem:** Query all running processes on the system, but restrict the output exclusively to an array of raw integer Process IDs (PIDs) by stripping away all object wrappers.
+**Hint:** Target the specific property and use the flag that unwraps the object into its raw primitive type.
+**Solution:** `Get-Process | Select-Object -ExpandProperty Id` (This rips the ID integer out of the Process object wrapper).
+**Problem:** Retrieve the entire contents of a file named `servers.txt`, skip the first two lines (which contain irrelevant headers), and extract only the first 5 unique server names that appear after the skip.
+**Hint:** Pipe the file contents, use the skip flag, then pipe again combining the isolation flags for distinct counts and limits.
+**Solution:** `Get-Content servers.txt | Select-Object -Skip 2 | Select-Object -Unique -First 5` (The pipeline handles structural filtering, deduplication, and pipeline termination seamlessly).
 
 ## References
 

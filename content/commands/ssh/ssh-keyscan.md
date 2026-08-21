@@ -135,21 +135,21 @@ The remote `sshd` daemon responds with the `SSH_MSG_KEXINIT` payload containing 
 
 ## Interview Questions
 
-- _Query:_ A CI/CD deployment pipeline utilizes `rsync` over SSH to copy code to a staging server. The pipeline suddenly hangs indefinitely on the `rsync` step without throwing an error. What is the standard SSH security mechanism causing this hang, and how does `ssh-keyscan` resolve it?
-  - _A:_ The `rsync` command relies on the underlying `ssh` client. When the SSH client encounters a server IP it has never seen before, it invokes "Trust On First Use" (TOFU) and interactively prompts the terminal with "Are you sure you want to continue connecting?". Because the CI/CD pipeline is non-interactive, there is no human to type "yes", so the process hangs forever waiting for input. Placing `ssh-keyscan target-server >> ~/.ssh/known_hosts` before the `rsync` step fetches the key and satisfies the security check, allowing the pipeline to proceed silently.
-- _Query:_ Why is it considered a severe security risk to blindly run `ssh-keyscan server_ip >> ~/.ssh/known_hosts` on a public or untrusted network (like a coffee shop Wi-Fi)?
-  - _A:_ `ssh-keyscan` accepts whatever public key is handed to it over the network. If an attacker is performing an ARP spoofing or DNS hijacking Man-in-the-Middle (MitM) attack on the untrusted Wi-Fi, they will intercept the `ssh-keyscan` request and provide their own malicious public key. The developer has now permanently baked the attacker's key into their trusted `known_hosts` file, allowing the attacker to silently intercept and decrypt all future SSH connections to that server.
-- _Query:_ What is the functional security purpose of injecting the `-H` flag into an `ssh-keyscan` command?
-  - _A:_ The `-H` flag hashes the hostname and IP address entries before writing them to the terminal. If written in plaintext, the `known_hosts` file acts as a golden map for an attacker who breaches the workstation, revealing the exact internal network topology and highly valuable server IPs. Hashing the entries prevents this reconnaissance while still allowing the SSH client to verify connections securely.
+**Q:** A CI/CD deployment pipeline utilizes `rsync` over SSH to copy code to a staging server. The pipeline suddenly hangs indefinitely on the `rsync` step without throwing an error. What is the standard SSH security mechanism causing this hang, and how does `ssh-keyscan` resolve it?
+**A:** The `rsync` command relies on the underlying `ssh` client. When the SSH client encounters a server IP it has never seen before, it invokes "Trust On First Use" (TOFU) and interactively prompts the terminal with "Are you sure you want to continue connecting?". Because the CI/CD pipeline is non-interactive, there is no human to type "yes", so the process hangs forever waiting for input. Placing `ssh-keyscan target-server >> ~/.ssh/known_hosts` before the `rsync` step fetches the key and satisfies the security check, allowing the pipeline to proceed silently.
+**Q:** Why is it considered a severe security risk to blindly run `ssh-keyscan server_ip >> ~/.ssh/known_hosts` on a public or untrusted network (like a coffee shop Wi-Fi)?
+**A:** `ssh-keyscan` accepts whatever public key is handed to it over the network. If an attacker is performing an ARP spoofing or DNS hijacking Man-in-the-Middle (MitM) attack on the untrusted Wi-Fi, they will intercept the `ssh-keyscan` request and provide their own malicious public key. The developer has now permanently baked the attacker's key into their trusted `known_hosts` file, allowing the attacker to silently intercept and decrypt all future SSH connections to that server.
+**Q:** What is the functional security purpose of injecting the `-H` flag into an `ssh-keyscan` command?
+**A:** The `-H` flag hashes the hostname and IP address entries before writing them to the terminal. If written in plaintext, the `known_hosts` file acts as a golden map for an attacker who breaches the workstation, revealing the exact internal network topology and highly valuable server IPs. Hashing the entries prevents this reconnaissance while still allowing the SSH client to verify connections securely.
 
 ## Practice Problems
 
-- _Problem:_ Your automation script needs to trust a new server at `192.168.50.25`. Fetch the host key for this server, but explicitly restrict the request to the modern `ed25519` cryptographic algorithm, and securely append the hashed result directly to your local trust store.
-  - _Hint:_ Combine the hash flag, the specific algorithm type flag, the target IP, and the bash append redirection operator targeting the specific file.
-  - _Solution:_ `ssh-keyscan -H -t ed25519 192.168.50.25 >> ~/.ssh/known_hosts` (This performs a highly secure, modern trust population).
-- _Problem:_ You have a text file named `server_list.txt` containing 50 hostnames. Write a command to scan all 50 hosts efficiently for their host keys, suppressing standard connection diagnostic noise, and redirecting the gathered keys into a file named `fleet_keys.txt`.
-  - _Hint:_ Utilize the specific flag for file-based input processing, and redirect standard output to the target file.
-  - _Solution:_ `ssh-keyscan -f server_list.txt > fleet_keys.txt` (This utilizes asynchronous I/O to rip through the entire inventory list in seconds).
+**Problem:** Your automation script needs to trust a new server at `192.168.50.25`. Fetch the host key for this server, but explicitly restrict the request to the modern `ed25519` cryptographic algorithm, and securely append the hashed result directly to your local trust store.
+**Hint:** Combine the hash flag, the specific algorithm type flag, the target IP, and the bash append redirection operator targeting the specific file.
+**Solution:** `ssh-keyscan -H -t ed25519 192.168.50.25 >> ~/.ssh/known_hosts` (This performs a highly secure, modern trust population).
+**Problem:** You have a text file named `server_list.txt` containing 50 hostnames. Write a command to scan all 50 hosts efficiently for their host keys, suppressing standard connection diagnostic noise, and redirecting the gathered keys into a file named `fleet_keys.txt`.
+**Hint:** Utilize the specific flag for file-based input processing, and redirect standard output to the target file.
+**Solution:** `ssh-keyscan -f server_list.txt > fleet_keys.txt` (This utilizes asynchronous I/O to rip through the entire inventory list in seconds).
 
 ## References
 

@@ -118,19 +118,19 @@ When a binary with SetGID executes, the kernel sets the effective group ID (`EGI
 
 ## Interview Questions
 
-- _Query:_ What is the functional difference between SetGID on a file versus a directory?
-  - _A:_ On an executable file, SetGID runs the process with the group privileges of the file's group owner. On a directory, SetGID causes all new files and subdirectories created inside it to automatically inherit the group ownership of the directory.
-- _Query:_ What does a capital `S` in the group execute position of `ls -l` indicate?
-  - _A:_ A capital `S` indicates that the SetGID bit is set, but the underlying group execute bit (`x`) is NOT set, rendering the execution bit invalid or ineffective.
+**Q:** What is the functional difference between SetGID on a file versus a directory?
+**A:** On an executable file, SetGID runs the process with the group privileges of the file's group owner. On a directory, SetGID causes all new files and subdirectories created inside it to automatically inherit the group ownership of the directory.
+**Q:** What does a capital `S` in the group execute position of `ls -l` indicate?
+**A:** A capital `S` indicates that the SetGID bit is set, but the underlying group execute bit (`x`) is NOT set, rendering the execution bit invalid or ineffective.
 
 ## Practice Problems
 
-- _Problem:_ Enable SetGID on `/data/docs` so all new files inherit the group owner `docs_group`.
-  - _Hint:_ Use chmod with group symbolic mode.
-  - _Solution:_ `chmod g+s /data/docs` (Sets group inheritance bit).
-- _Problem:_ Set octal mode `2770` on `/var/shared`.
-  - _Hint:_ Pass 2770 as the mode to chmod.
-  - _Solution:_ `chmod 2770 /var/shared` (Applies SetGID with owner/group full access).
+**Problem:** Enable SetGID on `/data/docs` so all new files inherit the group owner `docs_group`.
+**Hint:** Use chmod with group symbolic mode.
+**Solution:** `chmod g+s /data/docs` (Sets group inheritance bit).
+**Problem:** Set octal mode `2770` on `/var/shared`.
+**Hint:** Pass 2770 as the mode to chmod.
+**Solution:** `chmod 2770 /var/shared` (Applies SetGID with owner/group full access).
 
 ## References
 

@@ -145,21 +145,21 @@ When the originating `ping` utility intercepts the reply, it reads the current s
 
 ## Interview Questions
 
-- _Query:_ In a shell script, you run `ping 10.0.0.5`, but the script never progresses to the next line. What is the structural difference between Linux and Windows ping that causes this, and how do you fix it?
-  - _A:_ The Windows `ping.exe` defaults to sending exactly 4 packets and then terminating. The Linux `ping` command operates in infinite continuous mode by default and requires a `SIGINT` (Ctrl+C) to terminate. To fix the script, you must append the count flag (`-c 4`) so it exits cleanly after a specified number of packets.
-- _Query:_ You try to `ping google.com` and receive the error `ping: google.com: Name or service not known`. However, when you `ping 8.8.8.8`, it succeeds with 10ms latency. What exactly is broken on your system?
-  - _A:_ Your network interface possesses correct IP addressing and a functioning default gateway routing out to the internet (proven by reaching 8.8.8.8). However, your Domain Name System (DNS) resolution is entirely broken. The operating system cannot translate the human-readable string `google.com` into an IP address, likely due to a misconfigured `/etc/resolv.conf`.
-- _Query:_ What does it mean when a `ping` command returns `Destination Host Unreachable` versus `Request timeout`?
-  - _A:_ `Request timeout` means your packet successfully left your machine and was routed onto the internet, but the target machine (or a firewall) never sent an ICMP reply within the time limit. `Destination Host Unreachable` means the packet couldn't even be routed. Your local machine (or your immediate default gateway router) sent out an ARP broadcast seeking the MAC address for the target IP on the local subnet, received no response, and the kernel destroyed the packet before it even traversed the wire.
+**Q:** In a shell script, you run `ping 10.0.0.5`, but the script never progresses to the next line. What is the structural difference between Linux and Windows ping that causes this, and how do you fix it?
+**A:** The Windows `ping.exe` defaults to sending exactly 4 packets and then terminating. The Linux `ping` command operates in infinite continuous mode by default and requires a `SIGINT` (Ctrl+C) to terminate. To fix the script, you must append the count flag (`-c 4`) so it exits cleanly after a specified number of packets.
+**Q:** You try to `ping google.com` and receive the error `ping: google.com: Name or service not known`. However, when you `ping 8.8.8.8`, it succeeds with 10ms latency. What exactly is broken on your system?
+**A:** Your network interface possesses correct IP addressing and a functioning default gateway routing out to the internet (proven by reaching 8.8.8.8). However, your Domain Name System (DNS) resolution is entirely broken. The operating system cannot translate the human-readable string `google.com` into an IP address, likely due to a misconfigured `/etc/resolv.conf`.
+**Q:** What does it mean when a `ping` command returns `Destination Host Unreachable` versus `Request timeout`?
+**A:** `Request timeout` means your packet successfully left your machine and was routed onto the internet, but the target machine (or a firewall) never sent an ICMP reply within the time limit. `Destination Host Unreachable` means the packet couldn't even be routed. Your local machine (or your immediate default gateway router) sent out an ARP broadcast seeking the MAC address for the target IP on the local subnet, received no response, and the kernel destroyed the packet before it even traversed the wire.
 
 ## Practice Problems
 
-- _Problem:_ Execute a network test to `cloudflare.com` that sends exactly 5 packets, but mandate that the entire command terminates unconditionally after a maximum of 3 seconds regardless of how many packets were sent.
-  - _Hint:_ Combine the count flag with the absolute execution deadline flag.
-  - _Solution:_ `ping -c 5 -w 3 cloudflare.com` (This provides a robust, non-blocking check ideal for automated orchestration tools).
-- _Problem:_ Test the network path to `10.50.0.5` by sending packets with a massive payload size of `8192` bytes to verify that intermediate routers are properly fragmenting and reassembling oversized packets.
-  - _Hint:_ Use the payload size flag.
-  - _Solution:_ `ping -s 8192 10.50.0.5` (The kernel will fragment this payload across multiple Ethernet frames, stress-testing router assembly logic).
+**Problem:** Execute a network test to `cloudflare.com` that sends exactly 5 packets, but mandate that the entire command terminates unconditionally after a maximum of 3 seconds regardless of how many packets were sent.
+**Hint:** Combine the count flag with the absolute execution deadline flag.
+**Solution:** `ping -c 5 -w 3 cloudflare.com` (This provides a robust, non-blocking check ideal for automated orchestration tools).
+**Problem:** Test the network path to `10.50.0.5` by sending packets with a massive payload size of `8192` bytes to verify that intermediate routers are properly fragmenting and reassembling oversized packets.
+**Hint:** Use the payload size flag.
+**Solution:** `ping -s 8192 10.50.0.5` (The kernel will fragment this payload across multiple Ethernet frames, stress-testing router assembly logic).
 
 ## References
 

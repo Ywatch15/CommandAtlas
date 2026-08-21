@@ -166,21 +166,21 @@ If the `-p` (program) flag is provided, `netstat` faces a heavy task: the `/proc
 
 ## Interview Questions
 
-- _Query:_ A junior developer complains that running `netstat -a` on a production web server causes their terminal to hang completely for several minutes. What is the technical cause, and how do you fix the command?
-  - _A:_ The `netstat` command attempts to resolve every remote IP address back to a human-readable hostname using reverse-DNS queries. On a production server with thousands of active connections, this triggers thousands of synchronous, blocking network requests. You fix this by appending the `-n` (numeric) flag, which forces `netstat` to bypass DNS resolution and display the raw IP addresses instantly.
-- _Query:_ What is the architectural reason `netstat` is being deprecated across all major Linux distributions in favor of the `ss` (Socket Statistics) command?
-  - _A:_ `netstat` was built on an antiquated architecture where it must open, read, and parse massive, dynamically generated plaintext files in the `/proc/net/` directory. This is extremely CPU-intensive and slow on heavy servers. `ss` communicates directly with the kernel networking stack using binary Netlink sockets, retrieving socket telemetry virtually instantly without the overhead of text parsing.
-- _Query:_ When running `netstat -p`, why are the program names and PIDs populated for some connections but left as blank hyphens (`-`) for others?
-  - _A:_ The `-p` flag requires mapping socket inodes to process file descriptors inside `/proc/<pid>/fd/`. The Linux kernel enforces strict access controls; a standard user can only read the `/proc` directories of processes they own. The hyphens represent processes owned by `root` or other users, which are masked for security unless you execute the command with `sudo`.
+**Q:** A junior developer complains that running `netstat -a` on a production web server causes their terminal to hang completely for several minutes. What is the technical cause, and how do you fix the command?
+**A:** The `netstat` command attempts to resolve every remote IP address back to a human-readable hostname using reverse-DNS queries. On a production server with thousands of active connections, this triggers thousands of synchronous, blocking network requests. You fix this by appending the `-n` (numeric) flag, which forces `netstat` to bypass DNS resolution and display the raw IP addresses instantly.
+**Q:** What is the architectural reason `netstat` is being deprecated across all major Linux distributions in favor of the `ss` (Socket Statistics) command?
+**A:** `netstat` was built on an antiquated architecture where it must open, read, and parse massive, dynamically generated plaintext files in the `/proc/net/` directory. This is extremely CPU-intensive and slow on heavy servers. `ss` communicates directly with the kernel networking stack using binary Netlink sockets, retrieving socket telemetry virtually instantly without the overhead of text parsing.
+**Q:** When running `netstat -p`, why are the program names and PIDs populated for some connections but left as blank hyphens (`-`) for others?
+**A:** The `-p` flag requires mapping socket inodes to process file descriptors inside `/proc/<pid>/fd/`. The Linux kernel enforces strict access controls; a standard user can only read the `/proc` directories of processes they own. The hyphens represent processes owned by `root` or other users, which are masked for security unless you execute the command with `sudo`.
 
 ## Practice Problems
 
-- _Problem:_ Display all actively listening TCP and UDP ports on the system, showing raw numerical addresses and the PIDs of the programs owning them.
-  - _Hint:_ Combine the flags for TCP, UDP, Listening, Programs, and Numeric output.
-  - _Solution:_ `netstat -tulpn` (This generates the definitive audit table of listening services).
-- _Problem:_ Display the kernel's IP routing table numerically to verify the default gateway configuration.
-  - _Hint:_ Use the routing flag combined with the numeric override.
-  - _Solution:_ `netstat -rn` (This dumps the routing matrix instantly without hanging on gateway DNS resolutions).
+**Problem:** Display all actively listening TCP and UDP ports on the system, showing raw numerical addresses and the PIDs of the programs owning them.
+**Hint:** Combine the flags for TCP, UDP, Listening, Programs, and Numeric output.
+**Solution:** `netstat -tulpn` (This generates the definitive audit table of listening services).
+**Problem:** Display the kernel's IP routing table numerically to verify the default gateway configuration.
+**Hint:** Use the routing flag combined with the numeric override.
+**Solution:** `netstat -rn` (This dumps the routing matrix instantly without hanging on gateway DNS resolutions).
 
 ## References
 

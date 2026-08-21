@@ -125,19 +125,19 @@ For files, base mode is `0666`. For directories, base mode is `0777`. If umask i
 
 ## Interview Questions
 
-- _Query:_ If umask is set to `0022`, what are the default permissions for a newly created file and a newly created directory?
-  - _A:_ A new file receives `644` (`rw-r--r--`) because file base `666` minus `022` equals `644`. A new directory receives `755` (`rwxr-xr-x`) because directory base `777` minus `022` equals `755`.
-- _Query:_ How does the kernel calculate resulting permissions using umask mathematically?
-  - _A:_ The kernel performs a bitwise AND between the requested mode and the bitwise NOT of the umask: `mode & (~umask)`.
+**Q:** If umask is set to `0022`, what are the default permissions for a newly created file and a newly created directory?
+**A:** A new file receives `644` (`rw-r--r--`) because file base `666` minus `022` equals `644`. A new directory receives `755` (`rwxr-xr-x`) because directory base `777` minus `022` equals `755`.
+**Q:** How does the kernel calculate resulting permissions using umask mathematically?
+**A:** The kernel performs a bitwise AND between the requested mode and the bitwise NOT of the umask: `mode & (~umask)`.
 
 ## Practice Problems
 
-- _Problem:_ Display the current umask in symbolic notation.
-  - _Hint:_ Use umask with the -S flag.
-  - _Solution:_ `umask -S` (Outputs symbolic mode).
-- _Problem:_ Set umask so new files are read/write for owner only.
-  - _Hint:_ Use octal mask 0077.
-  - _Solution:_ `umask 0077` (Strips all group and others permissions).
+**Problem:** Display the current umask in symbolic notation.
+**Hint:** Use umask with the -S flag.
+**Solution:** `umask -S` (Outputs symbolic mode).
+**Problem:** Set umask so new files are read/write for owner only.
+**Hint:** Use octal mask 0077.
+**Solution:** `umask 0077` (Strips all group and others permissions).
 
 ## References
 

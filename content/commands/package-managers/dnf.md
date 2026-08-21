@@ -148,21 +148,21 @@ Once resolved, DNF downloads the required `.rpm` files into the cache. To save b
 
 ## Interview Questions
 
-- _Query:_ What specific algorithmic library powers `dnf`, making its dependency resolution mathematically superior and orders of magnitude faster than its predecessor `yum`?
-  - _A:_ `dnf` integrates the **`libsolv`** library, originally developed by the openSUSE project. `libsolv` translates package dependencies into a strict Boolean Satisfiability (SAT) problem, resolving massive dependency graphs using highly optimized C-code rather than the slow, heuristic Python loops used by legacy `yum`.
-- _Query:_ How does `dnf` significantly reduce network bandwidth consumption when performing minor upgrades to massive software packages (like the Linux Kernel or glibc)?
-  - _A:_ `dnf` natively supports **Delta RPMs (`drpm`)**. Instead of downloading a brand-new 100MB package archive, it downloads a much smaller payload containing only the binary differences between the locally installed version and the new version. It then applies this delta patch to the local file to recreate the full new RPM before installation.
-- _Query:_ A junior admin executes `rpm -e nginx` to delete a web server instead of using `dnf remove nginx`. What specific DNF feature does this bypass and corrupt?
-  - _A:_ It breaks the DNF transaction history ledger. `dnf history` relies on an internal SQLite database to track what was installed, removed, and upgraded, allowing for complete system rollbacks (e.g., `dnf history undo`). Using the low-level `rpm` binary circumvents this ledger, meaning DNF loses track of the true system state and cannot safely roll back prior transactions involving that software.
+**Q:** What specific algorithmic library powers `dnf`, making its dependency resolution mathematically superior and orders of magnitude faster than its predecessor `yum`?
+**A:** `dnf` integrates the **`libsolv`** library, originally developed by the openSUSE project. `libsolv` translates package dependencies into a strict Boolean Satisfiability (SAT) problem, resolving massive dependency graphs using highly optimized C-code rather than the slow, heuristic Python loops used by legacy `yum`.
+**Q:** How does `dnf` significantly reduce network bandwidth consumption when performing minor upgrades to massive software packages (like the Linux Kernel or glibc)?
+**A:** `dnf` natively supports **Delta RPMs (`drpm`)**. Instead of downloading a brand-new 100MB package archive, it downloads a much smaller payload containing only the binary differences between the locally installed version and the new version. It then applies this delta patch to the local file to recreate the full new RPM before installation.
+**Q:** A junior admin executes `rpm -e nginx` to delete a web server instead of using `dnf remove nginx`. What specific DNF feature does this bypass and corrupt?
+**A:** It breaks the DNF transaction history ledger. `dnf history` relies on an internal SQLite database to track what was installed, removed, and upgraded, allowing for complete system rollbacks (e.g., `dnf history undo`). Using the low-level `rpm` binary circumvents this ledger, meaning DNF loses track of the true system state and cannot safely roll back prior transactions involving that software.
 
 ## Practice Problems
 
-- _Problem:_ Upgrade all packages on the system safely without human intervention, but strictly filter the upgrade to apply ONLY packages that patch known security vulnerabilities (CVEs).
-  - _Hint:_ Combine the auto-confirm flag with the specific upgrade command and the security filtering flag.
-  - _Solution:_ `dnf upgrade --security -y` (This ensures the system is patched against threats without risking instability from new feature introductions).
-- _Problem:_ Revert the system state perfectly back to before the most recent transaction was applied, effectively undoing the last installation or upgrade.
-  - _Hint:_ Use the history tracking feature to target the last operation.
-  - _Solution:_ `dnf history undo last` (This queries the SQLite transaction ledger and calculates the inverse dependency operations required to rollback the most recent event).
+**Problem:** Upgrade all packages on the system safely without human intervention, but strictly filter the upgrade to apply ONLY packages that patch known security vulnerabilities (CVEs).
+**Hint:** Combine the auto-confirm flag with the specific upgrade command and the security filtering flag.
+**Solution:** `dnf upgrade --security -y` (This ensures the system is patched against threats without risking instability from new feature introductions).
+**Problem:** Revert the system state perfectly back to before the most recent transaction was applied, effectively undoing the last installation or upgrade.
+**Hint:** Use the history tracking feature to target the last operation.
+**Solution:** `dnf history undo last` (This queries the SQLite transaction ledger and calculates the inverse dependency operations required to rollback the most recent event).
 
 ## References
 

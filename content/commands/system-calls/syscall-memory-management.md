@@ -149,25 +149,25 @@ When the application eventually attempts to write a byte to that virtual address
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental architectural difference between allocating memory using `mmap()` with the `MAP_SHARED` flag versus the `MAP_PRIVATE` flag when mapping a file?
-  - _A:_ When using `MAP_SHARED`, any modifications made to the memory array by the application are physically synchronized back to the underlying file on the hard drive, and other processes mapping that same file see the changes instantly. When using `MAP_PRIVATE`, the kernel implements a Copy-on-Write boundary. Any modifications made to the memory array are kept strictly isolated in RAM, remain invisible to other processes, and are never written back to the disk file.
-- _Query:_ An application successfully executes `mmap()` to request 10GB of anonymous memory on a server that only possesses 2GB of physical RAM. Why does the `mmap()` call return successfully instead of failing with an Out-of-Memory error?
-  - _A:_ Linux utilizes a Virtual Memory architecture driven by "Demand Paging." When `mmap()` executes, the kernel simply reserves the _virtual_ address space inside its internal tracking tree (VMA). It allocates exactly zero physical RAM at that moment. The physical RAM is only allocated page-by-page when the application later attempts to read or write to those specific memory addresses, triggering CPU Page Faults.
-- _Query:_ In modern glibc implementations, the `malloc()` function occasionally abandons the `brk()` system call entirely and fulfills developer requests using `mmap(MAP_ANONYMOUS)` instead. Under what specific threshold or condition does this architectural shift occur?
-  - _A:_ `malloc()` utilizes `brk()` for small, frequent memory allocations because advancing the heap pointer prevents fragmentation and groups tiny allocations together. However, when a developer requests a massive contiguous allocation (typically exceeding 128KB, defined by `MMAP_THRESHOLD`), `malloc()` dynamically switches to using `mmap()`. This allows the allocator to explicitly return massive chunks directly to the OS via `munmap()` the moment they are freed, preventing the heap from becoming permanently bloated.
+**Q:** What is the fundamental architectural difference between allocating memory using `mmap()` with the `MAP_SHARED` flag versus the `MAP_PRIVATE` flag when mapping a file?
+**A:** When using `MAP_SHARED`, any modifications made to the memory array by the application are physically synchronized back to the underlying file on the hard drive, and other processes mapping that same file see the changes instantly. When using `MAP_PRIVATE`, the kernel implements a Copy-on-Write boundary. Any modifications made to the memory array are kept strictly isolated in RAM, remain invisible to other processes, and are never written back to the disk file.
+**Q:** An application successfully executes `mmap()` to request 10GB of anonymous memory on a server that only possesses 2GB of physical RAM. Why does the `mmap()` call return successfully instead of failing with an Out-of-Memory error?
+**A:** Linux utilizes a Virtual Memory architecture driven by "Demand Paging." When `mmap()` executes, the kernel simply reserves the _virtual_ address space inside its internal tracking tree (VMA). It allocates exactly zero physical RAM at that moment. The physical RAM is only allocated page-by-page when the application later attempts to read or write to those specific memory addresses, triggering CPU Page Faults.
+**Q:** In modern glibc implementations, the `malloc()` function occasionally abandons the `brk()` system call entirely and fulfills developer requests using `mmap(MAP_ANONYMOUS)` instead. Under what specific threshold or condition does this architectural shift occur?
+**A:** `malloc()` utilizes `brk()` for small, frequent memory allocations because advancing the heap pointer prevents fragmentation and groups tiny allocations together. However, when a developer requests a massive contiguous allocation (typically exceeding 128KB, defined by `MMAP_THRESHOLD`), `malloc()` dynamically switches to using `mmap()`. This allows the allocator to explicitly return massive chunks directly to the OS via `munmap()` the moment they are freed, preventing the heap from becoming permanently bloated.
 
 ## Practice Problems
 
-- _Problem:_ Write a C block that securely allocates a 4096-byte page of anonymous memory, guaranteeing that the memory is strictly readable and writable, but enforcing a security boundary that mathematically prevents the execution of malicious shellcode within the buffer.
-  - _Hint:_ Combine the anonymous and private flags, and explicitly restrict the protection bitmasks.
-  - _Solution:_
-    ```c
+**Problem:** Write a C block that securely allocates a 4096-byte page of anonymous memory, guaranteeing that the memory is strictly readable and writable, but enforcing a security boundary that mathematically prevents the execution of malicious shellcode within the buffer.
+**Hint:** Combine the anonymous and private flags, and explicitly restrict the protection bitmasks.
+**Solution:**
+`c
     void *buffer = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
     if (buffer == MAP_FAILED) { return -1; }
-    ```
-- _Problem:_ Assume a pointer `shared_db` points to a 10MB memory mapping of a physical database file configured with `MAP_SHARED`. Write the explicit system call required to forcefully block the CPU and guarantee that all modified bytes in the RAM mapping are successfully synchronized to the SSD hardware before continuing.
-  - _Hint:_ Utilize the specific memory synchronization boundary function and the absolute synchronization flag.
-  - _Solution:_ `msync(shared_db, 10 * 1024 * 1024, MS_SYNC);` (This ensures strict ACID compliance by halting execution until the storage controller acknowledges the write).
+    `
+**Problem:** Assume a pointer `shared_db` points to a 10MB memory mapping of a physical database file configured with `MAP_SHARED`. Write the explicit system call required to forcefully block the CPU and guarantee that all modified bytes in the RAM mapping are successfully synchronized to the SSD hardware before continuing.
+**Hint:** Utilize the specific memory synchronization boundary function and the absolute synchronization flag.
+**Solution:** `msync(shared_db, 10 * 1024 * 1024, MS_SYNC);` (This ensures strict ACID compliance by halting execution until the storage controller acknowledges the write).
 
 ## References
 

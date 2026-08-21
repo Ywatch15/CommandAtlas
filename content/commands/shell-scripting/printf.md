@@ -153,21 +153,21 @@ The shell pulls the next corresponding argument from the command line, coerces i
 
 ## Interview Questions
 
-- _Query:_ Why is `printf "%s\n" "$MY_VAR"` considered a mandatory security and stability best practice over `echo "$MY_VAR"` in robust bash scripting?
-  - _A:_ `echo` evaluates the contents of variables. If `$MY_VAR` contains `-n` or `-e`, `echo` interprets them as execution flags rather than text. If it contains backslashes, behavior wildly differs between Linux and macOS. `printf` explicitly separates the format string (`"%s\n"`) from the data argument (`"$MY_VAR"`), ensuring the variable is treated purely as a static string payload, eliminating format corruption and injection risks.
-- _Query:_ A developer runs `printf "Server: %s IP: %s\n" "Web01"` but forgets the second argument. How does the `printf` command handle this missing argument?
-  - _A:_ `printf` handles missing arguments gracefully. If a format specifier lacks a corresponding argument, it evaluates to `null` or `0` depending on the type. For `%s`, it prints an empty string. The output will be `Server: Web01 IP: `, and the script continues without a fatal crash.
-- _Query:_ How can you use `printf` to ensure an integer loop counter is always displayed as a 4-digit number padded with leading zeroes (e.g., `0042`)?
-  - _A:_ By utilizing the zero-padded decimal format specifier. The syntax is `printf "%04d\n" $counter`. The `0` indicates zero-padding, the `4` defines the exact column width, and `d` specifies a decimal integer.
+**Q:** Why is `printf "%s\n" "$MY_VAR"` considered a mandatory security and stability best practice over `echo "$MY_VAR"` in robust bash scripting?
+**A:** `echo` evaluates the contents of variables. If `$MY_VAR` contains `-n` or `-e`, `echo` interprets them as execution flags rather than text. If it contains backslashes, behavior wildly differs between Linux and macOS. `printf` explicitly separates the format string (`"%s\n"`) from the data argument (`"$MY_VAR"`), ensuring the variable is treated purely as a static string payload, eliminating format corruption and injection risks.
+**Q:** A developer runs `printf "Server: %s IP: %s\n" "Web01"` but forgets the second argument. How does the `printf` command handle this missing argument?
+**A:** `printf` handles missing arguments gracefully. If a format specifier lacks a corresponding argument, it evaluates to `null` or `0` depending on the type. For `%s`, it prints an empty string. The output will be `Server: Web01 IP: `, and the script continues without a fatal crash.
+**Q:** How can you use `printf` to ensure an integer loop counter is always displayed as a 4-digit number padded with leading zeroes (e.g., `0042`)?
+**A:** By utilizing the zero-padded decimal format specifier. The syntax is `printf "%04d\n" $counter`. The `0` indicates zero-padding, the `4` defines the exact column width, and `d` specifies a decimal integer.
 
 ## Practice Problems
 
-- _Problem:_ Format the variables `Item="Disk"`, `Size=45`, and `Cost=12.5` into a single line reading `Item: Disk | Size: 0045 | Cost: 12.500`. Ensure the size is padded to 4 digits and the cost resolves to exactly 3 decimal places.
-  - _Hint:_ Combine string, zero-padded integer, and floating-point precision specifiers.
-  - _Solution:_ `printf "Item: %s | Size: %04d | Cost: %.3f\n" "Disk" 45 12.5`
-- _Problem:_ Safely assign the string `"Deploying to Production"` to a variable named `log_msg` using `printf`, ensuring it never prints to the terminal.
-  - _Hint:_ Use the specific bash flag designed for internal variable assignment.
-  - _Solution:_ `printf -v log_msg "%s" "Deploying to Production"` (This loads the formatted string directly into memory).
+**Problem:** Format the variables `Item="Disk"`, `Size=45`, and `Cost=12.5` into a single line reading `Item: Disk | Size: 0045 | Cost: 12.500`. Ensure the size is padded to 4 digits and the cost resolves to exactly 3 decimal places.
+**Hint:** Combine string, zero-padded integer, and floating-point precision specifiers.
+**Solution:** `printf "Item: %s | Size: %04d | Cost: %.3f\n" "Disk" 45 12.5`
+**Problem:** Safely assign the string `"Deploying to Production"` to a variable named `log_msg` using `printf`, ensuring it never prints to the terminal.
+**Hint:** Use the specific bash flag designed for internal variable assignment.
+**Solution:** `printf -v log_msg "%s" "Deploying to Production"` (This loads the formatted string directly into memory).
 
 ## References
 

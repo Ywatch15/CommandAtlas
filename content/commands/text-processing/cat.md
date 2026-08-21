@@ -174,27 +174,27 @@ In highly advanced, modern Linux kernels, if `cat` detects it is routing a physi
 
 ## Interview Questions
 
-- _Query:_ A developer writes the command `cat auth.log | awk '{print $1}' | sort | uniq -c`. While functionally correct, senior engineers reject this pull request due to a "UUOC" anti-pattern. Explain what this is and how to rewrite the command optimally.
-  - _A:_ UUOC stands for "Useless Use of Cat." The `cat` command is completely redundant here. It spawns an extra subshell process and consumes CPU/RAM simply to pipe text into `awk`. The `awk` utility is natively designed to open and read files independently. The command should be rewritten optimally as `awk '{print $1}' auth.log | sort | uniq -c`, eliminating the useless binary execution.
-- _Query:_ You receive a bash script from a colleague using a Windows laptop. The script looks perfectly normal, but when you execute it on your Linux server, the shell throws bizarre `\r: command not found` syntax errors on every line. What `cat` command flag will visually diagnose the root cause of this error?
-  - _A:_ The `-v` (show-nonprinting) or `-A` (show-all) flags. Windows utilizes `\r\n` (Carriage Return + Line Feed) for line endings, while Linux strictly expects `\n` (Line Feed). The Linux bash interpreter attempts to execute the invisible `\r` character as part of the command text. Running `cat -v script.sh` will explicitly render the invisible carriage returns as `^M` symbols at the end of every line, proving the file requires `dos2unix` conversion.
-- _Query:_ What catastrophic data loss occurs if you execute the command `cat header.txt body.txt footer.txt > header.txt` to merge three files into one?
-  - _A:_ The shell evaluates the `>` output redirection operator _before_ it launches the `cat` binary. The shell instantly opens `header.txt` with the `O_TRUNC` flag, shredding the file down to 0 bytes. By the time the `cat` binary actually starts and attempts to read `header.txt`, its original contents are permanently destroyed, resulting in a merged file containing only the body and footer.
+**Q:** A developer writes the command `cat auth.log | awk '{print $1}' | sort | uniq -c`. While functionally correct, senior engineers reject this pull request due to a "UUOC" anti-pattern. Explain what this is and how to rewrite the command optimally.
+**A:** UUOC stands for "Useless Use of Cat." The `cat` command is completely redundant here. It spawns an extra subshell process and consumes CPU/RAM simply to pipe text into `awk`. The `awk` utility is natively designed to open and read files independently. The command should be rewritten optimally as `awk '{print $1}' auth.log | sort | uniq -c`, eliminating the useless binary execution.
+**Q:** You receive a bash script from a colleague using a Windows laptop. The script looks perfectly normal, but when you execute it on your Linux server, the shell throws bizarre `\r: command not found` syntax errors on every line. What `cat` command flag will visually diagnose the root cause of this error?
+**A:** The `-v` (show-nonprinting) or `-A` (show-all) flags. Windows utilizes `\r\n` (Carriage Return + Line Feed) for line endings, while Linux strictly expects `\n` (Line Feed). The Linux bash interpreter attempts to execute the invisible `\r` character as part of the command text. Running `cat -v script.sh` will explicitly render the invisible carriage returns as `^M` symbols at the end of every line, proving the file requires `dos2unix` conversion.
+**Q:** What catastrophic data loss occurs if you execute the command `cat header.txt body.txt footer.txt > header.txt` to merge three files into one?
+**A:** The shell evaluates the `>` output redirection operator _before_ it launches the `cat` binary. The shell instantly opens `header.txt` with the `O_TRUNC` flag, shredding the file down to 0 bytes. By the time the `cat` binary actually starts and attempts to read `header.txt`, its original contents are permanently destroyed, resulting in a merged file containing only the body and footer.
 
 ## Practice Problems
 
-- _Problem:_ Combine the contents of `part1.log` and `part2.log` into a single stream, but output the data safely to the terminal by exposing all invisible control characters and appending a `$` to the end of every line to verify there are no trailing spaces.
-  - _Hint:_ Combine multiple files and utilize the advanced diagnostic formatting flags.
-  - _Solution:_ `cat -A part1.log part2.log` (The `-A` flag acts as an omni-tool, combining `-v`, `-E`, and `-T` to perfectly map invisible text boundaries).
-- _Problem:_ Without opening a text editor like `nano`, use a single command block directly in the bash terminal to create a new file named `app.env` containing exactly two lines of text: `ENV=PROD` and `PORT=443`.
-  - _Hint:_ Utilize a Here-Document construct bridged to the `cat` utility and redirected to the target file.
-  - _Solution:_
-    ```bash
+**Problem:** Combine the contents of `part1.log` and `part2.log` into a single stream, but output the data safely to the terminal by exposing all invisible control characters and appending a `$` to the end of every line to verify there are no trailing spaces.
+**Hint:** Combine multiple files and utilize the advanced diagnostic formatting flags.
+**Solution:** `cat -A part1.log part2.log` (The `-A` flag acts as an omni-tool, combining `-v`, `-E`, and `-T` to perfectly map invisible text boundaries).
+**Problem:** Without opening a text editor like `nano`, use a single command block directly in the bash terminal to create a new file named `app.env` containing exactly two lines of text: `ENV=PROD` and `PORT=443`.
+**Hint:** Utilize a Here-Document construct bridged to the `cat` utility and redirected to the target file.
+**Solution:**
+`bash
     cat <<EOF> app.env
     ENV=PROD
     PORT=443
     EOF
-    ```
+    `
 
 ## References
 

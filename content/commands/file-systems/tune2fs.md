@@ -159,21 +159,21 @@ The utility modifies the specific integer fields or bitmasks (flags) requested b
 
 ## Interview Questions
 
-- _Query:_ An organization sets up a 50TB ext4 database volume. However, the `df -h` command instantly shows 2.5 Terabytes of disk space is "used" or missing before any data is written. Why does this happen, and how do you resolve it?
-  - _A:_ When formatting with `mkfs.ext4`, the filesystem defaults to reserving 5% of all storage blocks exclusively for the root user to prevent hard system lockups when disks fill. On a 50TB drive, this equates to 2.5TB of wasted space. Since this is a dedicated data drive (not the OS root partition), you resolve it by running `tune2fs -m 0 /dev/device` to drop the reservation to zero and instantly reclaim the terabytes.
-- _Query:_ What specific filesystem architectural layer does `tune2fs` interact with to apply configuration changes instantly, often without requiring an unmount?
-  - _A:_ `tune2fs` interacts directly with the Ext filesystem **Superblock** (and its backup descriptors) located at specific physical sector offsets on the block device. Because it modifies pure configuration metadata fields inside this 1KB block rather than rewriting actual file data inodes, many changes can be committed to disk instantly and safely while live.
-- _Query:_ How do you instruct a Linux server to completely stop forcing unpredictable, automatic `fsck` consistency checks on an ext4 drive during server reboots?
-  - _A:_ You use `tune2fs` to overwrite the mount count and interval triggers. Running `tune2fs -c 0 -i 0 /dev/device` sets the maximum mount count limit to zero and the time interval to zero, permanently disabling legacy periodic boot-time checking.
+**Q:** An organization sets up a 50TB ext4 database volume. However, the `df -h` command instantly shows 2.5 Terabytes of disk space is "used" or missing before any data is written. Why does this happen, and how do you resolve it?
+**A:** When formatting with `mkfs.ext4`, the filesystem defaults to reserving 5% of all storage blocks exclusively for the root user to prevent hard system lockups when disks fill. On a 50TB drive, this equates to 2.5TB of wasted space. Since this is a dedicated data drive (not the OS root partition), you resolve it by running `tune2fs -m 0 /dev/device` to drop the reservation to zero and instantly reclaim the terabytes.
+**Q:** What specific filesystem architectural layer does `tune2fs` interact with to apply configuration changes instantly, often without requiring an unmount?
+**A:** `tune2fs` interacts directly with the Ext filesystem **Superblock** (and its backup descriptors) located at specific physical sector offsets on the block device. Because it modifies pure configuration metadata fields inside this 1KB block rather than rewriting actual file data inodes, many changes can be committed to disk instantly and safely while live.
+**Q:** How do you instruct a Linux server to completely stop forcing unpredictable, automatic `fsck` consistency checks on an ext4 drive during server reboots?
+**A:** You use `tune2fs` to overwrite the mount count and interval triggers. Running `tune2fs -c 0 -i 0 /dev/device` sets the maximum mount count limit to zero and the time interval to zero, permanently disabling legacy periodic boot-time checking.
 
 ## Practice Problems
 
-- _Problem:_ Modify an existing ext4 partition located at `/dev/sdc1` to reserve exactly 1% of its disk blocks for the root user, reclaiming the default 5% overhead.
-  - _Hint:_ Use the reserved percentage flag paired with the raw block device path.
-  - _Solution:_ `tune2fs -m 1 /dev/sdc1` (This accesses the superblock and alters the reservation percentage dynamically).
-- _Problem:_ Completely disable all time-based and mount-count-based automatic filesystem checks on the `/dev/sda2` partition to ensure fast, deterministic boot sequences.
-  - _Hint:_ Combine the maximum mount count flag and the time interval flag, setting both values to zero.
-  - _Solution:_ `tune2fs -c 0 -i 0 /dev/sda2` (This removes the legacy thresholds triggering automated `fsck` interruptions).
+**Problem:** Modify an existing ext4 partition located at `/dev/sdc1` to reserve exactly 1% of its disk blocks for the root user, reclaiming the default 5% overhead.
+**Hint:** Use the reserved percentage flag paired with the raw block device path.
+**Solution:** `tune2fs -m 1 /dev/sdc1` (This accesses the superblock and alters the reservation percentage dynamically).
+**Problem:** Completely disable all time-based and mount-count-based automatic filesystem checks on the `/dev/sda2` partition to ensure fast, deterministic boot sequences.
+**Hint:** Combine the maximum mount count flag and the time interval flag, setting both values to zero.
+**Solution:** `tune2fs -c 0 -i 0 /dev/sda2` (This removes the legacy thresholds triggering automated `fsck` interruptions).
 
 ## References
 

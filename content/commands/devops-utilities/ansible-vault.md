@@ -162,21 +162,21 @@ When `ansible-playbook` executes against an encrypted vault file, it reads the h
 
 ## Interview Questions
 
-- _Query:_ What cryptographic algorithm and derivation function does `ansible-vault` use under the hood to secure data files?
-  - _A:_ `ansible-vault` uses **AES-256** symmetric encryption in CBC mode to secure file payloads, paired with **PBKDF2** (Password-Based Key Derivation Function 2) with a secure random salt to derive cryptographic keys safely from user-supplied passwords.
-- _Query:_ What is the functional difference between using `ansible-vault edit` versus opening an encrypted vault file with a standard text editor like Vim?
-  - _A:_ `ansible-vault edit` automatically decrypts the file into a temporary secure buffer, opens your designated `$EDITOR`, and re-encrypts the file back to ciphertext upon save. Opening an encrypted file directly with Vim displays raw ciphertext headers and unreadable binary blocks, which will corrupt the file if edited and saved directly.
-- _Query:_ Why is storing the plaintext vault password file inside an unencrypted Git repository a critical security anti-pattern?
-  - _A:_ The security of Ansible Vault encryption relies entirely on keeping the decryption password secret. If the password file is committed to Git, any user who clones the repository obtains both the encrypted vault files and the key to decrypt them, completely negating the security protection.
+**Q:** What cryptographic algorithm and derivation function does `ansible-vault` use under the hood to secure data files?
+**A:** `ansible-vault` uses **AES-256** symmetric encryption in CBC mode to secure file payloads, paired with **PBKDF2** (Password-Based Key Derivation Function 2) with a secure random salt to derive cryptographic keys safely from user-supplied passwords.
+**Q:** What is the functional difference between using `ansible-vault edit` versus opening an encrypted vault file with a standard text editor like Vim?
+**A:** `ansible-vault edit` automatically decrypts the file into a temporary secure buffer, opens your designated `$EDITOR`, and re-encrypts the file back to ciphertext upon save. Opening an encrypted file directly with Vim displays raw ciphertext headers and unreadable binary blocks, which will corrupt the file if edited and saved directly.
+**Q:** Why is storing the plaintext vault password file inside an unencrypted Git repository a critical security anti-pattern?
+**A:** The security of Ansible Vault encryption relies entirely on keeping the decryption password secret. If the password file is committed to Git, any user who clones the repository obtains both the encrypted vault files and the key to decrypt them, completely negating the security protection.
 
 ## Practice Problems
 
-- _Problem:_ Encrypt a sensitive configuration file named `secrets.yml` using `ansible-vault` with an interactive password prompt.
-  - _Hint:_ Use the encrypt subcommand followed by the target file path.
-  - _Solution:_ `ansible-vault encrypt secrets.yml` (This prompts for a password and transforms the plaintext YAML file into secure AES-256 ciphertext in-place).
-- _Problem:_ Generate an inline encrypted string for the database password `P@ssw0rd99` tagged with the variable name `db_pass`.
-  - _Hint:_ Use the encrypt-string subcommand combined with the variable name flag.
-  - _Solution:_ `ansible-vault encrypt_string 'P@ssw0rd99' --name 'db_pass'` (This outputs a secure ciphertext block that can be safely pasted directly into unencrypted playbook variable files).
+**Problem:** Encrypt a sensitive configuration file named `secrets.yml` using `ansible-vault` with an interactive password prompt.
+**Hint:** Use the encrypt subcommand followed by the target file path.
+**Solution:** `ansible-vault encrypt secrets.yml` (This prompts for a password and transforms the plaintext YAML file into secure AES-256 ciphertext in-place).
+**Problem:** Generate an inline encrypted string for the database password `P@ssw0rd99` tagged with the variable name `db_pass`.
+**Hint:** Use the encrypt-string subcommand combined with the variable name flag.
+**Solution:** `ansible-vault encrypt_string 'P@ssw0rd99' --name 'db_pass'` (This outputs a secure ciphertext block that can be safely pasted directly into unencrypted playbook variable files).
 
 ## References
 

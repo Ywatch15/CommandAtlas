@@ -157,19 +157,19 @@ If `--first-only` is active (the default), this space-buffering logic completely
 
 ## Interview Questions
 
-- _Query:_ What is the functional consequence of utilizing the `-t 4` flag in `unexpand`, and what hidden behavior does it automatically activate that might corrupt shell script output?
-  - _A:_ The `-t 4` flag overrides the default 8-character tab stop, instructing the engine to evaluate tabs at 4-character intervals. However, invoking `-t` implicitly activates the `-a` (all) flag. This forces `unexpand` to convert spaces to tabs across the _entire_ line, not just the leading indentation. This will corrupt carefully spaced strings inside `echo` statements or aligned inline comments. You must explicitly append `--first-only` to suppress this implicit behavior.
-- _Query:_ A developer attempts to fix a Makefile by running `sed 's/        /\t/g' Makefile`. Why is `unexpand` architecturally superior and safer for this specific task than `sed`?
-  - _A:_ `sed` performs a literal, dumb string replacement; it strictly looks for exactly 8 spaces and replaces them with a tab. If the Makefile has a command indented with 7 spaces, `sed` misses it entirely. `unexpand` is a geometric column parser. It tracks the logical cursor position on the line. If it sees 7 spaces leading up to an 8-column tab stop, it mathematically understands the intent and seamlessly converts the gap into a proper hardware tab, ensuring absolute structural alignment.
+**Q:** What is the functional consequence of utilizing the `-t 4` flag in `unexpand`, and what hidden behavior does it automatically activate that might corrupt shell script output?
+**A:** The `-t 4` flag overrides the default 8-character tab stop, instructing the engine to evaluate tabs at 4-character intervals. However, invoking `-t` implicitly activates the `-a` (all) flag. This forces `unexpand` to convert spaces to tabs across the _entire_ line, not just the leading indentation. This will corrupt carefully spaced strings inside `echo` statements or aligned inline comments. You must explicitly append `--first-only` to suppress this implicit behavior.
+**Q:** A developer attempts to fix a Makefile by running `sed 's/        /\t/g' Makefile`. Why is `unexpand` architecturally superior and safer for this specific task than `sed`?
+**A:** `sed` performs a literal, dumb string replacement; it strictly looks for exactly 8 spaces and replaces them with a tab. If the Makefile has a command indented with 7 spaces, `sed` misses it entirely. `unexpand` is a geometric column parser. It tracks the logical cursor position on the line. If it sees 7 spaces leading up to an 8-column tab stop, it mathematically understands the intent and seamlessly converts the gap into a proper hardware tab, ensuring absolute structural alignment.
 
 ## Practice Problems
 
-- _Problem:_ Repair the leading indentation of a file named `pipeline.yml`, converting spaces to tabs using a 2-space tab width, and absolutely ensure spaces inside the actual text remain perfectly untouched. Print the output to the screen.
-  - _Hint:_ Combine the custom tab width integer with the safety override flag.
-  - _Solution:_ `unexpand -t 2 --first-only pipeline.yml` (This fixes the YAML indentations securely without destroying the configuration string spacing).
-- _Problem:_ Minify a massive log file named `audit.log` by converting every single sequence of spaces throughout the entire file into tabs (using the default 8-space width) to save disk space, redirecting the result to `minified.log`.
-  - _Hint:_ Invoke the aggressive, global transformation flag and utilize standard bash output redirection.
-  - _Solution:_ `unexpand -a audit.log > minified.log` (This blindly compresses all whitespace blocks across the entire document into single bytes).
+**Problem:** Repair the leading indentation of a file named `pipeline.yml`, converting spaces to tabs using a 2-space tab width, and absolutely ensure spaces inside the actual text remain perfectly untouched. Print the output to the screen.
+**Hint:** Combine the custom tab width integer with the safety override flag.
+**Solution:** `unexpand -t 2 --first-only pipeline.yml` (This fixes the YAML indentations securely without destroying the configuration string spacing).
+**Problem:** Minify a massive log file named `audit.log` by converting every single sequence of spaces throughout the entire file into tabs (using the default 8-space width) to save disk space, redirecting the result to `minified.log`.
+**Hint:** Invoke the aggressive, global transformation flag and utilize standard bash output redirection.
+**Solution:** `unexpand -a audit.log > minified.log` (This blindly compresses all whitespace blocks across the entire document into single bytes).
 
 ## References
 

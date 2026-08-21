@@ -164,21 +164,21 @@ When you execute `mv`, the utility evaluates the source and destination paths. I
 
 ## Interview Questions
 
-- _Query:_ A developer runs `mv database.sql /mnt/external_drive/` and notices it takes 15 minutes to complete, whereas `mv database.sql /var/lib/mysql/` completes instantly. Explain the architectural reason for this behavior.
-  - _A:_ When moving data within the same filesystem (`/var/lib/mysql`), `mv` uses the `rename()` system call. The kernel simply alters the directory pointer to the inode, requiring zero data transfer (O(1) time). When moving to an external drive (`/mnt/`), it crosses a filesystem boundary. Inodes cannot span partitions, so `mv` must physically read, copy, and rewrite every byte of data to the new drive before deleting the source, incurring massive disk I/O overhead.
-- _Query:_ What is the functional purpose of utilizing the `-t` (target directory) flag in automated bash scripts or `xargs` pipelines?
-  - _A:_ By default, `mv` expects the very last argument in the command string to be the destination directory. When piping dynamic lists of files via `xargs` or shell expansion, keeping the destination at the end is syntactically difficult. The `-t /dest` flag declares the destination upfront, allowing `xargs` to safely append an unlimited number of source files to the end of the command string.
-- _Query:_ How do deployment systems exploit the behavior of the `mv` command to achieve zero-downtime binary updates on Linux?
-  - _A:_ On the same filesystem, renaming a file over an existing file is a strictly atomic operation implemented in the kernel. The application binary path is replaced instantaneously. Active processes holding an open file descriptor to the old binary continue executing from memory safely, while all subsequent connections instantly access the newly moved binary, eliminating the millisecond gap where the file might appear "missing."
+**Q:** A developer runs `mv database.sql /mnt/external_drive/` and notices it takes 15 minutes to complete, whereas `mv database.sql /var/lib/mysql/` completes instantly. Explain the architectural reason for this behavior.
+**A:** When moving data within the same filesystem (`/var/lib/mysql`), `mv` uses the `rename()` system call. The kernel simply alters the directory pointer to the inode, requiring zero data transfer (O(1) time). When moving to an external drive (`/mnt/`), it crosses a filesystem boundary. Inodes cannot span partitions, so `mv` must physically read, copy, and rewrite every byte of data to the new drive before deleting the source, incurring massive disk I/O overhead.
+**Q:** What is the functional purpose of utilizing the `-t` (target directory) flag in automated bash scripts or `xargs` pipelines?
+**A:** By default, `mv` expects the very last argument in the command string to be the destination directory. When piping dynamic lists of files via `xargs` or shell expansion, keeping the destination at the end is syntactically difficult. The `-t /dest` flag declares the destination upfront, allowing `xargs` to safely append an unlimited number of source files to the end of the command string.
+**Q:** How do deployment systems exploit the behavior of the `mv` command to achieve zero-downtime binary updates on Linux?
+**A:** On the same filesystem, renaming a file over an existing file is a strictly atomic operation implemented in the kernel. The application binary path is replaced instantaneously. Active processes holding an open file descriptor to the old binary continue executing from memory safely, while all subsequent connections instantly access the newly moved binary, eliminating the millisecond gap where the file might appear "missing."
 
 ## Practice Problems
 
-- _Problem:_ Move all `.csv` files from the current directory into an existing `/data/processed/` directory, ensuring that if a file of the same name already exists in the destination, it is _not_ overwritten.
-  - _Hint:_ Combine the bash wildcard expansion with the no-clobber safety flag.
-  - _Solution:_ `mv -n *.csv /data/processed/` (The `-n` flag silently skips operations where the destination file already exists).
-- _Problem:_ Rename the file `server.conf` to `production.conf`, but if `production.conf` already exists, force `mv` to create an automatic backup of it appended with a `.bak` suffix.
-  - _Hint:_ Use the backup flag in conjunction with the specific suffix flag.
-  - _Solution:_ `mv -b -S .bak server.conf production.conf` (This executes the rename, safely rotating the existing target to `production.conf.bak`).
+**Problem:** Move all `.csv` files from the current directory into an existing `/data/processed/` directory, ensuring that if a file of the same name already exists in the destination, it is _not_ overwritten.
+**Hint:** Combine the bash wildcard expansion with the no-clobber safety flag.
+**Solution:** `mv -n *.csv /data/processed/` (The `-n` flag silently skips operations where the destination file already exists).
+**Problem:** Rename the file `server.conf` to `production.conf`, but if `production.conf` already exists, force `mv` to create an automatic backup of it appended with a `.bak` suffix.
+**Hint:** Use the backup flag in conjunction with the specific suffix flag.
+**Solution:** `mv -b -S .bak server.conf production.conf` (This executes the rename, safely rotating the existing target to `production.conf.bak`).
 
 ## References
 

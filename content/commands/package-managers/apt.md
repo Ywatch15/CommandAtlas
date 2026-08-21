@@ -148,21 +148,21 @@ APT then downloads the required `.deb` archives from the remote repositories and
 
 ## Interview Questions
 
-- **Q:** What is the fundamental difference in purpose and execution between running `apt update` and `apt upgrade`?
-  - **A:** `apt update` does not modify or install any local software binaries. It strictly reaches out to remote repositories to download the latest package metadata and dependency indexes, updating the local cache. `apt upgrade` reads that updated local cache, compares it against currently installed software, and downloads and overwrites the actual local binaries with their newer versions.
-- **Q:** Why does Docker documentation fiercely recommend writing `apt-get install -y --no-install-recommends` instead of just `apt install -y` when compiling container images?
-  - **A:** Debian package maintainers define both "Depends" (hard requirements) and "Recommends" (soft suggestions like extra fonts, documentation, or optional plugins). By default, APT installs both. Passing `--no-install-recommends` strips out the soft suggestions, significantly reducing the disk bloat and network transfer time of the final Docker image without breaking the core application.
-- **Q:** You run `apt install nginx` and receive the error: "Could not get lock /var/lib/dpkg/lock-frontend". What is the architectural reason for this error, and how is it resolved?
-  - **A:** APT and dpkg operations are non-concurrent. To prevent corrupting the local software database by writing two different states simultaneously, the first APT process acquires a mandatory file lock. This error means another process (often a background unattended-upgrades cron job, or a frozen terminal session) is currently holding the lock. You must wait for that process to finish or safely terminate it.
+**Q:** What is the fundamental difference in purpose and execution between running `apt update` and `apt upgrade`?
+**A:** `apt update` does not modify or install any local software binaries. It strictly reaches out to remote repositories to download the latest package metadata and dependency indexes, updating the local cache. `apt upgrade` reads that updated local cache, compares it against currently installed software, and downloads and overwrites the actual local binaries with their newer versions.
+**Q:** Why does Docker documentation fiercely recommend writing `apt-get install -y --no-install-recommends` instead of just `apt install -y` when compiling container images?
+**A:** Debian package maintainers define both "Depends" (hard requirements) and "Recommends" (soft suggestions like extra fonts, documentation, or optional plugins). By default, APT installs both. Passing `--no-install-recommends` strips out the soft suggestions, significantly reducing the disk bloat and network transfer time of the final Docker image without breaking the core application.
+**Q:** You run `apt install nginx` and receive the error: "Could not get lock /var/lib/dpkg/lock-frontend". What is the architectural reason for this error, and how is it resolved?
+**A:** APT and dpkg operations are non-concurrent. To prevent corrupting the local software database by writing two different states simultaneously, the first APT process acquires a mandatory file lock. This error means another process (often a background unattended-upgrades cron job, or a frozen terminal session) is currently holding the lock. You must wait for that process to finish or safely terminate it.
 
 ## Practice Problems
 
-- _Problem:_ Install the `jq` package automatically without prompting the user, ensuring that no supplementary, non-essential "recommended" packages are installed alongside it.
-  - _Hint:_ Combine the auto-confirm flag with the exclusion flag for soft dependencies.
-  - _Solution:_ `apt install -y --no-install-recommends jq` (This guarantees a minimal, non-interactive installation).
-- _Problem:_ Search the local APT cache for any package containing the exact string `memcached` in its name or description, suppressing heavy formatting if possible.
-  - _Hint:_ Use the basic query command provided by the tool.
-  - _Solution:_ `apt search memcached` (This queries the local metadata map and returns matching repository objects).
+**Problem:** Install the `jq` package automatically without prompting the user, ensuring that no supplementary, non-essential "recommended" packages are installed alongside it.
+**Hint:** Combine the auto-confirm flag with the exclusion flag for soft dependencies.
+**Solution:** `apt install -y --no-install-recommends jq` (This guarantees a minimal, non-interactive installation).
+**Problem:** Search the local APT cache for any package containing the exact string `memcached` in its name or description, suppressing heavy formatting if possible.
+**Hint:** Use the basic query command provided by the tool.
+**Solution:** `apt search memcached` (This queries the local metadata map and returns matching repository objects).
 
 ## References
 

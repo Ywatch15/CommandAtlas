@@ -164,21 +164,21 @@ When the user types `:w`, `vi` executes a `write()` system call, flushing the en
 
 ## Interview Questions
 
-- _Query:_ What is the exact sequence of keystrokes required to cleanly exit the `vi` editor and discard all accidental changes made to the file, and why does `Ctrl+C` fail to accomplish this?
-  - _A:_ The sequence is `Esc` (to ensure you exit Insert mode and return to Normal mode), `:` (to enter Ex command mode), `q!` (quit and forcefully override unsaved changes), and `Enter`. `Ctrl+C` fails because `vi` traps the `SIGINT` terminal signal explicitly. It uses it to cancel active searches or half-typed commands, mathematically preventing users from accidentally destroying their editing buffer by bumping the keyboard.
-- _Query:_ A developer attempts to edit `config.yaml` using `vi`. Upon opening the file, the screen is overtaken by a massive warning reading `E325: ATTENTION - Found a swap file by the name ".config.yaml.swp"`. What two scenarios cause this, and how should the developer proceed?
-  - _A:_ This warning occurs because the hidden binary ledger file (`.swp`) exists on disk. Scenario 1: Another user is currently logged into the server and actively editing the exact same file in `vi`. Scenario 2: The developer was editing the file previously, and their SSH connection dropped or the server crashed before they could type `:wq`. The developer should press `q` to quit, check `ps aux` to see if another `vi` process is active, and if not, run `vi -r config.yaml` to recover the lost data.
-- _Query:_ Explain the mechanical function of the `+/<pattern>` argument when executing `vi +/database config.json` from the bash prompt.
-  - _A:_ This argument initializes the editor dynamically. Instead of opening the file at line 1, it instructs the internal `vi` execution engine to automatically run a forward regex search for the string `database` the exact millisecond the file buffer loads. The editor opens with the viewport centered and the cursor placed precisely on the first matching line, drastically accelerating targeted troubleshooting.
+**Q:** What is the exact sequence of keystrokes required to cleanly exit the `vi` editor and discard all accidental changes made to the file, and why does `Ctrl+C` fail to accomplish this?
+**A:** The sequence is `Esc` (to ensure you exit Insert mode and return to Normal mode), `:` (to enter Ex command mode), `q!` (quit and forcefully override unsaved changes), and `Enter`. `Ctrl+C` fails because `vi` traps the `SIGINT` terminal signal explicitly. It uses it to cancel active searches or half-typed commands, mathematically preventing users from accidentally destroying their editing buffer by bumping the keyboard.
+**Q:** A developer attempts to edit `config.yaml` using `vi`. Upon opening the file, the screen is overtaken by a massive warning reading `E325: ATTENTION - Found a swap file by the name ".config.yaml.swp"`. What two scenarios cause this, and how should the developer proceed?
+**A:** This warning occurs because the hidden binary ledger file (`.swp`) exists on disk. Scenario 1: Another user is currently logged into the server and actively editing the exact same file in `vi`. Scenario 2: The developer was editing the file previously, and their SSH connection dropped or the server crashed before they could type `:wq`. The developer should press `q` to quit, check `ps aux` to see if another `vi` process is active, and if not, run `vi -r config.yaml` to recover the lost data.
+**Q:** Explain the mechanical function of the `+/<pattern>` argument when executing `vi +/database config.json` from the bash prompt.
+**A:** This argument initializes the editor dynamically. Instead of opening the file at line 1, it instructs the internal `vi` execution engine to automatically run a forward regex search for the string `database` the exact millisecond the file buffer loads. The editor opens with the viewport centered and the cursor placed precisely on the first matching line, drastically accelerating targeted troubleshooting.
 
 ## Practice Problems
 
-- _Problem:_ Open a file named `sysctl.conf` using the `vi` editor. Ensure the file opens completely protected against any accidental modifications, and force the editor to jump immediately to line number 50 upon opening.
-  - _Hint:_ Combine the Read-Only flag with the specific line-initialization syntax.
-  - _Solution:_ `vi -R +50 sysctl.conf` (This establishes a secure, hyper-targeted viewing environment).
-- _Problem:_ Use `vi` as a non-interactive tool to append the exact text string `DEBUG=True` to the absolute bottom of a file named `.env`, saving the file and exiting back to the bash prompt instantly.
-  - _Hint:_ Utilize the command-execution flag to pass an `ex` command. Use `$a` or simply append via an echo pipe if avoiding `vi` quirks, but for `vi` strictly: use the command flag.
-  - _Solution:_ `vi -c "$ put ='DEBUG=True'" -c "wq" .env` (This forces the editor to jump to the last line `$`, put the string, write, and quit autonomously).
+**Problem:** Open a file named `sysctl.conf` using the `vi` editor. Ensure the file opens completely protected against any accidental modifications, and force the editor to jump immediately to line number 50 upon opening.
+**Hint:** Combine the Read-Only flag with the specific line-initialization syntax.
+**Solution:** `vi -R +50 sysctl.conf` (This establishes a secure, hyper-targeted viewing environment).
+**Problem:** Use `vi` as a non-interactive tool to append the exact text string `DEBUG=True` to the absolute bottom of a file named `.env`, saving the file and exiting back to the bash prompt instantly.
+**Hint:** Utilize the command-execution flag to pass an `ex` command. Use `$a` or simply append via an echo pipe if avoiding `vi` quirks, but for `vi` strictly: use the command flag.
+**Solution:** `vi -c "$ put ='DEBUG=True'" -c "wq" .env` (This forces the editor to jump to the last line `$`, put the string, write, and quit autonomously).
 
 ## References
 

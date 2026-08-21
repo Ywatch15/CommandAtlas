@@ -149,21 +149,21 @@ Because `iw` uses Netlink rather than simple text scraping or static `ioctl` str
 
 ## Interview Questions
 
-- **Q:** Why did the Linux kernel community deprecate the `Wireless Extensions` (WEXT) interface and the `iwconfig` tool in favor of `mac80211` and the `iw` command?
-  - **A:** WEXT relied on `ioctl()` system calls and rigid data structures designed during the 802.11b era. It could not easily scale to support complex modern features like mesh networking, multiple virtual BSSIDs on a single physical radio, or advanced 802.11ac/ax parameters. The new subsystem uses `nl80211` Netlink sockets, providing a flexible, extensible, and asynchronous messaging framework controlled entirely via the `iw` utility.
-- **Q:** What is the critical step you must perform before you can use `iw` to transition a standard Wi-Fi interface into `monitor` mode for packet capture?
-  - **A:** You must administratively disable the network interface first. The kernel prevents altering the fundamental operational type of a wireless interface while it is active. You execute `ip link set wlan0 down`, switch the mode via `iw dev wlan0 set type monitor`, and then bring it back up with `ip link set wlan0 up`.
-- **Q:** You run an `iw dev wlan0 scan` and the SSH session to the server stutters and experiences high latency for a few seconds. Why does this happen?
-  - **A:** To perform a complete environmental scan, the physical radio antenna must pause transmission on its currently associated channel, retune its frequency, and sequentially listen across all other 2.4GHz and 5GHz channels to capture broadcast beacons. This hardware retuning interrupts active traffic flow, causing queued packets and latency spikes.
+**Q:** Why did the Linux kernel community deprecate the `Wireless Extensions` (WEXT) interface and the `iwconfig` tool in favor of `mac80211` and the `iw` command?
+**A:** WEXT relied on `ioctl()` system calls and rigid data structures designed during the 802.11b era. It could not easily scale to support complex modern features like mesh networking, multiple virtual BSSIDs on a single physical radio, or advanced 802.11ac/ax parameters. The new subsystem uses `nl80211` Netlink sockets, providing a flexible, extensible, and asynchronous messaging framework controlled entirely via the `iw` utility.
+**Q:** What is the critical step you must perform before you can use `iw` to transition a standard Wi-Fi interface into `monitor` mode for packet capture?
+**A:** You must administratively disable the network interface first. The kernel prevents altering the fundamental operational type of a wireless interface while it is active. You execute `ip link set wlan0 down`, switch the mode via `iw dev wlan0 set type monitor`, and then bring it back up with `ip link set wlan0 up`.
+**Q:** You run an `iw dev wlan0 scan` and the SSH session to the server stutters and experiences high latency for a few seconds. Why does this happen?
+**A:** To perform a complete environmental scan, the physical radio antenna must pause transmission on its currently associated channel, retune its frequency, and sequentially listen across all other 2.4GHz and 5GHz channels to capture broadcast beacons. This hardware retuning interrupts active traffic flow, causing queued packets and latency spikes.
 
 ## Practice Problems
 
-- _Problem:_ Verify the active connection status and signal strength of the `wlan1` interface.
-  - _Hint:_ Target the device and use the specific subcommand designed to show active connection parameters.
-  - _Solution:_ `iw dev wlan1 link` (This instantly reports the BSSID, SSID, and RX/TX bitrates if connected).
-- _Problem:_ Disable the hardware power-saving feature on the `wlan0` interface to resolve latency jitter issues.
-  - _Hint:_ Target the device and set the power save parameter explicitly.
-  - _Solution:_ `iw dev wlan0 set power_save off` (This prevents the radio chip from sleeping during idle milliseconds).
+**Problem:** Verify the active connection status and signal strength of the `wlan1` interface.
+**Hint:** Target the device and use the specific subcommand designed to show active connection parameters.
+**Solution:** `iw dev wlan1 link` (This instantly reports the BSSID, SSID, and RX/TX bitrates if connected).
+**Problem:** Disable the hardware power-saving feature on the `wlan0` interface to resolve latency jitter issues.
+**Hint:** Target the device and set the power save parameter explicitly.
+**Solution:** `iw dev wlan0 set power_save off` (This prevents the radio chip from sleeping during idle milliseconds).
 
 ## References
 

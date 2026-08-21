@@ -90,8 +90,8 @@ Use IAM Roles and AWS SSO.
 
 ## Interview Questions
 
-- **Q:** How does AWS CLI resolve region configuration?
-  **A:** Flag -> Environment variable -> Named profile -> Default profile.
+**Q:** How does AWS CLI resolve region configuration?
+**A:** Flag -> Environment variable -> Named profile -> Default profile.
 
 ## Practice Problems
 

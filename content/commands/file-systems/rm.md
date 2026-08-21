@@ -165,21 +165,21 @@ When deleting recursively (`-r`), `rm` executes a depth-first traversal, descend
 
 ## Interview Questions
 
-- **Q:** You run `rm massive_log.log` to free up disk space, the command succeeds, but `df -h` shows the disk is still 100% full. What happened, and how do you fix it?
-  - **A:** The `rm` command successfully unlinked the filename from the directory structure, but an active process (like a logging daemon) still holds an open file descriptor pointing to that inode. The Linux kernel will not free the data blocks until all file descriptors are closed. I would use `lsof +L1` to find the process holding the deleted file open, and restart or kill that process to release the space.
-- **Q:** What is the technical difference in kernel behavior between executing `rm` on a hard link versus a symbolic link?
-  - **A:** When `rm` is executed on a hard link, the kernel decrements the target inode's link count. If the count reaches 0, the data is marked for deletion. When executed on a symbolic link, `rm` unlinks the inode of the symlink file itself (the file containing the text path); the actual target data file's inode and link count are completely unaffected.
-- **Q:** Why is the `--preserve-root` flag baked into modern implementations of the `rm` command, and what specific disaster does it prevent?
-  - **A:** It prevents the accidental execution of `rm -rf /`. This was historically a common disaster when developers wrote scripts like `rm -rf $DIR/`, but `$DIR` failed to evaluate, collapsing the command to `rm -rf /`. `--preserve-root` forces `rm` to reject targeting the top-level filesystem boundary.
+**Q:** You run `rm massive_log.log` to free up disk space, the command succeeds, but `df -h` shows the disk is still 100% full. What happened, and how do you fix it?
+**A:** The `rm` command successfully unlinked the filename from the directory structure, but an active process (like a logging daemon) still holds an open file descriptor pointing to that inode. The Linux kernel will not free the data blocks until all file descriptors are closed. I would use `lsof +L1` to find the process holding the deleted file open, and restart or kill that process to release the space.
+**Q:** What is the technical difference in kernel behavior between executing `rm` on a hard link versus a symbolic link?
+**A:** When `rm` is executed on a hard link, the kernel decrements the target inode's link count. If the count reaches 0, the data is marked for deletion. When executed on a symbolic link, `rm` unlinks the inode of the symlink file itself (the file containing the text path); the actual target data file's inode and link count are completely unaffected.
+**Q:** Why is the `--preserve-root` flag baked into modern implementations of the `rm` command, and what specific disaster does it prevent?
+**A:** It prevents the accidental execution of `rm -rf /`. This was historically a common disaster when developers wrote scripts like `rm -rf $DIR/`, but `$DIR` failed to evaluate, collapsing the command to `rm -rf /`. `--preserve-root` forces `rm` to reject targeting the top-level filesystem boundary.
 
 ## Practice Problems
 
-- _Problem:_ Permanently and forcefully delete a nested directory named `legacy_cache` located in `/var/tmp/`, suppressing all prompts and errors.
-  - _Hint:_ Combine the recursive and force flags with the absolute path.
-  - _Solution:_ `rm -rf /var/tmp/legacy_cache/` (This bypasses all confirmation checks and recursively destroys the folder).
-- _Problem:_ Delete all files ending in `.bak` in the current directory, but mandate that the command prompts you for a `y/n` confirmation before executing deletion on each matched file.
-  - _Hint:_ Use the interactive flag combined with a shell wildcard expansion.
-  - _Solution:_ `rm -i *.bak` (The shell expands the list, and the `-i` flag pauses execution per file).
+**Problem:** Permanently and forcefully delete a nested directory named `legacy_cache` located in `/var/tmp/`, suppressing all prompts and errors.
+**Hint:** Combine the recursive and force flags with the absolute path.
+**Solution:** `rm -rf /var/tmp/legacy_cache/` (This bypasses all confirmation checks and recursively destroys the folder).
+**Problem:** Delete all files ending in `.bak` in the current directory, but mandate that the command prompts you for a `y/n` confirmation before executing deletion on each matched file.
+**Hint:** Use the interactive flag combined with a shell wildcard expansion.
+**Solution:** `rm -i *.bak` (The shell expands the list, and the `-i` flag pauses execution per file).
 
 ## References
 

@@ -138,21 +138,21 @@ The kernel's legacy WEXT compatibility layer intercepts this struct, translates 
 
 ## Interview Questions
 
-- **Q:** Why is it impossible to use `iwconfig` alone to connect to a standard home or corporate Wi-Fi network utilizing WPA2 security?
-  - **A:** `iwconfig` interfaces with the legacy Wireless Extensions (WEXT) API, which was designed before modern cryptographic protocols existed. It natively supports only Open networks or static WEP keys. Connecting to a WPA2 network requires a dynamic 4-way cryptographic handshake and EAPOL key management, which is handled exclusively by user-space daemons like `wpa_supplicant`.
-- **Q:** You type `iwconfig` into a terminal and one of the interfaces reports "no wireless extensions." What does this explicitly mean?
-  - **A:** It means that specific network interface (typically an Ethernet card like `eth0` or the loopback adapter `lo`) lacks wireless hardware capabilities and does not register hooks with the kernel's Wireless Extensions API. The command passes over it smoothly.
-- **Q:** What is the critical step required before using `iwconfig` to shift a wireless interface from `Managed` mode into `Monitor` mode?
-  - **A:** The interface must be administratively brought down first (e.g., using `ifconfig wlan0 down` or `ip link set wlan0 down`). Attempting to change the fundamental operating mode of a wireless adapter while the driver is actively engaged results in a "Device or resource busy" kernel error.
+**Q:** Why is it impossible to use `iwconfig` alone to connect to a standard home or corporate Wi-Fi network utilizing WPA2 security?
+**A:** `iwconfig` interfaces with the legacy Wireless Extensions (WEXT) API, which was designed before modern cryptographic protocols existed. It natively supports only Open networks or static WEP keys. Connecting to a WPA2 network requires a dynamic 4-way cryptographic handshake and EAPOL key management, which is handled exclusively by user-space daemons like `wpa_supplicant`.
+**Q:** You type `iwconfig` into a terminal and one of the interfaces reports "no wireless extensions." What does this explicitly mean?
+**A:** It means that specific network interface (typically an Ethernet card like `eth0` or the loopback adapter `lo`) lacks wireless hardware capabilities and does not register hooks with the kernel's Wireless Extensions API. The command passes over it smoothly.
+**Q:** What is the critical step required before using `iwconfig` to shift a wireless interface from `Managed` mode into `Monitor` mode?
+**A:** The interface must be administratively brought down first (e.g., using `ifconfig wlan0 down` or `ip link set wlan0 down`). Attempting to change the fundamental operating mode of a wireless adapter while the driver is actively engaged results in a "Device or resource busy" kernel error.
 
 ## Practice Problems
 
-- _Problem:_ Disable the power management feature on the `wlan0` interface to prevent the radio from sleeping, which is useful for stabilizing high-latency SSH connections.
-  - _Hint:_ Target the interface and explicitly set the power parameter to off.
-  - _Solution:_ `iwconfig wlan0 power off` (This commands the firmware to keep the radio continuously active).
-- _Problem:_ Force the `wlan0` interface to transmit exclusively at a bitrate of 54 Mbps, disabling auto-negotiation.
-  - _Hint:_ Use the rate parameter followed by the numeric value and the 'M' suffix.
-  - _Solution:_ `iwconfig wlan0 rate 54M` (This pins the transmission modulation speed, which can be useful in controlled RF testing environments).
+**Problem:** Disable the power management feature on the `wlan0` interface to prevent the radio from sleeping, which is useful for stabilizing high-latency SSH connections.
+**Hint:** Target the interface and explicitly set the power parameter to off.
+**Solution:** `iwconfig wlan0 power off` (This commands the firmware to keep the radio continuously active).
+**Problem:** Force the `wlan0` interface to transmit exclusively at a bitrate of 54 Mbps, disabling auto-negotiation.
+**Hint:** Use the rate parameter followed by the numeric value and the 'M' suffix.
+**Solution:** `iwconfig wlan0 rate 54M` (This pins the transmission modulation speed, which can be useful in controlled RF testing environments).
 
 ## References
 

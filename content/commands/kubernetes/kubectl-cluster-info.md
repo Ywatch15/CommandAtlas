@@ -144,21 +144,21 @@ When the `dump` subcommand is invoked, the behavior shifts radically. `kubectl` 
 
 ## Interview Questions
 
-- **Q:** How does `kubectl cluster-info` locate the CoreDNS or KubeDNS service URL to display in its terminal output?
-  - **A:** The CLI queries the `/api/v1/namespaces/kube-system/services` endpoint. It parses the returned list of system services, specifically hunting for resources tagged with the explicit labels `kubernetes.io/cluster-service=true` or `k8s-app=kube-dns`, and extracts their routing endpoints for display.
-- **Q:** You just updated your local `kubeconfig` file with a new cluster context. You want to verify the cluster API server is reachable without accidentally deploying anything. What is the most efficient command to run?
-  - **A:** `kubectl cluster-info`. It parses the new context, attempts a lightweight HTTP connection to the control plane URL, and immediately prints a color-coded success message if network routing and basic authentication are functional.
-- **Q:** Why must you exercise extreme caution when transferring the output of `kubectl cluster-info dump` to external vendors for support?
-  - **A:** The `dump` command acts as a vacuum for the `kube-system` namespace. It retrieves full manifest definitions, environment variables, and raw standard output logs for every core system pod. This payload often inadvertently captures plaintext secrets, TLS certificates, and highly sensitive internal infrastructure topology data.
+**Q:** How does `kubectl cluster-info` locate the CoreDNS or KubeDNS service URL to display in its terminal output?
+**A:** The CLI queries the `/api/v1/namespaces/kube-system/services` endpoint. It parses the returned list of system services, specifically hunting for resources tagged with the explicit labels `kubernetes.io/cluster-service=true` or `k8s-app=kube-dns`, and extracts their routing endpoints for display.
+**Q:** You just updated your local `kubeconfig` file with a new cluster context. You want to verify the cluster API server is reachable without accidentally deploying anything. What is the most efficient command to run?
+**A:** `kubectl cluster-info`. It parses the new context, attempts a lightweight HTTP connection to the control plane URL, and immediately prints a color-coded success message if network routing and basic authentication are functional.
+**Q:** Why must you exercise extreme caution when transferring the output of `kubectl cluster-info dump` to external vendors for support?
+**A:** The `dump` command acts as a vacuum for the `kube-system` namespace. It retrieves full manifest definitions, environment variables, and raw standard output logs for every core system pod. This payload often inadvertently captures plaintext secrets, TLS certificates, and highly sensitive internal infrastructure topology data.
 
 ## Practice Problems
 
-- _Problem:_ Test the network connectivity and retrieve the API server URL for a specific cluster context named `aws-prod-cluster` without changing your current active default context.
-  - _Hint:_ Combine the base discovery command with the context override flag.
-  - _Solution:_ `kubectl cluster-info --context aws-prod-cluster` (This queries the target context directly and prints the endpoints).
-- _Problem:_ Generate a comprehensive diagnostic dump of the core system namespace, directing all the logs and resource definitions securely into a local folder named `./debug-logs`.
-  - _Hint:_ Use the dump subcommand and the explicit output directory parameter.
-  - _Solution:_ `kubectl cluster-info dump --output-directory ./debug-logs` (This extracts the cluster state and organizes the output into cleanly separated files within the directory).
+**Problem:** Test the network connectivity and retrieve the API server URL for a specific cluster context named `aws-prod-cluster` without changing your current active default context.
+**Hint:** Combine the base discovery command with the context override flag.
+**Solution:** `kubectl cluster-info --context aws-prod-cluster` (This queries the target context directly and prints the endpoints).
+**Problem:** Generate a comprehensive diagnostic dump of the core system namespace, directing all the logs and resource definitions securely into a local folder named `./debug-logs`.
+**Hint:** Use the dump subcommand and the explicit output directory parameter.
+**Solution:** `kubectl cluster-info dump --output-directory ./debug-logs` (This extracts the cluster state and organizes the output into cleanly separated files within the directory).
 
 ## References
 

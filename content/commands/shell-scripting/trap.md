@@ -165,21 +165,21 @@ The `EXIT`, `ERR`, and `DEBUG` traps are "pseudo-signals." The kernel knows noth
 
 ## Interview Questions
 
-- _Query:_ A developer writes `trap "rm $TEMPFILE" EXIT` on line 2 of their script. On line 50, the script dynamically alters the value of `$TEMPFILE` to `/var/log`. When the script finishes, it deletes the wrong file. Explain the architectural shell expansion error that caused this.
-  - _A:_ The developer used double quotes (`" "`) around the trap payload. In Bash, double quotes force immediate variable expansion. The shell evaluated `$TEMPFILE` on line 2, locked that exact string value into the trap memory, and ignored the subsequent changes. To fix this, the developer must use single quotes (`'rm "$TEMPFILE"'`), which instruct the shell to defer variable expansion until the exact moment the `EXIT` trap is physically triggered.
-- _Query:_ Why is it a fundamental best practice to utilize the `EXIT` pseudo-signal for script teardown routines, rather than explicitly trapping `SIGINT` (Ctrl+C) and `SIGTERM`?
-  - _A:_ Trapping specific OS signals misses edge cases. If a script successfully completes all its tasks, it doesn't receive a `SIGTERM`; it simply ends. Therefore, a `SIGTERM` trap wouldn't fire, leaving temporary files behind. The `EXIT` pseudo-signal is natively triggered by Bash upon _any_ termination event—whether it's a successful natural end, a script crash, or an external `kill` signal—guaranteeing universal, reliable execution of the cleanup block.
-- _Query:_ A user executes `kill -9` against a bash script. Will the script's configured `trap cleanup SIGTERM EXIT` trigger? Why or why not?
-  - _A:_ No, the cleanup trap will not trigger. `kill -9` issues the `SIGKILL` signal. The Linux kernel's process scheduler intercepts `SIGKILL` and instantly destroys the application's memory allocation and thread context. The target application (the Bash script) is completely bypassed; it receives no warning and has absolutely no mechanical opportunity to execute its trap handler.
+**Q:** A developer writes `trap "rm $TEMPFILE" EXIT` on line 2 of their script. On line 50, the script dynamically alters the value of `$TEMPFILE` to `/var/log`. When the script finishes, it deletes the wrong file. Explain the architectural shell expansion error that caused this.
+**A:** The developer used double quotes (`" "`) around the trap payload. In Bash, double quotes force immediate variable expansion. The shell evaluated `$TEMPFILE` on line 2, locked that exact string value into the trap memory, and ignored the subsequent changes. To fix this, the developer must use single quotes (`'rm "$TEMPFILE"'`), which instruct the shell to defer variable expansion until the exact moment the `EXIT` trap is physically triggered.
+**Q:** Why is it a fundamental best practice to utilize the `EXIT` pseudo-signal for script teardown routines, rather than explicitly trapping `SIGINT` (Ctrl+C) and `SIGTERM`?
+**A:** Trapping specific OS signals misses edge cases. If a script successfully completes all its tasks, it doesn't receive a `SIGTERM`; it simply ends. Therefore, a `SIGTERM` trap wouldn't fire, leaving temporary files behind. The `EXIT` pseudo-signal is natively triggered by Bash upon _any_ termination event—whether it's a successful natural end, a script crash, or an external `kill` signal—guaranteeing universal, reliable execution of the cleanup block.
+**Q:** A user executes `kill -9` against a bash script. Will the script's configured `trap cleanup SIGTERM EXIT` trigger? Why or why not?
+**A:** No, the cleanup trap will not trigger. `kill -9` issues the `SIGKILL` signal. The Linux kernel's process scheduler intercepts `SIGKILL` and instantly destroys the application's memory allocation and thread context. The target application (the Bash script) is completely bypassed; it receives no warning and has absolutely no mechanical opportunity to execute its trap handler.
 
 ## Practice Problems
 
-- _Problem:_ Ensure that a highly sensitive configuration script ignores the user pressing `Ctrl+C` entirely, forcing the script to run to completion regardless of terminal interrupts.
-  - _Hint:_ Bind the exact interrupt signal to an empty payload string.
-  - _Solution:_ `trap '' SIGINT` (The empty string overwrites the default shutdown behavior with a null operation, rendering the script immune to keyboard interrupts).
-- _Problem:_ Write a robust sequence that creates a temporary directory using `mktemp -d`, and registers a trap to forcefully and recursively delete that specific directory the moment the script exits, regardless of success or failure. Use single quotes to defer expansion.
-  - _Hint:_ Declare the variable, then define an `EXIT` trap calling a dedicated cleanup function or a carefully quoted inline command.
-  - _Solution:_ `TEMP_DIR=$(mktemp -d); trap 'rm -rf "$TEMP_DIR"' EXIT` (This perfectly structures safe, self-cleaning automation, deferring variable expansion until termination).
+**Problem:** Ensure that a highly sensitive configuration script ignores the user pressing `Ctrl+C` entirely, forcing the script to run to completion regardless of terminal interrupts.
+**Hint:** Bind the exact interrupt signal to an empty payload string.
+**Solution:** `trap '' SIGINT` (The empty string overwrites the default shutdown behavior with a null operation, rendering the script immune to keyboard interrupts).
+**Problem:** Write a robust sequence that creates a temporary directory using `mktemp -d`, and registers a trap to forcefully and recursively delete that specific directory the moment the script exits, regardless of success or failure. Use single quotes to defer expansion.
+**Hint:** Declare the variable, then define an `EXIT` trap calling a dedicated cleanup function or a carefully quoted inline command.
+**Solution:** `TEMP_DIR=$(mktemp -d); trap 'rm -rf "$TEMP_DIR"' EXIT` (This perfectly structures safe, self-cleaning automation, deferring variable expansion until termination).
 
 ## References
 

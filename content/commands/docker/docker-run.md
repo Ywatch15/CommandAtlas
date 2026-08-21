@@ -186,21 +186,21 @@ If `docker run` fails, the exit codes are deterministic: `125` implies a Docker 
 
 ## Interview Questions
 
-- **Q:** What is the technical difference between `docker run` and `docker exec`?
-  - **A:** `docker run` spins up a completely new, isolated container instance from a static image and initiates its primary PID 1 process. `docker exec` targets a container that is _already running_ and spawns a secondary process (like a bash shell) within the existing container's active namespaces.
-- **Q:** If you start a container interactively without the `-d` flag, what is the difference between exiting using `Ctrl+C` versus `Ctrl+P, Ctrl+Q`?
-  - **A:** Pressing `Ctrl+C` sends a `SIGINT` to the container's primary process, terminating the process and stopping the container entirely. Pressing the escape sequence `Ctrl+P, Ctrl+Q` cleanly detaches your terminal session from the container's STDIN/STDOUT, leaving the container process running securely in the background.
-- **Q:** Under the hood, what Linux kernel mechanisms does `docker run` utilize to achieve container isolation?
-  - **A:** `docker run` relies on two primary Linux kernel primitives: **Namespaces**, which provide isolation for process trees, networks, user IDs, and mounts (ensuring the container cannot see the host's resources); and **cgroups** (Control Groups), which throttle, limit, and account for the hardware resources (CPU, memory, I/O) the container is allowed to consume.
+**Q:** What is the technical difference between `docker run` and `docker exec`?
+**A:** `docker run` spins up a completely new, isolated container instance from a static image and initiates its primary PID 1 process. `docker exec` targets a container that is _already running_ and spawns a secondary process (like a bash shell) within the existing container's active namespaces.
+**Q:** If you start a container interactively without the `-d` flag, what is the difference between exiting using `Ctrl+C` versus `Ctrl+P, Ctrl+Q`?
+**A:** Pressing `Ctrl+C` sends a `SIGINT` to the container's primary process, terminating the process and stopping the container entirely. Pressing the escape sequence `Ctrl+P, Ctrl+Q` cleanly detaches your terminal session from the container's STDIN/STDOUT, leaving the container process running securely in the background.
+**Q:** Under the hood, what Linux kernel mechanisms does `docker run` utilize to achieve container isolation?
+**A:** `docker run` relies on two primary Linux kernel primitives: **Namespaces**, which provide isolation for process trees, networks, user IDs, and mounts (ensuring the container cannot see the host's resources); and **cgroups** (Control Groups), which throttle, limit, and account for the hardware resources (CPU, memory, I/O) the container is allowed to consume.
 
 ## Practice Problems
 
-- **Problem:** Spin up an Nginx web server container in the background, name it `frontend-proxy`, and map port `80` on the host to port `80` inside the container.
-  - _Hint:_ Combine the detach flag, the naming flag, and the port publishing flag.
-  - _Solution:_ `docker run -d --name frontend-proxy -p 80:80 nginx` (This launches the server silently, allowing you to access `localhost:80` from your browser).
-- **Problem:** Launch an interactive, ephemeral Alpine Linux container, execute the `echo "Hello Docker"` command, and ensure the container's filesystem is automatically wiped from the host when the command completes.
-  - _Hint:_ Combine the interactive/TTY flags with the auto-removal flag, the image name, and the override command.
-  - _Solution:_ `docker run -it --rm alpine echo "Hello Docker"` (This provisions the container, prints the string to your terminal, and self-destructs the instance instantly upon completion).
+**Problem:** Spin up an Nginx web server container in the background, name it `frontend-proxy`, and map port `80` on the host to port `80` inside the container.
+**Hint:** Combine the detach flag, the naming flag, and the port publishing flag.
+**Solution:** `docker run -d --name frontend-proxy -p 80:80 nginx` (This launches the server silently, allowing you to access `localhost:80` from your browser).
+**Problem:** Launch an interactive, ephemeral Alpine Linux container, execute the `echo "Hello Docker"` command, and ensure the container's filesystem is automatically wiped from the host when the command completes.
+**Hint:** Combine the interactive/TTY flags with the auto-removal flag, the image name, and the override command.
+**Solution:** `docker run -it --rm alpine echo "Hello Docker"` (This provisions the container, prints the string to your terminal, and self-destructs the instance instantly upon completion).
 
 ## References
 

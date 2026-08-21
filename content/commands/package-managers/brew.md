@@ -153,21 +153,21 @@ Because paths in the Cellar contain explicit version numbers, the binaries aren'
 
 ## Interview Questions
 
-- _Query:_ What is the functional difference between a Homebrew **Formula**, a **Bottle**, and a **Cask**?
-  - _A:_ A **Formula** is the Ruby script that defines how to download, compile, and install a piece of CLI software. A **Bottle** is a pre-compiled binary archive of that Formula, allowing Homebrew to skip local source compilation and install the software instantly. A **Cask** is an extension of Homebrew specifically designed to download and install native macOS graphical GUI applications (like Google Chrome or Slack) directly into the `/Applications` folder.
-- _Query:_ Why does Homebrew intentionally crash and refuse to execute if a user runs it via `sudo brew install <package>`?
-  - _A:_ Homebrew is designed to operate entirely in user-space, managing files inside `/opt/homebrew` (or `/usr/local`) owned by the executing user. Refusing to run as `root` serves as a critical safety boundary, ensuring that poorly written or malicious third-party installation scripts cannot access or corrupt the protected, core macOS operating system directories.
-- _Query:_ A developer runs `brew install myapp`, the terminal says the installation succeeded, but when they type `myapp`, they get a "Command not found" error. What is the most likely architectural cause within Homebrew?
-  - _A:_ Homebrew installs all binaries into isolated, versioned directories within the "Cellar". It then creates symlinks from the Cellar into `/opt/homebrew/bin/`. If the command fails, either the symlinking process failed (which `brew link myapp` can fix), or the user's shell `$PATH` environment variable does not include `/opt/homebrew/bin/`. Running `brew doctor` will explicitly flag both of these issues.
+**Q:** What is the functional difference between a Homebrew **Formula**, a **Bottle**, and a **Cask**?
+**A:** A **Formula** is the Ruby script that defines how to download, compile, and install a piece of CLI software. A **Bottle** is a pre-compiled binary archive of that Formula, allowing Homebrew to skip local source compilation and install the software instantly. A **Cask** is an extension of Homebrew specifically designed to download and install native macOS graphical GUI applications (like Google Chrome or Slack) directly into the `/Applications` folder.
+**Q:** Why does Homebrew intentionally crash and refuse to execute if a user runs it via `sudo brew install <package>`?
+**A:** Homebrew is designed to operate entirely in user-space, managing files inside `/opt/homebrew` (or `/usr/local`) owned by the executing user. Refusing to run as `root` serves as a critical safety boundary, ensuring that poorly written or malicious third-party installation scripts cannot access or corrupt the protected, core macOS operating system directories.
+**Q:** A developer runs `brew install myapp`, the terminal says the installation succeeded, but when they type `myapp`, they get a "Command not found" error. What is the most likely architectural cause within Homebrew?
+**A:** Homebrew installs all binaries into isolated, versioned directories within the "Cellar". It then creates symlinks from the Cellar into `/opt/homebrew/bin/`. If the command fails, either the symlinking process failed (which `brew link myapp` can fix), or the user's shell `$PATH` environment variable does not include `/opt/homebrew/bin/`. Running `brew doctor` will explicitly flag both of these issues.
 
 ## Practice Problems
 
-- _Problem:_ Install the graphical application `docker` (Docker Desktop) bypassing macOS Gatekeeper quarantine restrictions entirely so it launches without prompts.
-  - _Hint:_ Combine the installation command with the cask flag and the quarantine bypass flag.
-  - _Solution:_ `brew install --cask --no-quarantine docker` (This downloads the GUI application, strips the Apple extended attributes, and moves it to Applications).
-- _Problem:_ Audit your Homebrew installation for outdated metadata, upgrade all currently installed software packages, and forcibly delete all old versions and cached downloads to reclaim disk space.
-  - _Hint:_ Chain three distinct Homebrew commands sequentially: update, upgrade, and the aggressive cache sweeping command.
-  - _Solution:_ `brew update && brew upgrade && brew cleanup --prune=all` (This is the definitive maintenance loop for ensuring system health and storage hygiene).
+**Problem:** Install the graphical application `docker` (Docker Desktop) bypassing macOS Gatekeeper quarantine restrictions entirely so it launches without prompts.
+**Hint:** Combine the installation command with the cask flag and the quarantine bypass flag.
+**Solution:** `brew install --cask --no-quarantine docker` (This downloads the GUI application, strips the Apple extended attributes, and moves it to Applications).
+**Problem:** Audit your Homebrew installation for outdated metadata, upgrade all currently installed software packages, and forcibly delete all old versions and cached downloads to reclaim disk space.
+**Hint:** Chain three distinct Homebrew commands sequentially: update, upgrade, and the aggressive cache sweeping command.
+**Solution:** `brew update && brew upgrade && brew cleanup --prune=all` (This is the definitive maintenance loop for ensuring system health and storage hygiene).
 
 ## References
 

@@ -155,23 +155,23 @@ When invoked with purely redirection operators (e.g., `exec 3>file`), Bash manip
 
 ## Interview Questions
 
-- _Query:_ What happens to the Process ID (PID) of a shell script when you execute a command using `exec` versus invoking it directly?
-  - _A:_ When invoked directly, the shell forks a new child process, assigning it a new PID while the parent shell waits. When invoked via `exec`, the shell performs an OS-level `execve` system call that replaces the shell process image in memory entirely with the new binary, keeping the exact same PID.
-- _Query:_ Why is `exec` considered essential for container entrypoint scripts running inside Docker or Kubernetes?
-  - _A:_ Containers assign PID 1 to the entrypoint process. If a bash script runs normally, it absorbs OS kill signals (like SIGTERM) and fails to forward them to the child application, breaking graceful shutdowns. Using `exec` replaces the bash shell with the application binary as PID 1, allowing it to receive termination signals directly from the container runtime.
-- _Query:_ How can `exec` be used to modify file descriptors without replacing the shell process image?
-  - _A:_ When invoked with zero command arguments and only redirection operators (e.g., `exec 3<>output.txt`), `exec` manipulates the process's internal file descriptor table using system calls like `dup2`, allowing scripts to open, duplicate, or close file descriptors for the remainder of the session.
+**Q:** What happens to the Process ID (PID) of a shell script when you execute a command using `exec` versus invoking it directly?
+**A:** When invoked directly, the shell forks a new child process, assigning it a new PID while the parent shell waits. When invoked via `exec`, the shell performs an OS-level `execve` system call that replaces the shell process image in memory entirely with the new binary, keeping the exact same PID.
+**Q:** Why is `exec` considered essential for container entrypoint scripts running inside Docker or Kubernetes?
+**A:** Containers assign PID 1 to the entrypoint process. If a bash script runs normally, it absorbs OS kill signals (like SIGTERM) and fails to forward them to the child application, breaking graceful shutdowns. Using `exec` replaces the bash shell with the application binary as PID 1, allowing it to receive termination signals directly from the container runtime.
+**Q:** How can `exec` be used to modify file descriptors without replacing the shell process image?
+**A:** When invoked with zero command arguments and only redirection operators (e.g., `exec 3<>output.txt`), `exec` manipulates the process's internal file descriptor table using system calls like `dup2`, allowing scripts to open, duplicate, or close file descriptors for the remainder of the session.
 
 ## Practice Problems
 
-- _Problem:_ Write a command that replaces the current shell process entirely with a Python 3 script named `worker.py`.
-  - _Hint:_ Use the process-replacing execution built-in followed by the interpreter and script path.
-  - _Solution:_ `exec python3 worker.py` (This overwrites the shell process image in memory with the Python runtime, keeping the same PID).
-- _Problem:_ Permanently redirect all standard error (`2`) streams to standard output (`1`) for the remainder of the active shell session.
-  - _Hint:_ Use the file descriptor duplication redirection syntax with `exec`.
-  - _Solution:_ `exec 2>&1` (This updates the shell's internal file descriptor table, fusing standard error directly into standard output).
+**Problem:** Write a command that replaces the current shell process entirely with a Python 3 script named `worker.py`.
+**Hint:** Use the process-replacing execution built-in followed by the interpreter and script path.
+**Solution:** `exec python3 worker.py` (This overwrites the shell process image in memory with the Python runtime, keeping the same PID).
+**Problem:** Permanently redirect all standard error (`2`) streams to standard output (`1`) for the remainder of the active shell session.
+**Hint:** Use the file descriptor duplication redirection syntax with `exec`.
+**Solution:** `exec 2>&1` (This updates the shell's internal file descriptor table, fusing standard error directly into standard output).
 
 ## References
 
-- - [GNU Bash Reference Manual - The Exec Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Exec-Builtin)
-- - [Advanced Bash-Scripting Guide - Chapter 20. I/O Redirection](https://tldp.org/LDP/abs/html/io-redirection.html)
+- [GNU Bash Reference Manual - The Exec Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Exec-Builtin)
+- [Advanced Bash-Scripting Guide - Chapter 20. I/O Redirection](https://tldp.org/LDP/abs/html/io-redirection.html)

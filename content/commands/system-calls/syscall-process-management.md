@@ -171,19 +171,19 @@ When a process terminates, it leaves a skeletal data structure in the kernel's p
 
 ## Interview Questions
 
-- _Query:_ A C application invokes `fork()`, resulting in a parent and child process executing simultaneously. Does modifying a global integer variable named `app_state` in the child process alter the value of `app_state` in the parent process?
-  - _A:_ No. While the child inherits a perfect snapshot of the parent's memory space, `fork()` enforces strict isolation using Copy-on-Write (CoW) memory management. The moment the child attempts to modify the `app_state` variable, the kernel physically duplicates that specific RAM page, isolating the change entirely within the child's independent memory boundary.
-- _Query:_ Why is it a fundamental best practice to apply the `O_CLOEXEC` (Close-on-Exec) flag to sensitive file descriptors or network sockets prior to executing `fork` and `execve`?
-  - _A:_ By design, child processes inherit all open file descriptors from their parent during `execve()`. If a web server opens a privileged database socket, and then `fork/execs` an untrusted CGI script, the script natively inherits access to that database socket and can execute malicious queries. Applying `O_CLOEXEC` instructs the Linux kernel to automatically and securely close that specific file descriptor the exact millisecond the new binary execution begins.
-- _Query:_ What is a "zombie" process in Linux, and what specific system call must a developer write into their C application to destroy it?
-  - _A:_ When a child process terminates, it cannot fully disappear; it must leave its exit status code in the kernel's process table so the parent knows whether it succeeded or failed. This skeletal state is a "zombie". It consumes no CPU or RAM, but occupies a PID slot. The developer must invoke the `waitpid()` (or `wait()`) system call in the parent process to actively read the exit code, at which point the kernel "reaps" the zombie and clears the table.
+**Q:** A C application invokes `fork()`, resulting in a parent and child process executing simultaneously. Does modifying a global integer variable named `app_state` in the child process alter the value of `app_state` in the parent process?
+**A:** No. While the child inherits a perfect snapshot of the parent's memory space, `fork()` enforces strict isolation using Copy-on-Write (CoW) memory management. The moment the child attempts to modify the `app_state` variable, the kernel physically duplicates that specific RAM page, isolating the change entirely within the child's independent memory boundary.
+**Q:** Why is it a fundamental best practice to apply the `O_CLOEXEC` (Close-on-Exec) flag to sensitive file descriptors or network sockets prior to executing `fork` and `execve`?
+**A:** By design, child processes inherit all open file descriptors from their parent during `execve()`. If a web server opens a privileged database socket, and then `fork/execs` an untrusted CGI script, the script natively inherits access to that database socket and can execute malicious queries. Applying `O_CLOEXEC` instructs the Linux kernel to automatically and securely close that specific file descriptor the exact millisecond the new binary execution begins.
+**Q:** What is a "zombie" process in Linux, and what specific system call must a developer write into their C application to destroy it?
+**A:** When a child process terminates, it cannot fully disappear; it must leave its exit status code in the kernel's process table so the parent knows whether it succeeded or failed. This skeletal state is a "zombie". It consumes no CPU or RAM, but occupies a PID slot. The developer must invoke the `waitpid()` (or `wait()`) system call in the parent process to actively read the exit code, at which point the kernel "reaps" the zombie and clears the table.
 
 ## Practice Problems
 
-- _Problem:_ Write a concise C logic block that forks a child process. In the child, execute the binary `/bin/echo` with the argument "Hello World". In the parent, block execution entirely until the child finishes, and capture its exit code.
-  - _Hint:_ You must handle the `fork()` return values, construct a null-terminated argument array, and use a blocking `waitpid`.
-  - _Solution:_
-    ```c
+**Problem:** Write a concise C logic block that forks a child process. In the child, execute the binary `/bin/echo` with the argument "Hello World". In the parent, block execution entirely until the child finishes, and capture its exit code.
+**Hint:** You must handle the `fork()` return values, construct a null-terminated argument array, and use a blocking `waitpid`.
+**Solution:**
+`c
     pid_t pid = fork();
     if (pid == 0) {
         char *args[] = {"/bin/echo", "Hello World", NULL};
@@ -193,17 +193,17 @@ When a process terminates, it leaves a skeletal data structure in the kernel's p
         int status;
         waitpid(pid, &status, 0);
     }
-    ```
-- _Problem:_ Implement a non-blocking zombie reaper loop. Assume the kernel just delivered a `SIGCHLD` signal indicating multiple children may have died simultaneously. Extract their exit codes without hanging the parent process.
-  - _Hint:_ Use `waitpid` with a wildcard PID targeting and the specific flag that forces non-blocking behavior.
-  - _Solution:_
-    ```c
+    `
+**Problem:** Implement a non-blocking zombie reaper loop. Assume the kernel just delivered a `SIGCHLD` signal indicating multiple children may have died simultaneously. Extract their exit codes without hanging the parent process.
+**Hint:** Use `waitpid` with a wildcard PID targeting and the specific flag that forces non-blocking behavior.
+**Solution:**
+`c
     int status;
     // Loop continuously to reap all dead children, returning 0 when none are left
     while (waitpid(-1, &status, WNOHANG) > 0) {
         // Child reaped successfully
     }
-    ```
+    `
 
 ## References
 

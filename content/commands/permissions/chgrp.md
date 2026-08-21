@@ -142,21 +142,21 @@ If the file has the SetUID (`4000`) or SetGID (`2000`) execution bits applied, t
 
 ## Interview Questions
 
-- _Query:_ In a modern Linux environment, what is the functional difference between executing `chgrp staff file.txt` and `chown :staff file.txt`?
-  - _A:_ There is no functional or programmatic difference. Both commands ultimately resolve the string "staff" to a numeric GID and invoke the exact same underlying `chown()` system call in the Linux kernel, leaving the UID as `-1` (unchanged). `chgrp` is a legacy POSIX utility maintained for backwards compatibility and specific unprivileged user workflows.
-- _Query:_ A developer owns a shell script that has the SetGID bit applied (`chmod 2755`). The developer runs `chgrp admins script.sh` to share it. When the admins try to run it, the SetGID behavior fails. Why?
-  - _A:_ As a hardcoded security protection mechanism, the Linux kernel automatically strips away SetUID and SetGID permission bits the instant a file's user or group ownership is modified. This prevents an attacker from creating a malicious SetGID binary and passing it to a high-privilege group. The developer must re-run `chmod g+s script.sh` after the `chgrp` command.
-- _Query:_ You want to change the group ownership of a symbolic link named `latest_log.lnk` to `audit_team`. However, when you run the command, the original log file changes group instead, and the symlink remains unchanged. How do you fix this?
-  - _A:_ By default, `chgrp` dereferences symbolic links, passing the metadata change through the link to the underlying target file. To alter the metadata of the symbolic link itself, you must append the `-h` (no-dereference) flag: `chgrp -h audit_team latest_log.lnk`.
+**Q:** In a modern Linux environment, what is the functional difference between executing `chgrp staff file.txt` and `chown :staff file.txt`?
+**A:** There is no functional or programmatic difference. Both commands ultimately resolve the string "staff" to a numeric GID and invoke the exact same underlying `chown()` system call in the Linux kernel, leaving the UID as `-1` (unchanged). `chgrp` is a legacy POSIX utility maintained for backwards compatibility and specific unprivileged user workflows.
+**Q:** A developer owns a shell script that has the SetGID bit applied (`chmod 2755`). The developer runs `chgrp admins script.sh` to share it. When the admins try to run it, the SetGID behavior fails. Why?
+**A:** As a hardcoded security protection mechanism, the Linux kernel automatically strips away SetUID and SetGID permission bits the instant a file's user or group ownership is modified. This prevents an attacker from creating a malicious SetGID binary and passing it to a high-privilege group. The developer must re-run `chmod g+s script.sh` after the `chgrp` command.
+**Q:** You want to change the group ownership of a symbolic link named `latest_log.lnk` to `audit_team`. However, when you run the command, the original log file changes group instead, and the symlink remains unchanged. How do you fix this?
+**A:** By default, `chgrp` dereferences symbolic links, passing the metadata change through the link to the underlying target file. To alter the metadata of the symbolic link itself, you must append the `-h` (no-dereference) flag: `chgrp -h audit_team latest_log.lnk`.
 
 ## Practice Problems
 
-- _Problem:_ Recursively change the group ownership of the `/opt/app_data/` directory and all its contents to the group `finance`, printing a message only for the files that actually required a modification.
-  - _Hint:_ Combine the recursive flag, the changes-only logging flag, and the target group.
-  - _Solution:_ `chgrp -R -c finance /opt/app_data/` (This updates the tree efficiently while minimizing terminal log spam).
-- _Problem:_ Change the group ownership of `report.csv` so that it matches exactly whatever group currently owns the file `template.csv`, without explicitly typing the group name.
-  - _Hint:_ Utilize the reference file flag to clone ownership state.
-  - _Solution:_ `chgrp --reference=template.csv report.csv` (This queries the template's inode and perfectly replicates its group ID onto the report file).
+**Problem:** Recursively change the group ownership of the `/opt/app_data/` directory and all its contents to the group `finance`, printing a message only for the files that actually required a modification.
+**Hint:** Combine the recursive flag, the changes-only logging flag, and the target group.
+**Solution:** `chgrp -R -c finance /opt/app_data/` (This updates the tree efficiently while minimizing terminal log spam).
+**Problem:** Change the group ownership of `report.csv` so that it matches exactly whatever group currently owns the file `template.csv`, without explicitly typing the group name.
+**Hint:** Utilize the reference file flag to clone ownership state.
+**Solution:** `chgrp --reference=template.csv report.csv` (This queries the template's inode and perfectly replicates its group ID onto the report file).
 
 ## References
 

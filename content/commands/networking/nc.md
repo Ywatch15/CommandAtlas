@@ -179,21 +179,21 @@ Once the socket connection is established in either mode, `nc` utilizes asynchro
 
 ## Interview Questions
 
-- _Query:_ In modern network security, why do most default Linux distributions use the OpenBSD variant of netcat instead of the traditional GNU netcat?
-  - _A:_ The traditional GNU netcat includes the highly controversial `-e` (execute) flag, which allows operators to map a network socket directly to an executable binary, such as `/bin/sh`. This provides a trivial, one-line method for attackers to establish a remote backdoor or reverse shell. The OpenBSD variant deliberately removes this feature to mitigate the security risk.
-- _Query:_ You use `nc -v 10.0.0.5 443` to test a connection to an internal web server, and it reports "Connection refused". Does this mean a firewall is blocking your traffic?
-  - _A:_ No. "Connection refused" indicates that the packet successfully traversed the network and reached the destination server, but the server's OS actively rejected it with a TCP RST (Reset) packet because no application daemon was actively listening on port 443. If a firewall were blocking the traffic, it would typically silently drop the packet, resulting in a timeout.
-- _Query:_ Explain how `nc` facilitates the transfer of an entire directory across a network without requiring an FTP or SSH server.
-  - _A:_ `nc` handles raw byte streams. By combining it with `tar`, you can package a directory into a serialized data stream. The sender uses `tar -cf - ./dir | nc <ip> <port>` to stream the archive across the socket. The receiver sets up a listener using `nc -l <port> | tar -xf -`, which accepts the raw bytes and pipes them directly into `tar` to reconstruct the directory on the local disk.
+**Q:** In modern network security, why do most default Linux distributions use the OpenBSD variant of netcat instead of the traditional GNU netcat?
+**A:** The traditional GNU netcat includes the highly controversial `-e` (execute) flag, which allows operators to map a network socket directly to an executable binary, such as `/bin/sh`. This provides a trivial, one-line method for attackers to establish a remote backdoor or reverse shell. The OpenBSD variant deliberately removes this feature to mitigate the security risk.
+**Q:** You use `nc -v 10.0.0.5 443` to test a connection to an internal web server, and it reports "Connection refused". Does this mean a firewall is blocking your traffic?
+**A:** No. "Connection refused" indicates that the packet successfully traversed the network and reached the destination server, but the server's OS actively rejected it with a TCP RST (Reset) packet because no application daemon was actively listening on port 443. If a firewall were blocking the traffic, it would typically silently drop the packet, resulting in a timeout.
+**Q:** Explain how `nc` facilitates the transfer of an entire directory across a network without requiring an FTP or SSH server.
+**A:** `nc` handles raw byte streams. By combining it with `tar`, you can package a directory into a serialized data stream. The sender uses `tar -cf - ./dir | nc <ip> <port>` to stream the archive across the socket. The receiver sets up a listener using `nc -l <port> | tar -xf -`, which accepts the raw bytes and pipes them directly into `tar` to reconstruct the directory on the local disk.
 
 ## Practice Problems
 
-- _Problem:_ Scan a remote server at `192.168.1.50` to determine if standard web ports (80 and 443) are open, without performing DNS resolution, outputting the results verbosely.
-  - _Hint:_ Combine the zero-I/O scan mode, verbosity, bypass DNS, and pass the specific ports.
-  - _Solution:_ `nc -vzn 192.168.1.50 80 443` (This rapidly attempts TCP handshakes on the specified ports and prints success or failure).
-- _Problem:_ Establish a temporary listener on your local machine on port `9090` that serves the contents of the file `payload.json` to the very first client that connects.
-  - _Hint:_ Instruct netcat to listen on the port, and use standard input redirection to feed the file contents into the socket.
-  - _Solution:_ `nc -l 9090 < payload.json` (The netcat server accepts the incoming connection, dumps the file payload across the network, and then terminates).
+**Problem:** Scan a remote server at `192.168.1.50` to determine if standard web ports (80 and 443) are open, without performing DNS resolution, outputting the results verbosely.
+**Hint:** Combine the zero-I/O scan mode, verbosity, bypass DNS, and pass the specific ports.
+**Solution:** `nc -vzn 192.168.1.50 80 443` (This rapidly attempts TCP handshakes on the specified ports and prints success or failure).
+**Problem:** Establish a temporary listener on your local machine on port `9090` that serves the contents of the file `payload.json` to the very first client that connects.
+**Hint:** Instruct netcat to listen on the port, and use standard input redirection to feed the file contents into the socket.
+**Solution:** `nc -l 9090 < payload.json` (The netcat server accepts the incoming connection, dumps the file payload across the network, and then terminates).
 
 ## References
 

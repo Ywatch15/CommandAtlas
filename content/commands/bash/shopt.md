@@ -155,21 +155,21 @@ For instance, when `globstar` is set, the shell's filename expansion (globbing) 
 
 ## Interview Questions
 
-- **Q:** Why does Bash maintain two separate built-in commands (`set` and `shopt`) for configuring shell options?
-  - **A:** `set` is designed to manage standard POSIX-compliant shell attributes and positional parameters, ensuring high portability across diverse Unix shells. `shopt` was introduced specifically to manage extended, non-POSIX, Bash-exclusive runtime behaviors (like recursive globbing and spelling correction) without violating strict POSIX parsing standards.
-- **Q:** What is the specific function of `shopt -s globstar`, and how does it change wildcard expansion in Bash?
-  - **A:** `shopt -s globstar` enables recursive wildcard matching in Bash. When enabled, the double-asterisk (`**`) token matches files and zero or more directories and subdirectories recursively across all depth levels, whereas standard globbing requires external tools like `find`.
-- **Q:** How does `shopt -q` differ in its output behavior compared to running `shopt` with zero arguments?
-  - **A:** Running `shopt` with zero arguments prints a comprehensive list of all supported shell options and their current status to standard output. `shopt -q` (quiet mode) suppresses all text output entirely, returning an exit status of `0` if the queried option is enabled or `1` if it is disabled, making it ideal for script conditionals.
+**Q:** Why does Bash maintain two separate built-in commands (`set` and `shopt`) for configuring shell options?
+**A:** `set` is designed to manage standard POSIX-compliant shell attributes and positional parameters, ensuring high portability across diverse Unix shells. `shopt` was introduced specifically to manage extended, non-POSIX, Bash-exclusive runtime behaviors (like recursive globbing and spelling correction) without violating strict POSIX parsing standards.
+**Q:** What is the specific function of `shopt -s globstar`, and how does it change wildcard expansion in Bash?
+**A:** `shopt -s globstar` enables recursive wildcard matching in Bash. When enabled, the double-asterisk (`**`) token matches files and zero or more directories and subdirectories recursively across all depth levels, whereas standard globbing requires external tools like `find`.
+**Q:** How does `shopt -q` differ in its output behavior compared to running `shopt` with zero arguments?
+**A:** Running `shopt` with zero arguments prints a comprehensive list of all supported shell options and their current status to standard output. `shopt -q` (quiet mode) suppresses all text output entirely, returning an exit status of `0` if the queried option is enabled or `1` if it is disabled, making it ideal for script conditionals.
 
 ## Practice Problems
 
-- _Problem:_ Enable recursive globbing (`globstar`) in your shell environment, and then use it in a command to list all `.log` files recursively across all subdirectories.
-  - _Hint:_ Set the shopt option first, then execute an `ls` command using the double-asterisk wildcard pattern.
-  - _Solution:_ `shopt -s globstar && ls -l **/*.log` (Enabling globstar allows the `**/*.log` pattern to match log files at any arbitrary subdirectory depth).
-- _Problem:_ Write a silent conditional check using `shopt` that prints "Extglob Active" if extended globbing is enabled, and "Extglob Inactive" otherwise.
-  - _Hint:_ Use the quiet mode flag of `shopt` combined with standard shell conditional operators.
-  - _Solution:_ `shopt -q extglob && echo "Extglob Active" || echo "Extglob Inactive"` (The `-q` flag checks the option status silently and drives the conditional execution flow).
+**Problem:** Enable recursive globbing (`globstar`) in your shell environment, and then use it in a command to list all `.log` files recursively across all subdirectories.
+**Hint:** Set the shopt option first, then execute an `ls` command using the double-asterisk wildcard pattern.
+**Solution:** `shopt -s globstar && ls -l **/*.log` (Enabling globstar allows the `**/*.log` pattern to match log files at any arbitrary subdirectory depth).
+**Problem:** Write a silent conditional check using `shopt` that prints "Extglob Active" if extended globbing is enabled, and "Extglob Inactive" otherwise.
+**Hint:** Use the quiet mode flag of `shopt` combined with standard shell conditional operators.
+**Solution:** `shopt -q extglob && echo "Extglob Active" || echo "Extglob Inactive"` (The `-q` flag checks the option status silently and drives the conditional execution flow).
 
 ## References
 

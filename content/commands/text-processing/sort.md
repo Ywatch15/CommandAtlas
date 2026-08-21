@@ -159,21 +159,21 @@ Finally, `sort` opens file descriptors to all of these temporary files simultane
 
 ## Interview Questions
 
-- _Query:_ An operations engineer is attempting to sort a 50GB uncompressed Apache access log file on a minimal virtual machine equipped with only 2GB of physical RAM. Will the `sort` command fail or crash with an Out-of-Memory exception? Explain the architectural mechanism driving this behavior.
-  - _A:_ The `sort` command will gracefully succeed and will not crash. It utilizes an algorithm known as an External Merge Sort. When it detects that the dataset exceeds the available RAM buffer, it reads chunks of the data, sorts them in memory, and writes these sorted chunks to temporary files on the disk (typically in `/tmp`). After parsing the entire file into temporary chunks, it performs a final multiplexed merge pass, reading line-by-line from the temp files to stream the fully sorted output, consuming minimal RAM.
-- _Query:_ What is the functional and mechanical danger of writing `sort -k 3 data.csv` when attempting to sort a file strictly by the values located only in the third column?
-  - _A:_ By POSIX design, specifying a single integer like `-k 3` instructs the `sort` engine to define the sort key starting at column 3 and extending to the absolute end of the line. If column 3 values are identical, it will silently evaluate columns 4, 5, and beyond to break the tie. To strictly enforce sorting _only_ by column 3 and ignoring all subsequent data, the developer must explicitly define the start and end boundary bounds using `-k 3,3`.
-- _Query:_ Why is executing `sort data.txt > data.txt` guaranteed to result in the permanent deletion and loss of the file's contents, and what is the correct syntax to overwrite the file?
-  - _A:_ The shell evaluates redirection operators (`>`) before it executes the binary command. The shell instantly opens `data.txt` with the `O_TRUNC` flag, truncating the file to 0 bytes. When the `sort` binary finally boots up and attempts to read `data.txt`, the file is already empty. To perform an in-place sort securely without a temporary intermediary file, the developer must use the built-in output flag: `sort -o data.txt data.txt`.
+**Q:** An operations engineer is attempting to sort a 50GB uncompressed Apache access log file on a minimal virtual machine equipped with only 2GB of physical RAM. Will the `sort` command fail or crash with an Out-of-Memory exception? Explain the architectural mechanism driving this behavior.
+**A:** The `sort` command will gracefully succeed and will not crash. It utilizes an algorithm known as an External Merge Sort. When it detects that the dataset exceeds the available RAM buffer, it reads chunks of the data, sorts them in memory, and writes these sorted chunks to temporary files on the disk (typically in `/tmp`). After parsing the entire file into temporary chunks, it performs a final multiplexed merge pass, reading line-by-line from the temp files to stream the fully sorted output, consuming minimal RAM.
+**Q:** What is the functional and mechanical danger of writing `sort -k 3 data.csv` when attempting to sort a file strictly by the values located only in the third column?
+**A:** By POSIX design, specifying a single integer like `-k 3` instructs the `sort` engine to define the sort key starting at column 3 and extending to the absolute end of the line. If column 3 values are identical, it will silently evaluate columns 4, 5, and beyond to break the tie. To strictly enforce sorting _only_ by column 3 and ignoring all subsequent data, the developer must explicitly define the start and end boundary bounds using `-k 3,3`.
+**Q:** Why is executing `sort data.txt > data.txt` guaranteed to result in the permanent deletion and loss of the file's contents, and what is the correct syntax to overwrite the file?
+**A:** The shell evaluates redirection operators (`>`) before it executes the binary command. The shell instantly opens `data.txt` with the `O_TRUNC` flag, truncating the file to 0 bytes. When the `sort` binary finally boots up and attempts to read `data.txt`, the file is already empty. To perform an in-place sort securely without a temporary intermediary file, the developer must use the built-in output flag: `sort -o data.txt data.txt`.
 
 ## Practice Problems
 
-- _Problem:_ Sort the contents of `auth.log` by the 5th column (which contains integer process IDs), evaluating the column mathematically rather than alphabetically. Ensure the highest numerical values appear at the absolute top of the output.
-  - _Hint:_ Combine the specific column target boundary, the numerical evaluation flag, and the reverse ordering flag.
-  - _Solution:_ `sort -k 5,5 -n -r auth.log` (This perfectly bounds the sort and applies the math in descending order).
-- _Problem:_ Process a file named `versions.txt` containing software release tags (e.g., `v1.2.0`, `v1.10.0`). Sort the file so that `1.10.0` correctly appears _after_ `1.2.0`, and automatically discard any duplicate version strings natively within the command.
-  - _Hint:_ Rely on the specialized version-sorting flag and the internal deduplication flag.
-  - _Solution:_ `sort -V -u versions.txt` (The `-V` flag natively understands semantic versioning math, while `-u` eliminates identical lines cleanly).
+**Problem:** Sort the contents of `auth.log` by the 5th column (which contains integer process IDs), evaluating the column mathematically rather than alphabetically. Ensure the highest numerical values appear at the absolute top of the output.
+**Hint:** Combine the specific column target boundary, the numerical evaluation flag, and the reverse ordering flag.
+**Solution:** `sort -k 5,5 -n -r auth.log` (This perfectly bounds the sort and applies the math in descending order).
+**Problem:** Process a file named `versions.txt` containing software release tags (e.g., `v1.2.0`, `v1.10.0`). Sort the file so that `1.10.0` correctly appears _after_ `1.2.0`, and automatically discard any duplicate version strings natively within the command.
+**Hint:** Rely on the specialized version-sorting flag and the internal deduplication flag.
+**Solution:** `sort -V -u versions.txt` (The `-V` flag natively understands semantic versioning math, while `-u` eliminates identical lines cleanly).
 
 ## References
 

@@ -167,23 +167,23 @@ Once the container image is compiled, the deployment controller registers or upd
 
 ## Interview Questions
 
-- **Q:** What is the underlying architectural difference in how Google Cloud Functions 1st Generation versus 2nd Generation execute workloads in the cloud?
-  - **A:** 1st Generation Cloud Functions executed code within an internal, proprietary managed serverless runtime environment. 2nd Generation Cloud Functions are built directly on top of **Google Cloud Run** and Eventarc, wrapping functions in standard OCI container images compiled via Cloud Build and leveraging Cloud Run's advanced autoscaling, concurrency, and traffic management infrastructure.
-- **Q:** Explain the multi-step deployment lifecycle initiated when you run `gcloud functions deploy`.
-  - **A:** The CLI first compresses the local source code into a ZIP archive, respecting `.gcloudignore`, and uploads it to a GCS staging bucket. It then instructs Cloud Build to pull the zip, apply language buildpacks, and compile an immutable container image stored in Artifact Registry. Finally, the deployment controller provisions or updates the serverless runtime endpoint using that container image.
-- **Q:** Why is passing `--allow-unauthenticated` a potential security hazard, and how should production HTTP functions be secured instead?
-  - **A:** `--allow-unauthenticated` strips IAM authorization requirements from the HTTP trigger, allowing any anonymous user on the public internet to invoke the function endpoint. In production, functions should omit this flag, requiring callers to supply valid Google-signed OIDC (OpenID Connect) JWT bearer tokens in the authorization header to verify identity.
+**Q:** What is the underlying architectural difference in how Google Cloud Functions 1st Generation versus 2nd Generation execute workloads in the cloud?
+**A:** 1st Generation Cloud Functions executed code within an internal, proprietary managed serverless runtime environment. 2nd Generation Cloud Functions are built directly on top of **Google Cloud Run** and Eventarc, wrapping functions in standard OCI container images compiled via Cloud Build and leveraging Cloud Run's advanced autoscaling, concurrency, and traffic management infrastructure.
+**Q:** Explain the multi-step deployment lifecycle initiated when you run `gcloud functions deploy`.
+**A:** The CLI first compresses the local source code into a ZIP archive, respecting `.gcloudignore`, and uploads it to a GCS staging bucket. It then instructs Cloud Build to pull the zip, apply language buildpacks, and compile an immutable container image stored in Artifact Registry. Finally, the deployment controller provisions or updates the serverless runtime endpoint using that container image.
+**Q:** Why is passing `--allow-unauthenticated` a potential security hazard, and how should production HTTP functions be secured instead?
+**A:** `--allow-unauthenticated` strips IAM authorization requirements from the HTTP trigger, allowing any anonymous user on the public internet to invoke the function endpoint. In production, functions should omit this flag, requiring callers to supply valid Google-signed OIDC (OpenID Connect) JWT bearer tokens in the authorization header to verify identity.
 
 ## Practice Problems
 
-- _Problem:_ Deploy a 2nd-generation Python 3.11 Cloud Function named `payment-processor` triggered via HTTP, allowing unauthenticated public access in the `us-central1` region.
-  - _Hint:_ Combine the Gen 2 flag, runtime flag, HTTP trigger flag, unauthenticated access flag, and region flag.
-  - _Solution:_ `gcloud functions deploy payment-processor --gen2 --runtime=python311 --trigger-http --allow-unauthenticated --region=us-central1` (This provisions a modern serverless HTTP endpoint accessible publicly).
-- _Problem:_ Deploy a Node.js 20 Cloud Function named `log-analyzer` triggered automatically by object creation events inside a GCS bucket named `system-logs-bucket`.
-  - _Hint:_ Combine the runtime flag with the Cloud Storage bucket trigger flag.
-  - _Solution:_ `gcloud functions deploy log-analyzer --runtime=nodejs20 --trigger-bucket=system-logs-bucket` (This binds the function to listen for storage bucket creation events asynchronously).
+**Problem:** Deploy a 2nd-generation Python 3.11 Cloud Function named `payment-processor` triggered via HTTP, allowing unauthenticated public access in the `us-central1` region.
+**Hint:** Combine the Gen 2 flag, runtime flag, HTTP trigger flag, unauthenticated access flag, and region flag.
+**Solution:** `gcloud functions deploy payment-processor --gen2 --runtime=python311 --trigger-http --allow-unauthenticated --region=us-central1` (This provisions a modern serverless HTTP endpoint accessible publicly).
+**Problem:** Deploy a Node.js 20 Cloud Function named `log-analyzer` triggered automatically by object creation events inside a GCS bucket named `system-logs-bucket`.
+**Hint:** Combine the runtime flag with the Cloud Storage bucket trigger flag.
+**Solution:** `gcloud functions deploy log-analyzer --runtime=nodejs20 --trigger-bucket=system-logs-bucket` (This binds the function to listen for storage bucket creation events asynchronously).
 
 ## References
 
-- - [Google Cloud CLI Documentation - gcloud functions deploy](https://cloud.google.com/sdk/gcloud/reference/functions/deploy)
-- - [Google Cloud Functions Documentation - Creating 2nd Gen Functions](https://cloud.google.com/functions/docs/create-deploy-gcloud)
+- [Google Cloud CLI Documentation - gcloud functions deploy](https://cloud.google.com/sdk/gcloud/reference/functions/deploy)
+- [Google Cloud Functions Documentation - Creating 2nd Gen Functions](https://cloud.google.com/functions/docs/create-deploy-gcloud)

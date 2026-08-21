@@ -184,21 +184,21 @@ If the condition command returns any non-zero value (e.g., `1` for false, `127` 
 
 ## Interview Questions
 
-- _Query:_ A developer writes a script containing `cat data.csv | while read -r line; do TOTAL=$((TOTAL+1)); done; echo "Total: $TOTAL"`. When the script runs, it processes 500 lines perfectly, but the final echo prints "Total: 0". Explain the architectural flaw causing this variable loss and how to correct it.
-  - _A:_ The pipe operator (`|`) natively spawns a separate subshell process for the right side of the command. The `while` loop executes entirely within this isolated memory space. The `$TOTAL` variable is successfully incremented to 500 inside the subshell, but the instant the loop concludes, the subshell is destroyed, taking the variable with it. The `echo` command in the parent shell prints its own uninitialized, empty `$TOTAL` variable. To fix this, bypass the pipeline and redirect the file directly into the loop: `while read -r line; do ... done < data.csv`.
-- _Query:_ What is the functional execution difference between inserting the `break` command versus the `continue` command inside a `while` loop?
-  - _A:_ The `break` command halts execution instantly and violently tears down the entire looping structure; the script moves on to whatever code exists after the `done` statement. The `continue` command only halts the _current iteration_. It skips any remaining code below it, but instantly jumps back to the top of the loop, evaluates the condition, and begins the next iteration sequence.
-- _Query:_ When using a `while` loop to wait for a specific network port to open (`while ! nc -z localhost 8080; do sleep 1; done`), why is it critical to include the `sleep 1` command rather than letting the loop run freely?
-  - _A:_ Without a `sleep` command, the `while` loop executes a "busy wait" (or spin-wait). It will execute the `nc` binary thousands of times per second. This generates massive I/O interrupts and instantly pins the CPU core to 100% utilization, starving other applications and potentially preventing the very service you are waiting for from receiving the CPU cycles it needs to finish booting.
+**Q:** A developer writes a script containing `cat data.csv | while read -r line; do TOTAL=$((TOTAL+1)); done; echo "Total: $TOTAL"`. When the script runs, it processes 500 lines perfectly, but the final echo prints "Total: 0". Explain the architectural flaw causing this variable loss and how to correct it.
+**A:** The pipe operator (`|`) natively spawns a separate subshell process for the right side of the command. The `while` loop executes entirely within this isolated memory space. The `$TOTAL` variable is successfully incremented to 500 inside the subshell, but the instant the loop concludes, the subshell is destroyed, taking the variable with it. The `echo` command in the parent shell prints its own uninitialized, empty `$TOTAL` variable. To fix this, bypass the pipeline and redirect the file directly into the loop: `while read -r line; do ... done < data.csv`.
+**Q:** What is the functional execution difference between inserting the `break` command versus the `continue` command inside a `while` loop?
+**A:** The `break` command halts execution instantly and violently tears down the entire looping structure; the script moves on to whatever code exists after the `done` statement. The `continue` command only halts the _current iteration_. It skips any remaining code below it, but instantly jumps back to the top of the loop, evaluates the condition, and begins the next iteration sequence.
+**Q:** When using a `while` loop to wait for a specific network port to open (`while ! nc -z localhost 8080; do sleep 1; done`), why is it critical to include the `sleep 1` command rather than letting the loop run freely?
+**A:** Without a `sleep` command, the `while` loop executes a "busy wait" (or spin-wait). It will execute the `nc` binary thousands of times per second. This generates massive I/O interrupts and instantly pins the CPU core to 100% utilization, starving other applications and potentially preventing the very service you are waiting for from receiving the CPU cycles it needs to finish booting.
 
 ## Practice Problems
 
-- _Problem:_ Create a blocking loop that continually checks if a file named `lock.tmp` exists. As long as it exists, the script should sleep for 2 seconds. The moment it disappears, the loop should exit cleanly.
-  - _Hint:_ Use the file-exists evaluation command as the loop condition, and implement the sleep block.
-  - _Solution:_ `while [[ -f "lock.tmp" ]]; do sleep 2; done` (This safely suspends execution while waiting for an external process to release the file lock).
-- _Problem:_ Safely read a file named `inventory.txt` line by line, preserving all spacing and backslashes. Inside the loop, if the line contains the exact string `SKIP`, jump immediately to the next line without evaluating any further code in the loop.
-  - _Hint:_ Apply the strict file-reading idiom, a regex or glob match evaluation, and the internal loop interruption operator.
-  - _Solution:_ `while IFS= read -r line; do [[ "$line" == *"SKIP"* ]] && continue; echo "Processed: $line"; done < inventory.txt` (This flawlessly parses data and utilizes control-flow operators to filter anomalies cleanly).
+**Problem:** Create a blocking loop that continually checks if a file named `lock.tmp` exists. As long as it exists, the script should sleep for 2 seconds. The moment it disappears, the loop should exit cleanly.
+**Hint:** Use the file-exists evaluation command as the loop condition, and implement the sleep block.
+**Solution:** `while [[ -f "lock.tmp" ]]; do sleep 2; done` (This safely suspends execution while waiting for an external process to release the file lock).
+**Problem:** Safely read a file named `inventory.txt` line by line, preserving all spacing and backslashes. Inside the loop, if the line contains the exact string `SKIP`, jump immediately to the next line without evaluating any further code in the loop.
+**Hint:** Apply the strict file-reading idiom, a regex or glob match evaluation, and the internal loop interruption operator.
+**Solution:** `while IFS= read -r line; do [[ "$line" == *"SKIP"* ]] && continue; echo "Processed: $line"; done < inventory.txt` (This flawlessly parses data and utilizes control-flow operators to filter anomalies cleanly).
 
 ## References
 

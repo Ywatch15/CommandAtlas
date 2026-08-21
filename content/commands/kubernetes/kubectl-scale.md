@@ -162,21 +162,21 @@ If the `--current-replicas` precondition is specified, `kubectl` fetches the sca
 
 ## Interview Questions
 
-- **Q:** You execute `kubectl scale deployment/api --replicas=5`, but 30 seconds later, `kubectl get pods` shows the replica count has dropped back down to 2. What Kubernetes mechanism is causing this behavior?
-  - **A:** The deployment is being actively managed by a `HorizontalPodAutoscaler` (HPA). The HPA constantly monitors CPU or custom metrics and adjusts the replica count to match its configured targets. When you manually scaled to 5, the HPA detected that the metric utilization did not justify 5 replicas, and algorithmically scaled the deployment back down to 2.
-- **Q:** What is the technical advantage of Kubernetes exposing a dedicated `/scale` API subresource for Deployments rather than forcing clients to `PATCH` the entire deployment object?
-  - **A:** The `/scale` subresource provides a standardized, abstracted interface solely focused on replica counts. This allows Role-Based Access Control (RBAC) to grant a user or service account permission to scale an application without granting them permission to modify the entire Deployment spec (which would allow them to maliciously change container images or mount privileged volumes).
-- **Q:** How does scaling a StatefulSet differ behaviorally from scaling a standard Deployment?
-  - **A:** A Deployment controller creates or deletes pods in parallel, randomly terminating any available pod when scaling down. A StatefulSet strictly enforces ordinal sequencing. If you scale a StatefulSet from 3 to 5, it creates Pod-3, waits for it to become ready, and then creates Pod-4. When scaling down, it strictly terminates the highest index pod first.
+**Q:** You execute `kubectl scale deployment/api --replicas=5`, but 30 seconds later, `kubectl get pods` shows the replica count has dropped back down to 2. What Kubernetes mechanism is causing this behavior?
+**A:** The deployment is being actively managed by a `HorizontalPodAutoscaler` (HPA). The HPA constantly monitors CPU or custom metrics and adjusts the replica count to match its configured targets. When you manually scaled to 5, the HPA detected that the metric utilization did not justify 5 replicas, and algorithmically scaled the deployment back down to 2.
+**Q:** What is the technical advantage of Kubernetes exposing a dedicated `/scale` API subresource for Deployments rather than forcing clients to `PATCH` the entire deployment object?
+**A:** The `/scale` subresource provides a standardized, abstracted interface solely focused on replica counts. This allows Role-Based Access Control (RBAC) to grant a user or service account permission to scale an application without granting them permission to modify the entire Deployment spec (which would allow them to maliciously change container images or mount privileged volumes).
+**Q:** How does scaling a StatefulSet differ behaviorally from scaling a standard Deployment?
+**A:** A Deployment controller creates or deletes pods in parallel, randomly terminating any available pod when scaling down. A StatefulSet strictly enforces ordinal sequencing. If you scale a StatefulSet from 3 to 5, it creates Pod-3, waits for it to become ready, and then creates Pod-4. When scaling down, it strictly terminates the highest index pod first.
 
 ## Practice Problems
 
-- _Problem:_ Increase the capacity of a deployment named `payment-worker` in the `finance` namespace to exactly 15 replicas.
-  - _Hint:_ Target the specific deployment and utilize the explicit replica count flag.
-  - _Solution:_ `kubectl scale deployment/payment-worker --replicas=15 -n finance` (This imperatively commands the controller to achieve the desired instance count).
-- _Problem:_ Scale a StatefulSet named `database-cluster` down to `0` replicas, but only execute the command if the cluster currently possesses exactly `3` replicas, ensuring safety against race conditions.
-  - _Hint:_ Combine the target resource with the safety precondition flag and the final desired count flag.
-  - _Solution:_ `kubectl scale statefulset/database-cluster --current-replicas=3 --replicas=0` (This evaluates the current state synchronously before executing the shutdown).
+**Problem:** Increase the capacity of a deployment named `payment-worker` in the `finance` namespace to exactly 15 replicas.
+**Hint:** Target the specific deployment and utilize the explicit replica count flag.
+**Solution:** `kubectl scale deployment/payment-worker --replicas=15 -n finance` (This imperatively commands the controller to achieve the desired instance count).
+**Problem:** Scale a StatefulSet named `database-cluster` down to `0` replicas, but only execute the command if the cluster currently possesses exactly `3` replicas, ensuring safety against race conditions.
+**Hint:** Combine the target resource with the safety precondition flag and the final desired count flag.
+**Solution:** `kubectl scale statefulset/database-cluster --current-replicas=3 --replicas=0` (This evaluates the current state synchronously before executing the shutdown).
 
 ## References
 

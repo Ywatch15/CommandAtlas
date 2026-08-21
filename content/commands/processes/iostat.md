@@ -157,21 +157,21 @@ When you run `iostat 2`, the utility takes an initial snapshot of these kernel c
 
 ## Interview Questions
 
-- _Query:_ An alert fires indicating a production database server is sluggish. You log in and run `iostat -c 1`. The `%user` and `%sys` CPU metrics are extremely low, but the `%iowait` column is hovering at 65%. Explain the architectural cause of this state.
-  - _A:_ The `%iowait` metric represents the percentage of time that the CPU was completely idle, but had outstanding, unfulfilled disk I/O requests. The database is requesting data, but the physical storage (SAN or local disk) is too slow to deliver it. The CPU is actively blocked, waiting for hardware interrupts from the storage controller. The bottleneck is the disk, not the CPU capacity.
-- _Query:_ When looking at the extended output of `iostat -x`, why is it a critical mistake to assume that a `%util` of 100% means an NVMe Solid State Drive is completely saturated and cannot accept more traffic?
-  - _A:_ `%util` represents the percentage of time the block device was actively processing at least one I/O request. Legacy spinning hard drives (HDDs) process operations serially; 100% utilization meant saturation. Modern NVMe SSDs possess deep parallel hardware queues. They can process thousands of concurrent operations. An NVMe drive at 100% `%util` simply means it is never idle, but it could still have massive amounts of parallel bandwidth available. Saturation on modern drives is determined by skyrocketing `await` (latency) times, not `%util`.
-- _Query:_ Why does a seasoned systems engineer intentionally ignore the very first block of text output when executing `iostat 2`?
-  - _A:_ Because `iostat` calculates throughput by measuring the delta between kernel counters over time. The very first output lacks a preceding snapshot, so it calculates the delta between the _current_ moment and the _exact moment the system booted_. It represents the historical average since boot time, which is entirely useless for diagnosing a live, real-time latency incident.
+**Q:** An alert fires indicating a production database server is sluggish. You log in and run `iostat -c 1`. The `%user` and `%sys` CPU metrics are extremely low, but the `%iowait` column is hovering at 65%. Explain the architectural cause of this state.
+**A:** The `%iowait` metric represents the percentage of time that the CPU was completely idle, but had outstanding, unfulfilled disk I/O requests. The database is requesting data, but the physical storage (SAN or local disk) is too slow to deliver it. The CPU is actively blocked, waiting for hardware interrupts from the storage controller. The bottleneck is the disk, not the CPU capacity.
+**Q:** When looking at the extended output of `iostat -x`, why is it a critical mistake to assume that a `%util` of 100% means an NVMe Solid State Drive is completely saturated and cannot accept more traffic?
+**A:** `%util` represents the percentage of time the block device was actively processing at least one I/O request. Legacy spinning hard drives (HDDs) process operations serially; 100% utilization meant saturation. Modern NVMe SSDs possess deep parallel hardware queues. They can process thousands of concurrent operations. An NVMe drive at 100% `%util` simply means it is never idle, but it could still have massive amounts of parallel bandwidth available. Saturation on modern drives is determined by skyrocketing `await` (latency) times, not `%util`.
+**Q:** Why does a seasoned systems engineer intentionally ignore the very first block of text output when executing `iostat 2`?
+**A:** Because `iostat` calculates throughput by measuring the delta between kernel counters over time. The very first output lacks a preceding snapshot, so it calculates the delta between the _current_ moment and the _exact moment the system booted_. It represents the historical average since boot time, which is entirely useless for diagnosing a live, real-time latency incident.
 
 ## Practice Problems
 
-- _Problem:_ Generate a continuous, real-time disk performance report every 2 seconds. Ensure the output utilizes Megabytes per second, displays extended wait/latency metrics, and completely discards the initial historical boot-time summary.
-  - _Hint:_ Combine the interval argument with the disk-only, extended, megabyte, and historical-discard flags.
-  - _Solution:_ `iostat -dxym 2` (This is the ultimate live disk troubleshooting execution).
-- _Problem:_ Output an extended statistics report isolated strictly to the physical `sda` drive, running 3 times at 1-second intervals, but suppress any partitions on the drive that experienced absolutely zero disk activity during that window.
-  - _Hint:_ Chain the physical target device flag, zero-suppression flag, and the interval/count integers.
-  - _Solution:_ `iostat -p sda -xz 1 3` (This provides a clean, surgically targeted snapshot of active disk segments).
+**Problem:** Generate a continuous, real-time disk performance report every 2 seconds. Ensure the output utilizes Megabytes per second, displays extended wait/latency metrics, and completely discards the initial historical boot-time summary.
+**Hint:** Combine the interval argument with the disk-only, extended, megabyte, and historical-discard flags.
+**Solution:** `iostat -dxym 2` (This is the ultimate live disk troubleshooting execution).
+**Problem:** Output an extended statistics report isolated strictly to the physical `sda` drive, running 3 times at 1-second intervals, but suppress any partitions on the drive that experienced absolutely zero disk activity during that window.
+**Hint:** Chain the physical target device flag, zero-suppression flag, and the interval/count integers.
+**Solution:** `iostat -p sda -xz 1 3` (This provides a clean, surgically targeted snapshot of active disk segments).
 
 ## References
 

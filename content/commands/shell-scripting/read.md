@@ -162,21 +162,21 @@ When the command encounters a termination character (newline by default, or the 
 
 ## Interview Questions
 
-- _Query:_ What is the critical flaw in executing `cat file.txt | while read -r line; do TOTAL=$((TOTAL+1)); done; echo $TOTAL` to count lines in a file, and how must you rewrite it?
-  - _A:_ The pipe operator (`|`) forces the `while read` loop to execute within a separate subshell environment. The `$TOTAL` variable is incremented inside that subshell, but the moment the loop finishes, the subshell terminates and its memory is wiped. The `echo` command in the parent shell prints nothing (or 0). To fix it, you must use file redirection directly into the loop, avoiding the subshell entirely: `while read -r line; do ... done < file.txt`.
-- _Query:_ Why is omitting the `-r` flag on the `read` command universally considered a bug in modern bash scripting?
-  - _A:_ By default, `read` evaluates backslashes (`\`) as line-continuation or escape characters. If a user inputs a Windows file path (`C:\User\Desktop`), `read` will silently swallow and strip the backslashes, corrupting the input. Applying `-r` enforces "raw" mode, instructing the cmdlet to treat all characters—including backslashes—as literal strings, guaranteeing data integrity.
-- _Query:_ If you have a string `"ERROR 404 Not Found"` and you execute `read status code msg <<< "ERROR 404 Not Found"`, what exact text does the `$msg` variable contain?
-  - _A:_ The `$msg` variable contains the string `Not Found`. `read` splits the input using the default space/tab IFS. It assigns "ERROR" to `$status` and "404" to `$code`. Because there are no more variables defined, it dumps the absolute entire remainder of the un-split string into the final variable, `$msg`.
+**Q:** What is the critical flaw in executing `cat file.txt | while read -r line; do TOTAL=$((TOTAL+1)); done; echo $TOTAL` to count lines in a file, and how must you rewrite it?
+**A:** The pipe operator (`|`) forces the `while read` loop to execute within a separate subshell environment. The `$TOTAL` variable is incremented inside that subshell, but the moment the loop finishes, the subshell terminates and its memory is wiped. The `echo` command in the parent shell prints nothing (or 0). To fix it, you must use file redirection directly into the loop, avoiding the subshell entirely: `while read -r line; do ... done < file.txt`.
+**Q:** Why is omitting the `-r` flag on the `read` command universally considered a bug in modern bash scripting?
+**A:** By default, `read` evaluates backslashes (`\`) as line-continuation or escape characters. If a user inputs a Windows file path (`C:\User\Desktop`), `read` will silently swallow and strip the backslashes, corrupting the input. Applying `-r` enforces "raw" mode, instructing the cmdlet to treat all characters—including backslashes—as literal strings, guaranteeing data integrity.
+**Q:** If you have a string `"ERROR 404 Not Found"` and you execute `read status code msg <<< "ERROR 404 Not Found"`, what exact text does the `$msg` variable contain?
+**A:** The `$msg` variable contains the string `Not Found`. `read` splits the input using the default space/tab IFS. It assigns "ERROR" to `$status` and "404" to `$code`. Because there are no more variables defined, it dumps the absolute entire remainder of the un-split string into the final variable, `$msg`.
 
 ## Practice Problems
 
-- _Problem:_ Prompt the user interactively with the text `Delete cache? [y/N]: ` and capture their response. Limit the prompt so it automatically fails if the user does not type anything within 5 seconds.
-  - _Hint:_ Combine the prompt flag and the timeout flag.
-  - _Solution:_ `read -t 5 -p "Delete cache? [y/N]: " response` (This pauses for 5 seconds and assigns input to the variable, returning a non-zero exit code if it times out).
-- _Problem:_ Parse a single string `admin:x:1000:1000` directly into four discrete variables (`user`, `pass`, `uid`, `gid`), ensuring the delimiter is strictly a colon.
-  - _Hint:_ Override the Internal Field Separator and use a Here-String `<<<` to feed the text.
-  - _Solution:_ `IFS=":" read -r user pass uid gid <<< "admin:x:1000:1000"` (This modifies the separator purely for the duration of the split, assigning the parsed tokens correctly).
+**Problem:** Prompt the user interactively with the text `Delete cache? [y/N]: ` and capture their response. Limit the prompt so it automatically fails if the user does not type anything within 5 seconds.
+**Hint:** Combine the prompt flag and the timeout flag.
+**Solution:** `read -t 5 -p "Delete cache? [y/N]: " response` (This pauses for 5 seconds and assigns input to the variable, returning a non-zero exit code if it times out).
+**Problem:** Parse a single string `admin:x:1000:1000` directly into four discrete variables (`user`, `pass`, `uid`, `gid`), ensuring the delimiter is strictly a colon.
+**Hint:** Override the Internal Field Separator and use a Here-String `<<<` to feed the text.
+**Solution:** `IFS=":" read -r user pass uid gid <<< "admin:x:1000:1000"` (This modifies the separator purely for the duration of the split, assigning the parsed tokens correctly).
 
 ## References
 

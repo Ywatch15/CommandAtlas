@@ -148,21 +148,21 @@ If the keys are rejected, the script packages a highly sophisticated remote comm
 
 ## Interview Questions
 
-- _Query:_ You run `ssh-copy-id -i mykey.pub user@server`. The command succeeds, but when you type `ssh user@server`, it still prompts for a password. What strict security requirement of the remote `sshd` daemon is likely causing this failure, even though the key is in the file?
-  - _A:_ The OpenSSH daemon enforces "Strict Modes" by default. If the remote user's home directory (`/home/user/`), the `.ssh` directory, or the `authorized_keys` file are writable by anyone other than the exact user (e.g., `chmod 777`), the `sshd` daemon will silently ignore the `authorized_keys` file entirely to prevent privilege escalation. The permissions must be `755` or `700` for directories, and `600` for the key file.
-- _Query:_ What is the functional difference between executing `ssh-copy-id user@host` and forcefully overriding the process by running `cat ~/.ssh/id_rsa.pub | ssh user@host "cat >> ~/.ssh/authorized_keys"`?
-  - _A:_ The manual `cat` piping method is crude and dangerous. It blindly appends the key, resulting in duplicates if run multiple times. Crucially, if the `.ssh` directory does not exist, or possesses the wrong permissions, the manual command will fail or result in a silent rejection by the SSH daemon. `ssh-copy-id` intelligently checks for existing duplicate keys, creates missing directories, and mathematically enforces the correct `chmod 700` and `600` permissions required for success.
-- _Query:_ A security policy mandates that administrators cannot use standard shell commands over SSH. How can you still use `ssh-copy-id` to transfer public keys to the remote host?
-  - _A:_ You must utilize the `-s` flag (`ssh-copy-id -s user@host`). This forces the underlying transport mechanism to bypass executing standard shell commands (like `mkdir` and `cat`) over the SSH TTY, and instead utilizes the SFTP (Secure File Transfer Protocol) subsystem to place the payload directly.
+**Q:** You run `ssh-copy-id -i mykey.pub user@server`. The command succeeds, but when you type `ssh user@server`, it still prompts for a password. What strict security requirement of the remote `sshd` daemon is likely causing this failure, even though the key is in the file?
+**A:** The OpenSSH daemon enforces "Strict Modes" by default. If the remote user's home directory (`/home/user/`), the `.ssh` directory, or the `authorized_keys` file are writable by anyone other than the exact user (e.g., `chmod 777`), the `sshd` daemon will silently ignore the `authorized_keys` file entirely to prevent privilege escalation. The permissions must be `755` or `700` for directories, and `600` for the key file.
+**Q:** What is the functional difference between executing `ssh-copy-id user@host` and forcefully overriding the process by running `cat ~/.ssh/id_rsa.pub | ssh user@host "cat >> ~/.ssh/authorized_keys"`?
+**A:** The manual `cat` piping method is crude and dangerous. It blindly appends the key, resulting in duplicates if run multiple times. Crucially, if the `.ssh` directory does not exist, or possesses the wrong permissions, the manual command will fail or result in a silent rejection by the SSH daemon. `ssh-copy-id` intelligently checks for existing duplicate keys, creates missing directories, and mathematically enforces the correct `chmod 700` and `600` permissions required for success.
+**Q:** A security policy mandates that administrators cannot use standard shell commands over SSH. How can you still use `ssh-copy-id` to transfer public keys to the remote host?
+**A:** You must utilize the `-s` flag (`ssh-copy-id -s user@host`). This forces the underlying transport mechanism to bypass executing standard shell commands (like `mkdir` and `cat`) over the SSH TTY, and instead utilizes the SFTP (Secure File Transfer Protocol) subsystem to place the payload directly.
 
 ## Practice Problems
 
-- _Problem:_ Securely install the specific public key located at `~/.ssh/deploy_ed25519.pub` onto a remote server at `10.0.5.50` for the user `appadmin`, listening on custom port `2222`.
-  - _Hint:_ Combine the identity file flag with the custom port flag and the connection string.
-  - _Solution:_ `ssh-copy-id -i ~/.ssh/deploy_ed25519.pub -p 2222 appadmin@10.0.5.50` (This surgically targets the non-standard environment with the explicit key).
-- _Problem:_ You need to script the deployment of an SSH key to a newly booted server, but the command keeps failing because the server prompts "Are you sure you want to continue connecting (yes/no)?". How do you bypass this?
-  - _Hint:_ You must pass raw SSH configuration options to disable strict host key checking natively through the copy utility.
-  - _Solution:_ `ssh-copy-id -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa.pub root@target-server` (This injects the ssh option directly, suppressing the TOFU prompt for automated execution).
+**Problem:** Securely install the specific public key located at `~/.ssh/deploy_ed25519.pub` onto a remote server at `10.0.5.50` for the user `appadmin`, listening on custom port `2222`.
+**Hint:** Combine the identity file flag with the custom port flag and the connection string.
+**Solution:** `ssh-copy-id -i ~/.ssh/deploy_ed25519.pub -p 2222 appadmin@10.0.5.50` (This surgically targets the non-standard environment with the explicit key).
+**Problem:** You need to script the deployment of an SSH key to a newly booted server, but the command keeps failing because the server prompts "Are you sure you want to continue connecting (yes/no)?". How do you bypass this?
+**Hint:** You must pass raw SSH configuration options to disable strict host key checking natively through the copy utility.
+**Solution:** `ssh-copy-id -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa.pub root@target-server` (This injects the ssh option directly, suppressing the TOFU prompt for automated execution).
 
 ## References
 

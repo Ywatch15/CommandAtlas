@@ -163,21 +163,21 @@ When you execute `kubectl rollout undo`, the API server retrieves the historical
 
 ## Interview Questions
 
-- _Query:_ What exact technical mechanism does `kubectl rollout restart deployment/my-app` utilize to force the pods to recreate without actually altering the container image or application configuration?
-  - _A:_ The `restart` command sends a JSON patch to the API server that injects or updates a specific annotation (`kubectl.kubernetes.io/restartedAt: <timestamp>`) inside the Deployment's `.spec.template.metadata`. Because the Pod Template definition changes, the Deployment Controller is forced to create a new ReplicaSet and execute a rolling update, gracefully cycling the pods.
-- _Query:_ Why might `kubectl rollout undo` successfully revert an application's container image, but completely break the application's ability to boot?
-  - _A:_ `kubectl rollout undo` is strictly isolated to the Deployment object. It restores the old container image tag, but it does NOT revert associated ConfigMaps, Secrets, or Database schemas. If the new deployment altered a ConfigMap or dropped a database column, the reverted application code will boot, fail to find the expected legacy configuration or schema, and crash.
-- _Query:_ When using `kubectl rollout pause`, what exactly happens to the current pods, and what happens if you apply a new YAML file while the deployment is paused?
-  - _A:_ Pausing a rollout simply halts the deployment controller from scaling ReplicaSets up or down; existing pods remain as they are. If you apply a new YAML file while paused, the Deployment object will accept and store the new `.spec.template`, but it will _not_ trigger the creation of new pods until you explicitly execute `kubectl rollout resume`.
+**Q:** What exact technical mechanism does `kubectl rollout restart deployment/my-app` utilize to force the pods to recreate without actually altering the container image or application configuration?
+**A:** The `restart` command sends a JSON patch to the API server that injects or updates a specific annotation (`kubectl.kubernetes.io/restartedAt: <timestamp>`) inside the Deployment's `.spec.template.metadata`. Because the Pod Template definition changes, the Deployment Controller is forced to create a new ReplicaSet and execute a rolling update, gracefully cycling the pods.
+**Q:** Why might `kubectl rollout undo` successfully revert an application's container image, but completely break the application's ability to boot?
+**A:** `kubectl rollout undo` is strictly isolated to the Deployment object. It restores the old container image tag, but it does NOT revert associated ConfigMaps, Secrets, or Database schemas. If the new deployment altered a ConfigMap or dropped a database column, the reverted application code will boot, fail to find the expected legacy configuration or schema, and crash.
+**Q:** When using `kubectl rollout pause`, what exactly happens to the current pods, and what happens if you apply a new YAML file while the deployment is paused?
+**A:** Pausing a rollout simply halts the deployment controller from scaling ReplicaSets up or down; existing pods remain as they are. If you apply a new YAML file while paused, the Deployment object will accept and store the new `.spec.template`, but it will _not_ trigger the creation of new pods until you explicitly execute `kubectl rollout resume`.
 
 ## Practice Problems
 
-- _Problem:_ Force a graceful rolling restart of a DaemonSet named `node-exporter` operating in the `monitoring` namespace to force it to mount newly generated TLS certificates.
-  - _Hint:_ Target the specific DaemonSet resource type using the restart subcommand and namespace flag.
-  - _Solution:_ `kubectl rollout restart daemonset/node-exporter -n monitoring` (This injects the restart annotation, cycling the daemonset pods on every node safely).
-- _Problem:_ Check the live deployment status of `payment-api` and ensure the command times out and exits with an error code if the deployment fails to complete within 3 minutes.
-  - _Hint:_ Combine the status subcommand with the explicit timeout flag.
-  - _Solution:_ `kubectl rollout status deployment/payment-api --timeout=3m` (This command blocks execution for up to 3 minutes, returning 0 on success or non-zero on timeout).
+**Problem:** Force a graceful rolling restart of a DaemonSet named `node-exporter` operating in the `monitoring` namespace to force it to mount newly generated TLS certificates.
+**Hint:** Target the specific DaemonSet resource type using the restart subcommand and namespace flag.
+**Solution:** `kubectl rollout restart daemonset/node-exporter -n monitoring` (This injects the restart annotation, cycling the daemonset pods on every node safely).
+**Problem:** Check the live deployment status of `payment-api` and ensure the command times out and exits with an error code if the deployment fails to complete within 3 minutes.
+**Hint:** Combine the status subcommand with the explicit timeout flag.
+**Solution:** `kubectl rollout status deployment/payment-api --timeout=3m` (This command blocks execution for up to 3 minutes, returning 0 on success or non-zero on timeout).
 
 ## References
 

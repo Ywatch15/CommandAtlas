@@ -157,21 +157,21 @@ When you execute `modinfo <module>`, the utility leverages the `libkmod` library
 
 ## Interview Questions
 
-- _Query:_ What specific ELF section of a `.ko` file does `modinfo` parse to extract its information, and how is this data populated during development?
-  - _A:_ `modinfo` parses the `.modinfo` ELF section. This section is populated at compile-time when the kernel driver developer utilizes specific C macros—such as `MODULE_AUTHOR()`, `MODULE_LICENSE()`, and `module_param()`—in their source code, which the compiler translates into null-terminated strings packed into the binary.
-- _Query:_ If you want to view the customizable runtime parameters a kernel module accepts _before_ you load it, which command do you use? If you want to see the _actual values_ a module is currently running with, where do you look?
-  - _A:_ To view the accepted parameters and their descriptions before loading, use `modinfo -p <module_name>`. To see the active, live values the module is currently operating with, you must read the virtual files located in `/sys/module/<module_name>/parameters/`.
-- _Query:_ What is the functional purpose of the `alias` strings revealed when executing `modinfo -F alias <module>`?
-  - _A:_ `alias` strings are internal mapping identifiers containing PCI, USB, or ACPI vendor and product IDs. When the Linux kernel detects new physical hardware plugged into the motherboard, the `udev` system reads these aliases to automatically determine exactly which driver (`.ko` file) it needs to `modprobe` to operate the device.
+**Q:** What specific ELF section of a `.ko` file does `modinfo` parse to extract its information, and how is this data populated during development?
+**A:** `modinfo` parses the `.modinfo` ELF section. This section is populated at compile-time when the kernel driver developer utilizes specific C macros—such as `MODULE_AUTHOR()`, `MODULE_LICENSE()`, and `module_param()`—in their source code, which the compiler translates into null-terminated strings packed into the binary.
+**Q:** If you want to view the customizable runtime parameters a kernel module accepts _before_ you load it, which command do you use? If you want to see the _actual values_ a module is currently running with, where do you look?
+**A:** To view the accepted parameters and their descriptions before loading, use `modinfo -p <module_name>`. To see the active, live values the module is currently operating with, you must read the virtual files located in `/sys/module/<module_name>/parameters/`.
+**Q:** What is the functional purpose of the `alias` strings revealed when executing `modinfo -F alias <module>`?
+**A:** `alias` strings are internal mapping identifiers containing PCI, USB, or ACPI vendor and product IDs. When the Linux kernel detects new physical hardware plugged into the motherboard, the `udev` system reads these aliases to automatically determine exactly which driver (`.ko` file) it needs to `modprobe` to operate the device.
 
 ## Practice Problems
 
-- _Problem:_ Query the exact absolute filesystem path of the `btrfs` kernel module without loading it, ensuring that only the path string is returned.
-  - _Hint:_ Combine the metadata query tool with the specific filename formatting flag.
-  - _Solution:_ `modinfo -n btrfs` (This parses the module index and returns strictly the `/lib/modules/.../btrfs.ko` path).
-- _Problem:_ Inspect the customizable parameters accepted by a locally compiled driver located at `./test_driver.ko`, stripping away all other author and license metadata.
-  - _Hint:_ Run the command against the raw file path, paired with the parameter-only isolation flag.
-  - _Solution:_ `modinfo -p ./test_driver.ko` (This reads the raw ELF object locally and outputs only the parameter strings and descriptions).
+**Problem:** Query the exact absolute filesystem path of the `btrfs` kernel module without loading it, ensuring that only the path string is returned.
+**Hint:** Combine the metadata query tool with the specific filename formatting flag.
+**Solution:** `modinfo -n btrfs` (This parses the module index and returns strictly the `/lib/modules/.../btrfs.ko` path).
+**Problem:** Inspect the customizable parameters accepted by a locally compiled driver located at `./test_driver.ko`, stripping away all other author and license metadata.
+**Hint:** Run the command against the raw file path, paired with the parameter-only isolation flag.
+**Solution:** `modinfo -p ./test_driver.ko` (This reads the raw ELF object locally and outputs only the parameter strings and descriptions).
 
 ## References
 

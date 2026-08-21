@@ -162,21 +162,21 @@ The API Server receives the patch, validates the annotation keys (ensuring they 
 
 ## Interview Questions
 
-- **Q:** What is the technical distinction between a Kubernetes Label and an Annotation, and when must you use one over the other?
-  - **A:** Labels are used for identifying and organizing resources; they are indexed by the API server and used by selectors (like Services selecting Pods). Annotations are used for attaching arbitrary, non-identifying metadata (like JSON configs or tool audit trails). You cannot query or select resources using annotations.
-- **Q:** How do you completely remove an existing annotation from a Kubernetes resource using `kubectl annotate`?
-  - **A:** You append a minus sign (`-`) immediately to the end of the annotation key without providing a value. For example: `kubectl annotate pod my-pod example.com/config-`.
-- **Q:** Explain the purpose of the `--resource-version` flag when updating annotations on highly active resources.
-  - **A:** It enforces Optimistic Concurrency Control. It guarantees that the resource has not been updated by another controller or user between the time you checked its state and the time your `PATCH` request reaches the API server, preventing accidental overwrites of intermediate state changes.
+**Q:** What is the technical distinction between a Kubernetes Label and an Annotation, and when must you use one over the other?
+**A:** Labels are used for identifying and organizing resources; they are indexed by the API server and used by selectors (like Services selecting Pods). Annotations are used for attaching arbitrary, non-identifying metadata (like JSON configs or tool audit trails). You cannot query or select resources using annotations.
+**Q:** How do you completely remove an existing annotation from a Kubernetes resource using `kubectl annotate`?
+**A:** You append a minus sign (`-`) immediately to the end of the annotation key without providing a value. For example: `kubectl annotate pod my-pod example.com/config-`.
+**Q:** Explain the purpose of the `--resource-version` flag when updating annotations on highly active resources.
+**A:** It enforces Optimistic Concurrency Control. It guarantees that the resource has not been updated by another controller or user between the time you checked its state and the time your `PATCH` request reaches the API server, preventing accidental overwrites of intermediate state changes.
 
 ## Practice Problems
 
-- _Problem:_ Attach an annotation with the key `deployment.kubernetes.io/revision` and the value `3` to a deployment named `auth-api`, overwriting the value if it already exists.
-  - _Hint:_ Combine the deployment target with the explicit overwrite flag.
-  - _Solution:_ `kubectl annotate deployment auth-api deployment.kubernetes.io/revision="3" --overwrite`
-- _Problem:_ Remove the annotation named `nginx.ingress.kubernetes.io/ssl-redirect` entirely from an ingress resource named `public-gateway` in the `web` namespace.
-  - _Hint:_ Target the namespace and use the removal syntax by appending a minus sign to the key.
-  - _Solution:_ `kubectl annotate ingress public-gateway nginx.ingress.kubernetes.io/ssl-redirect- -n web`
+**Problem:** Attach an annotation with the key `deployment.kubernetes.io/revision` and the value `3` to a deployment named `auth-api`, overwriting the value if it already exists.
+**Hint:** Combine the deployment target with the explicit overwrite flag.
+**Solution:** `kubectl annotate deployment auth-api deployment.kubernetes.io/revision="3" --overwrite`
+**Problem:** Remove the annotation named `nginx.ingress.kubernetes.io/ssl-redirect` entirely from an ingress resource named `public-gateway` in the `web` namespace.
+**Hint:** Target the namespace and use the removal syntax by appending a minus sign to the key.
+**Solution:** `kubectl annotate ingress public-gateway nginx.ingress.kubernetes.io/ssl-redirect- -n web`
 
 ## References
 

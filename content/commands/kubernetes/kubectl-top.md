@@ -165,21 +165,21 @@ When you execute `kubectl top`, the CLI makes an HTTP `GET` request to this `met
 
 ## Interview Questions
 
-- _Query:_ You run `kubectl top pod` on a newly spun up Kubernetes cluster and receive an error stating that the Metrics API is unavailable. What core architectural component is missing, and why is it not there by default?
-  - _A:_ The cluster is missing the **Metrics Server** addon. Kubernetes core architecture separates cluster state management (etcd/API server) from ephemeral performance telemetry. The core API server does not process or store cAdvisor metrics natively. An extension API server (the Metrics Server) must be deployed separately to scrape the Kubelets and expose the `metrics.k8s.io` endpoint that `kubectl top` relies upon.
-- _Query:_ When you execute `kubectl top pod <name>`, where exactly does the data originate from on the worker node?
-  - _A:_ The data originates from the Linux Kernel's `cgroups` (control groups) accounting mechanism. The `cAdvisor` agent embedded directly inside the worker node's `Kubelet` reads these low-level kernel metrics, which are then scraped over the network by the centralized Metrics Server deployment to serve the CLI request.
-- _Query:_ A pod manifests displays `150m` in the CPU column of the `kubectl top` output. Translate what this metric physically represents regarding hardware consumption.
-  - _A:_ The `m` denotes "millicores". One entire physical or virtual CPU core equals `1000m`. Therefore, `150m` indicates that the pod is currently consuming the equivalent of 15% of the compute cycle time of a single processing core.
+**Q:** You run `kubectl top pod` on a newly spun up Kubernetes cluster and receive an error stating that the Metrics API is unavailable. What core architectural component is missing, and why is it not there by default?
+**A:** The cluster is missing the **Metrics Server** addon. Kubernetes core architecture separates cluster state management (etcd/API server) from ephemeral performance telemetry. The core API server does not process or store cAdvisor metrics natively. An extension API server (the Metrics Server) must be deployed separately to scrape the Kubelets and expose the `metrics.k8s.io` endpoint that `kubectl top` relies upon.
+**Q:** When you execute `kubectl top pod <name>`, where exactly does the data originate from on the worker node?
+**A:** The data originates from the Linux Kernel's `cgroups` (control groups) accounting mechanism. The `cAdvisor` agent embedded directly inside the worker node's `Kubelet` reads these low-level kernel metrics, which are then scraped over the network by the centralized Metrics Server deployment to serve the CLI request.
+**Q:** A pod manifests displays `150m` in the CPU column of the `kubectl top` output. Translate what this metric physically represents regarding hardware consumption.
+**A:** The `m` denotes "millicores". One entire physical or virtual CPU core equals `1000m`. Therefore, `150m` indicates that the pod is currently consuming the equivalent of 15% of the compute cycle time of a single processing core.
 
 ## Practice Problems
 
-- _Problem:_ Identify the single pod in the `production` namespace that is currently consuming the highest amount of system memory (RAM).
-  - _Hint:_ Combine the top command for pods with the namespace flag and the specific metric sorting flag.
-  - _Solution:_ `kubectl top pod -n production --sort-by=memory` (The pod at the very top of the output table is the highest memory consumer).
-- _Problem:_ Query the resource metrics for a specific pod named `batch-job-xyz` and display the breakdown of CPU and Memory consumption for each individual container running inside that pod.
-  - _Hint:_ Target the specific pod name and append the explicit containers flag.
-  - _Solution:_ `kubectl top pod batch-job-xyz --containers` (This shifts the output from an aggregate pod total to discrete rows for each internal container).
+**Problem:** Identify the single pod in the `production` namespace that is currently consuming the highest amount of system memory (RAM).
+**Hint:** Combine the top command for pods with the namespace flag and the specific metric sorting flag.
+**Solution:** `kubectl top pod -n production --sort-by=memory` (The pod at the very top of the output table is the highest memory consumer).
+**Problem:** Query the resource metrics for a specific pod named `batch-job-xyz` and display the breakdown of CPU and Memory consumption for each individual container running inside that pod.
+**Hint:** Target the specific pod name and append the explicit containers flag.
+**Solution:** `kubectl top pod batch-job-xyz --containers` (This shifts the output from an aggregate pod total to discrete rows for each internal container).
 
 ## References
 

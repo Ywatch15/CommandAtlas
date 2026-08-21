@@ -158,21 +158,21 @@ When the `-Parallel` flag (introduced in PowerShell 7) is invoked, the architect
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental architectural and performance difference between executing `Get-ChildItem | ForEach-Object { $_.Delete() }` versus `foreach ($file in Get-ChildItem) { $file.Delete() }`?
-  - _A:_ `ForEach-Object` operates via the streaming pipeline. It accepts and processes objects one by one the instant they are discovered by `Get-ChildItem`, resulting in extremely low memory consumption, but introduces context-switching execution overhead. The `foreach` statement loop forces the system to pause, execute `Get-ChildItem` entirely, load the entire array of thousands of file objects into system RAM, and then iterate through them. The statement is faster due to lack of pipeline overhead, but consumes vastly more memory.
-- _Query:_ In modern PowerShell (7+), you attempt to execute a script block in parallel, but you receive an error that the variable `$Threshold` is undefined. `1..10 | ForEach-Object -Parallel { if ($_ -gt $Threshold) { "High" } }`. How do you resolve this?
-  - _A:_ Parallel execution spawns isolated .NET runspaces that cannot natively access variables defined in the caller's execution scope. You must explicitly instruct the engine to marshal the variable into the parallel runspace by prepending the scope modifier `$using:`. The correct syntax is `$_ -gt $using:Threshold`.
-- _Query:_ What exact function does the `$_` (or `$PSItem`) variable serve inside a `ForEach-Object` script block, and how is it populated?
-  - _A:_ `$_` is an automatic, reserved pipeline variable. As objects flow down the pipeline, the PowerShell engine intercepts them one at a time and binds a direct reference of the current object to the `$_` variable. This allows the internal `-Process` script block to interact dynamically with the properties and methods of whatever object is currently undergoing iteration.
+**Q:** What is the fundamental architectural and performance difference between executing `Get-ChildItem | ForEach-Object { $_.Delete() }` versus `foreach ($file in Get-ChildItem) { $file.Delete() }`?
+**A:** `ForEach-Object` operates via the streaming pipeline. It accepts and processes objects one by one the instant they are discovered by `Get-ChildItem`, resulting in extremely low memory consumption, but introduces context-switching execution overhead. The `foreach` statement loop forces the system to pause, execute `Get-ChildItem` entirely, load the entire array of thousands of file objects into system RAM, and then iterate through them. The statement is faster due to lack of pipeline overhead, but consumes vastly more memory.
+**Q:** In modern PowerShell (7+), you attempt to execute a script block in parallel, but you receive an error that the variable `$Threshold` is undefined. `1..10 | ForEach-Object -Parallel { if ($_ -gt $Threshold) { "High" } }`. How do you resolve this?
+**A:** Parallel execution spawns isolated .NET runspaces that cannot natively access variables defined in the caller's execution scope. You must explicitly instruct the engine to marshal the variable into the parallel runspace by prepending the scope modifier `$using:`. The correct syntax is `$_ -gt $using:Threshold`.
+**Q:** What exact function does the `$_` (or `$PSItem`) variable serve inside a `ForEach-Object` script block, and how is it populated?
+**A:** `$_` is an automatic, reserved pipeline variable. As objects flow down the pipeline, the PowerShell engine intercepts them one at a time and binds a direct reference of the current object to the `$_` variable. This allows the internal `-Process` script block to interact dynamically with the properties and methods of whatever object is currently undergoing iteration.
 
 ## Practice Problems
 
-- _Problem:_ Generate a sequence of numbers from 1 to 5, pipe them into an iteration block, and multiply each number by 10, outputting the results.
-  - _Hint:_ Utilize the range operator piped into the standard processing block, applying math to the pipeline variable.
-  - _Solution:_ `1..5 | ForEach-Object { $_ * 10 }` (This streams the integers and applies the mutation operation dynamically).
-- _Problem:_ Retrieve all stopped services on the machine, and using a highly parallelized operation restricted to 15 concurrent threads, forcefully restart them.
-  - _Hint:_ Combine service retrieval with filtering, pipe to the loop command utilizing the parallel and throttle flags, and invoke the start command.
-  - _Solution:_ `Get-Service | Where-Object Status -eq 'Stopped' | ForEach-Object -Parallel { Start-Service -Name $_.Name } -ThrottleLimit 15` (This provisions asynchronous runspaces to rapidly spin up inactive services without sequential blocking).
+**Problem:** Generate a sequence of numbers from 1 to 5, pipe them into an iteration block, and multiply each number by 10, outputting the results.
+**Hint:** Utilize the range operator piped into the standard processing block, applying math to the pipeline variable.
+**Solution:** `1..5 | ForEach-Object { $_ * 10 }` (This streams the integers and applies the mutation operation dynamically).
+**Problem:** Retrieve all stopped services on the machine, and using a highly parallelized operation restricted to 15 concurrent threads, forcefully restart them.
+**Hint:** Combine service retrieval with filtering, pipe to the loop command utilizing the parallel and throttle flags, and invoke the start command.
+**Solution:** `Get-Service | Where-Object Status -eq 'Stopped' | ForEach-Object -Parallel { Start-Service -Name $_.Name } -ThrottleLimit 15` (This provisions asynchronous runspaces to rapidly spin up inactive services without sequential blocking).
 
 ## References
 

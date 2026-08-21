@@ -142,21 +142,21 @@ This creates the hallmark asymmetry of `xz`. Squeezing the data (Compression) re
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental, mathematical "asymmetry" of the LZMA2 algorithm used by `xz`, and why makes it the definitive choice for distributing Linux kernel source code globally?
-  - _A:_ LZMA2 is highly asymmetric regarding computational overhead. The compression phase is mathematically agonizing; it requires massive RAM and CPU cycles to build complex dictionaries and optimize the binary pointers. However, the decompression phase requires virtually zero CPU overhead and very little RAM. It is perfect for Linux distribution because the maintainers "pay" the heavy CPU cost exactly once during compilation, while millions of end-users decompress the payload instantly on low-powered laptops and Raspberry Pis.
-- _Query:_ A developer executes `xz -9 -T 0 massive_file.txt` on a 32-core server with 8GB of RAM. Three minutes later, the server completely locks up and the `xz` process is violently killed by the operating system. What architectural flaw in the command caused this crash?
-  - _A:_ The developer triggered an Out-Of-Memory (OOM) exhaustion event. The `-9` flag commands `xz` to allocate massive memory buffers (over 600MB per thread) to achieve maximum compression. The `-T 0` flag spawns a dedicated compression thread for every available CPU core (32 threads). 32 threads requiring 600MB each demands roughly 19GB of RAM. Because the server only has 8GB, it rapidly exhausted physical memory, forcing the kernel's OOM killer to assassinate the process to protect the OS.
-- _Query:_ Why is it mathematically pointless (and computationally wasteful) to execute the `xz` command against a file named `database_backup.zip`?
-  - _A:_ A `.zip` file is already heavily compressed. Compression algorithms rely on finding repeated patterns of bytes in the data and replacing them with smaller pointers. Once a file is compressed, its byte structure exhibits extremely high entropy, resembling pure random noise. Running `xz` on high-entropy data gives the LZMA2 engine no repeating patterns to exploit, resulting in 100% CPU utilization for zero storage gains.
+**Q:** What is the fundamental, mathematical "asymmetry" of the LZMA2 algorithm used by `xz`, and why makes it the definitive choice for distributing Linux kernel source code globally?
+**A:** LZMA2 is highly asymmetric regarding computational overhead. The compression phase is mathematically agonizing; it requires massive RAM and CPU cycles to build complex dictionaries and optimize the binary pointers. However, the decompression phase requires virtually zero CPU overhead and very little RAM. It is perfect for Linux distribution because the maintainers "pay" the heavy CPU cost exactly once during compilation, while millions of end-users decompress the payload instantly on low-powered laptops and Raspberry Pis.
+**Q:** A developer executes `xz -9 -T 0 massive_file.txt` on a 32-core server with 8GB of RAM. Three minutes later, the server completely locks up and the `xz` process is violently killed by the operating system. What architectural flaw in the command caused this crash?
+**A:** The developer triggered an Out-Of-Memory (OOM) exhaustion event. The `-9` flag commands `xz` to allocate massive memory buffers (over 600MB per thread) to achieve maximum compression. The `-T 0` flag spawns a dedicated compression thread for every available CPU core (32 threads). 32 threads requiring 600MB each demands roughly 19GB of RAM. Because the server only has 8GB, it rapidly exhausted physical memory, forcing the kernel's OOM killer to assassinate the process to protect the OS.
+**Q:** Why is it mathematically pointless (and computationally wasteful) to execute the `xz` command against a file named `database_backup.zip`?
+**A:** A `.zip` file is already heavily compressed. Compression algorithms rely on finding repeated patterns of bytes in the data and replacing them with smaller pointers. Once a file is compressed, its byte structure exhibits extremely high entropy, resembling pure random noise. Running `xz` on high-entropy data gives the LZMA2 engine no repeating patterns to exploit, resulting in 100% CPU utilization for zero storage gains.
 
 ## Practice Problems
 
-- _Problem:_ Compress a critical text file named `syslog.1`, mathematically enforcing the absolute maximum compression ratio possible. Ensure the command utilizes 4 concurrent CPU threads, and explicitly instruct the utility _not_ to delete the original `syslog.1` file when finished.
-  - _Hint:_ Combine the maximum level integer flag, the thread constraint flag, and the retention flag.
-  - _Solution:_ `xz -9 -T 4 -k syslog.1` (This executes a heavily optimized, non-destructive compression pass).
-- _Problem:_ Without uncompressing the file `archive.tar.xz` to the physical disk, output the internal metadata to the terminal so you can visually verify the exact byte size of the file before it was originally compressed.
-  - _Hint:_ Utilize the specific flag designed to probe and format the archive header statistics.
-  - _Solution:_ `xz -l archive.tar.xz` (This reads the mathematical metadata ledger without executing the expensive decompression engine).
+**Problem:** Compress a critical text file named `syslog.1`, mathematically enforcing the absolute maximum compression ratio possible. Ensure the command utilizes 4 concurrent CPU threads, and explicitly instruct the utility _not_ to delete the original `syslog.1` file when finished.
+**Hint:** Combine the maximum level integer flag, the thread constraint flag, and the retention flag.
+**Solution:** `xz -9 -T 4 -k syslog.1` (This executes a heavily optimized, non-destructive compression pass).
+**Problem:** Without uncompressing the file `archive.tar.xz` to the physical disk, output the internal metadata to the terminal so you can visually verify the exact byte size of the file before it was originally compressed.
+**Hint:** Utilize the specific flag designed to probe and format the archive header statistics.
+**Solution:** `xz -l archive.tar.xz` (This reads the mathematical metadata ledger without executing the expensive decompression engine).
 
 ## References
 

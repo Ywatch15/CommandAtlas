@@ -149,21 +149,21 @@ Because it operates at the layer level, saving multiple images that share a base
 
 ## Interview Questions
 
-- _Query:_ What is the functional difference between `docker save` and `docker export`?
-  - _A:_ `docker save` targets Docker **Images**. It creates a tar archive containing all the distinct read-only filesystem layers, image history, and execution metadata (like ENTRYPOINT and ENV). `docker export` targets running or stopped **Containers**. It flattens the container's current filesystem into a single layer, stripping away all historical layers and Docker image configuration metadata.
-- _Query:_ Why does a Docker image saved via `docker save` often take up significantly more disk space than the network bandwidth it took to `docker pull` it?
-  - _A:_ When Docker pulls images from a registry, the filesystem layers are transmitted in a compressed format (usually gzip). `docker save`, by default, serializes the image layers into a completely uncompressed raw `.tar` archive, resulting in a much larger file footprint on disk.
-- _Query:_ If you run `docker save imageA imageB -o bundle.tar`, and both images are based on the exact same `ubuntu:latest` base layer, is the Ubuntu base layer copied into the tarball twice?
-  - _A:_ No. `docker save` detects the shared layer hashes and optimizes the archive. The common base layer is only written into the bundled tar archive once, minimizing the file size.
+**Q:** What is the functional difference between `docker save` and `docker export`?
+**A:** `docker save` targets Docker **Images**. It creates a tar archive containing all the distinct read-only filesystem layers, image history, and execution metadata (like ENTRYPOINT and ENV). `docker export` targets running or stopped **Containers**. It flattens the container's current filesystem into a single layer, stripping away all historical layers and Docker image configuration metadata.
+**Q:** Why does a Docker image saved via `docker save` often take up significantly more disk space than the network bandwidth it took to `docker pull` it?
+**A:** When Docker pulls images from a registry, the filesystem layers are transmitted in a compressed format (usually gzip). `docker save`, by default, serializes the image layers into a completely uncompressed raw `.tar` archive, resulting in a much larger file footprint on disk.
+**Q:** If you run `docker save imageA imageB -o bundle.tar`, and both images are based on the exact same `ubuntu:latest` base layer, is the Ubuntu base layer copied into the tarball twice?
+**A:** No. `docker save` detects the shared layer hashes and optimizes the archive. The common base layer is only written into the bundled tar archive once, minimizing the file size.
 
 ## Practice Problems
 
-- _Problem:_ Export the locally cached `alpine:latest` image to a tarball file named `alpine-backup.tar`.
-  - _Hint:_ Use the explicit output flag combined with the image name.
-  - _Solution:_ `docker save -o alpine-backup.tar alpine:latest` (This packages the image layers into the specified output file).
-- _Problem:_ Save the `python:3.9` image, but pipe the output directly into `gzip` to compress it, saving the result as `python.tar.gz`.
-  - _Hint:_ Omit the output flag, rely on STDOUT, pipe to the compression utility, and redirect to a file.
-  - _Solution:_ `docker save python:3.9 | gzip > python.tar.gz` (This streams the raw tar payload through the gzip compressor before writing to the local disk).
+**Problem:** Export the locally cached `alpine:latest` image to a tarball file named `alpine-backup.tar`.
+**Hint:** Use the explicit output flag combined with the image name.
+**Solution:** `docker save -o alpine-backup.tar alpine:latest` (This packages the image layers into the specified output file).
+**Problem:** Save the `python:3.9` image, but pipe the output directly into `gzip` to compress it, saving the result as `python.tar.gz`.
+**Hint:** Omit the output flag, rely on STDOUT, pipe to the compression utility, and redirect to a file.
+**Solution:** `docker save python:3.9 | gzip > python.tar.gz` (This streams the raw tar payload through the gzip compressor before writing to the local disk).
 
 ## References
 

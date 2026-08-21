@@ -157,23 +157,23 @@ The background daemon `atd` continuously monitors system load averages by readin
 
 ## Interview Questions
 
-- _Query:_ What is the fundamental mechanism that determines when a job submitted via `batch` begins execution?
-  - _A:_ Unlike standard schedulers that trigger tasks based on absolute clock times, `batch` relies on the `atd` daemon monitoring the system's 1-minute load average via `/proc/loadavg`. Execution is held until the load average drops below the threshold (typically `0.8`).
-- _Query:_ How does `batch` relate structurally to the `at` command utility in Unix-like operating systems?
-  - _A:_ `batch` is architecturally a specialized wrapper or alias for the `at` utility invoked with the `-b` flag, sharing the exact same spool directory infrastructure and background daemon (`atd`).
-- _Query:_ Why is `batch` preferred over immediate execution for resource-intensive tasks on multi-tenant servers?
-  - _A:_ `batch` automatically defers CPU-heavy and I/O-intensive tasks until off-peak idle periods, preventing resource contention, high load averages, and latency degradation for active users.
+**Q:** What is the fundamental mechanism that determines when a job submitted via `batch` begins execution?
+**A:** Unlike standard schedulers that trigger tasks based on absolute clock times, `batch` relies on the `atd` daemon monitoring the system's 1-minute load average via `/proc/loadavg`. Execution is held until the load average drops below the threshold (typically `0.8`).
+**Q:** How does `batch` relate structurally to the `at` command utility in Unix-like operating systems?
+**A:** `batch` is architecturally a specialized wrapper or alias for the `at` utility invoked with the `-b` flag, sharing the exact same spool directory infrastructure and background daemon (`atd`).
+**Q:** Why is `batch` preferred over immediate execution for resource-intensive tasks on multi-tenant servers?
+**A:** `batch` automatically defers CPU-heavy and I/O-intensive tasks until off-peak idle periods, preventing resource contention, high load averages, and latency degradation for active users.
 
 ## Practice Problems
 
-- _Problem:_ Queue a system maintenance script `/opt/maintenance.sh` to run automatically whenever system load permits.
-  - _Hint:_ Use the file input flag combined with the batch scheduling command.
-  - _Solution:_ `batch -f /opt/maintenance.sh` (This queues the maintenance script into the load-managed batch execution queue).
-- _Problem:_ Pipe a database optimization command into the batch queue, suppressing all email notifications.
-  - _Hint:_ Combine the pipe input, batch command, and suppress-email flag.
-  - _Solution:_ `echo "optimize_db" | batch -M` (The `-M` flag ensures no mail is dispatched upon completion).
+**Problem:** Queue a system maintenance script `/opt/maintenance.sh` to run automatically whenever system load permits.
+**Hint:** Use the file input flag combined with the batch scheduling command.
+**Solution:** `batch -f /opt/maintenance.sh` (This queues the maintenance script into the load-managed batch execution queue).
+**Problem:** Pipe a database optimization command into the batch queue, suppressing all email notifications.
+**Hint:** Combine the pipe input, batch command, and suppress-email flag.
+**Solution:** `echo "optimize_db" | batch -M` (The `-M` flag ensures no mail is dispatched upon completion).
 
 ## References
 
-- - [Man Page for batch (Linux)](https://man7.org/linux/man-pages/man1/batch.1.html)
-- - [GNU/Linux At Daemon Documentation](https://www.gnu.org/software/inetutils/)
+- [Man Page for batch (Linux)](https://man7.org/linux/man-pages/man1/batch.1.html)
+- [GNU/Linux At Daemon Documentation](https://www.gnu.org/software/inetutils/)

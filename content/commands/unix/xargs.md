@@ -143,21 +143,21 @@ Once the child process finishes, `xargs` flushes its buffer, begins appending th
 
 ## Interview Questions
 
-- _Query:_ What exact kernel limitation does the `xargs` utility exist to bypass, and what fatal error message does a user see when this limitation is breached in a standard shell?
-  - _A:_ `xargs` bypasses the `ARG_MAX` kernel limitation. Every operating system enforces a strict maximum byte size for the memory array containing the arguments and environment variables passed to a new process during an `execve()` system call. If a user runs `rm *` in a directory with half a million files, bash attempts to expand the wildcard into a single, massive string. This violates the limit, and the kernel violently rejects the execution, returning the fatal error `Argument list too long`.
-- _Query:_ A developer writes `find . -name "*.log" | xargs rm`. It works perfectly in development. In production, a log file is unexpectedly generated with the name `access log.log` (containing a space). What destructive action occurs when this script runs, and how must it be rewritten?
-  - _A:_ Standard `xargs` treats spaces, tabs, and newlines as absolute delimiters. When it receives the string `access log.log`, it fractures it into two completely separate arguments: `access` and `log.log`. The command executed becomes `rm access log.log`. This permanently deletes two incorrect files (if they exist) and fails to delete the intended target. It must be rewritten as `find . -name "*.log" -print0 | xargs -0 rm`, which utilizes NUL-bytes (`\0`) as unbreakable boundaries.
-- _Query:_ Why does running `echo "hello" | xargs cd` fail to change your terminal's current directory?
-  - _A:_ The `cd` (change directory) command is a shell built-in, not an external binary. It alters the active memory state of the current bash process. `xargs` operates by spawning a brand new, isolated child process (via `fork`) to execute the target command. Even if it could execute `cd`, the directory change would only occur inside the ephemeral child process, instantly reverting the moment the child terminates, leaving the parent terminal entirely unaffected.
+**Q:** What exact kernel limitation does the `xargs` utility exist to bypass, and what fatal error message does a user see when this limitation is breached in a standard shell?
+**A:** `xargs` bypasses the `ARG_MAX` kernel limitation. Every operating system enforces a strict maximum byte size for the memory array containing the arguments and environment variables passed to a new process during an `execve()` system call. If a user runs `rm *` in a directory with half a million files, bash attempts to expand the wildcard into a single, massive string. This violates the limit, and the kernel violently rejects the execution, returning the fatal error `Argument list too long`.
+**Q:** A developer writes `find . -name "*.log" | xargs rm`. It works perfectly in development. In production, a log file is unexpectedly generated with the name `access log.log` (containing a space). What destructive action occurs when this script runs, and how must it be rewritten?
+**A:** Standard `xargs` treats spaces, tabs, and newlines as absolute delimiters. When it receives the string `access log.log`, it fractures it into two completely separate arguments: `access` and `log.log`. The command executed becomes `rm access log.log`. This permanently deletes two incorrect files (if they exist) and fails to delete the intended target. It must be rewritten as `find . -name "*.log" -print0 | xargs -0 rm`, which utilizes NUL-bytes (`\0`) as unbreakable boundaries.
+**Q:** Why does running `echo "hello" | xargs cd` fail to change your terminal's current directory?
+**A:** The `cd` (change directory) command is a shell built-in, not an external binary. It alters the active memory state of the current bash process. `xargs` operates by spawning a brand new, isolated child process (via `fork`) to execute the target command. Even if it could execute `cd`, the directory change would only occur inside the ephemeral child process, instantly reverting the moment the child terminates, leaving the parent terminal entirely unaffected.
 
 ## Practice Problems
 
-- _Problem:_ Locate every text file (`*.txt`) within the `/app/data/` directory. Securely pass these files to `xargs` (ensuring spaces in filenames are respected) and execute the `grep` command to search for the string "CRITICAL" across all of them, ignoring the command execution if zero text files are found.
-  - _Hint:_ Combine the `find` null-byte output, the `xargs` null-byte parser, and the no-run-if-empty safety flag.
-  - _Solution:_ `find /app/data/ -name "*.txt" -print0 | xargs -0 -r grep "CRITICAL"` (This guarantees pristine, error-free execution regardless of file naming anomalies).
-- _Problem:_ You have a text file named `domains.txt` containing 1,000 URLs, one per line. Download all 1,000 URLs using `curl -O`, but ensure `xargs` processes exactly one URL per command execution, and utilizes 20 concurrent parallel threads to maximize network saturation.
-  - _Hint:_ Utilize the max-arguments flag paired with the parallel processes flag, injecting the specific target command.
-  - _Solution:_ `cat domains.txt | xargs -n 1 -P 20 curl -O` (This cleanly distributes the workload into a highly efficient, multi-threaded worker pool).
+**Problem:** Locate every text file (`*.txt`) within the `/app/data/` directory. Securely pass these files to `xargs` (ensuring spaces in filenames are respected) and execute the `grep` command to search for the string "CRITICAL" across all of them, ignoring the command execution if zero text files are found.
+**Hint:** Combine the `find` null-byte output, the `xargs` null-byte parser, and the no-run-if-empty safety flag.
+**Solution:** `find /app/data/ -name "*.txt" -print0 | xargs -0 -r grep "CRITICAL"` (This guarantees pristine, error-free execution regardless of file naming anomalies).
+**Problem:** You have a text file named `domains.txt` containing 1,000 URLs, one per line. Download all 1,000 URLs using `curl -O`, but ensure `xargs` processes exactly one URL per command execution, and utilizes 20 concurrent parallel threads to maximize network saturation.
+**Hint:** Utilize the max-arguments flag paired with the parallel processes flag, injecting the specific target command.
+**Solution:** `cat domains.txt | xargs -n 1 -P 20 curl -O` (This cleanly distributes the workload into a highly efficient, multi-threaded worker pool).
 
 ## References
 

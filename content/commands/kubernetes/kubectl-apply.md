@@ -181,21 +181,21 @@ When `--server-side` is invoked, this entire client-side algorithm is bypassed. 
 
 ## Interview Questions
 
-- **Q:** Explain the mechanics of the 3-Way Strategic Merge Patch used by `kubectl apply`. What three specific data sources does it compare?
-  - **A:** The algorithm compares the **local manifest file**, the **live cluster object state**, and the hidden **`last-applied-configuration` annotation** embedded in the live object. By comparing the local file against the `last-applied` annotation, `kubectl` can deduce whether a field was intentionally deleted from the file, allowing it to safely remove the field from the live object without overwriting dynamic fields injected by cluster operators.
-- **Q:** Why does applying a massive Custom Resource Definition (CRD) often fail with a "metadata.annotations: Too long" error using standard `kubectl apply`, and how do you fix it?
-  - **A:** Standard `apply` writes the entire YAML file payload into the `last-applied-configuration` annotation. Kubernetes has a strict 256KB size limit for annotations. Massive CRDs exceed this limit. To fix it, you append the `--server-side` flag, which completely bypasses the client-side annotation mechanism and uses the API server's native field management tracking instead.
-- **Q:** You want to update an immutable field on a StatefulSet (e.g., a volume claim template) using a modified YAML file. How can you instruct `kubectl apply` to handle this constraint automatically?
-  - **A:** Standard `apply` will fail because the API server rejects modifications to immutable fields. You must append the `--force` flag. This instructs `kubectl` to intercept the failure, immediately delete the live StatefulSet from the cluster, and re-create it from scratch using the new manifest configuration.
+**Q:** Explain the mechanics of the 3-Way Strategic Merge Patch used by `kubectl apply`. What three specific data sources does it compare?
+**A:** The algorithm compares the **local manifest file**, the **live cluster object state**, and the hidden **`last-applied-configuration` annotation** embedded in the live object. By comparing the local file against the `last-applied` annotation, `kubectl` can deduce whether a field was intentionally deleted from the file, allowing it to safely remove the field from the live object without overwriting dynamic fields injected by cluster operators.
+**Q:** Why does applying a massive Custom Resource Definition (CRD) often fail with a "metadata.annotations: Too long" error using standard `kubectl apply`, and how do you fix it?
+**A:** Standard `apply` writes the entire YAML file payload into the `last-applied-configuration` annotation. Kubernetes has a strict 256KB size limit for annotations. Massive CRDs exceed this limit. To fix it, you append the `--server-side` flag, which completely bypasses the client-side annotation mechanism and uses the API server's native field management tracking instead.
+**Q:** You want to update an immutable field on a StatefulSet (e.g., a volume claim template) using a modified YAML file. How can you instruct `kubectl apply` to handle this constraint automatically?
+**A:** Standard `apply` will fail because the API server rejects modifications to immutable fields. You must append the `--force` flag. This instructs `kubectl` to intercept the failure, immediately delete the live StatefulSet from the cluster, and re-create it from scratch using the new manifest configuration.
 
 ## Practice Problems
 
-- _Problem:_ Apply a configuration file named `database.yaml` to the cluster, but execute it strictly as a test to verify API server validation without actually saving the changes to `etcd`.
-  - _Hint:_ Use the dry-run strategy targeted at the server validation layer.
-  - _Solution:_ `kubectl apply -f database.yaml --dry-run=server` (The `server` dry-run submits the payload for complete admission webhook validation but rolls back the transaction before database commit).
-- _Problem:_ Deploy a Kustomize directory located at `./overlays/staging/`, overriding the files' internal namespaces and forcing deployment into the `beta-test` namespace.
-  - _Hint:_ Combine the kustomize execution flag with the namespace override flag.
-  - _Solution:_ `kubectl apply -k ./overlays/staging/ -n beta-test` (This renders the kustomization tree in memory and forcefully injects the resulting manifests into the specified namespace).
+**Problem:** Apply a configuration file named `database.yaml` to the cluster, but execute it strictly as a test to verify API server validation without actually saving the changes to `etcd`.
+**Hint:** Use the dry-run strategy targeted at the server validation layer.
+**Solution:** `kubectl apply -f database.yaml --dry-run=server` (The `server` dry-run submits the payload for complete admission webhook validation but rolls back the transaction before database commit).
+**Problem:** Deploy a Kustomize directory located at `./overlays/staging/`, overriding the files' internal namespaces and forcing deployment into the `beta-test` namespace.
+**Hint:** Combine the kustomize execution flag with the namespace override flag.
+**Solution:** `kubectl apply -k ./overlays/staging/ -n beta-test` (This renders the kustomization tree in memory and forcefully injects the resulting manifests into the specified namespace).
 
 ## References
 

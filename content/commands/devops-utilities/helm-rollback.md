@@ -160,21 +160,21 @@ Upon successful reconciliation, Helm creates a brand-new release secret represen
 
 ## Interview Questions
 
-- _Query:_ What does Helm create in the cluster secret database when a successful `helm rollback` is executed?
-  - _A:_ Helm creates a brand-new release secret representing an incremented revision number (e.g., if current was revision 5 and you rolled back to revision 2, Helm creates revision 6) whose manifest and configuration content precisely match the target historical revision. This keeps the deployment history strictly linear.
-- _Query:_ Why might rolling back an application version via Helm fail to restore full functionality if database schema migrations were part of the failed upgrade?
-  - _A:_ Helm rollbacks only restore Kubernetes resource manifests and application configurations. They do not automatically execute database downgrade scripts or reverse destructive schema changes (such as dropped tables or columns), which can cause application errors upon restart.
-- _Query:_ How do you inspect available revision numbers for a release before executing a `helm rollback` command?
-  - _A:_ You execute `helm history <release-name>`, which queries the cluster secret store and prints a tabular summary of all archived revisions, their update statuses, chart versions, and change descriptions.
+**Q:** What does Helm create in the cluster secret database when a successful `helm rollback` is executed?
+**A:** Helm creates a brand-new release secret representing an incremented revision number (e.g., if current was revision 5 and you rolled back to revision 2, Helm creates revision 6) whose manifest and configuration content precisely match the target historical revision. This keeps the deployment history strictly linear.
+**Q:** Why might rolling back an application version via Helm fail to restore full functionality if database schema migrations were part of the failed upgrade?
+**A:** Helm rollbacks only restore Kubernetes resource manifests and application configurations. They do not automatically execute database downgrade scripts or reverse destructive schema changes (such as dropped tables or columns), which can cause application errors upon restart.
+**Q:** How do you inspect available revision numbers for a release before executing a `helm rollback` command?
+**A:** You execute `helm history <release-name>`, which queries the cluster secret store and prints a tabular summary of all archived revisions, their update statuses, chart versions, and change descriptions.
 
 ## Practice Problems
 
-- _Problem:_ Roll back a release named `order-processor` in the `production` namespace to its immediately preceding stable revision, waiting for all pods to become ready.
-  - _Hint:_ Omit the revision number to target the previous revision, and combine namespace and wait flags.
-  - _Solution:_ `helm rollback order-processor --namespace production --wait` (Omitting the revision number defaults to rolling back to revision $N-1$, and `--wait` ensures readiness).
-- _Problem:_ Check available revisions for a release named `auth-service` and then rollback specifically to revision `2`.
-  - _Hint:_ Pass the explicit revision number `2` to the rollback command.
-  - _Solution:_ `helm history auth-service && helm rollback auth-service 2` (This first audits the history and then explicitly restores revision 2).
+**Problem:** Roll back a release named `order-processor` in the `production` namespace to its immediately preceding stable revision, waiting for all pods to become ready.
+**Hint:** Omit the revision number to target the previous revision, and combine namespace and wait flags.
+**Solution:** `helm rollback order-processor --namespace production --wait` (Omitting the revision number defaults to rolling back to revision $N-1$, and `--wait` ensures readiness).
+**Problem:** Check available revisions for a release named `auth-service` and then rollback specifically to revision `2`.
+**Hint:** Pass the explicit revision number `2` to the rollback command.
+**Solution:** `helm history auth-service && helm rollback auth-service 2` (This first audits the history and then explicitly restores revision 2).
 
 ## References
 

@@ -161,21 +161,21 @@ The downloaded index is parsed and cached locally inside the cache directory (`~
 
 ## Interview Questions
 
-- _Query:_ Where does Helm store the repository registrations and local index caches added via `helm repo add`?
-  - _A:_ Helm stores repository name-to-URL mappings inside the local client configuration file (`~/.config/helm/repositories.yaml`), while downloaded remote chart catalog indexes (`index.yaml`) are cached locally inside `~/.cache/helm/repository/`.
-- _Query:_ What is the fundamental difference in how Helm interacts with an HTTP chart repository added via `helm repo add` versus an OCI container registry?
-  - _A:_ Traditional HTTP repositories publish an explicit `index.yaml` catalog file which Helm downloads and caches locally via `repo add` to track available charts. OCI registries (like Harbor or GitHub Packages) store charts as standard OCI container artifacts, bypassing index files entirely in favor of direct registry authentication (`helm registry login`) and OCI pull semantics.
-- _Query:_ Why might `helm search repo` return no results immediately after successfully running `helm repo add my-repo https://charts.example.com --no-update`?
-  - _A:_ The `--no-update` flag explicitly suppresses the immediate download of the remote repository's `index.yaml` file. Because the local cache directory has not yet received or parsed the index catalog, Helm has no knowledge of the charts inside that repository until you run `helm repo update`.
+**Q:** Where does Helm store the repository registrations and local index caches added via `helm repo add`?
+**A:** Helm stores repository name-to-URL mappings inside the local client configuration file (`~/.config/helm/repositories.yaml`), while downloaded remote chart catalog indexes (`index.yaml`) are cached locally inside `~/.cache/helm/repository/`.
+**Q:** What is the fundamental difference in how Helm interacts with an HTTP chart repository added via `helm repo add` versus an OCI container registry?
+**A:** Traditional HTTP repositories publish an explicit `index.yaml` catalog file which Helm downloads and caches locally via `repo add` to track available charts. OCI registries (like Harbor or GitHub Packages) store charts as standard OCI container artifacts, bypassing index files entirely in favor of direct registry authentication (`helm registry login`) and OCI pull semantics.
+**Q:** Why might `helm search repo` return no results immediately after successfully running `helm repo add my-repo https://charts.example.com --no-update`?
+**A:** The `--no-update` flag explicitly suppresses the immediate download of the remote repository's `index.yaml` file. Because the local cache directory has not yet received or parsed the index catalog, Helm has no knowledge of the charts inside that repository until you run `helm repo update`.
 
 ## Practice Problems
 
-- _Problem:_ Register a remote Helm chart repository named `stable` pointing to `https://charts.helm.sh/stable` and force an immediate update of its local index cache.
-  - _Hint:_ Use the repo add command with the repository name and URL, ensuring default update behavior occurs.
-  - _Solution:_ `helm repo add stable https://charts.helm.sh/stable` (This registers the URL locally under the name `stable` and downloads the package index cache automatically).
-- _Problem:_ Add a private enterprise chart repository located at `https://charts.corp.net/internal` using the username `deployer` while reading the password securely from standard input via `stdin`.
-  - _Hint:_ Combine the repo add command with the username flag and the password-stdin flag, piping the token.
-  - _Solution:_ `echo "SecretToken123" | helm repo add corp-internal https://charts.corp.net/internal --username deployer --password-stdin` (This registers the private repo and authenticates securely without leaking plaintext secrets in shell history).
+**Problem:** Register a remote Helm chart repository named `stable` pointing to `https://charts.helm.sh/stable` and force an immediate update of its local index cache.
+**Hint:** Use the repo add command with the repository name and URL, ensuring default update behavior occurs.
+**Solution:** `helm repo add stable https://charts.helm.sh/stable` (This registers the URL locally under the name `stable` and downloads the package index cache automatically).
+**Problem:** Add a private enterprise chart repository located at `https://charts.corp.net/internal` using the username `deployer` while reading the password securely from standard input via `stdin`.
+**Hint:** Combine the repo add command with the username flag and the password-stdin flag, piping the token.
+**Solution:** `echo "SecretToken123" | helm repo add corp-internal https://charts.corp.net/internal --username deployer --password-stdin` (This registers the private repo and authenticates securely without leaking plaintext secrets in shell history).
 
 ## References
 

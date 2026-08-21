@@ -148,21 +148,21 @@ The Linux kernel's **Completely Fair Scheduler (CFS)** maps these niceness value
 
 ## Interview Questions
 
-- _Query:_ What is the mathematical scale of "niceness" in Linux, and explain the conceptual difference between a niceness of `-20` and a niceness of `19`.
-  - _A:_ The scale ranges from -20 to 19. A value of `-20` is the "least nice" and commands the absolute highest CPU scheduling priority, demanding processor time aggressively. A value of `19` is the "most nice" and commands the lowest CPU scheduling priority, politely yielding CPU cycles to any other process on the system that requires them.
-- _Query:_ A junior developer running a massive compile job without `sudo` attempts to speed it up by running `nice -n -10 make`. The command fails. What kernel security mechanism caused this failure?
-  - _A:_ The Linux kernel strictly prohibits unprivileged users from elevating their CPU priority (applying negative nice values) because doing so allows them to steal compute resources from other tenants or critical system daemons, causing a Denial of Service. Unprivileged users can only _increase_ their niceness (values 0 to 19) to yield resources.
-- _Query:_ If a process launched with `nice -n 19` is the only active process running on a 16-core server, what percentage of the CPU capacity will it be granted by the kernel's scheduler?
-  - _A:_ It will be granted 100% of the requested capacity. `nice` does not enforce an absolute throttle or throttle limit. The Completely Fair Scheduler (CFS) only invokes the niceness penalty during resource contention. If the CPU is completely idle, the "nice" process is permitted to consume all available cycles until a competing process awakens and requests time.
+**Q:** What is the mathematical scale of "niceness" in Linux, and explain the conceptual difference between a niceness of `-20` and a niceness of `19`.
+**A:** The scale ranges from -20 to 19. A value of `-20` is the "least nice" and commands the absolute highest CPU scheduling priority, demanding processor time aggressively. A value of `19` is the "most nice" and commands the lowest CPU scheduling priority, politely yielding CPU cycles to any other process on the system that requires them.
+**Q:** A junior developer running a massive compile job without `sudo` attempts to speed it up by running `nice -n -10 make`. The command fails. What kernel security mechanism caused this failure?
+**A:** The Linux kernel strictly prohibits unprivileged users from elevating their CPU priority (applying negative nice values) because doing so allows them to steal compute resources from other tenants or critical system daemons, causing a Denial of Service. Unprivileged users can only _increase_ their niceness (values 0 to 19) to yield resources.
+**Q:** If a process launched with `nice -n 19` is the only active process running on a 16-core server, what percentage of the CPU capacity will it be granted by the kernel's scheduler?
+**A:** It will be granted 100% of the requested capacity. `nice` does not enforce an absolute throttle or throttle limit. The Completely Fair Scheduler (CFS) only invokes the niceness penalty during resource contention. If the CPU is completely idle, the "nice" process is permitted to consume all available cycles until a competing process awakens and requests time.
 
 ## Practice Problems
 
-- _Problem:_ Execute a massive background compression task using `gzip archive.tar` at the absolute lowest CPU priority possible, ensuring it yields perfectly to all other applications on the server.
-  - _Hint:_ Invoke the execution wrapper and supply the maximum positive integer allowed on the niceness scale.
-  - _Solution:_ `nice -n 19 gzip archive.tar` (This executes the compression gently, preventing CPU lockups during the heavy math calculations).
-- _Problem:_ Launch an emergency diagnostic script `./recover.sh` with significantly elevated CPU priority (`-15`) to ensure it executes rapidly even though the server is currently bogged down at 100% CPU load.
-  - _Hint:_ Combine superuser privileges to bypass the security block, invoke the wrapper, and supply the negative integer.
-  - _Solution:_ `sudo nice -n -15 ./recover.sh` (This violently seizes CPU time-slices from standard applications, guaranteeing execution bandwidth for the recovery logic).
+**Problem:** Execute a massive background compression task using `gzip archive.tar` at the absolute lowest CPU priority possible, ensuring it yields perfectly to all other applications on the server.
+**Hint:** Invoke the execution wrapper and supply the maximum positive integer allowed on the niceness scale.
+**Solution:** `nice -n 19 gzip archive.tar` (This executes the compression gently, preventing CPU lockups during the heavy math calculations).
+**Problem:** Launch an emergency diagnostic script `./recover.sh` with significantly elevated CPU priority (`-15`) to ensure it executes rapidly even though the server is currently bogged down at 100% CPU load.
+**Hint:** Combine superuser privileges to bypass the security block, invoke the wrapper, and supply the negative integer.
+**Solution:** `sudo nice -n -15 ./recover.sh` (This violently seizes CPU time-slices from standard applications, guaranteeing execution bandwidth for the recovery logic).
 
 ## References
 

@@ -162,21 +162,21 @@ Next, Ansible parses the role's `meta/main.yml` file to identify any recursive d
 
 ## Interview Questions
 
-- _Query:_ What is the functional difference between an Ansible **Role** and an Ansible **Collection** when managed via `ansible-galaxy`?
-  - _A:_ A **Role** is a traditional, self-contained directory structure for organizing tasks, handlers, variables, and templates into reusable units. A **Collection** is a modern, broader packaging format that can bundle multiple roles, plugins, modules, and documentation into a single standardized distribution namespace.
-- _Query:_ Why is checking downloaded third-party roles directly into Git source control considered an anti-pattern in Ansible workflows?
-  - _A:_ Checking in third-party code bloats the repository size and duplicates dependency management. The industry standard is to define dependencies inside a lightweight `requirements.yml` manifest file, commit only the manifest to Git, and run `ansible-galaxy role install` dynamically during build or deployment stages.
-- _Query:_ How does `ansible-galaxy` handle recursive dependencies when installing a complex community role?
-  - _A:_ During installation, `ansible-galaxy` parses the target role's `meta/main.yml` metadata file. If the author specified dependent roles, Ansible automatically triggers recursive download and installation routines for those required packages before finalizing setup.
+**Q:** What is the functional difference between an Ansible **Role** and an Ansible **Collection** when managed via `ansible-galaxy`?
+**A:** A **Role** is a traditional, self-contained directory structure for organizing tasks, handlers, variables, and templates into reusable units. A **Collection** is a modern, broader packaging format that can bundle multiple roles, plugins, modules, and documentation into a single standardized distribution namespace.
+**Q:** Why is checking downloaded third-party roles directly into Git source control considered an anti-pattern in Ansible workflows?
+**A:** Checking in third-party code bloats the repository size and duplicates dependency management. The industry standard is to define dependencies inside a lightweight `requirements.yml` manifest file, commit only the manifest to Git, and run `ansible-galaxy role install` dynamically during build or deployment stages.
+**Q:** How does `ansible-galaxy` handle recursive dependencies when installing a complex community role?
+**A:** During installation, `ansible-galaxy` parses the target role's `meta/main.yml` metadata file. If the author specified dependent roles, Ansible automatically triggers recursive download and installation routines for those required packages before finalizing setup.
 
 ## Practice Problems
 
-- _Problem:_ Install a community role named `geerlingguy.git` using `ansible-galaxy`, placing it into a custom local directory path `./custom_roles/`.
-  - _Hint:_ Combine the role installation command with the custom path flag.
-  - _Solution:_ `ansible-galaxy role install geerlingguy.git -p ./custom_roles/` (This downloads the git role and installs it directly into the specified target directory).
-- _Problem:_ Batch-install all roles and collections defined in an external manifest file named `requirements.yml`.
-  - _Hint:_ Use the role installation command paired with the requirements file flag.
-  - _Solution:_ `ansible-galaxy role install -r requirements.yml` (This reads the manifest and installs every listed dependency automatically).
+**Problem:** Install a community role named `geerlingguy.git` using `ansible-galaxy`, placing it into a custom local directory path `./custom_roles/`.
+**Hint:** Combine the role installation command with the custom path flag.
+**Solution:** `ansible-galaxy role install geerlingguy.git -p ./custom_roles/` (This downloads the git role and installs it directly into the specified target directory).
+**Problem:** Batch-install all roles and collections defined in an external manifest file named `requirements.yml`.
+**Hint:** Use the role installation command paired with the requirements file flag.
+**Solution:** `ansible-galaxy role install -r requirements.yml` (This reads the manifest and installs every listed dependency automatically).
 
 ## References
 
