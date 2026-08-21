@@ -179,6 +179,13 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
                 (containsActiveCmd ? ' sb-cat-parent-active' : '')
               }
             >
+              <Link
+                href={`/category/${catSlug}`}
+                className={'sb-cat-link' + (isCatActive ? ' sb-cat-link-active' : '')}
+              >
+                {catName}
+              </Link>
+              {hasCmds && <span className="sb-cat-count">{catCmds.length}</span>}
               {hasCmds ? (
                 <button
                   type="button"
@@ -189,12 +196,12 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
                   aria-controls={sublistId}
                 >
                   <svg
-                    width="8"
-                    height="8"
+                    width="10"
+                    height="10"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="3"
+                    strokeWidth="2.5"
                     className={'sb-chev-svg' + (isExpanded ? ' sb-chev-open' : '')}
                   >
                     <polyline points="9 18 15 12 9 6" />
@@ -203,12 +210,6 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
               ) : (
                 <span className="sb-chev-space" />
               )}
-              <Link
-                href={`/category/${catSlug}`}
-                className={'sb-cat-link' + (isCatActive ? ' sb-cat-link-active' : '')}
-              >
-                {catName}
-              </Link>
             </div>
 
             {isExpanded && hasCmds && (
@@ -456,36 +457,49 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
         }
 
         /* ── Category ────────────────────────────────────────── */
-        .sb-cat {
+        :global(.sb-cat) {
           display: flex;
           flex-direction: column;
+          margin-bottom: 4px;
         }
 
-        .sb-cat-row {
+        :global(.sb-cat-row) {
           display: flex;
           align-items: center;
-          padding: 5px 12px 5px 10px;
-          gap: 0;
+          min-height: 38px;
+          padding: 6px 12px;
+          gap: 8px;
           border-left: 2px solid transparent;
+          border-radius: 0 4px 4px 0;
+          transition: background-color 0.12s ease;
         }
-        .sb-cat-row:hover {
+        :global(.sb-cat-row:hover) {
           background-color: var(--bg-elevated);
         }
-        .sb-cat-row.sb-cat-current {
+        :global(.sb-cat-row.sb-cat-current) {
           border-left-color: var(--accent);
           background-color: var(--bg-elevated);
         }
-        .sb-cat-row.sb-cat-parent-active {
+        :global(.sb-cat-row.sb-cat-parent-active) {
           border-left-color: var(--accent);
+        }
+
+        /* ── Category count ─────────────────────────────────── */
+        :global(.sb-cat-count) {
+          font-size: 11px;
+          font-weight: 500;
+          color: var(--text-muted);
+          margin-left: auto;
+          flex-shrink: 0;
         }
 
         /* ── Chevron toggle ──────────────────────────────────── */
-        .sb-chevron {
+        :global(.sb-chevron) {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 18px;
-          height: 18px;
+          width: 22px;
+          height: 22px;
           padding: 0;
           margin: 0;
           background: none;
@@ -493,19 +507,21 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
           color: var(--text-muted);
           cursor: pointer;
           flex-shrink: 0;
-          border-radius: 2px;
+          border-radius: 4px;
         }
-        .sb-chevron:hover {
+        :global(.sb-chevron:hover) {
           color: var(--text-primary);
+          background-color: var(--bg-surface);
         }
-        .sb-chevron:focus-visible {
+        :global(.sb-chevron:focus-visible) {
           outline: 2px solid var(--accent);
           outline-offset: -1px;
         }
 
-        .sb-chev-space {
-          width: 18px;
+        :global(.sb-chev-space) {
+          width: 22px;
           flex-shrink: 0;
+          margin-left: auto;
         }
 
         :global(.sb-chev-svg) {
@@ -520,11 +536,10 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
         :global(.sb-cat-link) {
           flex: 1;
           min-width: 0;
-          font-size: 14px;
+          font-size: 13.5px;
           font-weight: 500;
           color: var(--text-primary) !important;
           text-decoration: none !important;
-          padding: 2px 4px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -538,19 +553,21 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
         }
 
         /* ── Command child list ──────────────────────────────── */
-        .sb-cmd-list {
+        :global(.sb-cmd-list) {
           display: flex;
           flex-direction: column;
-          margin-left: 20px;
+          margin-left: 16px;
           padding: 2px 0 4px 0;
           border-left: 1px solid var(--border-subtle);
         }
 
         :global(.sb-cmd) {
-          display: block;
+          display: flex;
+          align-items: center;
+          min-height: 34px;
           font-size: 13px;
           font-family: var(--font-mono, 'SFMono-Regular', Consolas, monospace);
-          padding: 4px 8px 4px 12px;
+          padding: 4px 8px 4px 14px;
           color: var(--text-muted) !important;
           text-decoration: none !important;
           white-space: nowrap;

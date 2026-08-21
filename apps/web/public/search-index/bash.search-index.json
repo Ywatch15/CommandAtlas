@@ -3222,6 +3222,7 @@
       { "slug": "bind", "boost": 1 },
       { "slug": "cd", "boost": 1 },
       { "slug": "eval", "boost": 1 },
+      { "slug": "exec", "boost": 1 },
       { "slug": "fg", "boost": 1 },
       { "slug": "jobs", "boost": 1 },
       { "slug": "pwd", "boost": 1 },
@@ -5129,13 +5130,6 @@
       { "slug": "which", "boost": 1 }
     ],
     "timestamps": [{ "slug": "bind", "boost": 1 }],
-    "query": [
-      { "slug": "bind", "boost": 1 },
-      { "slug": "exec", "boost": 1 },
-      { "slug": "jobs", "boost": 1 },
-      { "slug": "pwd", "boost": 1 },
-      { "slug": "which", "boost": 1 }
-    ],
     "responsible": [{ "slug": "bind", "boost": 1 }],
     "powering": [{ "slug": "bind", "boost": 1 }],
     "features": [
@@ -8126,6 +8120,11 @@
       { "slug": "set", "boost": 1 },
       { "slug": "shopt", "boost": 1 },
       { "slug": "type", "boost": 1 },
+      { "slug": "which", "boost": 1 }
+    ],
+    "query": [
+      { "slug": "jobs", "boost": 1 },
+      { "slug": "pwd", "boost": 1 },
       { "slug": "which", "boost": 1 }
     ],
     "relies": [
@@ -22555,12 +22554,12 @@
       "queries",
       "quick",
       "quoting",
-      "query",
       "quote",
       "quotes",
       "quickly",
       "quitting",
       "queried",
+      "query",
       "querying",
       "quiet",
       "quietly"
@@ -22571,7 +22570,6 @@
       "sequences",
       "queries",
       "frequency",
-      "query",
       "subsequent",
       "frequently",
       "sequentially",
@@ -22580,6 +22578,7 @@
       "unique",
       "sequential",
       "queried",
+      "query",
       "requests",
       "querying",
       "technique"
@@ -23272,7 +23271,6 @@
       "library",
       "arbitrary",
       "memory",
-      "query",
       "every",
       "directory",
       "binary",
@@ -23281,6 +23279,7 @@
       "primary",
       "subsidiary",
       "vary",
+      "query",
       "cherry",
       "recovery",
       "subdirectory",
@@ -23524,7 +23523,7 @@
       "monolithic",
       "programmatic"
     ],
-    "uer": ["queries", "query", "queried", "querying"],
+    "uer": ["queries", "queried", "query", "querying"],
     "eri": [
       "queries",
       "powering",
@@ -24132,14 +24131,6 @@
     "tus": ["status", "statuses"],
     "tam": ["timestamps", "tampered"],
     "mps": ["timestamps"],
-    "ery": [
-      "query",
-      "every",
-      "querying",
-      "recovery",
-      "everything",
-      "everywhere"
-    ],
     "esp": [
       "responsible",
       "unresponsive",
@@ -24190,6 +24181,14 @@
     "fut": ["future"],
     "utu": ["future"],
     "aff": ["affecting", "affect", "affects", "unaffected"],
+    "ery": [
+      "every",
+      "query",
+      "querying",
+      "recovery",
+      "everything",
+      "everywhere"
+    ],
     "esi": ["designed", "design", "resides", "designates"],
     "doc": ["documentation", "documents", "docker", "dockerfile"],
     "cum": ["documentation", "documents", "circumvent"],

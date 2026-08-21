@@ -5498,7 +5498,7 @@
       { "slug": "top", "boost": 1 },
       { "slug": "vmstat", "boost": 1 }
     ],
-    "query": [
+    "q": [
       { "slug": "free", "boost": 1 },
       { "slug": "fuser", "boost": 1 },
       { "slug": "htop", "boost": 1 },
@@ -5508,9 +5508,14 @@
       { "slug": "nice", "boost": 1 },
       { "slug": "nohup", "boost": 1 },
       { "slug": "pgrep", "boost": 1 },
+      { "slug": "pidof", "boost": 1 },
+      { "slug": "pkill", "boost": 1 },
       { "slug": "ps", "boost": 1 },
+      { "slug": "pstree", "boost": 1 },
       { "slug": "renice", "boost": 1 },
-      { "slug": "sar", "boost": 1 }
+      { "slug": "sar", "boost": 1 },
+      { "slug": "top", "boost": 1 },
+      { "slug": "vmstat", "boost": 1 }
     ],
     "developer": [
       { "slug": "free", "boost": 1 },
@@ -10095,19 +10100,6 @@
       { "slug": "pstree", "boost": 1 },
       { "slug": "top", "boost": 1 }
     ],
-    "q": [
-      { "slug": "htop", "boost": 1 },
-      { "slug": "kill", "boost": 1 },
-      { "slug": "killall", "boost": 1 },
-      { "slug": "pidof", "boost": 1 },
-      { "slug": "pkill", "boost": 1 },
-      { "slug": "ps", "boost": 1 },
-      { "slug": "pstree", "boost": 1 },
-      { "slug": "renice", "boost": 1 },
-      { "slug": "sar", "boost": 1 },
-      { "slug": "top", "boost": 1 },
-      { "slug": "vmstat", "boost": 1 }
-    ],
     "suspends": [
       { "slug": "htop", "boost": 1 },
       { "slug": "nohup", "boost": 1 }
@@ -10563,6 +10555,14 @@
     ],
     "excel": [{ "slug": "iostat", "boost": 1 }],
     "hogs": [{ "slug": "iostat", "boost": 1 }],
+    "query": [
+      { "slug": "iostat", "boost": 1 },
+      { "slug": "nohup", "boost": 1 },
+      { "slug": "pgrep", "boost": 1 },
+      { "slug": "ps", "boost": 1 },
+      { "slug": "renice", "boost": 1 },
+      { "slug": "sar", "boost": 1 }
+    ],
     "points": [{ "slug": "iostat", "boost": 1 }],
     "operating": [
       { "slug": "iostat", "boost": 1 },
@@ -16370,13 +16370,13 @@
       "every",
       "summary",
       "telemetry",
-      "query",
       "directory",
       "binary",
       "library",
       "secondary",
       "mandatory",
       "primary",
+      "query",
       "very",
       "boundary",
       "history",
@@ -31052,9 +31052,9 @@
       "queries",
       "quick",
       "questions",
-      "query",
       "quickly",
       "quit",
+      "query",
       "queue",
       "queues",
       "quiet",
@@ -31067,12 +31067,12 @@
       "requests",
       "request",
       "questions",
-      "query",
       "frequently",
       "sequentially",
       "requested",
       "sequential",
       "frequency",
+      "query",
       "queue",
       "queues",
       "requesting",

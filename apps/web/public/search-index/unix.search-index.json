@@ -1954,8 +1954,11 @@
       { "slug": "ed", "boost": 1 },
       { "slug": "gzip", "boost": 1 },
       { "slug": "make", "boost": 1 },
+      { "slug": "patch", "boost": 1 },
       { "slug": "script", "boost": 1 },
+      { "slug": "tar", "boost": 1 },
       { "slug": "tee", "boost": 1 },
+      { "slug": "time", "boost": 1 },
       { "slug": "vi", "boost": 1 },
       { "slug": "xargs", "boost": 1 },
       { "slug": "xz", "boost": 1 }
@@ -10150,14 +10153,9 @@
     ],
     "query": [
       { "slug": "cal", "boost": 1 },
-      { "slug": "patch", "boost": 1 },
       { "slug": "script", "boost": 1 },
-      { "slug": "tar", "boost": 1 },
-      { "slug": "tee", "boost": 1 },
       { "slug": "time", "boost": 1 },
-      { "slug": "vi", "boost": 1 },
-      { "slug": "xargs", "boost": 1 },
-      { "slug": "xz", "boost": 1 }
+      { "slug": "xargs", "boost": 1 }
     ],
     "api": [
       { "slug": "cal", "boost": 1 },

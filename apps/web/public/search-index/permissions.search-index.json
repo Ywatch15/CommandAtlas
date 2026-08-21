@@ -3987,6 +3987,16 @@
     ],
     "q": [
       { "slug": "chattr", "boost": 1 },
+      { "slug": "chgrp", "boost": 1 },
+      { "slug": "chmod", "boost": 1 },
+      { "slug": "chown", "boost": 1 },
+      { "slug": "getfacl", "boost": 1 },
+      { "slug": "lsattr", "boost": 1 },
+      { "slug": "setfacl", "boost": 1 },
+      { "slug": "setgid", "boost": 1 },
+      { "slug": "setuid", "boost": 1 },
+      { "slug": "sticky-bit", "boost": 1 },
+      { "slug": "umask", "boost": 1 },
       { "slug": "visudo", "boost": 1 }
     ],
     "logged": [{ "slug": "chattr", "boost": 1 }],
@@ -5720,19 +5730,6 @@
       { "slug": "chmod", "boost": 1 },
       { "slug": "chown", "boost": 1 }
     ],
-    "query": [
-      { "slug": "chgrp", "boost": 1 },
-      { "slug": "chmod", "boost": 1 },
-      { "slug": "chown", "boost": 1 },
-      { "slug": "getfacl", "boost": 1 },
-      { "slug": "lsattr", "boost": 1 },
-      { "slug": "setfacl", "boost": 1 },
-      { "slug": "setgid", "boost": 1 },
-      { "slug": "setuid", "boost": 1 },
-      { "slug": "sticky-bit", "boost": 1 },
-      { "slug": "umask", "boost": 1 },
-      { "slug": "visudo", "boost": 1 }
-    ],
     "environment": [
       { "slug": "chgrp", "boost": 1 },
       { "slug": "umask", "boost": 1 },
@@ -7465,6 +7462,10 @@
       { "slug": "lsattr", "boost": 1 }
     ],
     "engines": [{ "slug": "getfacl", "boost": 1 }],
+    "query": [
+      { "slug": "getfacl", "boost": 1 },
+      { "slug": "lsattr", "boost": 1 }
+    ],
     "verify": [
       { "slug": "getfacl", "boost": 1 },
       { "slug": "lsattr", "boost": 1 },
@@ -17565,12 +17566,12 @@
       "preliminary",
       "binary",
       "supplementary",
-      "query",
       "mandatory",
       "secondary",
       "category",
       "arbitrary",
       "activedirectory",
+      "query",
       "telemetry",
       "library",
       "repository",
@@ -19317,7 +19318,7 @@
       "individuals"
     ],
     "ro$": ["zero", "micro"],
-    "ery": ["everyone", "every", "querying", "query", "everything"],
+    "ery": ["everyone", "every", "querying", "everything", "query"],
     "ryo": ["everyone"],
     "yon": ["everyone", "beyond", "anyone"],
     "ne$": [

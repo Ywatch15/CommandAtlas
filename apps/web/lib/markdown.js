@@ -157,3 +157,104 @@ export function extractCodeBlock(markdown) {
   const match = markdown.match(/```[a-zA-Z0-9]*\n([\s\S]*?)\n```/);
   return match ? match[1] : markdown.trim();
 }
+
+/**
+ * Parses raw markdown from an "Interview Questions" section into a flat array
+ * of {question, answer} objects. Handles both structural variants:
+ *   - blank-line-separated Q/A pairs (bg.md style): **Q: text?**\n**A:** text
+ *   - inline/no-blank-line Q/A pairs (bind.md style): **Q:** text\n**A:** text
+ * Normalizes all source variance into one clean shape.
+ *
+ * @param {string} sectionMarkdown — raw markdown text of the IQ section
+ * @returns {Array<{question: string, answer: string}>}
+ */
+export function parseInterviewQuestions(sectionMarkdown) {
+  if (!sectionMarkdown || !sectionMarkdown.trim()) return [];
+
+  const text = sectionMarkdown.replace(/\r\n/g, '\n').trim();
+
+  // Split on the start of each **Q pattern using a lookahead.
+  // Matches both **Q:** (closing bold before text) and **Q: (bold wraps question).
+  // Uses [*] character class to avoid any regex-escaping ambiguity.
+  const qBlocks = text.split(/(?=[*][*]Q:)/);
+
+  const pairs = [];
+  for (const block of qBlocks) {
+    const trimmed = block.trim();
+    if (!trimmed.startsWith('**Q:')) continue;
+
+    // Split this Q-block on the **A:** or **A** marker to separate question from answer.
+    // The A marker may appear as: **A:** or **A**:
+    const aParts = trimmed.split(/[*][*]A:?[*][*]\s*/);
+
+    let question = (aParts[0] || '').trim();
+    const answer = (aParts.slice(1).join('\n') || '').trim();
+
+    // Clean question prefix.
+    // Variant 1: **Q:** text  → remove **Q:**  (6 chars)
+    // Variant 2: **Q: text?** → remove **Q:  and trailing **
+    question = question
+      .replace(/^[*][*]Q:[*][*]\s*/, '') // variant 1: **Q:** prefix
+      .replace(/^[*][*]Q:\s*/, '') // variant 2: **Q: prefix
+      .replace(/[*][*]\s*$/, '') // trailing ** from variant 2
+      .trim();
+
+    if (question) {
+      pairs.push({ question, answer });
+    }
+  }
+
+  return pairs;
+}
+
+/**
+ * Parses raw markdown from a "Practice Problems" section into a flat array
+ * of {problem, hint, solution} objects.
+ *
+ * @param {string} sectionMarkdown
+ * @returns {Array<{problem: string, hint: string, solution: string}>}
+ */
+export function parsePracticeProblems(sectionMarkdown) {
+  if (!sectionMarkdown || !sectionMarkdown.trim()) return [];
+
+  const text = sectionMarkdown.replace(/\r\n/g, '\n').trim();
+
+  // Split by **Problem markers
+  const pBlocks = text.split(/(?=[*][*]Problem)/);
+
+  const items = [];
+  for (const block of pBlocks) {
+    const trimmed = block.trim();
+    if (!trimmed.startsWith('**Problem')) continue;
+
+    let problem = trimmed;
+    let hint = '';
+    let solution = '';
+
+    // Split on **Solution:**
+    const solSplit = problem.split(/[*][*]Solution:?[*][*]\s*/);
+    if (solSplit.length > 1) {
+      problem = solSplit[0];
+      solution = solSplit.slice(1).join('');
+    }
+
+    // Split remaining on **Hint:**
+    const hintSplit = problem.split(/[*][*]Hint:?[*][*]\s*/);
+    if (hintSplit.length > 1) {
+      problem = hintSplit[0];
+      hint = hintSplit.slice(1).join('');
+    }
+
+    // Clean the problem prefix
+    problem = problem.replace(/^[*][*]Problem:?[*][*]\s*/, '').trim();
+
+    hint = hint.trim();
+    solution = solution.trim();
+
+    if (problem) {
+      items.push({ problem, hint, solution });
+    }
+  }
+
+  return items;
+}

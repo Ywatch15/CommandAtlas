@@ -3650,7 +3650,10 @@
       { "slug": "syscall-file-io", "boost": 1 },
       { "slug": "syscall-file-metadata", "boost": 1 },
       { "slug": "syscall-io-multiplexing", "boost": 1 },
-      { "slug": "syscall-process-tracing", "boost": 1 }
+      { "slug": "syscall-memory-management", "boost": 1 },
+      { "slug": "syscall-process-management", "boost": 1 },
+      { "slug": "syscall-process-tracing", "boost": 1 },
+      { "slug": "syscall-sockets", "boost": 1 }
     ],
     "see": [
       { "slug": "syscall-device-control", "boost": 1 },
@@ -5872,12 +5875,7 @@
       { "slug": "syscall-process-tracing", "boost": 1 }
     ],
     "ino": [{ "slug": "syscall-file-metadata", "boost": 1 }],
-    "query": [
-      { "slug": "syscall-file-metadata", "boost": 1 },
-      { "slug": "syscall-memory-management", "boost": 1 },
-      { "slug": "syscall-process-management", "boost": 1 },
-      { "slug": "syscall-sockets", "boost": 1 }
-    ],
+    "query": [{ "slug": "syscall-file-metadata", "boost": 1 }],
     "allocated": [
       { "slug": "syscall-file-metadata", "boost": 1 },
       { "slug": "syscall-io-multiplexing", "boost": 1 },

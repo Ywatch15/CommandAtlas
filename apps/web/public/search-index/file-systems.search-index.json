@@ -6427,8 +6427,16 @@
       { "slug": "ls", "boost": 1 },
       { "slug": "lsblk", "boost": 1 },
       { "slug": "lsof", "boost": 1 },
+      { "slug": "mkdir", "boost": 1 },
       { "slug": "mkfs", "boost": 1 },
-      { "slug": "rm", "boost": 1 }
+      { "slug": "mount", "boost": 1 },
+      { "slug": "mv", "boost": 1 },
+      { "slug": "parted", "boost": 1 },
+      { "slug": "rm", "boost": 1 },
+      { "slug": "rmdir", "boost": 1 },
+      { "slug": "tree", "boost": 1 },
+      { "slug": "tune2fs", "boost": 1 },
+      { "slug": "umount", "boost": 1 }
     ],
     "but": [
       { "slug": "blkid", "boost": 1 },
@@ -10435,15 +10443,7 @@
       { "slug": "find", "boost": 1 },
       { "slug": "locate", "boost": 1 },
       { "slug": "lsblk", "boost": 1 },
-      { "slug": "mkdir", "boost": 1 },
-      { "slug": "mkfs", "boost": 1 },
-      { "slug": "mount", "boost": 1 },
-      { "slug": "mv", "boost": 1 },
-      { "slug": "parted", "boost": 1 },
-      { "slug": "rmdir", "boost": 1 },
-      { "slug": "tree", "boost": 1 },
-      { "slug": "tune2fs", "boost": 1 },
-      { "slug": "umount", "boost": 1 }
+      { "slug": "tune2fs", "boost": 1 }
     ],
     "structures": [
       { "slug": "df", "boost": 1 },

@@ -7967,13 +7967,23 @@
     ],
     "q": [
       { "slug": "add-content", "boost": 1 },
+      { "slug": "copy-item", "boost": 1 },
+      { "slug": "export-csv", "boost": 1 },
+      { "slug": "foreach-object", "boost": 1 },
+      { "slug": "get-childitem", "boost": 1 },
+      { "slug": "get-command", "boost": 1 },
       { "slug": "get-content", "boost": 1 },
       { "slug": "get-help", "boost": 1 },
       { "slug": "get-item", "boost": 1 },
       { "slug": "get-member", "boost": 1 },
       { "slug": "get-process", "boost": 1 },
       { "slug": "get-service", "boost": 1 },
+      { "slug": "import-csv", "boost": 1 },
+      { "slug": "invoke-restmethod", "boost": 1 },
+      { "slug": "invoke-webrequest", "boost": 1 },
+      { "slug": "new-item", "boost": 1 },
       { "slug": "remove-item", "boost": 1 },
+      { "slug": "select-object", "boost": 1 },
       { "slug": "set-content", "boost": 1 },
       { "slug": "set-location", "boost": 1 },
       { "slug": "sort-object", "boost": 1 },
@@ -11401,26 +11411,6 @@
       { "slug": "where-object", "boost": 1 }
     ],
     "accelerates": [{ "slug": "copy-item", "boost": 1 }],
-    "query": [
-      { "slug": "copy-item", "boost": 1 },
-      { "slug": "export-csv", "boost": 1 },
-      { "slug": "foreach-object", "boost": 1 },
-      { "slug": "get-childitem", "boost": 1 },
-      { "slug": "get-command", "boost": 1 },
-      { "slug": "get-help", "boost": 1 },
-      { "slug": "get-process", "boost": 1 },
-      { "slug": "get-service", "boost": 1 },
-      { "slug": "import-csv", "boost": 1 },
-      { "slug": "invoke-restmethod", "boost": 1 },
-      { "slug": "invoke-webrequest", "boost": 1 },
-      { "slug": "new-item", "boost": 1 },
-      { "slug": "remove-item", "boost": 1 },
-      { "slug": "select-object", "boost": 1 },
-      { "slug": "set-location", "boost": 1 },
-      { "slug": "sort-object", "boost": 1 },
-      { "slug": "test-path", "boost": 1 },
-      { "slug": "where-object", "boost": 1 }
-    ],
     "junior": [
       { "slug": "copy-item", "boost": 1 },
       { "slug": "new-item", "boost": 1 }
@@ -11498,6 +11488,21 @@
       { "slug": "get-item", "boost": 1 },
       { "slug": "get-service", "boost": 1 },
       { "slug": "remove-item", "boost": 1 },
+      { "slug": "where-object", "boost": 1 }
+    ],
+    "query": [
+      { "slug": "copy-item", "boost": 1 },
+      { "slug": "get-childitem", "boost": 1 },
+      { "slug": "get-command", "boost": 1 },
+      { "slug": "get-help", "boost": 1 },
+      { "slug": "get-process", "boost": 1 },
+      { "slug": "get-service", "boost": 1 },
+      { "slug": "invoke-restmethod", "boost": 1 },
+      { "slug": "remove-item", "boost": 1 },
+      { "slug": "select-object", "boost": 1 },
+      { "slug": "set-location", "boost": 1 },
+      { "slug": "sort-object", "boost": 1 },
+      { "slug": "test-path", "boost": 1 },
       { "slug": "where-object", "boost": 1 }
     ],
     "near": [{ "slug": "copy-item", "boost": 1 }],
@@ -48774,14 +48779,6 @@
       "minimized",
       "maximized"
     ],
-    "uer": [
-      "query",
-      "queries",
-      "masquerading",
-      "querying",
-      "queryable",
-      "queried"
-    ],
     "jun": ["junior", "junction"],
     "nio": ["junior", "senior"],
     "js$": ["js", "phantomjs"],
@@ -48814,6 +48811,14 @@
     "gai": ["against", "gains", "again"],
     "swi": ["switch", "switching", "swiftly", "createprocesswithlogonw"],
     "itc": ["switch", "switching"],
+    "uer": [
+      "query",
+      "queries",
+      "masquerading",
+      "querying",
+      "queryable",
+      "queried"
+    ],
     "nea": ["near", "neatly", "nearly"],
     "ar$": [
       "near",

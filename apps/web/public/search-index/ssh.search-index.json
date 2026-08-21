@@ -2363,7 +2363,10 @@
       { "slug": "scp", "boost": 1 },
       { "slug": "sftp", "boost": 1 },
       { "slug": "ssh-add", "boost": 1 },
+      { "slug": "ssh-agent", "boost": 1 },
+      { "slug": "ssh-copy-id", "boost": 1 },
       { "slug": "ssh-keygen", "boost": 1 },
+      { "slug": "ssh-keyscan", "boost": 1 },
       { "slug": "ssh", "boost": 1 },
       { "slug": "sshd", "boost": 1 }
     ],
@@ -8812,13 +8815,6 @@
       { "slug": "ssh-agent", "boost": 1 },
       { "slug": "sshd", "boost": 1 }
     ],
-    "query": [
-      { "slug": "ssh-agent", "boost": 1 },
-      { "slug": "ssh-copy-id", "boost": 1 },
-      { "slug": "ssh-keygen", "boost": 1 },
-      { "slug": "ssh-keyscan", "boost": 1 },
-      { "slug": "sshd", "boost": 1 }
-    ],
     "complains": [
       { "slug": "ssh-agent", "boost": 1 },
       { "slug": "ssh-keygen", "boost": 1 }
@@ -9818,6 +9814,7 @@
       { "slug": "ssh-keyscan", "boost": 1 },
       { "slug": "sshd", "boost": 1 }
     ],
+    "query": [{ "slug": "ssh-keyscan", "boost": 1 }],
     "ignoring": [{ "slug": "ssh-keyscan", "boost": 1 }],
     "responses": [{ "slug": "ssh-keyscan", "boost": 1 }],
     "cluster": [{ "slug": "ssh-keyscan", "boost": 1 }],
@@ -20357,7 +20354,7 @@
       "discovery",
       "discover"
     ],
-    "ery": ["recovery", "very", "every", "everything", "query", "discovery"],
+    "ery": ["recovery", "very", "every", "everything", "discovery", "query"],
     "ry$": [
       "recovery",
       "temporary",
@@ -20375,7 +20372,6 @@
       "marry",
       "chrootdirectory",
       "necessary",
-      "query",
       "repository",
       "dry",
       "arbitrary",
@@ -20386,6 +20382,7 @@
       "entry",
       "discovery",
       "inventory",
+      "query",
       "boundary",
       "mandatory",
       "primary",
@@ -24420,9 +24417,9 @@
       "quotes",
       "quit",
       "queueing",
-      "query",
       "quality",
-      "questionable"
+      "questionable",
+      "query"
     ],
     "uie": ["quietly", "quiet"],
     "iet": ["quietly", "quiet", "ietf", "proprietary"],
@@ -27451,8 +27448,8 @@
       "sequentially",
       "subsequently",
       "subsequent",
-      "query",
       "questionable",
+      "query",
       "requested",
       "requesting",
       "sequential",
@@ -29376,7 +29373,6 @@
     "rkd": ["workday"],
     "kda": ["workday"],
     "^el": ["eliminating", "eliminate", "elliptic", "eliminates"],
-    "uer": ["query"],
     "hap": ["happening", "happily"],
     "fun": ["functional", "function", "fundamentally", "functionally"],
     "amm": ["programmatically", "programmatic"],
@@ -29660,6 +29656,7 @@
     "r3$": ["server3", "user3"],
     "noi": ["noise"],
     "ois": ["noise"],
+    "uer": ["query"],
     "wli": ["newline"],
     "agg": ["aggregated", "aggressive", "aggressively"],
     "ggr": ["aggregated", "aggressive", "aggressively"],

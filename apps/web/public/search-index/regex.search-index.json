@@ -3553,7 +3553,8 @@
       { "slug": "regex-groups", "boost": 1 },
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
-      { "slug": "regex-shorthand-classes", "boost": 1 }
+      { "slug": "regex-shorthand-classes", "boost": 1 },
+      { "slug": "regex-wildcard", "boost": 1 }
     ],
     "script": [
       { "slug": "regex-alternation", "boost": 1 },
@@ -6810,10 +6811,6 @@
     "drops": [{ "slug": "regex-lookaround", "boost": 1 }],
     "prior": [{ "slug": "regex-lookaround", "boost": 1 }],
     "reserve": [{ "slug": "regex-lookaround", "boost": 1 }],
-    "query": [
-      { "slug": "regex-lookaround", "boost": 1 },
-      { "slug": "regex-wildcard", "boost": 1 }
-    ],
     "mathematical": [
       { "slug": "regex-lookaround", "boost": 1 },
       { "slug": "regex-quantifiers", "boost": 1 },
@@ -11424,7 +11421,6 @@
       "sequence",
       "question",
       "request",
-      "query",
       "technique"
     ],
     "uen": [
@@ -13709,7 +13705,7 @@
       "transaction",
       "spans"
     ],
-    "ery": ["every", "very", "everything", "everywhere", "query"],
+    "ery": ["every", "very", "everything", "everywhere"],
     "ry$": [
       "every",
       "very",
@@ -13724,7 +13720,6 @@
       "temporary",
       "arbitrary",
       "primary",
-      "query",
       "telemetry",
       "secondary"
     ],
@@ -18300,8 +18295,7 @@
       "quotes",
       "quotation",
       "quote",
-      "question",
-      "query"
+      "question"
     ],
     "qua": ["quantifier", "quantifiers", "square", "equal"],
     "uan": ["quantifier", "quantifiers"],
@@ -20845,7 +20839,6 @@
     "fav": ["favor"],
     "vor": ["favor"],
     "dro": ["drops", "drop"],
-    "uer": ["query"],
     "ged": ["unchanged", "tagged"],
     "iol": ["violate", "violently"],
     "pte": ["attempted"],

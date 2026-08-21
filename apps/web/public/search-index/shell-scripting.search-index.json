@@ -5637,7 +5637,14 @@
       { "slug": "getopts", "boost": 1 },
       { "slug": "if", "boost": 1 },
       { "slug": "let", "boost": 1 },
-      { "slug": "printf", "boost": 1 }
+      { "slug": "printf", "boost": 1 },
+      { "slug": "read", "boost": 1 },
+      { "slug": "return", "boost": 1 },
+      { "slug": "shift", "boost": 1 },
+      { "slug": "test", "boost": 1 },
+      { "slug": "trap", "boost": 1 },
+      { "slug": "wait", "boost": 1 },
+      { "slug": "while", "boost": 1 }
     ],
     "have": [
       { "slug": "case", "boost": 1 },
@@ -11950,14 +11957,7 @@
     ],
     "query": [
       { "slug": "let", "boost": 1 },
-      { "slug": "printf", "boost": 1 },
-      { "slug": "read", "boost": 1 },
-      { "slug": "return", "boost": 1 },
-      { "slug": "shift", "boost": 1 },
-      { "slug": "test", "boost": 1 },
-      { "slug": "trap", "boost": 1 },
-      { "slug": "wait", "boost": 1 },
-      { "slug": "while", "boost": 1 }
+      { "slug": "return", "boost": 1 }
     ],
     "establishing": [{ "slug": "let", "boost": 1 }],
     "boundary": [{ "slug": "let", "boost": 1 }],

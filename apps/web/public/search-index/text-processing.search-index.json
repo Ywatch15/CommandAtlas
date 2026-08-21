@@ -7872,18 +7872,27 @@
       { "slug": "uniq", "boost": 1 },
       { "slug": "wc", "boost": 1 }
     ],
-    "query": [
+    "q": [
       { "slug": "awk", "boost": 1 },
       { "slug": "cat", "boost": 1 },
+      { "slug": "csplit", "boost": 1 },
       { "slug": "cut", "boost": 1 },
+      { "slug": "expand", "boost": 1 },
+      { "slug": "fmt", "boost": 1 },
+      { "slug": "head", "boost": 1 },
+      { "slug": "join", "boost": 1 },
       { "slug": "less", "boost": 1 },
       { "slug": "more", "boost": 1 },
       { "slug": "nl", "boost": 1 },
       { "slug": "paste", "boost": 1 },
       { "slug": "sed", "boost": 1 },
       { "slug": "sort", "boost": 1 },
+      { "slug": "split", "boost": 1 },
       { "slug": "tac", "boost": 1 },
+      { "slug": "tail", "boost": 1 },
+      { "slug": "tr", "boost": 1 },
       { "slug": "unexpand", "boost": 1 },
+      { "slug": "uniq", "boost": 1 },
       { "slug": "wc", "boost": 1 }
     ],
     "fundamental": [
@@ -12986,21 +12995,6 @@
       { "slug": "tail", "boost": 1 }
     ],
     "swallow": [{ "slug": "csplit", "boost": 1 }],
-    "q": [
-      { "slug": "csplit", "boost": 1 },
-      { "slug": "cut", "boost": 1 },
-      { "slug": "expand", "boost": 1 },
-      { "slug": "fmt", "boost": 1 },
-      { "slug": "head", "boost": 1 },
-      { "slug": "join", "boost": 1 },
-      { "slug": "less", "boost": 1 },
-      { "slug": "more", "boost": 1 },
-      { "slug": "split", "boost": 1 },
-      { "slug": "tac", "boost": 1 },
-      { "slug": "tail", "boost": 1 },
-      { "slug": "tr", "boost": 1 },
-      { "slug": "uniq", "boost": 1 }
-    ],
     "expect": [
       { "slug": "csplit", "boost": 1 },
       { "slug": "paste", "boost": 1 }
@@ -13395,6 +13389,12 @@
     "administration": [
       { "slug": "cut", "boost": 1 },
       { "slug": "uniq", "boost": 1 }
+    ],
+    "query": [
+      { "slug": "cut", "boost": 1 },
+      { "slug": "less", "boost": 1 },
+      { "slug": "tac", "boost": 1 },
+      { "slug": "wc", "boost": 1 }
     ],
     "exclusively": [
       { "slug": "cut", "boost": 1 },
@@ -25814,8 +25814,8 @@
       "quote",
       "quotes",
       "questions",
-      "query",
       "quiet",
+      "query",
       "quick",
       "question",
       "quits",
@@ -34873,7 +34873,6 @@
       "geometry",
       "library",
       "primary",
-      "query",
       "directory",
       "delivery",
       "binary",
@@ -34881,6 +34880,7 @@
       "unnecessary",
       "very",
       "temporary",
+      "query",
       "try",
       "inventory",
       "boundary",
@@ -36222,7 +36222,7 @@
       "several",
       "overview"
     ],
-    "ery": ["every", "query", "delivery", "very", "everything", "everywhere"],
+    "ery": ["every", "delivery", "very", "everything", "query", "everywhere"],
     "ref": [
       "refers",
       "references",
@@ -38618,7 +38618,6 @@
       "subsequent",
       "sequentially",
       "questions",
-      "query",
       "sequence",
       "sequential",
       "squeeze",
@@ -38627,6 +38626,7 @@
       "request",
       "frequency",
       "requested",
+      "query",
       "unique",
       "question",
       "queries",
@@ -42126,7 +42126,6 @@
       "overview"
     ],
     "ew$": ["interview", "view", "new", "preview", "review", "few", "overview"],
-    "uer": ["query", "queries"],
     "dam": ["fundamental", "fundamentally"],
     "^f2": ["f2"],
     "f2$": ["f2"],
@@ -44209,6 +44208,7 @@
     ],
     "nt0": ["print0"],
     "t0$": ["print0"],
+    "uer": ["query", "queries"],
     "^1s": ["1st"],
     "1st": ["1st"],
     "^ow": ["owner", "own"],

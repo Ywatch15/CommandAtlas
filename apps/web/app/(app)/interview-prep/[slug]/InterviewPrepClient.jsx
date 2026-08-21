@@ -3,27 +3,11 @@ import { useState, useEffect } from 'react';
 import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { db } from '@/lib/db/index.js';
-import { parseBodySections, parseAndSanitizeMarkdown } from '@/lib/markdown.js';
-
-function formatInterviewQA(html) {
-  if (!html) return '';
-  let formatted = html
-    .replace(
-      /<p>\s*<strong>Q:?<\/strong>\s*/gi,
-      '<div class="iq-q-row"><span class="iq-q-badge">Q</span><div class="iq-q-content">'
-    )
-    .replace(
-      /<\/p>\s*<p>\s*<strong>A:?<\/strong>\s*/gi,
-      '</div></div><div class="iq-a-row"><span class="iq-a-badge">A</span><div class="iq-a-content">'
-    );
-
-  if (formatted.includes('class="iq-q-row"') && !formatted.includes('class="iq-a-row"')) {
-    formatted += '</div></div>';
-  } else if (formatted.includes('class="iq-a-row"')) {
-    formatted += '</div></div>';
-  }
-  return formatted;
-}
+import {
+  parseBodySections,
+  parseInterviewQuestions,
+  parseAndSanitizeMarkdown,
+} from '@/lib/markdown.js';
 
 export default function InterviewPrepClient({
   currentSlug,
@@ -68,8 +52,11 @@ export default function InterviewPrepClient({
     const iq = sections['Interview Questions'];
     if (iq && iq.trim() && !iq.includes('Not applicable')) {
       const catKey = (cmd.frontmatter?.category || cmd.category || 'other').split('/')[0];
-      if (!grouped[catKey]) grouped[catKey] = [];
-      grouped[catKey].push({ cmd, questionHtml: parseAndSanitizeMarkdown(iq) });
+      const pairs = parseInterviewQuestions(iq);
+      if (pairs.length > 0) {
+        if (!grouped[catKey]) grouped[catKey] = [];
+        grouped[catKey].push({ cmd, pairs });
+      }
     }
   }
 
@@ -203,7 +190,7 @@ export default function InterviewPrepClient({
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {items.map(({ cmd, questionHtml }) => {
+                {items.map(({ cmd, pairs }) => {
                   const isOpen = openItems.has(cmd.slug);
                   const difficulty = cmd.frontmatter?.difficulty || 'intermediate';
                   return (
@@ -273,10 +260,28 @@ export default function InterviewPrepClient({
 
                       {isOpen && (
                         <div className="accordion-body">
-                          <div
-                            className="markdown-body"
-                            dangerouslySetInnerHTML={{ __html: formatInterviewQA(questionHtml) }}
-                          />
+                          {pairs.map((pair, idx) => (
+                            <div key={idx} className="iq-pair">
+                              <div className="iq-question-block">
+                                <strong className="iq-q-prefix">Q:</strong>{' '}
+                                <span
+                                  className="iq-q-text"
+                                  dangerouslySetInnerHTML={{
+                                    __html: parseAndSanitizeMarkdown(pair.question),
+                                  }}
+                                />
+                              </div>
+                              <div className="iq-answer-block">
+                                <strong className="iq-a-prefix">A:</strong>{' '}
+                                <div
+                                  className="iq-a-text markdown-body"
+                                  dangerouslySetInnerHTML={{
+                                    __html: parseAndSanitizeMarkdown(pair.answer),
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       )}
                     </div>
@@ -442,58 +447,46 @@ export default function InterviewPrepClient({
           background-color: var(--bg-base);
         }
 
-        :global(.iq-q-row) {
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
-          margin-bottom: 14px;
+        :global(.iq-pair) {
+          margin-bottom: 20px;
+        }
+        :global(.iq-pair:last-child) {
+          margin-bottom: 0;
         }
 
-        :global(.iq-q-badge) {
-          font-size: 11px;
-          font-weight: 700;
-          color: var(--accent);
-          background-color: var(--bg-surface);
-          border: 1px solid var(--border-subtle);
-          border-radius: 4px;
-          padding: 2px 6px;
-          line-height: 1.2;
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        :global(.iq-q-content) {
+        :global(.iq-question-block) {
           font-size: 15px;
-          font-weight: 600;
-          color: var(--text-primary);
           line-height: 1.5;
-          flex: 1;
+          margin-bottom: 8px;
         }
 
-        :global(.iq-a-row) {
+        :global(.iq-q-prefix) {
+          color: var(--accent);
+          font-weight: 700;
+          margin-right: 6px;
+        }
+
+        :global(.iq-q-text) {
+          color: var(--text-primary);
+          font-weight: 600;
+        }
+
+        :global(.iq-answer-block) {
           display: flex;
           align-items: flex-start;
-          gap: 10px;
+          gap: 6px;
           border-left: 2px solid var(--border-subtle);
           padding-left: 12px;
-          margin-left: 4px;
-          margin-top: 8px;
+          margin-left: 2px;
         }
 
-        :global(.iq-a-badge) {
-          font-size: 11px;
-          font-weight: 700;
+        :global(.iq-a-prefix) {
           color: var(--text-muted);
-          background-color: var(--bg-surface);
-          border: 1px solid var(--border-subtle);
-          border-radius: 4px;
-          padding: 2px 6px;
-          line-height: 1.2;
+          font-weight: 700;
           flex-shrink: 0;
-          margin-top: 2px;
         }
 
-        :global(.iq-a-content) {
+        :global(.iq-a-text) {
           font-size: 14px;
           font-weight: 400;
           color: var(--text-primary);
@@ -501,10 +494,10 @@ export default function InterviewPrepClient({
           flex: 1;
         }
 
-        :global(.iq-a-content p) {
+        :global(.iq-a-text p) {
           margin: 0 0 8px 0;
         }
-        :global(.iq-a-content p:last-child) {
+        :global(.iq-a-text p:last-child) {
           margin: 0;
         }
 

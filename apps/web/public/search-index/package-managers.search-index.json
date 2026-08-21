@@ -2903,7 +2903,9 @@
     "q": [
       { "slug": "apk", "boost": 1 },
       { "slug": "apt", "boost": 1 },
+      { "slug": "brew", "boost": 1 },
       { "slug": "dnf", "boost": 1 },
+      { "slug": "dpkg", "boost": 1 },
       { "slug": "flatpak", "boost": 1 },
       { "slug": "pacman", "boost": 1 },
       { "slug": "rpm", "boost": 1 },
@@ -5196,7 +5198,6 @@
     "query": [
       { "slug": "apt", "boost": 1 },
       { "slug": "brew", "boost": 1 },
-      { "slug": "dnf", "boost": 1 },
       { "slug": "dpkg", "boost": 1 },
       { "slug": "pacman", "boost": 1 },
       { "slug": "rpm", "boost": 5, "phrase": "query installed rpm package" }

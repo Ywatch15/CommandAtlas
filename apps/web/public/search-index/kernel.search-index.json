@@ -3672,6 +3672,9 @@
       { "slug": "kmod", "boost": 1 },
       { "slug": "lsmod", "boost": 1 },
       { "slug": "mkinitcpio", "boost": 1 },
+      { "slug": "modinfo", "boost": 1 },
+      { "slug": "modprobe", "boost": 1 },
+      { "slug": "rmmod", "boost": 1 },
       { "slug": "sysctl", "boost": 1 }
     ],
     "adapter": [
@@ -7968,11 +7971,7 @@
     "printed": [{ "slug": "modinfo", "boost": 1 }],
     "manuals": [{ "slug": "modinfo", "boost": 1 }],
     "operators": [{ "slug": "modinfo", "boost": 1 }],
-    "query": [
-      { "slug": "modinfo", "boost": 1 },
-      { "slug": "modprobe", "boost": 1 },
-      { "slug": "rmmod", "boost": 1 }
-    ],
+    "query": [{ "slug": "modinfo", "boost": 1 }],
     "binds": [
       { "slug": "modinfo", "boost": 1 },
       { "slug": "modprobe", "boost": 1 },
