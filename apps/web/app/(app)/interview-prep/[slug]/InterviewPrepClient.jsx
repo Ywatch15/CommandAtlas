@@ -18,6 +18,7 @@ export default function InterviewPrepClient({
   const [allCategories, setAllCategories] = useState(staticAllCategories);
   const [openItems, setOpenItems] = useState(new Set());
   const [sortBy, setSortBy] = useState('topic');
+  const [selectedDifficulties, setSelectedDifficulties] = useState(new Set());
 
   useEffect(() => {
     async function loadLocal() {
@@ -35,7 +36,10 @@ export default function InterviewPrepClient({
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const sortParam = params.get('sort');
-      if (sortParam && ['topic', 'difficulty', 'name'].includes(sortParam)) {
+      if (
+        sortParam &&
+        ['topic', 'name-asc', 'name-desc', 'diff-asc', 'diff-desc'].includes(sortParam)
+      ) {
         setSortBy(sortParam);
       }
     }
@@ -48,6 +52,18 @@ export default function InterviewPrepClient({
       url.searchParams.set('sort', newSort);
       window.history.replaceState(null, '', url.toString());
     }
+  };
+
+  const toggleDifficultyFilter = (diff) => {
+    setSelectedDifficulties((prev) => {
+      const next = new Set(prev);
+      if (next.has(diff)) {
+        next.delete(diff);
+      } else {
+        next.add(diff);
+      }
+      return next;
+    });
   };
 
   const sidebarItems = allCategories.map((cat) => ({
@@ -63,44 +79,90 @@ export default function InterviewPrepClient({
           (c) => (c.frontmatter?.category || c.category || '').split('/')[0] === currentSlug
         );
 
-  // Group commands with non-empty "Interview Questions" section by category
-  const grouped = {};
+  const DIFFICULTY_RANK = { beginner: 1, intermediate: 2, advanced: 3 };
+
+  // Parse and filter matching interview questions
+  const allMatchingItems = [];
   for (const cmd of filteredCommands) {
+    const diff = (cmd.frontmatter?.difficulty || 'intermediate').toLowerCase();
+    if (selectedDifficulties.size > 0 && !selectedDifficulties.has(diff)) {
+      continue;
+    }
+
     const sections = parseBodySections(cmd.body || '');
     const iq = sections['Interview Questions'];
     if (iq && iq.trim() && !iq.includes('Not applicable')) {
       const catKey = (cmd.frontmatter?.category || cmd.category || 'other').split('/')[0];
       const pairs = parseInterviewQuestions(iq);
       if (pairs.length > 0) {
-        if (!grouped[catKey]) grouped[catKey] = [];
-        grouped[catKey].push({ cmd, pairs });
+        allMatchingItems.push({ cmd, pairs, catKey, diff });
       }
     }
   }
 
-  // Sort items within each category according to current sort selection
-  const DIFFICULTY_RANK = { beginner: 1, intermediate: 2, advanced: 3 };
-  for (const key of Object.keys(grouped)) {
-    grouped[key].sort((a, b) => {
-      if (sortBy === 'difficulty') {
-        const diffA = DIFFICULTY_RANK[a.cmd.frontmatter?.difficulty || 'intermediate'] || 2;
-        const diffB = DIFFICULTY_RANK[b.cmd.frontmatter?.difficulty || 'intermediate'] || 2;
-        if (diffA !== diffB) return diffA - diffB;
+  // Sort function
+  const sortItems = (items) => {
+    return [...items].sort((a, b) => {
+      if (sortBy === 'name-asc') {
+        const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+        const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+        return nameA.localeCompare(nameB);
       }
+      if (sortBy === 'name-desc') {
+        const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+        const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+        return nameB.localeCompare(nameA);
+      }
+      if (sortBy === 'diff-asc') {
+        const diffA = DIFFICULTY_RANK[a.diff] || 2;
+        const diffB = DIFFICULTY_RANK[b.diff] || 2;
+        if (diffA !== diffB) return diffA - diffB;
+        const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+        const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+        return nameA.localeCompare(nameB);
+      }
+      if (sortBy === 'diff-desc') {
+        const diffA = DIFFICULTY_RANK[a.diff] || 2;
+        const diffB = DIFFICULTY_RANK[b.diff] || 2;
+        if (diffA !== diffB) return diffB - diffA;
+        const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
+        const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
+        return nameA.localeCompare(nameB);
+      }
+      // Topic tie-breaker
       const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
       const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
       return nameA.localeCompare(nameB);
     });
+  };
+
+  // Group by topic if sortBy === 'topic', otherwise flat list
+  const isGroupedByTopic = sortBy === 'topic';
+  const grouped = {};
+  if (isGroupedByTopic) {
+    for (const item of allMatchingItems) {
+      if (!grouped[item.catKey]) grouped[item.catKey] = [];
+      grouped[item.catKey].push(item);
+    }
+    for (const key of Object.keys(grouped)) {
+      grouped[key] = sortItems(grouped[key]);
+    }
   }
 
-  // Automatically open first 3 questions in each group on initial render
+  const sortedFlatItems = !isGroupedByTopic ? sortItems(allMatchingItems) : [];
+
+  // Automatically open first 3 questions on initial render
   useEffect(() => {
     const initialOpen = new Set();
-    Object.values(grouped).forEach((items) => {
-      items.slice(0, 3).forEach(({ cmd }) => initialOpen.add(cmd.slug));
-    });
+    if (isGroupedByTopic) {
+      Object.values(grouped).forEach((items) => {
+        items.slice(0, 3).forEach(({ cmd }) => initialOpen.add(cmd.slug));
+      });
+    } else {
+      sortedFlatItems.slice(0, 3).forEach(({ cmd }) => initialOpen.add(cmd.slug));
+    }
     setOpenItems(initialOpen);
-  }, [currentSlug, allCommands.length]);
+  }, [currentSlug, allCommands.length, sortBy, selectedDifficulties.size]);
 
   const toggleItem = (slug) => {
     setOpenItems((prev) => {
@@ -116,9 +178,7 @@ export default function InterviewPrepClient({
 
   const expandAllGlobal = () => {
     const allSlugs = new Set();
-    Object.values(grouped).forEach((items) => {
-      items.forEach(({ cmd }) => allSlugs.add(cmd.slug));
-    });
+    allMatchingItems.forEach(({ cmd }) => allSlugs.add(cmd.slug));
     setOpenItems(allSlugs);
   };
 
@@ -126,23 +186,99 @@ export default function InterviewPrepClient({
     setOpenItems(new Set());
   };
 
-  const expandAllInTopic = (items) => {
-    setOpenItems((prev) => {
-      const next = new Set(prev);
-      items.forEach(({ cmd }) => next.add(cmd.slug));
-      return next;
-    });
-  };
-
-  const collapseAllInTopic = (items) => {
-    setOpenItems((prev) => {
-      const next = new Set(prev);
-      items.forEach(({ cmd }) => next.delete(cmd.slug));
-      return next;
-    });
-  };
-
   const categorySlugs = ['all', ...allCategories.map((c) => c.slug)];
+
+  const renderCard = ({ cmd, pairs }) => {
+    const isOpen = openItems.has(cmd.slug);
+    const difficulty = cmd.frontmatter?.difficulty || 'intermediate';
+    return (
+      <div key={cmd.slug} className={`accordion-card ${isOpen ? 'open' : ''}`}>
+        <div
+          className="accordion-header"
+          onClick={() => toggleItem(cmd.slug)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleItem(cmd.slug);
+            }
+          }}
+          tabIndex={0}
+          role="button"
+          aria-expanded={isOpen}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              flex: 1,
+              minWidth: 0,
+            }}
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              style={{
+                transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+                transition: 'transform 0.15s ease',
+                flexShrink: 0,
+                color: 'var(--text-muted)',
+              }}
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+            <span
+              style={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-mono, monospace)',
+              }}
+            >
+              {cmd.frontmatter?.name || cmd.name || cmd.slug}
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span className={`badge-difficulty difficulty-${difficulty}`}>{difficulty}</span>
+            <Link
+              href={`/command/${cmd.slug}`}
+              className="cmd-ref-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Ref &rarr;
+            </Link>
+          </div>
+        </div>
+
+        {isOpen && (
+          <div className="accordion-body">
+            {pairs.map((pair, idx) => (
+              <div key={idx} className="iq-pair">
+                <div className="iq-question-block">
+                  <span className="iq-q-prefix">Q:</span>
+                  <span className="iq-q-text">{pair.question}</span>
+                </div>
+                <div className="iq-answer-block">
+                  <span className="iq-a-prefix">A:</span>
+                  <div
+                    className="iq-a-text"
+                    dangerouslySetInnerHTML={{
+                      __html: parseAndSanitizeMarkdown(pair.answer),
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <AppShell sidebarItems={sidebarItems}>
@@ -195,22 +331,45 @@ export default function InterviewPrepClient({
           </div>
         </div>
 
-        {/* Global Actions Row: Sort Control + Expand/Collapse */}
+        {/* Global Filter/Sort Bar */}
         <div className="interview-actions-bar">
-          <div className="sort-control">
-            <label htmlFor="sort-select" className="sort-label">
-              Sort by:
-            </label>
-            <select
-              id="sort-select"
-              value={sortBy}
-              onChange={(e) => handleSortChange(e.target.value)}
-              className="sort-select"
-            >
-              <option value="topic">Topic</option>
-              <option value="difficulty">Difficulty</option>
-              <option value="name">Name (A–Z)</option>
-            </select>
+          <div className="filter-sort-controls">
+            <div className="sort-control">
+              <label htmlFor="sort-select" className="sort-label">
+                Sort by:
+              </label>
+              <select
+                id="sort-select"
+                value={sortBy}
+                onChange={(e) => handleSortChange(e.target.value)}
+                className="sort-select"
+              >
+                <option value="topic">Topic (Grouped)</option>
+                <option value="name-asc">Name (A–Z)</option>
+                <option value="name-desc">Name (Z–A)</option>
+                <option value="diff-asc">Difficulty (Beginner → Advanced)</option>
+                <option value="diff-desc">Difficulty (Advanced → Beginner)</option>
+              </select>
+            </div>
+
+            <div className="diff-filter-group">
+              <span className="sort-label">Difficulty:</span>
+              <div className="difficulty-chips">
+                {['beginner', 'intermediate', 'advanced'].map((diff) => {
+                  const isActive = selectedDifficulties.has(diff);
+                  return (
+                    <button
+                      key={diff}
+                      type="button"
+                      className={`diff-chip ${isActive ? 'active' : ''}`}
+                      onClick={() => toggleDifficultyFilter(diff)}
+                    >
+                      {diff.charAt(0).toUpperCase() + diff.slice(1)}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="global-expand-controls">
@@ -224,8 +383,8 @@ export default function InterviewPrepClient({
           </div>
         </div>
 
-        {/* Content Grouped by Topic */}
-        {Object.keys(grouped).length === 0 ? (
+        {/* Content Grouped by Topic or Flat List */}
+        {allMatchingItems.length === 0 ? (
           <div
             style={{
               padding: '32px',
@@ -237,133 +396,25 @@ export default function InterviewPrepClient({
               fontSize: '14px',
             }}
           >
-            No interview questions found for this topic filter.
+            No interview questions found for this filter.
           </div>
-        ) : (
+        ) : isGroupedByTopic ? (
           Object.entries(grouped).map(([topic, items]) => (
             <div key={topic} style={{ marginBottom: '40px' }}>
               <div className="topic-section-header">
                 <h2 className="topic-title">{topic}</h2>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button
-                    type="button"
-                    className="action-link-btn"
-                    onClick={() => expandAllInTopic(items)}
-                  >
-                    Expand All
-                  </button>
-                  <span style={{ color: 'var(--border-subtle)' }}>|</span>
-                  <button
-                    type="button"
-                    className="action-link-btn"
-                    onClick={() => collapseAllInTopic(items)}
-                  >
-                    Collapse All
-                  </button>
-                </div>
               </div>
-
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {items.map(({ cmd, pairs }) => {
-                  const isOpen = openItems.has(cmd.slug);
-                  const difficulty = cmd.frontmatter?.difficulty || 'intermediate';
-                  return (
-                    <div key={cmd.slug} className={`accordion-card ${isOpen ? 'open' : ''}`}>
-                      <div
-                        className="accordion-header"
-                        onClick={() => toggleItem(cmd.slug)}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            toggleItem(cmd.slug);
-                          }
-                        }}
-                        tabIndex={0}
-                        role="button"
-                        aria-expanded={isOpen}
-                      >
-                        <div
-                          style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px',
-                            flex: 1,
-                            minWidth: 0,
-                          }}
-                        >
-                          <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.5"
-                            style={{
-                              transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.15s ease',
-                              flexShrink: 0,
-                            }}
-                          >
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                          </svg>
-                          <span className="cmd-title-name">
-                            {cmd.frontmatter?.name || cmd.slug}
-                          </span>
-                        </div>
-
-                        <div
-                          style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px',
-                            flexShrink: 0,
-                          }}
-                        >
-                          <span className={`badge-difficulty difficulty-${difficulty}`}>
-                            {difficulty}
-                          </span>
-                          <Link
-                            href={`/command/${cmd.slug}`}
-                            onClick={(e) => e.stopPropagation()}
-                            className="cmd-ref-link"
-                          >
-                            Ref &rarr;
-                          </Link>
-                        </div>
-                      </div>
-
-                      {isOpen && (
-                        <div className="accordion-body">
-                          {pairs.map((pair, idx) => (
-                            <div key={idx} className="iq-pair">
-                              <div className="iq-question-block">
-                                <strong className="iq-q-prefix">Q:</strong>{' '}
-                                <span
-                                  className="iq-q-text"
-                                  dangerouslySetInnerHTML={{
-                                    __html: parseAndSanitizeMarkdown(pair.question),
-                                  }}
-                                />
-                              </div>
-                              <div className="iq-answer-block">
-                                <strong className="iq-a-prefix">A:</strong>{' '}
-                                <div
-                                  className="iq-a-text markdown-body"
-                                  dangerouslySetInnerHTML={{
-                                    __html: parseAndSanitizeMarkdown(pair.answer),
-                                  }}
-                                />
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                {items.map(renderCard)}
               </div>
             </div>
           ))
+        ) : (
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '40px' }}
+          >
+            {sortedFlatItems.map(renderCard)}
+          </div>
         )}
       </div>
 
@@ -629,6 +680,54 @@ export default function InterviewPrepClient({
           gap: 8px;
         }
 
+        .filter-sort-controls {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .diff-filter-group {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .difficulty-chips {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .diff-chip {
+          background-color: var(--bg-surface);
+          color: var(--text-muted);
+          border: 1px solid var(--border-subtle);
+          border-radius: 4px;
+          padding: 4px 10px;
+          font-size: 12px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+
+        .diff-chip:hover {
+          color: var(--text-primary);
+          border-color: var(--text-muted);
+        }
+
+        .diff-chip.active {
+          background-color: var(--bg-elevated);
+          color: var(--accent);
+          border-color: var(--accent);
+          font-weight: 600;
+        }
+
+        .diff-chip:focus-visible {
+          outline: 2px solid var(--accent);
+          outline-offset: -1px;
+        }
+
         @media (max-width: 640px) {
           .topic-bar {
             flex-direction: column;
@@ -636,8 +735,14 @@ export default function InterviewPrepClient({
           }
 
           .interview-actions-bar {
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+
+          .filter-sort-controls {
+            gap: 12px;
+            width: 100%;
           }
 
           .accordion-header {
