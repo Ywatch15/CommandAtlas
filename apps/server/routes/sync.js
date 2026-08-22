@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import { Bookmark } from '../models/Bookmark.js';
-import { Note } from '../models/Note.js';
+import { prisma } from '../lib/prisma.js';
 
 const router = Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_key_cmd_atlas';
@@ -24,8 +23,8 @@ function requireAuth(req, res, next) {
 // GET /api/sync/pull — fetch all user data from server
 router.get('/pull', requireAuth, async (req, res) => {
   try {
-    const bookmarks = await Bookmark.find({ userId: req.userId });
-    const notes = await Note.find({ userId: req.userId });
+    const bookmarks = await prisma.bookmark.findMany({ where: { userId: req.userId } });
+    const notes = await prisma.note.findMany({ where: { userId: req.userId } });
     return res.json({ bookmarks, notes });
   } catch {
     return res.status(500).json({ error: 'Server error' });
@@ -39,34 +38,53 @@ router.post('/push', requireAuth, async (req, res) => {
 
     for (const bm of bookmarks) {
       if (bm.deleted) {
-        await Bookmark.deleteOne({ userId: req.userId, commandSlug: bm.commandSlug });
+        await prisma.bookmark.deleteMany({
+          where: { userId: req.userId, commandSlug: bm.commandSlug },
+        });
       } else {
-        await Bookmark.findOneAndUpdate(
-          { userId: req.userId, commandSlug: bm.commandSlug },
-          {
+        await prisma.bookmark.upsert({
+          where: {
+            userId_commandSlug: { userId: req.userId, commandSlug: bm.commandSlug },
+          },
+          update: {
+            createdAt: bm.createdAt ? new Date(bm.createdAt) : new Date(),
+          },
+          create: {
             userId: req.userId,
             commandSlug: bm.commandSlug,
-            createdAt: bm.createdAt || new Date(),
+            createdAt: bm.createdAt ? new Date(bm.createdAt) : new Date(),
           },
-          { upsert: true, new: true }
-        );
+        });
       }
     }
 
     for (const note of notes) {
       if (note.deleted || !note.content) {
-        await Note.deleteOne({ userId: req.userId, commandSlug: note.commandSlug });
+        await prisma.note.deleteMany({
+          where: { userId: req.userId, commandSlug: note.commandSlug },
+        });
       } else {
-        await Note.findOneAndUpdate(
-          { userId: req.userId, commandSlug: note.commandSlug },
-          {
-            userId: req.userId,
-            commandSlug: note.commandSlug,
-            content: note.content,
-            updatedAt: note.updatedAt || new Date(),
-          },
-          { upsert: true, new: true }
-        );
+        // Find existing note for this user+slug
+        const existing = await prisma.note.findFirst({
+          where: { userId: req.userId, commandSlug: note.commandSlug },
+        });
+        if (existing) {
+          await prisma.note.update({
+            where: { id: existing.id },
+            data: {
+              content: note.content,
+              updatedAt: note.updatedAt ? new Date(note.updatedAt) : new Date(),
+            },
+          });
+        } else {
+          await prisma.note.create({
+            data: {
+              userId: req.userId,
+              commandSlug: note.commandSlug,
+              content: note.content,
+            },
+          });
+        }
       }
     }
 
@@ -84,31 +102,37 @@ router.post('/merge', requireAuth, async (req, res) => {
 
     for (const bm of localBookmarks) {
       if (bm.commandSlug) {
-        await Bookmark.findOneAndUpdate(
-          { userId: req.userId, commandSlug: bm.commandSlug },
-          {
+        await prisma.bookmark.upsert({
+          where: {
+            userId_commandSlug: { userId: req.userId, commandSlug: bm.commandSlug },
+          },
+          update: {},
+          create: {
             userId: req.userId,
             commandSlug: bm.commandSlug,
-            createdAt: bm.createdAt || new Date(),
+            createdAt: bm.createdAt ? new Date(bm.createdAt) : new Date(),
           },
-          { upsert: true, new: true }
-        );
+        });
         mergedCount++;
       }
     }
 
     for (const note of localNotes) {
       if (note.commandSlug && note.content) {
-        await Note.findOneAndUpdate(
-          { userId: req.userId, commandSlug: note.commandSlug },
-          {
-            userId: req.userId,
-            commandSlug: note.commandSlug,
-            content: note.content,
-            updatedAt: note.updatedAt || new Date(),
-          },
-          { upsert: true, new: true }
-        );
+        const existing = await prisma.note.findFirst({
+          where: { userId: req.userId, commandSlug: note.commandSlug },
+        });
+        if (existing) {
+          // Keep both — don't overwrite existing server note (ADR-009)
+        } else {
+          await prisma.note.create({
+            data: {
+              userId: req.userId,
+              commandSlug: note.commandSlug,
+              content: note.content,
+            },
+          });
+        }
         mergedCount++;
       }
     }

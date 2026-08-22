@@ -1,5 +1,5 @@
 import express from 'express';
-import { Contribution } from '../models/Contribution.js';
+import { prisma } from '../lib/prisma.js';
 import { csrfProtection } from '../middleware/csrf.js';
 
 const router = express.Router();
@@ -7,7 +7,10 @@ const router = express.Router();
 // GET /api/contributions — list contributions
 router.get('/', async (req, res) => {
   try {
-    const list = await Contribution.find().sort({ createdAt: -1 }).limit(50);
+    const list = await prisma.contribution.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: 50,
+    });
     res.json({ contributions: list });
   } catch {
     res.status(500).json({ error: 'Failed to fetch contributions' });
@@ -22,17 +25,22 @@ router.post('/webhook', csrfProtection, async (req, res) => {
       return res.status(400).json({ error: 'Missing required PR metadata fields' });
     }
 
-    const contribution = await Contribution.findOneAndUpdate(
-      { prNumber },
-      {
+    const contribution = await prisma.contribution.upsert({
+      where: { prNumber },
+      update: {
+        prUrl,
+        contributorHandle,
+        status: status || 'pending',
+        reviewNotes: reviewNotes || '',
+      },
+      create: {
         prNumber,
         prUrl,
         contributorHandle,
-        status: status || 'open',
+        status: status || 'pending',
         reviewNotes: reviewNotes || '',
       },
-      { upsert: true, new: true }
-    );
+    });
 
     res.json({ success: true, contribution });
   } catch {
