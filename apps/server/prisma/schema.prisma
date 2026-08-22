@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,4 +8,93 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum ContributionStatus {
+  pending
+  approved
+  rejected
+}
+
+model User {
+  id               String             @id @default(uuid())
+  email            String             @unique
+  passwordHash     String
+  name             String?            @default("")
+  role             String             @default("user")
+  createdAt        DateTime           @default(now())
+  lastLoginAt      DateTime           @default(now())
+  bookmarks        Bookmark[]
+  notes            Note[]
+  learningProgress LearningProgress[]
+  sessions         Session[]
+  contributions    Contribution[]     @relation("UserContributions")
+  reviews          Contribution[]     @relation("UserReviews")
+}
+
+model Bookmark {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  commandSlug String
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, commandSlug])
+}
+
+model Note {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  commandSlug String
+  content     String   @default("")
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId, commandSlug])
+}
+
+model LearningProgress {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pathSlug    String
+  stepIndex   Int
+  completedAt DateTime @default(now())
+
+  @@index([userId, pathSlug])
+}
+
+model Session {
+  id               String   @id @default(uuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshTokenHash String   @unique
+  expiresAt        DateTime
+  device           String?
+  createdAt        DateTime @default(now())
+}
+
+model Contribution {
+  id                String             @id @default(uuid())
+  submittedByUserId String?
+  submittedByUser   User?              @relation("UserContributions", fields: [submittedByUserId], references: [id], onDelete: SetNull)
+  prNumber          Int?               @unique
+  prUrl             String
+  contributorHandle String?
+  targetCommandSlug String?
+  status            ContributionStatus @default(pending)
+  reviewedByUserId  String?
+  reviewedByUser    User?              @relation("UserReviews", fields: [reviewedByUserId], references: [id], onDelete: SetNull)
+  reviewNotes       String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model ZeroResultQuery {
+  id            String   @id @default(uuid())
+  queryText     String   @unique
+  count         Int      @default(1)
+  lastQueriedAt DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
