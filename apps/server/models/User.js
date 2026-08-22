@@ -1,47 +1,17 @@
-import mongoose from 'mongoose';
+import { prisma } from '../lib/prisma.js';
 import bcrypt from 'bcryptjs';
 
-const userSchema = new mongoose.Schema(
-  {
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
-      index: true,
-    },
-    passwordHash: {
-      type: String,
-      required: true,
-      select: false,
-    },
-    name: {
-      type: String,
-      default: '',
-    },
-    role: {
-      type: String,
-      enum: ['user', 'admin'],
-      default: 'user',
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    lastLoginAt: {
-      type: Date,
-      default: Date.now,
-    },
+export const User = {
+  findUnique: (args) => prisma.user.findUnique(args),
+  findFirst: (args) => prisma.user.findFirst(args),
+  findMany: (args) => prisma.user.findMany(args),
+  create: (args) => prisma.user.create(args),
+  update: (args) => prisma.user.update(args),
+  delete: (args) => prisma.user.delete(args),
+  verifyPassword: async (userObj, candidatePassword) => {
+    if (!userObj || !userObj.passwordHash) return false;
+    return await bcrypt.compare(candidatePassword, userObj.passwordHash);
   },
-  {
-    timestamps: true,
-  }
-);
-
-userSchema.statics.verifyPassword = async function (userObj, candidatePassword) {
-  if (!userObj || !userObj.passwordHash) return false;
-  return await bcrypt.compare(candidatePassword, userObj.passwordHash);
 };
 
-export const User = mongoose.models.User || mongoose.model('User', userSchema);
+export default User;
