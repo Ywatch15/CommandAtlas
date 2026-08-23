@@ -613,7 +613,7 @@
       "slug": "git-rebase",
       "name": "git rebase",
       "category": "git",
-      "contentVersion": 4,
+      "contentVersion": 3,
       "frontmatter": {
         "slug": "git-rebase",
         "name": "git rebase",

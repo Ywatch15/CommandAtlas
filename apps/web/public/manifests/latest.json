@@ -1,6 +1,6 @@
 {
   "version": 11,
-  "generatedAt": "2026-08-21T07:03:33.458Z",
+  "generatedAt": "2026-08-23T09:55:10.469Z",
   "packs": [
     {
       "packId": "bash",
@@ -48,7 +48,7 @@
       "packId": "git",
       "version": 7,
       "size": 523953,
-      "checksum": "9fa9fa30b8e09f969687cc6e6a175ff70cf7548076d1c63ffdfd891182a819ce",
+      "checksum": "97d1cd968668b218b3898dcaf9a2e6e2d5991e150581ced40efa59f08c692fab",
       "url": "/packs/commands/git.json"
     },
     {
