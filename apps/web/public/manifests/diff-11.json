@@ -1,9 +1,0 @@
-{
-  "fromVersion": 10,
-  "toVersion": 11,
-  "generatedAt": "2026-08-23T09:53:22.528Z",
-  "added": [],
-  "modified": ["git-rebase"],
-  "removed": [],
-  "affectedPacks": ["git"]
-}

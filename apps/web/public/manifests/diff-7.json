@@ -1,9 +1,0 @@
-{
-  "fromVersion": 6,
-  "toVersion": 7,
-  "generatedAt": "2026-08-17T10:21:49.353Z",
-  "added": ["apk", "brew", "dnf", "dpkg", "flatpak", "pacman", "rpm", "snap"],
-  "modified": ["curl"],
-  "removed": [],
-  "affectedPacks": ["networking", "package-managers"]
-}

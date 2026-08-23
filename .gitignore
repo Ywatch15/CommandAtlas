@@ -38,6 +38,12 @@ next-env.d.ts
 # a tagged release branch — not by removing this ignore rule wholesale.
 # ---------------------------------------------------------------------------
 generated/
+apps/web/public/packs/
+apps/web/public/search-index/
+apps/web/public/manifests/
+!apps/web/public/packs/.gitkeep
+!apps/web/public/search-index/.gitkeep
+!apps/web/public/manifests/.gitkeep
 
 # ---------------------------------------------------------------------------
 # Environment variables & secrets — never committed, per
