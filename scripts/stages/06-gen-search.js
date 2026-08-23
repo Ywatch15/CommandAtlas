@@ -155,9 +155,29 @@ export default async function genSearch(context, _options) {
     }
   }
 
+  function sortIndexObject(indexObj) {
+    const sortedTokens = {};
+    for (const k of Object.keys(indexObj.tokens || {}).sort()) {
+      sortedTokens[k] = [...indexObj.tokens[k]].sort((a, b) => a.slug.localeCompare(b.slug));
+    }
+
+    const sortedTrigrams = {};
+    for (const k of Object.keys(indexObj.trigrams || {}).sort()) {
+      sortedTrigrams[k] = [...indexObj.trigrams[k]].sort();
+    }
+
+    const sortedFacets = {};
+    for (const k of Object.keys(indexObj.facets || {}).sort()) {
+      sortedFacets[k] = indexObj.facets[k];
+    }
+
+    return { tokens: sortedTokens, trigrams: sortedTrigrams, facets: sortedFacets };
+  }
+
   // Write global index
   const globalPath = path.join(searchDir, 'global.search-index.json');
-  const globalJson = JSON.stringify(globalIndex);
+  const sortedGlobalIndex = sortIndexObject(globalIndex);
+  const globalJson = JSON.stringify(sortedGlobalIndex);
   await fs.writeFile(globalPath, globalJson, 'utf-8');
 
   // Size check
@@ -172,9 +192,12 @@ export default async function genSearch(context, _options) {
   }
 
   // Write per-pack indexes
-  for (const [packId, packIdx] of perPackIndexes) {
+  const sortedPackEntries = Array.from(perPackIndexes.entries()).sort(([a], [b]) =>
+    a.localeCompare(b)
+  );
+  for (const [packId, packIdx] of sortedPackEntries) {
     const packIdxPath = path.join(searchDir, `${packId}.search-index.json`);
-    await fs.writeFile(packIdxPath, JSON.stringify(packIdx), 'utf-8');
+    await fs.writeFile(packIdxPath, JSON.stringify(sortIndexObject(packIdx)), 'utf-8');
   }
 
   context.searchIndexes = perPackIndexes;
