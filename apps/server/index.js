@@ -47,8 +47,9 @@ if (process.env.NODE_ENV !== 'test') {
   prisma
     .$connect()
     .then(() => {
+      console.log(`[SERVER] Database connected successfully via Prisma.`);
       app.listen(PORT, () => {
-        // Server startup
+        console.log(`[SERVER] CommandAtlas backend running on port ${PORT}`);
       });
 
       // Session TTL cleanup — runs every hour.
