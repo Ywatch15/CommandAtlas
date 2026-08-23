@@ -4,6 +4,7 @@ import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { setAuthSession } from '@/lib/auth.js';
+import { apiFetch } from '@/lib/api-client.js';
 
 export default function LoginPageClient() {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export default function LoginPageClient() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await apiFetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

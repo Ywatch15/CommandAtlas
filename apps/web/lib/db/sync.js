@@ -1,5 +1,6 @@
 import { db } from './index.js';
 import { getAuthToken } from '../auth.js';
+import { apiFetch } from '../api-client.js';
 
 export const SyncStatus = {
   IDLE: 'idle',
@@ -39,7 +40,7 @@ export async function performAccountMerge(token) {
       return { mergedCount: 0 };
     }
 
-    const res = await fetch('/api/sync/merge', {
+    const res = await apiFetch('/api/sync/merge', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +103,7 @@ export async function triggerSync() {
       .toArray();
 
     // 1. Push pending local changes
-    const pushRes = await fetch('/api/sync/push', {
+    const pushRes = await apiFetch('/api/sync/push', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -137,7 +138,7 @@ export async function triggerSync() {
     });
 
     // 2. Pull remote changes (last-write-wins)
-    const pullRes = await fetch('/api/sync/pull', {
+    const pullRes = await apiFetch('/api/sync/pull', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
