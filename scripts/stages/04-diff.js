@@ -35,7 +35,6 @@ export default async function diff(context, _options) {
     const latestJson = await fs.readFile(latestPath, 'utf-8');
     const latest = JSON.parse(latestJson);
     for (const pack of latest.packs || []) {
-      // pack.url is like "/packs/commands/linux.json", resolve relative to generatedDir
       const relativeUrl = pack.url.startsWith('/') ? pack.url.slice(1) : pack.url;
       const packPath = path.join(context.generatedDir, relativeUrl);
       try {
@@ -55,25 +54,36 @@ export default async function diff(context, _options) {
     // Ignored (latest.json doesn't exist yet)
   }
 
+  // Bulk query Git history for all content files in a single process execution
+  const gitCounts = new Map();
+  try {
+    const { stdout } = await execAsync('git log --name-only --pretty=format:COMMIT content');
+    const commitBlocks = stdout.split(/^COMMIT/m);
+    for (const block of commitBlocks) {
+      const filesInCommit = new Set();
+      const lines = block.split(/\r?\n/);
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (trimmed) {
+          filesInCommit.add(path.normalize(trimmed).replace(/\\/g, '/'));
+        }
+      }
+      for (const file of filesInCommit) {
+        gitCounts.set(file, (gitCounts.get(file) || 0) + 1);
+      }
+    }
+  } catch {
+    // Git execution fallback (e.g. non-git environment)
+  }
+
   const added = [];
   const modified = [];
 
   for (const record of context.records) {
     if (record.type === 'category') continue; // categories are not versioned individually
 
-    // Resolve contentVersion from Git history
-    const relativePath = path.relative(process.cwd(), record.path);
-    let commitCount = 1;
-    try {
-      const { stdout } = await execAsync(`git log --follow --oneline -- "${relativePath}"`);
-      const lines = stdout
-        .trim()
-        .split('\n')
-        .filter((l) => l.length > 0);
-      commitCount = lines.length > 0 ? lines.length : 1;
-    } catch {
-      commitCount = 1;
-    }
+    const relativePath = path.relative(process.cwd(), record.path).replace(/\\/g, '/');
+    const commitCount = gitCounts.get(relativePath) || 1;
 
     record.contentVersion = commitCount;
 
