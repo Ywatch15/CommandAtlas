@@ -626,7 +626,7 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
         @media (max-width: 768px) {
           /* Hide desktop sidebar entirely on mobile */
           .sb {
-            display: none;
+            display: none !important;
           }
 
           .sb-m-trigger-bar {
@@ -634,18 +634,22 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             padding: 8px 16px;
             background-color: var(--bg-surface);
             border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            flex-shrink: 0;
           }
 
           .sb-m-trigger {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 8px;
             width: 100%;
+            min-height: 44px;
             background: none;
             border: 1px solid var(--border-subtle);
-            border-radius: 4px;
-            padding: 8px 12px;
-            font-size: 13px;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 13.5px;
             font-weight: 500;
             color: var(--text-primary);
             cursor: pointer;
@@ -661,8 +665,8 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             display: block;
             position: fixed;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 199;
+            background-color: rgba(0, 0, 0, 0.65);
+            z-index: 299;
           }
 
           .sb-m-sheet {
@@ -672,13 +676,14 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             left: 0;
             right: 0;
             bottom: 0;
-            max-height: 70vh;
+            max-height: 80vh;
             background-color: var(--bg-surface);
             border-top: 1px solid var(--border-subtle);
-            border-radius: 12px 12px 0 0;
-            z-index: 200;
+            border-radius: 16px 16px 0 0;
+            z-index: 300;
             transform: translateY(100%);
-            transition: transform 0.2s ease;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
           }
 
           .sb-m-sheet.sb-m-sheet-open {
@@ -690,7 +695,7 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             height: 4px;
             background-color: var(--border-subtle);
             border-radius: 2px;
-            margin: 8px auto 0;
+            margin: 10px auto 2px;
             flex-shrink: 0;
           }
 
@@ -698,7 +703,7 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-bottom: 1px solid var(--border-subtle);
             flex-shrink: 0;
           }
@@ -707,34 +712,52 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
             padding: 0;
             background: none;
             border: none;
             color: var(--text-muted);
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 6px;
           }
           .sb-m-close:hover {
             color: var(--text-primary);
+            background-color: var(--bg-elevated);
           }
 
           .sb-m-nav {
             flex: 1;
             overflow-y: auto;
-            padding: 4px 0 16px;
+            padding: 8px 0 24px;
             -webkit-overflow-scrolling: touch;
           }
 
-          /* Increase touch targets on mobile */
-          .sb-cat-row {
-            padding: 8px 16px 8px 12px;
+          /* Minimum 44px touch targets on mobile for all drawer items */
+          :global(.sb-cat-row) {
+            padding: 8px 16px 8px 16px;
             min-height: 44px;
           }
 
+          :global(.sb-chevron) {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+
           :global(.sb-cmd) {
-            padding: 6px 12px 6px 16px;
+            padding: 8px 16px 8px 24px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+          }
+
+          :global(.sb-flat-link) {
+            padding: 10px 16px;
             min-height: 44px;
             display: flex;
             align-items: center;

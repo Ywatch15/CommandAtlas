@@ -34,8 +34,13 @@ export default function HomePageClient({ staticAllCategories }) {
     },
   };
 
+  const sidebarItems = (staticAllCategories || []).map((cat) => ({
+    label: cat.frontmatter?.name || cat.name || cat.slug,
+    href: `/category/${cat.slug}`,
+  }));
+
   return (
-    <AppShell>
+    <AppShell sidebarItems={sidebarItems}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}

@@ -39,13 +39,18 @@ export default function AppShell({ children, sidebarItems = null }) {
       }}
     >
       <TopNav />
-      <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
+      <div className="app-shell-body">
         {sidebarItems && (
           <Sidebar items={sidebarItems} collapsed={collapsed} onToggleCollapse={toggleCollapsed} />
         )}
         <main className="app-shell-main">{children}</main>
       </div>
       <style jsx>{`
+        .app-shell-body {
+          display: flex;
+          flex: 1;
+          min-height: 0;
+        }
         .app-shell-main {
           flex: 1;
           padding: var(--space-page);
@@ -53,6 +58,9 @@ export default function AppShell({ children, sidebarItems = null }) {
           min-width: 0;
         }
         @media (max-width: 768px) {
+          .app-shell-body {
+            flex-direction: column;
+          }
           .app-shell-main {
             padding: var(--space-page-mobile);
           }
