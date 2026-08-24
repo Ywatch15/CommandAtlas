@@ -743,7 +743,11 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         }
 
         .scenario-section {
-          margin-bottom: 24px;
+          background-color: var(--bg-surface);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
+          padding: var(--space-component, 16px);
+          margin-bottom: 20px;
         }
 
         .section-label {
@@ -782,10 +786,10 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         }
 
         .disclosure-box {
-          background-color: var(--bg-base);
+          background-color: var(--bg-surface);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
-          padding: 16px;
+          padding: var(--space-component, 16px);
           margin-bottom: 20px;
         }
 
@@ -839,15 +843,19 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 20px;
-          gap: 16px;
+          background-color: var(--bg-surface);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
+          padding: 12px 16px;
+          margin-bottom: 24px;
+          gap: var(--space-component, 16px);
           flex-wrap: wrap;
         }
 
         .filter-sort-controls {
           display: flex;
           align-items: center;
-          gap: 20px;
+          gap: var(--space-component, 16px);
           flex-wrap: wrap;
         }
 
@@ -861,22 +869,23 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-size: 13px;
           font-weight: 500;
           color: var(--text-muted);
+          white-space: nowrap;
         }
 
         .sort-select {
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           color: var(--text-primary);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
-          padding: 5px 28px 5px 10px;
+          padding: 6px 30px 6px 12px;
           font-size: 13px;
           font-weight: 500;
           cursor: pointer;
           outline: none;
           appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%239AA1AC' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
           background-repeat: no-repeat;
-          background-position: right 8px center;
+          background-position: right 10px center;
           transition: border-color 0.15s ease;
         }
 
@@ -907,10 +916,14 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           color: var(--text-muted);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
-          padding: 4px 10px;
-          font-size: 12px;
+          padding: 5px 12px;
+          font-size: 12.5px;
           font-weight: 500;
           cursor: pointer;
+          min-height: 34px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           transition: all 0.15s ease;
         }
 
@@ -931,7 +944,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           outline-offset: -1px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
           .practice-header {
             flex-direction: column;
             align-items: flex-start;
@@ -939,13 +952,27 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
 
           .practice-actions-bar {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: stretch;
             gap: 12px;
           }
 
           .filter-sort-controls {
+            flex-direction: column;
+            align-items: stretch;
             gap: 12px;
             width: 100%;
+          }
+
+          .sort-control {
+            justify-content: space-between;
+          }
+
+          .sort-select {
+            flex: 1;
+          }
+
+          .diff-filter-group {
+            justify-content: space-between;
           }
 
           .practice-workspace {
