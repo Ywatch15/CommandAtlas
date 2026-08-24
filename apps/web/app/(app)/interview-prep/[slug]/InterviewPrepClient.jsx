@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { db } from '@/lib/db/index.js';
+import FilterSortBar from '@/components/common/FilterSortBar.jsx';
 import {
   parseBodySections,
   parseInterviewQuestions,
@@ -332,56 +333,14 @@ export default function InterviewPrepClient({
         </div>
 
         {/* Global Filter/Sort Bar */}
-        <div className="interview-actions-bar">
-          <div className="filter-sort-controls">
-            <div className="sort-control">
-              <label htmlFor="sort-select" className="sort-label">
-                Sort by:
-              </label>
-              <select
-                id="sort-select"
-                value={sortBy}
-                onChange={(e) => handleSortChange(e.target.value)}
-                className="sort-select"
-              >
-                <option value="topic">Topic (Grouped)</option>
-                <option value="name-asc">Name (A–Z)</option>
-                <option value="name-desc">Name (Z–A)</option>
-                <option value="diff-asc">Difficulty (Beginner → Advanced)</option>
-                <option value="diff-desc">Difficulty (Advanced → Beginner)</option>
-              </select>
-            </div>
-
-            <div className="diff-filter-group">
-              <span className="sort-label">Difficulty:</span>
-              <div className="difficulty-chips">
-                {['beginner', 'intermediate', 'advanced'].map((diff) => {
-                  const isActive = selectedDifficulties.has(diff);
-                  return (
-                    <button
-                      key={diff}
-                      type="button"
-                      className={`diff-chip ${isActive ? 'active' : ''}`}
-                      onClick={() => toggleDifficultyFilter(diff)}
-                    >
-                      {diff.charAt(0).toUpperCase() + diff.slice(1)}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          <div className="global-expand-controls">
-            <button type="button" className="action-link-btn" onClick={expandAllGlobal}>
-              Expand All
-            </button>
-            <span style={{ color: 'var(--border-subtle)', userSelect: 'none' }}>|</span>
-            <button type="button" className="action-link-btn" onClick={collapseAllGlobal}>
-              Collapse All
-            </button>
-          </div>
-        </div>
+        <FilterSortBar
+          sortBy={sortBy}
+          onSortChange={handleSortChange}
+          selectedDifficulties={selectedDifficulties}
+          onToggleDifficulty={toggleDifficultyFilter}
+          onExpandAll={expandAllGlobal}
+          onCollapseAll={collapseAllGlobal}
+        />
 
         {/* Content Grouped by Topic or Flat List */}
         {allMatchingItems.length === 0 ? (
