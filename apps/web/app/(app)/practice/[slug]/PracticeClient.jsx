@@ -4,6 +4,7 @@ import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { db } from '@/lib/db/index.js';
 import { triggerSync } from '@/lib/db/sync.js';
+import FilterSortBar from '@/components/common/FilterSortBar.jsx';
 import { parseBodySections, parseAndSanitizeMarkdown } from '@/lib/markdown.js';
 
 export default function PracticeClient({ currentSlug, staticAllCommands, staticAllCategories }) {
@@ -15,6 +16,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
   const [showSolution, setShowSolution] = useState(false);
   const [sortBy, setSortBy] = useState('topic');
   const [selectedDifficulties, setSelectedDifficulties] = useState(new Set());
+  const [mobileTab, setMobileTab] = useState('detail');
 
   useEffect(() => {
     let active = true;
@@ -255,188 +257,191 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         </div>
 
         {/* Global Filter/Sort Bar */}
-        <div className="practice-actions-bar">
-          <div className="filter-sort-controls">
-            <div className="sort-control">
-              <label htmlFor="sort-select" className="sort-label">
-                Sort by:
-              </label>
-              <select
-                id="sort-select"
-                value={sortBy}
-                onChange={(e) => handleSortChange(e.target.value)}
-                className="sort-select"
-              >
-                <option value="topic">Topic (Grouped)</option>
-                <option value="name-asc">Name (A–Z)</option>
-                <option value="name-desc">Name (Z–A)</option>
-                <option value="diff-asc">Difficulty (Beginner → Advanced)</option>
-                <option value="diff-desc">Difficulty (Advanced → Beginner)</option>
-              </select>
-            </div>
-
-            <div className="diff-filter-group">
-              <span className="sort-label">Difficulty:</span>
-              <div className="difficulty-chips">
-                {['beginner', 'intermediate', 'advanced'].map((diff) => {
-                  const isActive = selectedDifficulties.has(diff);
-                  return (
-                    <button
-                      key={diff}
-                      type="button"
-                      className={`diff-chip ${isActive ? 'active' : ''}`}
-                      onClick={() => toggleDifficultyFilter(diff)}
-                    >
-                      {diff.charAt(0).toUpperCase() + diff.slice(1)}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
+        <FilterSortBar
+          sortBy={sortBy}
+          onSortChange={handleSortChange}
+          selectedDifficulties={selectedDifficulties}
+          onToggleDifficulty={toggleDifficultyFilter}
+        />
 
         {practiceItems.length === 0 ? (
           <div className="empty-state">No practice problems found for this topic filter.</div>
         ) : (
-          <div className="practice-workspace">
-            {/* Left Rail: Problem List Selector */}
-            <div className="problem-rail">
-              <div className="rail-title">Problem Set ({practiceItems.length})</div>
-              <div className="rail-list">
-                {practiceItems.map((item, idx) => {
-                  const isSelected = idx === selectedIndex;
-                  const isDone = solvedProblems.has(item.cmd.slug);
-                  return (
+          <div>
+            {/* Mobile View Toggle Bar */}
+            <div className="mobile-view-tabs">
+              <button
+                type="button"
+                className={`mobile-tab-btn ${mobileTab === 'list' ? 'active' : ''}`}
+                onClick={() => setMobileTab('list')}
+              >
+                Problem List ({practiceItems.length})
+              </button>
+              <button
+                type="button"
+                className={`mobile-tab-btn ${mobileTab === 'detail' ? 'active' : ''}`}
+                onClick={() => setMobileTab('detail')}
+              >
+                Problem Details
+              </button>
+            </div>
+
+            <div className="practice-workspace">
+              {/* Left Rail: Problem List Selector */}
+              <div className={`problem-rail ${mobileTab === 'detail' ? 'mobile-hide' : ''}`}>
+                <div className="rail-title">Problem Set ({practiceItems.length})</div>
+                <div className="rail-list">
+                  {practiceItems.map((item, idx) => {
+                    const isSelected = idx === selectedIndex;
+                    const isDone = solvedProblems.has(item.cmd.slug);
+                    const name = item.cmd.frontmatter?.name || item.cmd.slug;
+                    return (
+                      <button
+                        key={item.cmd.slug}
+                        type="button"
+                        className={`rail-item-btn ${isSelected ? 'selected' : ''} ${isDone ? 'done' : ''}`}
+                        title={name}
+                        onClick={() => {
+                          setSelectedIndex(idx);
+                          setShowHint(false);
+                          setShowSolution(false);
+                          setMobileTab('detail');
+                        }}
+                      >
+                        <span className="rail-item-status">{isDone ? '✓' : idx + 1}</span>
+                        <span className="rail-item-name" title={name}>
+                          {name}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Main Focused Problem Area */}
+              {activeItem && (
+                <div className={`problem-main-card ${mobileTab === 'list' ? 'mobile-hide' : ''}`}>
+                  <div className="card-top-bar">
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        flexWrap: 'wrap',
+                      }}
+                    >
+                      <button
+                        type="button"
+                        className="mobile-back-btn"
+                        onClick={() => setMobileTab('list')}
+                      >
+                        &larr; List
+                      </button>
+                      <span className="topic-tag">{activeItem.topic}</span>
+                      <h2 className="problem-cmd-title">
+                        {activeItem.cmd.frontmatter?.name || activeItem.cmd.slug}
+                      </h2>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span
+                        className={`badge-difficulty difficulty-${activeItem.cmd.frontmatter?.difficulty || 'intermediate'}`}
+                      >
+                        {activeItem.cmd.frontmatter?.difficulty || 'intermediate'}
+                      </span>
+                      <button
+                        type="button"
+                        className={`solved-toggle-btn ${solvedProblems.has(activeItem.cmd.slug) ? 'is-solved' : ''}`}
+                        onClick={() => toggleSolved(activeItem.cmd.slug)}
+                      >
+                        {solvedProblems.has(activeItem.cmd.slug) ? '✓ Solved' : 'Mark Solved'}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Scenario Task */}
+                  <div className="scenario-section">
+                    <h3 className="section-label">Challenge Scenario</h3>
+                    <div
+                      className="markdown-body"
+                      dangerouslySetInnerHTML={{ __html: activeItem.scenarioHtml }}
+                    />
+                  </div>
+
+                  {/* Progressive Disclosure: Hint & Solution */}
+                  <div className="disclosure-actions">
+                    {activeItem.hintHtml && (
+                      <button
+                        type="button"
+                        className="disclosure-btn"
+                        onClick={() => setShowHint((prev) => !prev)}
+                      >
+                        {showHint ? 'Hide Hint 💡' : 'Reveal Hint 💡'}
+                      </button>
+                    )}
+                    {activeItem.solutionHtml && (
+                      <button
+                        type="button"
+                        className="disclosure-btn solution"
+                        onClick={() => setShowSolution((prev) => !prev)}
+                      >
+                        {showSolution ? 'Hide Solution 🔑' : 'Reveal Solution 🔑'}
+                      </button>
+                    )}
+                  </div>
+
+                  {showHint && activeItem.hintHtml && (
+                    <div className="disclosure-box hint-box">
+                      <h4 className="box-title">Hint</h4>
+                      <div
+                        className="markdown-body"
+                        dangerouslySetInnerHTML={{ __html: activeItem.hintHtml }}
+                      />
+                    </div>
+                  )}
+
+                  {showSolution && activeItem.solutionHtml && (
+                    <div className="disclosure-box solution-box">
+                      <h4 className="box-title">Solution Reference</h4>
+                      <div
+                        className="markdown-body"
+                        dangerouslySetInnerHTML={{ __html: activeItem.solutionHtml }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Footer Navigation */}
+                  <div className="card-footer-nav">
                     <button
-                      key={item.cmd.slug}
                       type="button"
-                      className={`rail-item-btn ${isSelected ? 'selected' : ''} ${isDone ? 'done' : ''}`}
+                      className="nav-btn"
+                      disabled={selectedIndex === 0}
                       onClick={() => {
-                        setSelectedIndex(idx);
+                        setSelectedIndex((prev) => Math.max(0, prev - 1));
                         setShowHint(false);
                         setShowSolution(false);
                       }}
                     >
-                      <span className="rail-item-status">{isDone ? '✓' : idx + 1}</span>
-                      <span className="rail-item-name">
-                        {item.cmd.frontmatter?.name || item.cmd.slug}
-                      </span>
+                      &larr; Previous Problem
                     </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Main Focused Problem Area */}
-            {activeItem && (
-              <div className="problem-main-card">
-                <div className="card-top-bar">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span className="topic-tag">{activeItem.topic}</span>
-                    <h2 className="problem-cmd-title">
-                      {activeItem.cmd.frontmatter?.name || activeItem.cmd.slug}
-                    </h2>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span
-                      className={`badge-difficulty difficulty-${activeItem.cmd.frontmatter?.difficulty || 'intermediate'}`}
-                    >
-                      {activeItem.cmd.frontmatter?.difficulty || 'intermediate'}
+                    <span className="nav-counter">
+                      Problem {selectedIndex + 1} of {practiceItems.length}
                     </span>
                     <button
                       type="button"
-                      className={`solved-toggle-btn ${solvedProblems.has(activeItem.cmd.slug) ? 'is-solved' : ''}`}
-                      onClick={() => toggleSolved(activeItem.cmd.slug)}
+                      className="nav-btn"
+                      disabled={selectedIndex === practiceItems.length - 1}
+                      onClick={() => {
+                        setSelectedIndex((prev) => Math.min(practiceItems.length - 1, prev + 1));
+                        setShowHint(false);
+                        setShowSolution(false);
+                      }}
                     >
-                      {solvedProblems.has(activeItem.cmd.slug) ? '✓ Solved' : 'Mark Solved'}
+                      Next Problem &rarr;
                     </button>
                   </div>
                 </div>
-
-                {/* Scenario Task */}
-                <div className="scenario-section">
-                  <h3 className="section-label">Challenge Scenario</h3>
-                  <div
-                    className="markdown-body"
-                    dangerouslySetInnerHTML={{ __html: activeItem.scenarioHtml }}
-                  />
-                </div>
-
-                {/* Progressive Disclosure: Hint & Solution */}
-                <div className="disclosure-actions">
-                  {activeItem.hintHtml && (
-                    <button
-                      type="button"
-                      className="disclosure-btn"
-                      onClick={() => setShowHint((prev) => !prev)}
-                    >
-                      {showHint ? 'Hide Hint 💡' : 'Reveal Hint 💡'}
-                    </button>
-                  )}
-                  {activeItem.solutionHtml && (
-                    <button
-                      type="button"
-                      className="disclosure-btn solution"
-                      onClick={() => setShowSolution((prev) => !prev)}
-                    >
-                      {showSolution ? 'Hide Solution 🔑' : 'Reveal Solution 🔑'}
-                    </button>
-                  )}
-                </div>
-
-                {showHint && activeItem.hintHtml && (
-                  <div className="disclosure-box hint-box">
-                    <h4 className="box-title">Hint</h4>
-                    <div
-                      className="markdown-body"
-                      dangerouslySetInnerHTML={{ __html: activeItem.hintHtml }}
-                    />
-                  </div>
-                )}
-
-                {showSolution && activeItem.solutionHtml && (
-                  <div className="disclosure-box solution-box">
-                    <h4 className="box-title">Solution Reference</h4>
-                    <div
-                      className="markdown-body"
-                      dangerouslySetInnerHTML={{ __html: activeItem.solutionHtml }}
-                    />
-                  </div>
-                )}
-
-                {/* Footer Navigation */}
-                <div className="card-footer-nav">
-                  <button
-                    type="button"
-                    className="nav-btn"
-                    disabled={selectedIndex === 0}
-                    onClick={() => {
-                      setSelectedIndex((prev) => Math.max(0, prev - 1));
-                      setShowHint(false);
-                      setShowSolution(false);
-                    }}
-                  >
-                    &larr; Previous Problem
-                  </button>
-                  <span className="nav-counter">
-                    Problem {selectedIndex + 1} of {practiceItems.length}
-                  </span>
-                  <button
-                    type="button"
-                    className="nav-btn"
-                    disabled={selectedIndex === practiceItems.length - 1}
-                    onClick={() => {
-                      setSelectedIndex((prev) => Math.min(practiceItems.length - 1, prev + 1));
-                      setShowHint(false);
-                      setShowSolution(false);
-                    }}
-                  >
-                    Next Problem &rarr;
-                  </button>
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -571,6 +576,46 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-size: 14px;
         }
 
+        .mobile-view-tabs {
+          display: none;
+          gap: 8px;
+          margin-bottom: 16px;
+        }
+
+        .mobile-tab-btn {
+          flex: 1;
+          padding: 8px 12px;
+          font-size: 13px;
+          font-weight: 500;
+          border-radius: 4px;
+          border: 1px solid var(--border-subtle);
+          background-color: var(--bg-surface);
+          color: var(--text-muted);
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+
+        .mobile-tab-btn.active {
+          background-color: var(--bg-elevated);
+          color: var(--accent);
+          border-color: var(--accent);
+          font-weight: 600;
+        }
+
+        .mobile-back-btn {
+          display: none;
+          align-items: center;
+          gap: 4px;
+          padding: 4px 8px;
+          font-size: 12px;
+          font-weight: 500;
+          border-radius: 4px;
+          background-color: var(--bg-elevated);
+          border: 1px solid var(--border-subtle);
+          color: var(--accent);
+          cursor: pointer;
+        }
+
         .practice-workspace {
           display: flex;
           gap: 24px;
@@ -578,7 +623,10 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         }
 
         .problem-rail {
-          width: 240px;
+          flex: 0 0 300px;
+          width: 300px;
+          min-width: 260px;
+          max-width: 340px;
           background-color: var(--bg-surface);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
@@ -617,6 +665,8 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-size: 13px;
           text-align: left;
           cursor: pointer;
+          width: 100%;
+          min-width: 0;
           transition: all 0.15s ease;
         }
 
@@ -657,6 +707,8 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          flex: 1;
+          min-width: 0;
         }
 
         .problem-main-card {
@@ -839,153 +891,41 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           color: var(--text-muted);
         }
 
-        .practice-actions-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background-color: var(--bg-surface);
-          border: 1px solid var(--border-subtle);
-          border-radius: 6px;
-          padding: 12px 16px;
-          margin-bottom: 24px;
-          gap: var(--space-component, 16px);
-          flex-wrap: wrap;
-        }
-
-        .filter-sort-controls {
-          display: flex;
-          align-items: center;
-          gap: var(--space-component, 16px);
-          flex-wrap: wrap;
-        }
-
-        .sort-control {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .sort-label {
-          font-size: 13px;
-          font-weight: 500;
-          color: var(--text-muted);
-          white-space: nowrap;
-        }
-
-        .sort-select {
-          background-color: var(--bg-elevated);
-          color: var(--text-primary);
-          border: 1px solid var(--border-subtle);
-          border-radius: 4px;
-          padding: 6px 30px 6px 12px;
-          font-size: 13px;
-          font-weight: 500;
-          cursor: pointer;
-          outline: none;
-          appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%239AA1AC' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 10px center;
-          transition: border-color 0.15s ease;
-        }
-
-        .sort-select:hover {
-          border-color: var(--text-muted);
-        }
-
-        .sort-select:focus-visible {
-          border-color: var(--accent);
-          outline: 2px solid var(--accent);
-          outline-offset: -1px;
-        }
-
-        .diff-filter-group {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .difficulty-chips {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        .diff-chip {
-          background-color: var(--bg-surface);
-          color: var(--text-muted);
-          border: 1px solid var(--border-subtle);
-          border-radius: 4px;
-          padding: 5px 12px;
-          font-size: 12.5px;
-          font-weight: 500;
-          cursor: pointer;
-          min-height: 34px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.15s ease;
-        }
-
-        .diff-chip:hover {
-          color: var(--text-primary);
-          border-color: var(--text-muted);
-        }
-
-        .diff-chip.active {
-          background-color: var(--bg-elevated);
-          color: var(--accent);
-          border-color: var(--accent);
-          font-weight: 600;
-        }
-
-        .diff-chip:focus-visible {
-          outline: 2px solid var(--accent);
-          outline-offset: -1px;
-        }
-
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .practice-header {
             flex-direction: column;
             align-items: flex-start;
+            gap: 16px;
           }
 
-          .practice-actions-bar {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 12px;
+          .mobile-view-tabs {
+            display: flex;
           }
 
-          .filter-sort-controls {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 12px;
-            width: 100%;
-          }
-
-          .sort-control {
-            justify-content: space-between;
-          }
-
-          .sort-select {
-            flex: 1;
-          }
-
-          .diff-filter-group {
-            justify-content: space-between;
+          .mobile-back-btn {
+            display: inline-flex;
           }
 
           .practice-workspace {
             flex-direction: column;
+            gap: 16px;
           }
 
           .problem-rail {
-            width: 100%;
-            max-height: 200px;
+            width: 100% !important;
+            min-width: 100% !important;
+            max-width: 100% !important;
+            flex: none !important;
+            max-height: 320px;
           }
 
           .problem-main-card {
+            width: 100% !important;
             padding: 16px;
+          }
+
+          .mobile-hide {
+            display: none !important;
           }
         }
       `}</style>
