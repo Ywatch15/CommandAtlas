@@ -41,10 +41,15 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event — stale-while-revalidate for shell/assets, network-only for API, offline fallback for navigation
 self.addEventListener('fetch', (event) => {
+  // Only handle GET requests in service worker cache
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
   const url = new URL(event.request.url);
 
-  // Network-only for API routes
-  if (url.pathname.startsWith('/api/')) {
+  // Network-only for API routes and cross-origin requests
+  if (url.pathname.startsWith('/api/') || url.origin !== self.location.origin) {
     return;
   }
 
@@ -61,7 +66,11 @@ self.addEventListener('fetch', (event) => {
         const homePage = await caches.match('/');
         if (homePage) return homePage;
 
-        return new Response('Offline', { status: 503, statusText: 'Offline' });
+        return new Response('Offline', {
+          status: 503,
+          statusText: 'Offline',
+          headers: { 'Content-Type': 'text/plain' },
+        });
       })
     );
     return;
@@ -69,24 +78,26 @@ self.addEventListener('fetch', (event) => {
 
   // Stale-while-revalidate for static assets, chunks, and content
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      const fetchPromise = fetch(event.request)
-        .then((networkResponse) => {
-          if (
-            networkResponse &&
-            networkResponse.status === 200 &&
-            (networkResponse.type === 'basic' || networkResponse.type === 'cors')
-          ) {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-          }
-          return networkResponse;
-        })
-        .catch(() => cachedResponse);
-
-      return cachedResponse || fetchPromise;
+    caches.match(event.request).then(async (cachedResponse) => {
+      try {
+        const networkResponse = await fetch(event.request);
+        if (
+          networkResponse &&
+          networkResponse.status === 200 &&
+          (networkResponse.type === 'basic' || networkResponse.type === 'cors')
+        ) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      } catch {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return new Response('', { status: 408, statusText: 'Request Timeout' });
+      }
     })
   );
 });

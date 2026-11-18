@@ -7,16 +7,23 @@
     "predev": "node -e \"const fs=require('fs'); if(fs.existsSync('../../generated')){fs.cpSync('../../generated','./public',{recursive:true});console.log('Copied generated to public/')}\"",
     "prebuild": "node -e \"const fs=require('fs'); if(fs.existsSync('../../generated')){fs.cpSync('../../generated','./public',{recursive:true});console.log('Copied generated to public/')}\"",
     "dev": "next dev -p 4400",
-    "build": "next build",
-    "start": "next start"
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@commandatlas/shared": "*",
+    "@prisma/client": "6.4.0",
+    "bcryptjs": "^2.4.3",
+    "dexie": "^4.0.8",
+    "dompurify": "^3.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "marked": "^13.0.2",
     "next": "^14.2.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "dexie": "^4.0.8",
-    "marked": "^13.0.2",
-    "dompurify": "^3.4.0",
-    "@commandatlas/shared": "*"
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "prisma": "6.4.0"
   }
 }

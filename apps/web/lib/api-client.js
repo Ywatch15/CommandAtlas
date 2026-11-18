@@ -3,10 +3,7 @@
  * Centralizes the Express Backend Base URL configuration.
  */
 
-export const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001').replace(
-  /\/$/,
-  ''
-);
+export const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
 
 /**
  * Standard fetch wrapper that prepends API_BASE_URL for relative /api/ endpoints.
