@@ -20,8 +20,8 @@ export default function FacetSidebar({ facets, onFacetChange, categories = [] })
 
   return (
     <aside
+      className="search-facet-sidebar"
       style={{
-        width: '220px',
         display: 'flex',
         flexDirection: 'column',
         gap: '20px',
@@ -30,6 +30,7 @@ export default function FacetSidebar({ facets, onFacetChange, categories = [] })
         border: '1px solid var(--border-subtle)',
         borderRadius: '4px',
         fontSize: '13px',
+        boxSizing: 'border-box',
       }}
     >
       <div>
@@ -45,8 +46,10 @@ export default function FacetSidebar({ facets, onFacetChange, categories = [] })
             color: 'var(--text-primary)',
             border: '1px solid var(--border-subtle)',
             borderRadius: '4px',
-            padding: '6px',
+            padding: '8px 12px',
             fontSize: '13px',
+            minHeight: '44px',
+            boxSizing: 'border-box',
           }}
         >
           <option value="">All Categories</option>
@@ -71,8 +74,10 @@ export default function FacetSidebar({ facets, onFacetChange, categories = [] })
             color: 'var(--text-primary)',
             border: '1px solid var(--border-subtle)',
             borderRadius: '4px',
-            padding: '6px',
+            padding: '8px 12px',
             fontSize: '13px',
+            minHeight: '44px',
+            boxSizing: 'border-box',
           }}
         >
           <option value="">All Difficulties</option>
@@ -101,13 +106,14 @@ export default function FacetSidebar({ facets, onFacetChange, categories = [] })
                   color: isChecked ? 'var(--text-primary)' : 'var(--text-muted)',
                   cursor: 'pointer',
                   fontSize: '13px',
+                  minHeight: '36px',
                 }}
               >
                 <input
                   type="checkbox"
                   checked={isChecked}
                   onChange={() => handleOSChange(os)}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', width: '18px', height: '18px' }}
                 />
                 <span style={{ textTransform: 'uppercase' }}>{os}</span>
               </label>
@@ -115,6 +121,18 @@ export default function FacetSidebar({ facets, onFacetChange, categories = [] })
           })}
         </div>
       </div>
+
+      <style jsx>{`
+        .search-facet-sidebar {
+          width: 220px;
+          flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+          .search-facet-sidebar {
+            width: 100%;
+          }
+        }
+      `}</style>
     </aside>
   );
 }

@@ -42,6 +42,8 @@ export default function ComparePageClient({ staticAllCommands, staticAllCategori
     fontSize: '14px',
     flex: 1,
     minWidth: 0,
+    minHeight: '44px',
+    boxSizing: 'border-box',
   };
 
   return (
@@ -61,7 +63,7 @@ export default function ComparePageClient({ staticAllCommands, staticAllCategori
           Select two commands to compare side by side.
         </p>
 
-        <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
+        <div className="cmp-select-row">
           <select
             id="compare-select-a"
             value={slugA}
@@ -77,16 +79,7 @@ export default function ComparePageClient({ staticAllCommands, staticAllCategori
             ))}
           </select>
 
-          <span
-            style={{
-              color: 'var(--text-muted)',
-              fontSize: '14px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            vs
-          </span>
+          <span className="cmp-vs-badge">vs</span>
 
           <select
             id="compare-select-b"
@@ -305,6 +298,22 @@ function CompareTable({ cmdA, cmdB }) {
       </div>
 
       <style jsx global>{`
+        .cmp-select-row {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 32px;
+          align-items: center;
+          width: 100%;
+        }
+        .cmp-vs-badge {
+          color: var(--text-muted);
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
         .cmp-table-desktop {
           display: block;
         }
@@ -381,6 +390,14 @@ function CompareTable({ cmdA, cmdB }) {
         }
 
         @media (max-width: 640px) {
+          .cmp-select-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+          }
+          .cmp-vs-badge {
+            margin: 2px auto;
+          }
           .cmp-table-desktop {
             display: none;
           }

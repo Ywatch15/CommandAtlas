@@ -2,7 +2,7 @@ export default function FlagTable({ flags = [] }) {
   if (!flags || flags.length === 0) return null;
 
   return (
-    <div style={{ overflowX: 'auto', margin: '16px 0' }}>
+    <div className="markdown-body" style={{ width: '100%', margin: '16px 0' }}>
       <table
         style={{
           width: '100%',

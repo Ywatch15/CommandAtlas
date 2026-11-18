@@ -98,14 +98,16 @@ export default function SearchPageClient({ staticAllCategories = [] }) {
           <SearchBar value={query} onChange={handleQueryChange} />
         </div>
 
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+        <div className="search-layout-container">
           <FacetSidebar
             facets={facets}
             onFacetChange={setFacets}
             categories={staticAllCategories}
           />
 
-          <main style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <main
+            style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}
+          >
             {results.length > 0 ? (
               results.map((hit) => {
                 const cmdData = commandsMap.get(hit.slug) || {
@@ -120,6 +122,22 @@ export default function SearchPageClient({ staticAllCategories = [] }) {
           </main>
         </div>
       </div>
+
+      <style jsx>{`
+        .search-layout-container {
+          display: flex;
+          gap: 24px;
+          align-items: flex-start;
+          width: 100%;
+        }
+        @media (max-width: 768px) {
+          .search-layout-container {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+          }
+        }
+      `}</style>
     </AppShell>
   );
 }

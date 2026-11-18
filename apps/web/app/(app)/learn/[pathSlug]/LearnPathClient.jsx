@@ -495,6 +495,26 @@ export default function LearnPathClient({ pathSlug, pathData, staticAllCategorie
           .step-main-card {
             padding: 16px;
           }
+
+          .step-card-header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+          }
+
+          .step-card-footer {
+            flex-direction: column;
+            gap: 12px;
+            align-items: stretch;
+          }
+
+          .toggle-complete-btn,
+          .step-nav-btn {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       `}</style>
     </AppShell>

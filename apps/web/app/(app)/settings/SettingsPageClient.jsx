@@ -142,15 +142,13 @@ export default function SettingsPageClient() {
               return (
                 <div
                   key={pack.packId}
+                  className="settings-pack-card"
                   style={{
                     backgroundColor: 'var(--bg-surface)',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '4px',
                     padding: '16px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: '16px',
+                    boxSizing: 'border-box',
                   }}
                 >
                   <div style={{ flex: 1, minWidth: 0 }}>
@@ -309,6 +307,28 @@ export default function SettingsPageClient() {
           </div>
         )}
       </div>
+
+      <style jsx>{`
+        .settings-pack-card {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+        }
+        @media (max-width: 640px) {
+          .settings-pack-card {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+          }
+          .settings-pack-card button {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      `}</style>
     </AppShell>
   );
 }

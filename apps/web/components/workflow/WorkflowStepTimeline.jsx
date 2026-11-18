@@ -36,7 +36,7 @@ export default function WorkflowStepTimeline({ steps }) {
             {idx + 1}
           </div>
 
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <div
               style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}
             >
@@ -48,6 +48,8 @@ export default function WorkflowStepTimeline({ steps }) {
                   fontFamily: 'var(--font-mono, monospace)',
                   color: 'var(--accent)',
                   textDecoration: 'none',
+                  wordBreak: 'break-word',
+                  overflowWrap: 'anywhere',
                 }}
               >
                 {step.command}
@@ -61,6 +63,8 @@ export default function WorkflowStepTimeline({ steps }) {
                   color: 'var(--text-primary)',
                   margin: 0,
                   lineHeight: 1.5,
+                  wordBreak: 'break-word',
+                  overflowWrap: 'anywhere',
                 }}
               >
                 {step.note}

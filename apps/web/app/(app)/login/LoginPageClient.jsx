@@ -47,12 +47,15 @@ export default function LoginPageClient() {
     padding: '10px 12px',
     fontSize: '14px',
     width: '100%',
+    minHeight: '44px',
     boxSizing: 'border-box',
   };
 
   return (
     <AppShell sidebarItems={[]}>
-      <div style={{ maxWidth: '400px', margin: '40px auto' }}>
+      <div
+        style={{ maxWidth: '400px', width: '100%', margin: '40px auto', boxSizing: 'border-box' }}
+      >
         <h1
           style={{
             fontSize: '24px',
@@ -142,6 +145,7 @@ export default function LoginPageClient() {
               padding: '10px',
               fontSize: '14px',
               fontWeight: 500,
+              minHeight: '44px',
               cursor: loading ? 'wait' : 'pointer',
               marginTop: '8px',
             }}
