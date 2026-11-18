@@ -172,6 +172,13 @@ export default function LearningDiscoveryClient({ staticAllCategories = [] }) {
           margin-bottom: 28px;
           border-bottom: 1px solid var(--border-subtle);
           padding-bottom: 12px;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+
+        .filter-bar::-webkit-scrollbar {
+          display: none;
         }
 
         .filter-label {
@@ -179,24 +186,40 @@ export default function LearningDiscoveryClient({ staticAllCategories = [] }) {
           font-weight: 600;
           text-transform: uppercase;
           color: var(--text-muted);
+          white-space: nowrap;
+          flex-shrink: 0;
         }
 
         .filter-pills {
           display: flex;
           gap: 6px;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding-bottom: 2px;
+        }
+
+        .filter-pills::-webkit-scrollbar {
+          display: none;
         }
 
         .filter-pill {
           font-size: 13px;
           font-weight: 500;
-          padding: 5px 12px;
+          padding: 6px 14px;
           border-radius: 4px;
           text-transform: capitalize;
           background-color: transparent;
           color: var(--text-muted);
           border: 1px solid transparent;
           cursor: pointer;
+          white-space: nowrap;
+          flex-shrink: 0;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           transition: all 0.15s ease;
         }
 
@@ -213,8 +236,14 @@ export default function LearningDiscoveryClient({ staticAllCategories = [] }) {
 
         .paths-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
           gap: 20px;
+        }
+
+        @media (max-width: 640px) {
+          .paths-grid {
+            grid-template-columns: 1fr;
+          }
         }
 
         :global(.path-card) {

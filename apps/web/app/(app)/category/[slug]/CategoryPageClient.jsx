@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import AppShell from '@/components/layout/AppShell.jsx';
 import CommandCard from '@/components/command/CommandCard.jsx';
 import { useIndexedDBCategory } from '@/lib/db/hooks.js';
@@ -63,6 +64,24 @@ export default function CategoryPageClient({
           gap: 'var(--space-section)',
         }}
       >
+        {/* Category Filter Pills: single horizontally scrollable row below 768px, no wrapping */}
+        <div className="category-pill-bar">
+          <div className="category-pills">
+            {(allCategories || []).map((cat) => {
+              const isActive = cat.slug === slug;
+              return (
+                <Link
+                  key={cat.slug}
+                  href={`/category/${cat.slug}`}
+                  className={`category-pill ${isActive ? 'active' : ''}`}
+                >
+                  {cat.frontmatter?.name || cat.name || cat.slug}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
         <div>
           <h1 style={{ fontSize: '28px', fontWeight: 500, marginBottom: '8px' }}>{categoryName}</h1>
           <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
@@ -148,6 +167,65 @@ export default function CategoryPageClient({
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        .category-pill-bar {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid var(--border-subtle);
+          padding-bottom: 12px;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+
+        .category-pill-bar::-webkit-scrollbar {
+          display: none;
+        }
+
+        .category-pills {
+          display: flex;
+          gap: 6px;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding-bottom: 2px;
+        }
+
+        .category-pills::-webkit-scrollbar {
+          display: none;
+        }
+
+        :global(.category-pill) {
+          font-size: 13px;
+          font-weight: 500;
+          padding: 6px 12px;
+          border-radius: 4px;
+          text-decoration: none !important;
+          text-transform: capitalize;
+          background-color: transparent;
+          color: var(--text-muted) !important;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          flex-shrink: 0;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.15s ease;
+        }
+
+        :global(.category-pill:hover) {
+          color: var(--text-primary) !important;
+          background-color: var(--bg-surface) !important;
+        }
+
+        :global(.category-pill.active) {
+          background-color: var(--bg-elevated) !important;
+          color: var(--text-primary) !important;
+          border-color: var(--border-subtle) !important;
+        }
+      `}</style>
     </AppShell>
   );
 }
