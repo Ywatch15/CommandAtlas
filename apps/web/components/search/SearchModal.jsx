@@ -93,10 +93,10 @@ export default function SearchModal({ isOpen, onClose }) {
         style={{
           width: '100%',
           maxWidth: '640px',
-          backgroundColor: 'var(--bg-surface)',
-          border: '1px solid var(--border-subtle)',
+          backgroundColor: 'var(--bg-elevated)',
+          border: '1px solid var(--border-section)',
           borderRadius: '8px',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
@@ -136,7 +136,7 @@ export default function SearchModal({ isOpen, onClose }) {
             style={{
               padding: '12px 16px',
               borderTop: '1px solid var(--border-subtle)',
-              backgroundColor: 'var(--bg-base)',
+              backgroundColor: 'var(--bg-recessed)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
@@ -150,7 +150,7 @@ export default function SearchModal({ isOpen, onClose }) {
               style={{
                 backgroundColor: 'transparent',
                 border: 'none',
-                color: 'var(--accent)',
+                color: 'var(--accent-primary)',
                 cursor: 'pointer',
                 fontSize: '13px',
                 fontWeight: 500,

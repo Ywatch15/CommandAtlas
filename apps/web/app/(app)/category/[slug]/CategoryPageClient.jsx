@@ -172,8 +172,10 @@ export default function CategoryPageClient({
         .category-pill-bar {
           display: flex;
           align-items: center;
-          border-bottom: 1px solid var(--border-subtle);
-          padding-bottom: 12px;
+          background-color: var(--bg-recessed);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
+          padding: 12px 16px;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -185,8 +187,8 @@ export default function CategoryPageClient({
 
         .category-pills {
           display: flex;
-          gap: 6px;
-          flex-wrap: nowrap;
+          gap: var(--space-tag-gap, 0.5rem);
+          flex-wrap: wrap;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -200,16 +202,16 @@ export default function CategoryPageClient({
         :global(.category-pill) {
           font-size: 13px;
           font-weight: 500;
-          padding: 6px 12px;
+          padding: 6px 14px;
           border-radius: 4px;
           text-decoration: none !important;
           text-transform: capitalize;
-          background-color: transparent;
-          color: var(--text-muted) !important;
-          border: 1px solid transparent;
+          background-color: var(--bg-elevated);
+          color: var(--text-secondary) !important;
+          border: 1px solid var(--border-subtle);
           white-space: nowrap;
           flex-shrink: 0;
-          min-height: 44px;
+          min-height: 38px;
           display: inline-flex;
           align-items: center;
           transition: all 0.15s ease;
@@ -217,13 +219,20 @@ export default function CategoryPageClient({
 
         :global(.category-pill:hover) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-surface) !important;
+          background-color: var(--bg-hover) !important;
+          border-color: var(--border-section) !important;
         }
 
         :global(.category-pill.active) {
-          background-color: var(--bg-elevated) !important;
-          color: var(--text-primary) !important;
-          border-color: var(--border-subtle) !important;
+          background-color: var(--accent-bg) !important;
+          color: var(--accent-primary) !important;
+          border: 1px solid var(--accent-primary) !important;
+        }
+
+        @media (max-width: 768px) {
+          .category-pills {
+            flex-wrap: nowrap;
+          }
         }
       `}</style>
     </AppShell>

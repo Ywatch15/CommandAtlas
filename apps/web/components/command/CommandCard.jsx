@@ -5,14 +5,14 @@ export default function CommandCard({ slug, name, summary, difficulty, supported
   return (
     <div
       style={{
-        backgroundColor: 'var(--bg-surface)',
+        backgroundColor: 'var(--bg-elevated)',
         border: '1px solid var(--border-subtle)',
-        borderRadius: '4px',
+        borderRadius: '6px',
         padding: 'var(--space-component)',
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
-        transition: 'border-color 0.15s ease',
+        transition: 'all 0.15s ease',
       }}
       className="command-card-hover"
     >
@@ -22,7 +22,7 @@ export default function CommandCard({ slug, name, summary, difficulty, supported
             fontFamily: 'var(--font-mono)',
             fontSize: '16px',
             fontWeight: 500,
-            color: 'var(--accent)',
+            color: 'var(--accent-primary)',
             cursor: 'pointer',
           }}
         >
@@ -30,7 +30,9 @@ export default function CommandCard({ slug, name, summary, difficulty, supported
         </h3>
       </Link>
       {summary && (
-        <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.4 }}>{summary}</p>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.45 }}>
+          {summary}
+        </p>
       )}
       <div
         style={{
@@ -48,7 +50,8 @@ export default function CommandCard({ slug, name, summary, difficulty, supported
       </div>
       <style jsx>{`
         .command-card-hover:hover {
-          border-color: #4a525d !important;
+          background-color: var(--bg-hover) !important;
+          border-color: var(--border-section) !important;
         }
       `}</style>
     </div>

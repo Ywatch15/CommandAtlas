@@ -8,6 +8,7 @@ export default function FlagTable({ flags = [] }) {
           width: '100%',
           borderCollapse: 'collapse',
           border: '1px solid var(--border-subtle)',
+          backgroundColor: 'var(--bg-recessed)',
           fontSize: '14px',
           textAlign: 'left',
         }}
@@ -15,8 +16,8 @@ export default function FlagTable({ flags = [] }) {
         <thead>
           <tr
             style={{
-              borderBottom: '1px solid var(--border-subtle)',
-              backgroundColor: 'var(--bg-surface)',
+              borderBottom: '1px solid var(--border-section)',
+              backgroundColor: 'var(--bg-recessed)',
             }}
           >
             <th
@@ -60,7 +61,7 @@ export default function FlagTable({ flags = [] }) {
                 style={{
                   padding: '12px var(--space-component)',
                   fontFamily: 'var(--font-mono)',
-                  color: 'var(--accent)',
+                  color: 'var(--accent-primary)',
                 }}
               >
                 {item.flag}
@@ -69,7 +70,7 @@ export default function FlagTable({ flags = [] }) {
                 style={{
                   padding: '12px var(--space-component)',
                   fontFamily: 'var(--font-sans)',
-                  color: 'var(--text-primary)',
+                  color: 'var(--text-secondary)',
                 }}
               >
                 {item.description}
@@ -78,7 +79,7 @@ export default function FlagTable({ flags = [] }) {
                 style={{
                   padding: '12px var(--space-component)',
                   fontFamily: 'var(--font-mono)',
-                  color: 'var(--text-muted)',
+                  color: 'var(--text-secondary)',
                 }}
               >
                 {item.example || '-'}

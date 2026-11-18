@@ -33,7 +33,7 @@ export default function SearchBar({
         autoFocus={autoFocus}
         style={{
           width: '100%',
-          backgroundColor: 'var(--bg-base)',
+          backgroundColor: 'var(--bg-recessed)',
           color: 'var(--text-primary)',
           border: '1px solid var(--border-subtle)',
           borderRadius: '4px',

@@ -80,7 +80,7 @@ export default function SortFilterBar({
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
           padding: 12px 16px;
@@ -111,7 +111,7 @@ export default function SortFilterBar({
 
         /* Aligned dropdown matching Compare's selects */
         .sort-select {
-          background-color: var(--bg-elevated);
+          background-color: var(--bg-recessed);
           color: var(--text-primary);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
@@ -129,12 +129,12 @@ export default function SortFilterBar({
         }
 
         .sort-select:hover {
-          border-color: var(--text-muted);
+          border-color: var(--border-section);
         }
 
         .sort-select:focus-visible {
-          border-color: var(--accent);
-          outline: 2px solid var(--accent);
+          border-color: var(--accent-primary);
+          outline: 2px solid var(--accent-primary);
           outline-offset: -1px;
         }
 
@@ -152,7 +152,7 @@ export default function SortFilterBar({
         }
 
         .diff-chip {
-          background-color: var(--bg-surface);
+          background-color: var(--bg-recessed);
           color: var(--text-muted);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
@@ -169,18 +169,19 @@ export default function SortFilterBar({
 
         .diff-chip:hover {
           color: var(--text-primary);
-          border-color: var(--text-muted);
+          background-color: var(--bg-hover);
+          border-color: var(--border-section);
         }
 
         .diff-chip.active {
-          background-color: var(--bg-elevated);
-          color: var(--accent);
-          border-color: var(--accent);
-          font-weight: 600;
+          background-color: var(--accent-bg);
+          color: var(--accent-primary);
+          border-color: var(--accent-primary);
+          font-weight: 500;
         }
 
         .diff-chip:focus-visible {
-          outline: 2px solid var(--accent);
+          outline: 2px solid var(--accent-primary);
           outline-offset: -1px;
         }
 

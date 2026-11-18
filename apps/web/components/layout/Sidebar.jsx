@@ -369,7 +369,8 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
            ============================================================ */
         .sb {
           width: 250px;
-          background-color: var(--bg-surface);
+          background-color: var(--bg-sidebar);
+          border-right: 1px solid var(--border-subtle);
           height: calc(100vh - 56px);
           position: sticky;
           top: 56px;
@@ -474,14 +475,14 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
           transition: background-color 0.12s ease;
         }
         :global(.sb-cat-row:hover) {
-          background-color: var(--bg-elevated);
+          background-color: var(--bg-hover);
         }
         :global(.sb-cat-row.sb-cat-current) {
-          border-left-color: var(--accent);
-          background-color: var(--bg-elevated);
+          border-left-color: var(--accent-primary);
+          background-color: var(--bg-hover);
         }
         :global(.sb-cat-row.sb-cat-parent-active) {
-          border-left-color: var(--accent);
+          border-left-color: var(--accent-primary);
         }
 
         /* ── Category count ─────────────────────────────────── */
@@ -578,12 +579,12 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
         }
         :global(.sb-cmd:hover) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-elevated) !important;
+          background-color: var(--bg-hover) !important;
         }
         :global(.sb-cmd.sb-cmd-active) {
-          color: var(--accent) !important;
-          border-left-color: var(--accent) !important;
-          background-color: var(--bg-elevated) !important;
+          color: var(--accent-primary) !important;
+          border-left-color: var(--accent-primary) !important;
+          background-color: var(--accent-bg) !important;
           font-weight: 500;
         }
 
@@ -600,12 +601,12 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
         }
         :global(.sb-flat-link:hover) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-elevated) !important;
+          background-color: var(--bg-hover) !important;
         }
         :global(.sb-flat-link.sb-flat-active) {
-          color: var(--text-primary) !important;
-          border-left-color: var(--accent) !important;
-          background-color: var(--bg-elevated) !important;
+          color: var(--accent-primary) !important;
+          border-left-color: var(--accent-primary) !important;
+          background-color: var(--accent-bg) !important;
         }
 
         /* ============================================================
@@ -632,7 +633,7 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
           .sb-m-trigger-bar {
             display: block;
             padding: 8px 16px;
-            background-color: var(--bg-surface);
+            background-color: var(--bg-sidebar);
             border-bottom: 1px solid var(--border-subtle);
             width: 100%;
             flex-shrink: 0;
@@ -677,7 +678,7 @@ export default function Sidebar({ items = [], collapsed = false, onToggleCollaps
             right: 0;
             bottom: 0;
             max-height: 80vh;
-            background-color: var(--bg-surface);
+            background-color: var(--bg-sidebar);
             border-top: 1px solid var(--border-subtle);
             border-radius: 16px 16px 0 0;
             z-index: 300;

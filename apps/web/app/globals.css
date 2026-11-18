@@ -1,13 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --bg-base: #0b0d10;
-  --bg-surface: #14171b;
-  --bg-elevated: #1c2026;
-  --border-subtle: #2a2f36;
-  --text-primary: #e6e8eb;
-  --text-muted: #9aa1ac;
-  --accent: #4f8cff;
+  /* 1. Stepped Surface Elevations (Replaces harsh borders) */
+  --bg-recessed: #090B0E;   /* Code blocks, terminal wells, filter trays */
+  --bg-sidebar:  #0D1014;   /* Left doc tree & navigation chrome */
+  --bg-canvas:   #12161C;   /* Primary reading surface */
+  --bg-elevated: #171C24;   /* In-window panels, active cards, Q&A answer blocks */
+  --bg-hover:    #1F2631;   /* Interactive row hover state */
+
+  /* 2. Structural Dividers & Hairlines */
+  --border-subtle:  #1E242C; /* Row separators inside tables and lists */
+  --border-section: #2A323D; /* Major section breaks & panel boundaries */
+
+  /* 3. Typography Contrast Scale */
+  --text-primary:   #ECF2F8; /* Headings, command names, Q: prompts */
+  --text-secondary: #9BA7B4; /* Body prose (reduces halation on dark backgrounds) */
+  --text-muted:     #636E7B; /* Eyebrows, counts, inactive nav items */
+
+  /* 4. Semantic Accents & Tag Breaks */
+  --accent-primary: #38BDF8; /* Soft sky cyan for active tags, links, syntax bars */
+  --accent-bg:      rgba(56, 189, 248, 0.10);
+  --tag-diff-med:   #E3B341; /* Muted amber for Intermediate badge */
+  --tag-diff-bg:    rgba(227, 179, 65, 0.12);
+
+  /* 5. Spacious Rhythm Tokens */
+  --space-section:  3.5rem;  /* Gap between major H2 sections (Syntax -> Flags) */
+  --space-block:    1.75rem; /* Gap between in-window sub-elements */
+  --space-tag-gap:  0.5rem;  /* Horizontal/vertical breathing room for tag pills */
+
+  /* Backward Compatibility & Semantic Aliases */
+  --bg-base: var(--bg-canvas);
+  --bg-surface: var(--bg-elevated);
+  --accent: var(--accent-primary);
 
   --success: #3fb950;
   --warning: #d29922;
@@ -16,10 +40,8 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Spacing */
   --space-micro: 4px;
   --space-component: 16px;
-  --space-section: 24px;
   --space-page: 32px;
   --space-page-mobile: 16px;
   --space-syntax-block: 24px;
@@ -61,6 +83,7 @@ table {
   border-collapse: collapse;
   border: 1px solid var(--border-subtle);
   margin: 16px 0;
+  background-color: var(--bg-recessed);
 }
 
 th,
@@ -71,15 +94,20 @@ td {
 }
 
 th {
-  background-color: var(--bg-surface);
+  background-color: var(--bg-recessed);
+  border-bottom: 1px solid var(--border-section);
   font-family: var(--font-sans);
   color: var(--text-primary);
   font-weight: 500;
 }
 
+td {
+  color: var(--text-secondary);
+}
+
 td:first-child {
   font-family: var(--font-mono);
-  color: var(--accent);
+  color: var(--accent-primary);
 }
 
 /* Shared Markdown Body & Typography System */
@@ -87,7 +115,7 @@ td:first-child {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.65;
   overflow-wrap: break-word;
@@ -108,27 +136,27 @@ td:first-child {
 
 .markdown-body h1 {
   font-size: 22px;
-  margin-top: 24px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--border-subtle);
+  margin-top: var(--space-section);
+  margin-bottom: var(--space-block);
+  border-bottom: 1px solid var(--border-section);
   padding-bottom: 8px;
 }
 
 .markdown-body h2 {
-  font-size: 17px;
-  margin-top: 22px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin-top: var(--space-section);
+  margin-bottom: var(--space-block);
 }
 
 .markdown-body h3 {
   font-size: 15px;
-  margin-top: 18px;
+  margin-top: calc(var(--space-block) * 1.2);
   margin-bottom: 8px;
 }
 
 .markdown-body h4 {
   font-size: 14px;
-  margin-top: 14px;
+  margin-top: var(--space-block);
   margin-bottom: 6px;
 }
 
@@ -143,7 +171,7 @@ td:first-child {
   margin-top: 0;
   margin-bottom: 14px;
   line-height: 1.65;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -174,7 +202,7 @@ td:first-child {
 
 .markdown-body li {
   margin-bottom: 6px;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -193,12 +221,12 @@ td:first-child {
 }
 
 .markdown-body blockquote {
-  border-left: 3px solid var(--accent);
-  background-color: var(--bg-surface);
+  border-left: 3px solid var(--accent-primary);
+  background-color: var(--bg-elevated);
   padding: 10px 16px;
   margin: 16px 0;
   border-radius: 0 4px 4px 0;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.6;
   overflow-wrap: break-word;
@@ -207,12 +235,12 @@ td:first-child {
 
 .markdown-body hr {
   border: none;
-  border-top: 1px solid var(--border-subtle);
-  margin: 24px 0;
+  border-top: 1px solid var(--border-section);
+  margin: var(--space-section) 0;
 }
 
 .markdown-body a {
-  color: var(--accent);
+  color: var(--accent-primary);
   text-decoration: none;
   word-break: break-all;
   overflow-wrap: anywhere;
@@ -225,18 +253,19 @@ td:first-child {
 .markdown-body code {
   font-family: var(--font-mono);
   font-size: 13px;
-  background-color: var(--bg-elevated);
+  background-color: var(--bg-recessed);
   border: 1px solid var(--border-subtle);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 2px 6px;
-  color: #60a5fa;
+  color: var(--accent-primary);
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
 .markdown-body pre {
-  background-color: var(--bg-elevated);
+  background-color: var(--bg-recessed);
   border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-primary);
   border-radius: 6px;
   padding: 14px 16px;
   margin: 16px 0;
@@ -282,7 +311,7 @@ td:first-child {
   table tr {
     display: block;
     width: 100%;
-    background-color: var(--bg-surface);
+    background-color: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
     border-radius: 6px;
     padding: 12px;
@@ -348,12 +377,12 @@ td:first-child {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-base);
+  background: var(--bg-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
+  background: var(--border-section);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-elevated);
+  background: var(--border-subtle);
 }

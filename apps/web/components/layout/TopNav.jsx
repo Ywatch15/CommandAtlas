@@ -181,7 +181,7 @@ export default function TopNav() {
       <style jsx>{`
         .topnav {
           height: 56px;
-          background-color: var(--bg-surface);
+          background-color: var(--bg-sidebar);
           border-bottom: 1px solid var(--border-subtle);
           display: flex;
           align-items: center;
@@ -218,7 +218,7 @@ export default function TopNav() {
           width: 240px;
           max-width: 240px;
           flex-shrink: 1;
-          background-color: var(--bg-base);
+          background-color: var(--bg-recessed);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
           padding: 6px 12px;
@@ -283,14 +283,14 @@ export default function TopNav() {
         }
 
         :global(.nav-link:hover) {
-          background-color: var(--bg-elevated) !important;
+          background-color: var(--bg-hover) !important;
           color: var(--text-primary) !important;
           text-decoration: none !important;
         }
 
         :global(.nav-link.active) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-elevated) !important;
+          background-color: var(--bg-hover) !important;
           text-decoration: none !important;
           font-weight: 500;
         }
@@ -308,7 +308,7 @@ export default function TopNav() {
           display: none;
           align-items: center;
           gap: 6px;
-          background-color: var(--bg-base);
+          background-color: var(--bg-recessed);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
           padding: 6px 10px;
@@ -323,7 +323,7 @@ export default function TopNav() {
           justify-content: center;
           width: 36px;
           height: 36px;
-          background-color: var(--bg-base);
+          background-color: var(--bg-recessed);
           border: 1px solid var(--border-subtle);
           border-radius: 4px;
           color: var(--text-primary);
@@ -344,7 +344,7 @@ export default function TopNav() {
           width: 280px;
           max-width: 85vw;
           height: calc(100vh - 56px);
-          background-color: var(--bg-surface);
+          background-color: var(--bg-sidebar);
           border-left: 1px solid var(--border-subtle);
           box-shadow: -4px 0 16px rgba(0, 0, 0, 0.4);
           z-index: 100;
@@ -397,13 +397,13 @@ export default function TopNav() {
 
         :global(.drawer-link.active) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-elevated) !important;
+          background-color: var(--bg-hover) !important;
           border-left-color: var(--accent) !important;
           text-decoration: none !important;
         }
 
         :global(.drawer-link:hover) {
-          background-color: var(--bg-elevated) !important;
+          background-color: var(--bg-hover) !important;
           color: var(--text-primary) !important;
           text-decoration: none !important;
         }

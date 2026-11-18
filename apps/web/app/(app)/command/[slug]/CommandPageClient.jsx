@@ -138,7 +138,7 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
                 <div
                   className="markdown-body"
                   dangerouslySetInnerHTML={{ __html: parseAndSanitizeMarkdown(secContent) }}
-                  style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--text-primary)' }}
+                  style={{ fontSize: '14px', lineHeight: 1.65, color: 'var(--text-secondary)' }}
                 />
               </div>
             );
@@ -151,9 +151,9 @@ export default function CommandPageClient({ slug, staticCommand, staticAllCatego
         <div className="right-rail-column">
           <div
             style={{
-              backgroundColor: 'var(--bg-surface)',
+              backgroundColor: 'var(--bg-elevated)',
               border: '1px solid var(--border-subtle)',
-              borderRadius: '4px',
+              borderRadius: '6px',
               padding: 'var(--space-component)',
               display: 'flex',
               flexDirection: 'column',

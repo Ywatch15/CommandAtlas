@@ -51,9 +51,9 @@ export default function CommandHeader({ name, aliases = [], difficulty, supporte
                   fontSize: '12px',
                   color: 'var(--text-muted)',
                   border: '1px solid var(--border-subtle)',
-                  padding: '2px 6px',
-                  borderRadius: '2px',
-                  backgroundColor: 'var(--bg-surface)',
+                  padding: '3px 8px',
+                  borderRadius: '4px',
+                  backgroundColor: 'var(--bg-recessed)',
                   wordBreak: 'break-word',
                 }}
               >

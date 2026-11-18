@@ -353,7 +353,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          color: var(--accent);
+          color: var(--accent-primary);
         }
 
         .practice-title {
@@ -366,12 +366,12 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
 
         .practice-desc {
           font-size: 14px;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           margin: 0;
         }
 
         .progress-card {
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
           padding: 12px 18px;
@@ -399,14 +399,14 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
 
         .progress-bar-bg {
           height: 6px;
-          background-color: var(--bg-elevated);
+          background-color: var(--bg-recessed);
           border-radius: 3px;
           overflow: hidden;
         }
 
         .progress-bar-fill {
           height: 100%;
-          background-color: var(--accent);
+          background-color: var(--accent-primary);
           transition: width 0.25s ease;
         }
 
@@ -415,8 +415,10 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           align-items: center;
           gap: 12px;
           margin-bottom: 24px;
-          border-bottom: 1px solid var(--border-subtle);
-          padding-bottom: 12px;
+          background-color: var(--bg-recessed);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
+          padding: 12px 16px;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -430,16 +432,17 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-size: 12px;
           font-weight: 600;
           text-transform: uppercase;
+          letter-spacing: 0.05em;
           color: var(--text-muted);
           white-space: nowrap;
           flex-shrink: 0;
         }
 
-        /* Non-wrapping, horizontally scrollable single row */
+        /* Tray wrapped / horizontally scrollable single row */
         .topic-pills {
           display: flex;
-          gap: 6px;
-          flex-wrap: nowrap;
+          gap: var(--space-tag-gap, 0.5rem);
+          flex-wrap: wrap;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -453,16 +456,16 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         :global(.topic-pill) {
           font-size: 13px;
           font-weight: 500;
-          padding: 6px 12px;
+          padding: 6px 14px;
           border-radius: 4px;
           text-decoration: none !important;
           text-transform: capitalize;
-          background-color: transparent;
-          color: var(--text-muted) !important;
-          border: 1px solid transparent;
+          background-color: var(--bg-elevated);
+          color: var(--text-secondary) !important;
+          border: 1px solid var(--border-subtle);
           white-space: nowrap;
           flex-shrink: 0;
-          min-height: 44px;
+          min-height: 38px;
           display: inline-flex;
           align-items: center;
           transition: all 0.15s ease;
@@ -470,22 +473,23 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
 
         :global(.topic-pill:hover) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-surface) !important;
+          background-color: var(--bg-hover) !important;
+          border-color: var(--border-section) !important;
         }
 
         :global(.topic-pill.active) {
-          background-color: var(--bg-elevated) !important;
-          color: var(--text-primary) !important;
-          border-color: var(--border-subtle) !important;
+          background-color: var(--accent-bg) !important;
+          color: var(--accent-primary) !important;
+          border: 1px solid var(--accent-primary) !important;
         }
 
         .empty-state {
           padding: 32px;
           text-align: center;
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           font-size: 14px;
         }
 
@@ -502,7 +506,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-weight: 500;
           border-radius: 4px;
           border: 1px solid var(--border-subtle);
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           color: var(--text-muted);
           cursor: pointer;
           min-height: 44px;
@@ -513,9 +517,9 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         }
 
         .mobile-tab-btn.active {
-          background-color: var(--bg-elevated);
-          color: var(--accent);
-          border-color: var(--accent);
+          background-color: var(--accent-bg);
+          color: var(--accent-primary);
+          border-color: var(--accent-primary);
           font-weight: 600;
         }
 
@@ -531,7 +535,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           width: 32%;
           min-width: 280px;
           max-width: 380px;
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
           padding: 14px;
@@ -565,7 +569,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           border-radius: 4px;
           background: transparent;
           border: 1px solid transparent;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           font-size: 13px;
           text-align: left;
           cursor: pointer;
@@ -576,14 +580,14 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         }
 
         .rail-item-btn:hover {
-          background-color: var(--bg-elevated);
+          background-color: var(--bg-hover);
           color: var(--text-primary);
         }
 
         .rail-item-btn.selected {
-          background-color: var(--bg-elevated);
+          background-color: var(--accent-bg);
           color: var(--text-primary);
-          border-color: var(--border-subtle);
+          border-color: var(--accent-primary);
           font-weight: 600;
         }
 
@@ -591,7 +595,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background-color: var(--bg-base);
+          background-color: var(--bg-recessed);
           border: 1px solid var(--border-subtle);
           display: flex;
           align-items: center;
@@ -601,10 +605,15 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           flex-shrink: 0;
         }
 
+        .rail-item-btn.selected .rail-item-status {
+          border-color: var(--accent-primary);
+          color: var(--accent-primary);
+        }
+
         .rail-item-btn.done .rail-item-status {
-          background-color: var(--accent);
-          color: var(--bg-base);
-          border-color: var(--accent);
+          background-color: #3fb950;
+          color: #fff;
+          border-color: #3fb950;
         }
 
         /* Proportional text display without premature ellipsis */

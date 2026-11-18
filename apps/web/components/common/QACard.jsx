@@ -112,20 +112,20 @@ export default function QACard({
 
         <style jsx>{`
           .qa-accordion-card {
-            background-color: var(--bg-surface);
+            background-color: var(--bg-elevated);
             border: 1px solid var(--border-subtle);
             border-radius: 6px;
             margin-bottom: 12px;
             overflow: hidden;
-            transition: border-color 0.15s ease;
+            transition: all 0.15s ease;
           }
 
           .qa-accordion-card:hover {
-            border-color: var(--border-subtle);
+            border-color: var(--border-section);
           }
 
           .qa-accordion-card.open {
-            border-color: var(--border-subtle);
+            border-color: var(--border-section);
           }
 
           .qa-accordion-header {
@@ -135,18 +135,18 @@ export default function QACard({
             padding: 14px 18px;
             cursor: pointer;
             user-select: none;
-            background-color: var(--bg-surface);
+            background-color: var(--bg-elevated);
             min-height: 44px;
             gap: 12px;
             transition: background-color 0.15s ease;
           }
 
           .qa-accordion-header:hover {
-            background-color: var(--bg-elevated);
+            background-color: var(--bg-hover);
           }
 
           .qa-accordion-header:focus-visible {
-            outline: 2px solid var(--accent);
+            outline: 2px solid var(--accent-primary);
             outline-offset: -1px;
           }
 
@@ -196,9 +196,9 @@ export default function QACard({
           }
 
           .cmd-ref-link:hover {
-            color: var(--accent);
+            color: var(--accent-primary);
             border-color: var(--border-subtle);
-            background-color: var(--bg-base);
+            background-color: var(--bg-hover);
           }
 
           .badge-difficulty {
@@ -206,23 +206,26 @@ export default function QACard({
             font-weight: 600;
             text-transform: uppercase;
             padding: 3px 8px;
-            border-radius: 3px;
+            border-radius: 4px;
             letter-spacing: 0.03em;
           }
 
           .difficulty-beginner {
-            background-color: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
+            background-color: rgba(63, 185, 80, 0.12);
+            color: #3fb950;
+            border: 1px solid rgba(63, 185, 80, 0.25);
           }
 
           .difficulty-intermediate {
-            background-color: rgba(234, 179, 8, 0.15);
-            color: #facc15;
+            background-color: var(--tag-diff-bg);
+            color: var(--tag-diff-med);
+            border: 1px solid rgba(227, 179, 65, 0.25);
           }
 
           .difficulty-advanced {
-            background-color: rgba(239, 68, 68, 0.15);
-            color: #f87171;
+            background-color: rgba(248, 81, 73, 0.12);
+            color: #f85149;
+            border: 1px solid rgba(248, 81, 73, 0.25);
           }
 
           .qa-accordion-body {
@@ -231,13 +234,13 @@ export default function QACard({
             display: flex;
             flex-direction: column;
             gap: 16px;
-            background-color: var(--bg-base);
+            background-color: var(--bg-canvas);
           }
 
           .iq-card {
-            background-color: var(--bg-surface);
+            background-color: var(--bg-elevated);
             border: 1px solid var(--border-subtle);
-            border-radius: 4px;
+            border-radius: 6px;
             padding: 14px 16px;
             display: flex;
             flex-direction: column;
@@ -251,7 +254,7 @@ export default function QACard({
           }
 
           .iq-q-prefix {
-            color: var(--accent);
+            color: var(--accent-primary);
             font-weight: 700;
             font-size: 15px;
             flex-shrink: 0;
@@ -282,7 +285,7 @@ export default function QACard({
           }
 
           .iq-a-text {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 13.5px;
             line-height: 1.6;
             flex: 1;
@@ -434,7 +437,7 @@ export default function QACard({
 
       <style jsx>{`
         .qa-practice-card {
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
           padding: 24px;
@@ -478,7 +481,7 @@ export default function QACard({
           border-radius: 4px;
           background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
-          color: var(--accent);
+          color: var(--accent-primary);
           cursor: pointer;
           min-height: 44px;
         }
@@ -487,10 +490,10 @@ export default function QACard({
           font-size: 11px;
           font-weight: 600;
           text-transform: uppercase;
-          color: var(--accent);
-          background-color: var(--bg-elevated);
+          color: var(--accent-primary);
+          background-color: var(--accent-bg);
           padding: 3px 8px;
-          border-radius: 3px;
+          border-radius: 4px;
           letter-spacing: 0.05em;
         }
 
@@ -507,23 +510,26 @@ export default function QACard({
           font-weight: 600;
           text-transform: uppercase;
           padding: 3px 8px;
-          border-radius: 3px;
+          border-radius: 4px;
           letter-spacing: 0.03em;
         }
 
         .difficulty-beginner {
-          background-color: rgba(34, 197, 94, 0.15);
-          color: #4ade80;
+          background-color: rgba(63, 185, 80, 0.12);
+          color: #3fb950;
+          border: 1px solid rgba(63, 185, 80, 0.25);
         }
 
         .difficulty-intermediate {
-          background-color: rgba(234, 179, 8, 0.15);
-          color: #facc15;
+          background-color: var(--tag-diff-bg);
+          color: var(--tag-diff-med);
+          border: 1px solid rgba(227, 179, 65, 0.25);
         }
 
         .difficulty-advanced {
-          background-color: rgba(239, 68, 68, 0.15);
-          color: #f87171;
+          background-color: rgba(248, 81, 73, 0.12);
+          color: #f85149;
+          border: 1px solid rgba(248, 81, 73, 0.25);
         }
 
         .solved-toggle-btn {
@@ -543,13 +549,14 @@ export default function QACard({
 
         .solved-toggle-btn:hover {
           color: var(--text-primary);
-          border-color: var(--text-muted);
+          border-color: var(--border-section);
+          background-color: var(--bg-hover);
         }
 
         .solved-toggle-btn.is-solved {
-          background-color: rgba(34, 197, 94, 0.15);
-          color: #4ade80;
-          border-color: #22c55e;
+          background-color: rgba(63, 185, 80, 0.12);
+          color: #3fb950;
+          border-color: rgba(63, 185, 80, 0.35);
           font-weight: 600;
         }
 
@@ -568,8 +575,8 @@ export default function QACard({
 
         .content-scroll {
           font-size: 14px;
-          line-height: 1.6;
-          color: var(--text-primary);
+          line-height: 1.65;
+          color: var(--text-secondary);
           overflow-x: auto;
           max-width: 100%;
         }
@@ -597,28 +604,29 @@ export default function QACard({
         }
 
         .disclosure-btn:hover {
-          border-color: var(--text-muted);
+          border-color: var(--border-section);
+          background-color: var(--bg-hover);
         }
 
         .disclosure-btn.solution {
-          border-color: rgba(79, 140, 255, 0.4);
-          color: var(--accent);
+          border-color: rgba(56, 189, 248, 0.4);
+          color: var(--accent-primary);
         }
 
         .disclosure-box {
-          background-color: var(--bg-elevated);
+          background-color: var(--bg-recessed);
           border: 1px solid var(--border-subtle);
-          border-radius: 4px;
+          border-radius: 6px;
           padding: 16px;
           margin-bottom: 20px;
         }
 
         .hint-box {
-          border-left: 3px solid #facc15;
+          border-left: 3px solid var(--tag-diff-med);
         }
 
         .solution-box {
-          border-left: 3px solid var(--accent);
+          border-left: 3px solid var(--accent-primary);
         }
 
         .box-title {

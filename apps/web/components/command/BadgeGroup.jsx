@@ -6,21 +6,55 @@ export default function BadgeGroup({ tags = [], difficulty, supportedOS = [] }) 
       : [];
   const tagList = Array.isArray(tags) ? tags : typeof tags === 'string' ? [tags] : [];
 
+  const getDifficultyStyle = (diff) => {
+    const d = (diff || '').toLowerCase();
+    if (d === 'intermediate' || d === 'med') {
+      return {
+        color: 'var(--tag-diff-med)',
+        backgroundColor: 'var(--tag-diff-bg)',
+        border: '1px solid rgba(227, 179, 65, 0.25)',
+      };
+    }
+    if (d === 'beginner') {
+      return {
+        color: '#3FB950',
+        backgroundColor: 'rgba(63, 185, 80, 0.12)',
+        border: '1px solid rgba(63, 185, 80, 0.25)',
+      };
+    }
+    if (d === 'advanced') {
+      return {
+        color: '#F85149',
+        backgroundColor: 'rgba(248, 81, 73, 0.12)',
+        border: '1px solid rgba(248, 81, 73, 0.25)',
+      };
+    }
+    return {
+      color: 'var(--text-primary)',
+      backgroundColor: 'var(--bg-elevated)',
+      border: '1px solid var(--border-subtle)',
+    };
+  };
+
   return (
     <div
-      style={{ display: 'flex', gap: 'var(--space-micro)', flexWrap: 'wrap', alignItems: 'center' }}
+      style={{
+        display: 'flex',
+        gap: 'var(--space-tag-gap, 0.5rem)',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+      }}
     >
       {difficulty && (
         <span
           style={{
             fontSize: '12px',
             fontFamily: 'var(--font-sans)',
-            padding: '2px 6px',
-            borderRadius: '2px',
-            backgroundColor: 'var(--bg-elevated)',
-            border: '1px solid var(--border-subtle)',
-            color: 'var(--text-primary)',
+            fontWeight: 500,
+            padding: '3px 8px',
+            borderRadius: '4px',
             textTransform: 'capitalize',
+            ...getDifficultyStyle(difficulty),
           }}
         >
           {difficulty}
@@ -32,12 +66,13 @@ export default function BadgeGroup({ tags = [], difficulty, supportedOS = [] }) 
           style={{
             fontSize: '12px',
             fontFamily: 'var(--font-sans)',
-            padding: '2px 6px',
-            borderRadius: '2px',
+            padding: '3px 8px',
+            borderRadius: '4px',
             backgroundColor: 'var(--bg-elevated)',
             border: '1px solid var(--border-subtle)',
             color: 'var(--text-muted)',
             textTransform: 'uppercase',
+            letterSpacing: '0.03em',
           }}
         >
           {os}
@@ -49,11 +84,11 @@ export default function BadgeGroup({ tags = [], difficulty, supportedOS = [] }) 
           style={{
             fontSize: '12px',
             fontFamily: 'var(--font-sans)',
-            padding: '2px 6px',
-            borderRadius: '2px',
-            backgroundColor: 'var(--bg-base)',
+            padding: '3px 8px',
+            borderRadius: '4px',
+            backgroundColor: 'var(--bg-recessed)',
             border: '1px solid var(--border-subtle)',
-            color: 'var(--text-muted)',
+            color: 'var(--text-secondary)',
           }}
         >
           #{tag}

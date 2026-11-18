@@ -34,11 +34,11 @@ export default function NoteEditor({ commandSlug }) {
   return (
     <div
       style={{
-        backgroundColor: 'var(--bg-surface)',
+        backgroundColor: 'var(--bg-elevated)',
         border: '1px solid var(--border-subtle)',
-        borderRadius: '4px',
+        borderRadius: '6px',
         padding: '16px',
-        marginTop: '24px',
+        marginTop: 'var(--space-block)',
       }}
     >
       <div
@@ -71,7 +71,7 @@ export default function NoteEditor({ commandSlug }) {
         rows={4}
         style={{
           width: '100%',
-          backgroundColor: 'var(--bg-elevated)',
+          backgroundColor: 'var(--bg-recessed)',
           color: 'var(--text-primary)',
           border: '1px solid var(--border-subtle)',
           borderRadius: '4px',
@@ -88,8 +88,8 @@ export default function NoteEditor({ commandSlug }) {
           onClick={handleSave}
           disabled={saving}
           style={{
-            backgroundColor: 'var(--bg-elevated)',
-            color: 'var(--accent)',
+            backgroundColor: 'var(--bg-recessed)',
+            color: 'var(--accent-primary)',
             border: '1px solid var(--border-subtle)',
             borderRadius: '4px',
             padding: '6px 14px',

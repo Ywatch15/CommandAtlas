@@ -126,14 +126,14 @@ export default function HomePageClient({ staticAllCategories }) {
 
         .hero-subheading {
           font-size: 14px;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           line-height: 1.6;
           max-width: 560px;
           margin: 0 auto 20px auto;
         }
 
         .pack-manager-card {
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
           padding: 18px 22px;
@@ -160,15 +160,15 @@ export default function HomePageClient({ staticAllCategories }) {
 
         .pack-manager-desc {
           font-size: 13px;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           text-align: center;
           line-height: 1.45;
           max-width: 480px;
         }
 
         .install-pack-btn {
-          background-color: ${status === 'installing' ? 'var(--bg-elevated)' : 'var(--accent)'};
-          color: ${status === 'installing' ? 'var(--text-muted)' : '#000'};
+          background-color: ${status === 'installing' ? 'var(--bg-recessed)' : 'var(--accent-primary)'};
+          color: ${status === 'installing' ? 'var(--text-muted)' : '#090B0E'};
           border: none;
           border-radius: 4px;
           padding: 8px 16px;
@@ -208,7 +208,7 @@ export default function HomePageClient({ staticAllCategories }) {
         }
 
         :global(.category-card) {
-          background-color: var(--bg-surface);
+          background-color: var(--bg-elevated);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
           padding: 16px 18px;
@@ -217,11 +217,12 @@ export default function HomePageClient({ staticAllCategories }) {
           flex-direction: column;
           gap: 10px;
           height: 100%;
-          transition: border-color 0.15s ease;
+          transition: all 0.15s ease;
         }
 
         :global(.category-card:hover) {
-          border-color: #4a525d !important;
+          background-color: var(--bg-hover) !important;
+          border-color: var(--border-section) !important;
         }
 
         :global(.card-top-row) {
@@ -235,13 +236,13 @@ export default function HomePageClient({ staticAllCategories }) {
         .card-title {
           font-size: 15px;
           font-weight: 600;
-          color: var(--accent);
+          color: var(--accent-primary);
           margin: 0;
         }
 
         .card-desc {
           font-size: 13px;
-          color: var(--text-muted);
+          color: var(--text-secondary);
           line-height: 1.45;
           margin: 0;
           flex: 1;

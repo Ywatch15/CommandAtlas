@@ -12,14 +12,14 @@ export default function SearchResultRow({ command, onClick }) {
   return (
     <div
       style={{
-        backgroundColor: 'var(--bg-surface)',
+        backgroundColor: 'var(--bg-elevated)',
         border: '1px solid var(--border-subtle)',
-        borderRadius: '4px',
+        borderRadius: '6px',
         padding: '12px 16px',
         display: 'flex',
         flexDirection: 'column',
         gap: '6px',
-        transition: 'border-color 0.15s ease',
+        transition: 'all 0.15s ease',
       }}
       className="search-row-hover"
     >
@@ -31,7 +31,7 @@ export default function SearchResultRow({ command, onClick }) {
             fontFamily: 'var(--font-mono)',
             fontSize: '16px',
             fontWeight: 500,
-            color: 'var(--accent)',
+            color: 'var(--accent-primary)',
             textDecoration: 'none',
           }}
         >
@@ -46,8 +46,8 @@ export default function SearchResultRow({ command, onClick }) {
         <p
           style={{
             fontSize: '13px',
-            color: 'var(--text-muted)',
-            lineHeight: 1.4,
+            color: 'var(--text-secondary)',
+            lineHeight: 1.45,
             margin: 0,
           }}
         >
@@ -61,8 +61,8 @@ export default function SearchResultRow({ command, onClick }) {
 
       <style jsx>{`
         .search-row-hover:hover {
-          border-color: #4a525d !important;
-          background-color: var(--bg-elevated) !important;
+          border-color: var(--border-section) !important;
+          background-color: var(--bg-hover) !important;
         }
       `}</style>
     </div>

@@ -205,7 +205,7 @@ export default function InterviewPrepClient({
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              color: 'var(--accent)',
+              color: 'var(--accent-primary)',
             }}
           >
             Technical Assessment & Preparation
@@ -221,13 +221,13 @@ export default function InterviewPrepClient({
           >
             Terminal & System Interview Prep
           </h1>
-          <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
             Real-world interview questions, architectural trade-offs, and scenario assessments
             grouped by topic.
           </p>
         </div>
 
-        {/* Topic Bar: horizontally scrollable single row below 768px, no wrapping */}
+        {/* Topic Bar: tray container with wrapped / scrollable pills */}
         <div className="topic-bar">
           <span className="topic-label">Filter Topic:</span>
           <div className="topic-pills">
@@ -262,10 +262,10 @@ export default function InterviewPrepClient({
             style={{
               padding: '32px',
               textAlign: 'center',
-              backgroundColor: 'var(--bg-surface)',
+              backgroundColor: 'var(--bg-elevated)',
               border: '1px solid var(--border-subtle)',
               borderRadius: '6px',
-              color: 'var(--text-muted)',
+              color: 'var(--text-secondary)',
               fontSize: '14px',
             }}
           >
@@ -297,8 +297,10 @@ export default function InterviewPrepClient({
           align-items: center;
           gap: 12px;
           margin-bottom: 24px;
-          border-bottom: 1px solid var(--border-subtle);
-          padding-bottom: 12px;
+          background-color: var(--bg-recessed);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
+          padding: 12px 16px;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -312,16 +314,16 @@ export default function InterviewPrepClient({
           font-size: 12px;
           font-weight: 600;
           text-transform: uppercase;
+          letter-spacing: 0.05em;
           color: var(--text-muted);
           white-space: nowrap;
           flex-shrink: 0;
         }
 
-        /* Single row horizontally scrollable, never wrap into tall pill wall */
         .topic-pills {
           display: flex;
-          gap: 6px;
-          flex-wrap: nowrap;
+          gap: var(--space-tag-gap, 0.5rem);
+          flex-wrap: wrap;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -335,16 +337,16 @@ export default function InterviewPrepClient({
         :global(.topic-pill) {
           font-size: 13px;
           font-weight: 500;
-          padding: 6px 12px;
+          padding: 6px 14px;
           border-radius: 4px;
           text-decoration: none !important;
           text-transform: capitalize;
-          background-color: transparent;
-          color: var(--text-muted) !important;
-          border: 1px solid transparent;
+          background-color: var(--bg-elevated);
+          color: var(--text-secondary) !important;
+          border: 1px solid var(--border-subtle);
           white-space: nowrap;
           flex-shrink: 0;
-          min-height: 44px;
+          min-height: 38px;
           display: inline-flex;
           align-items: center;
           transition: all 0.15s ease;
@@ -352,13 +354,14 @@ export default function InterviewPrepClient({
 
         :global(.topic-pill:hover) {
           color: var(--text-primary) !important;
-          background-color: var(--bg-surface) !important;
+          background-color: var(--bg-hover) !important;
+          border-color: var(--border-section) !important;
         }
 
         :global(.topic-pill.active) {
-          background-color: var(--bg-elevated) !important;
-          color: var(--text-primary) !important;
-          border-color: var(--border-subtle) !important;
+          background-color: var(--accent-bg) !important;
+          color: var(--accent-primary) !important;
+          border: 1px solid var(--accent-primary) !important;
         }
 
         .topic-section-header {
@@ -366,14 +369,14 @@ export default function InterviewPrepClient({
           justify-content: space-between;
           align-items: center;
           margin-bottom: 14px;
-          border-bottom: 1px solid var(--border-subtle);
+          border-bottom: 1px solid var(--border-section);
           padding-bottom: 8px;
         }
 
         .topic-title {
-          font-size: 17px;
+          font-size: 18px;
           font-weight: 600;
-          color: var(--accent);
+          color: var(--accent-primary);
           text-transform: capitalize;
           margin: 0;
         }
@@ -381,8 +384,12 @@ export default function InterviewPrepClient({
         @media (max-width: 768px) {
           .topic-bar {
             gap: 8px;
-            padding-bottom: 10px;
+            padding: 10px 12px;
           }
+          .topic-pills {
+            flex-wrap: nowrap;
+          }
+        }
         }
       `}</style>
     </AppShell>
