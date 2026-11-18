@@ -149,13 +149,14 @@ export default function InterviewPrepClient({
     return 0;
   });
 
+  const singleMatchingSlug = allMatchingItems.length === 1 ? allMatchingItems[0].cmd.slug : null;
+
   // Auto-expand first item if only 1 item matches
   useEffect(() => {
-    const list = isGroupedByTopic ? Object.values(grouped).flat() : sortedFlatItems;
-    if (list.length === 1) {
-      setOpenItems(new Set([list[0].cmd.slug]));
+    if (singleMatchingSlug) {
+      setOpenItems(new Set([singleMatchingSlug]));
     }
-  }, [allCommands, currentSlug, sortBy, selectedDifficulties.size]);
+  }, [singleMatchingSlug]);
 
   const toggleItem = (slug) => {
     setOpenItems((prev) => {

@@ -36,7 +36,7 @@ export default [
       // Comments explain why, never what (ENGINEERING_RULES §1)
       // No dead code (ENGINEERING_RULES §1)
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      'no-console': 'warn',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
 
       // Booleans use is/has/should prefix — can't enforce naming via ESLint alone,
@@ -78,9 +78,20 @@ export default [
     },
   },
 
-  // ── Scripts and shared packages (Node.js) ────────────────────────────────
+  // ── Scripts and server (Node.js CLI & server logging) ────────────────────
   {
-    files: ['scripts/**/*.js', 'packages/**/*.js', 'apps/server/**/*.js'],
+    files: ['scripts/**/*.js', 'apps/server/**/*.js'],
+    languageOptions: {
+      globals: { ...globals.node },
+    },
+    rules: {
+      'no-console': 'off',
+    },
+  },
+
+  // ── Shared packages ───────────────────────────────────────────────────────
+  {
+    files: ['packages/**/*.js'],
     languageOptions: {
       globals: { ...globals.node },
     },
