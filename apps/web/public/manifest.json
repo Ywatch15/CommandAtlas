@@ -1,18 +1,74 @@
 {
-  "short_name": "CommandAtlas",
   "name": "CommandAtlas — Developer Command Reference",
-  "icons": [
-    {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ],
+  "short_name": "CommandAtlas",
+  "description": "Offline-first, curated developer command reference platform.",
   "start_url": "/",
-  "background_color": "#090d16",
-  "theme_color": "#090d16",
+  "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "scope": "/",
-  "description": "Offline-first, curated developer command reference platform."
+  "background_color": "#0B0D10",
+  "theme_color": "#0B0D10",
+  "categories": ["developer", "education", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search Commands",
+      "short_name": "Search",
+      "description": "Search 360+ developer commands instantly",
+      "url": "/search",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Practice Terminal Challenges",
+      "short_name": "Practice",
+      "description": "Hands-on terminal problems and exercises",
+      "url": "/practice",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Interview Prep",
+      "short_name": "Interview",
+      "description": "Technical interview command questions and answers",
+      "url": "/interview-prep",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Bookmarks",
+      "short_name": "Bookmarks",
+      "description": "Offline bookmarked commands and references",
+      "url": "/bookmarks",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
 }

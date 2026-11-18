@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import AppShell from '@/components/layout/AppShell.jsx';
 import { getPackStatus, downloadAndInstallPack, removePack } from '@/lib/db/packs.js';
+import InstallAppButton from '@/components/common/InstallAppButton.jsx';
 
 export default function SettingsPageClient() {
   const [packs, setPacks] = useState([]);
@@ -110,6 +111,46 @@ export default function SettingsPageClient() {
               Install All
             </button>
           )}
+        </div>
+
+        {/* PWA Mobile Installation Section */}
+        <div
+          style={{
+            backgroundColor: 'var(--bg-surface)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '4px',
+            padding: '20px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '16px',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ flex: 1, minWidth: '220px' }}>
+            <h2
+              style={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                marginBottom: '4px',
+              }}
+            >
+              Install as Mobile App (PWA)
+            </h2>
+            <p
+              style={{
+                fontSize: '13px',
+                color: 'var(--text-muted)',
+                lineHeight: 1.5,
+                margin: 0,
+              }}
+            >
+              Install CommandAtlas to your home screen on iOS or Android for instant offline access
+              and a native full-screen experience.
+            </p>
+          </div>
+          <InstallAppButton variant="settings" />
         </div>
 
         <p

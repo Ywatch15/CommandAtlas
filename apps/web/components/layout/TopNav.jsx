@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SearchModal from '@/components/search/SearchModal.jsx';
 import SyncStatusIndicator from '@/components/layout/SyncStatusIndicator.jsx';
+import InstallAppButton from '@/components/common/InstallAppButton.jsx';
 
 export default function TopNav() {
   const pathname = usePathname();
@@ -63,6 +64,7 @@ export default function TopNav() {
         <div className="nav-right">
           {/* Desktop Navigation */}
           <div className="desktop-nav-content">
+            <InstallAppButton variant="pill" />
             <SyncStatusIndicator />
             <div className="desktop-links">
               {navLinks.map((link) => {
@@ -166,6 +168,9 @@ export default function TopNav() {
                   </Link>
                 );
               })}
+            </div>
+            <div className="drawer-install-wrap">
+              <InstallAppButton variant="drawer" />
             </div>
           </div>
         </>
@@ -369,6 +374,10 @@ export default function TopNav() {
         .drawer-links {
           display: flex;
           flex-direction: column;
+        }
+
+        .drawer-install-wrap {
+          padding: 12px 16px 4px 16px;
         }
 
         :global(.drawer-link) {

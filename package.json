@@ -17,6 +17,7 @@
     "dev:server": "npm run start --workspace=apps/server",
     "build": "npm run build-content && npm run build --workspace=apps/web",
     "build:web": "npm run build-content && npm run build --workspace=apps/web",
+    "generate:icons": "node scripts/generate-pwa-icons.cjs",
     "build-content": "node scripts/build-content.js",
     "build-content:validate": "node scripts/build-content.js --validate-only",
     "test": "node --test scripts/tests/pipeline-stages.test.js scripts/tests/search-engine.test.js scripts/tests/link-graph.test.js apps/server/tests/models.test.js",
