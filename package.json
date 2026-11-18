@@ -2,6 +2,9 @@
   "name": "commandatlas",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "workspaces": [
     "apps/web",
     "apps/server",
@@ -12,6 +15,7 @@
     "dev:web": "npm run dev --workspace=apps/web",
     "dev:server": "npm run start --workspace=apps/server",
     "build": "npm run build-content && npm run build --workspace=apps/web",
+    "build:web": "npm run build-content && npm run build --workspace=apps/web",
     "build-content": "node scripts/build-content.js",
     "build-content:validate": "node scripts/build-content.js --validate-only",
     "test": "node --test scripts/tests/pipeline-stages.test.js scripts/tests/search-engine.test.js scripts/tests/link-graph.test.js apps/server/tests/models.test.js",
