@@ -4,7 +4,8 @@ import AppShell from '@/components/layout/AppShell.jsx';
 import Link from 'next/link';
 import { db } from '@/lib/db/index.js';
 import { triggerSync } from '@/lib/db/sync.js';
-import FilterSortBar from '@/components/common/FilterSortBar.jsx';
+import SortFilterBar from '@/components/common/SortFilterBar.jsx';
+import QACard from '@/components/common/QACard.jsx';
 import { parseBodySections, parseAndSanitizeMarkdown } from '@/lib/markdown.js';
 
 export default function PracticeClient({ currentSlug, staticAllCommands, staticAllCategories }) {
@@ -12,8 +13,6 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
   const [allCategories, setAllCategories] = useState(staticAllCategories);
   const [solvedProblems, setSolvedProblems] = useState(new Set());
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [showHint, setShowHint] = useState(false);
-  const [showSolution, setShowSolution] = useState(false);
   const [sortBy, setSortBy] = useState('topic');
   const [selectedDifficulties, setSelectedDifficulties] = useState(new Set());
   const [mobileTab, setMobileTab] = useState('detail');
@@ -76,7 +75,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
     });
   };
 
-  const sidebarItems = allCategories.map((cat) => ({
+  const sidebarItems = (allCategories || []).map((cat) => ({
     label: cat.frontmatter?.name || cat.name || cat.slug,
     href: `/category/${cat.slug}`,
   }));
@@ -102,7 +101,6 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
     if (pp && pp.trim() && !pp.includes('Not applicable')) {
       const topic = (cmd.frontmatter?.category || cmd.category || 'other').split('/')[0];
 
-      // Separate scenario, hint, and solution from practice problems section if marked
       let scenario = pp;
       let hint = '';
       let solution = '';
@@ -158,18 +156,14 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
       const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
       return nameA.localeCompare(nameB);
     }
-    // Topic sort: sort by topic then name
     if (a.topic !== b.topic) return a.topic.localeCompare(b.topic);
     const nameA = (a.cmd.frontmatter?.name || a.cmd.slug).toLowerCase();
     const nameB = (b.cmd.frontmatter?.name || b.cmd.slug).toLowerCase();
     return nameA.localeCompare(nameB);
   });
 
-  // Reset selected problem index when currentSlug, sortBy, or difficulty filters change
   useEffect(() => {
     setSelectedIndex(0);
-    setShowHint(false);
-    setShowSolution(false);
   }, [currentSlug, sortBy, selectedDifficulties.size]);
 
   const activeItem = practiceItems[selectedIndex] || null;
@@ -204,7 +198,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
     triggerSync();
   };
 
-  const categorySlugs = ['all', ...allCategories.map((c) => c.slug)];
+  const categorySlugs = ['all', ...(allCategories || []).map((c) => c.slug)];
   const totalCount = practiceItems.length;
   const solvedCount = practiceItems.filter((item) => solvedProblems.has(item.cmd.slug)).length;
 
@@ -237,7 +231,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           </div>
         </div>
 
-        {/* Topic Bar */}
+        {/* Topic Bar: single horizontally scrollable row below 768px */}
         <div className="topic-bar">
           <span className="topic-label">Category Filter:</span>
           <div className="topic-pills">
@@ -256,8 +250,8 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           </div>
         </div>
 
-        {/* Global Filter/Sort Bar */}
-        <FilterSortBar
+        {/* Shared Global Filter/Sort Bar */}
+        <SortFilterBar
           sortBy={sortBy}
           onSortChange={handleSortChange}
           selectedDifficulties={selectedDifficulties}
@@ -268,7 +262,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           <div className="empty-state">No practice problems found for this topic filter.</div>
         ) : (
           <div>
-            {/* Mobile View Toggle Bar */}
+            {/* Mobile View Toggle Bar: below 768px only */}
             <div className="mobile-view-tabs">
               <button
                 type="button"
@@ -287,7 +281,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
             </div>
 
             <div className="practice-workspace">
-              {/* Left Rail: Problem List Selector */}
+              {/* Left Rail: Proportional 32% width on desktop, full-width on mobile */}
               <div className={`problem-rail ${mobileTab === 'detail' ? 'mobile-hide' : ''}`}>
                 <div className="rail-title">Problem Set ({practiceItems.length})</div>
                 <div className="rail-list">
@@ -303,8 +297,6 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
                         title={name}
                         onClick={() => {
                           setSelectedIndex(idx);
-                          setShowHint(false);
-                          setShowSolution(false);
                           setMobileTab('detail');
                         }}
                       >
@@ -318,127 +310,28 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
                 </div>
               </div>
 
-              {/* Main Focused Problem Area */}
+              {/* Main Focused Problem Area via shared QACard */}
               {activeItem && (
-                <div className={`problem-main-card ${mobileTab === 'list' ? 'mobile-hide' : ''}`}>
-                  <div className="card-top-bar">
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        flexWrap: 'wrap',
-                      }}
-                    >
-                      <button
-                        type="button"
-                        className="mobile-back-btn"
-                        onClick={() => setMobileTab('list')}
-                      >
-                        &larr; List
-                      </button>
-                      <span className="topic-tag">{activeItem.topic}</span>
-                      <h2 className="problem-cmd-title">
-                        {activeItem.cmd.frontmatter?.name || activeItem.cmd.slug}
-                      </h2>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span
-                        className={`badge-difficulty difficulty-${activeItem.cmd.frontmatter?.difficulty || 'intermediate'}`}
-                      >
-                        {activeItem.cmd.frontmatter?.difficulty || 'intermediate'}
-                      </span>
-                      <button
-                        type="button"
-                        className={`solved-toggle-btn ${solvedProblems.has(activeItem.cmd.slug) ? 'is-solved' : ''}`}
-                        onClick={() => toggleSolved(activeItem.cmd.slug)}
-                      >
-                        {solvedProblems.has(activeItem.cmd.slug) ? '✓ Solved' : 'Mark Solved'}
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Scenario Task */}
-                  <div className="scenario-section">
-                    <h3 className="section-label">Challenge Scenario</h3>
-                    <div
-                      className="markdown-body"
-                      dangerouslySetInnerHTML={{ __html: activeItem.scenarioHtml }}
-                    />
-                  </div>
-
-                  {/* Progressive Disclosure: Hint & Solution */}
-                  <div className="disclosure-actions">
-                    {activeItem.hintHtml && (
-                      <button
-                        type="button"
-                        className="disclosure-btn"
-                        onClick={() => setShowHint((prev) => !prev)}
-                      >
-                        {showHint ? 'Hide Hint 💡' : 'Reveal Hint 💡'}
-                      </button>
-                    )}
-                    {activeItem.solutionHtml && (
-                      <button
-                        type="button"
-                        className="disclosure-btn solution"
-                        onClick={() => setShowSolution((prev) => !prev)}
-                      >
-                        {showSolution ? 'Hide Solution 🔑' : 'Reveal Solution 🔑'}
-                      </button>
-                    )}
-                  </div>
-
-                  {showHint && activeItem.hintHtml && (
-                    <div className="disclosure-box hint-box">
-                      <h4 className="box-title">Hint</h4>
-                      <div
-                        className="markdown-body"
-                        dangerouslySetInnerHTML={{ __html: activeItem.hintHtml }}
-                      />
-                    </div>
-                  )}
-
-                  {showSolution && activeItem.solutionHtml && (
-                    <div className="disclosure-box solution-box">
-                      <h4 className="box-title">Solution Reference</h4>
-                      <div
-                        className="markdown-body"
-                        dangerouslySetInnerHTML={{ __html: activeItem.solutionHtml }}
-                      />
-                    </div>
-                  )}
-
-                  {/* Footer Navigation */}
-                  <div className="card-footer-nav">
-                    <button
-                      type="button"
-                      className="nav-btn"
-                      disabled={selectedIndex === 0}
-                      onClick={() => {
-                        setSelectedIndex((prev) => Math.max(0, prev - 1));
-                        setShowHint(false);
-                        setShowSolution(false);
-                      }}
-                    >
-                      &larr; Previous Problem
-                    </button>
-                    <span className="nav-counter">
-                      Problem {selectedIndex + 1} of {practiceItems.length}
-                    </span>
-                    <button
-                      type="button"
-                      className="nav-btn"
-                      disabled={selectedIndex === practiceItems.length - 1}
-                      onClick={() => {
-                        setSelectedIndex((prev) => Math.min(practiceItems.length - 1, prev + 1));
-                        setShowHint(false);
-                        setShowSolution(false);
-                      }}
-                    >
-                      Next Problem &rarr;
-                    </button>
-                  </div>
+                <div className={`problem-main-view ${mobileTab === 'list' ? 'mobile-hide' : ''}`}>
+                  <QACard
+                    mode="practice"
+                    title={activeItem.cmd.frontmatter?.name || activeItem.cmd.slug}
+                    commandSlug={activeItem.cmd.slug}
+                    topic={activeItem.topic}
+                    difficulty={activeItem.cmd.frontmatter?.difficulty || 'intermediate'}
+                    scenarioHtml={activeItem.scenarioHtml}
+                    hintHtml={activeItem.hintHtml}
+                    solutionHtml={activeItem.solutionHtml}
+                    isSolved={solvedProblems.has(activeItem.cmd.slug)}
+                    onToggleSolved={() => toggleSolved(activeItem.cmd.slug)}
+                    onBackToList={() => setMobileTab('list')}
+                    selectedIndex={selectedIndex}
+                    totalCount={practiceItems.length}
+                    onPrev={() => setSelectedIndex((prev) => Math.max(0, prev - 1))}
+                    onNext={() =>
+                      setSelectedIndex((prev) => Math.min(practiceItems.length - 1, prev + 1))
+                    }
+                  />
                 </div>
               )}
             </div>
@@ -525,6 +418,12 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           border-bottom: 1px solid var(--border-subtle);
           padding-bottom: 12px;
           overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+
+        .topic-bar::-webkit-scrollbar {
+          display: none;
         }
 
         .topic-label {
@@ -533,18 +432,28 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           text-transform: uppercase;
           color: var(--text-muted);
           white-space: nowrap;
+          flex-shrink: 0;
         }
 
+        /* Non-wrapping, horizontally scrollable single row */
         .topic-pills {
           display: flex;
           gap: 6px;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding-bottom: 2px;
+        }
+
+        .topic-pills::-webkit-scrollbar {
+          display: none;
         }
 
         :global(.topic-pill) {
           font-size: 13px;
           font-weight: 500;
-          padding: 5px 12px;
+          padding: 6px 12px;
           border-radius: 4px;
           text-decoration: none !important;
           text-transform: capitalize;
@@ -552,6 +461,10 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           color: var(--text-muted) !important;
           border: 1px solid transparent;
           white-space: nowrap;
+          flex-shrink: 0;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
           transition: all 0.15s ease;
         }
 
@@ -584,7 +497,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
 
         .mobile-tab-btn {
           flex: 1;
-          padding: 8px 12px;
+          padding: 10px 14px;
           font-size: 13px;
           font-weight: 500;
           border-radius: 4px;
@@ -592,6 +505,10 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           background-color: var(--bg-surface);
           color: var(--text-muted);
           cursor: pointer;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           transition: all 0.15s ease;
         }
 
@@ -602,37 +519,24 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           font-weight: 600;
         }
 
-        .mobile-back-btn {
-          display: none;
-          align-items: center;
-          gap: 4px;
-          padding: 4px 8px;
-          font-size: 12px;
-          font-weight: 500;
-          border-radius: 4px;
-          background-color: var(--bg-elevated);
-          border: 1px solid var(--border-subtle);
-          color: var(--accent);
-          cursor: pointer;
-        }
-
         .practice-workspace {
           display: flex;
           gap: 24px;
           align-items: flex-start;
         }
 
+        /* Proportional 32% width on desktop, min 280px */
         .problem-rail {
-          flex: 0 0 300px;
-          width: 300px;
-          min-width: 260px;
-          max-width: 340px;
+          flex: 0 0 32%;
+          width: 32%;
+          min-width: 280px;
+          max-width: 380px;
           background-color: var(--bg-surface);
           border: 1px solid var(--border-subtle);
           border-radius: 6px;
-          padding: 12px;
+          padding: 14px;
           flex-shrink: 0;
-          max-height: calc(100vh - 200px);
+          max-height: calc(100vh - 180px);
           overflow-y: auto;
         }
 
@@ -657,7 +561,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           display: flex;
           align-items: center;
           gap: 10px;
-          padding: 8px 10px;
+          padding: 10px 12px;
           border-radius: 4px;
           background: transparent;
           border: 1px solid transparent;
@@ -666,6 +570,7 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           text-align: left;
           cursor: pointer;
           width: 100%;
+          min-height: 44px;
           min-width: 0;
           transition: all 0.15s ease;
         }
@@ -683,15 +588,15 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
         }
 
         .rail-item-status {
-          width: 18px;
-          height: 18px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
           background-color: var(--bg-base);
           border: 1px solid var(--border-subtle);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 10px;
+          font-size: 11px;
           font-weight: 600;
           flex-shrink: 0;
         }
@@ -702,195 +607,24 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
           border-color: var(--accent);
         }
 
+        /* Proportional text display without premature ellipsis */
         .rail-item-name {
           font-family: var(--font-mono, monospace);
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          font-size: 13px;
+          line-height: 1.4;
+          white-space: normal;
+          word-break: break-word;
           flex: 1;
           min-width: 0;
         }
 
-        .problem-main-card {
+        .problem-main-view {
           flex: 1;
           min-width: 0;
-          background-color: var(--bg-surface);
-          border: 1px solid var(--border-subtle);
-          border-radius: 6px;
-          padding: 24px;
+          width: 100%;
         }
 
-        .card-top-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-bottom: 16px;
-          margin-bottom: 20px;
-          border-bottom: 1px solid var(--border-subtle);
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-
-        .topic-tag {
-          font-size: 11px;
-          font-weight: 600;
-          text-transform: uppercase;
-          color: var(--accent);
-          background-color: var(--bg-elevated);
-          padding: 2px 8px;
-          border-radius: 3px;
-        }
-
-        .problem-cmd-title {
-          font-size: 20px;
-          font-weight: 600;
-          font-family: var(--font-mono, monospace);
-          color: var(--text-primary);
-          margin: 0;
-        }
-
-        .badge-difficulty {
-          font-size: 11px;
-          font-weight: 600;
-          text-transform: uppercase;
-          padding: 3px 8px;
-          border-radius: 3px;
-        }
-
-        .difficulty-beginner {
-          background-color: rgba(34, 197, 94, 0.15);
-          color: #4ade80;
-        }
-
-        .difficulty-intermediate {
-          background-color: rgba(234, 179, 8, 0.15);
-          color: #facc15;
-        }
-
-        .difficulty-advanced {
-          background-color: rgba(239, 68, 68, 0.15);
-          color: #f87171;
-        }
-
-        .solved-toggle-btn {
-          font-size: 12px;
-          font-weight: 600;
-          padding: 6px 14px;
-          border-radius: 4px;
-          background-color: var(--bg-elevated);
-          border: 1px solid var(--border-subtle);
-          color: var(--text-primary);
-          cursor: pointer;
-          transition: all 0.15s ease;
-        }
-
-        .solved-toggle-btn:hover {
-          background-color: var(--border-subtle);
-        }
-
-        .solved-toggle-btn.is-solved {
-          background-color: var(--accent);
-          color: #000;
-          border-color: var(--accent);
-        }
-
-        .scenario-section {
-          background-color: var(--bg-surface);
-          border: 1px solid var(--border-subtle);
-          border-radius: 6px;
-          padding: var(--space-component, 16px);
-          margin-bottom: 20px;
-        }
-
-        .section-label {
-          font-size: 12px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--text-muted);
-          margin-bottom: 10px;
-        }
-
-        .disclosure-actions {
-          display: flex;
-          gap: 12px;
-          margin-bottom: 20px;
-        }
-
-        .disclosure-btn {
-          font-size: 13px;
-          font-weight: 500;
-          padding: 8px 16px;
-          border-radius: 4px;
-          background-color: var(--bg-elevated);
-          border: 1px solid var(--border-subtle);
-          color: var(--text-primary);
-          cursor: pointer;
-          transition: all 0.15s ease;
-        }
-
-        .disclosure-btn:hover {
-          border-color: var(--accent);
-        }
-
-        .disclosure-btn.solution {
-          border-color: rgba(96, 165, 250, 0.4);
-        }
-
-        .disclosure-box {
-          background-color: var(--bg-surface);
-          border: 1px solid var(--border-subtle);
-          border-radius: 6px;
-          padding: var(--space-component, 16px);
-          margin-bottom: 20px;
-        }
-
-        .disclosure-box.hint-box {
-          border-left: 3px solid #facc15;
-        }
-
-        .disclosure-box.solution-box {
-          border-left: 3px solid var(--accent);
-        }
-
-        .box-title {
-          font-size: 12px;
-          font-weight: 600;
-          text-transform: uppercase;
-          color: var(--text-muted);
-          margin-top: 0;
-          margin-bottom: 8px;
-        }
-
-        .card-footer-nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-top: 20px;
-          border-top: 1px solid var(--border-subtle);
-        }
-
-        .nav-btn {
-          font-size: 13px;
-          font-weight: 500;
-          padding: 6px 14px;
-          border-radius: 4px;
-          background-color: var(--bg-elevated);
-          border: 1px solid var(--border-subtle);
-          color: var(--text-primary);
-          cursor: pointer;
-        }
-
-        .nav-btn:disabled {
-          opacity: 0.4;
-          cursor: not-allowed;
-        }
-
-        .nav-counter {
-          font-size: 12px;
-          color: var(--text-muted);
-        }
-
+        /* Responsive Layout: below 768px */
         @media (max-width: 768px) {
           .practice-header {
             flex-direction: column;
@@ -900,10 +634,6 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
 
           .mobile-view-tabs {
             display: flex;
-          }
-
-          .mobile-back-btn {
-            display: inline-flex;
           }
 
           .practice-workspace {
@@ -916,14 +646,15 @@ export default function PracticeClient({ currentSlug, staticAllCommands, staticA
             min-width: 100% !important;
             max-width: 100% !important;
             flex: none !important;
-            max-height: 320px;
+            max-height: none; /* Full view on mobile */
           }
 
-          .problem-main-card {
+          .problem-main-view {
             width: 100% !important;
-            padding: 16px;
+            min-width: 100% !important;
           }
 
+          /* Ensure list and detail are separate views, never side-by-side */
           .mobile-hide {
             display: none !important;
           }
