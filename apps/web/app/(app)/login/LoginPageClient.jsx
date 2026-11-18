@@ -33,7 +33,11 @@ export default function LoginPageClient() {
       setAuthSession(data.user, data.token);
       router.push('/settings');
     } catch (err) {
-      setError(err.message || 'Invalid email or password');
+      if (err.message === 'Failed to fetch' || err.name === 'TypeError') {
+        setError('Cannot connect to server. Ensure the backend server is running on port 3001.');
+      } else {
+        setError(err.message || 'Invalid email or password');
+      }
     } finally {
       setLoading(false);
     }

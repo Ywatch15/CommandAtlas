@@ -34,7 +34,11 @@ export default function SignupPageClient() {
       setAuthSession(data.user, data.token);
       router.push('/settings');
     } catch (err) {
-      setError(err.message || 'Sign up failed');
+      if (err.message === 'Failed to fetch' || err.name === 'TypeError') {
+        setError('Cannot connect to server. Ensure the backend server is running on port 3001.');
+      } else {
+        setError(err.message || 'Sign up failed');
+      }
     } finally {
       setLoading(false);
     }
