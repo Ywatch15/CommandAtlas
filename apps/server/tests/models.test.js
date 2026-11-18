@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { Prisma } from '@prisma/client';
+import pkg from '@prisma/client';
+
+const { Prisma } = pkg;
 
 // Access the generated DMMF (Data Model Meta Format) to validate
 // that all expected models, fields, and constraints exist.
